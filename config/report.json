@@ -1,0 +1,94 @@
+{
+  "meta" : {
+    "reportVersion" : "2.0"
+  },
+  "run" : {
+    "version" : "2021.10.02-1af857b",
+    "creationTimestamp" : "2021-10-29T14:57:47.402+01:00",
+    "command" : "dcover create --batch --report=report.json --spring-integration-tests --verbose --exclude com.piggymetrics.notification.service.RecipientServiceImpl --working-directory=config",
+    "totalTime" : 41.901,
+    "environmentDetectionTime" : 8.365,
+    "indexingTime" : 10.001,
+    "entryPointsTime" : 2.609,
+    "generationTime" : 20.0,
+    "verificationTime" : 0.0,
+    "validationTime" : 0.0
+  },
+  "codes" : {
+    "R002" : "Missing observers",
+    "R004" : "No meaningful assertions found",
+    "T000" : "Should be tested directly",
+    "T005" : "Trivial constructor",
+    "T006" : "Main method"
+  },
+  "summary" : {
+    "classesCount" : 2,
+    "methodsCount" : 4,
+    "completeTestCount" : 0,
+    "incompleteTestCount" : 0,
+    "perMethodTestability" : {
+      "T000" : 2,
+      "T005" : 1,
+      "T006" : 1
+    },
+    "perMethodOutcome" : {
+      "R002" : 1,
+      "R004" : 1,
+      "T005" : 1,
+      "T006" : 1
+    }
+  },
+  "classes" : {
+    "com.piggymetrics.config.ConfigApplication" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T005" : 1,
+        "T006" : 1
+      },
+      "perMethodOutcome" : {
+        "R002" : 1,
+        "T006" : 1
+      }
+    },
+    "com.piggymetrics.config.SecurityConfig" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2
+      },
+      "perMethodOutcome" : {
+        "R004" : 1,
+        "T005" : 1
+      }
+    }
+  },
+  "methods" : {
+    "com.piggymetrics.config.ConfigApplication.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R002"
+    },
+    "com.piggymetrics.config.ConfigApplication.main:([Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T006",
+      "perMethodOutcome" : "T006"
+    },
+    "com.piggymetrics.config.SecurityConfig.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "T005"
+    },
+    "com.piggymetrics.config.SecurityConfig.configure:(Lorg/springframework/security/config/annotation/web/builders/HttpSecurity;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R004"
+    }
+  }
+}

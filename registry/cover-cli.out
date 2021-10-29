@@ -1,0 +1,41 @@
+INFO  
+INFO  Detecting environment:
+INFO  ----------------------
+INFO  Java version 1.8.0_302
+INFO  Detecting classpath.
+INFO  Using classpath from Maven
+INFO  Test output directory: /home/azureuser/actions-runner/_work/cover/CF/piggymetrics/registry/src/test/java
+INFO  Target directory: /home/azureuser/actions-runner/_work/cover/CF/piggymetrics/registry/.diffblue
+INFO  Auto-detected Java 1.8 language compliance level
+INFO  Detected JUnit version 4.12
+INFO  Detected Mockito version 2.15.0
+INFO  Test validation supported by build environment
+INFO  Checking test environment.
+INFO  Prefixes for filtering classes/methods:
+INFO    com.piggymetrics.registry
+INFO  Indexing.
+INFO  Gathering methods to test.
+INFO  Found 2 callable methods in 1 class
+INFO  
+INFO  Creating tests:
+INFO  ---------------
+INFO      [1/2] com.piggymetrics.registry.RegistryApplication.main
+INFO      [1/2]   T006: Main method
+INFO      [1/2]     It is difficult to assert on side effects of main methods in a unit test.
+INFO      [1/2]     Refactor the main method. E.g. factor out its body into a separate,
+INFO      [1/2]     accessible method that returns the results that should be asserted on.
+INFO      [1/2]     See https://diff.blue/T006 for information on testing main methods.
+INFO      [2/2] com.piggymetrics.registry.RegistryApplication.<init>
+INFO      [2/2]   R002: Missing observers
+INFO      [2/2]     Diffblue Cover was unable to create an assertion.
+INFO      [2/2]     There are no fields that could be asserted on.
+INFO  
+INFO  Summary:
+INFO  --------
+INFO  Total:                                               2 methods
+INFO  Not unit-testable:                                   1 method
+INFO      1 T006: Main method
+INFO  No tests created for:                                1 method
+INFO      1 R002: Missing observers
+INFO  Check log file at /home/azureuser/actions-runner/_work/cover/CF/piggymetrics/.diffblue/log/cover-cli-[date].log for more details or run dcover with --verbose option.
+INFO  Writing JSON report to /home/azureuser/actions-runner/_work/cover/CF/piggymetrics/registry/report.json

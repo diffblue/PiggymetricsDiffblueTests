@@ -1,0 +1,429 @@
+INFO  
+INFO  Detecting environment:
+INFO  ----------------------
+INFO  Java version 1.8.0_302
+INFO  Detecting classpath.
+INFO  Using classpath from Maven
+INFO  Test output directory: /home/azureuser/actions-runner/_work/cover/CF/piggymetrics/account-service/src/test/java
+INFO  Target directory: /home/azureuser/actions-runner/_work/cover/CF/piggymetrics/account-service/.diffblue
+INFO  Auto-detected Java 1.8 language compliance level
+INFO  Detected JUnit version 4.12
+INFO  Detected Mockito version 2.15.0
+INFO  Test validation supported by build environment
+INFO  Checking test environment.
+INFO  Prefixes for filtering classes/methods:
+INFO    com.piggymetrics.account
+INFO    com.piggymetrics.account.client
+INFO    com.piggymetrics.account.config
+INFO    com.piggymetrics.account.controller
+INFO    com.piggymetrics.account.domain
+INFO    com.piggymetrics.account.repository
+INFO    com.piggymetrics.account.service
+INFO    com.piggymetrics.account.service.security
+INFO  Indexing.
+INFO  Gathering methods to test.
+INFO  Found 80 callable methods in 13 classes
+INFO  
+INFO  Creating tests:
+INFO  ---------------
+INFO       [1/80] com.piggymetrics.account.AccountApplication.main
+INFO       [1/80]   T006: Main method
+INFO       [1/80]     It is difficult to assert on side effects of main methods in a unit test.
+INFO       [1/80]     Refactor the main method. E.g. factor out its body into a separate,
+INFO       [1/80]     accessible method that returns the results that should be asserted on.
+INFO       [1/80]     See https://diff.blue/T006 for information on testing main methods.
+INFO       [2/80] com.piggymetrics.account.AccountApplication.<init>
+INFO       [2/80]   R002: Missing observers
+INFO       [2/80]     Diffblue Cover was unable to create an assertion.
+INFO       [2/80]     There are no fields that could be asserted on.
+INFO       [3/80] com.piggymetrics.account.client.StatisticsServiceClientFallback.<init>
+INFO       [3/80]   R002: Missing observers
+INFO       [3/80]     Diffblue Cover was unable to create an assertion.
+INFO       [3/80]     There are no fields that could be asserted on.
+INFO  Executing the Spring Boot application to determine configuration.
+INFO  This may take a few moments.
+INFO  Spring configuration loaded successfully.
+INFO       [4/80] com.piggymetrics.account.client.StatisticsServiceClientFallback.updateStatistics
+INFO       [4/80]   R020: Temporary files were created but not deleted
+INFO       [X/XX]     The method under test created the following temporary files without deleting
+INFO       [X/XX]     them:
+INFO       [X/XX]       /home/azureuser/actions-runner/_work/cover/CF/piggymetrics/account-service/embedmongo-db-XXdXbXcX-aXXX-XXXX-aXXX-fXfXXXXcXXca
+INFO       [X/XX]       /home/azureuser/actions-runner/_work/cover/CF/piggymetrics/account-service/extract-XaXbXbXX-XXcc-XeXe-XdXX-XfXXfXdXXbXeextractmongod
+INFO       [X/XX]     Please ensure that temporary files are deleted in the method under test.
+INFO       [4/80]     See https://diff.blue/R020
+INFO       [5/80] com.piggymetrics.account.config.ResourceServerConfig.<init>
+INFO       [5/80]   R002: Missing observers
+INFO       [5/80]     Diffblue Cover was unable to create an assertion.
+INFO       [5/80]     Add getters for the following fields or make them package-private:
+INFO       [5/80]       ResourceServerConfig.sso
+INFO       [6/80] com.piggymetrics.account.config.ResourceServerConfig.clientCredentialsResourceDetails
+INFO       [6/80]   Created tests: 1
+INFO       [7/80] com.piggymetrics.account.config.ResourceServerConfig.clientCredentialsRestTemplate
+INFO       [7/80]   Created tests: 1
+INFO       [8/80] com.piggymetrics.account.config.ResourceServerConfig.configure
+INFO       [8/80]   R004: No meaningful assertions found
+INFO       [8/80]     Diffblue Cover was unable to create an assertion.
+INFO       [8/80]     Make sure that fields modified by configure(HttpSecurity)
+INFO       [8/80]     have package-private, protected, or public getters.
+INFO       [8/80]     See https://diff.blue/R004 to resolve this issue.
+INFO       [9/80] com.piggymetrics.account.config.ResourceServerConfig.oauth2FeignRequestInterceptor
+INFO       [9/80]   Created tests: 1
+INFO      [10/80] com.piggymetrics.account.config.ResourceServerConfig.tokenServices
+INFO      [10/80]   Created tests: 1
+INFO      [11/80] com.piggymetrics.account.controller.AccountController.<init>
+INFO      [11/80]   R002: Missing observers
+INFO      [11/80]     Diffblue Cover was unable to create an assertion.
+INFO      [11/80]     Add getters for the following fields or make them package-private:
+INFO      [11/80]       AccountController.accountService
+INFO      [12/80] com.piggymetrics.account.controller.AccountController.createNewAccount
+INFO      [12/80]   Created tests: 1
+INFO      [13/80] com.piggymetrics.account.controller.AccountController.getAccountByName
+INFO      [13/80]   1 created test were found to be invalid and were discarded
+INFO      [14/80] com.piggymetrics.account.controller.AccountController.getCurrentAccount
+INFO      [14/80]   Created tests: 1
+INFO      [15/80] com.piggymetrics.account.controller.AccountController.saveCurrentAccount
+INFO      [15/80]   Created tests: 1
+INFO      [16/80] com.piggymetrics.account.controller.ErrorHandler.<init>
+INFO      [16/80]   R002: Missing observers
+INFO      [16/80]     Diffblue Cover was unable to create an assertion.
+INFO      [16/80]     Add getters for the following fields or make them package-private:
+INFO      [16/80]       ErrorHandler.log
+INFO      [17/80] com.piggymetrics.account.controller.ErrorHandler.processValidationError
+INFO      [17/80]   R004: No meaningful assertions found
+INFO      [17/80]     Diffblue Cover was unable to create an assertion.
+INFO      [17/80]     Make sure that fields modified by processValidationError(IllegalArgumentException)
+INFO      [17/80]     have package-private, protected, or public getters.
+INFO      [17/80]     See https://diff.blue/R004 to resolve this issue.
+INFO      [18/80] com.piggymetrics.account.domain.Account.<init>
+INFO      [19/80] com.piggymetrics.account.domain.Account.getExpenses
+INFO      [20/80] com.piggymetrics.account.domain.Account.getIncomes
+INFO      [21/80] com.piggymetrics.account.domain.Account.getLastSeen
+INFO      [22/80] com.piggymetrics.account.domain.Account.getName
+INFO      [23/80] com.piggymetrics.account.domain.Account.getNote
+INFO      [24/80] com.piggymetrics.account.domain.Account.getSaving
+INFO      [25/80] com.piggymetrics.account.domain.Account.setExpenses
+INFO      [26/80] com.piggymetrics.account.domain.Account.setIncomes
+INFO      [27/80] com.piggymetrics.account.domain.Account.setLastSeen
+INFO      [28/80] com.piggymetrics.account.domain.Account.setName
+INFO      [29/80] com.piggymetrics.account.domain.Account.setNote
+INFO      [30/80] com.piggymetrics.account.domain.Account.setSaving
+INFO      [30/80]   Created tests: 1
+INFO      [31/80] com.piggymetrics.account.domain.Currency.getDefault
+INFO      [31/80]   R008: Failed to instantiate class under test
+INFO      [31/80]     Diffblue Cover was unable to construct an instance of Currency.
+INFO      [31/80]     Add a package-visible constructor or a factory method for testing which
+INFO      [31/80]     (ideally) takes no arguments, and does not throw, return null or return
+INFO      [31/80]     a subtype.
+INFO      [31/80]     See https://diff.blue/R008
+INFO      [32/80] com.piggymetrics.account.domain.Item.<init>
+INFO      [33/80] com.piggymetrics.account.domain.Item.getAmount
+INFO      [34/80] com.piggymetrics.account.domain.Item.getCurrency
+INFO      [35/80] com.piggymetrics.account.domain.Item.getIcon
+INFO      [36/80] com.piggymetrics.account.domain.Item.getPeriod
+INFO      [37/80] com.piggymetrics.account.domain.Item.getTitle
+INFO      [38/80] com.piggymetrics.account.domain.Item.setAmount
+INFO      [39/80] com.piggymetrics.account.domain.Item.setCurrency
+INFO      [40/80] com.piggymetrics.account.domain.Item.setIcon
+INFO      [41/80] com.piggymetrics.account.domain.Item.setPeriod
+INFO      [42/80] com.piggymetrics.account.domain.Item.setTitle
+INFO      [42/80]   Created tests: 1
+INFO      [43/80] com.piggymetrics.account.domain.Saving.<init>
+INFO      [44/80] com.piggymetrics.account.domain.Saving.getAmount
+INFO      [45/80] com.piggymetrics.account.domain.Saving.getCapitalization
+INFO      [46/80] com.piggymetrics.account.domain.Saving.getCurrency
+INFO      [47/80] com.piggymetrics.account.domain.Saving.getDeposit
+INFO      [48/80] com.piggymetrics.account.domain.Saving.getInterest
+INFO      [49/80] com.piggymetrics.account.domain.Saving.setAmount
+INFO      [50/80] com.piggymetrics.account.domain.Saving.setCapitalization
+INFO      [51/80] com.piggymetrics.account.domain.Saving.setCurrency
+INFO      [52/80] com.piggymetrics.account.domain.Saving.setDeposit
+INFO      [53/80] com.piggymetrics.account.domain.Saving.setInterest
+INFO      [53/80]   Created tests: 1
+INFO      [54/80] com.piggymetrics.account.domain.User.<init>
+INFO      [55/80] com.piggymetrics.account.domain.User.getPassword
+INFO      [56/80] com.piggymetrics.account.domain.User.getUsername
+INFO      [57/80] com.piggymetrics.account.domain.User.setPassword
+INFO      [58/80] com.piggymetrics.account.domain.User.setUsername
+INFO      [58/80]   Created tests: 1
+INFO      [59/80] com.piggymetrics.account.repository.AccountRepository.count
+INFO      [59/80]   R028: Incomplete repository information
+INFO      [59/80]     Diffblue Cover cannot write tests because it wasn't able to fully understand
+INFO      [59/80]     your Spring Data Repository:
+INFO      [59/80]       Repository:  com.piggymetrics.account.repository.AccountRepository
+INFO      [59/80]       Data Type:   com.piggymetrics.account.domain.Account
+INFO      [59/80]       ID Type:     java.lang.String
+INFO      [59/80]       ID Getter:   
+INFO      [59/80]       Save Method: org.springframework.data.repository.CrudRepository.save(Object)
+INFO      [59/80]     Cover needs to understand the Data Type and the ID Type in order to write
+INFO      [59/80]     repository tests. Cover also needs an ID Getter method that gets the
+INFO      [59/80]     identifier field from a Data Type instance, this should be annotated @Id and
+INFO      [59/80]     be of type ID Type. Finally, better tests can be written if a Save Method
+INFO      [59/80]     is found taking a Data Type instance and storing it in the repository.
+INFO      [59/80]     Try extending CrudRepository with concrete type parameters, or if the class
+INFO      [59/80]     should not be considered a repository then annotate the class with the
+INFO      [59/80]     @NoRepositoryBean annotation.
+INFO      [59/80]     Please contact Diffblue through the appropriate support channel
+INFO      [59/80]     (https://www.diffblue.com/support) providing details about this error.
+INFO      [60/80] com.piggymetrics.account.repository.AccountRepository.delete
+INFO      [60/80]   R028: Incomplete repository information
+INFO      [60/80]     Diffblue Cover cannot write tests because it wasn't able to fully understand
+INFO      [60/80]     your Spring Data Repository:
+INFO      [60/80]       Repository:  com.piggymetrics.account.repository.AccountRepository
+INFO      [60/80]       Data Type:   com.piggymetrics.account.domain.Account
+INFO      [60/80]       ID Type:     java.lang.String
+INFO      [60/80]       ID Getter:   
+INFO      [60/80]       Save Method: org.springframework.data.repository.CrudRepository.save(Object)
+INFO      [60/80]     Cover needs to understand the Data Type and the ID Type in order to write
+INFO      [60/80]     repository tests. Cover also needs an ID Getter method that gets the
+INFO      [60/80]     identifier field from a Data Type instance, this should be annotated @Id and
+INFO      [60/80]     be of type ID Type. Finally, better tests can be written if a Save Method
+INFO      [60/80]     is found taking a Data Type instance and storing it in the repository.
+INFO      [60/80]     Try extending CrudRepository with concrete type parameters, or if the class
+INFO      [60/80]     should not be considered a repository then annotate the class with the
+INFO      [60/80]     @NoRepositoryBean annotation.
+INFO      [60/80]     Please contact Diffblue through the appropriate support channel
+INFO      [60/80]     (https://www.diffblue.com/support) providing details about this error.
+INFO      [61/80] com.piggymetrics.account.repository.AccountRepository.deleteAll
+INFO      [61/80]   R028: Incomplete repository information
+INFO      [61/80]     Diffblue Cover cannot write tests because it wasn't able to fully understand
+INFO      [61/80]     your Spring Data Repository:
+INFO      [61/80]       Repository:  com.piggymetrics.account.repository.AccountRepository
+INFO      [61/80]       Data Type:   com.piggymetrics.account.domain.Account
+INFO      [61/80]       ID Type:     java.lang.String
+INFO      [61/80]       ID Getter:   
+INFO      [61/80]       Save Method: org.springframework.data.repository.CrudRepository.save(Object)
+INFO      [61/80]     Cover needs to understand the Data Type and the ID Type in order to write
+INFO      [61/80]     repository tests. Cover also needs an ID Getter method that gets the
+INFO      [61/80]     identifier field from a Data Type instance, this should be annotated @Id and
+INFO      [61/80]     be of type ID Type. Finally, better tests can be written if a Save Method
+INFO      [61/80]     is found taking a Data Type instance and storing it in the repository.
+INFO      [61/80]     Try extending CrudRepository with concrete type parameters, or if the class
+INFO      [61/80]     should not be considered a repository then annotate the class with the
+INFO      [61/80]     @NoRepositoryBean annotation.
+INFO      [61/80]     Please contact Diffblue through the appropriate support channel
+INFO      [61/80]     (https://www.diffblue.com/support) providing details about this error.
+INFO      [62/80] com.piggymetrics.account.repository.AccountRepository.deleteAll
+INFO      [62/80]   R028: Incomplete repository information
+INFO      [62/80]     Diffblue Cover cannot write tests because it wasn't able to fully understand
+INFO      [62/80]     your Spring Data Repository:
+INFO      [62/80]       Repository:  com.piggymetrics.account.repository.AccountRepository
+INFO      [62/80]       Data Type:   com.piggymetrics.account.domain.Account
+INFO      [62/80]       ID Type:     java.lang.String
+INFO      [62/80]       ID Getter:   
+INFO      [62/80]       Save Method: org.springframework.data.repository.CrudRepository.save(Object)
+INFO      [62/80]     Cover needs to understand the Data Type and the ID Type in order to write
+INFO      [62/80]     repository tests. Cover also needs an ID Getter method that gets the
+INFO      [62/80]     identifier field from a Data Type instance, this should be annotated @Id and
+INFO      [62/80]     be of type ID Type. Finally, better tests can be written if a Save Method
+INFO      [62/80]     is found taking a Data Type instance and storing it in the repository.
+INFO      [62/80]     Try extending CrudRepository with concrete type parameters, or if the class
+INFO      [62/80]     should not be considered a repository then annotate the class with the
+INFO      [62/80]     @NoRepositoryBean annotation.
+INFO      [62/80]     Please contact Diffblue through the appropriate support channel
+INFO      [62/80]     (https://www.diffblue.com/support) providing details about this error.
+INFO      [63/80] com.piggymetrics.account.repository.AccountRepository.deleteById
+INFO      [63/80]   R028: Incomplete repository information
+INFO      [63/80]     Diffblue Cover cannot write tests because it wasn't able to fully understand
+INFO      [63/80]     your Spring Data Repository:
+INFO      [63/80]       Repository:  com.piggymetrics.account.repository.AccountRepository
+INFO      [63/80]       Data Type:   com.piggymetrics.account.domain.Account
+INFO      [63/80]       ID Type:     java.lang.String
+INFO      [63/80]       ID Getter:   
+INFO      [63/80]       Save Method: org.springframework.data.repository.CrudRepository.save(Object)
+INFO      [63/80]     Cover needs to understand the Data Type and the ID Type in order to write
+INFO      [63/80]     repository tests. Cover also needs an ID Getter method that gets the
+INFO      [63/80]     identifier field from a Data Type instance, this should be annotated @Id and
+INFO      [63/80]     be of type ID Type. Finally, better tests can be written if a Save Method
+INFO      [63/80]     is found taking a Data Type instance and storing it in the repository.
+INFO      [63/80]     Try extending CrudRepository with concrete type parameters, or if the class
+INFO      [63/80]     should not be considered a repository then annotate the class with the
+INFO      [63/80]     @NoRepositoryBean annotation.
+INFO      [63/80]     Please contact Diffblue through the appropriate support channel
+INFO      [63/80]     (https://www.diffblue.com/support) providing details about this error.
+INFO      [64/80] com.piggymetrics.account.repository.AccountRepository.existsById
+INFO      [64/80]   R028: Incomplete repository information
+INFO      [64/80]     Diffblue Cover cannot write tests because it wasn't able to fully understand
+INFO      [64/80]     your Spring Data Repository:
+INFO      [64/80]       Repository:  com.piggymetrics.account.repository.AccountRepository
+INFO      [64/80]       Data Type:   com.piggymetrics.account.domain.Account
+INFO      [64/80]       ID Type:     java.lang.String
+INFO      [64/80]       ID Getter:   
+INFO      [64/80]       Save Method: org.springframework.data.repository.CrudRepository.save(Object)
+INFO      [64/80]     Cover needs to understand the Data Type and the ID Type in order to write
+INFO      [64/80]     repository tests. Cover also needs an ID Getter method that gets the
+INFO      [64/80]     identifier field from a Data Type instance, this should be annotated @Id and
+INFO      [64/80]     be of type ID Type. Finally, better tests can be written if a Save Method
+INFO      [64/80]     is found taking a Data Type instance and storing it in the repository.
+INFO      [64/80]     Try extending CrudRepository with concrete type parameters, or if the class
+INFO      [64/80]     should not be considered a repository then annotate the class with the
+INFO      [64/80]     @NoRepositoryBean annotation.
+INFO      [64/80]     Please contact Diffblue through the appropriate support channel
+INFO      [64/80]     (https://www.diffblue.com/support) providing details about this error.
+INFO      [65/80] com.piggymetrics.account.repository.AccountRepository.findAll
+INFO      [65/80]   R028: Incomplete repository information
+INFO      [65/80]     Diffblue Cover cannot write tests because it wasn't able to fully understand
+INFO      [65/80]     your Spring Data Repository:
+INFO      [65/80]       Repository:  com.piggymetrics.account.repository.AccountRepository
+INFO      [65/80]       Data Type:   com.piggymetrics.account.domain.Account
+INFO      [65/80]       ID Type:     java.lang.String
+INFO      [65/80]       ID Getter:   
+INFO      [65/80]       Save Method: org.springframework.data.repository.CrudRepository.save(Object)
+INFO      [65/80]     Cover needs to understand the Data Type and the ID Type in order to write
+INFO      [65/80]     repository tests. Cover also needs an ID Getter method that gets the
+INFO      [65/80]     identifier field from a Data Type instance, this should be annotated @Id and
+INFO      [65/80]     be of type ID Type. Finally, better tests can be written if a Save Method
+INFO      [65/80]     is found taking a Data Type instance and storing it in the repository.
+INFO      [65/80]     Try extending CrudRepository with concrete type parameters, or if the class
+INFO      [65/80]     should not be considered a repository then annotate the class with the
+INFO      [65/80]     @NoRepositoryBean annotation.
+INFO      [65/80]     Please contact Diffblue through the appropriate support channel
+INFO      [65/80]     (https://www.diffblue.com/support) providing details about this error.
+INFO      [66/80] com.piggymetrics.account.repository.AccountRepository.findAllById
+INFO      [66/80]   R028: Incomplete repository information
+INFO      [66/80]     Diffblue Cover cannot write tests because it wasn't able to fully understand
+INFO      [66/80]     your Spring Data Repository:
+INFO      [66/80]       Repository:  com.piggymetrics.account.repository.AccountRepository
+INFO      [66/80]       Data Type:   com.piggymetrics.account.domain.Account
+INFO      [66/80]       ID Type:     java.lang.String
+INFO      [66/80]       ID Getter:   
+INFO      [66/80]       Save Method: org.springframework.data.repository.CrudRepository.save(Object)
+INFO      [66/80]     Cover needs to understand the Data Type and the ID Type in order to write
+INFO      [66/80]     repository tests. Cover also needs an ID Getter method that gets the
+INFO      [66/80]     identifier field from a Data Type instance, this should be annotated @Id and
+INFO      [66/80]     be of type ID Type. Finally, better tests can be written if a Save Method
+INFO      [66/80]     is found taking a Data Type instance and storing it in the repository.
+INFO      [66/80]     Try extending CrudRepository with concrete type parameters, or if the class
+INFO      [66/80]     should not be considered a repository then annotate the class with the
+INFO      [66/80]     @NoRepositoryBean annotation.
+INFO      [66/80]     Please contact Diffblue through the appropriate support channel
+INFO      [66/80]     (https://www.diffblue.com/support) providing details about this error.
+INFO      [67/80] com.piggymetrics.account.repository.AccountRepository.findById
+INFO      [67/80]   R028: Incomplete repository information
+INFO      [67/80]     Diffblue Cover cannot write tests because it wasn't able to fully understand
+INFO      [67/80]     your Spring Data Repository:
+INFO      [67/80]       Repository:  com.piggymetrics.account.repository.AccountRepository
+INFO      [67/80]       Data Type:   com.piggymetrics.account.domain.Account
+INFO      [67/80]       ID Type:     java.lang.String
+INFO      [67/80]       ID Getter:   
+INFO      [67/80]       Save Method: org.springframework.data.repository.CrudRepository.save(Object)
+INFO      [67/80]     Cover needs to understand the Data Type and the ID Type in order to write
+INFO      [67/80]     repository tests. Cover also needs an ID Getter method that gets the
+INFO      [67/80]     identifier field from a Data Type instance, this should be annotated @Id and
+INFO      [67/80]     be of type ID Type. Finally, better tests can be written if a Save Method
+INFO      [67/80]     is found taking a Data Type instance and storing it in the repository.
+INFO      [67/80]     Try extending CrudRepository with concrete type parameters, or if the class
+INFO      [67/80]     should not be considered a repository then annotate the class with the
+INFO      [67/80]     @NoRepositoryBean annotation.
+INFO      [67/80]     Please contact Diffblue through the appropriate support channel
+INFO      [67/80]     (https://www.diffblue.com/support) providing details about this error.
+INFO      [68/80] com.piggymetrics.account.repository.AccountRepository.findByName
+INFO      [68/80]   R028: Incomplete repository information
+INFO      [68/80]     Diffblue Cover cannot write tests because it wasn't able to fully understand
+INFO      [68/80]     your Spring Data Repository:
+INFO      [68/80]       Repository:  com.piggymetrics.account.repository.AccountRepository
+INFO      [68/80]       Data Type:   com.piggymetrics.account.domain.Account
+INFO      [68/80]       ID Type:     java.lang.String
+INFO      [68/80]       ID Getter:   
+INFO      [68/80]       Save Method: org.springframework.data.repository.CrudRepository.save(Object)
+INFO      [68/80]     Cover needs to understand the Data Type and the ID Type in order to write
+INFO      [68/80]     repository tests. Cover also needs an ID Getter method that gets the
+INFO      [68/80]     identifier field from a Data Type instance, this should be annotated @Id and
+INFO      [68/80]     be of type ID Type. Finally, better tests can be written if a Save Method
+INFO      [68/80]     is found taking a Data Type instance and storing it in the repository.
+INFO      [68/80]     Try extending CrudRepository with concrete type parameters, or if the class
+INFO      [68/80]     should not be considered a repository then annotate the class with the
+INFO      [68/80]     @NoRepositoryBean annotation.
+INFO      [68/80]     Please contact Diffblue through the appropriate support channel
+INFO      [68/80]     (https://www.diffblue.com/support) providing details about this error.
+INFO      [69/80] com.piggymetrics.account.repository.AccountRepository.save
+INFO      [69/80]   R028: Incomplete repository information
+INFO      [69/80]     Diffblue Cover cannot write tests because it wasn't able to fully understand
+INFO      [69/80]     your Spring Data Repository:
+INFO      [69/80]       Repository:  com.piggymetrics.account.repository.AccountRepository
+INFO      [69/80]       Data Type:   com.piggymetrics.account.domain.Account
+INFO      [69/80]       ID Type:     java.lang.String
+INFO      [69/80]       ID Getter:   
+INFO      [69/80]       Save Method: org.springframework.data.repository.CrudRepository.save(Object)
+INFO      [69/80]     Cover needs to understand the Data Type and the ID Type in order to write
+INFO      [69/80]     repository tests. Cover also needs an ID Getter method that gets the
+INFO      [69/80]     identifier field from a Data Type instance, this should be annotated @Id and
+INFO      [69/80]     be of type ID Type. Finally, better tests can be written if a Save Method
+INFO      [69/80]     is found taking a Data Type instance and storing it in the repository.
+INFO      [69/80]     Try extending CrudRepository with concrete type parameters, or if the class
+INFO      [69/80]     should not be considered a repository then annotate the class with the
+INFO      [69/80]     @NoRepositoryBean annotation.
+INFO      [69/80]     Please contact Diffblue through the appropriate support channel
+INFO      [69/80]     (https://www.diffblue.com/support) providing details about this error.
+INFO      [70/80] com.piggymetrics.account.repository.AccountRepository.saveAll
+INFO      [70/80]   R028: Incomplete repository information
+INFO      [70/80]     Diffblue Cover cannot write tests because it wasn't able to fully understand
+INFO      [70/80]     your Spring Data Repository:
+INFO      [70/80]       Repository:  com.piggymetrics.account.repository.AccountRepository
+INFO      [70/80]       Data Type:   com.piggymetrics.account.domain.Account
+INFO      [70/80]       ID Type:     java.lang.String
+INFO      [70/80]       ID Getter:   
+INFO      [70/80]       Save Method: org.springframework.data.repository.CrudRepository.save(Object)
+INFO      [70/80]     Cover needs to understand the Data Type and the ID Type in order to write
+INFO      [70/80]     repository tests. Cover also needs an ID Getter method that gets the
+INFO      [70/80]     identifier field from a Data Type instance, this should be annotated @Id and
+INFO      [70/80]     be of type ID Type. Finally, better tests can be written if a Save Method
+INFO      [70/80]     is found taking a Data Type instance and storing it in the repository.
+INFO      [70/80]     Try extending CrudRepository with concrete type parameters, or if the class
+INFO      [70/80]     should not be considered a repository then annotate the class with the
+INFO      [70/80]     @NoRepositoryBean annotation.
+INFO      [70/80]     Please contact Diffblue through the appropriate support channel
+INFO      [70/80]     (https://www.diffblue.com/support) providing details about this error.
+INFO      [71/80] com.piggymetrics.account.service.AccountServiceImpl.create
+INFO      [71/80]   R013: No inputs found that don't throw a trivial exception
+INFO      [71/80]     Diffblue Cover tried to run the arrange/act section, but the method under
+INFO      [71/80]     test threw
+INFO      [71/80]     java.lang.IllegalArgumentException: account already exists: janedoe
+INFO      [71/80]         at org.springframework.util.Assert.isNull(Assert.java:155)
+INFO      [71/80]         at com.piggymetrics.account.service.AccountServiceImpl.create(AccountServiceImpl.java:49)
+INFO      [71/80]     In order to prevent create(User)
+INFO      [71/80]     from throwing IllegalArgumentException, add constructors or factory
+INFO      [71/80]     methods that make it easier to construct fully initialized objects used in
+INFO      [71/80]     create(User).
+INFO      [71/80]     See https://diff.blue/R013 to resolve this issue.
+INFO      [72/80] com.piggymetrics.account.service.AccountServiceImpl.findByName
+INFO      [72/80]   Created tests: 1
+INFO      [73/80] com.piggymetrics.account.service.AccountServiceImpl.saveChanges
+INFO      [73/80]   Created tests: 1
+INFO      [74/80] com.piggymetrics.account.service.AccountServiceImpl.<init>
+INFO      [74/80]   T005: Trivial constructor
+INFO      [74/80]     See https://diff.blue/T005
+INFO      [75/80] com.piggymetrics.account.service.security.CustomUserInfoTokenServices.setAuthoritiesExtractor
+INFO      [76/80] com.piggymetrics.account.service.security.CustomUserInfoTokenServices.setRestTemplate
+INFO      [77/80] com.piggymetrics.account.service.security.CustomUserInfoTokenServices.setTokenType
+INFO      [77/80]   Created tests: 1
+INFO      [78/80] com.piggymetrics.account.service.security.CustomUserInfoTokenServices.<init>
+INFO      [78/80]   R004: No meaningful assertions found
+INFO      [78/80]     Diffblue Cover was unable to create an assertion.
+INFO      [78/80]     Make sure that fields modified by <init>(String, String)
+INFO      [78/80]     have package-private, protected, or public getters.
+INFO      [78/80]     See https://diff.blue/R004 to resolve this issue.
+INFO      [79/80] com.piggymetrics.account.service.security.CustomUserInfoTokenServices.loadAuthentication
+INFO      [79/80]   Created tests: 1
+INFO      [80/80] com.piggymetrics.account.service.security.CustomUserInfoTokenServices.readAccessToken
+INFO      [80/80]   Created tests: 1
+INFO  
+INFO  Summary:
+INFO  --------
+INFO  Total:                                              80 methods
+INFO  16 tests created for:                               54 methods
+INFO  Tested indirectly via other methods:                 1 method
+INFO      1 T005: Trivial constructor
+INFO  Not unit-testable:                                   1 method
+INFO      1 T006: Main method
+INFO  No tests created for:                               24 methods
+INFO     12 R028: Incomplete repository information
+INFO      5 R002: Missing observers
+INFO      3 R004: No meaningful assertions found
+INFO      1 R008: Failed to instantiate class under test
+INFO      1 R013: No inputs found that don't throw a trivial exception
+INFO      1 R020: Temporary files were created but not deleted
+INFO  Check log file at /home/azureuser/actions-runner/_work/cover/CF/piggymetrics/.diffblue/log/cover-cli-[date].log for more details or run dcover with --verbose option.
+INFO  
+INFO  Running validation command.
+INFO  All 16 created tests were successfully validated.
+INFO  Writing JSON report to /home/azureuser/actions-runner/_work/cover/CF/piggymetrics/account-service/report.json

@@ -1,0 +1,65 @@
+{
+  "meta" : {
+    "reportVersion" : "2.0"
+  },
+  "run" : {
+    "version" : "2021.10.02-1af857b",
+    "creationTimestamp" : "2021-10-29T14:23:53.391+01:00",
+    "command" : "dcover create --batch --report=report.json --spring-integration-tests --verbose --exclude com.piggymetrics.notification.service.RecipientServiceImpl --working-directory=gateway",
+    "totalTime" : 30.738,
+    "environmentDetectionTime" : 8.417,
+    "indexingTime" : 11.688,
+    "entryPointsTime" : 2.541,
+    "generationTime" : 7.0,
+    "verificationTime" : 0.0,
+    "validationTime" : 0.0
+  },
+  "codes" : {
+    "R002" : "Missing observers",
+    "T005" : "Trivial constructor",
+    "T006" : "Main method"
+  },
+  "summary" : {
+    "classesCount" : 1,
+    "methodsCount" : 2,
+    "completeTestCount" : 0,
+    "incompleteTestCount" : 0,
+    "perMethodTestability" : {
+      "T005" : 1,
+      "T006" : 1
+    },
+    "perMethodOutcome" : {
+      "R002" : 1,
+      "T006" : 1
+    }
+  },
+  "classes" : {
+    "com.piggymetrics.gateway.GatewayApplication" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T005" : 1,
+        "T006" : 1
+      },
+      "perMethodOutcome" : {
+        "R002" : 1,
+        "T006" : 1
+      }
+    }
+  },
+  "methods" : {
+    "com.piggymetrics.gateway.GatewayApplication.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R002"
+    },
+    "com.piggymetrics.gateway.GatewayApplication.main:([Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T006",
+      "perMethodOutcome" : "T006"
+    }
+  }
+}

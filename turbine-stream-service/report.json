@@ -1,0 +1,65 @@
+{
+  "meta" : {
+    "reportVersion" : "2.0"
+  },
+  "run" : {
+    "version" : "2021.10.02-1af857b",
+    "creationTimestamp" : "2021-10-29T14:32:45.34+01:00",
+    "command" : "dcover create --batch --report=report.json --spring-integration-tests --verbose --exclude com.piggymetrics.notification.service.RecipientServiceImpl --working-directory=turbine-stream-service",
+    "totalTime" : 30.912,
+    "environmentDetectionTime" : 8.41,
+    "indexingTime" : 11.985,
+    "entryPointsTime" : 2.418,
+    "generationTime" : 7.0,
+    "verificationTime" : 0.0,
+    "validationTime" : 0.0
+  },
+  "codes" : {
+    "R002" : "Missing observers",
+    "T005" : "Trivial constructor",
+    "T006" : "Main method"
+  },
+  "summary" : {
+    "classesCount" : 1,
+    "methodsCount" : 2,
+    "completeTestCount" : 0,
+    "incompleteTestCount" : 0,
+    "perMethodTestability" : {
+      "T005" : 1,
+      "T006" : 1
+    },
+    "perMethodOutcome" : {
+      "R002" : 1,
+      "T006" : 1
+    }
+  },
+  "classes" : {
+    "com.piggymetrics.turbine.TurbineStreamServiceApplication" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T005" : 1,
+        "T006" : 1
+      },
+      "perMethodOutcome" : {
+        "R002" : 1,
+        "T006" : 1
+      }
+    }
+  },
+  "methods" : {
+    "com.piggymetrics.turbine.TurbineStreamServiceApplication.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R002"
+    },
+    "com.piggymetrics.turbine.TurbineStreamServiceApplication.main:([Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T006",
+      "perMethodOutcome" : "T006"
+    }
+  }
+}

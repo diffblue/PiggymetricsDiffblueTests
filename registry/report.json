@@ -1,0 +1,65 @@
+{
+  "meta" : {
+    "reportVersion" : "2.0"
+  },
+  "run" : {
+    "version" : "2021.10.02-1af857b",
+    "creationTimestamp" : "2021-10-29T14:28:25.812+01:00",
+    "command" : "dcover create --batch --report=report.json --spring-integration-tests --verbose --exclude com.piggymetrics.notification.service.RecipientServiceImpl --working-directory=registry",
+    "totalTime" : 30.853,
+    "environmentDetectionTime" : 8.346,
+    "indexingTime" : 11.889,
+    "entryPointsTime" : 2.532,
+    "generationTime" : 7.0,
+    "verificationTime" : 0.0,
+    "validationTime" : 0.0
+  },
+  "codes" : {
+    "R002" : "Missing observers",
+    "T005" : "Trivial constructor",
+    "T006" : "Main method"
+  },
+  "summary" : {
+    "classesCount" : 1,
+    "methodsCount" : 2,
+    "completeTestCount" : 0,
+    "incompleteTestCount" : 0,
+    "perMethodTestability" : {
+      "T005" : 1,
+      "T006" : 1
+    },
+    "perMethodOutcome" : {
+      "R002" : 1,
+      "T006" : 1
+    }
+  },
+  "classes" : {
+    "com.piggymetrics.registry.RegistryApplication" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T005" : 1,
+        "T006" : 1
+      },
+      "perMethodOutcome" : {
+        "R002" : 1,
+        "T006" : 1
+      }
+    }
+  },
+  "methods" : {
+    "com.piggymetrics.registry.RegistryApplication.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R002"
+    },
+    "com.piggymetrics.registry.RegistryApplication.main:([Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T006",
+      "perMethodOutcome" : "T006"
+    }
+  }
+}
