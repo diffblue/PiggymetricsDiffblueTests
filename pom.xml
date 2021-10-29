@@ -45,4 +45,15 @@
 		<module>turbine-stream-service</module>
 	</modules>
 
+	<build>
+		<plugins>
+			<!-- DIFFBLUE -->
+			<plugin>
+				<groupId>org.pitest</groupId>
+				<artifactId>pitest-maven</artifactId>
+				<version>1.5.2</version>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>
