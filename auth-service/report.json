@@ -3,22 +3,22 @@
     "reportVersion" : "2.0"
   },
   "run" : {
-    "version" : "2021.10.02-1af857b",
-    "creationTimestamp" : "2021-10-29T14:20:35.419+01:00",
-    "command" : "dcover create --batch --report=report.json --spring-integration-tests --verbose --exclude com.piggymetrics.notification.service.RecipientServiceImpl --working-directory=auth-service",
-    "totalTime" : 114.663,
-    "environmentDetectionTime" : 8.465,
-    "indexingTime" : 12.75,
-    "entryPointsTime" : 3.625,
-    "generationTime" : 56.0,
-    "verificationTime" : 12.0,
-    "validationTime" : 20.046
+    "version" : "2021.11.01-be444e3",
+    "creationTimestamp" : "2021-11-08T20:38:33.479Z",
+    "command" : "dcover create --batch --report-file=report.json --spring-integration-tests --verbose --trace-log --coverage-reports --exclude com.piggymetrics.notification.service.RecipientServiceImpl --working-directory=auth-service",
+    "totalTime" : 311.386,
+    "environmentDetectionTime" : 14.619,
+    "indexingTime" : 21.787,
+    "entryPointsTime" : 3.657,
+    "generationTime" : 120.0,
+    "verificationTime" : 27.0,
+    "validationTime" : 60.008
   },
   "codes" : {
     "R000" : "Success",
     "R002" : "Missing observers",
     "R004" : "No meaningful assertions found",
-    "R020" : "Temporary files were created but not deleted",
+    "R013" : "No inputs found that don't throw a trivial exception",
     "R028" : "Incomplete repository information",
     "T000" : "Should be tested directly",
     "T001" : "Trivial getter",
@@ -30,7 +30,7 @@
   "summary" : {
     "classesCount" : 8,
     "methodsCount" : 38,
-    "completeTestCount" : 13,
+    "completeTestCount" : 11,
     "incompleteTestCount" : 0,
     "perMethodTestability" : {
       "T000" : 24,
@@ -41,18 +41,18 @@
     },
     "perMethodOutcome" : {
       "R000" : 17,
-      "R002" : 3,
+      "R002" : 1,
       "R004" : 2,
-      "R020" : 1,
+      "R013" : 1,
       "R028" : 11,
-      "T005" : 3,
+      "T005" : 5,
       "T006" : 1
     },
     "perTestOutcome" : {
-      "R000" : 13
+      "R000" : 11
     },
     "perTestValidation" : {
-      "V000" : 13
+      "V000" : 11
     }
   },
   "classes" : {
@@ -71,18 +71,18 @@
     },
     "com.piggymetrics.auth.config.OAuth2AuthorizationConfig" : {
       "methodsCount" : 4,
-      "completeTestCount" : 4,
+      "completeTestCount" : 2,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 4
       },
       "perMethodOutcome" : {
         "R000" : 2,
-        "R020" : 1,
+        "R013" : 1,
         "T005" : 1
       },
       "perTestOutcome" : {
-        "R000" : 4
+        "R000" : 2
       }
     },
     "com.piggymetrics.auth.config.WebSecurityConfig" : {
@@ -111,7 +111,7 @@
       },
       "perMethodOutcome" : {
         "R000" : 2,
-        "R002" : 1
+        "T005" : 1
       },
       "perTestOutcome" : {
         "R000" : 3
@@ -169,7 +169,7 @@
       },
       "perMethodOutcome" : {
         "R000" : 1,
-        "R002" : 1
+        "T005" : 1
       },
       "perTestOutcome" : {
         "R000" : 2
@@ -199,24 +199,24 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R020"
+      "perMethodOutcome" : "R013"
     },
     "com.piggymetrics.auth.config.OAuth2AuthorizationConfig.configure:(Lorg/springframework/security/oauth2/config/annotation/web/configurers/AuthorizationServerEndpointsConfigurer;)V" : {
-      "completeTestCount" : 2,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 2
+        "R000" : 1
       }
     },
     "com.piggymetrics.auth.config.OAuth2AuthorizationConfig.configure:(Lorg/springframework/security/oauth2/config/annotation/web/configurers/AuthorizationServerSecurityConfigurer;)V" : {
-      "completeTestCount" : 2,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 2
+        "R000" : 1
       }
     },
     "com.piggymetrics.auth.config.WebSecurityConfig.<init>:()V" : {
@@ -250,7 +250,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T005",
-      "perMethodOutcome" : "R002"
+      "perMethodOutcome" : "T005"
     },
     "com.piggymetrics.auth.controller.UserController.createUser:(Lcom/piggymetrics/auth/domain/User;)V" : {
       "completeTestCount" : 1,
@@ -445,7 +445,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T005",
-      "perMethodOutcome" : "R002"
+      "perMethodOutcome" : "T005"
     },
     "com.piggymetrics.auth.service.security.MongoUserDetailsService.loadUserByUsername:(Ljava/lang/String;)Lorg/springframework/security/core/userdetails/UserDetails;" : {
       "completeTestCount" : 2,

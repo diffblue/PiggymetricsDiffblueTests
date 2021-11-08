@@ -27,7 +27,6 @@ public class ItemMetricDiffblueTest {
     // Arrange, Act and Assert
     assertFalse((new ItemMetric("Dr", BigDecimal.valueOf(1L))).equals(null));
     assertFalse((new ItemMetric("Dr", BigDecimal.valueOf(1L))).equals("Different type to ItemMetric"));
-    assertFalse((new ItemMetric(null, BigDecimal.valueOf(1L))).equals(null));
   }
 
   @Test
@@ -51,6 +50,15 @@ public class ItemMetricDiffblueTest {
     assertTrue(itemMetric.equals(itemMetric1));
     int expectedHashCodeResult = itemMetric.hashCode();
     assertEquals(expectedHashCodeResult, itemMetric1.hashCode());
+  }
+
+  @Test
+  public void testEquals4() {
+    // Arrange
+    ItemMetric itemMetric = new ItemMetric("Title", BigDecimal.valueOf(1L));
+
+    // Act and Assert
+    assertFalse(itemMetric.equals(new ItemMetric("Dr", BigDecimal.valueOf(1L))));
   }
 }
 

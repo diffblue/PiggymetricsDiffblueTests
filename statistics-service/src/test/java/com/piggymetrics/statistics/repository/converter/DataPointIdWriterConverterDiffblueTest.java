@@ -20,8 +20,6 @@ public class DataPointIdWriterConverterDiffblueTest {
     // Arrange, Act and Assert
     assertEquals(2,
         ((BasicDBObject) this.dataPointIdWriterConverter.convert(new DataPointId("3", new Date(1L)))).size());
-    assertEquals(2,
-        ((BasicDBObject) this.dataPointIdWriterConverter.convert(new DataPointId("date", new Date(-1L)))).size());
   }
 }
 

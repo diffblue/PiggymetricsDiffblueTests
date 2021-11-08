@@ -3,24 +3,23 @@
     "reportVersion" : "2.0"
   },
   "run" : {
-    "version" : "2021.10.02-1af857b",
-    "creationTimestamp" : "2021-10-29T14:13:06.429+01:00",
-    "command" : "dcover create --batch --report=report.json --spring-integration-tests --verbose --exclude com.piggymetrics.notification.service.RecipientServiceImpl --working-directory=account-service",
-    "totalTime" : 198.958,
-    "environmentDetectionTime" : 8.582,
-    "indexingTime" : 13.507,
-    "entryPointsTime" : 4.074,
-    "generationTime" : 127.0,
-    "verificationTime" : 18.0,
-    "validationTime" : 26.013
+    "version" : "2021.11.01-be444e3",
+    "creationTimestamp" : "2021-11-08T20:30:16.103Z",
+    "command" : "dcover create --batch --report-file=report.json --spring-integration-tests --verbose --trace-log --coverage-reports --exclude com.piggymetrics.notification.service.RecipientServiceImpl --working-directory=account-service",
+    "totalTime" : 493.244,
+    "environmentDetectionTime" : 14.341,
+    "indexingTime" : 23.012,
+    "entryPointsTime" : 4.22,
+    "generationTime" : 235.0,
+    "verificationTime" : 36.0,
+    "validationTime" : 86.98
   },
   "codes" : {
     "R000" : "Success",
     "R002" : "Missing observers",
     "R004" : "No meaningful assertions found",
-    "R008" : "Failed to instantiate class under test",
     "R013" : "No inputs found that don't throw a trivial exception",
-    "R020" : "Temporary files were created but not deleted",
+    "R026" : "Failed to create Spring context",
     "R028" : "Incomplete repository information",
     "T000" : "Should be tested directly",
     "T001" : "Trivial getter",
@@ -34,7 +33,7 @@
     "classesCount" : 13,
     "methodsCount" : 80,
     "completeTestCount" : 16,
-    "incompleteTestCount" : 1,
+    "incompleteTestCount" : 0,
     "perMethodTestability" : {
       "T000" : 31,
       "T001" : 19,
@@ -44,22 +43,23 @@
     },
     "perMethodOutcome" : {
       "R000" : 54,
-      "R002" : 5,
+      "R002" : 3,
       "R004" : 3,
-      "R008" : 1,
       "R013" : 1,
-      "R020" : 1,
+      "R026" : 1,
       "R028" : 12,
-      "T005" : 1,
+      "T005" : 4,
       "T006" : 1,
       "W002" : 1
     },
     "perTestOutcome" : {
-      "R000" : 16,
-      "W002" : 1
+      "R000" : 16
     },
     "perTestValidation" : {
       "V000" : 16
+    },
+    "warnings" : {
+      "W002" : 1
     }
   },
   "classes" : {
@@ -85,8 +85,8 @@
         "T005" : 1
       },
       "perMethodOutcome" : {
-        "R002" : 1,
-        "R020" : 1
+        "R004" : 1,
+        "T005" : 1
       }
     },
     "com.piggymetrics.account.config.ResourceServerConfig" : {
@@ -99,8 +99,8 @@
       },
       "perMethodOutcome" : {
         "R000" : 4,
-        "R002" : 1,
-        "R004" : 1
+        "R026" : 1,
+        "T005" : 1
       },
       "perTestOutcome" : {
         "R000" : 4
@@ -109,18 +109,20 @@
     "com.piggymetrics.account.controller.AccountController" : {
       "methodsCount" : 5,
       "completeTestCount" : 3,
-      "incompleteTestCount" : 1,
+      "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 4,
         "T005" : 1
       },
       "perMethodOutcome" : {
         "R000" : 3,
-        "R002" : 1,
+        "T005" : 1,
         "W002" : 1
       },
       "perTestOutcome" : {
-        "R000" : 3,
+        "R000" : 3
+      },
+      "warnings" : {
         "W002" : 1
       }
     },
@@ -160,7 +162,7 @@
         "T001" : 1
       },
       "perMethodOutcome" : {
-        "R008" : 1
+        "R002" : 1
       }
     },
     "com.piggymetrics.account.domain.Item" : {
@@ -272,19 +274,19 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T005",
-      "perMethodOutcome" : "R002"
+      "perMethodOutcome" : "T005"
     },
     "com.piggymetrics.account.client.StatisticsServiceClientFallback.updateStatistics:(Ljava/lang/String;Lcom/piggymetrics/account/domain/Account;)V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R020"
+      "perMethodOutcome" : "R004"
     },
     "com.piggymetrics.account.config.ResourceServerConfig.<init>:(Lorg/springframework/boot/autoconfigure/security/oauth2/resource/ResourceServerProperties;)V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T005",
-      "perMethodOutcome" : "R002"
+      "perMethodOutcome" : "T005"
     },
     "com.piggymetrics.account.config.ResourceServerConfig.clientCredentialsResourceDetails:()Lorg/springframework/security/oauth2/client/token/grant/client/ClientCredentialsResourceDetails;" : {
       "completeTestCount" : 1,
@@ -308,7 +310,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R004"
+      "perMethodOutcome" : "R026"
     },
     "com.piggymetrics.account.config.ResourceServerConfig.oauth2FeignRequestInterceptor:()Lfeign/RequestInterceptor;" : {
       "completeTestCount" : 1,
@@ -332,7 +334,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T005",
-      "perMethodOutcome" : "R002"
+      "perMethodOutcome" : "T005"
     },
     "com.piggymetrics.account.controller.AccountController.createNewAccount:(Lcom/piggymetrics/account/domain/User;)Lcom/piggymetrics/account/domain/Account;" : {
       "completeTestCount" : 1,
@@ -345,10 +347,10 @@
     },
     "com.piggymetrics.account.controller.AccountController.getAccountByName:(Ljava/lang/String;)Lcom/piggymetrics/account/domain/Account;" : {
       "completeTestCount" : 0,
-      "incompleteTestCount" : 1,
+      "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "W002",
-      "perTestOutcome" : {
+      "warnings" : {
         "W002" : 1
       }
     },
@@ -503,7 +505,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T001",
-      "perMethodOutcome" : "R008"
+      "perMethodOutcome" : "R002"
     },
     "com.piggymetrics.account.domain.Item.<init>:()V" : {
       "completeTestCount" : 1,
