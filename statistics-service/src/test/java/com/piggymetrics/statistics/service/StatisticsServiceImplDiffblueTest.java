@@ -12,8 +12,6 @@ import com.piggymetrics.statistics.domain.Saving;
 import com.piggymetrics.statistics.domain.TimePeriod;
 import com.piggymetrics.statistics.domain.timeseries.DataPoint;
 import com.piggymetrics.statistics.domain.timeseries.DataPointId;
-import com.piggymetrics.statistics.domain.timeseries.ItemMetric;
-import com.piggymetrics.statistics.domain.timeseries.StatisticMetric;
 import com.piggymetrics.statistics.repository.DataPointRepository;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -41,16 +39,16 @@ public class StatisticsServiceImplDiffblueTest {
   @Test
   public void testSave() {
     // Arrange
-    when(this.exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<Currency, BigDecimal>(1));
+    when(this.exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>(1));
     when(this.exchangeRatesService.convert((Currency) any(), (Currency) any(), (BigDecimal) any()))
         .thenReturn(BigDecimal.valueOf(1L));
 
     DataPoint dataPoint = new DataPoint();
-    dataPoint.setExpenses(new HashSet<ItemMetric>());
-    dataPoint.setRates(new HashMap<Currency, BigDecimal>(1));
-    dataPoint.setIncomes(new HashSet<ItemMetric>());
+    dataPoint.setExpenses(new HashSet<>());
+    dataPoint.setRates(new HashMap<>(1));
+    dataPoint.setIncomes(new HashSet<>());
     dataPoint.setId(new DataPointId("3", new Date(1L)));
-    dataPoint.setStatistics(new HashMap<StatisticMetric, BigDecimal>(1));
+    dataPoint.setStatistics(new HashMap<>(1));
     when(this.dataPointRepository.save((DataPoint) any())).thenReturn(dataPoint);
 
     Saving saving = new Saving();
@@ -61,8 +59,8 @@ public class StatisticsServiceImplDiffblueTest {
     saving.setDeposit(true);
 
     Account account = new Account();
-    account.setIncomes(new ArrayList<Item>());
-    account.setExpenses(new ArrayList<Item>());
+    account.setIncomes(new ArrayList<>());
+    account.setExpenses(new ArrayList<>());
     account.setSaving(saving);
 
     // Act and Assert
@@ -75,16 +73,16 @@ public class StatisticsServiceImplDiffblueTest {
   @Test
   public void testSave2() {
     // Arrange
-    when(this.exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<Currency, BigDecimal>(1));
+    when(this.exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>(1));
     when(this.exchangeRatesService.convert((Currency) any(), (Currency) any(), (BigDecimal) any()))
         .thenReturn(BigDecimal.valueOf(1L));
 
     DataPoint dataPoint = new DataPoint();
-    dataPoint.setExpenses(new HashSet<ItemMetric>());
-    dataPoint.setRates(new HashMap<Currency, BigDecimal>(1));
-    dataPoint.setIncomes(new HashSet<ItemMetric>());
+    dataPoint.setExpenses(new HashSet<>());
+    dataPoint.setRates(new HashMap<>(1));
+    dataPoint.setIncomes(new HashSet<>());
     dataPoint.setId(new DataPointId("3", new Date(1L)));
-    dataPoint.setStatistics(new HashMap<StatisticMetric, BigDecimal>(1));
+    dataPoint.setStatistics(new HashMap<>(1));
     when(this.dataPointRepository.save((DataPoint) any())).thenReturn(dataPoint);
 
     Item item = new Item();
@@ -93,7 +91,7 @@ public class StatisticsServiceImplDiffblueTest {
     item.setCurrency(Currency.USD);
     item.setTitle("Dr");
 
-    ArrayList<Item> itemList = new ArrayList<Item>();
+    ArrayList<Item> itemList = new ArrayList<>();
     itemList.add(item);
 
     Saving saving = new Saving();
@@ -105,7 +103,7 @@ public class StatisticsServiceImplDiffblueTest {
 
     Account account = new Account();
     account.setIncomes(itemList);
-    account.setExpenses(new ArrayList<Item>());
+    account.setExpenses(new ArrayList<>());
     account.setSaving(saving);
 
     // Act and Assert
@@ -118,16 +116,16 @@ public class StatisticsServiceImplDiffblueTest {
   @Test
   public void testSave3() {
     // Arrange
-    when(this.exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<Currency, BigDecimal>(1));
+    when(this.exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>(1));
     when(this.exchangeRatesService.convert((Currency) any(), (Currency) any(), (BigDecimal) any()))
         .thenReturn(BigDecimal.valueOf(1L));
 
     DataPoint dataPoint = new DataPoint();
-    dataPoint.setExpenses(new HashSet<ItemMetric>());
-    dataPoint.setRates(new HashMap<Currency, BigDecimal>(1));
-    dataPoint.setIncomes(new HashSet<ItemMetric>());
+    dataPoint.setExpenses(new HashSet<>());
+    dataPoint.setRates(new HashMap<>(1));
+    dataPoint.setIncomes(new HashSet<>());
     dataPoint.setId(new DataPointId("3", new Date(1L)));
-    dataPoint.setStatistics(new HashMap<StatisticMetric, BigDecimal>(1));
+    dataPoint.setStatistics(new HashMap<>(1));
     when(this.dataPointRepository.save((DataPoint) any())).thenReturn(dataPoint);
 
     Item item = new Item();
@@ -142,7 +140,7 @@ public class StatisticsServiceImplDiffblueTest {
     item1.setCurrency(Currency.USD);
     item1.setTitle("Dr");
 
-    ArrayList<Item> itemList = new ArrayList<Item>();
+    ArrayList<Item> itemList = new ArrayList<>();
     itemList.add(item1);
     itemList.add(item);
 
@@ -155,7 +153,7 @@ public class StatisticsServiceImplDiffblueTest {
 
     Account account = new Account();
     account.setIncomes(itemList);
-    account.setExpenses(new ArrayList<Item>());
+    account.setExpenses(new ArrayList<>());
     account.setSaving(saving);
 
     // Act and Assert
@@ -168,16 +166,16 @@ public class StatisticsServiceImplDiffblueTest {
   @Test
   public void testSave4() {
     // Arrange
-    when(this.exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<Currency, BigDecimal>(1));
+    when(this.exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>(1));
     when(this.exchangeRatesService.convert((Currency) any(), (Currency) any(), (BigDecimal) any()))
         .thenReturn(BigDecimal.valueOf(1L));
 
     DataPoint dataPoint = new DataPoint();
-    dataPoint.setExpenses(new HashSet<ItemMetric>());
-    dataPoint.setRates(new HashMap<Currency, BigDecimal>(1));
-    dataPoint.setIncomes(new HashSet<ItemMetric>());
+    dataPoint.setExpenses(new HashSet<>());
+    dataPoint.setRates(new HashMap<>(1));
+    dataPoint.setIncomes(new HashSet<>());
     dataPoint.setId(new DataPointId("3", new Date(1L)));
-    dataPoint.setStatistics(new HashMap<StatisticMetric, BigDecimal>(1));
+    dataPoint.setStatistics(new HashMap<>(1));
     when(this.dataPointRepository.save((DataPoint) any())).thenReturn(dataPoint);
 
     Item item = new Item();
@@ -186,7 +184,7 @@ public class StatisticsServiceImplDiffblueTest {
     item.setCurrency(Currency.USD);
     item.setTitle("Dr");
 
-    ArrayList<Item> itemList = new ArrayList<Item>();
+    ArrayList<Item> itemList = new ArrayList<>();
     itemList.add(item);
 
     Saving saving = new Saving();
@@ -197,7 +195,7 @@ public class StatisticsServiceImplDiffblueTest {
     saving.setDeposit(true);
 
     Account account = new Account();
-    account.setIncomes(new ArrayList<Item>());
+    account.setIncomes(new ArrayList<>());
     account.setExpenses(itemList);
     account.setSaving(saving);
 

@@ -13,16 +13,16 @@ public class DataPointDiffblueTest {
   public void testConstructor() {
     // Arrange and Act
     DataPoint actualDataPoint = new DataPoint();
-    HashSet<ItemMetric> itemMetricSet = new HashSet<ItemMetric>();
+    HashSet<ItemMetric> itemMetricSet = new HashSet<>();
     actualDataPoint.setExpenses(itemMetricSet);
     DataPointId dataPointId = new DataPointId("3", new Date(1L));
 
     actualDataPoint.setId(dataPointId);
-    HashSet<ItemMetric> itemMetricSet1 = new HashSet<ItemMetric>();
+    HashSet<ItemMetric> itemMetricSet1 = new HashSet<>();
     actualDataPoint.setIncomes(itemMetricSet1);
-    HashMap<Currency, BigDecimal> currencyBigDecimalMap = new HashMap<Currency, BigDecimal>(1);
+    HashMap<Currency, BigDecimal> currencyBigDecimalMap = new HashMap<>(1);
     actualDataPoint.setRates(currencyBigDecimalMap);
-    HashMap<StatisticMetric, BigDecimal> statisticMetricBigDecimalMap = new HashMap<StatisticMetric, BigDecimal>(1);
+    HashMap<StatisticMetric, BigDecimal> statisticMetricBigDecimalMap = new HashMap<>(1);
     actualDataPoint.setStatistics(statisticMetricBigDecimalMap);
 
     // Assert

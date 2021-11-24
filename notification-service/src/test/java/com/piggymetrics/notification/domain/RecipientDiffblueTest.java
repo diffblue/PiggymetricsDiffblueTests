@@ -12,8 +12,7 @@ public class RecipientDiffblueTest {
     Recipient actualRecipient = new Recipient();
     actualRecipient.setAccountName("Dr Jane Doe");
     actualRecipient.setEmail("jane.doe@example.org");
-    HashMap<NotificationType, NotificationSettings> notificationTypeNotificationSettingsMap = new HashMap<NotificationType, NotificationSettings>(
-        1);
+    HashMap<NotificationType, NotificationSettings> notificationTypeNotificationSettingsMap = new HashMap<>(1);
     actualRecipient.setScheduledNotifications(notificationTypeNotificationSettingsMap);
 
     // Assert

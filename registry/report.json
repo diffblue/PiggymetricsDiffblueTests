@@ -3,14 +3,14 @@
     "reportVersion" : "2.0"
   },
   "run" : {
-    "version" : "2021.11.01-be444e3",
-    "creationTimestamp" : "2021-11-08T20:54:05.439Z",
-    "command" : "dcover create --batch --report-file=report.json --spring-integration-tests --verbose --trace-log --coverage-reports --exclude com.piggymetrics.notification.service.RecipientServiceImpl --working-directory=registry",
-    "totalTime" : 55.243,
-    "environmentDetectionTime" : 14.66,
-    "indexingTime" : 20.849,
-    "entryPointsTime" : 2.98,
-    "generationTime" : 10.0,
+    "version" : "2021.11.02-3594707",
+    "creationTimestamp" : "2021-11-24T17:18:50.685Z",
+    "command" : "dcover create --batch --report-file=report.json --spring-integration-tests --verbose --trace-log --working-directory=registry",
+    "totalTime" : 52.128,
+    "environmentDetectionTime" : 14.782,
+    "indexingTime" : 20.588,
+    "entryPointsTime" : 2.762,
+    "generationTime" : 13.0,
     "verificationTime" : 0.0,
     "validationTime" : 0.0
   },

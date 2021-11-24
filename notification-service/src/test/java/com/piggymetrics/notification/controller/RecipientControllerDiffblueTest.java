@@ -3,8 +3,6 @@ package com.piggymetrics.notification.controller;
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.when;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.piggymetrics.notification.domain.NotificationSettings;
-import com.piggymetrics.notification.domain.NotificationType;
 import com.piggymetrics.notification.domain.Recipient;
 import com.piggymetrics.notification.service.RecipientServiceImpl;
 import com.sun.security.auth.UserPrincipal;
@@ -34,7 +32,7 @@ public class RecipientControllerDiffblueTest {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setEmail("jane.doe@example.org");
-    recipient.setScheduledNotifications(new HashMap<NotificationType, NotificationSettings>(1));
+    recipient.setScheduledNotifications(new HashMap<>(1));
     recipient.setAccountName("Dr Jane Doe");
     when(this.recipientServiceImpl.findByAccountName((String) any())).thenReturn(recipient);
     MockHttpServletRequestBuilder getResult = MockMvcRequestBuilders.get("/recipients/current");
@@ -56,7 +54,7 @@ public class RecipientControllerDiffblueTest {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setEmail("jane.doe@example.org");
-    recipient.setScheduledNotifications(new HashMap<NotificationType, NotificationSettings>(1));
+    recipient.setScheduledNotifications(new HashMap<>(1));
     recipient.setAccountName("Dr Jane Doe");
     when(this.recipientServiceImpl.save((String) any(), (Recipient) any())).thenReturn(recipient);
     MockHttpServletRequestBuilder putResult = MockMvcRequestBuilders.put("/recipients/current");
@@ -64,7 +62,7 @@ public class RecipientControllerDiffblueTest {
 
     Recipient recipient1 = new Recipient();
     recipient1.setEmail("jane.doe@example.org");
-    recipient1.setScheduledNotifications(new HashMap<NotificationType, NotificationSettings>(1));
+    recipient1.setScheduledNotifications(new HashMap<>(1));
     recipient1.setAccountName("Dr Jane Doe");
     String content = (new ObjectMapper()).writeValueAsString(recipient1);
     MockHttpServletRequestBuilder requestBuilder = putResult.contentType(MediaType.APPLICATION_JSON).content(content);

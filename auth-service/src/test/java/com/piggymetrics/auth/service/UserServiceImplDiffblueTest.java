@@ -32,7 +32,7 @@ public class UserServiceImplDiffblueTest {
     User user = new User();
     user.setPassword("iloveyou");
     user.setUsername("janedoe");
-    Optional<User> ofResult = Optional.<User>of(user);
+    Optional<User> ofResult = Optional.of(user);
     when(this.userRepository.findById((String) any())).thenReturn(ofResult);
 
     User user1 = new User();
@@ -52,7 +52,7 @@ public class UserServiceImplDiffblueTest {
     user.setPassword("iloveyou");
     user.setUsername("janedoe");
     when(this.userRepository.save((User) any())).thenReturn(user);
-    when(this.userRepository.findById((String) any())).thenReturn(Optional.<User>empty());
+    when(this.userRepository.findById((String) any())).thenReturn(Optional.empty());
 
     User user1 = new User();
     user1.setPassword("iloveyou");

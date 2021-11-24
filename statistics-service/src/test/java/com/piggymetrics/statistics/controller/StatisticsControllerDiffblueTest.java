@@ -2,7 +2,6 @@ package com.piggymetrics.statistics.controller;
 
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.when;
-import com.piggymetrics.statistics.domain.timeseries.DataPoint;
 import com.piggymetrics.statistics.service.StatisticsServiceImpl;
 import com.sun.security.auth.UserPrincipal;
 import java.util.ArrayList;
@@ -28,7 +27,7 @@ public class StatisticsControllerDiffblueTest {
   @Test
   public void testGetCurrentAccountStatistics() throws Exception {
     // Arrange
-    when(this.statisticsServiceImpl.findByAccountName((String) any())).thenReturn(new ArrayList<DataPoint>());
+    when(this.statisticsServiceImpl.findByAccountName((String) any())).thenReturn(new ArrayList<>());
     MockHttpServletRequestBuilder getResult = MockMvcRequestBuilders.get("/current");
     getResult.principal(new UserPrincipal("principal"));
 

@@ -10,7 +10,6 @@ import com.piggymetrics.account.client.AuthServiceClient;
 import com.piggymetrics.account.client.StatisticsServiceClient;
 import com.piggymetrics.account.domain.Account;
 import com.piggymetrics.account.domain.Currency;
-import com.piggymetrics.account.domain.Item;
 import com.piggymetrics.account.domain.Saving;
 import com.piggymetrics.account.repository.AccountRepository;
 import java.math.BigDecimal;
@@ -54,8 +53,8 @@ public class AccountServiceImplDiffblueTest {
     account.setName("Name");
     LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
     account.setLastSeen(Date.from(atStartOfDayResult.atZone(ZoneId.of("UTC")).toInstant()));
-    account.setIncomes(new ArrayList<Item>());
-    account.setExpenses(new ArrayList<Item>());
+    account.setIncomes(new ArrayList<>());
+    account.setExpenses(new ArrayList<>());
     account.setSaving(saving);
     account.setNote("Note");
     when(this.accountRepository.findByName((String) any())).thenReturn(account);
@@ -85,8 +84,8 @@ public class AccountServiceImplDiffblueTest {
     account.setName("Name");
     LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
     account.setLastSeen(Date.from(atStartOfDayResult.atZone(ZoneId.of("UTC")).toInstant()));
-    account.setIncomes(new ArrayList<Item>());
-    account.setExpenses(new ArrayList<Item>());
+    account.setIncomes(new ArrayList<>());
+    account.setExpenses(new ArrayList<>());
     account.setSaving(saving);
     account.setNote("Note");
 
@@ -101,8 +100,8 @@ public class AccountServiceImplDiffblueTest {
     account1.setName("Name");
     LocalDateTime atStartOfDayResult1 = LocalDate.of(1970, 1, 1).atStartOfDay();
     account1.setLastSeen(Date.from(atStartOfDayResult1.atZone(ZoneId.of("UTC")).toInstant()));
-    account1.setIncomes(new ArrayList<Item>());
-    account1.setExpenses(new ArrayList<Item>());
+    account1.setIncomes(new ArrayList<>());
+    account1.setExpenses(new ArrayList<>());
     account1.setSaving(saving1);
     account1.setNote("Note");
     when(this.accountRepository.save((Account) any())).thenReturn(account1);
@@ -119,8 +118,8 @@ public class AccountServiceImplDiffblueTest {
     account2.setName("Name");
     LocalDateTime atStartOfDayResult2 = LocalDate.of(1970, 1, 1).atStartOfDay();
     account2.setLastSeen(Date.from(atStartOfDayResult2.atZone(ZoneId.of("UTC")).toInstant()));
-    account2.setIncomes(new ArrayList<Item>());
-    account2.setExpenses(new ArrayList<Item>());
+    account2.setIncomes(new ArrayList<>());
+    account2.setExpenses(new ArrayList<>());
     account2.setSaving(saving2);
     account2.setNote("Note");
 

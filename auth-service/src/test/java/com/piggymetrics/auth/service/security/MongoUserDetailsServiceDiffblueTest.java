@@ -34,7 +34,7 @@ public class MongoUserDetailsServiceDiffblueTest {
     User user = new User();
     user.setPassword("iloveyou");
     user.setUsername("janedoe");
-    Optional<User> ofResult = Optional.<User>of(user);
+    Optional<User> ofResult = Optional.of(user);
     when(this.userRepository.findById((String) any())).thenReturn(ofResult);
 
     // Act and Assert
@@ -45,7 +45,7 @@ public class MongoUserDetailsServiceDiffblueTest {
   @Test
   public void testLoadUserByUsername2() throws UsernameNotFoundException {
     // Arrange
-    when(this.userRepository.findById((String) any())).thenReturn(Optional.<User>empty());
+    when(this.userRepository.findById((String) any())).thenReturn(Optional.empty());
 
     // Act and Assert
     thrown.expect(UsernameNotFoundException.class);

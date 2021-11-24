@@ -15,7 +15,7 @@ public class ExchangeRatesContainerDiffblueTest {
     actualExchangeRatesContainer.setBase(Currency.USD);
     LocalDate ofEpochDayResult = LocalDate.ofEpochDay(1L);
     actualExchangeRatesContainer.setDate(ofEpochDayResult);
-    HashMap<String, BigDecimal> stringBigDecimalMap = new HashMap<String, BigDecimal>(1);
+    HashMap<String, BigDecimal> stringBigDecimalMap = new HashMap<>(1);
     actualExchangeRatesContainer.setRates(stringBigDecimalMap);
 
     // Assert

@@ -10,9 +10,9 @@ public class AccountDiffblueTest {
   public void testConstructor() {
     // Arrange and Act
     Account actualAccount = new Account();
-    ArrayList<Item> itemList = new ArrayList<Item>();
+    ArrayList<Item> itemList = new ArrayList<>();
     actualAccount.setExpenses(itemList);
-    ArrayList<Item> itemList1 = new ArrayList<Item>();
+    ArrayList<Item> itemList1 = new ArrayList<>();
     actualAccount.setIncomes(itemList1);
     Saving saving = new Saving();
     saving.setInterest(BigDecimal.valueOf(1L));

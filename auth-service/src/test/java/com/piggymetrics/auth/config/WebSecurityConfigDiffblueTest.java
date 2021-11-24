@@ -9,7 +9,6 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.ApplicationContext;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationTrustResolver;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -22,15 +21,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.accept.ContentNegotiationStrategy;
 
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
-@ContextConfiguration(classes = {WebSecurityConfig.class, AuthenticationManagerBuilder.class,
-    MongoUserDetailsService.class, AuthenticationConfiguration.class})
+@ContextConfiguration(classes = {WebSecurityConfig.class, MongoUserDetailsService.class,
+    AuthenticationConfiguration.class})
 @RunWith(SpringRunner.class)
 public class WebSecurityConfigDiffblueTest {
   @Autowired
   private ApplicationContext applicationContext;
-
-  @Autowired
-  private AuthenticationManagerBuilder authenticationManagerBuilder;
 
   @MockBean
   private AuthenticationTrustResolver authenticationTrustResolver;
@@ -48,19 +44,22 @@ public class WebSecurityConfigDiffblueTest {
   private WebSecurityConfig webSecurityConfig;
   @Test
   public void testConfigure() throws Exception {
-    // Arrange and Act
-    this.webSecurityConfig.configure(this.authenticationManagerBuilder);
+    // Arrange
+    AuthenticationManagerBuilder authenticationManagerBuilder = new AuthenticationManagerBuilder(
+        this.objectPostProcessor);
+
+    // Act
+    this.webSecurityConfig.configure(authenticationManagerBuilder);
 
     // Assert
-    assertTrue(this.authenticationManagerBuilder.getDefaultUserDetailsService() instanceof MongoUserDetailsService);
-    AuthenticationManager orBuild = this.authenticationManagerBuilder.getOrBuild();
-    assertTrue(orBuild instanceof ProviderManager);
-    assertTrue(((DaoAuthenticationProvider) ((ProviderManager) orBuild).getProviders().get(0))
-        .getUserCache() instanceof org.springframework.security.core.userdetails.cache.NullUserCache);
-    assertTrue(
-        ((DaoAuthenticationProvider) ((ProviderManager) orBuild).getProviders().get(0)).isHideUserNotFoundExceptions());
+    assertTrue(authenticationManagerBuilder.getDefaultUserDetailsService() instanceof MongoUserDetailsService);
+    assertTrue(((DaoAuthenticationProvider) ((ProviderManager) authenticationManagerBuilder.getOrBuild()).getProviders()
+        .get(0)).getUserCache() instanceof org.springframework.security.core.userdetails.cache.NullUserCache);
+    assertTrue(((DaoAuthenticationProvider) ((ProviderManager) authenticationManagerBuilder.getOrBuild()).getProviders()
+        .get(0)).isHideUserNotFoundExceptions());
     assertFalse(
-        ((DaoAuthenticationProvider) ((ProviderManager) orBuild).getProviders().get(0)).isForcePrincipalAsString());
+        ((DaoAuthenticationProvider) ((ProviderManager) authenticationManagerBuilder.getOrBuild()).getProviders()
+            .get(0)).isForcePrincipalAsString());
   }
 }
 
