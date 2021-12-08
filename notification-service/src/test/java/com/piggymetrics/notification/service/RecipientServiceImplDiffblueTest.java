@@ -37,9 +37,9 @@ public class RecipientServiceImplDiffblueTest {
   public void testFindByAccountName() {
     // Arrange
     Recipient recipient = new Recipient();
+    recipient.setAccountName("Dr Jane Doe");
     recipient.setEmail("jane.doe@example.org");
     recipient.setScheduledNotifications(new HashMap<>(1));
-    recipient.setAccountName("Dr Jane Doe");
     when(this.recipientRepository.findByAccountName((String) any())).thenReturn(recipient);
 
     // Act and Assert
@@ -51,15 +51,15 @@ public class RecipientServiceImplDiffblueTest {
   public void testSave() {
     // Arrange
     Recipient recipient = new Recipient();
+    recipient.setAccountName("Dr Jane Doe");
     recipient.setEmail("jane.doe@example.org");
     recipient.setScheduledNotifications(new HashMap<>(1));
-    recipient.setAccountName("Dr Jane Doe");
     when(this.recipientRepository.save((Recipient) any())).thenReturn(recipient);
 
     Recipient recipient1 = new Recipient();
+    recipient1.setAccountName("Dr Jane Doe");
     recipient1.setEmail("jane.doe@example.org");
     recipient1.setScheduledNotifications(new HashMap<>(1));
-    recipient1.setAccountName("Dr Jane Doe");
 
     // Act
     Recipient actualSaveResult = this.recipientServiceImpl.save("Dr Jane Doe", recipient1);
@@ -74,24 +74,24 @@ public class RecipientServiceImplDiffblueTest {
   public void testSave2() {
     // Arrange
     Recipient recipient = new Recipient();
+    recipient.setAccountName("Dr Jane Doe");
     recipient.setEmail("jane.doe@example.org");
     recipient.setScheduledNotifications(new HashMap<>(1));
-    recipient.setAccountName("Dr Jane Doe");
     when(this.recipientRepository.save((Recipient) any())).thenReturn(recipient);
 
     NotificationSettings notificationSettings = new NotificationSettings();
     notificationSettings.setActive(true);
+    notificationSettings.setFrequency(Frequency.WEEKLY);
     LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
     notificationSettings.setLastNotified(Date.from(atStartOfDayResult.atZone(ZoneId.of("UTC")).toInstant()));
-    notificationSettings.setFrequency(Frequency.WEEKLY);
 
     HashMap<NotificationType, NotificationSettings> notificationTypeNotificationSettingsMap = new HashMap<>(1);
     notificationTypeNotificationSettingsMap.put(NotificationType.BACKUP, notificationSettings);
 
     Recipient recipient1 = new Recipient();
+    recipient1.setAccountName("Dr Jane Doe");
     recipient1.setEmail("jane.doe@example.org");
     recipient1.setScheduledNotifications(notificationTypeNotificationSettingsMap);
-    recipient1.setAccountName("Dr Jane Doe");
 
     // Act
     Recipient actualSaveResult = this.recipientServiceImpl.save("Dr Jane Doe", recipient1);
@@ -106,23 +106,23 @@ public class RecipientServiceImplDiffblueTest {
   public void testSave3() {
     // Arrange
     Recipient recipient = new Recipient();
+    recipient.setAccountName("Dr Jane Doe");
     recipient.setEmail("jane.doe@example.org");
     recipient.setScheduledNotifications(new HashMap<>(1));
-    recipient.setAccountName("Dr Jane Doe");
     when(this.recipientRepository.save((Recipient) any())).thenReturn(recipient);
 
     NotificationSettings notificationSettings = new NotificationSettings();
     notificationSettings.setActive(true);
-    notificationSettings.setLastNotified(null);
     notificationSettings.setFrequency(Frequency.WEEKLY);
+    notificationSettings.setLastNotified(null);
 
     HashMap<NotificationType, NotificationSettings> notificationTypeNotificationSettingsMap = new HashMap<>(1);
     notificationTypeNotificationSettingsMap.put(NotificationType.BACKUP, notificationSettings);
 
     Recipient recipient1 = new Recipient();
+    recipient1.setAccountName("Dr Jane Doe");
     recipient1.setEmail("jane.doe@example.org");
     recipient1.setScheduledNotifications(notificationTypeNotificationSettingsMap);
-    recipient1.setAccountName("Dr Jane Doe");
 
     // Act
     Recipient actualSaveResult = this.recipientServiceImpl.save("Dr Jane Doe", recipient1);
@@ -170,24 +170,24 @@ public class RecipientServiceImplDiffblueTest {
   public void testMarkNotified() {
     // Arrange
     Recipient recipient = new Recipient();
+    recipient.setAccountName("Dr Jane Doe");
     recipient.setEmail("jane.doe@example.org");
     recipient.setScheduledNotifications(new HashMap<>(1));
-    recipient.setAccountName("Dr Jane Doe");
     when(this.recipientRepository.save((Recipient) any())).thenReturn(recipient);
 
     NotificationSettings notificationSettings = new NotificationSettings();
     notificationSettings.setActive(true);
+    notificationSettings.setFrequency(Frequency.WEEKLY);
     LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
     notificationSettings.setLastNotified(Date.from(atStartOfDayResult.atZone(ZoneId.of("UTC")).toInstant()));
-    notificationSettings.setFrequency(Frequency.WEEKLY);
 
     HashMap<NotificationType, NotificationSettings> notificationTypeNotificationSettingsMap = new HashMap<>(1);
     notificationTypeNotificationSettingsMap.put(NotificationType.BACKUP, notificationSettings);
 
     Recipient recipient1 = new Recipient();
+    recipient1.setAccountName("Dr Jane Doe");
     recipient1.setEmail("jane.doe@example.org");
     recipient1.setScheduledNotifications(notificationTypeNotificationSettingsMap);
-    recipient1.setAccountName("Dr Jane Doe");
 
     // Act
     this.recipientServiceImpl.markNotified(NotificationType.BACKUP, recipient1);

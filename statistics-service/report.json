@@ -3,16 +3,16 @@
     "reportVersion" : "2.0"
   },
   "run" : {
-    "version" : "2021.11.02-3594707",
-    "creationTimestamp" : "2021-11-24T17:19:47.019Z",
+    "version" : "2021.12.01-20f4bc5",
+    "creationTimestamp" : "2021-12-08T13:16:04.318Z",
     "command" : "dcover create --batch --report-file=report.json --spring-integration-tests --verbose --trace-log --working-directory=statistics-service",
-    "totalTime" : 390.123,
-    "environmentDetectionTime" : 14.665,
-    "indexingTime" : 22.908,
-    "entryPointsTime" : 11.928,
-    "generationTime" : 209.0,
-    "verificationTime" : 37.0,
-    "validationTime" : 92.99
+    "totalTime" : 338.714,
+    "environmentDetectionTime" : 14.253,
+    "indexingTime" : 24.563,
+    "entryPointsTime" : 4.047,
+    "generationTime" : 172.0,
+    "verificationTime" : 36.0,
+    "validationTime" : 86.995
   },
   "codes" : {
     "R000" : "Success",
@@ -33,7 +33,7 @@
   "summary" : {
     "classesCount" : 20,
     "methodsCount" : 98,
-    "completeTestCount" : 25,
+    "completeTestCount" : 27,
     "incompleteTestCount" : 0,
     "perMethodTestability" : {
       "T000" : 32,
@@ -44,24 +44,23 @@
       "T020" : 2
     },
     "perMethodOutcome" : {
-      "R000" : 66,
+      "R000" : 68,
       "R002" : 2,
       "R004" : 2,
       "R013" : 4,
       "R015" : 1,
       "R028" : 12,
       "T005" : 8,
-      "T006" : 1,
-      "W002" : 2
+      "T006" : 1
     },
     "perTestOutcome" : {
-      "R000" : 25
+      "R000" : 27
     },
     "perTestValidation" : {
-      "V000" : 25
+      "V000" : 27
     },
     "warnings" : {
-      "W002" : 3
+      "W002" : 1
     }
   },
   "classes" : {
@@ -125,22 +124,18 @@
     },
     "com.piggymetrics.statistics.controller.StatisticsController" : {
       "methodsCount" : 4,
-      "completeTestCount" : 1,
+      "completeTestCount" : 3,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 3,
         "T005" : 1
       },
       "perMethodOutcome" : {
-        "R000" : 1,
-        "T005" : 1,
-        "W002" : 2
+        "R000" : 3,
+        "T005" : 1
       },
       "perTestOutcome" : {
-        "R000" : 1
-      },
-      "warnings" : {
-        "W002" : 2
+        "R000" : 3
       }
     },
     "com.piggymetrics.statistics.domain.Account" : {
@@ -443,21 +438,21 @@
       }
     },
     "com.piggymetrics.statistics.controller.StatisticsController.getStatisticsByAccountName:(Ljava/lang/String;)Ljava/util/List;" : {
-      "completeTestCount" : 0,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "W002",
-      "warnings" : {
-        "W002" : 1
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
       }
     },
     "com.piggymetrics.statistics.controller.StatisticsController.saveAccountStatistics:(Ljava/lang/String;Lcom/piggymetrics/statistics/domain/Account;)V" : {
-      "completeTestCount" : 0,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "W002",
-      "warnings" : {
-        "W002" : 1
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
       }
     },
     "com.piggymetrics.statistics.domain.Account.<init>:()V" : {

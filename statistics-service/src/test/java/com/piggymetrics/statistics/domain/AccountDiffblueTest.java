@@ -15,11 +15,11 @@ public class AccountDiffblueTest {
     ArrayList<Item> itemList1 = new ArrayList<>();
     actualAccount.setIncomes(itemList1);
     Saving saving = new Saving();
-    saving.setInterest(BigDecimal.valueOf(1L));
-    saving.setCapitalization(true);
     saving.setAmount(BigDecimal.valueOf(1L));
+    saving.setCapitalization(true);
     saving.setCurrency(Currency.USD);
     saving.setDeposit(true);
+    saving.setInterest(BigDecimal.valueOf(1L));
     actualAccount.setSaving(saving);
 
     // Assert

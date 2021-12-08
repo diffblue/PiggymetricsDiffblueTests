@@ -25,11 +25,11 @@ public class AccountDiffblueTest {
     actualAccount.setName("Name");
     actualAccount.setNote("Note");
     Saving saving = new Saving();
-    saving.setInterest(BigDecimal.valueOf(1L));
-    saving.setCapitalization(true);
     saving.setAmount(BigDecimal.valueOf(1L));
+    saving.setCapitalization(true);
     saving.setCurrency(Currency.USD);
     saving.setDeposit(true);
+    saving.setInterest(BigDecimal.valueOf(1L));
     actualAccount.setSaving(saving);
 
     // Assert

@@ -3,16 +3,16 @@
     "reportVersion" : "2.0"
   },
   "run" : {
-    "version" : "2021.11.02-3594707",
-    "creationTimestamp" : "2021-11-24T17:04:40.46Z",
+    "version" : "2021.12.01-20f4bc5",
+    "creationTimestamp" : "2021-12-08T13:00:59.277Z",
     "command" : "dcover create --batch --report-file=report.json --spring-integration-tests --verbose --trace-log --working-directory=auth-service",
-    "totalTime" : 261.881,
-    "environmentDetectionTime" : 17.75,
-    "indexingTime" : 22.188,
-    "entryPointsTime" : 10.89,
-    "generationTime" : 124.0,
-    "verificationTime" : 27.0,
-    "validationTime" : 59.005
+    "totalTime" : 235.457,
+    "environmentDetectionTime" : 14.147,
+    "indexingTime" : 23.08,
+    "entryPointsTime" : 3.23,
+    "generationTime" : 111.0,
+    "verificationTime" : 26.0,
+    "validationTime" : 57.004
   },
   "codes" : {
     "R000" : "Success",

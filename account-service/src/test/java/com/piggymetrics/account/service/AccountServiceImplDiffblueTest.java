@@ -43,20 +43,20 @@ public class AccountServiceImplDiffblueTest {
   public void testFindByName() {
     // Arrange
     Saving saving = new Saving();
-    saving.setInterest(BigDecimal.valueOf(1L));
-    saving.setCapitalization(true);
     saving.setAmount(BigDecimal.valueOf(1L));
+    saving.setCapitalization(true);
     saving.setCurrency(Currency.USD);
     saving.setDeposit(true);
+    saving.setInterest(BigDecimal.valueOf(1L));
 
     Account account = new Account();
-    account.setName("Name");
+    account.setExpenses(new ArrayList<>());
+    account.setIncomes(new ArrayList<>());
     LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
     account.setLastSeen(Date.from(atStartOfDayResult.atZone(ZoneId.of("UTC")).toInstant()));
-    account.setIncomes(new ArrayList<>());
-    account.setExpenses(new ArrayList<>());
-    account.setSaving(saving);
+    account.setName("Name");
     account.setNote("Note");
+    account.setSaving(saving);
     when(this.accountRepository.findByName((String) any())).thenReturn(account);
 
     // Act
@@ -74,54 +74,54 @@ public class AccountServiceImplDiffblueTest {
     doNothing().when(this.statisticsServiceClient).updateStatistics((String) any(), (Account) any());
 
     Saving saving = new Saving();
-    saving.setInterest(BigDecimal.valueOf(1L));
-    saving.setCapitalization(true);
     saving.setAmount(BigDecimal.valueOf(1L));
+    saving.setCapitalization(true);
     saving.setCurrency(Currency.USD);
     saving.setDeposit(true);
+    saving.setInterest(BigDecimal.valueOf(1L));
 
     Account account = new Account();
-    account.setName("Name");
+    account.setExpenses(new ArrayList<>());
+    account.setIncomes(new ArrayList<>());
     LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
     account.setLastSeen(Date.from(atStartOfDayResult.atZone(ZoneId.of("UTC")).toInstant()));
-    account.setIncomes(new ArrayList<>());
-    account.setExpenses(new ArrayList<>());
-    account.setSaving(saving);
+    account.setName("Name");
     account.setNote("Note");
+    account.setSaving(saving);
 
     Saving saving1 = new Saving();
-    saving1.setInterest(BigDecimal.valueOf(1L));
-    saving1.setCapitalization(true);
     saving1.setAmount(BigDecimal.valueOf(1L));
+    saving1.setCapitalization(true);
     saving1.setCurrency(Currency.USD);
     saving1.setDeposit(true);
+    saving1.setInterest(BigDecimal.valueOf(1L));
 
     Account account1 = new Account();
-    account1.setName("Name");
+    account1.setExpenses(new ArrayList<>());
+    account1.setIncomes(new ArrayList<>());
     LocalDateTime atStartOfDayResult1 = LocalDate.of(1970, 1, 1).atStartOfDay();
     account1.setLastSeen(Date.from(atStartOfDayResult1.atZone(ZoneId.of("UTC")).toInstant()));
-    account1.setIncomes(new ArrayList<>());
-    account1.setExpenses(new ArrayList<>());
-    account1.setSaving(saving1);
+    account1.setName("Name");
     account1.setNote("Note");
+    account1.setSaving(saving1);
     when(this.accountRepository.save((Account) any())).thenReturn(account1);
     when(this.accountRepository.findByName((String) any())).thenReturn(account);
 
     Saving saving2 = new Saving();
-    saving2.setInterest(BigDecimal.valueOf(1L));
-    saving2.setCapitalization(true);
     saving2.setAmount(BigDecimal.valueOf(1L));
+    saving2.setCapitalization(true);
     saving2.setCurrency(Currency.USD);
     saving2.setDeposit(true);
+    saving2.setInterest(BigDecimal.valueOf(1L));
 
     Account account2 = new Account();
-    account2.setName("Name");
+    account2.setExpenses(new ArrayList<>());
+    account2.setIncomes(new ArrayList<>());
     LocalDateTime atStartOfDayResult2 = LocalDate.of(1970, 1, 1).atStartOfDay();
     account2.setLastSeen(Date.from(atStartOfDayResult2.atZone(ZoneId.of("UTC")).toInstant()));
-    account2.setIncomes(new ArrayList<>());
-    account2.setExpenses(new ArrayList<>());
-    account2.setSaving(saving2);
+    account2.setName("Name");
     account2.setNote("Note");
+    account2.setSaving(saving2);
 
     // Act
     this.accountServiceImpl.saveChanges("Name", account2);

@@ -23,6 +23,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
@@ -40,20 +41,20 @@ public class AccountControllerDiffblueTest {
   public void testCreateNewAccount() throws Exception {
     // Arrange
     Saving saving = new Saving();
-    saving.setInterest(BigDecimal.valueOf(1L));
-    saving.setCapitalization(true);
     saving.setAmount(BigDecimal.valueOf(1L));
+    saving.setCapitalization(true);
     saving.setCurrency(Currency.USD);
     saving.setDeposit(true);
+    saving.setInterest(BigDecimal.valueOf(1L));
 
     Account account = new Account();
-    account.setName("Name");
+    account.setExpenses(new ArrayList<>());
+    account.setIncomes(new ArrayList<>());
     LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
     account.setLastSeen(Date.from(atStartOfDayResult.atZone(ZoneId.of("UTC")).toInstant()));
-    account.setIncomes(new ArrayList<>());
-    account.setExpenses(new ArrayList<>());
-    account.setSaving(saving);
+    account.setName("Name");
     account.setNote("Note");
+    account.setSaving(saving);
     when(this.accountServiceImpl.create((User) any())).thenReturn(account);
 
     User user = new User();
@@ -77,23 +78,37 @@ public class AccountControllerDiffblueTest {
   }
 
   @Test
+  public void testGetAccountByName() throws Exception {
+    // Arrange
+    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/{name}", "", "Uri Vars");
+
+    // Act
+    ResultActions actualPerformResult = MockMvcBuilders.standaloneSetup(this.accountController)
+        .build()
+        .perform(requestBuilder);
+
+    // Assert
+    actualPerformResult.andExpect(MockMvcResultMatchers.status().is(405));
+  }
+
+  @Test
   public void testGetCurrentAccount() throws Exception {
     // Arrange
     Saving saving = new Saving();
-    saving.setInterest(BigDecimal.valueOf(1L));
-    saving.setCapitalization(true);
     saving.setAmount(BigDecimal.valueOf(1L));
+    saving.setCapitalization(true);
     saving.setCurrency(Currency.USD);
     saving.setDeposit(true);
+    saving.setInterest(BigDecimal.valueOf(1L));
 
     Account account = new Account();
-    account.setName("Name");
+    account.setExpenses(new ArrayList<>());
+    account.setIncomes(new ArrayList<>());
     LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
     account.setLastSeen(Date.from(atStartOfDayResult.atZone(ZoneId.of("UTC")).toInstant()));
-    account.setIncomes(new ArrayList<>());
-    account.setExpenses(new ArrayList<>());
-    account.setSaving(saving);
+    account.setName("Name");
     account.setNote("Note");
+    account.setSaving(saving);
     when(this.accountServiceImpl.findByName((String) any())).thenReturn(account);
     MockHttpServletRequestBuilder getResult = MockMvcRequestBuilders.get("/current");
     getResult.principal(new UserPrincipal("principal"));
@@ -113,25 +128,57 @@ public class AccountControllerDiffblueTest {
   @Test
   public void testSaveCurrentAccount() throws Exception {
     // Arrange
+    Saving saving = new Saving();
+    saving.setAmount(null);
+    saving.setCapitalization(true);
+    saving.setCurrency(Currency.USD);
+    saving.setDeposit(true);
+    saving.setInterest(BigDecimal.valueOf(1L));
+
+    Account account = new Account();
+    account.setExpenses(new ArrayList<>());
+    account.setIncomes(new ArrayList<>());
+    LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
+    account.setLastSeen(Date.from(atStartOfDayResult.atZone(ZoneId.of("UTC")).toInstant()));
+    account.setName("Name");
+    account.setNote("Note");
+    account.setSaving(saving);
+    String content = (new ObjectMapper()).writeValueAsString(account);
+    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.put("/current")
+        .contentType(MediaType.APPLICATION_JSON)
+        .content(content);
+
+    // Act
+    ResultActions actualPerformResult = MockMvcBuilders.standaloneSetup(this.accountController)
+        .build()
+        .perform(requestBuilder);
+
+    // Assert
+    actualPerformResult.andExpect(MockMvcResultMatchers.status().is(400));
+  }
+
+  @Test
+  public void testSaveCurrentAccount2() throws Exception {
+    // Arrange
     doNothing().when(this.accountServiceImpl).saveChanges((String) any(), (Account) any());
     MockHttpServletRequestBuilder putResult = MockMvcRequestBuilders.put("/current");
     putResult.principal(new UserPrincipal("principal"));
 
     Saving saving = new Saving();
-    saving.setInterest(BigDecimal.valueOf(1L));
-    saving.setCapitalization(true);
     saving.setAmount(BigDecimal.valueOf(1L));
+    saving.setCapitalization(true);
     saving.setCurrency(Currency.USD);
     saving.setDeposit(true);
+    saving.setInterest(BigDecimal.valueOf(1L));
 
     Account account = new Account();
-    account.setName("Name");
+    account.setExpenses(new ArrayList<>());
+    account.setIncomes(new ArrayList<>());
     LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
     account.setLastSeen(Date.from(atStartOfDayResult.atZone(ZoneId.of("UTC")).toInstant()));
-    account.setIncomes(new ArrayList<>());
-    account.setExpenses(new ArrayList<>());
-    account.setSaving(saving);
+    account.setName("Name");
     account.setNote("Note");
+    account.setSaving(saving);
     String content = (new ObjectMapper()).writeValueAsString(account);
     MockHttpServletRequestBuilder requestBuilder = putResult.contentType(MediaType.APPLICATION_JSON).content(content);
 
