@@ -3,23 +3,22 @@
     "reportVersion" : "2.0"
   },
   "run" : {
-    "version" : "2021.12.01-20f4bc5",
-    "creationTimestamp" : "2021-12-08T12:54:29.046Z",
+    "version" : "2021.12.02-a663735",
+    "creationTimestamp" : "2021-12-17T14:17:27.679Z",
     "command" : "dcover create --batch --report-file=report.json --spring-integration-tests --verbose --trace-log --working-directory=account-service",
-    "totalTime" : 386.402,
-    "environmentDetectionTime" : 19.933,
-    "indexingTime" : 23.491,
-    "entryPointsTime" : 3.092,
-    "generationTime" : 216.0,
-    "verificationTime" : 41.0,
-    "validationTime" : 82.012
+    "totalTime" : 418.74,
+    "environmentDetectionTime" : 14.743,
+    "indexingTime" : 24.639,
+    "entryPointsTime" : 3.305,
+    "generationTime" : 250.0,
+    "verificationTime" : 39.0,
+    "validationTime" : 85.986
   },
   "codes" : {
     "R000" : "Success",
     "R002" : "Missing observers",
     "R004" : "No meaningful assertions found",
     "R013" : "No inputs found that don't throw a trivial exception",
-    "R026" : "Failed to create Spring context",
     "R028" : "Incomplete repository information",
     "T000" : "Should be tested directly",
     "T001" : "Trivial getter",
@@ -31,7 +30,7 @@
   "summary" : {
     "classesCount" : 13,
     "methodsCount" : 80,
-    "completeTestCount" : 18,
+    "completeTestCount" : 17,
     "incompleteTestCount" : 0,
     "perMethodTestability" : {
       "T000" : 31,
@@ -44,17 +43,16 @@
       "R000" : 55,
       "R002" : 3,
       "R004" : 3,
-      "R013" : 1,
-      "R026" : 1,
+      "R013" : 2,
       "R028" : 12,
       "T005" : 4,
       "T006" : 1
     },
     "perTestOutcome" : {
-      "R000" : 18
+      "R000" : 17
     },
     "perTestValidation" : {
-      "V000" : 18
+      "V000" : 17
     }
   },
   "classes" : {
@@ -94,7 +92,7 @@
       },
       "perMethodOutcome" : {
         "R000" : 4,
-        "R026" : 1,
+        "R013" : 1,
         "T005" : 1
       },
       "perTestOutcome" : {
@@ -103,7 +101,7 @@
     },
     "com.piggymetrics.account.controller.AccountController" : {
       "methodsCount" : 5,
-      "completeTestCount" : 5,
+      "completeTestCount" : 4,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 4,
@@ -114,7 +112,7 @@
         "T005" : 1
       },
       "perTestOutcome" : {
-        "R000" : 5
+        "R000" : 4
       }
     },
     "com.piggymetrics.account.controller.ErrorHandler" : {
@@ -301,7 +299,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R026"
+      "perMethodOutcome" : "R013"
     },
     "com.piggymetrics.account.config.ResourceServerConfig.oauth2FeignRequestInterceptor:()Lfeign/RequestInterceptor;" : {
       "completeTestCount" : 1,
@@ -355,12 +353,12 @@
       }
     },
     "com.piggymetrics.account.controller.AccountController.saveCurrentAccount:(Ljava/security/Principal;Lcom/piggymetrics/account/domain/Account;)V" : {
-      "completeTestCount" : 2,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 2
+        "R000" : 1
       }
     },
     "com.piggymetrics.account.controller.ErrorHandler.<init>:()V" : {

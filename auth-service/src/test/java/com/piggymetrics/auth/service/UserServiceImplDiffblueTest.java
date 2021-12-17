@@ -48,6 +48,21 @@ public class UserServiceImplDiffblueTest {
   @Test
   public void testCreate2() {
     // Arrange
+    when(this.userRepository.findById((String) any())).thenThrow(new IllegalArgumentException("foo"));
+
+    User user = new User();
+    user.setPassword("iloveyou");
+    user.setUsername("janedoe");
+
+    // Act and Assert
+    thrown.expect(IllegalArgumentException.class);
+    this.userServiceImpl.create(user);
+    verify(this.userRepository).findById((String) any());
+  }
+
+  @Test
+  public void testCreate3() {
+    // Arrange
     User user = new User();
     user.setPassword("iloveyou");
     user.setUsername("janedoe");
@@ -62,6 +77,23 @@ public class UserServiceImplDiffblueTest {
     this.userServiceImpl.create(user1);
 
     // Assert
+    verify(this.userRepository).findById((String) any());
+    verify(this.userRepository).save((User) any());
+  }
+
+  @Test
+  public void testCreate4() {
+    // Arrange
+    when(this.userRepository.save((User) any())).thenThrow(new IllegalArgumentException("foo"));
+    when(this.userRepository.findById((String) any())).thenReturn(Optional.empty());
+
+    User user = new User();
+    user.setPassword("iloveyou");
+    user.setUsername("janedoe");
+
+    // Act and Assert
+    thrown.expect(IllegalArgumentException.class);
+    this.userServiceImpl.create(user);
     verify(this.userRepository).findById((String) any());
     verify(this.userRepository).save((User) any());
   }

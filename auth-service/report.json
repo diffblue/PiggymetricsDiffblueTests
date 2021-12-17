@@ -3,22 +3,23 @@
     "reportVersion" : "2.0"
   },
   "run" : {
-    "version" : "2021.12.01-20f4bc5",
-    "creationTimestamp" : "2021-12-08T13:00:59.277Z",
+    "version" : "2021.12.02-a663735",
+    "creationTimestamp" : "2021-12-17T14:24:30.419Z",
     "command" : "dcover create --batch --report-file=report.json --spring-integration-tests --verbose --trace-log --working-directory=auth-service",
-    "totalTime" : 235.457,
-    "environmentDetectionTime" : 14.147,
-    "indexingTime" : 23.08,
-    "entryPointsTime" : 3.23,
-    "generationTime" : 111.0,
-    "verificationTime" : 26.0,
-    "validationTime" : 57.004
+    "totalTime" : 235.326,
+    "environmentDetectionTime" : 14.463,
+    "indexingTime" : 22.963,
+    "entryPointsTime" : 4.025,
+    "generationTime" : 105.0,
+    "verificationTime" : 27.0,
+    "validationTime" : 60.018
   },
   "codes" : {
     "R000" : "Success",
     "R002" : "Missing observers",
     "R004" : "No meaningful assertions found",
     "R013" : "No inputs found that don't throw a trivial exception",
+    "R026" : "Failed to create Spring context",
     "R028" : "Incomplete repository information",
     "T000" : "Should be tested directly",
     "T001" : "Trivial getter",
@@ -30,7 +31,7 @@
   "summary" : {
     "classesCount" : 8,
     "methodsCount" : 38,
-    "completeTestCount" : 11,
+    "completeTestCount" : 14,
     "incompleteTestCount" : 0,
     "perMethodTestability" : {
       "T000" : 24,
@@ -42,17 +43,18 @@
     "perMethodOutcome" : {
       "R000" : 17,
       "R002" : 1,
-      "R004" : 2,
+      "R004" : 1,
       "R013" : 1,
+      "R026" : 1,
       "R028" : 11,
       "T005" : 5,
       "T006" : 1
     },
     "perTestOutcome" : {
-      "R000" : 11
+      "R000" : 14
     },
     "perTestValidation" : {
-      "V000" : 11
+      "V000" : 14
     }
   },
   "classes" : {
@@ -78,7 +80,7 @@
       },
       "perMethodOutcome" : {
         "R000" : 2,
-        "R013" : 1,
+        "R026" : 1,
         "T005" : 1
       },
       "perTestOutcome" : {
@@ -94,7 +96,8 @@
       },
       "perMethodOutcome" : {
         "R000" : 1,
-        "R004" : 2,
+        "R004" : 1,
+        "R013" : 1,
         "T005" : 1
       },
       "perTestOutcome" : {
@@ -146,7 +149,7 @@
     },
     "com.piggymetrics.auth.service.UserServiceImpl" : {
       "methodsCount" : 2,
-      "completeTestCount" : 2,
+      "completeTestCount" : 4,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 2
@@ -156,12 +159,12 @@
         "T005" : 1
       },
       "perTestOutcome" : {
-        "R000" : 2
+        "R000" : 4
       }
     },
     "com.piggymetrics.auth.service.security.MongoUserDetailsService" : {
       "methodsCount" : 2,
-      "completeTestCount" : 2,
+      "completeTestCount" : 3,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 1,
@@ -172,7 +175,7 @@
         "T005" : 1
       },
       "perTestOutcome" : {
-        "R000" : 2
+        "R000" : 3
       }
     }
   },
@@ -199,7 +202,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R013"
+      "perMethodOutcome" : "R026"
     },
     "com.piggymetrics.auth.config.OAuth2AuthorizationConfig.configure:(Lorg/springframework/security/oauth2/config/annotation/web/configurers/AuthorizationServerEndpointsConfigurer;)V" : {
       "completeTestCount" : 1,
@@ -244,7 +247,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R004"
+      "perMethodOutcome" : "R013"
     },
     "com.piggymetrics.auth.controller.UserController.<init>:()V" : {
       "completeTestCount" : 0,
@@ -433,12 +436,12 @@
       "perMethodOutcome" : "T005"
     },
     "com.piggymetrics.auth.service.UserServiceImpl.create:(Lcom/piggymetrics/auth/domain/User;)V" : {
-      "completeTestCount" : 2,
+      "completeTestCount" : 4,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 2
+        "R000" : 4
       }
     },
     "com.piggymetrics.auth.service.security.MongoUserDetailsService.<init>:()V" : {
@@ -448,12 +451,12 @@
       "perMethodOutcome" : "T005"
     },
     "com.piggymetrics.auth.service.security.MongoUserDetailsService.loadUserByUsername:(Ljava/lang/String;)Lorg/springframework/security/core/userdetails/UserDetails;" : {
-      "completeTestCount" : 2,
+      "completeTestCount" : 3,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 2
+        "R000" : 3
       }
     }
   }

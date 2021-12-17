@@ -31,7 +31,7 @@ public class RecipientControllerDiffblueTest {
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
     recipient.setEmail("jane.doe@example.org");
-    recipient.setScheduledNotifications(new HashMap<>(1));
+    recipient.setScheduledNotifications(new HashMap<>());
     when(this.recipientServiceImpl.findByAccountName((String) any())).thenReturn(recipient);
     MockHttpServletRequestBuilder getResult = MockMvcRequestBuilders.get("/recipients/current");
     getResult.principal(new UserPrincipal("principal"));

@@ -3,20 +3,20 @@
     "reportVersion" : "2.0"
   },
   "run" : {
-    "version" : "2021.12.01-20f4bc5",
-    "creationTimestamp" : "2021-12-08T13:04:58.559Z",
+    "version" : "2021.12.02-a663735",
+    "creationTimestamp" : "2021-12-17T14:28:29.63Z",
     "command" : "dcover create --batch --report-file=report.json --spring-integration-tests --verbose --trace-log --working-directory=config",
-    "totalTime" : 77.095,
-    "environmentDetectionTime" : 12.789,
-    "indexingTime" : 18.479,
-    "entryPointsTime" : 2.487,
+    "totalTime" : 81.835,
+    "environmentDetectionTime" : 17.472,
+    "indexingTime" : 17.867,
+    "entryPointsTime" : 2.325,
     "generationTime" : 43.0,
     "verificationTime" : 0.0,
     "validationTime" : 0.0
   },
   "codes" : {
     "R002" : "Missing observers",
-    "R004" : "No meaningful assertions found",
+    "R013" : "No inputs found that don't throw a trivial exception",
     "T000" : "Should be tested directly",
     "T005" : "Trivial constructor",
     "T006" : "Main method"
@@ -33,7 +33,7 @@
     },
     "perMethodOutcome" : {
       "R002" : 1,
-      "R004" : 1,
+      "R013" : 1,
       "T005" : 1,
       "T006" : 1
     }
@@ -60,7 +60,7 @@
         "T000" : 2
       },
       "perMethodOutcome" : {
-        "R004" : 1,
+        "R013" : 1,
         "T005" : 1
       }
     }
@@ -88,7 +88,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R004"
+      "perMethodOutcome" : "R013"
     }
   }
 }

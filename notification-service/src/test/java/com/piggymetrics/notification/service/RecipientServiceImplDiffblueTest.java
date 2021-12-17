@@ -18,7 +18,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -28,6 +30,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 @ContextConfiguration(classes = {RecipientServiceImpl.class})
 @RunWith(SpringRunner.class)
 public class RecipientServiceImplDiffblueTest {
+  @Rule
+  public ExpectedException thrown = ExpectedException.none();
+
   @MockBean
   private RecipientRepository recipientRepository;
 
@@ -39,11 +44,22 @@ public class RecipientServiceImplDiffblueTest {
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
     recipient.setEmail("jane.doe@example.org");
-    recipient.setScheduledNotifications(new HashMap<>(1));
+    recipient.setScheduledNotifications(new HashMap<>());
     when(this.recipientRepository.findByAccountName((String) any())).thenReturn(recipient);
 
     // Act and Assert
     assertSame(recipient, this.recipientServiceImpl.findByAccountName("Dr Jane Doe"));
+    verify(this.recipientRepository).findByAccountName((String) any());
+  }
+
+  @Test
+  public void testFindByAccountName2() {
+    // Arrange
+    when(this.recipientRepository.findByAccountName((String) any())).thenThrow(new IllegalArgumentException("foo"));
+
+    // Act and Assert
+    thrown.expect(IllegalArgumentException.class);
+    this.recipientServiceImpl.findByAccountName("Dr Jane Doe");
     verify(this.recipientRepository).findByAccountName((String) any());
   }
 
@@ -53,13 +69,13 @@ public class RecipientServiceImplDiffblueTest {
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
     recipient.setEmail("jane.doe@example.org");
-    recipient.setScheduledNotifications(new HashMap<>(1));
+    recipient.setScheduledNotifications(new HashMap<>());
     when(this.recipientRepository.save((Recipient) any())).thenReturn(recipient);
 
     Recipient recipient1 = new Recipient();
     recipient1.setAccountName("Dr Jane Doe");
     recipient1.setEmail("jane.doe@example.org");
-    recipient1.setScheduledNotifications(new HashMap<>(1));
+    recipient1.setScheduledNotifications(new HashMap<>());
 
     // Act
     Recipient actualSaveResult = this.recipientServiceImpl.save("Dr Jane Doe", recipient1);
@@ -73,10 +89,26 @@ public class RecipientServiceImplDiffblueTest {
   @Test
   public void testSave2() {
     // Arrange
+    when(this.recipientRepository.save((Recipient) any())).thenThrow(new IllegalArgumentException("foo"));
+
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
     recipient.setEmail("jane.doe@example.org");
-    recipient.setScheduledNotifications(new HashMap<>(1));
+    recipient.setScheduledNotifications(new HashMap<>());
+
+    // Act and Assert
+    thrown.expect(IllegalArgumentException.class);
+    this.recipientServiceImpl.save("Dr Jane Doe", recipient);
+    verify(this.recipientRepository).save((Recipient) any());
+  }
+
+  @Test
+  public void testSave3() {
+    // Arrange
+    Recipient recipient = new Recipient();
+    recipient.setAccountName("Dr Jane Doe");
+    recipient.setEmail("jane.doe@example.org");
+    recipient.setScheduledNotifications(new HashMap<>());
     when(this.recipientRepository.save((Recipient) any())).thenReturn(recipient);
 
     NotificationSettings notificationSettings = new NotificationSettings();
@@ -85,7 +117,7 @@ public class RecipientServiceImplDiffblueTest {
     LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
     notificationSettings.setLastNotified(Date.from(atStartOfDayResult.atZone(ZoneId.of("UTC")).toInstant()));
 
-    HashMap<NotificationType, NotificationSettings> notificationTypeNotificationSettingsMap = new HashMap<>(1);
+    HashMap<NotificationType, NotificationSettings> notificationTypeNotificationSettingsMap = new HashMap<>();
     notificationTypeNotificationSettingsMap.put(NotificationType.BACKUP, notificationSettings);
 
     Recipient recipient1 = new Recipient();
@@ -103,12 +135,12 @@ public class RecipientServiceImplDiffblueTest {
   }
 
   @Test
-  public void testSave3() {
+  public void testSave4() {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
     recipient.setEmail("jane.doe@example.org");
-    recipient.setScheduledNotifications(new HashMap<>(1));
+    recipient.setScheduledNotifications(new HashMap<>());
     when(this.recipientRepository.save((Recipient) any())).thenReturn(recipient);
 
     NotificationSettings notificationSettings = new NotificationSettings();
@@ -116,7 +148,7 @@ public class RecipientServiceImplDiffblueTest {
     notificationSettings.setFrequency(Frequency.WEEKLY);
     notificationSettings.setLastNotified(null);
 
-    HashMap<NotificationType, NotificationSettings> notificationTypeNotificationSettingsMap = new HashMap<>(1);
+    HashMap<NotificationType, NotificationSettings> notificationTypeNotificationSettingsMap = new HashMap<>();
     notificationTypeNotificationSettingsMap.put(NotificationType.BACKUP, notificationSettings);
 
     Recipient recipient1 = new Recipient();
@@ -152,6 +184,17 @@ public class RecipientServiceImplDiffblueTest {
   @Test
   public void testFindReadyToNotify2() {
     // Arrange
+    when(this.recipientRepository.findReadyForBackup()).thenThrow(new IllegalArgumentException("foo"));
+
+    // Act and Assert
+    thrown.expect(IllegalArgumentException.class);
+    this.recipientServiceImpl.findReadyToNotify(NotificationType.BACKUP);
+    verify(this.recipientRepository).findReadyForBackup();
+  }
+
+  @Test
+  public void testFindReadyToNotify3() {
+    // Arrange
     ArrayList<Recipient> recipientList = new ArrayList<>();
     when(this.recipientRepository.findReadyForRemind()).thenReturn(recipientList);
     when(this.recipientRepository.findReadyForBackup()).thenReturn(new ArrayList<>());
@@ -167,12 +210,24 @@ public class RecipientServiceImplDiffblueTest {
   }
 
   @Test
+  public void testFindReadyToNotify4() {
+    // Arrange
+    when(this.recipientRepository.findReadyForRemind()).thenThrow(new IllegalArgumentException("foo"));
+    when(this.recipientRepository.findReadyForBackup()).thenReturn(new ArrayList<>());
+
+    // Act and Assert
+    thrown.expect(IllegalArgumentException.class);
+    this.recipientServiceImpl.findReadyToNotify(NotificationType.REMIND);
+    verify(this.recipientRepository).findReadyForRemind();
+  }
+
+  @Test
   public void testMarkNotified() {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
     recipient.setEmail("jane.doe@example.org");
-    recipient.setScheduledNotifications(new HashMap<>(1));
+    recipient.setScheduledNotifications(new HashMap<>());
     when(this.recipientRepository.save((Recipient) any())).thenReturn(recipient);
 
     NotificationSettings notificationSettings = new NotificationSettings();
@@ -181,7 +236,7 @@ public class RecipientServiceImplDiffblueTest {
     LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
     notificationSettings.setLastNotified(Date.from(atStartOfDayResult.atZone(ZoneId.of("UTC")).toInstant()));
 
-    HashMap<NotificationType, NotificationSettings> notificationTypeNotificationSettingsMap = new HashMap<>(1);
+    HashMap<NotificationType, NotificationSettings> notificationTypeNotificationSettingsMap = new HashMap<>();
     notificationTypeNotificationSettingsMap.put(NotificationType.BACKUP, notificationSettings);
 
     Recipient recipient1 = new Recipient();
@@ -193,6 +248,31 @@ public class RecipientServiceImplDiffblueTest {
     this.recipientServiceImpl.markNotified(NotificationType.BACKUP, recipient1);
 
     // Assert
+    verify(this.recipientRepository).save((Recipient) any());
+  }
+
+  @Test
+  public void testMarkNotified2() {
+    // Arrange
+    when(this.recipientRepository.save((Recipient) any())).thenThrow(new IllegalArgumentException("foo"));
+
+    NotificationSettings notificationSettings = new NotificationSettings();
+    notificationSettings.setActive(true);
+    notificationSettings.setFrequency(Frequency.WEEKLY);
+    LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
+    notificationSettings.setLastNotified(Date.from(atStartOfDayResult.atZone(ZoneId.of("UTC")).toInstant()));
+
+    HashMap<NotificationType, NotificationSettings> notificationTypeNotificationSettingsMap = new HashMap<>();
+    notificationTypeNotificationSettingsMap.put(NotificationType.BACKUP, notificationSettings);
+
+    Recipient recipient = new Recipient();
+    recipient.setAccountName("Dr Jane Doe");
+    recipient.setEmail("jane.doe@example.org");
+    recipient.setScheduledNotifications(notificationTypeNotificationSettingsMap);
+
+    // Act and Assert
+    thrown.expect(IllegalArgumentException.class);
+    this.recipientServiceImpl.markNotified(NotificationType.BACKUP, recipient);
     verify(this.recipientRepository).save((Recipient) any());
   }
 }

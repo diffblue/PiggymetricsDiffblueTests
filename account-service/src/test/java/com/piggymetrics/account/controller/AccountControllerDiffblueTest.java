@@ -1,7 +1,6 @@
 package com.piggymetrics.account.controller;
 
 import static org.mockito.Mockito.any;
-import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.piggymetrics.account.domain.Account;
@@ -155,38 +154,6 @@ public class AccountControllerDiffblueTest {
 
     // Assert
     actualPerformResult.andExpect(MockMvcResultMatchers.status().is(400));
-  }
-
-  @Test
-  public void testSaveCurrentAccount2() throws Exception {
-    // Arrange
-    doNothing().when(this.accountServiceImpl).saveChanges((String) any(), (Account) any());
-    MockHttpServletRequestBuilder putResult = MockMvcRequestBuilders.put("/current");
-    putResult.principal(new UserPrincipal("principal"));
-
-    Saving saving = new Saving();
-    saving.setAmount(BigDecimal.valueOf(1L));
-    saving.setCapitalization(true);
-    saving.setCurrency(Currency.USD);
-    saving.setDeposit(true);
-    saving.setInterest(BigDecimal.valueOf(1L));
-
-    Account account = new Account();
-    account.setExpenses(new ArrayList<>());
-    account.setIncomes(new ArrayList<>());
-    LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
-    account.setLastSeen(Date.from(atStartOfDayResult.atZone(ZoneId.of("UTC")).toInstant()));
-    account.setName("Name");
-    account.setNote("Note");
-    account.setSaving(saving);
-    String content = (new ObjectMapper()).writeValueAsString(account);
-    MockHttpServletRequestBuilder requestBuilder = putResult.contentType(MediaType.APPLICATION_JSON).content(content);
-
-    // Act and Assert
-    MockMvcBuilders.standaloneSetup(this.accountController)
-        .build()
-        .perform(requestBuilder)
-        .andExpect(MockMvcResultMatchers.status().isOk());
   }
 }
 

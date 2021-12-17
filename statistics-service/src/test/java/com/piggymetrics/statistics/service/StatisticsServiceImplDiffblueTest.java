@@ -14,6 +14,9 @@ import com.piggymetrics.statistics.domain.timeseries.DataPoint;
 import com.piggymetrics.statistics.domain.timeseries.DataPointId;
 import com.piggymetrics.statistics.repository.DataPointRepository;
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -39,16 +42,17 @@ public class StatisticsServiceImplDiffblueTest {
   @Test
   public void testSave() {
     // Arrange
-    when(this.exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>(1));
+    when(this.exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>());
     when(this.exchangeRatesService.convert((Currency) any(), (Currency) any(), (BigDecimal) any()))
         .thenReturn(BigDecimal.valueOf(1L));
 
     DataPoint dataPoint = new DataPoint();
     dataPoint.setExpenses(new HashSet<>());
-    dataPoint.setId(new DataPointId("3", new Date(1L)));
+    LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
+    dataPoint.setId(new DataPointId("3", Date.from(atStartOfDayResult.atZone(ZoneId.of("UTC")).toInstant())));
     dataPoint.setIncomes(new HashSet<>());
-    dataPoint.setRates(new HashMap<>(1));
-    dataPoint.setStatistics(new HashMap<>(1));
+    dataPoint.setRates(new HashMap<>());
+    dataPoint.setStatistics(new HashMap<>());
     when(this.dataPointRepository.save((DataPoint) any())).thenReturn(dataPoint);
 
     Saving saving = new Saving();
@@ -73,20 +77,21 @@ public class StatisticsServiceImplDiffblueTest {
   @Test
   public void testSave2() {
     // Arrange
-    when(this.exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>(1));
+    when(this.exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>());
     when(this.exchangeRatesService.convert((Currency) any(), (Currency) any(), (BigDecimal) any()))
         .thenReturn(BigDecimal.valueOf(1L));
 
     DataPoint dataPoint = new DataPoint();
     dataPoint.setExpenses(new HashSet<>());
-    dataPoint.setId(new DataPointId("3", new Date(1L)));
+    LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
+    dataPoint.setId(new DataPointId("3", Date.from(atStartOfDayResult.atZone(ZoneId.of("UTC")).toInstant())));
     dataPoint.setIncomes(new HashSet<>());
-    dataPoint.setRates(new HashMap<>(1));
-    dataPoint.setStatistics(new HashMap<>(1));
+    dataPoint.setRates(new HashMap<>());
+    dataPoint.setStatistics(new HashMap<>());
     when(this.dataPointRepository.save((DataPoint) any())).thenReturn(dataPoint);
 
     Item item = new Item();
-    item.setAmount(BigDecimal.valueOf(1L));
+    item.setAmount(BigDecimal.valueOf(0L));
     item.setCurrency(Currency.USD);
     item.setPeriod(TimePeriod.YEAR);
     item.setTitle("Dr");
@@ -116,26 +121,27 @@ public class StatisticsServiceImplDiffblueTest {
   @Test
   public void testSave3() {
     // Arrange
-    when(this.exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>(1));
+    when(this.exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>());
     when(this.exchangeRatesService.convert((Currency) any(), (Currency) any(), (BigDecimal) any()))
         .thenReturn(BigDecimal.valueOf(1L));
 
     DataPoint dataPoint = new DataPoint();
     dataPoint.setExpenses(new HashSet<>());
-    dataPoint.setId(new DataPointId("3", new Date(1L)));
+    LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
+    dataPoint.setId(new DataPointId("3", Date.from(atStartOfDayResult.atZone(ZoneId.of("UTC")).toInstant())));
     dataPoint.setIncomes(new HashSet<>());
-    dataPoint.setRates(new HashMap<>(1));
-    dataPoint.setStatistics(new HashMap<>(1));
+    dataPoint.setRates(new HashMap<>());
+    dataPoint.setStatistics(new HashMap<>());
     when(this.dataPointRepository.save((DataPoint) any())).thenReturn(dataPoint);
 
     Item item = new Item();
-    item.setAmount(BigDecimal.valueOf(1L));
+    item.setAmount(BigDecimal.valueOf(0L));
     item.setCurrency(Currency.USD);
     item.setPeriod(TimePeriod.YEAR);
     item.setTitle("Dr");
 
     Item item1 = new Item();
-    item1.setAmount(BigDecimal.valueOf(1L));
+    item1.setAmount(BigDecimal.valueOf(0L));
     item1.setCurrency(Currency.USD);
     item1.setPeriod(TimePeriod.YEAR);
     item1.setTitle("Dr");
@@ -166,20 +172,21 @@ public class StatisticsServiceImplDiffblueTest {
   @Test
   public void testSave4() {
     // Arrange
-    when(this.exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>(1));
+    when(this.exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>());
     when(this.exchangeRatesService.convert((Currency) any(), (Currency) any(), (BigDecimal) any()))
         .thenReturn(BigDecimal.valueOf(1L));
 
     DataPoint dataPoint = new DataPoint();
     dataPoint.setExpenses(new HashSet<>());
-    dataPoint.setId(new DataPointId("3", new Date(1L)));
+    LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
+    dataPoint.setId(new DataPointId("3", Date.from(atStartOfDayResult.atZone(ZoneId.of("UTC")).toInstant())));
     dataPoint.setIncomes(new HashSet<>());
-    dataPoint.setRates(new HashMap<>(1));
-    dataPoint.setStatistics(new HashMap<>(1));
+    dataPoint.setRates(new HashMap<>());
+    dataPoint.setStatistics(new HashMap<>());
     when(this.dataPointRepository.save((DataPoint) any())).thenReturn(dataPoint);
 
     Item item = new Item();
-    item.setAmount(BigDecimal.valueOf(1L));
+    item.setAmount(BigDecimal.valueOf(0L));
     item.setCurrency(Currency.USD);
     item.setPeriod(TimePeriod.YEAR);
     item.setTitle("Dr");
