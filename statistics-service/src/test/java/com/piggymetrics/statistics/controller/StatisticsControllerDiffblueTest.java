@@ -6,10 +6,18 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.piggymetrics.statistics.domain.Account;
 import com.piggymetrics.statistics.domain.Currency;
 import com.piggymetrics.statistics.domain.Saving;
-import com.piggymetrics.statistics.service.StatisticsServiceImpl;
+import com.piggymetrics.statistics.domain.timeseries.DataPoint;
+import com.piggymetrics.statistics.domain.timeseries.DataPointId;
+import com.piggymetrics.statistics.service.StatisticsService;
 import com.sun.security.auth.UserPrincipal;
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +25,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
@@ -30,11 +37,11 @@ public class StatisticsControllerDiffblueTest {
   private StatisticsController statisticsController;
 
   @MockBean
-  private StatisticsServiceImpl statisticsServiceImpl;
+  private StatisticsService statisticsService;
   @Test
   public void testGetCurrentAccountStatistics() throws Exception {
     // Arrange
-    when(this.statisticsServiceImpl.findByAccountName((String) any())).thenReturn(new ArrayList<>());
+    when(this.statisticsService.findByAccountName((String) any())).thenReturn(new ArrayList<>());
     MockHttpServletRequestBuilder getResult = MockMvcRequestBuilders.get("/current");
     getResult.principal(new UserPrincipal("principal"));
 
@@ -50,22 +57,48 @@ public class StatisticsControllerDiffblueTest {
   @Test
   public void testGetStatisticsByAccountName() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/{accountName}", "", "Uri Vars");
+    when(this.statisticsService.findByAccountName((String) any())).thenReturn(new ArrayList<>());
+    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/{accountName}", "Dr Jane Doe");
 
-    // Act
-    ResultActions actualPerformResult = MockMvcBuilders.standaloneSetup(this.statisticsController)
+    // Act and Assert
+    MockMvcBuilders.standaloneSetup(this.statisticsController)
         .build()
-        .perform(requestBuilder);
+        .perform(requestBuilder)
+        .andExpect(MockMvcResultMatchers.status().isOk())
+        .andExpect(MockMvcResultMatchers.content().contentType("application/json;charset=UTF-8"))
+        .andExpect(MockMvcResultMatchers.content().string("[]"));
+  }
 
-    // Assert
-    actualPerformResult.andExpect(MockMvcResultMatchers.status().isNotFound());
+  @Test
+  public void testGetStatisticsByAccountName2() throws Exception {
+    // Arrange
+    when(this.statisticsService.findByAccountName((String) any())).thenReturn(new ArrayList<>());
+    MockHttpServletRequestBuilder getResult = MockMvcRequestBuilders.get("/{accountName}", "Dr Jane Doe");
+    getResult.characterEncoding("Encoding");
+
+    // Act and Assert
+    MockMvcBuilders.standaloneSetup(this.statisticsController)
+        .build()
+        .perform(getResult)
+        .andExpect(MockMvcResultMatchers.status().isOk())
+        .andExpect(MockMvcResultMatchers.content().contentType("application/json;charset=UTF-8"))
+        .andExpect(MockMvcResultMatchers.content().string("[]"));
   }
 
   @Test
   public void testSaveAccountStatistics() throws Exception {
     // Arrange
+    DataPoint dataPoint = new DataPoint();
+    dataPoint.setExpenses(new HashSet<>());
+    LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
+    dataPoint.setId(new DataPointId("3", Date.from(atStartOfDayResult.atZone(ZoneId.of("UTC")).toInstant())));
+    dataPoint.setIncomes(new HashSet<>());
+    dataPoint.setRates(new HashMap<>());
+    dataPoint.setStatistics(new HashMap<>());
+    when(this.statisticsService.save((String) any(), (Account) any())).thenReturn(dataPoint);
+
     Saving saving = new Saving();
-    saving.setAmount(null);
+    saving.setAmount(BigDecimal.valueOf(1L));
     saving.setCapitalization(true);
     saving.setCurrency(Currency.USD);
     saving.setDeposit(true);
@@ -80,13 +113,11 @@ public class StatisticsControllerDiffblueTest {
         .contentType(MediaType.APPLICATION_JSON)
         .content(content);
 
-    // Act
-    ResultActions actualPerformResult = MockMvcBuilders.standaloneSetup(this.statisticsController)
+    // Act and Assert
+    MockMvcBuilders.standaloneSetup(this.statisticsController)
         .build()
-        .perform(requestBuilder);
-
-    // Assert
-    actualPerformResult.andExpect(MockMvcResultMatchers.status().is(400));
+        .perform(requestBuilder)
+        .andExpect(MockMvcResultMatchers.status().isOk());
   }
 }
 

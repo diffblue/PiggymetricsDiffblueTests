@@ -1,6 +1,7 @@
 package com.piggymetrics.statistics.service;
 
 import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.verify;
@@ -13,6 +14,7 @@ import com.piggymetrics.statistics.domain.TimePeriod;
 import com.piggymetrics.statistics.domain.timeseries.DataPoint;
 import com.piggymetrics.statistics.domain.timeseries.DataPointId;
 import com.piggymetrics.statistics.repository.DataPointRepository;
+import de.flapdoodle.embed.mongo.MongodExecutable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -21,24 +23,43 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-@ContextConfiguration(classes = {StatisticsServiceImpl.class})
+@SpringBootTest
 @RunWith(SpringRunner.class)
 public class StatisticsServiceImplDiffblueTest {
+  @MockBean
+  private ExchangeRatesService exchangeRatesService;
+
   @MockBean
   private DataPointRepository dataPointRepository;
 
   @MockBean
-  private ExchangeRatesService exchangeRatesService;
+  private MongodExecutable mongodExecutable;
 
   @Autowired
   private StatisticsServiceImpl statisticsServiceImpl;
+  @Test
+  public void testFindByAccountName() {
+    // Arrange
+    ArrayList<DataPoint> dataPointList = new ArrayList<>();
+    when(this.dataPointRepository.findByIdAccount((String) any())).thenReturn(dataPointList);
+
+    // Act
+    List<DataPoint> actualFindByAccountNameResult = this.statisticsServiceImpl.findByAccountName("Dr Jane Doe");
+
+    // Assert
+    assertSame(dataPointList, actualFindByAccountNameResult);
+    assertTrue(actualFindByAccountNameResult.isEmpty());
+    verify(this.dataPointRepository).findByIdAccount((String) any());
+  }
+
   @Test
   public void testSave() {
     // Arrange

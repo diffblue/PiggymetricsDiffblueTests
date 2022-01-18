@@ -37,7 +37,7 @@ public class AccountServiceImplDiffblueTest {
   @MockBean
   private AuthServiceClient authServiceClient;
 
-  @MockBean(name = "com.piggymetrics.account.client.StatisticsServiceClient")
+  @MockBean
   private StatisticsServiceClient statisticsServiceClient;
   @Test
   public void testFindByName() {

@@ -2,7 +2,7 @@ package com.piggymetrics.auth.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.piggymetrics.auth.domain.User;
-import com.piggymetrics.auth.service.UserServiceImpl;
+import com.piggymetrics.auth.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ public class UserControllerDiffblueTest {
   private UserController userController;
 
   @MockBean
-  private UserServiceImpl userServiceImpl;
+  private UserService userService;
   @Test
   public void testCreateUser() throws Exception {
     // Arrange
@@ -59,12 +59,13 @@ public class UserControllerDiffblueTest {
   @Test
   public void testGetUser2() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/users/current", "Uri Vars");
+    MockHttpServletRequestBuilder getResult = MockMvcRequestBuilders.get("/users/current");
+    getResult.characterEncoding("Encoding");
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(this.userController)
         .build()
-        .perform(requestBuilder)
+        .perform(getResult)
         .andExpect(MockMvcResultMatchers.status().isOk());
   }
 }

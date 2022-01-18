@@ -3,16 +3,16 @@
     "reportVersion" : "2.0"
   },
   "run" : {
-    "version" : "2021.12.02-a663735",
-    "creationTimestamp" : "2021-12-17T14:40:07.225Z",
+    "version" : "2022.01.01-6c612f9",
+    "creationTimestamp" : "2022-01-18T16:11:17.928Z",
     "command" : "dcover create --batch --report-file=report.json --spring-integration-tests --verbose --trace-log --working-directory=statistics-service",
-    "totalTime" : 351.924,
-    "environmentDetectionTime" : 15.668,
-    "indexingTime" : 22.565,
-    "entryPointsTime" : 3.826,
-    "generationTime" : 180.0,
-    "verificationTime" : 38.0,
-    "validationTime" : 89.992
+    "totalTime" : 339.709,
+    "environmentDetectionTime" : 14.423,
+    "indexingTime" : 5.188,
+    "entryPointsTime" : 12.995000000000001,
+    "generationTime" : 161.0,
+    "verificationTime" : 41.0,
+    "validationTime" : 103.971
   },
   "codes" : {
     "R000" : "Success",
@@ -27,13 +27,12 @@
     "T005" : "Trivial constructor",
     "T006" : "Main method",
     "T020" : "Other trivial method",
-    "V000" : "Validated successfully",
-    "W002" : "Test compiled, but did not pass"
+    "V000" : "Validated successfully"
   },
   "summary" : {
     "classesCount" : 20,
     "methodsCount" : 98,
-    "completeTestCount" : 27,
+    "completeTestCount" : 29,
     "incompleteTestCount" : 0,
     "perMethodTestability" : {
       "T000" : 32,
@@ -44,23 +43,20 @@
       "T020" : 2
     },
     "perMethodOutcome" : {
-      "R000" : 68,
+      "R000" : 69,
       "R002" : 2,
       "R004" : 2,
-      "R013" : 4,
+      "R013" : 3,
       "R015" : 1,
       "R028" : 12,
       "T005" : 8,
       "T006" : 1
     },
     "perTestOutcome" : {
-      "R000" : 27
+      "R000" : 29
     },
     "perTestValidation" : {
-      "V000" : 27
-    },
-    "warnings" : {
-      "W002" : 1
+      "V000" : 29
     }
   },
   "classes" : {
@@ -124,7 +120,7 @@
     },
     "com.piggymetrics.statistics.controller.StatisticsController" : {
       "methodsCount" : 4,
-      "completeTestCount" : 3,
+      "completeTestCount" : 4,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 3,
@@ -135,7 +131,7 @@
         "T005" : 1
       },
       "perTestOutcome" : {
-        "R000" : 3
+        "R000" : 4
       }
     },
     "com.piggymetrics.statistics.domain.Account" : {
@@ -333,21 +329,17 @@
     },
     "com.piggymetrics.statistics.service.StatisticsServiceImpl" : {
       "methodsCount" : 3,
-      "completeTestCount" : 4,
+      "completeTestCount" : 5,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 3
       },
       "perMethodOutcome" : {
-        "R000" : 1,
-        "R013" : 1,
+        "R000" : 2,
         "T005" : 1
       },
       "perTestOutcome" : {
-        "R000" : 4
-      },
-      "warnings" : {
-        "W002" : 1
+        "R000" : 5
       }
     },
     "com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices" : {
@@ -438,12 +430,12 @@
       }
     },
     "com.piggymetrics.statistics.controller.StatisticsController.getStatisticsByAccountName:(Ljava/lang/String;)Ljava/util/List;" : {
-      "completeTestCount" : 1,
+      "completeTestCount" : 2,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 1
+        "R000" : 2
       }
     },
     "com.piggymetrics.statistics.controller.StatisticsController.saveAccountStatistics:(Ljava/lang/String;Lcom/piggymetrics/statistics/domain/Account;)V" : {
@@ -1095,12 +1087,12 @@
       "perMethodOutcome" : "T005"
     },
     "com.piggymetrics.statistics.service.StatisticsServiceImpl.findByAccountName:(Ljava/lang/String;)Ljava/util/List;" : {
-      "completeTestCount" : 0,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R013",
-      "warnings" : {
-        "W002" : 1
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
       }
     },
     "com.piggymetrics.statistics.service.StatisticsServiceImpl.save:(Ljava/lang/String;Lcom/piggymetrics/statistics/domain/Account;)Lcom/piggymetrics/statistics/domain/timeseries/DataPoint;" : {
