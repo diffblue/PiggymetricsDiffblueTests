@@ -113,6 +113,18 @@ public class CustomUserInfoTokenServicesDiffblueTest {
   }
 
   @Test
+  public void testLoadAuthentication2() throws AuthenticationException, InvalidTokenException {
+    // Arrange
+    CustomUserInfoTokenServices customUserInfoTokenServices = new CustomUserInfoTokenServices(
+        "https://config.us-east-2.amazonaws.com", "42");
+    customUserInfoTokenServices.setRestTemplate(new OAuth2RestTemplate(new BaseOAuth2ProtectedResourceDetails()));
+
+    // Act and Assert
+    thrown.expect(InvalidTokenException.class);
+    customUserInfoTokenServices.loadAuthentication("ABC123");
+  }
+
+  @Test
   public void testReadAccessToken() {
     // Arrange, Act and Assert
     thrown.expect(UnsupportedOperationException.class);

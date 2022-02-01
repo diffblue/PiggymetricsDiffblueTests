@@ -3,23 +3,22 @@
     "reportVersion" : "2.0"
   },
   "run" : {
-    "version" : "2022.01.01-6c612f9",
-    "creationTimestamp" : "2022-01-18T16:11:17.928Z",
+    "version" : "2022.01.02-df428b4",
+    "creationTimestamp" : "2022-01-31T23:43:32.57Z",
     "command" : "dcover create --batch --report-file=report.json --spring-integration-tests --verbose --trace-log --working-directory=statistics-service",
-    "totalTime" : 339.709,
-    "environmentDetectionTime" : 14.423,
-    "indexingTime" : 5.188,
-    "entryPointsTime" : 12.995000000000001,
-    "generationTime" : 161.0,
+    "totalTime" : 326.465,
+    "environmentDetectionTime" : 14.093,
+    "indexingTime" : 4.974,
+    "entryPointsTime" : 12.864,
+    "generationTime" : 154.0,
     "verificationTime" : 41.0,
-    "validationTime" : 103.971
+    "validationTime" : 98.985
   },
   "codes" : {
     "R000" : "Success",
     "R002" : "Missing observers",
     "R004" : "No meaningful assertions found",
     "R013" : "No inputs found that don't throw a trivial exception",
-    "R015" : "Method may be nondeterministic",
     "R028" : "Incomplete repository information",
     "T000" : "Should be tested directly",
     "T001" : "Trivial getter",
@@ -32,7 +31,7 @@
   "summary" : {
     "classesCount" : 20,
     "methodsCount" : 98,
-    "completeTestCount" : 29,
+    "completeTestCount" : 31,
     "incompleteTestCount" : 0,
     "perMethodTestability" : {
       "T000" : 32,
@@ -43,20 +42,19 @@
       "T020" : 2
     },
     "perMethodOutcome" : {
-      "R000" : 69,
+      "R000" : 70,
       "R002" : 2,
       "R004" : 2,
       "R013" : 3,
-      "R015" : 1,
       "R028" : 12,
       "T005" : 8,
       "T006" : 1
     },
     "perTestOutcome" : {
-      "R000" : 29
+      "R000" : 31
     },
     "perTestValidation" : {
-      "V000" : 29
+      "V000" : 31
     }
   },
   "classes" : {
@@ -163,7 +161,7 @@
     },
     "com.piggymetrics.statistics.domain.ExchangeRatesContainer" : {
       "methodsCount" : 8,
-      "completeTestCount" : 1,
+      "completeTestCount" : 2,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 1,
@@ -172,11 +170,10 @@
         "T020" : 1
       },
       "perMethodOutcome" : {
-        "R000" : 7,
-        "R015" : 1
+        "R000" : 8
       },
       "perTestOutcome" : {
-        "R000" : 1
+        "R000" : 2
       }
     },
     "com.piggymetrics.statistics.domain.Item" : {
@@ -344,7 +341,7 @@
     },
     "com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices" : {
       "methodsCount" : 6,
-      "completeTestCount" : 3,
+      "completeTestCount" : 4,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 3,
@@ -355,7 +352,7 @@
         "R004" : 1
       },
       "perTestOutcome" : {
-        "R000" : 3
+        "R000" : 4
       }
     }
   },
@@ -517,10 +514,13 @@
       "perMethodOutcome" : "R002"
     },
     "com.piggymetrics.statistics.domain.ExchangeRatesContainer.<init>:()V" : {
-      "completeTestCount" : 0,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R015"
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      }
     },
     "com.piggymetrics.statistics.domain.ExchangeRatesContainer.getBase:()Lcom/piggymetrics/statistics/domain/Currency;" : {
       "completeTestCount" : 1,
@@ -1111,12 +1111,12 @@
       "perMethodOutcome" : "R004"
     },
     "com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices.loadAuthentication:(Ljava/lang/String;)Lorg/springframework/security/oauth2/provider/OAuth2Authentication;" : {
-      "completeTestCount" : 1,
+      "completeTestCount" : 2,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 1
+        "R000" : 2
       }
     },
     "com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices.readAccessToken:(Ljava/lang/String;)Lorg/springframework/security/oauth2/common/OAuth2AccessToken;" : {

@@ -3,16 +3,16 @@
     "reportVersion" : "2.0"
   },
   "run" : {
-    "version" : "2022.01.01-6c612f9",
-    "creationTimestamp" : "2022-01-18T15:56:07.137Z",
+    "version" : "2022.01.02-df428b4",
+    "creationTimestamp" : "2022-01-31T23:28:57.943Z",
     "command" : "dcover create --batch --report-file=report.json --spring-integration-tests --verbose --trace-log --working-directory=auth-service",
-    "totalTime" : 287.716,
-    "environmentDetectionTime" : 14.212,
-    "indexingTime" : 4.852,
-    "entryPointsTime" : 11.924,
-    "generationTime" : 160.0,
+    "totalTime" : 265.96,
+    "environmentDetectionTime" : 13.991,
+    "indexingTime" : 4.96,
+    "entryPointsTime" : 11.639,
+    "generationTime" : 144.0,
     "verificationTime" : 26.0,
-    "validationTime" : 69.997
+    "validationTime" : 63.992
   },
   "codes" : {
     "R000" : "Success",
@@ -30,7 +30,7 @@
   "summary" : {
     "classesCount" : 8,
     "methodsCount" : 38,
-    "completeTestCount" : 15,
+    "completeTestCount" : 14,
     "incompleteTestCount" : 0,
     "perMethodTestability" : {
       "T000" : 24,
@@ -49,10 +49,10 @@
       "T006" : 1
     },
     "perTestOutcome" : {
-      "R000" : 15
+      "R000" : 14
     },
     "perTestValidation" : {
-      "V000" : 15
+      "V000" : 14
     }
   },
   "classes" : {
@@ -146,7 +146,7 @@
     },
     "com.piggymetrics.auth.service.UserServiceImpl" : {
       "methodsCount" : 2,
-      "completeTestCount" : 4,
+      "completeTestCount" : 3,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 2
@@ -156,7 +156,7 @@
         "T005" : 1
       },
       "perTestOutcome" : {
-        "R000" : 4
+        "R000" : 3
       }
     },
     "com.piggymetrics.auth.service.security.MongoUserDetailsService" : {
@@ -436,12 +436,12 @@
       "perMethodOutcome" : "T005"
     },
     "com.piggymetrics.auth.service.UserServiceImpl.create:(Lcom/piggymetrics/auth/domain/User;)V" : {
-      "completeTestCount" : 4,
+      "completeTestCount" : 3,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 4
+        "R000" : 3
       }
     },
     "com.piggymetrics.auth.service.security.MongoUserDetailsService.<init>:()V" : {

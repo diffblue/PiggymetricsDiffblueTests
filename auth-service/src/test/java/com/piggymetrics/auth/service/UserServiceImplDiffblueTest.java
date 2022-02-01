@@ -32,36 +32,26 @@ public class UserServiceImplDiffblueTest {
     User user = new User();
     user.setPassword("iloveyou");
     user.setUsername("janedoe");
-    Optional<User> ofResult = Optional.of(user);
-    when(this.userRepository.findById((String) any())).thenReturn(ofResult);
 
     User user1 = new User();
     user1.setPassword("iloveyou");
     user1.setUsername("janedoe");
+    Optional<User> ofResult = Optional.of(user1);
+    when(this.userRepository.save((User) any())).thenReturn(user);
+    when(this.userRepository.findById((String) any())).thenReturn(ofResult);
+
+    User user2 = new User();
+    user2.setPassword("iloveyou");
+    user2.setUsername("janedoe");
 
     // Act and Assert
     thrown.expect(IllegalArgumentException.class);
-    this.userServiceImpl.create(user1);
+    this.userServiceImpl.create(user2);
     verify(this.userRepository).findById((String) any());
   }
 
   @Test
   public void testCreate2() {
-    // Arrange
-    when(this.userRepository.findById((String) any())).thenThrow(new IllegalArgumentException("foo"));
-
-    User user = new User();
-    user.setPassword("iloveyou");
-    user.setUsername("janedoe");
-
-    // Act and Assert
-    thrown.expect(IllegalArgumentException.class);
-    this.userServiceImpl.create(user);
-    verify(this.userRepository).findById((String) any());
-  }
-
-  @Test
-  public void testCreate3() {
     // Arrange
     User user = new User();
     user.setPassword("iloveyou");
@@ -77,15 +67,17 @@ public class UserServiceImplDiffblueTest {
     this.userServiceImpl.create(user1);
 
     // Assert
-    verify(this.userRepository).findById((String) any());
     verify(this.userRepository).save((User) any());
+    verify(this.userRepository).findById((String) any());
   }
 
   @Test
-  public void testCreate4() {
+  public void testCreate3() {
     // Arrange
-    when(this.userRepository.save((User) any())).thenThrow(new IllegalArgumentException("foo"));
-    when(this.userRepository.findById((String) any())).thenReturn(Optional.empty());
+    when(this.userRepository.save((User) any()))
+        .thenThrow(new IllegalArgumentException("new user has been created: {}"));
+    when(this.userRepository.findById((String) any()))
+        .thenThrow(new IllegalArgumentException("new user has been created: {}"));
 
     User user = new User();
     user.setPassword("iloveyou");
@@ -95,7 +87,6 @@ public class UserServiceImplDiffblueTest {
     thrown.expect(IllegalArgumentException.class);
     this.userServiceImpl.create(user);
     verify(this.userRepository).findById((String) any());
-    verify(this.userRepository).save((User) any());
   }
 }
 

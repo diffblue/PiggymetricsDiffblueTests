@@ -1,6 +1,8 @@
 package com.piggymetrics.account.controller;
 
 import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.piggymetrics.account.domain.Account;
@@ -10,6 +12,7 @@ import com.piggymetrics.account.domain.User;
 import com.piggymetrics.account.service.AccountService;
 import com.sun.security.auth.UserPrincipal;
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -146,6 +149,9 @@ public class AccountControllerDiffblueTest {
   @Test
   public void testSaveCurrentAccount() throws Exception {
     // Arrange
+    Timestamp timestamp = mock(Timestamp.class);
+    when(timestamp.getTime()).thenReturn(10L);
+
     Saving saving = new Saving();
     saving.setAmount(null);
     saving.setCapitalization(true);
@@ -156,8 +162,7 @@ public class AccountControllerDiffblueTest {
     Account account = new Account();
     account.setExpenses(new ArrayList<>());
     account.setIncomes(new ArrayList<>());
-    LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
-    account.setLastSeen(Date.from(atStartOfDayResult.atZone(ZoneId.of("UTC")).toInstant()));
+    account.setLastSeen(timestamp);
     account.setName("Name");
     account.setNote("Note");
     account.setSaving(saving);
@@ -173,6 +178,39 @@ public class AccountControllerDiffblueTest {
 
     // Assert
     actualPerformResult.andExpect(MockMvcResultMatchers.status().is(400));
+  }
+
+  @Test
+  public void testSaveCurrentAccount2() throws Exception {
+    // Arrange
+    doNothing().when(this.accountService).saveChanges((String) any(), (Account) any());
+    MockHttpServletRequestBuilder putResult = MockMvcRequestBuilders.put("/current");
+    putResult.principal(new UserPrincipal("principal"));
+    Timestamp timestamp = mock(Timestamp.class);
+    when(timestamp.getTime()).thenReturn(10L);
+
+    Saving saving = new Saving();
+    saving.setAmount(BigDecimal.valueOf(1L));
+    saving.setCapitalization(true);
+    saving.setCurrency(Currency.USD);
+    saving.setDeposit(true);
+    saving.setInterest(BigDecimal.valueOf(1L));
+
+    Account account = new Account();
+    account.setExpenses(new ArrayList<>());
+    account.setIncomes(new ArrayList<>());
+    account.setLastSeen(timestamp);
+    account.setName("Name");
+    account.setNote("Note");
+    account.setSaving(saving);
+    String content = (new ObjectMapper()).writeValueAsString(account);
+    MockHttpServletRequestBuilder requestBuilder = putResult.contentType(MediaType.APPLICATION_JSON).content(content);
+
+    // Act and Assert
+    MockMvcBuilders.standaloneSetup(this.accountController)
+        .build()
+        .perform(requestBuilder)
+        .andExpect(MockMvcResultMatchers.status().isOk());
   }
 }
 

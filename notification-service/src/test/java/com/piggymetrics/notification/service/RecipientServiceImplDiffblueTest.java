@@ -89,22 +89,6 @@ public class RecipientServiceImplDiffblueTest {
   @Test
   public void testSave2() {
     // Arrange
-    when(this.recipientRepository.save((Recipient) any())).thenThrow(new IllegalArgumentException("foo"));
-
-    Recipient recipient = new Recipient();
-    recipient.setAccountName("Dr Jane Doe");
-    recipient.setEmail("jane.doe@example.org");
-    recipient.setScheduledNotifications(new HashMap<>());
-
-    // Act and Assert
-    thrown.expect(IllegalArgumentException.class);
-    this.recipientServiceImpl.save("Dr Jane Doe", recipient);
-    verify(this.recipientRepository).save((Recipient) any());
-  }
-
-  @Test
-  public void testSave3() {
-    // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
     recipient.setEmail("jane.doe@example.org");
@@ -131,6 +115,23 @@ public class RecipientServiceImplDiffblueTest {
     // Assert
     assertSame(recipient1, actualSaveResult);
     assertEquals("Dr Jane Doe", actualSaveResult.getAccountName());
+    verify(this.recipientRepository).save((Recipient) any());
+  }
+
+  @Test
+  public void testSave3() {
+    // Arrange
+    when(this.recipientRepository.save((Recipient) any()))
+        .thenThrow(new IllegalArgumentException("recipient {} settings has been updated"));
+
+    Recipient recipient = new Recipient();
+    recipient.setAccountName("Dr Jane Doe");
+    recipient.setEmail("jane.doe@example.org");
+    recipient.setScheduledNotifications(new HashMap<>());
+
+    // Act and Assert
+    thrown.expect(IllegalArgumentException.class);
+    this.recipientServiceImpl.save("Dr Jane Doe", recipient);
     verify(this.recipientRepository).save((Recipient) any());
   }
 
@@ -184,17 +185,6 @@ public class RecipientServiceImplDiffblueTest {
   @Test
   public void testFindReadyToNotify2() {
     // Arrange
-    when(this.recipientRepository.findReadyForBackup()).thenThrow(new IllegalArgumentException("foo"));
-
-    // Act and Assert
-    thrown.expect(IllegalArgumentException.class);
-    this.recipientServiceImpl.findReadyToNotify(NotificationType.BACKUP);
-    verify(this.recipientRepository).findReadyForBackup();
-  }
-
-  @Test
-  public void testFindReadyToNotify3() {
-    // Arrange
     ArrayList<Recipient> recipientList = new ArrayList<>();
     when(this.recipientRepository.findReadyForRemind()).thenReturn(recipientList);
     when(this.recipientRepository.findReadyForBackup()).thenReturn(new ArrayList<>());
@@ -210,7 +200,7 @@ public class RecipientServiceImplDiffblueTest {
   }
 
   @Test
-  public void testFindReadyToNotify4() {
+  public void testFindReadyToNotify3() {
     // Arrange
     when(this.recipientRepository.findReadyForRemind()).thenThrow(new IllegalArgumentException("foo"));
     when(this.recipientRepository.findReadyForBackup()).thenReturn(new ArrayList<>());

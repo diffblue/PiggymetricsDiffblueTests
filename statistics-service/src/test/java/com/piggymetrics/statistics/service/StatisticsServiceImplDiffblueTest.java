@@ -4,6 +4,8 @@ import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.atLeast;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import com.piggymetrics.statistics.domain.Account;
@@ -111,15 +113,6 @@ public class StatisticsServiceImplDiffblueTest {
     dataPoint.setStatistics(new HashMap<>());
     when(this.dataPointRepository.save((DataPoint) any())).thenReturn(dataPoint);
 
-    Item item = new Item();
-    item.setAmount(BigDecimal.valueOf(0L));
-    item.setCurrency(Currency.USD);
-    item.setPeriod(TimePeriod.YEAR);
-    item.setTitle("Dr");
-
-    ArrayList<Item> itemList = new ArrayList<>();
-    itemList.add(item);
-
     Saving saving = new Saving();
     saving.setAmount(BigDecimal.valueOf(1L));
     saving.setCapitalization(true);
@@ -127,8 +120,29 @@ public class StatisticsServiceImplDiffblueTest {
     saving.setDeposit(true);
     saving.setInterest(BigDecimal.valueOf(1L));
 
-    Account account = new Account();
-    account.setExpenses(itemList);
+    Saving saving1 = new Saving();
+    saving1.setAmount(BigDecimal.valueOf(1L));
+    saving1.setCapitalization(true);
+    saving1.setCurrency(Currency.USD);
+    saving1.setDeposit(true);
+    saving1.setInterest(BigDecimal.valueOf(1L));
+
+    Item item = new Item();
+    item.setAmount(BigDecimal.valueOf(1L));
+    item.setCurrency(Currency.USD);
+    item.setPeriod(TimePeriod.YEAR);
+    item.setTitle("Dr");
+
+    ArrayList<Item> itemList = new ArrayList<>();
+    itemList.add(item);
+    Account account = mock(Account.class);
+    when(account.getSaving()).thenReturn(saving1);
+    when(account.getExpenses()).thenReturn(itemList);
+    when(account.getIncomes()).thenReturn(new ArrayList<>());
+    doNothing().when(account).setExpenses((List<Item>) any());
+    doNothing().when(account).setIncomes((List<Item>) any());
+    doNothing().when(account).setSaving((Saving) any());
+    account.setExpenses(new ArrayList<>());
     account.setIncomes(new ArrayList<>());
     account.setSaving(saving);
 
@@ -137,6 +151,12 @@ public class StatisticsServiceImplDiffblueTest {
     verify(this.exchangeRatesService, atLeast(1)).convert((Currency) any(), (Currency) any(), (BigDecimal) any());
     verify(this.exchangeRatesService).getCurrentRates();
     verify(this.dataPointRepository).save((DataPoint) any());
+    verify(account).getSaving();
+    verify(account).getExpenses();
+    verify(account).getIncomes();
+    verify(account).setExpenses((List<Item>) any());
+    verify(account).setIncomes((List<Item>) any());
+    verify(account).setSaving((Saving) any());
   }
 
   @Test
@@ -155,22 +175,6 @@ public class StatisticsServiceImplDiffblueTest {
     dataPoint.setStatistics(new HashMap<>());
     when(this.dataPointRepository.save((DataPoint) any())).thenReturn(dataPoint);
 
-    Item item = new Item();
-    item.setAmount(BigDecimal.valueOf(0L));
-    item.setCurrency(Currency.USD);
-    item.setPeriod(TimePeriod.YEAR);
-    item.setTitle("Dr");
-
-    Item item1 = new Item();
-    item1.setAmount(BigDecimal.valueOf(0L));
-    item1.setCurrency(Currency.USD);
-    item1.setPeriod(TimePeriod.YEAR);
-    item1.setTitle("Dr");
-
-    ArrayList<Item> itemList = new ArrayList<>();
-    itemList.add(item1);
-    itemList.add(item);
-
     Saving saving = new Saving();
     saving.setAmount(BigDecimal.valueOf(1L));
     saving.setCapitalization(true);
@@ -178,8 +182,29 @@ public class StatisticsServiceImplDiffblueTest {
     saving.setDeposit(true);
     saving.setInterest(BigDecimal.valueOf(1L));
 
-    Account account = new Account();
-    account.setExpenses(itemList);
+    Saving saving1 = new Saving();
+    saving1.setAmount(BigDecimal.valueOf(1L));
+    saving1.setCapitalization(true);
+    saving1.setCurrency(Currency.USD);
+    saving1.setDeposit(true);
+    saving1.setInterest(BigDecimal.valueOf(1L));
+
+    Item item = new Item();
+    item.setAmount(BigDecimal.valueOf(1L));
+    item.setCurrency(Currency.USD);
+    item.setPeriod(TimePeriod.YEAR);
+    item.setTitle("Dr");
+
+    ArrayList<Item> itemList = new ArrayList<>();
+    itemList.add(item);
+    Account account = mock(Account.class);
+    when(account.getSaving()).thenReturn(saving1);
+    when(account.getExpenses()).thenReturn(new ArrayList<>());
+    when(account.getIncomes()).thenReturn(itemList);
+    doNothing().when(account).setExpenses((List<Item>) any());
+    doNothing().when(account).setIncomes((List<Item>) any());
+    doNothing().when(account).setSaving((Saving) any());
+    account.setExpenses(new ArrayList<>());
     account.setIncomes(new ArrayList<>());
     account.setSaving(saving);
 
@@ -188,6 +213,12 @@ public class StatisticsServiceImplDiffblueTest {
     verify(this.exchangeRatesService, atLeast(1)).convert((Currency) any(), (Currency) any(), (BigDecimal) any());
     verify(this.exchangeRatesService).getCurrentRates();
     verify(this.dataPointRepository).save((DataPoint) any());
+    verify(account).getSaving();
+    verify(account).getExpenses();
+    verify(account).getIncomes();
+    verify(account).setExpenses((List<Item>) any());
+    verify(account).setIncomes((List<Item>) any());
+    verify(account).setSaving((Saving) any());
   }
 
   @Test
@@ -206,15 +237,6 @@ public class StatisticsServiceImplDiffblueTest {
     dataPoint.setStatistics(new HashMap<>());
     when(this.dataPointRepository.save((DataPoint) any())).thenReturn(dataPoint);
 
-    Item item = new Item();
-    item.setAmount(BigDecimal.valueOf(0L));
-    item.setCurrency(Currency.USD);
-    item.setPeriod(TimePeriod.YEAR);
-    item.setTitle("Dr");
-
-    ArrayList<Item> itemList = new ArrayList<>();
-    itemList.add(item);
-
     Saving saving = new Saving();
     saving.setAmount(BigDecimal.valueOf(1L));
     saving.setCapitalization(true);
@@ -222,9 +244,37 @@ public class StatisticsServiceImplDiffblueTest {
     saving.setDeposit(true);
     saving.setInterest(BigDecimal.valueOf(1L));
 
-    Account account = new Account();
+    Saving saving1 = new Saving();
+    saving1.setAmount(BigDecimal.valueOf(1L));
+    saving1.setCapitalization(true);
+    saving1.setCurrency(Currency.USD);
+    saving1.setDeposit(true);
+    saving1.setInterest(BigDecimal.valueOf(1L));
+
+    Item item = new Item();
+    item.setAmount(BigDecimal.valueOf(1L));
+    item.setCurrency(Currency.USD);
+    item.setPeriod(TimePeriod.YEAR);
+    item.setTitle("Dr");
+
+    Item item1 = new Item();
+    item1.setAmount(BigDecimal.valueOf(4L));
+    item1.setCurrency(Currency.USD);
+    item1.setPeriod(TimePeriod.YEAR);
+    item1.setTitle("Dr");
+
+    ArrayList<Item> itemList = new ArrayList<>();
+    itemList.add(item1);
+    itemList.add(item);
+    Account account = mock(Account.class);
+    when(account.getSaving()).thenReturn(saving1);
+    when(account.getExpenses()).thenReturn(itemList);
+    when(account.getIncomes()).thenReturn(new ArrayList<>());
+    doNothing().when(account).setExpenses((List<Item>) any());
+    doNothing().when(account).setIncomes((List<Item>) any());
+    doNothing().when(account).setSaving((Saving) any());
     account.setExpenses(new ArrayList<>());
-    account.setIncomes(itemList);
+    account.setIncomes(new ArrayList<>());
     account.setSaving(saving);
 
     // Act and Assert
@@ -232,6 +282,12 @@ public class StatisticsServiceImplDiffblueTest {
     verify(this.exchangeRatesService, atLeast(1)).convert((Currency) any(), (Currency) any(), (BigDecimal) any());
     verify(this.exchangeRatesService).getCurrentRates();
     verify(this.dataPointRepository).save((DataPoint) any());
+    verify(account).getSaving();
+    verify(account).getExpenses();
+    verify(account).getIncomes();
+    verify(account).setExpenses((List<Item>) any());
+    verify(account).setIncomes((List<Item>) any());
+    verify(account).setSaving((Saving) any());
   }
 }
 

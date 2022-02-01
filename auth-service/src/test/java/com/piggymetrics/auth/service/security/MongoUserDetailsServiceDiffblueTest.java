@@ -45,7 +45,7 @@ public class MongoUserDetailsServiceDiffblueTest {
   @Test
   public void testLoadUserByUsername2() throws UsernameNotFoundException {
     // Arrange
-    when(this.userRepository.findById((String) any())).thenThrow(new UsernameNotFoundException("Msg"));
+    when(this.userRepository.findById((String) any())).thenReturn(Optional.empty());
 
     // Act and Assert
     thrown.expect(UsernameNotFoundException.class);
@@ -56,7 +56,7 @@ public class MongoUserDetailsServiceDiffblueTest {
   @Test
   public void testLoadUserByUsername3() throws UsernameNotFoundException {
     // Arrange
-    when(this.userRepository.findById((String) any())).thenReturn(Optional.empty());
+    when(this.userRepository.findById((String) any())).thenThrow(new UsernameNotFoundException("Msg"));
 
     // Act and Assert
     thrown.expect(UsernameNotFoundException.class);
