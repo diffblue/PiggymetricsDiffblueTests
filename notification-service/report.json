@@ -3,16 +3,16 @@
     "reportVersion" : "2.0"
   },
   "run" : {
-    "version" : "2022.01.02-df428b4",
-    "creationTimestamp" : "2022-01-31T23:36:18.486Z",
+    "version" : "2022.02.01-4007d1c",
+    "creationTimestamp" : "2022-02-14T19:54:33.708Z",
     "command" : "dcover create --batch --report-file=report.json --spring-integration-tests --verbose --trace-log --working-directory=notification-service",
-    "totalTime" : 382.875,
-    "environmentDetectionTime" : 14.428,
-    "indexingTime" : 5.16,
-    "entryPointsTime" : 12.827,
-    "generationTime" : 246.0,
-    "verificationTime" : 33.0,
-    "validationTime" : 69.992
+    "totalTime" : 357.297,
+    "environmentDetectionTime" : 14.633,
+    "indexingTime" : 5.172,
+    "entryPointsTime" : 13.628,
+    "generationTime" : 216.0,
+    "verificationTime" : 36.0,
+    "validationTime" : 71.003
   },
   "codes" : {
     "R000" : "Success",
