@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.piggymetrics.account.repository.AccountRepository;
 import de.flapdoodle.embed.mongo.MongodExecutable;
 import java.util.List;
 import org.junit.Test;
@@ -28,9 +27,6 @@ import org.springframework.web.util.UriTemplateHandler;
 @SpringBootTest
 @RunWith(SpringRunner.class)
 public class ResourceServerConfigDiffblueTest {
-  @MockBean
-  private AccountRepository accountRepository;
-
   @MockBean
   private MongodExecutable mongodExecutable;
 

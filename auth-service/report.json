@@ -3,23 +3,23 @@
     "reportVersion" : "2.0"
   },
   "run" : {
-    "version" : "2022.02.01-4007d1c",
-    "creationTimestamp" : "2022-02-14T19:46:40.664Z",
+    "version" : "2022.02.02-44a3eb2",
+    "creationTimestamp" : "2022-02-28T19:57:13.347Z",
     "command" : "dcover create --batch --report-file=report.json --spring-integration-tests --verbose --trace-log --working-directory=auth-service",
-    "totalTime" : 281.625,
-    "environmentDetectionTime" : 14.563,
-    "indexingTime" : 4.821,
-    "entryPointsTime" : 11.93,
-    "generationTime" : 151.0,
-    "verificationTime" : 28.0,
-    "validationTime" : 70.994
+    "totalTime" : 270.974,
+    "environmentDetectionTime" : 14.396,
+    "indexingTime" : 4.922,
+    "entryPointsTime" : 12.272,
+    "generationTime" : 144.0,
+    "verificationTime" : 27.0,
+    "validationTime" : 67.011
   },
   "codes" : {
+    "E052" : "Missing, mismatched or unsupported test dependency",
     "R000" : "Success",
     "R002" : "Missing observers",
     "R004" : "No meaningful assertions found",
     "R013" : "No inputs found that don't throw a trivial exception",
-    "R028" : "Incomplete repository information",
     "T000" : "Should be tested directly",
     "T001" : "Trivial getter",
     "T002" : "Trivial setter",
@@ -40,11 +40,11 @@
       "T006" : 1
     },
     "perMethodOutcome" : {
+      "E052" : 11,
       "R000" : 18,
       "R002" : 1,
       "R004" : 1,
       "R013" : 1,
-      "R028" : 11,
       "T005" : 5,
       "T006" : 1
     },
@@ -141,7 +141,7 @@
         "T000" : 11
       },
       "perMethodOutcome" : {
-        "R028" : 11
+        "E052" : 11
       }
     },
     "com.piggymetrics.auth.service.UserServiceImpl" : {
@@ -367,67 +367,67 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R028"
+      "perMethodOutcome" : "E052"
     },
     "com.piggymetrics.auth.repository.UserRepository.delete:(Ljava/lang/Object;)V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R028"
+      "perMethodOutcome" : "E052"
     },
     "com.piggymetrics.auth.repository.UserRepository.deleteAll:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R028"
+      "perMethodOutcome" : "E052"
     },
     "com.piggymetrics.auth.repository.UserRepository.deleteAll:(Ljava/lang/Iterable;)V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R028"
+      "perMethodOutcome" : "E052"
     },
     "com.piggymetrics.auth.repository.UserRepository.deleteById:(Ljava/lang/Object;)V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R028"
+      "perMethodOutcome" : "E052"
     },
     "com.piggymetrics.auth.repository.UserRepository.existsById:(Ljava/lang/Object;)Z" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R028"
+      "perMethodOutcome" : "E052"
     },
     "com.piggymetrics.auth.repository.UserRepository.findAll:()Ljava/lang/Iterable;" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R028"
+      "perMethodOutcome" : "E052"
     },
     "com.piggymetrics.auth.repository.UserRepository.findAllById:(Ljava/lang/Iterable;)Ljava/lang/Iterable;" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R028"
+      "perMethodOutcome" : "E052"
     },
     "com.piggymetrics.auth.repository.UserRepository.findById:(Ljava/lang/Object;)Ljava/util/Optional;" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R028"
+      "perMethodOutcome" : "E052"
     },
     "com.piggymetrics.auth.repository.UserRepository.save:(Ljava/lang/Object;)Ljava/lang/Object;" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R028"
+      "perMethodOutcome" : "E052"
     },
     "com.piggymetrics.auth.repository.UserRepository.saveAll:(Ljava/lang/Iterable;)Ljava/lang/Iterable;" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R028"
+      "perMethodOutcome" : "E052"
     },
     "com.piggymetrics.auth.service.UserServiceImpl.<init>:()V" : {
       "completeTestCount" : 0,

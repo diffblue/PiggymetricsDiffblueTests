@@ -3,13 +3,13 @@
     "reportVersion" : "2.0"
   },
   "run" : {
-    "version" : "2022.02.01-4007d1c",
-    "creationTimestamp" : "2022-02-14T19:52:51.672Z",
+    "version" : "2022.02.02-44a3eb2",
+    "creationTimestamp" : "2022-02-28T20:03:08.663Z",
     "command" : "dcover create --batch --report-file=report.json --spring-integration-tests --verbose --trace-log --working-directory=gateway",
-    "totalTime" : 50.782,
-    "environmentDetectionTime" : 18.5,
-    "indexingTime" : 4.37,
-    "entryPointsTime" : 10.039,
+    "totalTime" : 49.107,
+    "environmentDetectionTime" : 18.24,
+    "indexingTime" : 4.357,
+    "entryPointsTime" : 8.896,
     "generationTime" : 17.0,
     "verificationTime" : 0.0,
     "validationTime" : 0.0

@@ -1,11 +1,11 @@
 {
-  "totalTime" : 1623.9370000000001,
-  "environmentDetectionTime" : 133.09400000000002,
-  "indexingTime" : 40.702,
-  "entryPointsTime" : 98.94699999999999,
-  "generationTime" : 867.0,
-  "verificationTime" : 145.0,
-  "validationTime" : 331.996,
+  "totalTime" : 1614.53,
+  "environmentDetectionTime" : 138.024,
+  "indexingTime" : 40.584999999999994,
+  "entryPointsTime" : 99.49600000000001,
+  "generationTime" : 864.0,
+  "verificationTime" : 140.0,
+  "validationTime" : 326.001,
   "summary" : {
     "classesCount" : 61,
     "methodsCount" : 287,
@@ -20,11 +20,11 @@
       "T020" : 3
     },
     "perMethodOutcome" : {
+      "E052" : 49,
       "R000" : 174,
       "R002" : 14,
       "R004" : 6,
       "R013" : 9,
-      "R028" : 49,
       "T005" : 26,
       "T006" : 9
     },
@@ -36,16 +36,16 @@
     }
   },
   "coverageMetrics" : {
-    "classesWithIncompleteInstructionCoverage" : [ "com.piggymetrics.statistics.domain.TimePeriod", "com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices", "com.piggymetrics.statistics.domain.timeseries.DataPointId", "com.piggymetrics.statistics.StatisticsApplication", "com.piggymetrics.statistics.repository.converter.DataPointIdReaderConverter", "com.piggymetrics.statistics.service.ExchangeRatesServiceImpl", "com.piggymetrics.notification.domain.Frequency", "com.piggymetrics.notification.NotificationServiceApplication", "com.piggymetrics.notification.controller.RecipientController", "com.piggymetrics.notification.service.NotificationServiceImpl", "com.piggymetrics.notification.service.EmailServiceImpl", "com.piggymetrics.notification.service.RecipientServiceImpl", "com.piggymetrics.auth.AuthApplication", "com.piggymetrics.auth.controller.UserController", "com.piggymetrics.account.controller.ErrorHandler", "com.piggymetrics.account.service.AccountServiceImpl", "com.piggymetrics.account.service.security.CustomUserInfoTokenServices", "com.piggymetrics.account.domain.Currency", "com.piggymetrics.account.AccountApplication" ],
-    "coveredLines" : 471,
-    "lineCoveragePercent" : "80.1%",
+    "classesWithIncompleteInstructionCoverage" : [ "com.piggymetrics.statistics.domain.TimePeriod", "com.piggymetrics.statistics.domain.ExchangeRatesContainer", "com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices", "com.piggymetrics.statistics.domain.timeseries.DataPointId", "com.piggymetrics.statistics.StatisticsApplication", "com.piggymetrics.statistics.repository.converter.DataPointIdReaderConverter", "com.piggymetrics.statistics.service.ExchangeRatesServiceImpl", "com.piggymetrics.notification.domain.Frequency", "com.piggymetrics.notification.NotificationServiceApplication", "com.piggymetrics.notification.controller.RecipientController", "com.piggymetrics.notification.service.NotificationServiceImpl", "com.piggymetrics.notification.service.EmailServiceImpl", "com.piggymetrics.notification.service.RecipientServiceImpl", "com.piggymetrics.auth.AuthApplication", "com.piggymetrics.auth.controller.UserController", "com.piggymetrics.account.controller.ErrorHandler", "com.piggymetrics.account.service.AccountServiceImpl", "com.piggymetrics.account.service.security.CustomUserInfoTokenServices", "com.piggymetrics.account.domain.Currency", "com.piggymetrics.account.AccountApplication" ],
+    "coveredLines" : 470,
+    "lineCoveragePercent" : "79.93%",
     "totalLines" : 588
   },
   "piTestMetrics" : {
-    "mutationsKilled" : 99,
-    "mutationsKilledPercent" : "48.29%",
+    "mutationsKilled" : 98,
+    "mutationsKilledPercent" : "47.8%",
     "mutationsNoCoverage" : 68,
-    "mutationsSurvived" : 38,
+    "mutationsSurvived" : 39,
     "mutationsTotal" : 205
   }
 }

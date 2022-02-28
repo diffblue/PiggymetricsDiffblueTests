@@ -23,7 +23,6 @@ public class ExchangeRatesContainerDiffblueTest {
     assertEquals(Currency.USD, actualExchangeRatesContainer.getBase());
     assertSame(ofEpochDayResult, actualExchangeRatesContainer.getDate());
     assertSame(stringBigDecimalMap, actualExchangeRatesContainer.getRates());
-    assertEquals("RateList{date=1970-01-02, base=USD, rates={}}", actualExchangeRatesContainer.toString());
   }
 
   @Test

@@ -3,23 +3,23 @@
     "reportVersion" : "2.0"
   },
   "run" : {
-    "version" : "2022.02.01-4007d1c",
-    "creationTimestamp" : "2022-02-14T19:54:33.708Z",
+    "version" : "2022.02.02-44a3eb2",
+    "creationTimestamp" : "2022-02-28T20:04:48.221Z",
     "command" : "dcover create --batch --report-file=report.json --spring-integration-tests --verbose --trace-log --working-directory=notification-service",
-    "totalTime" : 357.297,
-    "environmentDetectionTime" : 14.633,
-    "indexingTime" : 5.172,
-    "entryPointsTime" : 13.628,
-    "generationTime" : 216.0,
-    "verificationTime" : 36.0,
-    "validationTime" : 71.003
+    "totalTime" : 387.747,
+    "environmentDetectionTime" : 18.359,
+    "indexingTime" : 4.965,
+    "entryPointsTime" : 14.14,
+    "generationTime" : 243.0,
+    "verificationTime" : 35.0,
+    "validationTime" : 70.998
   },
   "codes" : {
+    "E052" : "Missing, mismatched or unsupported test dependency",
     "R000" : "Success",
     "R002" : "Missing observers",
     "R004" : "No meaningful assertions found",
     "R013" : "No inputs found that don't throw a trivial exception",
-    "R028" : "Incomplete repository information",
     "T000" : "Should be tested directly",
     "T001" : "Trivial getter",
     "T002" : "Trivial setter",
@@ -42,11 +42,11 @@
       "T020" : 1
     },
     "perMethodOutcome" : {
+      "E052" : 14,
       "R000" : 30,
       "R002" : 3,
       "R004" : 1,
       "R013" : 2,
-      "R028" : 14,
       "T005" : 8,
       "T006" : 1
     },
@@ -187,7 +187,7 @@
         "T000" : 14
       },
       "perMethodOutcome" : {
-        "R028" : 14
+        "E052" : 14
       }
     },
     "com.piggymetrics.notification.repository.converter.FrequencyReaderConverter" : {
@@ -525,85 +525,85 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R028"
+      "perMethodOutcome" : "E052"
     },
     "com.piggymetrics.notification.repository.RecipientRepository.delete:(Ljava/lang/Object;)V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R028"
+      "perMethodOutcome" : "E052"
     },
     "com.piggymetrics.notification.repository.RecipientRepository.deleteAll:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R028"
+      "perMethodOutcome" : "E052"
     },
     "com.piggymetrics.notification.repository.RecipientRepository.deleteAll:(Ljava/lang/Iterable;)V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R028"
+      "perMethodOutcome" : "E052"
     },
     "com.piggymetrics.notification.repository.RecipientRepository.deleteById:(Ljava/lang/Object;)V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R028"
+      "perMethodOutcome" : "E052"
     },
     "com.piggymetrics.notification.repository.RecipientRepository.existsById:(Ljava/lang/Object;)Z" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R028"
+      "perMethodOutcome" : "E052"
     },
     "com.piggymetrics.notification.repository.RecipientRepository.findAll:()Ljava/lang/Iterable;" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R028"
+      "perMethodOutcome" : "E052"
     },
     "com.piggymetrics.notification.repository.RecipientRepository.findAllById:(Ljava/lang/Iterable;)Ljava/lang/Iterable;" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R028"
+      "perMethodOutcome" : "E052"
     },
     "com.piggymetrics.notification.repository.RecipientRepository.findByAccountName:(Ljava/lang/String;)Lcom/piggymetrics/notification/domain/Recipient;" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R028"
+      "perMethodOutcome" : "E052"
     },
     "com.piggymetrics.notification.repository.RecipientRepository.findById:(Ljava/lang/Object;)Ljava/util/Optional;" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R028"
+      "perMethodOutcome" : "E052"
     },
     "com.piggymetrics.notification.repository.RecipientRepository.findReadyForBackup:()Ljava/util/List;" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R028"
+      "perMethodOutcome" : "E052"
     },
     "com.piggymetrics.notification.repository.RecipientRepository.findReadyForRemind:()Ljava/util/List;" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R028"
+      "perMethodOutcome" : "E052"
     },
     "com.piggymetrics.notification.repository.RecipientRepository.save:(Ljava/lang/Object;)Ljava/lang/Object;" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R028"
+      "perMethodOutcome" : "E052"
     },
     "com.piggymetrics.notification.repository.RecipientRepository.saveAll:(Ljava/lang/Iterable;)Ljava/lang/Iterable;" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R028"
+      "perMethodOutcome" : "E052"
     },
     "com.piggymetrics.notification.repository.converter.FrequencyReaderConverter.<init>:()V" : {
       "completeTestCount" : 0,

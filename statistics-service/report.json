@@ -3,23 +3,23 @@
     "reportVersion" : "2.0"
   },
   "run" : {
-    "version" : "2022.02.01-4007d1c",
-    "creationTimestamp" : "2022-02-14T20:01:22.378Z",
+    "version" : "2022.02.02-44a3eb2",
+    "creationTimestamp" : "2022-02-28T20:12:10.403Z",
     "command" : "dcover create --batch --report-file=report.json --spring-integration-tests --verbose --trace-log --working-directory=statistics-service",
-    "totalTime" : 330.067,
-    "environmentDetectionTime" : 14.281,
-    "indexingTime" : 5.033,
-    "entryPointsTime" : 13.089,
-    "generationTime" : 154.0,
+    "totalTime" : 340.659,
+    "environmentDetectionTime" : 14.767,
+    "indexingTime" : 4.977,
+    "entryPointsTime" : 13.801,
+    "generationTime" : 163.0,
     "verificationTime" : 41.0,
-    "validationTime" : 101.004
+    "validationTime" : 102.005
   },
   "codes" : {
+    "E052" : "Missing, mismatched or unsupported test dependency",
     "R000" : "Success",
     "R002" : "Missing observers",
     "R004" : "No meaningful assertions found",
     "R013" : "No inputs found that don't throw a trivial exception",
-    "R028" : "Incomplete repository information",
     "T000" : "Should be tested directly",
     "T001" : "Trivial getter",
     "T002" : "Trivial setter",
@@ -42,11 +42,11 @@
       "T020" : 2
     },
     "perMethodOutcome" : {
+      "E052" : 12,
       "R000" : 70,
       "R002" : 2,
       "R004" : 2,
       "R013" : 3,
-      "R028" : 12,
       "T005" : 8,
       "T006" : 1
     },
@@ -279,7 +279,7 @@
         "T000" : 12
       },
       "perMethodOutcome" : {
-        "R028" : 12
+        "E052" : 12
       }
     },
     "com.piggymetrics.statistics.repository.converter.DataPointIdReaderConverter" : {
@@ -967,73 +967,73 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R028"
+      "perMethodOutcome" : "E052"
     },
     "com.piggymetrics.statistics.repository.DataPointRepository.delete:(Ljava/lang/Object;)V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R028"
+      "perMethodOutcome" : "E052"
     },
     "com.piggymetrics.statistics.repository.DataPointRepository.deleteAll:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R028"
+      "perMethodOutcome" : "E052"
     },
     "com.piggymetrics.statistics.repository.DataPointRepository.deleteAll:(Ljava/lang/Iterable;)V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R028"
+      "perMethodOutcome" : "E052"
     },
     "com.piggymetrics.statistics.repository.DataPointRepository.deleteById:(Ljava/lang/Object;)V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R028"
+      "perMethodOutcome" : "E052"
     },
     "com.piggymetrics.statistics.repository.DataPointRepository.existsById:(Ljava/lang/Object;)Z" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R028"
+      "perMethodOutcome" : "E052"
     },
     "com.piggymetrics.statistics.repository.DataPointRepository.findAll:()Ljava/lang/Iterable;" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R028"
+      "perMethodOutcome" : "E052"
     },
     "com.piggymetrics.statistics.repository.DataPointRepository.findAllById:(Ljava/lang/Iterable;)Ljava/lang/Iterable;" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R028"
+      "perMethodOutcome" : "E052"
     },
     "com.piggymetrics.statistics.repository.DataPointRepository.findById:(Ljava/lang/Object;)Ljava/util/Optional;" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R028"
+      "perMethodOutcome" : "E052"
     },
     "com.piggymetrics.statistics.repository.DataPointRepository.findByIdAccount:(Ljava/lang/String;)Ljava/util/List;" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R028"
+      "perMethodOutcome" : "E052"
     },
     "com.piggymetrics.statistics.repository.DataPointRepository.save:(Ljava/lang/Object;)Ljava/lang/Object;" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R028"
+      "perMethodOutcome" : "E052"
     },
     "com.piggymetrics.statistics.repository.DataPointRepository.saveAll:(Ljava/lang/Iterable;)Ljava/lang/Iterable;" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R028"
+      "perMethodOutcome" : "E052"
     },
     "com.piggymetrics.statistics.repository.converter.DataPointIdReaderConverter.<init>:()V" : {
       "completeTestCount" : 0,

@@ -19,7 +19,6 @@ public class RecipientDiffblueTest {
     assertEquals("Dr Jane Doe", actualRecipient.getAccountName());
     assertEquals("jane.doe@example.org", actualRecipient.getEmail());
     assertSame(notificationTypeNotificationSettingsMap, actualRecipient.getScheduledNotifications());
-    assertEquals("Recipient{accountName='Dr Jane Doe', email='jane.doe@example.org'}", actualRecipient.toString());
   }
 }
 

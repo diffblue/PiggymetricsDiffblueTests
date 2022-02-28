@@ -1,9 +1,8 @@
 package com.piggymetrics.statistics.domain.timeseries;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
 import java.math.BigDecimal;
 import org.junit.Test;
 
@@ -25,8 +24,8 @@ public class ItemMetricDiffblueTest {
   @Test
   public void testEquals() {
     // Arrange, Act and Assert
-    assertFalse((new ItemMetric("Dr", BigDecimal.valueOf(1L))).equals(null));
-    assertFalse((new ItemMetric("Dr", BigDecimal.valueOf(1L))).equals("Different type to ItemMetric"));
+    assertNotEquals(new ItemMetric("Dr", BigDecimal.valueOf(1L)), null);
+    assertNotEquals(new ItemMetric("Dr", BigDecimal.valueOf(1L)), "Different type to ItemMetric");
   }
 
   @Test
@@ -35,7 +34,7 @@ public class ItemMetricDiffblueTest {
     ItemMetric itemMetric = new ItemMetric("Dr", BigDecimal.valueOf(1L));
 
     // Act and Assert
-    assertTrue(itemMetric.equals(itemMetric));
+    assertEquals(itemMetric, itemMetric);
     int expectedHashCodeResult = itemMetric.hashCode();
     assertEquals(expectedHashCodeResult, itemMetric.hashCode());
   }
@@ -47,7 +46,7 @@ public class ItemMetricDiffblueTest {
     ItemMetric itemMetric1 = new ItemMetric("Dr", BigDecimal.valueOf(1L));
 
     // Act and Assert
-    assertTrue(itemMetric.equals(itemMetric1));
+    assertEquals(itemMetric, itemMetric1);
     int expectedHashCodeResult = itemMetric.hashCode();
     assertEquals(expectedHashCodeResult, itemMetric1.hashCode());
   }
@@ -58,7 +57,7 @@ public class ItemMetricDiffblueTest {
     ItemMetric itemMetric = new ItemMetric("Title", BigDecimal.valueOf(1L));
 
     // Act and Assert
-    assertFalse(itemMetric.equals(new ItemMetric("Dr", BigDecimal.valueOf(1L))));
+    assertNotEquals(itemMetric, new ItemMetric("Dr", BigDecimal.valueOf(1L)));
   }
 }
 
