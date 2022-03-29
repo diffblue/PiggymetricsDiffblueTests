@@ -3,16 +3,16 @@
     "reportVersion" : "2.0"
   },
   "run" : {
-    "version" : "2022.03.01-6b190c0",
-    "creationTimestamp" : "2022-03-14T14:53:51.67Z",
+    "version" : "2022.03.02-2d63301",
+    "creationTimestamp" : "2022-03-29T18:20:42.21+01:00",
     "command" : "dcover create --batch --report-file=report.json --spring-integration-tests --verbose --trace-log --working-directory=statistics-service",
-    "totalTime" : 327.956,
-    "environmentDetectionTime" : 14.213,
-    "indexingTime" : 5.089,
-    "entryPointsTime" : 12.9,
-    "generationTime" : 155.0,
-    "verificationTime" : 41.0,
-    "validationTime" : 98.989
+    "totalTime" : 363.253,
+    "environmentDetectionTime" : 17.923000000000002,
+    "indexingTime" : 5.4,
+    "entryPointsTime" : 14.758,
+    "generationTime" : 168.0,
+    "verificationTime" : 48.0,
+    "validationTime" : 107.99
   },
   "codes" : {
     "E052" : "Missing, mismatched or unsupported test dependency",

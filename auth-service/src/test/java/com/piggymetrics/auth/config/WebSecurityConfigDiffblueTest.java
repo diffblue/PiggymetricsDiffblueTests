@@ -14,6 +14,7 @@ import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.ObjectPostProcessor;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationManager;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -40,6 +41,28 @@ public class WebSecurityConfigDiffblueTest {
     // Arrange
     AuthenticationManagerBuilder authenticationManagerBuilder = new AuthenticationManagerBuilder(
         this.objectPostProcessor);
+
+    // Act
+    this.webSecurityConfig.configure(authenticationManagerBuilder);
+
+    // Assert
+    assertTrue(authenticationManagerBuilder
+        .getDefaultUserDetailsService() instanceof com.piggymetrics.auth.service.security.MongoUserDetailsService);
+    assertTrue(((DaoAuthenticationProvider) ((ProviderManager) authenticationManagerBuilder.getOrBuild()).getProviders()
+        .get(0)).getUserCache() instanceof org.springframework.security.core.userdetails.cache.NullUserCache);
+    assertTrue(((DaoAuthenticationProvider) ((ProviderManager) authenticationManagerBuilder.getOrBuild()).getProviders()
+        .get(0)).isHideUserNotFoundExceptions());
+    assertFalse(
+        ((DaoAuthenticationProvider) ((ProviderManager) authenticationManagerBuilder.getOrBuild()).getProviders()
+            .get(0)).isForcePrincipalAsString());
+  }
+
+  @Test
+  public void testConfigure2() throws Exception {
+    // Arrange
+    AuthenticationManagerBuilder authenticationManagerBuilder = new AuthenticationManagerBuilder(
+        this.objectPostProcessor);
+    authenticationManagerBuilder.parentAuthenticationManager(new OAuth2AuthenticationManager());
 
     // Act
     this.webSecurityConfig.configure(authenticationManagerBuilder);

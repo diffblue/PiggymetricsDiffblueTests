@@ -3,13 +3,13 @@
     "reportVersion" : "2.0"
   },
   "run" : {
-    "version" : "2022.03.01-6b190c0",
-    "creationTimestamp" : "2022-03-14T14:59:23.504Z",
+    "version" : "2022.03.02-2d63301",
+    "creationTimestamp" : "2022-03-29T18:26:49.433+01:00",
     "command" : "dcover create --batch --report-file=report.json --spring-integration-tests --verbose --trace-log --working-directory=turbine-stream-service",
-    "totalTime" : 46.839,
-    "environmentDetectionTime" : 14.116,
-    "indexingTime" : 4.535,
-    "entryPointsTime" : 9.585,
+    "totalTime" : 47.635,
+    "environmentDetectionTime" : 14.481,
+    "indexingTime" : 4.95,
+    "entryPointsTime" : 9.849,
     "generationTime" : 18.0,
     "verificationTime" : 0.0,
     "validationTime" : 0.0
