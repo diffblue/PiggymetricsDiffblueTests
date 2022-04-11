@@ -24,6 +24,9 @@ public class UserControllerDiffblueTest {
 
   @MockBean
   private UserService userService;
+  /**
+  * Method under test: {@link UserController#createUser(User)}
+  */
   @Test
   public void testCreateUser() throws Exception {
     // Arrange
@@ -44,6 +47,9 @@ public class UserControllerDiffblueTest {
     actualPerformResult.andExpect(MockMvcResultMatchers.status().is(405));
   }
 
+  /**
+   * Method under test: {@link UserController#getUser(java.security.Principal)}
+   */
   @Test
   public void testGetUser() throws Exception {
     // Arrange
@@ -56,6 +62,9 @@ public class UserControllerDiffblueTest {
         .andExpect(MockMvcResultMatchers.status().isOk());
   }
 
+  /**
+   * Method under test: {@link UserController#getUser(java.security.Principal)}
+   */
   @Test
   public void testGetUser2() throws Exception {
     // Arrange

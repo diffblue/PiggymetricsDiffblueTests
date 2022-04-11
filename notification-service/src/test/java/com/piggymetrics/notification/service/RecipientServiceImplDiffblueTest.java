@@ -38,6 +38,9 @@ public class RecipientServiceImplDiffblueTest {
 
   @Autowired
   private RecipientServiceImpl recipientServiceImpl;
+  /**
+  * Method under test: {@link RecipientServiceImpl#findByAccountName(String)}
+  */
   @Test
   public void testFindByAccountName() {
     // Arrange
@@ -52,6 +55,9 @@ public class RecipientServiceImplDiffblueTest {
     verify(this.recipientRepository).findByAccountName((String) any());
   }
 
+  /**
+   * Method under test: {@link RecipientServiceImpl#findByAccountName(String)}
+   */
   @Test
   public void testFindByAccountName2() {
     // Arrange
@@ -63,6 +69,9 @@ public class RecipientServiceImplDiffblueTest {
     verify(this.recipientRepository).findByAccountName((String) any());
   }
 
+  /**
+   * Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
+   */
   @Test
   public void testSave() {
     // Arrange
@@ -86,6 +95,9 @@ public class RecipientServiceImplDiffblueTest {
     verify(this.recipientRepository).save((Recipient) any());
   }
 
+  /**
+   * Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
+   */
   @Test
   public void testSave2() {
     // Arrange
@@ -118,6 +130,9 @@ public class RecipientServiceImplDiffblueTest {
     verify(this.recipientRepository).save((Recipient) any());
   }
 
+  /**
+   * Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
+   */
   @Test
   public void testSave3() {
     // Arrange
@@ -135,6 +150,9 @@ public class RecipientServiceImplDiffblueTest {
     verify(this.recipientRepository).save((Recipient) any());
   }
 
+  /**
+   * Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
+   */
   @Test
   public void testSave4() {
     // Arrange
@@ -166,6 +184,9 @@ public class RecipientServiceImplDiffblueTest {
     verify(this.recipientRepository).save((Recipient) any());
   }
 
+  /**
+   * Method under test: {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
+   */
   @Test
   public void testFindReadyToNotify() {
     // Arrange
@@ -182,6 +203,9 @@ public class RecipientServiceImplDiffblueTest {
     verify(this.recipientRepository).findReadyForBackup();
   }
 
+  /**
+   * Method under test: {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
+   */
   @Test
   public void testFindReadyToNotify2() {
     // Arrange
@@ -199,6 +223,9 @@ public class RecipientServiceImplDiffblueTest {
     verify(this.recipientRepository).findReadyForRemind();
   }
 
+  /**
+   * Method under test: {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
+   */
   @Test
   public void testFindReadyToNotify3() {
     // Arrange
@@ -211,6 +238,9 @@ public class RecipientServiceImplDiffblueTest {
     verify(this.recipientRepository).findReadyForRemind();
   }
 
+  /**
+   * Method under test: {@link RecipientServiceImpl#markNotified(NotificationType, Recipient)}
+   */
   @Test
   public void testMarkNotified() {
     // Arrange
@@ -241,6 +271,9 @@ public class RecipientServiceImplDiffblueTest {
     verify(this.recipientRepository).save((Recipient) any());
   }
 
+  /**
+   * Method under test: {@link RecipientServiceImpl#markNotified(NotificationType, Recipient)}
+   */
   @Test
   public void testMarkNotified2() {
     // Arrange

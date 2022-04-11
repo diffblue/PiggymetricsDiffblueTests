@@ -26,6 +26,9 @@ public class UserServiceImplDiffblueTest {
 
   @Autowired
   private UserServiceImpl userServiceImpl;
+  /**
+  * Method under test: {@link UserServiceImpl#create(User)}
+  */
   @Test
   public void testCreate() {
     // Arrange
@@ -50,6 +53,9 @@ public class UserServiceImplDiffblueTest {
     verify(this.userRepository).findById((String) any());
   }
 
+  /**
+   * Method under test: {@link UserServiceImpl#create(User)}
+   */
   @Test
   public void testCreate2() {
     // Arrange
@@ -71,6 +77,9 @@ public class UserServiceImplDiffblueTest {
     verify(this.userRepository).findById((String) any());
   }
 
+  /**
+   * Method under test: {@link UserServiceImpl#create(User)}
+   */
   @Test
   public void testCreate3() {
     // Arrange

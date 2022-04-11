@@ -25,6 +25,9 @@ public class RecipientControllerDiffblueTest {
 
   @MockBean
   private RecipientService recipientService;
+  /**
+  * Method under test: {@link RecipientController#getCurrentNotificationsSettings(java.security.Principal)}
+  */
   @Test
   public void testGetCurrentNotificationsSettings() throws Exception {
     // Arrange

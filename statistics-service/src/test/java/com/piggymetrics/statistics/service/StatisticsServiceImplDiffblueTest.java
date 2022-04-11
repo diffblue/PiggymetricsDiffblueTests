@@ -47,6 +47,9 @@ public class StatisticsServiceImplDiffblueTest {
 
   @Autowired
   private StatisticsServiceImpl statisticsServiceImpl;
+  /**
+  * Method under test: {@link StatisticsServiceImpl#findByAccountName(String)}
+  */
   @Test
   public void testFindByAccountName() {
     // Arrange
@@ -62,6 +65,9 @@ public class StatisticsServiceImplDiffblueTest {
     verify(this.dataPointRepository).findByIdAccount((String) any());
   }
 
+  /**
+   * Method under test: {@link StatisticsServiceImpl#save(String, Account)}
+   */
   @Test
   public void testSave() {
     //   Diffblue Cover was unable to write a Spring test,
@@ -106,6 +112,9 @@ public class StatisticsServiceImplDiffblueTest {
     verify(this.dataPointRepository).save((DataPoint) any());
   }
 
+  /**
+   * Method under test: {@link StatisticsServiceImpl#save(String, Account)}
+   */
   @Test
   public void testSave2() {
     //   Diffblue Cover was unable to write a Spring test,
@@ -177,6 +186,9 @@ public class StatisticsServiceImplDiffblueTest {
     verify(account).setSaving((Saving) any());
   }
 
+  /**
+   * Method under test: {@link StatisticsServiceImpl#save(String, Account)}
+   */
   @Test
   public void testSave3() {
     //   Diffblue Cover was unable to write a Spring test,
@@ -248,6 +260,9 @@ public class StatisticsServiceImplDiffblueTest {
     verify(account).setSaving((Saving) any());
   }
 
+  /**
+   * Method under test: {@link StatisticsServiceImpl#save(String, Account)}
+   */
   @Test
   public void testSave4() {
     //   Diffblue Cover was unable to write a Spring test,

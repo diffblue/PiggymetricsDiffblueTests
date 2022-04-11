@@ -6,9 +6,20 @@ import static org.junit.Assert.assertSame;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.HashMap;
+import java.util.Map;
 import org.junit.Test;
 
 public class ExchangeRatesContainerDiffblueTest {
+  /**
+  * Methods under test: 
+  * 
+  * <ul>
+  *   <li>default or parameterless constructor of {@link ExchangeRatesContainer}
+  *   <li>{@link ExchangeRatesContainer#setBase(Currency)}
+  *   <li>{@link ExchangeRatesContainer#setDate(LocalDate)}
+  *   <li>{@link ExchangeRatesContainer#setRates(Map)}
+  * </ul>
+  */
   @Test
   public void testConstructor() {
     // Arrange and Act
@@ -25,6 +36,9 @@ public class ExchangeRatesContainerDiffblueTest {
     assertSame(stringBigDecimalMap, actualExchangeRatesContainer.getRates());
   }
 
+  /**
+   * Method under test: default or parameterless constructor of {@link ExchangeRatesContainer}
+   */
   @Test
   public void testConstructor2() {
     // Arrange and Act

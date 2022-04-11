@@ -3,9 +3,20 @@ package com.piggymetrics.statistics.domain;
 import static org.junit.Assert.assertSame;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.List;
 import org.junit.Test;
 
 public class AccountDiffblueTest {
+  /**
+  * Methods under test: 
+  * 
+  * <ul>
+  *   <li>default or parameterless constructor of {@link Account}
+  *   <li>{@link Account#setExpenses(List)}
+  *   <li>{@link Account#setIncomes(List)}
+  *   <li>{@link Account#setSaving(Saving)}
+  * </ul>
+  */
   @Test
   public void testConstructor() {
     // Arrange and Act

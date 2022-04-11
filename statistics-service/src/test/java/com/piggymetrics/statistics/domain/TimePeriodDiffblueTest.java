@@ -5,12 +5,18 @@ import java.math.BigDecimal;
 import org.junit.Test;
 
 public class TimePeriodDiffblueTest {
+  /**
+   * Method under test: {@link TimePeriod#getBaseRatio()}
+   */
   @Test
   public void testGetBaseRatio() {
     // Arrange, Act and Assert
-    assertEquals("365.24250000000000682121026329696178436279296875", TimePeriod.YEAR.getBaseRatio().toString());
+    assertEquals("1", TimePeriod.getBase().getBaseRatio().toString());
   }
 
+  /**
+  * Method under test: {@link TimePeriod#valueOf(String)}
+  */
   @Test
   public void testValueOf() {
     // Arrange, Act and Assert

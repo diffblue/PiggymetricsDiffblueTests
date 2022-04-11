@@ -39,6 +39,9 @@ public class AccountServiceImplDiffblueTest {
 
   @MockBean
   private StatisticsServiceClient statisticsServiceClient;
+  /**
+  * Method under test: {@link AccountServiceImpl#findByName(String)}
+  */
   @Test
   public void testFindByName() {
     // Arrange
@@ -68,6 +71,9 @@ public class AccountServiceImplDiffblueTest {
     verify(this.accountRepository).findByName((String) any());
   }
 
+  /**
+   * Method under test: {@link AccountServiceImpl#saveChanges(String, Account)}
+   */
   @Test
   public void testSaveChanges() {
     // Arrange

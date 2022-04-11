@@ -8,9 +8,23 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import org.junit.Test;
 
 public class AccountDiffblueTest {
+  /**
+  * Methods under test: 
+  * 
+  * <ul>
+  *   <li>default or parameterless constructor of {@link Account}
+  *   <li>{@link Account#setExpenses(List)}
+  *   <li>{@link Account#setIncomes(List)}
+  *   <li>{@link Account#setLastSeen(Date)}
+  *   <li>{@link Account#setName(String)}
+  *   <li>{@link Account#setNote(String)}
+  *   <li>{@link Account#setSaving(Saving)}
+  * </ul>
+  */
   @Test
   public void testConstructor() {
     // Arrange and Act

@@ -18,6 +18,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class DataPointIdWriterConverterDiffblueTest {
   @Autowired
   private DataPointIdWriterConverter dataPointIdWriterConverter;
+  /**
+  * Method under test: {@link DataPointIdWriterConverter#convert(DataPointId)}
+  */
   @Test
   public void testConvert() {
     // Arrange

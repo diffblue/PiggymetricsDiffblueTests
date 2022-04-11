@@ -9,9 +9,23 @@ import java.time.ZoneId;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 import org.junit.Test;
 
 public class DataPointDiffblueTest {
+  /**
+  * Methods under test: 
+  * 
+  * <ul>
+  *   <li>default or parameterless constructor of {@link DataPoint}
+  *   <li>{@link DataPoint#setExpenses(Set)}
+  *   <li>{@link DataPoint#setId(DataPointId)}
+  *   <li>{@link DataPoint#setIncomes(Set)}
+  *   <li>{@link DataPoint#setRates(Map)}
+  *   <li>{@link DataPoint#setStatistics(Map)}
+  * </ul>
+  */
   @Test
   public void testConstructor() {
     // Arrange and Act

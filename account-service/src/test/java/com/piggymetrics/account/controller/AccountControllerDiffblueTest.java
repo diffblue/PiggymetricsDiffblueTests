@@ -39,6 +39,9 @@ public class AccountControllerDiffblueTest {
 
   @MockBean
   private AccountService accountService;
+  /**
+  * Method under test: {@link AccountController#createNewAccount(User)}
+  */
   @Test
   public void testCreateNewAccount() throws Exception {
     // Arrange
@@ -79,6 +82,9 @@ public class AccountControllerDiffblueTest {
                     + "\":1,\"deposit\":true,\"capitalization\":true},\"note\":\"Note\"}"));
   }
 
+  /**
+   * Method under test: {@link AccountController#getAccountByName(String)}
+   */
   @Test
   public void testGetAccountByName() throws Exception {
     // Arrange
@@ -112,6 +118,9 @@ public class AccountControllerDiffblueTest {
                     + "\":1,\"deposit\":true,\"capitalization\":true},\"note\":\"Note\"}"));
   }
 
+  /**
+   * Method under test: {@link AccountController#getCurrentAccount(java.security.Principal)}
+   */
   @Test
   public void testGetCurrentAccount() throws Exception {
     // Arrange
@@ -146,6 +155,9 @@ public class AccountControllerDiffblueTest {
                     + "\":1,\"deposit\":true,\"capitalization\":true},\"note\":\"Note\"}"));
   }
 
+  /**
+   * Method under test: {@link AccountController#saveCurrentAccount(java.security.Principal, Account)}
+   */
   @Test
   public void testSaveCurrentAccount() throws Exception {
     // Arrange
@@ -180,6 +192,9 @@ public class AccountControllerDiffblueTest {
     actualPerformResult.andExpect(MockMvcResultMatchers.status().is(400));
   }
 
+  /**
+   * Method under test: {@link AccountController#saveCurrentAccount(java.security.Principal, Account)}
+   */
   @Test
   public void testSaveCurrentAccount2() throws Exception {
     // Arrange

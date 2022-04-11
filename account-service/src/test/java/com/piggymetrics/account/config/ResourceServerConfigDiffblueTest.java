@@ -40,6 +40,9 @@ public class ResourceServerConfigDiffblueTest {
   @Autowired
   private ResourceServerProperties resourceServerProperties;
 
+  /**
+  * Method under test: {@link ResourceServerConfig#clientCredentialsResourceDetails()}
+  */
   @Test
   public void testClientCredentialsResourceDetails() {
     //   Diffblue Cover was unable to write a Spring test,
@@ -62,6 +65,9 @@ public class ResourceServerConfigDiffblueTest {
     assertEquals(AuthenticationScheme.header, actualClientCredentialsResourceDetailsResult.getAuthenticationScheme());
   }
 
+  /**
+   * Method under test: {@link ResourceServerConfig#oauth2FeignRequestInterceptor()}
+   */
   @Test
   public void testOauth2FeignRequestInterceptor() {
     // Arrange, Act and Assert
@@ -69,6 +75,9 @@ public class ResourceServerConfigDiffblueTest {
         .oauth2FeignRequestInterceptor() instanceof org.springframework.cloud.security.oauth2.client.feign.OAuth2FeignRequestInterceptor);
   }
 
+  /**
+   * Method under test: {@link ResourceServerConfig#clientCredentialsRestTemplate()}
+   */
   @Test
   public void testClientCredentialsRestTemplate() {
     //   Diffblue Cover was unable to write a Spring test,
@@ -119,6 +128,9 @@ public class ResourceServerConfigDiffblueTest {
     assertTrue(objectMapper.getDateFormat() instanceof com.fasterxml.jackson.databind.util.StdDateFormat);
   }
 
+  /**
+   * Method under test: {@link ResourceServerConfig#tokenServices()}
+   */
   @Test
   public void testTokenServices() {
     // Arrange, Act and Assert

@@ -7,6 +7,18 @@ import java.math.BigDecimal;
 import org.junit.Test;
 
 public class SavingDiffblueTest {
+  /**
+  * Methods under test: 
+  * 
+  * <ul>
+  *   <li>default or parameterless constructor of {@link Saving}
+  *   <li>{@link Saving#setAmount(BigDecimal)}
+  *   <li>{@link Saving#setCapitalization(Boolean)}
+  *   <li>{@link Saving#setCurrency(Currency)}
+  *   <li>{@link Saving#setDeposit(Boolean)}
+  *   <li>{@link Saving#setInterest(BigDecimal)}
+  * </ul>
+  */
   @Test
   public void testConstructor() {
     // Arrange and Act

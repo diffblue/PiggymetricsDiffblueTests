@@ -7,6 +7,9 @@ import java.math.BigDecimal;
 import org.junit.Test;
 
 public class ItemMetricDiffblueTest {
+  /**
+  * Method under test: default or parameterless constructor of {@link ItemMetric}
+  */
   @Test
   public void testConstructor() {
     // Arrange
@@ -21,6 +24,9 @@ public class ItemMetricDiffblueTest {
     assertEquals("Dr", actualItemMetric.getTitle());
   }
 
+  /**
+   * Method under test: {@link ItemMetric#equals(Object)}
+   */
   @Test
   public void testEquals() {
     // Arrange, Act and Assert
@@ -28,6 +34,9 @@ public class ItemMetricDiffblueTest {
     assertNotEquals(new ItemMetric("Dr", BigDecimal.valueOf(1L)), "Different type to ItemMetric");
   }
 
+  /**
+   * Method under test: {@link ItemMetric#equals(Object)}
+   */
   @Test
   public void testEquals2() {
     // Arrange
@@ -39,6 +48,9 @@ public class ItemMetricDiffblueTest {
     assertEquals(expectedHashCodeResult, itemMetric.hashCode());
   }
 
+  /**
+   * Method under test: {@link ItemMetric#equals(Object)}
+   */
   @Test
   public void testEquals3() {
     // Arrange
@@ -51,6 +63,9 @@ public class ItemMetricDiffblueTest {
     assertEquals(expectedHashCodeResult, itemMetric1.hashCode());
   }
 
+  /**
+   * Method under test: {@link ItemMetric#equals(Object)}
+   */
   @Test
   public void testEquals4() {
     // Arrange

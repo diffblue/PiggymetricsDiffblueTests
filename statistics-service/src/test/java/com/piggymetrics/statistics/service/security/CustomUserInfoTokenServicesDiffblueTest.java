@@ -31,6 +31,16 @@ public class CustomUserInfoTokenServicesDiffblueTest {
   @Rule
   public ExpectedException thrown = ExpectedException.none();
 
+  /**
+  * Methods under test: 
+  * 
+  * <ul>
+  *   <li>{@link CustomUserInfoTokenServices#CustomUserInfoTokenServices(String, String)}
+  *   <li>{@link CustomUserInfoTokenServices#setAuthoritiesExtractor(org.springframework.boot.autoconfigure.security.oauth2.resource.AuthoritiesExtractor)}
+  *   <li>{@link CustomUserInfoTokenServices#setRestTemplate(org.springframework.security.oauth2.client.OAuth2RestOperations)}
+  *   <li>{@link CustomUserInfoTokenServices#setTokenType(String)}
+  * </ul>
+  */
   @Test
   public void testConstructor() {
     // Arrange and Act
@@ -105,6 +115,9 @@ public class CustomUserInfoTokenServicesDiffblueTest {
     assertTrue(objectMapper.getDateFormat() instanceof com.fasterxml.jackson.databind.util.StdDateFormat);
   }
 
+  /**
+   * Method under test: {@link CustomUserInfoTokenServices#loadAuthentication(String)}
+   */
   @Test
   public void testLoadAuthentication() throws AuthenticationException, InvalidTokenException {
     // Arrange, Act and Assert
@@ -112,6 +125,9 @@ public class CustomUserInfoTokenServicesDiffblueTest {
     (new CustomUserInfoTokenServices("https://config.us-east-2.amazonaws.com", "42")).loadAuthentication("ABC123");
   }
 
+  /**
+   * Method under test: {@link CustomUserInfoTokenServices#loadAuthentication(String)}
+   */
   @Test
   public void testLoadAuthentication2() throws AuthenticationException, InvalidTokenException {
     // Arrange
@@ -124,6 +140,9 @@ public class CustomUserInfoTokenServicesDiffblueTest {
     customUserInfoTokenServices.loadAuthentication("ABC123");
   }
 
+  /**
+   * Method under test: {@link CustomUserInfoTokenServices#readAccessToken(String)}
+   */
   @Test
   public void testReadAccessToken() {
     // Arrange, Act and Assert

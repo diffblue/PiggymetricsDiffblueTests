@@ -9,6 +9,9 @@ import java.util.Date;
 import org.junit.Test;
 
 public class DataPointIdDiffblueTest {
+  /**
+  * Method under test: default or parameterless constructor of {@link DataPointId}
+  */
   @Test
   public void testConstructor() {
     // Arrange

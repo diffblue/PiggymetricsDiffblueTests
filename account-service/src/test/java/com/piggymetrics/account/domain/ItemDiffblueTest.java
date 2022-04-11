@@ -6,6 +6,18 @@ import java.math.BigDecimal;
 import org.junit.Test;
 
 public class ItemDiffblueTest {
+  /**
+  * Methods under test: 
+  * 
+  * <ul>
+  *   <li>default or parameterless constructor of {@link Item}
+  *   <li>{@link Item#setAmount(BigDecimal)}
+  *   <li>{@link Item#setCurrency(Currency)}
+  *   <li>{@link Item#setIcon(String)}
+  *   <li>{@link Item#setPeriod(TimePeriod)}
+  *   <li>{@link Item#setTitle(String)}
+  * </ul>
+  */
   @Test
   public void testConstructor() {
     // Arrange and Act

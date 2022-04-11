@@ -10,6 +10,16 @@ import java.util.Date;
 import org.junit.Test;
 
 public class NotificationSettingsDiffblueTest {
+  /**
+  * Methods under test: 
+  * 
+  * <ul>
+  *   <li>default or parameterless constructor of {@link NotificationSettings}
+  *   <li>{@link NotificationSettings#setActive(Boolean)}
+  *   <li>{@link NotificationSettings#setFrequency(Frequency)}
+  *   <li>{@link NotificationSettings#setLastNotified(Date)}
+  * </ul>
+  */
   @Test
   public void testConstructor() {
     // Arrange and Act

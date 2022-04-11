@@ -4,6 +4,9 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 public class NotificationTypeDiffblueTest {
+  /**
+  * Method under test: {@link NotificationType#valueOf(String)}
+  */
   @Test
   public void testValueOf() {
     // Arrange and Act

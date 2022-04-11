@@ -28,6 +28,9 @@ public class MongoUserDetailsServiceDiffblueTest {
 
   @MockBean
   private UserRepository userRepository;
+  /**
+  * Method under test: {@link MongoUserDetailsService#loadUserByUsername(String)}
+  */
   @Test
   public void testLoadUserByUsername() throws UsernameNotFoundException {
     // Arrange
@@ -42,6 +45,9 @@ public class MongoUserDetailsServiceDiffblueTest {
     verify(this.userRepository).findById((String) any());
   }
 
+  /**
+   * Method under test: {@link MongoUserDetailsService#loadUserByUsername(String)}
+   */
   @Test
   public void testLoadUserByUsername2() throws UsernameNotFoundException {
     // Arrange
@@ -53,6 +59,9 @@ public class MongoUserDetailsServiceDiffblueTest {
     verify(this.userRepository).findById((String) any());
   }
 
+  /**
+   * Method under test: {@link MongoUserDetailsService#loadUserByUsername(String)}
+   */
   @Test
   public void testLoadUserByUsername3() throws UsernameNotFoundException {
     // Arrange

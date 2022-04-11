@@ -27,6 +27,9 @@ public class OAuth2AuthorizationConfigDiffblueTest {
 
   @MockBean
   private UserRepository userRepository;
+  /**
+  * Method under test: {@link OAuth2AuthorizationConfig#configure(ClientDetailsServiceConfigurer)}
+  */
   @Test
   public void testConfigure() throws Exception {
     // Arrange
@@ -40,6 +43,9 @@ public class OAuth2AuthorizationConfigDiffblueTest {
     assertTrue(clientDetailsServiceConfigurer.and() instanceof InMemoryClientDetailsServiceBuilder);
   }
 
+  /**
+   * Method under test: {@link OAuth2AuthorizationConfig#configure(AuthorizationServerEndpointsConfigurer)}
+   */
   @Test
   public void testConfigure2() throws Exception {
     // Arrange
@@ -54,6 +60,9 @@ public class OAuth2AuthorizationConfigDiffblueTest {
         .getTokenStore() instanceof org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore);
   }
 
+  /**
+   * Method under test: {@link OAuth2AuthorizationConfig#configure(AuthorizationServerSecurityConfigurer)}
+   */
   @Test
   public void testConfigure3() throws Exception {
     // Arrange
