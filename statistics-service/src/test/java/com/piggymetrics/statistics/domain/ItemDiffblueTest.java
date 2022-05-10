@@ -15,6 +15,10 @@ public class ItemDiffblueTest {
   *   <li>{@link Item#setCurrency(Currency)}
   *   <li>{@link Item#setPeriod(TimePeriod)}
   *   <li>{@link Item#setTitle(String)}
+  *   <li>{@link Item#getAmount()}
+  *   <li>{@link Item#getCurrency()}
+  *   <li>{@link Item#getPeriod()}
+  *   <li>{@link Item#getTitle()}
   * </ul>
   */
   @Test

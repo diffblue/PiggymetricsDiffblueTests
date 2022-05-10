@@ -15,6 +15,9 @@ public class RecipientDiffblueTest {
   *   <li>{@link Recipient#setAccountName(String)}
   *   <li>{@link Recipient#setEmail(String)}
   *   <li>{@link Recipient#setScheduledNotifications(Map)}
+  *   <li>{@link Recipient#getAccountName()}
+  *   <li>{@link Recipient#getEmail()}
+  *   <li>{@link Recipient#getScheduledNotifications()}
   * </ul>
   */
   @Test

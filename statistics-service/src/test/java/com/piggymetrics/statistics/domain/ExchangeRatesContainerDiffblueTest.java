@@ -18,6 +18,9 @@ public class ExchangeRatesContainerDiffblueTest {
   *   <li>{@link ExchangeRatesContainer#setBase(Currency)}
   *   <li>{@link ExchangeRatesContainer#setDate(LocalDate)}
   *   <li>{@link ExchangeRatesContainer#setRates(Map)}
+  *   <li>{@link ExchangeRatesContainer#getBase()}
+  *   <li>{@link ExchangeRatesContainer#getDate()}
+  *   <li>{@link ExchangeRatesContainer#getRates()}
   * </ul>
   */
   @Test

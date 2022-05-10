@@ -5,7 +5,14 @@ import org.junit.Test;
 
 public class NotificationTypeDiffblueTest {
   /**
-  * Method under test: {@link NotificationType#valueOf(String)}
+  * Methods under test: 
+  * 
+  * <ul>
+  *   <li>{@link NotificationType#valueOf(String)}
+  *   <li>{@link NotificationType#getAttachment()}
+  *   <li>{@link NotificationType#getSubject()}
+  *   <li>{@link NotificationType#getText()}
+  * </ul>
   */
   @Test
   public void testValueOf() {

@@ -18,6 +18,9 @@ public class NotificationSettingsDiffblueTest {
   *   <li>{@link NotificationSettings#setActive(Boolean)}
   *   <li>{@link NotificationSettings#setFrequency(Frequency)}
   *   <li>{@link NotificationSettings#setLastNotified(Date)}
+  *   <li>{@link NotificationSettings#getActive()}
+  *   <li>{@link NotificationSettings#getFrequency()}
+  *   <li>{@link NotificationSettings#getLastNotified()}
   * </ul>
   */
   @Test

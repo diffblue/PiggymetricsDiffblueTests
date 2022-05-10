@@ -23,6 +23,12 @@ public class AccountDiffblueTest {
   *   <li>{@link Account#setName(String)}
   *   <li>{@link Account#setNote(String)}
   *   <li>{@link Account#setSaving(Saving)}
+  *   <li>{@link Account#getExpenses()}
+  *   <li>{@link Account#getIncomes()}
+  *   <li>{@link Account#getLastSeen()}
+  *   <li>{@link Account#getName()}
+  *   <li>{@link Account#getNote()}
+  *   <li>{@link Account#getSaving()}
   * </ul>
   */
   @Test

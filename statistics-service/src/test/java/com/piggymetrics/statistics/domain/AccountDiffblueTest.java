@@ -15,6 +15,9 @@ public class AccountDiffblueTest {
   *   <li>{@link Account#setExpenses(List)}
   *   <li>{@link Account#setIncomes(List)}
   *   <li>{@link Account#setSaving(Saving)}
+  *   <li>{@link Account#getExpenses()}
+  *   <li>{@link Account#getIncomes()}
+  *   <li>{@link Account#getSaving()}
   * </ul>
   */
   @Test

@@ -8,7 +8,13 @@ import org.junit.Test;
 
 public class ItemMetricDiffblueTest {
   /**
-  * Method under test: default or parameterless constructor of {@link ItemMetric}
+  * Methods under test: 
+  * 
+  * <ul>
+  *   <li>{@link ItemMetric#ItemMetric(String, BigDecimal)}
+  *   <li>{@link ItemMetric#getAmount()}
+  *   <li>{@link ItemMetric#getTitle()}
+  * </ul>
   */
   @Test
   public void testConstructor() {
@@ -35,7 +41,12 @@ public class ItemMetricDiffblueTest {
   }
 
   /**
-   * Method under test: {@link ItemMetric#equals(Object)}
+   * Methods under test: 
+   * 
+   * <ul>
+   *   <li>{@link ItemMetric#equals(Object)}
+   *   <li>{@link ItemMetric#hashCode()}
+   * </ul>
    */
   @Test
   public void testEquals2() {
@@ -49,7 +60,12 @@ public class ItemMetricDiffblueTest {
   }
 
   /**
-   * Method under test: {@link ItemMetric#equals(Object)}
+   * Methods under test: 
+   * 
+   * <ul>
+   *   <li>{@link ItemMetric#equals(Object)}
+   *   <li>{@link ItemMetric#hashCode()}
+   * </ul>
    */
   @Test
   public void testEquals3() {

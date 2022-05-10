@@ -11,6 +11,8 @@ public class UserDiffblueTest {
   *   <li>default or parameterless constructor of {@link User}
   *   <li>{@link User#setPassword(String)}
   *   <li>{@link User#setUsername(String)}
+  *   <li>{@link User#getPassword()}
+  *   <li>{@link User#getUsername()}
   * </ul>
   */
   @Test

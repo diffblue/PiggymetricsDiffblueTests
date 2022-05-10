@@ -10,7 +10,13 @@ import org.junit.Test;
 
 public class DataPointIdDiffblueTest {
   /**
-  * Method under test: default or parameterless constructor of {@link DataPointId}
+  * Methods under test: 
+  * 
+  * <ul>
+  *   <li>{@link DataPointId#DataPointId(String, Date)}
+  *   <li>{@link DataPointId#getAccount()}
+  *   <li>{@link DataPointId#getDate()}
+  * </ul>
   */
   @Test
   public void testConstructor() {

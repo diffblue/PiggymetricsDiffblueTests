@@ -17,6 +17,11 @@ public class SavingDiffblueTest {
   *   <li>{@link Saving#setCurrency(Currency)}
   *   <li>{@link Saving#setDeposit(Boolean)}
   *   <li>{@link Saving#setInterest(BigDecimal)}
+  *   <li>{@link Saving#getAmount()}
+  *   <li>{@link Saving#getCapitalization()}
+  *   <li>{@link Saving#getCurrency()}
+  *   <li>{@link Saving#getDeposit()}
+  *   <li>{@link Saving#getInterest()}
   * </ul>
   */
   @Test

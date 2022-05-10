@@ -5,7 +5,12 @@ import org.junit.Test;
 
 public class FrequencyDiffblueTest {
   /**
-  * Method under test: {@link Frequency#valueOf(String)}
+  * Methods under test: 
+  * 
+  * <ul>
+  *   <li>{@link Frequency#valueOf(String)}
+  *   <li>{@link Frequency#getDays()}
+  * </ul>
   */
   @Test
   public void testValueOf() {

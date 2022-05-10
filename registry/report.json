@@ -1,16 +1,16 @@
 {
   "meta" : {
-    "reportVersion" : "2.0"
+    "reportVersion" : "2.1"
   },
   "run" : {
-    "version" : "2022.04.02-3ed5ae3",
-    "creationTimestamp" : "2022-04-26T17:26:33.46+01:00",
+    "version" : "2022.05.01-37b97e7",
+    "creationTimestamp" : "2022-05-10T10:14:06.197+01:00",
     "command" : "dcover create --batch --report-file=report.json --spring-integration-tests --verbose --trace-log --working-directory=registry",
-    "totalTime" : 47.38,
-    "environmentDetectionTime" : 14.857,
-    "indexingTime" : 4.351,
-    "entryPointsTime" : 10.412,
-    "generationTime" : 17.0,
+    "totalTime" : 48.918,
+    "environmentDetectionTime" : 14.704,
+    "indexingTime" : 4.365,
+    "entryPointsTime" : 9.422,
+    "generationTime" : 20.0,
     "verificationTime" : 0.0,
     "validationTime" : 0.0
   },
@@ -24,6 +24,7 @@
     "methodsCount" : 2,
     "completeTestCount" : 0,
     "incompleteTestCount" : 0,
+    "skeletonTestCount" : 0,
     "perMethodTestability" : {
       "T005" : 1,
       "T006" : 1

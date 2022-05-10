@@ -24,6 +24,11 @@ public class DataPointDiffblueTest {
   *   <li>{@link DataPoint#setIncomes(Set)}
   *   <li>{@link DataPoint#setRates(Map)}
   *   <li>{@link DataPoint#setStatistics(Map)}
+  *   <li>{@link DataPoint#getExpenses()}
+  *   <li>{@link DataPoint#getId()}
+  *   <li>{@link DataPoint#getIncomes()}
+  *   <li>{@link DataPoint#getRates()}
+  *   <li>{@link DataPoint#getStatistics()}
   * </ul>
   */
   @Test
