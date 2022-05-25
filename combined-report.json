@@ -1,15 +1,15 @@
 {
-  "totalTime" : 1656.189,
-  "environmentDetectionTime" : 133.651,
-  "indexingTime" : 39.254000000000005,
-  "entryPointsTime" : 101.473,
-  "generationTime" : 901.0,
-  "verificationTime" : 153.0,
-  "validationTime" : 319.023,
+  "totalTime" : 2191.298,
+  "environmentDetectionTime" : 137.70000000000002,
+  "indexingTime" : 40.06700000000001,
+  "entryPointsTime" : 104.21600000000001,
+  "generationTime" : 945.0,
+  "verificationTime" : 152.0,
+  "validationTime" : 339.98,
   "summary" : {
     "classesCount" : 61,
     "methodsCount" : 287,
-    "completeTestCount" : 88,
+    "completeTestCount" : 87,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "perMethodTestability" : {
@@ -30,10 +30,10 @@
       "T006" : 9
     },
     "perTestOutcome" : {
-      "R000" : 88
+      "R000" : 87
     },
     "perTestValidation" : {
-      "V000" : 88
+      "V000" : 87
     }
   },
   "coverageMetrics" : {
@@ -43,9 +43,9 @@
     "totalLines" : 588
   },
   "piTestMetrics" : {
-    "mutationsKilled" : 99,
-    "mutationsKilledPercent" : "48.29%",
-    "mutationsNoCoverage" : 67,
+    "mutationsKilled" : 98,
+    "mutationsKilledPercent" : "47.8%",
+    "mutationsNoCoverage" : 68,
     "mutationsSurvived" : 39,
     "mutationsTotal" : 205
   }

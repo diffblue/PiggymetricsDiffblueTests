@@ -3,14 +3,14 @@
     "reportVersion" : "2.1"
   },
   "run" : {
-    "version" : "2022.05.01-37b97e7",
-    "creationTimestamp" : "2022-05-10T10:20:22.9+01:00",
-    "command" : "dcover create --batch --report-file=report.json --spring-integration-tests --verbose --trace-log --working-directory=turbine-stream-service",
-    "totalTime" : 50.789,
-    "environmentDetectionTime" : 14.418,
-    "indexingTime" : 4.221,
-    "entryPointsTime" : 10.288,
-    "generationTime" : 21.0,
+    "version" : "2022.05.02-7951067",
+    "creationTimestamp" : "2022-05-25T09:10:39.874+01:00",
+    "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --trace-log --working-directory=turbine-stream-service",
+    "totalTime" : 69.283,
+    "environmentDetectionTime" : 15.47,
+    "indexingTime" : 4.473,
+    "entryPointsTime" : 10.468,
+    "generationTime" : 18.0,
     "verificationTime" : 0.0,
     "validationTime" : 0.0
   },

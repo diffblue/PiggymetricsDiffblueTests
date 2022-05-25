@@ -70,15 +70,6 @@ public class StatisticsServiceImplDiffblueTest {
    */
   @Test
   public void testSave() {
-    //   Diffblue Cover was unable to write a Spring test,
-    //   so wrote a non-Spring test instead.
-    //   Reason: R011 Sandboxing policy violation.
-    //   Diffblue Cover ran code in your project that tried
-    //     to access the network.
-    //   Diffblue Cover's default sandboxing policy disallows this in order to prevent
-    //   your code from damaging your system environment.
-    //   See https://diff.blue/R011 to resolve this issue.
-
     // Arrange
     when(this.exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>());
     when(this.exchangeRatesService.convert((Currency) any(), (Currency) any(), (BigDecimal) any()))
@@ -117,15 +108,6 @@ public class StatisticsServiceImplDiffblueTest {
    */
   @Test
   public void testSave2() {
-    //   Diffblue Cover was unable to write a Spring test,
-    //   so wrote a non-Spring test instead.
-    //   Reason: R011 Sandboxing policy violation.
-    //   Diffblue Cover ran code in your project that tried
-    //     to access the network.
-    //   Diffblue Cover's default sandboxing policy disallows this in order to prevent
-    //   your code from damaging your system environment.
-    //   See https://diff.blue/R011 to resolve this issue.
-
     // Arrange
     when(this.exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>());
     when(this.exchangeRatesService.convert((Currency) any(), (Currency) any(), (BigDecimal) any()))
@@ -191,15 +173,6 @@ public class StatisticsServiceImplDiffblueTest {
    */
   @Test
   public void testSave3() {
-    //   Diffblue Cover was unable to write a Spring test,
-    //   so wrote a non-Spring test instead.
-    //   Reason: R011 Sandboxing policy violation.
-    //   Diffblue Cover ran code in your project that tried
-    //     to access the network.
-    //   Diffblue Cover's default sandboxing policy disallows this in order to prevent
-    //   your code from damaging your system environment.
-    //   See https://diff.blue/R011 to resolve this issue.
-
     // Arrange
     when(this.exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>());
     when(this.exchangeRatesService.convert((Currency) any(), (Currency) any(), (BigDecimal) any()))
@@ -265,15 +238,6 @@ public class StatisticsServiceImplDiffblueTest {
    */
   @Test
   public void testSave4() {
-    //   Diffblue Cover was unable to write a Spring test,
-    //   so wrote a non-Spring test instead.
-    //   Reason: R011 Sandboxing policy violation.
-    //   Diffblue Cover ran code in your project that tried
-    //     to access the network.
-    //   Diffblue Cover's default sandboxing policy disallows this in order to prevent
-    //   your code from damaging your system environment.
-    //   See https://diff.blue/R011 to resolve this issue.
-
     // Arrange
     when(this.exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>());
     when(this.exchangeRatesService.convert((Currency) any(), (Currency) any(), (BigDecimal) any()))
