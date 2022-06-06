@@ -3,19 +3,18 @@
     "reportVersion" : "2.1"
   },
   "run" : {
-    "version" : "2022.05.02-7951067",
-    "creationTimestamp" : "2022-05-25T08:49:26.535+01:00",
+    "version" : "2022.06.01-ce10c43",
+    "creationTimestamp" : "2022-06-06T17:58:02.457+01:00",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --trace-log --working-directory=config",
-    "totalTime" : 91.231,
-    "environmentDetectionTime" : 13.775,
-    "indexingTime" : 3.657,
-    "entryPointsTime" : 9.493,
-    "generationTime" : 54.0,
+    "totalTime" : 96.406,
+    "environmentDetectionTime" : 15.203,
+    "indexingTime" : 3.734,
+    "entryPointsTime" : 9.911,
+    "generationTime" : 55.0,
     "verificationTime" : 0.0,
     "validationTime" : 0.0
   },
   "codes" : {
-    "R002" : "Missing observers",
     "R013" : "No inputs found that don't throw a trivial exception",
     "T000" : "Should be tested directly",
     "T005" : "Trivial constructor",
@@ -33,9 +32,8 @@
       "T006" : 1
     },
     "perMethodOutcome" : {
-      "R002" : 1,
       "R013" : 1,
-      "T005" : 1,
+      "T005" : 2,
       "T006" : 1
     }
   },
@@ -49,7 +47,7 @@
         "T006" : 1
       },
       "perMethodOutcome" : {
-        "R002" : 1,
+        "T005" : 1,
         "T006" : 1
       }
     },
@@ -71,7 +69,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T005",
-      "perMethodOutcome" : "R002"
+      "perMethodOutcome" : "T005"
     },
     "com.piggymetrics.config.ConfigApplication.main:([Ljava/lang/String;)V" : {
       "completeTestCount" : 0,

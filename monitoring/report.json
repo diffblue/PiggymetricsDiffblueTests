@@ -3,19 +3,18 @@
     "reportVersion" : "2.1"
   },
   "run" : {
-    "version" : "2022.05.02-7951067",
-    "creationTimestamp" : "2022-05-25T08:52:20.852+01:00",
+    "version" : "2022.06.01-ce10c43",
+    "creationTimestamp" : "2022-06-06T18:00:50.989+01:00",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --trace-log --working-directory=monitoring",
-    "totalTime" : 61.97,
-    "environmentDetectionTime" : 14.82,
-    "indexingTime" : 3.574,
-    "entryPointsTime" : 8.851,
-    "generationTime" : 17.0,
+    "totalTime" : 52.944,
+    "environmentDetectionTime" : 14.025,
+    "indexingTime" : 3.739,
+    "entryPointsTime" : 9.157,
+    "generationTime" : 8.0,
     "verificationTime" : 0.0,
     "validationTime" : 0.0
   },
   "codes" : {
-    "R002" : "Missing observers",
     "T005" : "Trivial constructor",
     "T006" : "Main method"
   },
@@ -30,7 +29,7 @@
       "T006" : 1
     },
     "perMethodOutcome" : {
-      "R002" : 1,
+      "T005" : 1,
       "T006" : 1
     }
   },
@@ -44,7 +43,7 @@
         "T006" : 1
       },
       "perMethodOutcome" : {
-        "R002" : 1,
+        "T005" : 1,
         "T006" : 1
       }
     }
@@ -54,7 +53,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T005",
-      "perMethodOutcome" : "R002"
+      "perMethodOutcome" : "T005"
     },
     "com.piggymetrics.monitoring.MonitoringApplication.main:([Ljava/lang/String;)V" : {
       "completeTestCount" : 0,

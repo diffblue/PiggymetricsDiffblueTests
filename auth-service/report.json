@@ -3,21 +3,20 @@
     "reportVersion" : "2.1"
   },
   "run" : {
-    "version" : "2022.05.02-7951067",
-    "creationTimestamp" : "2022-05-25T08:43:17.874+01:00",
+    "version" : "2022.06.01-ce10c43",
+    "creationTimestamp" : "2022-06-06T17:52:03.392+01:00",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --trace-log --working-directory=auth-service",
-    "totalTime" : 363.83,
-    "environmentDetectionTime" : 15.242,
-    "indexingTime" : 4.89,
-    "entryPointsTime" : 13.688,
-    "generationTime" : 152.0,
+    "totalTime" : 354.225,
+    "environmentDetectionTime" : 15.005,
+    "indexingTime" : 4.654,
+    "entryPointsTime" : 13.642,
+    "generationTime" : 147.0,
     "verificationTime" : 28.0,
-    "validationTime" : 70.017
+    "validationTime" : 67.012
   },
   "codes" : {
     "E052" : "Missing, mismatched or unsupported test dependency",
     "R000" : "Success",
-    "R002" : "Missing observers",
     "R004" : "No meaningful assertions found",
     "R013" : "No inputs found that don't throw a trivial exception",
     "T000" : "Should be tested directly",
@@ -43,10 +42,9 @@
     "perMethodOutcome" : {
       "E052" : 11,
       "R000" : 18,
-      "R002" : 1,
       "R004" : 1,
       "R013" : 1,
-      "T005" : 5,
+      "T005" : 6,
       "T006" : 1
     },
     "perTestOutcome" : {
@@ -66,7 +64,7 @@
         "T006" : 1
       },
       "perMethodOutcome" : {
-        "R002" : 1,
+        "T005" : 1,
         "T006" : 1
       }
     },
@@ -182,7 +180,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T005",
-      "perMethodOutcome" : "R002"
+      "perMethodOutcome" : "T005"
     },
     "com.piggymetrics.auth.AuthApplication.main:([Ljava/lang/String;)V" : {
       "completeTestCount" : 0,

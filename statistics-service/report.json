@@ -3,16 +3,16 @@
     "reportVersion" : "2.1"
   },
   "run" : {
-    "version" : "2022.05.02-7951067",
-    "creationTimestamp" : "2022-05-25T09:02:52.698+01:00",
+    "version" : "2022.06.01-ce10c43",
+    "creationTimestamp" : "2022-06-06T18:10:40.076+01:00",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --trace-log --working-directory=statistics-service",
-    "totalTime" : 462.239,
-    "environmentDetectionTime" : 15.402,
-    "indexingTime" : 4.952,
-    "entryPointsTime" : 14.168,
-    "generationTime" : 159.0,
-    "verificationTime" : 44.0,
-    "validationTime" : 106.985
+    "totalTime" : 472.492,
+    "environmentDetectionTime" : 16.02,
+    "indexingTime" : 5.085,
+    "entryPointsTime" : 14.945,
+    "generationTime" : 163.0,
+    "verificationTime" : 45.0,
+    "validationTime" : 105.977
   },
   "codes" : {
     "E052" : "Missing, mismatched or unsupported test dependency",
@@ -45,10 +45,10 @@
     "perMethodOutcome" : {
       "E052" : 12,
       "R000" : 70,
-      "R002" : 2,
+      "R002" : 1,
       "R004" : 2,
       "R013" : 3,
-      "T005" : 8,
+      "T005" : 9,
       "T006" : 1
     },
     "perTestOutcome" : {
@@ -68,7 +68,7 @@
         "T006" : 1
       },
       "perMethodOutcome" : {
-        "R002" : 1,
+        "T005" : 1,
         "T006" : 1
       }
     },
@@ -374,7 +374,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T005",
-      "perMethodOutcome" : "R002"
+      "perMethodOutcome" : "T005"
     },
     "com.piggymetrics.statistics.StatisticsApplication.main:([Ljava/lang/String;)V" : {
       "completeTestCount" : 0,
