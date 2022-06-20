@@ -3,16 +3,16 @@
     "reportVersion" : "2.1"
   },
   "run" : {
-    "version" : "2022.06.01-ce10c43",
-    "creationTimestamp" : "2022-06-06T18:10:40.076+01:00",
+    "version" : "2022.06.02-100b46e",
+    "creationTimestamp" : "2022-06-20T20:50:24.207+01:00",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --trace-log --working-directory=statistics-service",
-    "totalTime" : 472.492,
-    "environmentDetectionTime" : 16.02,
-    "indexingTime" : 5.085,
-    "entryPointsTime" : 14.945,
-    "generationTime" : 163.0,
-    "verificationTime" : 45.0,
-    "validationTime" : 105.977
+    "totalTime" : 475.05,
+    "environmentDetectionTime" : 15.112,
+    "indexingTime" : 4.811,
+    "entryPointsTime" : 15.331,
+    "generationTime" : 157.0,
+    "verificationTime" : 65.0,
+    "validationTime" : 104.005
   },
   "codes" : {
     "E052" : "Missing, mismatched or unsupported test dependency",
@@ -44,8 +44,8 @@
     },
     "perMethodOutcome" : {
       "E052" : 12,
-      "R000" : 70,
-      "R002" : 1,
+      "R000" : 68,
+      "R002" : 3,
       "R004" : 2,
       "R013" : 3,
       "T005" : 9,
@@ -151,13 +151,16 @@
     },
     "com.piggymetrics.statistics.domain.Currency" : {
       "methodsCount" : 1,
-      "completeTestCount" : 0,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T001" : 1
       },
       "perMethodOutcome" : {
-        "R002" : 1
+        "R000" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 1
       }
     },
     "com.piggymetrics.statistics.domain.ExchangeRatesContainer" : {
@@ -342,18 +345,19 @@
     },
     "com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices" : {
       "methodsCount" : 6,
-      "completeTestCount" : 4,
+      "completeTestCount" : 3,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 3,
         "T002" : 3
       },
       "perMethodOutcome" : {
-        "R000" : 5,
+        "R000" : 2,
+        "R002" : 3,
         "R004" : 1
       },
       "perTestOutcome" : {
-        "R000" : 4
+        "R000" : 3
       }
     }
   },
@@ -509,10 +513,13 @@
       }
     },
     "com.piggymetrics.statistics.domain.Currency.getBase:()Lcom/piggymetrics/statistics/domain/Currency;" : {
-      "completeTestCount" : 0,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T001",
-      "perMethodOutcome" : "R002"
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      }
     },
     "com.piggymetrics.statistics.domain.ExchangeRatesContainer.<init>:()V" : {
       "completeTestCount" : 1,
@@ -1130,31 +1137,22 @@
       }
     },
     "com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices.setAuthoritiesExtractor:(Lorg/springframework/boot/autoconfigure/security/oauth2/resource/AuthoritiesExtractor;)V" : {
-      "completeTestCount" : 1,
+      "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T002",
-      "perMethodOutcome" : "R000",
-      "perTestOutcome" : {
-        "R000" : 1
-      }
+      "perMethodOutcome" : "R002"
     },
     "com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices.setRestTemplate:(Lorg/springframework/security/oauth2/client/OAuth2RestOperations;)V" : {
-      "completeTestCount" : 1,
+      "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T002",
-      "perMethodOutcome" : "R000",
-      "perTestOutcome" : {
-        "R000" : 1
-      }
+      "perMethodOutcome" : "R002"
     },
     "com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices.setTokenType:(Ljava/lang/String;)V" : {
-      "completeTestCount" : 1,
+      "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T002",
-      "perMethodOutcome" : "R000",
-      "perTestOutcome" : {
-        "R000" : 1
-      }
+      "perMethodOutcome" : "R002"
     }
   }
 }

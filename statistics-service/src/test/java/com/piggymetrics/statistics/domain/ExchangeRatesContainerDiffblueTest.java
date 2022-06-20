@@ -18,6 +18,7 @@ public class ExchangeRatesContainerDiffblueTest {
   *   <li>{@link ExchangeRatesContainer#setBase(Currency)}
   *   <li>{@link ExchangeRatesContainer#setDate(LocalDate)}
   *   <li>{@link ExchangeRatesContainer#setRates(Map)}
+  *   <li>{@link ExchangeRatesContainer#toString()}
   *   <li>{@link ExchangeRatesContainer#getBase()}
   *   <li>{@link ExchangeRatesContainer#getDate()}
   *   <li>{@link ExchangeRatesContainer#getRates()}
@@ -32,11 +33,13 @@ public class ExchangeRatesContainerDiffblueTest {
     actualExchangeRatesContainer.setDate(ofEpochDayResult);
     HashMap<String, BigDecimal> stringBigDecimalMap = new HashMap<>();
     actualExchangeRatesContainer.setRates(stringBigDecimalMap);
+    String actualToStringResult = actualExchangeRatesContainer.toString();
 
     // Assert
     assertEquals(Currency.USD, actualExchangeRatesContainer.getBase());
     assertSame(ofEpochDayResult, actualExchangeRatesContainer.getDate());
     assertSame(stringBigDecimalMap, actualExchangeRatesContainer.getRates());
+    assertEquals("RateList{date=1970-01-02, base=USD, rates={}}", actualToStringResult);
   }
 
   /**

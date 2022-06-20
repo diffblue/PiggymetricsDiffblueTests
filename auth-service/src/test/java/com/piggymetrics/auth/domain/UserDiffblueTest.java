@@ -12,6 +12,7 @@ public class UserDiffblueTest {
   *   <li>default or parameterless constructor of {@link User}
   *   <li>{@link User#setPassword(String)}
   *   <li>{@link User#setUsername(String)}
+  *   <li>{@link User#getAuthorities()}
   *   <li>{@link User#getPassword()}
   *   <li>{@link User#getUsername()}
   *   <li>{@link User#isAccountNonExpired()}
@@ -26,8 +27,9 @@ public class UserDiffblueTest {
     User actualUser = new User();
     actualUser.setPassword("iloveyou");
     actualUser.setUsername("janedoe");
+    actualUser.getAuthorities();
 
-    // Assert
+    // Assert that nothing has changed
     assertEquals("iloveyou", actualUser.getPassword());
     assertEquals("janedoe", actualUser.getUsername());
     assertTrue(actualUser.isAccountNonExpired());

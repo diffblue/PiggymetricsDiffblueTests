@@ -27,7 +27,7 @@ public class DataPointIdWriterConverterDiffblueTest {
     LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
 
     // Act and Assert
-    assertEquals(2, ((BasicDBObject) this.dataPointIdWriterConverter
+    assertEquals(2, ((BasicDBObject) dataPointIdWriterConverter
         .convert(new DataPointId("3", Date.from(atStartOfDayResult.atZone(ZoneId.of("UTC")).toInstant())))).size());
   }
 }

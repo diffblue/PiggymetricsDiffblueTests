@@ -3,6 +3,7 @@ package com.piggymetrics.auth.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.piggymetrics.auth.domain.User;
 import com.piggymetrics.auth.service.UserService;
+import java.security.Principal;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,16 +40,14 @@ public class UserControllerDiffblueTest {
         .content(content);
 
     // Act
-    ResultActions actualPerformResult = MockMvcBuilders.standaloneSetup(this.userController)
-        .build()
-        .perform(requestBuilder);
+    ResultActions actualPerformResult = MockMvcBuilders.standaloneSetup(userController).build().perform(requestBuilder);
 
     // Assert
     actualPerformResult.andExpect(MockMvcResultMatchers.status().is(405));
   }
 
   /**
-   * Method under test: {@link UserController#getUser(java.security.Principal)}
+   * Method under test: {@link UserController#getUser(Principal)}
    */
   @Test
   public void testGetUser() throws Exception {
@@ -56,14 +55,14 @@ public class UserControllerDiffblueTest {
     MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/users/current");
 
     // Act and Assert
-    MockMvcBuilders.standaloneSetup(this.userController)
+    MockMvcBuilders.standaloneSetup(userController)
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk());
   }
 
   /**
-   * Method under test: {@link UserController#getUser(java.security.Principal)}
+   * Method under test: {@link UserController#getUser(Principal)}
    */
   @Test
   public void testGetUser2() throws Exception {
@@ -72,7 +71,7 @@ public class UserControllerDiffblueTest {
     getResult.characterEncoding("Encoding");
 
     // Act and Assert
-    MockMvcBuilders.standaloneSetup(this.userController)
+    MockMvcBuilders.standaloneSetup(userController)
         .build()
         .perform(getResult)
         .andExpect(MockMvcResultMatchers.status().isOk());

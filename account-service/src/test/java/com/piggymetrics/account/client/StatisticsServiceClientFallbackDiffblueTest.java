@@ -47,7 +47,7 @@ public class StatisticsServiceClientFallbackDiffblueTest {
     account.setSaving(saving);
 
     // Act
-    this.statisticsServiceClientFallback.updateStatistics("Dr Jane Doe", account);
+    statisticsServiceClientFallback.updateStatistics("Dr Jane Doe", account);
 
     // Assert that nothing has changed
     assertTrue(account.getExpenses().isEmpty());

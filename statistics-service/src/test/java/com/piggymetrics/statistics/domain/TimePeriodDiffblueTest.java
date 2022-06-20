@@ -1,7 +1,6 @@
 package com.piggymetrics.statistics.domain;
 
 import static org.junit.Assert.assertEquals;
-import java.math.BigDecimal;
 import org.junit.Test;
 
 public class TimePeriodDiffblueTest {
@@ -15,15 +14,17 @@ public class TimePeriodDiffblueTest {
   }
 
   /**
-  * Method under test: {@link TimePeriod#valueOf(String)}
+  * Methods under test: 
+  * 
+  * <ul>
+  *   <li>{@link TimePeriod#valueOf(String)}
+  *   <li>{@link TimePeriod#getBase()}
+  * </ul>
   */
   @Test
   public void testValueOf() {
     // Arrange, Act and Assert
-    BigDecimal baseRatio = TimePeriod.valueOf("YEAR").getBaseRatio();
-    assertEquals(44, baseRatio.scale());
-    assertEquals("365.24250000000000682121026329696178436279296875", baseRatio.toString());
-    assertEquals(1, baseRatio.signum());
+    assertEquals(TimePeriod.DAY, TimePeriod.valueOf("YEAR").getBase());
   }
 }
 

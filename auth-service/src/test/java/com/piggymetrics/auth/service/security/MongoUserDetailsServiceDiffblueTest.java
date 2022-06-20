@@ -38,11 +38,11 @@ public class MongoUserDetailsServiceDiffblueTest {
     user.setPassword("iloveyou");
     user.setUsername("janedoe");
     Optional<User> ofResult = Optional.of(user);
-    when(this.userRepository.findById((String) any())).thenReturn(ofResult);
+    when(userRepository.findById((String) any())).thenReturn(ofResult);
 
     // Act and Assert
-    assertSame(user, this.mongoUserDetailsService.loadUserByUsername("janedoe"));
-    verify(this.userRepository).findById((String) any());
+    assertSame(user, mongoUserDetailsService.loadUserByUsername("janedoe"));
+    verify(userRepository).findById((String) any());
   }
 
   /**
@@ -51,12 +51,12 @@ public class MongoUserDetailsServiceDiffblueTest {
   @Test
   public void testLoadUserByUsername2() throws UsernameNotFoundException {
     // Arrange
-    when(this.userRepository.findById((String) any())).thenReturn(Optional.empty());
+    when(userRepository.findById((String) any())).thenReturn(Optional.empty());
 
     // Act and Assert
     thrown.expect(UsernameNotFoundException.class);
-    this.mongoUserDetailsService.loadUserByUsername("janedoe");
-    verify(this.userRepository).findById((String) any());
+    mongoUserDetailsService.loadUserByUsername("janedoe");
+    verify(userRepository).findById((String) any());
   }
 
   /**
@@ -65,12 +65,12 @@ public class MongoUserDetailsServiceDiffblueTest {
   @Test
   public void testLoadUserByUsername3() throws UsernameNotFoundException {
     // Arrange
-    when(this.userRepository.findById((String) any())).thenThrow(new UsernameNotFoundException("Msg"));
+    when(userRepository.findById((String) any())).thenThrow(new UsernameNotFoundException("Msg"));
 
     // Act and Assert
     thrown.expect(UsernameNotFoundException.class);
-    this.mongoUserDetailsService.loadUserByUsername("janedoe");
-    verify(this.userRepository).findById((String) any());
+    mongoUserDetailsService.loadUserByUsername("janedoe");
+    verify(userRepository).findById((String) any());
   }
 }
 

@@ -60,15 +60,15 @@ public class AccountServiceImplDiffblueTest {
     account.setName("Name");
     account.setNote("Note");
     account.setSaving(saving);
-    when(this.accountRepository.findByName((String) any())).thenReturn(account);
+    when(accountRepository.findByName((String) any())).thenReturn(account);
 
     // Act
-    Account actualFindByNameResult = this.accountServiceImpl.findByName("Dr Jane Doe");
+    Account actualFindByNameResult = accountServiceImpl.findByName("Dr Jane Doe");
 
     // Assert
     assertSame(account, actualFindByNameResult);
     assertEquals("1", actualFindByNameResult.getSaving().getAmount().toString());
-    verify(this.accountRepository).findByName((String) any());
+    verify(accountRepository).findByName((String) any());
   }
 
   /**
@@ -77,8 +77,6 @@ public class AccountServiceImplDiffblueTest {
   @Test
   public void testSaveChanges() {
     // Arrange
-    doNothing().when(this.statisticsServiceClient).updateStatistics((String) any(), (Account) any());
-
     Saving saving = new Saving();
     saving.setAmount(BigDecimal.valueOf(1L));
     saving.setCapitalization(true);
@@ -110,8 +108,9 @@ public class AccountServiceImplDiffblueTest {
     account1.setName("Name");
     account1.setNote("Note");
     account1.setSaving(saving1);
-    when(this.accountRepository.save((Account) any())).thenReturn(account1);
-    when(this.accountRepository.findByName((String) any())).thenReturn(account);
+    when(accountRepository.save((Account) any())).thenReturn(account1);
+    when(accountRepository.findByName((String) any())).thenReturn(account);
+    doNothing().when(statisticsServiceClient).updateStatistics((String) any(), (Account) any());
 
     Saving saving2 = new Saving();
     saving2.setAmount(BigDecimal.valueOf(1L));
@@ -130,12 +129,12 @@ public class AccountServiceImplDiffblueTest {
     account2.setSaving(saving2);
 
     // Act
-    this.accountServiceImpl.saveChanges("Name", account2);
+    accountServiceImpl.saveChanges("Name", account2);
 
     // Assert
-    verify(this.statisticsServiceClient).updateStatistics((String) any(), (Account) any());
-    verify(this.accountRepository).findByName((String) any());
-    verify(this.accountRepository).save((Account) any());
+    verify(accountRepository).findByName((String) any());
+    verify(accountRepository).save((Account) any());
+    verify(statisticsServiceClient).updateStatistics((String) any(), (Account) any());
   }
 }
 

@@ -48,11 +48,11 @@ public class RecipientServiceImplDiffblueTest {
     recipient.setAccountName("Dr Jane Doe");
     recipient.setEmail("jane.doe@example.org");
     recipient.setScheduledNotifications(new HashMap<>());
-    when(this.recipientRepository.findByAccountName((String) any())).thenReturn(recipient);
+    when(recipientRepository.findByAccountName((String) any())).thenReturn(recipient);
 
     // Act and Assert
-    assertSame(recipient, this.recipientServiceImpl.findByAccountName("Dr Jane Doe"));
-    verify(this.recipientRepository).findByAccountName((String) any());
+    assertSame(recipient, recipientServiceImpl.findByAccountName("Dr Jane Doe"));
+    verify(recipientRepository).findByAccountName((String) any());
   }
 
   /**
@@ -61,12 +61,12 @@ public class RecipientServiceImplDiffblueTest {
   @Test
   public void testFindByAccountName2() {
     // Arrange
-    when(this.recipientRepository.findByAccountName((String) any())).thenThrow(new IllegalArgumentException("foo"));
+    when(recipientRepository.findByAccountName((String) any())).thenThrow(new IllegalArgumentException("foo"));
 
     // Act and Assert
     thrown.expect(IllegalArgumentException.class);
-    this.recipientServiceImpl.findByAccountName("Dr Jane Doe");
-    verify(this.recipientRepository).findByAccountName((String) any());
+    recipientServiceImpl.findByAccountName("Dr Jane Doe");
+    verify(recipientRepository).findByAccountName((String) any());
   }
 
   /**
@@ -79,7 +79,7 @@ public class RecipientServiceImplDiffblueTest {
     recipient.setAccountName("Dr Jane Doe");
     recipient.setEmail("jane.doe@example.org");
     recipient.setScheduledNotifications(new HashMap<>());
-    when(this.recipientRepository.save((Recipient) any())).thenReturn(recipient);
+    when(recipientRepository.save((Recipient) any())).thenReturn(recipient);
 
     Recipient recipient1 = new Recipient();
     recipient1.setAccountName("Dr Jane Doe");
@@ -87,12 +87,12 @@ public class RecipientServiceImplDiffblueTest {
     recipient1.setScheduledNotifications(new HashMap<>());
 
     // Act
-    Recipient actualSaveResult = this.recipientServiceImpl.save("Dr Jane Doe", recipient1);
+    Recipient actualSaveResult = recipientServiceImpl.save("Dr Jane Doe", recipient1);
 
     // Assert
     assertSame(recipient1, actualSaveResult);
     assertEquals("Dr Jane Doe", actualSaveResult.getAccountName());
-    verify(this.recipientRepository).save((Recipient) any());
+    verify(recipientRepository).save((Recipient) any());
   }
 
   /**
@@ -105,7 +105,7 @@ public class RecipientServiceImplDiffblueTest {
     recipient.setAccountName("Dr Jane Doe");
     recipient.setEmail("jane.doe@example.org");
     recipient.setScheduledNotifications(new HashMap<>());
-    when(this.recipientRepository.save((Recipient) any())).thenReturn(recipient);
+    when(recipientRepository.save((Recipient) any())).thenReturn(recipient);
 
     NotificationSettings notificationSettings = new NotificationSettings();
     notificationSettings.setActive(true);
@@ -122,12 +122,12 @@ public class RecipientServiceImplDiffblueTest {
     recipient1.setScheduledNotifications(notificationTypeNotificationSettingsMap);
 
     // Act
-    Recipient actualSaveResult = this.recipientServiceImpl.save("Dr Jane Doe", recipient1);
+    Recipient actualSaveResult = recipientServiceImpl.save("Dr Jane Doe", recipient1);
 
     // Assert
     assertSame(recipient1, actualSaveResult);
     assertEquals("Dr Jane Doe", actualSaveResult.getAccountName());
-    verify(this.recipientRepository).save((Recipient) any());
+    verify(recipientRepository).save((Recipient) any());
   }
 
   /**
@@ -136,7 +136,7 @@ public class RecipientServiceImplDiffblueTest {
   @Test
   public void testSave3() {
     // Arrange
-    when(this.recipientRepository.save((Recipient) any()))
+    when(recipientRepository.save((Recipient) any()))
         .thenThrow(new IllegalArgumentException("recipient {} settings has been updated"));
 
     Recipient recipient = new Recipient();
@@ -146,8 +146,8 @@ public class RecipientServiceImplDiffblueTest {
 
     // Act and Assert
     thrown.expect(IllegalArgumentException.class);
-    this.recipientServiceImpl.save("Dr Jane Doe", recipient);
-    verify(this.recipientRepository).save((Recipient) any());
+    recipientServiceImpl.save("Dr Jane Doe", recipient);
+    verify(recipientRepository).save((Recipient) any());
   }
 
   /**
@@ -160,7 +160,7 @@ public class RecipientServiceImplDiffblueTest {
     recipient.setAccountName("Dr Jane Doe");
     recipient.setEmail("jane.doe@example.org");
     recipient.setScheduledNotifications(new HashMap<>());
-    when(this.recipientRepository.save((Recipient) any())).thenReturn(recipient);
+    when(recipientRepository.save((Recipient) any())).thenReturn(recipient);
 
     NotificationSettings notificationSettings = new NotificationSettings();
     notificationSettings.setActive(true);
@@ -176,12 +176,12 @@ public class RecipientServiceImplDiffblueTest {
     recipient1.setScheduledNotifications(notificationTypeNotificationSettingsMap);
 
     // Act
-    Recipient actualSaveResult = this.recipientServiceImpl.save("Dr Jane Doe", recipient1);
+    Recipient actualSaveResult = recipientServiceImpl.save("Dr Jane Doe", recipient1);
 
     // Assert
     assertSame(recipient1, actualSaveResult);
     assertEquals("Dr Jane Doe", actualSaveResult.getAccountName());
-    verify(this.recipientRepository).save((Recipient) any());
+    verify(recipientRepository).save((Recipient) any());
   }
 
   /**
@@ -191,16 +191,15 @@ public class RecipientServiceImplDiffblueTest {
   public void testFindReadyToNotify() {
     // Arrange
     ArrayList<Recipient> recipientList = new ArrayList<>();
-    when(this.recipientRepository.findReadyForBackup()).thenReturn(recipientList);
+    when(recipientRepository.findReadyForBackup()).thenReturn(recipientList);
 
     // Act
-    List<Recipient> actualFindReadyToNotifyResult = this.recipientServiceImpl
-        .findReadyToNotify(NotificationType.BACKUP);
+    List<Recipient> actualFindReadyToNotifyResult = recipientServiceImpl.findReadyToNotify(NotificationType.BACKUP);
 
     // Assert
     assertSame(recipientList, actualFindReadyToNotifyResult);
     assertTrue(actualFindReadyToNotifyResult.isEmpty());
-    verify(this.recipientRepository).findReadyForBackup();
+    verify(recipientRepository).findReadyForBackup();
   }
 
   /**
@@ -210,17 +209,16 @@ public class RecipientServiceImplDiffblueTest {
   public void testFindReadyToNotify2() {
     // Arrange
     ArrayList<Recipient> recipientList = new ArrayList<>();
-    when(this.recipientRepository.findReadyForRemind()).thenReturn(recipientList);
-    when(this.recipientRepository.findReadyForBackup()).thenReturn(new ArrayList<>());
+    when(recipientRepository.findReadyForRemind()).thenReturn(recipientList);
+    when(recipientRepository.findReadyForBackup()).thenReturn(new ArrayList<>());
 
     // Act
-    List<Recipient> actualFindReadyToNotifyResult = this.recipientServiceImpl
-        .findReadyToNotify(NotificationType.REMIND);
+    List<Recipient> actualFindReadyToNotifyResult = recipientServiceImpl.findReadyToNotify(NotificationType.REMIND);
 
     // Assert
     assertSame(recipientList, actualFindReadyToNotifyResult);
     assertTrue(actualFindReadyToNotifyResult.isEmpty());
-    verify(this.recipientRepository).findReadyForRemind();
+    verify(recipientRepository).findReadyForRemind();
   }
 
   /**
@@ -229,13 +227,13 @@ public class RecipientServiceImplDiffblueTest {
   @Test
   public void testFindReadyToNotify3() {
     // Arrange
-    when(this.recipientRepository.findReadyForRemind()).thenThrow(new IllegalArgumentException("foo"));
-    when(this.recipientRepository.findReadyForBackup()).thenReturn(new ArrayList<>());
+    when(recipientRepository.findReadyForRemind()).thenThrow(new IllegalArgumentException("foo"));
+    when(recipientRepository.findReadyForBackup()).thenReturn(new ArrayList<>());
 
     // Act and Assert
     thrown.expect(IllegalArgumentException.class);
-    this.recipientServiceImpl.findReadyToNotify(NotificationType.REMIND);
-    verify(this.recipientRepository).findReadyForRemind();
+    recipientServiceImpl.findReadyToNotify(NotificationType.REMIND);
+    verify(recipientRepository).findReadyForRemind();
   }
 
   /**
@@ -248,7 +246,7 @@ public class RecipientServiceImplDiffblueTest {
     recipient.setAccountName("Dr Jane Doe");
     recipient.setEmail("jane.doe@example.org");
     recipient.setScheduledNotifications(new HashMap<>());
-    when(this.recipientRepository.save((Recipient) any())).thenReturn(recipient);
+    when(recipientRepository.save((Recipient) any())).thenReturn(recipient);
 
     NotificationSettings notificationSettings = new NotificationSettings();
     notificationSettings.setActive(true);
@@ -265,10 +263,10 @@ public class RecipientServiceImplDiffblueTest {
     recipient1.setScheduledNotifications(notificationTypeNotificationSettingsMap);
 
     // Act
-    this.recipientServiceImpl.markNotified(NotificationType.BACKUP, recipient1);
+    recipientServiceImpl.markNotified(NotificationType.BACKUP, recipient1);
 
     // Assert
-    verify(this.recipientRepository).save((Recipient) any());
+    verify(recipientRepository).save((Recipient) any());
   }
 
   /**
@@ -277,7 +275,7 @@ public class RecipientServiceImplDiffblueTest {
   @Test
   public void testMarkNotified2() {
     // Arrange
-    when(this.recipientRepository.save((Recipient) any())).thenThrow(new IllegalArgumentException("foo"));
+    when(recipientRepository.save((Recipient) any())).thenThrow(new IllegalArgumentException("foo"));
 
     NotificationSettings notificationSettings = new NotificationSettings();
     notificationSettings.setActive(true);
@@ -295,8 +293,8 @@ public class RecipientServiceImplDiffblueTest {
 
     // Act and Assert
     thrown.expect(IllegalArgumentException.class);
-    this.recipientServiceImpl.markNotified(NotificationType.BACKUP, recipient);
-    verify(this.recipientRepository).save((Recipient) any());
+    recipientServiceImpl.markNotified(NotificationType.BACKUP, recipient);
+    verify(recipientRepository).save((Recipient) any());
   }
 }
 

@@ -14,6 +14,7 @@ public class DataPointIdDiffblueTest {
   * 
   * <ul>
   *   <li>{@link DataPointId#DataPointId(String, Date)}
+  *   <li>{@link DataPointId#toString()}
   *   <li>{@link DataPointId#getAccount()}
   *   <li>{@link DataPointId#getDate()}
   * </ul>
@@ -26,6 +27,7 @@ public class DataPointIdDiffblueTest {
 
     // Act
     DataPointId actualDataPointId = new DataPointId("3", fromResult);
+    actualDataPointId.toString();
 
     // Assert
     assertEquals("3", actualDataPointId.getAccount());

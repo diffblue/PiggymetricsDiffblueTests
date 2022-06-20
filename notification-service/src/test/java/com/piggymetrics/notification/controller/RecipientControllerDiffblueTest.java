@@ -5,6 +5,7 @@ import static org.mockito.Mockito.when;
 import com.piggymetrics.notification.domain.Recipient;
 import com.piggymetrics.notification.service.RecipientService;
 import com.sun.security.auth.UserPrincipal;
+import java.security.Principal;
 import java.util.HashMap;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,7 +27,7 @@ public class RecipientControllerDiffblueTest {
   @MockBean
   private RecipientService recipientService;
   /**
-  * Method under test: {@link RecipientController#getCurrentNotificationsSettings(java.security.Principal)}
+  * Method under test: {@link RecipientController#getCurrentNotificationsSettings(Principal)}
   */
   @Test
   public void testGetCurrentNotificationsSettings() throws Exception {
@@ -35,12 +36,12 @@ public class RecipientControllerDiffblueTest {
     recipient.setAccountName("Dr Jane Doe");
     recipient.setEmail("jane.doe@example.org");
     recipient.setScheduledNotifications(new HashMap<>());
-    when(this.recipientService.findByAccountName((String) any())).thenReturn(recipient);
+    when(recipientService.findByAccountName((String) any())).thenReturn(recipient);
     MockHttpServletRequestBuilder getResult = MockMvcRequestBuilders.get("/recipients/current");
     getResult.principal(new UserPrincipal("principal"));
 
     // Act and Assert
-    MockMvcBuilders.standaloneSetup(this.recipientController)
+    MockMvcBuilders.standaloneSetup(recipientController)
         .build()
         .perform(getResult)
         .andExpect(MockMvcResultMatchers.status().isOk())

@@ -14,6 +14,7 @@ import org.springframework.security.oauth2.config.annotation.builders.InMemoryCl
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @SpringBootTest
@@ -37,7 +38,7 @@ public class OAuth2AuthorizationConfigDiffblueTest {
         new ClientDetailsServiceBuilder<>());
 
     // Act
-    this.oAuth2AuthorizationConfig.configure(clientDetailsServiceConfigurer);
+    oAuth2AuthorizationConfig.configure(clientDetailsServiceConfigurer);
 
     // Assert
     assertTrue(clientDetailsServiceConfigurer.and() instanceof InMemoryClientDetailsServiceBuilder);
@@ -52,12 +53,11 @@ public class OAuth2AuthorizationConfigDiffblueTest {
     AuthorizationServerEndpointsConfigurer authorizationServerEndpointsConfigurer = new AuthorizationServerEndpointsConfigurer();
 
     // Act
-    this.oAuth2AuthorizationConfig.configure(authorizationServerEndpointsConfigurer);
+    oAuth2AuthorizationConfig.configure(authorizationServerEndpointsConfigurer);
 
     // Assert
     assertTrue(authorizationServerEndpointsConfigurer.isUserDetailsServiceOverride());
-    assertTrue(authorizationServerEndpointsConfigurer
-        .getTokenStore() instanceof org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore);
+    assertTrue(authorizationServerEndpointsConfigurer.getTokenStore() instanceof InMemoryTokenStore);
   }
 
   /**
@@ -69,7 +69,7 @@ public class OAuth2AuthorizationConfigDiffblueTest {
     AuthorizationServerSecurityConfigurer authorizationServerSecurityConfigurer = new AuthorizationServerSecurityConfigurer();
 
     // Act
-    this.oAuth2AuthorizationConfig.configure(authorizationServerSecurityConfigurer);
+    oAuth2AuthorizationConfig.configure(authorizationServerSecurityConfigurer);
 
     // Assert
     assertEquals("isAuthenticated()", authorizationServerSecurityConfigurer.getCheckTokenAccess());

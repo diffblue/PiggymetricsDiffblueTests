@@ -21,7 +21,7 @@ public class ExchangeRatesClientFallbackDiffblueTest {
   @Test
   public void testGetRates() {
     // Arrange and Act
-    ExchangeRatesContainer actualRates = this.exchangeRatesClientFallback.getRates(Currency.USD);
+    ExchangeRatesContainer actualRates = exchangeRatesClientFallback.getRates(Currency.USD);
 
     // Assert
     assertEquals(Currency.USD, actualRates.getBase());

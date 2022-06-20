@@ -3,6 +3,7 @@ package com.piggymetrics.auth.config;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import com.piggymetrics.auth.repository.UserRepository;
+import com.piggymetrics.auth.service.security.MongoUserDetailsService;
 import de.flapdoodle.embed.mongo.MongodExecutable;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,12 +15,13 @@ import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.ObjectPostProcessor;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.core.userdetails.cache.NullUserCache;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @SpringBootTest
 @RunWith(SpringJUnit4ClassRunner.class)
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 public class WebSecurityConfigDiffblueTest {
   @Autowired
   private ApplicationContext applicationContext;
@@ -41,17 +43,15 @@ public class WebSecurityConfigDiffblueTest {
   @Test
   public void testConfigure() throws Exception {
     // Arrange
-    AuthenticationManagerBuilder authenticationManagerBuilder = new AuthenticationManagerBuilder(
-        this.objectPostProcessor);
+    AuthenticationManagerBuilder authenticationManagerBuilder = new AuthenticationManagerBuilder(objectPostProcessor);
 
     // Act
-    this.webSecurityConfig.configure(authenticationManagerBuilder);
+    webSecurityConfig.configure(authenticationManagerBuilder);
 
     // Assert
-    assertTrue(authenticationManagerBuilder
-        .getDefaultUserDetailsService() instanceof com.piggymetrics.auth.service.security.MongoUserDetailsService);
+    assertTrue(authenticationManagerBuilder.getDefaultUserDetailsService() instanceof MongoUserDetailsService);
     assertTrue(((DaoAuthenticationProvider) ((ProviderManager) authenticationManagerBuilder.getOrBuild()).getProviders()
-        .get(0)).getUserCache() instanceof org.springframework.security.core.userdetails.cache.NullUserCache);
+        .get(0)).getUserCache() instanceof NullUserCache);
     assertTrue(((DaoAuthenticationProvider) ((ProviderManager) authenticationManagerBuilder.getOrBuild()).getProviders()
         .get(0)).isHideUserNotFoundExceptions());
     assertFalse(

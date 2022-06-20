@@ -12,6 +12,7 @@ import com.piggymetrics.account.domain.User;
 import com.piggymetrics.account.service.AccountService;
 import com.sun.security.auth.UserPrincipal;
 import java.math.BigDecimal;
+import java.security.Principal;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -60,7 +61,7 @@ public class AccountControllerDiffblueTest {
     account.setName("Name");
     account.setNote("Note");
     account.setSaving(saving);
-    when(this.accountService.create((User) any())).thenReturn(account);
+    when(accountService.create((User) any())).thenReturn(account);
 
     User user = new User();
     user.setPassword("iloveyou");
@@ -71,7 +72,7 @@ public class AccountControllerDiffblueTest {
         .content(content);
 
     // Act and Assert
-    MockMvcBuilders.standaloneSetup(this.accountController)
+    MockMvcBuilders.standaloneSetup(accountController)
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
@@ -103,11 +104,11 @@ public class AccountControllerDiffblueTest {
     account.setName("Name");
     account.setNote("Note");
     account.setSaving(saving);
-    when(this.accountService.findByName((String) any())).thenReturn(account);
+    when(accountService.findByName((String) any())).thenReturn(account);
     MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/{name}", "Name");
 
     // Act and Assert
-    MockMvcBuilders.standaloneSetup(this.accountController)
+    MockMvcBuilders.standaloneSetup(accountController)
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
@@ -119,7 +120,7 @@ public class AccountControllerDiffblueTest {
   }
 
   /**
-   * Method under test: {@link AccountController#getCurrentAccount(java.security.Principal)}
+   * Method under test: {@link AccountController#getCurrentAccount(Principal)}
    */
   @Test
   public void testGetCurrentAccount() throws Exception {
@@ -139,12 +140,12 @@ public class AccountControllerDiffblueTest {
     account.setName("Name");
     account.setNote("Note");
     account.setSaving(saving);
-    when(this.accountService.findByName((String) any())).thenReturn(account);
+    when(accountService.findByName((String) any())).thenReturn(account);
     MockHttpServletRequestBuilder getResult = MockMvcRequestBuilders.get("/current");
     getResult.principal(new UserPrincipal("principal"));
 
     // Act and Assert
-    MockMvcBuilders.standaloneSetup(this.accountController)
+    MockMvcBuilders.standaloneSetup(accountController)
         .build()
         .perform(getResult)
         .andExpect(MockMvcResultMatchers.status().isOk())
@@ -156,7 +157,7 @@ public class AccountControllerDiffblueTest {
   }
 
   /**
-   * Method under test: {@link AccountController#saveCurrentAccount(java.security.Principal, Account)}
+   * Method under test: {@link AccountController#saveCurrentAccount(Principal, Account)}
    */
   @Test
   public void testSaveCurrentAccount() throws Exception {
@@ -184,7 +185,7 @@ public class AccountControllerDiffblueTest {
         .content(content);
 
     // Act
-    ResultActions actualPerformResult = MockMvcBuilders.standaloneSetup(this.accountController)
+    ResultActions actualPerformResult = MockMvcBuilders.standaloneSetup(accountController)
         .build()
         .perform(requestBuilder);
 
@@ -193,12 +194,12 @@ public class AccountControllerDiffblueTest {
   }
 
   /**
-   * Method under test: {@link AccountController#saveCurrentAccount(java.security.Principal, Account)}
+   * Method under test: {@link AccountController#saveCurrentAccount(Principal, Account)}
    */
   @Test
   public void testSaveCurrentAccount2() throws Exception {
     // Arrange
-    doNothing().when(this.accountService).saveChanges((String) any(), (Account) any());
+    doNothing().when(accountService).saveChanges((String) any(), (Account) any());
     MockHttpServletRequestBuilder putResult = MockMvcRequestBuilders.put("/current");
     putResult.principal(new UserPrincipal("principal"));
     Timestamp timestamp = mock(Timestamp.class);
@@ -222,7 +223,7 @@ public class AccountControllerDiffblueTest {
     MockHttpServletRequestBuilder requestBuilder = putResult.contentType(MediaType.APPLICATION_JSON).content(content);
 
     // Act and Assert
-    MockMvcBuilders.standaloneSetup(this.accountController)
+    MockMvcBuilders.standaloneSetup(accountController)
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk());

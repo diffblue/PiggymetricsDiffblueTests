@@ -4,7 +4,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.deser.DefaultDeserializationContext;
+import com.fasterxml.jackson.databind.util.StdDateFormat;
 import com.piggymetrics.account.repository.AccountRepository;
+import com.piggymetrics.account.service.security.CustomUserInfoTokenServices;
 import de.flapdoodle.embed.mongo.MongodExecutable;
 import java.util.List;
 import org.junit.Test;
@@ -13,12 +16,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceServerProperties;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.cloud.security.oauth2.client.feign.OAuth2FeignRequestInterceptor;
+import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter;
+import org.springframework.security.oauth2.client.DefaultOAuth2ClientContext;
 import org.springframework.security.oauth2.client.OAuth2ClientContext;
 import org.springframework.security.oauth2.client.OAuth2RestTemplate;
+import org.springframework.security.oauth2.client.http.OAuth2ErrorHandler;
 import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
+import org.springframework.security.oauth2.client.token.DefaultAccessTokenRequest;
 import org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsResourceDetails;
 import org.springframework.security.oauth2.common.AuthenticationScheme;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -71,8 +79,7 @@ public class ResourceServerConfigDiffblueTest {
   @Test
   public void testOauth2FeignRequestInterceptor() {
     // Arrange, Act and Assert
-    assertTrue(this.resourceServerConfig
-        .oauth2FeignRequestInterceptor() instanceof org.springframework.cloud.security.oauth2.client.feign.OAuth2FeignRequestInterceptor);
+    assertTrue(resourceServerConfig.oauth2FeignRequestInterceptor() instanceof OAuth2FeignRequestInterceptor);
   }
 
   /**
@@ -93,18 +100,15 @@ public class ResourceServerConfigDiffblueTest {
         new ResourceServerProperties())).clientCredentialsRestTemplate();
 
     // Assert
-    assertTrue(actualClientCredentialsRestTemplateResult
-        .getErrorHandler() instanceof org.springframework.security.oauth2.client.http.OAuth2ErrorHandler);
+    assertTrue(actualClientCredentialsRestTemplateResult.getErrorHandler() instanceof OAuth2ErrorHandler);
     UriTemplateHandler uriTemplateHandler = actualClientCredentialsRestTemplateResult.getUriTemplateHandler();
     assertTrue(uriTemplateHandler instanceof DefaultUriBuilderFactory);
     OAuth2ProtectedResourceDetails resource = actualClientCredentialsRestTemplateResult.getResource();
-    assertTrue(
-        resource instanceof org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsResourceDetails);
+    assertTrue(resource instanceof ClientCredentialsResourceDetails);
     assertTrue(actualClientCredentialsRestTemplateResult.getInterceptors().isEmpty());
     OAuth2ClientContext oAuth2ClientContext = actualClientCredentialsRestTemplateResult.getOAuth2ClientContext();
-    assertTrue(oAuth2ClientContext instanceof org.springframework.security.oauth2.client.DefaultOAuth2ClientContext);
-    assertTrue(actualClientCredentialsRestTemplateResult
-        .getRequestFactory() instanceof org.springframework.http.client.SimpleClientHttpRequestFactory);
+    assertTrue(oAuth2ClientContext instanceof DefaultOAuth2ClientContext);
+    assertTrue(actualClientCredentialsRestTemplateResult.getRequestFactory() instanceof SimpleClientHttpRequestFactory);
     List<HttpMessageConverter<?>> messageConverters = actualClientCredentialsRestTemplateResult.getMessageConverters();
     assertEquals(7, messageConverters.size());
     assertEquals(AuthenticationScheme.header, resource.getClientAuthenticationScheme());
@@ -112,8 +116,7 @@ public class ResourceServerConfigDiffblueTest {
     assertEquals(DefaultUriBuilderFactory.EncodingMode.URI_COMPONENT,
         ((DefaultUriBuilderFactory) uriTemplateHandler).getEncodingMode());
     assertTrue(((DefaultUriBuilderFactory) uriTemplateHandler).getDefaultUriVariables().isEmpty());
-    assertTrue(oAuth2ClientContext
-        .getAccessTokenRequest() instanceof org.springframework.security.oauth2.client.token.DefaultAccessTokenRequest);
+    assertTrue(oAuth2ClientContext.getAccessTokenRequest() instanceof DefaultAccessTokenRequest);
     assertEquals("client_credentials", resource.getGrantType());
     assertEquals("access_token", resource.getTokenName());
     HttpMessageConverter<?> getResult = messageConverters.get(5);
@@ -123,9 +126,8 @@ public class ResourceServerConfigDiffblueTest {
     assertFalse(((Jaxb2RootElementHttpMessageConverter) getResult).isProcessExternalEntities());
     assertFalse(((Jaxb2RootElementHttpMessageConverter) getResult).isSupportDtd());
     ObjectMapper objectMapper = ((MappingJackson2HttpMessageConverter) messageConverters.get(6)).getObjectMapper();
-    assertTrue(objectMapper
-        .getDeserializationContext() instanceof com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.Impl);
-    assertTrue(objectMapper.getDateFormat() instanceof com.fasterxml.jackson.databind.util.StdDateFormat);
+    assertTrue(objectMapper.getDeserializationContext() instanceof DefaultDeserializationContext.Impl);
+    assertTrue(objectMapper.getDateFormat() instanceof StdDateFormat);
   }
 
   /**
@@ -134,8 +136,7 @@ public class ResourceServerConfigDiffblueTest {
   @Test
   public void testTokenServices() {
     // Arrange, Act and Assert
-    assertTrue(this.resourceServerConfig
-        .tokenServices() instanceof com.piggymetrics.account.service.security.CustomUserInfoTokenServices);
+    assertTrue(resourceServerConfig.tokenServices() instanceof CustomUserInfoTokenServices);
   }
 }
 

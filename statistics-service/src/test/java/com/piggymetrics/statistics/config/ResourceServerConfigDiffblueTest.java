@@ -2,6 +2,7 @@ package com.piggymetrics.statistics.config;
 
 import static org.junit.Assert.assertTrue;
 import com.piggymetrics.statistics.repository.DataPointRepository;
+import com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices;
 import de.flapdoodle.embed.mongo.MongodExecutable;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -31,8 +32,7 @@ public class ResourceServerConfigDiffblueTest {
   @Test
   public void testTokenServices() {
     // Arrange, Act and Assert
-    assertTrue(this.resourceServerConfig
-        .tokenServices() instanceof com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices);
+    assertTrue(resourceServerConfig.tokenServices() instanceof CustomUserInfoTokenServices);
   }
 }
 

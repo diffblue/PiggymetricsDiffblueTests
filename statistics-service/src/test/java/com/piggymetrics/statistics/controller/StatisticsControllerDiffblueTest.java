@@ -11,6 +11,7 @@ import com.piggymetrics.statistics.domain.timeseries.DataPointId;
 import com.piggymetrics.statistics.service.StatisticsService;
 import com.sun.security.auth.UserPrincipal;
 import java.math.BigDecimal;
+import java.security.Principal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -39,17 +40,17 @@ public class StatisticsControllerDiffblueTest {
   @MockBean
   private StatisticsService statisticsService;
   /**
-  * Method under test: {@link StatisticsController#getCurrentAccountStatistics(java.security.Principal)}
+  * Method under test: {@link StatisticsController#getCurrentAccountStatistics(Principal)}
   */
   @Test
   public void testGetCurrentAccountStatistics() throws Exception {
     // Arrange
-    when(this.statisticsService.findByAccountName((String) any())).thenReturn(new ArrayList<>());
+    when(statisticsService.findByAccountName((String) any())).thenReturn(new ArrayList<>());
     MockHttpServletRequestBuilder getResult = MockMvcRequestBuilders.get("/current");
     getResult.principal(new UserPrincipal("principal"));
 
     // Act and Assert
-    MockMvcBuilders.standaloneSetup(this.statisticsController)
+    MockMvcBuilders.standaloneSetup(statisticsController)
         .build()
         .perform(getResult)
         .andExpect(MockMvcResultMatchers.status().isOk())
@@ -63,11 +64,11 @@ public class StatisticsControllerDiffblueTest {
   @Test
   public void testGetStatisticsByAccountName() throws Exception {
     // Arrange
-    when(this.statisticsService.findByAccountName((String) any())).thenReturn(new ArrayList<>());
+    when(statisticsService.findByAccountName((String) any())).thenReturn(new ArrayList<>());
     MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/{accountName}", "Dr Jane Doe");
 
     // Act and Assert
-    MockMvcBuilders.standaloneSetup(this.statisticsController)
+    MockMvcBuilders.standaloneSetup(statisticsController)
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
@@ -81,12 +82,12 @@ public class StatisticsControllerDiffblueTest {
   @Test
   public void testGetStatisticsByAccountName2() throws Exception {
     // Arrange
-    when(this.statisticsService.findByAccountName((String) any())).thenReturn(new ArrayList<>());
+    when(statisticsService.findByAccountName((String) any())).thenReturn(new ArrayList<>());
     MockHttpServletRequestBuilder getResult = MockMvcRequestBuilders.get("/{accountName}", "Dr Jane Doe");
     getResult.characterEncoding("Encoding");
 
     // Act and Assert
-    MockMvcBuilders.standaloneSetup(this.statisticsController)
+    MockMvcBuilders.standaloneSetup(statisticsController)
         .build()
         .perform(getResult)
         .andExpect(MockMvcResultMatchers.status().isOk())
@@ -107,7 +108,7 @@ public class StatisticsControllerDiffblueTest {
     dataPoint.setIncomes(new HashSet<>());
     dataPoint.setRates(new HashMap<>());
     dataPoint.setStatistics(new HashMap<>());
-    when(this.statisticsService.save((String) any(), (Account) any())).thenReturn(dataPoint);
+    when(statisticsService.save((String) any(), (Account) any())).thenReturn(dataPoint);
 
     Saving saving = new Saving();
     saving.setAmount(BigDecimal.valueOf(1L));
@@ -126,7 +127,7 @@ public class StatisticsControllerDiffblueTest {
         .content(content);
 
     // Act and Assert
-    MockMvcBuilders.standaloneSetup(this.statisticsController)
+    MockMvcBuilders.standaloneSetup(statisticsController)
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk());

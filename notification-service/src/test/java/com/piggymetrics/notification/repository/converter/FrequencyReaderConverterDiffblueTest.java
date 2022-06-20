@@ -19,7 +19,7 @@ public class FrequencyReaderConverterDiffblueTest {
   @Test
   public void testConvert() {
     // Arrange, Act and Assert
-    assertEquals(Frequency.WEEKLY, this.frequencyReaderConverter.convert(7));
+    assertEquals(Frequency.WEEKLY, frequencyReaderConverter.convert(7));
   }
 }
 
