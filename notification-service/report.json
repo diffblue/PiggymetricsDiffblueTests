@@ -3,16 +3,16 @@
     "reportVersion" : "2.1"
   },
   "run" : {
-    "version" : "2022.07.01-4b3e89d",
-    "creationTimestamp" : "2022-07-05T11:59:52.772+01:00",
+    "version" : "2022.07.02-ecf5b52",
+    "creationTimestamp" : "2022-07-19T23:24:54.493+01:00",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --trace-log --working-directory=notification-service",
-    "totalTime" : 424.795,
-    "environmentDetectionTime" : 14.796,
-    "indexingTime" : 5.223,
-    "entryPointsTime" : 3.078,
-    "generationTime" : 225.0,
-    "verificationTime" : 37.0,
-    "validationTime" : 68.037
+    "totalTime" : 463.891,
+    "environmentDetectionTime" : 16.429,
+    "indexingTime" : 0.614,
+    "entryPointsTime" : 3.96,
+    "generationTime" : 246.0,
+    "verificationTime" : 41.0,
+    "validationTime" : 74.009
   },
   "codes" : {
     "E052" : "Missing, mismatched or unsupported test dependency",
