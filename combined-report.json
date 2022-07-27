@@ -1,11 +1,11 @@
 {
-  "totalTime" : 2072.328,
-  "environmentDetectionTime" : 139.767,
-  "indexingTime" : 5.758,
-  "entryPointsTime" : 30.14,
-  "generationTime" : 930.0,
-  "verificationTime" : 200.0,
-  "validationTime" : 337.008,
+  "totalTime" : 1534.964,
+  "environmentDetectionTime" : 130.083,
+  "indexingTime" : 5.053000000000001,
+  "entryPointsTime" : 27.966,
+  "generationTime" : 861.0,
+  "verificationTime" : 185.0,
+  "validationTime" : 103.039,
   "summary" : {
     "classesCount" : 61,
     "methodsCount" : 287,
