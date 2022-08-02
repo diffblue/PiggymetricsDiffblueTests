@@ -13,7 +13,6 @@ import com.piggymetrics.account.service.AccountService;
 import com.sun.security.auth.UserPrincipal;
 import java.math.BigDecimal;
 import java.security.Principal;
-import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -162,8 +161,8 @@ public class AccountControllerDiffblueTest {
   @Test
   public void testSaveCurrentAccount() throws Exception {
     // Arrange
-    Timestamp timestamp = mock(Timestamp.class);
-    when(timestamp.getTime()).thenReturn(10L);
+    java.sql.Date date = mock(java.sql.Date.class);
+    when(date.getTime()).thenReturn(10L);
 
     Saving saving = new Saving();
     saving.setAmount(null);
@@ -175,7 +174,7 @@ public class AccountControllerDiffblueTest {
     Account account = new Account();
     account.setExpenses(new ArrayList<>());
     account.setIncomes(new ArrayList<>());
-    account.setLastSeen(timestamp);
+    account.setLastSeen(date);
     account.setName("Name");
     account.setNote("Note");
     account.setSaving(saving);
@@ -202,8 +201,8 @@ public class AccountControllerDiffblueTest {
     doNothing().when(accountService).saveChanges((String) any(), (Account) any());
     MockHttpServletRequestBuilder putResult = MockMvcRequestBuilders.put("/current");
     putResult.principal(new UserPrincipal("principal"));
-    Timestamp timestamp = mock(Timestamp.class);
-    when(timestamp.getTime()).thenReturn(10L);
+    java.sql.Date date = mock(java.sql.Date.class);
+    when(date.getTime()).thenReturn(10L);
 
     Saving saving = new Saving();
     saving.setAmount(BigDecimal.valueOf(1L));
@@ -215,7 +214,7 @@ public class AccountControllerDiffblueTest {
     Account account = new Account();
     account.setExpenses(new ArrayList<>());
     account.setIncomes(new ArrayList<>());
-    account.setLastSeen(timestamp);
+    account.setLastSeen(date);
     account.setName("Name");
     account.setNote("Note");
     account.setSaving(saving);
