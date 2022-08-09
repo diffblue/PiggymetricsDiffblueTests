@@ -1,15 +1,15 @@
 {
-  "totalTime" : 1582.864,
-  "environmentDetectionTime" : 133.101,
-  "indexingTime" : 10.073,
-  "entryPointsTime" : 32.004000000000005,
-  "generationTime" : 865.0,
-  "verificationTime" : 219.0,
-  "validationTime" : 102.04299999999999,
+  "totalTime" : 1537.253,
+  "environmentDetectionTime" : 133.233,
+  "indexingTime" : 11.092,
+  "entryPointsTime" : 30.235999999999997,
+  "generationTime" : 845.0,
+  "verificationTime" : 191.0,
+  "validationTime" : 104.03600000000002,
   "summary" : {
     "classesCount" : 61,
     "methodsCount" : 287,
-    "completeTestCount" : 87,
+    "completeTestCount" : 88,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "perMethodTestability" : {
@@ -30,10 +30,10 @@
       "T006" : 9
     },
     "perTestOutcome" : {
-      "R000" : 87
+      "R000" : 88
     },
     "perTestValidation" : {
-      "V000" : 87
+      "V000" : 88
     }
   },
   "coverageMetrics" : {

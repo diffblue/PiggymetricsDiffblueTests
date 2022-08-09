@@ -2,7 +2,6 @@ package com.piggymetrics.account.config;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.deser.DefaultDeserializationContext;
@@ -48,13 +47,30 @@ public class ResourceServerConfigDiffblueTest {
 
   @Autowired
   private ResourceServerProperties resourceServerProperties;
+
   /**
   * Method under test: {@link ResourceServerConfig#clientCredentialsResourceDetails()}
   */
   @Test
   public void testClientCredentialsResourceDetails() {
-    // Arrange, Act and Assert
-    assertNull(resourceServerConfig.clientCredentialsResourceDetails().getClientId());
+    //   Diffblue Cover was unable to write a Spring test,
+    //   so wrote a non-Spring test instead.
+    //   Reason: R004 No meaningful assertions found.
+    //   Diffblue Cover was unable to create an assertion.
+    //   Make sure that fields modified by clientCredentialsResourceDetails()
+    //   have package-private, protected, or public getters.
+    //   See https://diff.blue/R004 to resolve this issue.
+
+    // Arrange and Act
+    ClientCredentialsResourceDetails actualClientCredentialsResourceDetailsResult = (new ResourceServerConfig(
+        new ResourceServerProperties())).clientCredentialsResourceDetails();
+
+    // Assert
+    assertEquals("access_token", actualClientCredentialsResourceDetailsResult.getTokenName());
+    assertEquals("client_credentials", actualClientCredentialsResourceDetailsResult.getGrantType());
+    assertEquals(AuthenticationScheme.header,
+        actualClientCredentialsResourceDetailsResult.getClientAuthenticationScheme());
+    assertEquals(AuthenticationScheme.header, actualClientCredentialsResourceDetailsResult.getAuthenticationScheme());
   }
 
   /**
