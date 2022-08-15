@@ -45,15 +45,5 @@ public class CustomUserInfoTokenServicesDiffblueTest {
     thrown.expect(UnsupportedOperationException.class);
     (new CustomUserInfoTokenServices("https://config.us-east-2.amazonaws.com", "42")).readAccessToken("ABC123");
   }
-
-  /**
-   * Method under test: {@link CustomUserInfoTokenServices#readAccessToken(String)}
-   */
-  @Test
-  public void testReadAccessToken2() {
-    // Arrange, Act and Assert
-    thrown.expect(UnsupportedOperationException.class);
-    (new CustomUserInfoTokenServices("clientId", "42")).readAccessToken("N/A");
-  }
 }
 

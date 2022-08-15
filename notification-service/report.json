@@ -1,18 +1,19 @@
 {
   "meta" : {
-    "reportVersion" : "2.1"
+    "reportVersion" : "2.2"
   },
   "run" : {
-    "version" : "2022.08.02-6524805",
-    "creationTimestamp" : "2022-08-09T18:04:32.248+01:00",
+    "version" : "2022.08.03-e179776",
+    "creationTimestamp" : "2022-08-15T17:11:42.849+01:00",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --trace-log --working-directory=notification-service",
-    "totalTime" : 328.739,
-    "environmentDetectionTime" : 15.355,
-    "indexingTime" : 0.9410000000000001,
-    "entryPointsTime" : 4.423,
-    "generationTime" : 202.0,
-    "verificationTime" : 40.0,
-    "validationTime" : 26.006
+    "totalTime" : 367.589,
+    "environmentDetectionTime" : 15.012,
+    "indexingTime" : 1.5790000000000002,
+    "entryPointsTime" : 4.079,
+    "generationTime" : 236.0,
+    "indexQueryTime" : 13.392,
+    "verificationTime" : 41.0,
+    "validationTime" : 27.03
   },
   "codes" : {
     "E052" : "Missing test dependency",
