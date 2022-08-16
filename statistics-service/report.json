@@ -3,17 +3,17 @@
     "reportVersion" : "2.2"
   },
   "run" : {
-    "version" : "2022.08.03-e179776",
-    "creationTimestamp" : "2022-08-15T17:06:21.291+01:00",
+    "version" : "2022.08.04-7238676",
+    "creationTimestamp" : "2022-08-16T16:45:21.975+01:00",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --trace-log --working-directory=statistics-service",
-    "totalTime" : 316.96,
-    "environmentDetectionTime" : 15.163,
-    "indexingTime" : 1.049,
-    "entryPointsTime" : 4.6370000000000005,
-    "generationTime" : 154.0,
-    "indexQueryTime" : 13.909,
-    "verificationTime" : 67.0,
-    "validationTime" : 29.009
+    "totalTime" : 316.195,
+    "environmentDetectionTime" : 15.33,
+    "indexingTime" : 1.023,
+    "entryPointsTime" : 4.45,
+    "generationTime" : 155.0,
+    "indexQueryTime" : 13.399000000000001,
+    "verificationTime" : 66.0,
+    "validationTime" : 28.01
   },
   "codes" : {
     "E052" : "Missing test dependency",
