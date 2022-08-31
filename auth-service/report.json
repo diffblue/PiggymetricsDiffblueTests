@@ -3,17 +3,17 @@
     "reportVersion" : "2.2"
   },
   "run" : {
-    "version" : "2022.08.04-7238676",
-    "creationTimestamp" : "2022-08-16T16:33:57.18+01:00",
+    "version" : "2022.08.05-2f0e40c",
+    "creationTimestamp" : "2022-08-31T16:29:13.704+01:00",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --trace-log --working-directory=auth-service",
-    "totalTime" : 275.148,
-    "environmentDetectionTime" : 14.993,
-    "indexingTime" : 1.183,
-    "entryPointsTime" : 4.378,
-    "generationTime" : 151.0,
-    "indexQueryTime" : 13.221,
-    "verificationTime" : 49.0,
-    "validationTime" : 20.011
+    "totalTime" : 292.058,
+    "environmentDetectionTime" : 10.309,
+    "indexingTime" : 0.9460000000000001,
+    "entryPointsTime" : 1.98,
+    "generationTime" : 162.0,
+    "indexQueryTime" : 19.705000000000002,
+    "verificationTime" : 50.0,
+    "validationTime" : 22.014
   },
   "codes" : {
     "E052" : "Missing test dependency",
@@ -23,13 +23,14 @@
     "T000" : "Should be tested directly",
     "T001" : "Trivial getter",
     "T002" : "Trivial setter",
+    "T003" : "Private method",
     "T005" : "Trivial constructor",
     "T006" : "Main method",
     "V000" : "Validated successfully"
   },
   "summary" : {
-    "classesCount" : 8,
-    "methodsCount" : 38,
+    "classesCount" : 9,
+    "methodsCount" : 42,
     "completeTestCount" : 14,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
@@ -37,6 +38,7 @@
       "T000" : 24,
       "T001" : 7,
       "T002" : 2,
+      "T003" : 4,
       "T005" : 4,
       "T006" : 1
     },
@@ -144,12 +146,21 @@
         "E052" : 11
       }
     },
+    "com.piggymetrics.auth.service.UserService" : {
+      "methodsCount" : 0,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T003" : 1
+      }
+    },
     "com.piggymetrics.auth.service.UserServiceImpl" : {
       "methodsCount" : 2,
       "completeTestCount" : 3,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
-        "T000" : 2
+        "T000" : 2,
+        "T003" : 2
       },
       "perMethodOutcome" : {
         "R000" : 1,
@@ -165,6 +176,7 @@
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 1,
+        "T003" : 1,
         "T005" : 1
       },
       "perMethodOutcome" : {
@@ -429,6 +441,18 @@
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "E052"
     },
+    "com.piggymetrics.auth.service.UserService.create:(Lcom/piggymetrics/auth/domain/User;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
+    },
+    "com.piggymetrics.auth.service.UserServiceImpl.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
+    },
     "com.piggymetrics.auth.service.UserServiceImpl.<init>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
@@ -444,11 +468,23 @@
         "R000" : 3
       }
     },
+    "com.piggymetrics.auth.service.UserServiceImpl.lambda$create$0:(Lcom/piggymetrics/auth/domain/User;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
+    },
     "com.piggymetrics.auth.service.security.MongoUserDetailsService.<init>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T005",
       "perMethodOutcome" : "T005"
+    },
+    "com.piggymetrics.auth.service.security.MongoUserDetailsService.lambda$loadUserByUsername$0:(Ljava/lang/String;)Lorg/springframework/security/core/userdetails/UsernameNotFoundException;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
     },
     "com.piggymetrics.auth.service.security.MongoUserDetailsService.loadUserByUsername:(Ljava/lang/String;)Lorg/springframework/security/core/userdetails/UserDetails;" : {
       "completeTestCount" : 3,

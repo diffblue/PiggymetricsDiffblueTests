@@ -3,17 +3,17 @@
     "reportVersion" : "2.2"
   },
   "run" : {
-    "version" : "2022.08.04-7238676",
-    "creationTimestamp" : "2022-08-16T16:38:37.097+01:00",
+    "version" : "2022.08.05-2f0e40c",
+    "creationTimestamp" : "2022-08-31T16:34:10.584+01:00",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --trace-log --working-directory=account-service",
-    "totalTime" : 399.995,
-    "environmentDetectionTime" : 15.352,
-    "indexingTime" : 1.035,
-    "entryPointsTime" : 4.727,
-    "generationTime" : 230.0,
-    "indexQueryTime" : 14.966000000000001,
-    "verificationTime" : 67.0,
-    "validationTime" : 33.019
+    "totalTime" : 412.579,
+    "environmentDetectionTime" : 10.222,
+    "indexingTime" : 0.9510000000000001,
+    "entryPointsTime" : 2.025,
+    "generationTime" : 262.0,
+    "indexQueryTime" : 15.739,
+    "verificationTime" : 45.0,
+    "validationTime" : 34.008
   },
   "codes" : {
     "E052" : "Missing test dependency",
@@ -24,13 +24,14 @@
     "T000" : "Should be tested directly",
     "T001" : "Trivial getter",
     "T002" : "Trivial setter",
+    "T003" : "Private method",
     "T005" : "Trivial constructor",
     "T006" : "Main method",
     "V000" : "Validated successfully"
   },
   "summary" : {
-    "classesCount" : 13,
-    "methodsCount" : 80,
+    "classesCount" : 17,
+    "methodsCount" : 99,
     "completeTestCount" : 20,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
@@ -38,6 +39,7 @@
       "T000" : 31,
       "T001" : 19,
       "T002" : 21,
+      "T003" : 19,
       "T005" : 8,
       "T006" : 1
     },
@@ -71,12 +73,29 @@
         "T006" : 1
       }
     },
+    "com.piggymetrics.account.client.AuthServiceClient" : {
+      "methodsCount" : 0,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T003" : 1
+      }
+    },
+    "com.piggymetrics.account.client.StatisticsServiceClient" : {
+      "methodsCount" : 0,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T003" : 1
+      }
+    },
     "com.piggymetrics.account.client.StatisticsServiceClientFallback" : {
       "methodsCount" : 2,
       "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 1,
+        "T003" : 1,
         "T005" : 1
       },
       "perMethodOutcome" : {
@@ -153,7 +172,8 @@
       "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
-        "T001" : 1
+        "T001" : 1,
+        "T003" : 4
       },
       "perMethodOutcome" : {
         "R000" : 1
@@ -194,6 +214,14 @@
         "R000" : 1
       }
     },
+    "com.piggymetrics.account.domain.TimePeriod" : {
+      "methodsCount" : 0,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T003" : 4
+      }
+    },
     "com.piggymetrics.account.domain.User" : {
       "methodsCount" : 5,
       "completeTestCount" : 1,
@@ -221,6 +249,14 @@
         "E052" : 12
       }
     },
+    "com.piggymetrics.account.service.AccountService" : {
+      "methodsCount" : 0,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T003" : 3
+      }
+    },
     "com.piggymetrics.account.service.AccountServiceImpl" : {
       "methodsCount" : 4,
       "completeTestCount" : 2,
@@ -243,7 +279,8 @@
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 3,
-        "T002" : 3
+        "T002" : 3,
+        "T003" : 5
       },
       "perMethodOutcome" : {
         "R000" : 2,
@@ -267,6 +304,24 @@
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T006",
       "perMethodOutcome" : "T006"
+    },
+    "com.piggymetrics.account.client.AuthServiceClient.createUser:(Lcom/piggymetrics/account/domain/User;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
+    },
+    "com.piggymetrics.account.client.StatisticsServiceClient.updateStatistics:(Ljava/lang/String;Lcom/piggymetrics/account/domain/Account;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
+    },
+    "com.piggymetrics.account.client.StatisticsServiceClientFallback.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
     },
     "com.piggymetrics.account.client.StatisticsServiceClientFallback.<init>:()V" : {
       "completeTestCount" : 0,
@@ -502,6 +557,18 @@
         "R000" : 1
       }
     },
+    "com.piggymetrics.account.domain.Currency.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
+    },
+    "com.piggymetrics.account.domain.Currency.<init>:(Ljava/lang/String;I)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
+    },
     "com.piggymetrics.account.domain.Currency.getDefault:()Lcom/piggymetrics/account/domain/Currency;" : {
       "completeTestCount" : 1,
       "incompleteTestCount" : 0,
@@ -510,6 +577,18 @@
       "perTestOutcome" : {
         "R000" : 1
       }
+    },
+    "com.piggymetrics.account.domain.Currency.valueOf:(Ljava/lang/String;)Lcom/piggymetrics/account/domain/Currency;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
+    },
+    "com.piggymetrics.account.domain.Currency.values:()[Lcom/piggymetrics/account/domain/Currency;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
     },
     "com.piggymetrics.account.domain.Item.<init>:()V" : {
       "completeTestCount" : 1,
@@ -709,6 +788,30 @@
         "R000" : 1
       }
     },
+    "com.piggymetrics.account.domain.TimePeriod.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
+    },
+    "com.piggymetrics.account.domain.TimePeriod.<init>:(Ljava/lang/String;I)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
+    },
+    "com.piggymetrics.account.domain.TimePeriod.valueOf:(Ljava/lang/String;)Lcom/piggymetrics/account/domain/TimePeriod;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
+    },
+    "com.piggymetrics.account.domain.TimePeriod.values:()[Lcom/piggymetrics/account/domain/TimePeriod;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
+    },
     "com.piggymetrics.account.domain.User.<init>:()V" : {
       "completeTestCount" : 1,
       "incompleteTestCount" : 0,
@@ -826,6 +929,24 @@
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "E052"
     },
+    "com.piggymetrics.account.service.AccountService.create:(Lcom/piggymetrics/account/domain/User;)Lcom/piggymetrics/account/domain/Account;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
+    },
+    "com.piggymetrics.account.service.AccountService.findByName:(Ljava/lang/String;)Lcom/piggymetrics/account/domain/Account;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
+    },
+    "com.piggymetrics.account.service.AccountService.saveChanges:(Ljava/lang/String;Lcom/piggymetrics/account/domain/Account;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
+    },
     "com.piggymetrics.account.service.AccountServiceImpl.<init>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
@@ -856,11 +977,41 @@
         "R000" : 1
       }
     },
+    "com.piggymetrics.account.service.security.CustomUserInfoTokenServices.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
+    },
     "com.piggymetrics.account.service.security.CustomUserInfoTokenServices.<init>:(Ljava/lang/String;Ljava/lang/String;)V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R004"
+    },
+    "com.piggymetrics.account.service.security.CustomUserInfoTokenServices.extractAuthentication:(Ljava/util/Map;)Lorg/springframework/security/oauth2/provider/OAuth2Authentication;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
+    },
+    "com.piggymetrics.account.service.security.CustomUserInfoTokenServices.getMap:(Ljava/lang/String;Ljava/lang/String;)Ljava/util/Map;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
+    },
+    "com.piggymetrics.account.service.security.CustomUserInfoTokenServices.getPrincipal:(Ljava/util/Map;)Ljava/lang/Object;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
+    },
+    "com.piggymetrics.account.service.security.CustomUserInfoTokenServices.getRequest:(Ljava/util/Map;)Lorg/springframework/security/oauth2/provider/OAuth2Request;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
     },
     "com.piggymetrics.account.service.security.CustomUserInfoTokenServices.loadAuthentication:(Ljava/lang/String;)Lorg/springframework/security/oauth2/provider/OAuth2Authentication;" : {
       "completeTestCount" : 2,

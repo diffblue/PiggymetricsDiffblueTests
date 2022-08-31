@@ -3,17 +3,17 @@
     "reportVersion" : "2.2"
   },
   "run" : {
-    "version" : "2022.08.04-7238676",
-    "creationTimestamp" : "2022-08-16T16:50:42.899+01:00",
+    "version" : "2022.08.05-2f0e40c",
+    "creationTimestamp" : "2022-08-31T16:46:40.479+01:00",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --trace-log --working-directory=notification-service",
-    "totalTime" : 369.212,
-    "environmentDetectionTime" : 15.429,
-    "indexingTime" : 1.045,
-    "entryPointsTime" : 4.758,
-    "generationTime" : 236.0,
-    "indexQueryTime" : 13.535,
-    "verificationTime" : 42.0,
-    "validationTime" : 27.006
+    "totalTime" : 375.133,
+    "environmentDetectionTime" : 10.459,
+    "indexingTime" : 0.932,
+    "entryPointsTime" : 1.855,
+    "generationTime" : 241.0,
+    "indexQueryTime" : 14.753,
+    "verificationTime" : 41.0,
+    "validationTime" : 28.005
   },
   "codes" : {
     "E052" : "Missing test dependency",
@@ -24,14 +24,15 @@
     "T000" : "Should be tested directly",
     "T001" : "Trivial getter",
     "T002" : "Trivial setter",
+    "T003" : "Private method",
     "T005" : "Trivial constructor",
     "T006" : "Main method",
     "T020" : "Other trivial method",
     "V000" : "Validated successfully"
   },
   "summary" : {
-    "classesCount" : 14,
-    "methodsCount" : 59,
+    "classesCount" : 19,
+    "methodsCount" : 84,
     "completeTestCount" : 22,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
@@ -39,6 +40,7 @@
       "T000" : 33,
       "T001" : 10,
       "T002" : 6,
+      "T003" : 25,
       "T005" : 8,
       "T006" : 1,
       "T020" : 1
@@ -86,6 +88,14 @@
         "T005" : 1
       }
     },
+    "com.piggymetrics.notification.client.AccountServiceClient" : {
+      "methodsCount" : 0,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T003" : 1
+      }
+    },
     "com.piggymetrics.notification.config.ResourceServerConfig" : {
       "methodsCount" : 4,
       "completeTestCount" : 3,
@@ -125,7 +135,8 @@
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 1,
-        "T001" : 1
+        "T001" : 1,
+        "T003" : 5
       },
       "perMethodOutcome" : {
         "R000" : 2
@@ -155,7 +166,8 @@
       "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
-        "T001" : 3
+        "T001" : 3,
+        "T003" : 4
       },
       "perMethodOutcome" : {
         "R000" : 3
@@ -198,6 +210,7 @@
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 1,
+        "T003" : 1,
         "T005" : 1
       },
       "perMethodOutcome" : {
@@ -214,6 +227,7 @@
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 1,
+        "T003" : 1,
         "T005" : 1
       },
       "perMethodOutcome" : {
@@ -222,6 +236,14 @@
       },
       "perTestOutcome" : {
         "R000" : 1
+      }
+    },
+    "com.piggymetrics.notification.service.EmailService" : {
+      "methodsCount" : 0,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T003" : 1
       }
     },
     "com.piggymetrics.notification.service.EmailServiceImpl" : {
@@ -236,16 +258,33 @@
         "T005" : 1
       }
     },
+    "com.piggymetrics.notification.service.NotificationService" : {
+      "methodsCount" : 0,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T003" : 2
+      }
+    },
     "com.piggymetrics.notification.service.NotificationServiceImpl" : {
       "methodsCount" : 3,
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
-        "T000" : 3
+        "T000" : 3,
+        "T003" : 4
       },
       "perMethodOutcome" : {
         "R002" : 2,
         "T005" : 1
+      }
+    },
+    "com.piggymetrics.notification.service.RecipientService" : {
+      "methodsCount" : 0,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T003" : 4
       }
     },
     "com.piggymetrics.notification.service.RecipientServiceImpl" : {
@@ -253,7 +292,8 @@
       "completeTestCount" : 11,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
-        "T000" : 5
+        "T000" : 5,
+        "T003" : 1
       },
       "perMethodOutcome" : {
         "R000" : 4,
@@ -261,6 +301,14 @@
       },
       "perTestOutcome" : {
         "R000" : 11
+      }
+    },
+    "com.piggymetrics.notification.service.RecipientServiceImpl$1" : {
+      "methodsCount" : 0,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T003" : 1
       }
     }
   },
@@ -288,6 +336,12 @@
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T006",
       "perMethodOutcome" : "T006"
+    },
+    "com.piggymetrics.notification.client.AccountServiceClient.getAccount:(Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
     },
     "com.piggymetrics.notification.config.ResourceServerConfig.<init>:()V" : {
       "completeTestCount" : 0,
@@ -343,6 +397,18 @@
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R013"
     },
+    "com.piggymetrics.notification.domain.Frequency.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
+    },
+    "com.piggymetrics.notification.domain.Frequency.<init>:(Ljava/lang/String;II)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
+    },
     "com.piggymetrics.notification.domain.Frequency.getDays:()I" : {
       "completeTestCount" : 1,
       "incompleteTestCount" : 0,
@@ -351,6 +417,24 @@
       "perTestOutcome" : {
         "R000" : 1
       }
+    },
+    "com.piggymetrics.notification.domain.Frequency.lambda$withDays$0:(ILcom/piggymetrics/notification/domain/Frequency;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
+    },
+    "com.piggymetrics.notification.domain.Frequency.valueOf:(Ljava/lang/String;)Lcom/piggymetrics/notification/domain/Frequency;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
+    },
+    "com.piggymetrics.notification.domain.Frequency.values:()[Lcom/piggymetrics/notification/domain/Frequency;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
     },
     "com.piggymetrics.notification.domain.Frequency.withDays:(I)Lcom/piggymetrics/notification/domain/Frequency;" : {
       "completeTestCount" : 1,
@@ -424,6 +508,18 @@
         "R000" : 1
       }
     },
+    "com.piggymetrics.notification.domain.NotificationType.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
+    },
+    "com.piggymetrics.notification.domain.NotificationType.<init>:(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
+    },
     "com.piggymetrics.notification.domain.NotificationType.getAttachment:()Ljava/lang/String;" : {
       "completeTestCount" : 1,
       "incompleteTestCount" : 0,
@@ -450,6 +546,18 @@
       "perTestOutcome" : {
         "R000" : 1
       }
+    },
+    "com.piggymetrics.notification.domain.NotificationType.valueOf:(Ljava/lang/String;)Lcom/piggymetrics/notification/domain/NotificationType;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
+    },
+    "com.piggymetrics.notification.domain.NotificationType.values:()[Lcom/piggymetrics/notification/domain/NotificationType;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
     },
     "com.piggymetrics.notification.domain.Recipient.<init>:()V" : {
       "completeTestCount" : 1,
@@ -622,6 +730,12 @@
         "R000" : 1
       }
     },
+    "com.piggymetrics.notification.repository.converter.FrequencyReaderConverter.convert:(Ljava/lang/Object;)Ljava/lang/Object;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
+    },
     "com.piggymetrics.notification.repository.converter.FrequencyWriterConverter.<init>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
@@ -637,6 +751,18 @@
         "R000" : 1
       }
     },
+    "com.piggymetrics.notification.repository.converter.FrequencyWriterConverter.convert:(Ljava/lang/Object;)Ljava/lang/Object;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
+    },
+    "com.piggymetrics.notification.service.EmailService.send:(Lcom/piggymetrics/notification/domain/NotificationType;Lcom/piggymetrics/notification/domain/Recipient;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
+    },
     "com.piggymetrics.notification.service.EmailServiceImpl.<init>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
@@ -649,11 +775,47 @@
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R013"
     },
+    "com.piggymetrics.notification.service.NotificationService.sendBackupNotifications:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
+    },
+    "com.piggymetrics.notification.service.NotificationService.sendRemindNotifications:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
+    },
     "com.piggymetrics.notification.service.NotificationServiceImpl.<init>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "T005"
+    },
+    "com.piggymetrics.notification.service.NotificationServiceImpl.lambda$null$0:(Lcom/piggymetrics/notification/domain/Recipient;Lcom/piggymetrics/notification/domain/NotificationType;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
+    },
+    "com.piggymetrics.notification.service.NotificationServiceImpl.lambda$null$2:(Lcom/piggymetrics/notification/domain/NotificationType;Lcom/piggymetrics/notification/domain/Recipient;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
+    },
+    "com.piggymetrics.notification.service.NotificationServiceImpl.lambda$sendBackupNotifications$1:(Lcom/piggymetrics/notification/domain/NotificationType;Lcom/piggymetrics/notification/domain/Recipient;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
+    },
+    "com.piggymetrics.notification.service.NotificationServiceImpl.lambda$sendRemindNotifications$3:(Lcom/piggymetrics/notification/domain/NotificationType;Lcom/piggymetrics/notification/domain/Recipient;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
     },
     "com.piggymetrics.notification.service.NotificationServiceImpl.sendBackupNotifications:()V" : {
       "completeTestCount" : 0,
@@ -666,6 +828,36 @@
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R002"
+    },
+    "com.piggymetrics.notification.service.RecipientService.findByAccountName:(Ljava/lang/String;)Lcom/piggymetrics/notification/domain/Recipient;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
+    },
+    "com.piggymetrics.notification.service.RecipientService.findReadyToNotify:(Lcom/piggymetrics/notification/domain/NotificationType;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
+    },
+    "com.piggymetrics.notification.service.RecipientService.markNotified:(Lcom/piggymetrics/notification/domain/NotificationType;Lcom/piggymetrics/notification/domain/Recipient;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
+    },
+    "com.piggymetrics.notification.service.RecipientService.save:(Ljava/lang/String;Lcom/piggymetrics/notification/domain/Recipient;)Lcom/piggymetrics/notification/domain/Recipient;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
+    },
+    "com.piggymetrics.notification.service.RecipientServiceImpl$1.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
     },
     "com.piggymetrics.notification.service.RecipientServiceImpl.<init>:()V" : {
       "completeTestCount" : 0,
@@ -690,6 +882,12 @@
       "perTestOutcome" : {
         "R000" : 3
       }
+    },
+    "com.piggymetrics.notification.service.RecipientServiceImpl.lambda$save$0:(Lcom/piggymetrics/notification/domain/NotificationSettings;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "F009"
     },
     "com.piggymetrics.notification.service.RecipientServiceImpl.markNotified:(Lcom/piggymetrics/notification/domain/NotificationType;Lcom/piggymetrics/notification/domain/Recipient;)V" : {
       "completeTestCount" : 2,
