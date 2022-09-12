@@ -71,6 +71,10 @@ public class StatisticsServiceImplDiffblueTest {
   @Test
   public void testSave() {
     // Arrange
+    when(exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>());
+    when(exchangeRatesService.convert((Currency) any(), (Currency) any(), (BigDecimal) any()))
+        .thenReturn(BigDecimal.valueOf(1L));
+
     DataPoint dataPoint = new DataPoint();
     dataPoint.setExpenses(new HashSet<>());
     LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
@@ -79,9 +83,6 @@ public class StatisticsServiceImplDiffblueTest {
     dataPoint.setRates(new HashMap<>());
     dataPoint.setStatistics(new HashMap<>());
     when(dataPointRepository.save((DataPoint) any())).thenReturn(dataPoint);
-    when(exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>());
-    when(exchangeRatesService.convert((Currency) any(), (Currency) any(), (BigDecimal) any()))
-        .thenReturn(BigDecimal.valueOf(1L));
 
     Saving saving = new Saving();
     saving.setAmount(BigDecimal.valueOf(1L));
@@ -97,9 +98,9 @@ public class StatisticsServiceImplDiffblueTest {
 
     // Act and Assert
     assertSame(dataPoint, statisticsServiceImpl.save("Dr Jane Doe", account));
-    verify(dataPointRepository).save((DataPoint) any());
     verify(exchangeRatesService).convert((Currency) any(), (Currency) any(), (BigDecimal) any());
     verify(exchangeRatesService).getCurrentRates();
+    verify(dataPointRepository).save((DataPoint) any());
   }
 
   /**
@@ -108,6 +109,10 @@ public class StatisticsServiceImplDiffblueTest {
   @Test
   public void testSave2() {
     // Arrange
+    when(exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>());
+    when(exchangeRatesService.convert((Currency) any(), (Currency) any(), (BigDecimal) any()))
+        .thenReturn(BigDecimal.valueOf(1L));
+
     DataPoint dataPoint = new DataPoint();
     dataPoint.setExpenses(new HashSet<>());
     LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
@@ -116,9 +121,6 @@ public class StatisticsServiceImplDiffblueTest {
     dataPoint.setRates(new HashMap<>());
     dataPoint.setStatistics(new HashMap<>());
     when(dataPointRepository.save((DataPoint) any())).thenReturn(dataPoint);
-    when(exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>());
-    when(exchangeRatesService.convert((Currency) any(), (Currency) any(), (BigDecimal) any()))
-        .thenReturn(BigDecimal.valueOf(1L));
 
     Saving saving = new Saving();
     saving.setAmount(BigDecimal.valueOf(1L));
@@ -155,9 +157,9 @@ public class StatisticsServiceImplDiffblueTest {
 
     // Act and Assert
     assertSame(dataPoint, statisticsServiceImpl.save("Dr Jane Doe", account));
-    verify(dataPointRepository).save((DataPoint) any());
     verify(exchangeRatesService, atLeast(1)).convert((Currency) any(), (Currency) any(), (BigDecimal) any());
     verify(exchangeRatesService).getCurrentRates();
+    verify(dataPointRepository).save((DataPoint) any());
     verify(account).getSaving();
     verify(account).getExpenses();
     verify(account).getIncomes();
@@ -172,6 +174,10 @@ public class StatisticsServiceImplDiffblueTest {
   @Test
   public void testSave3() {
     // Arrange
+    when(exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>());
+    when(exchangeRatesService.convert((Currency) any(), (Currency) any(), (BigDecimal) any()))
+        .thenReturn(BigDecimal.valueOf(1L));
+
     DataPoint dataPoint = new DataPoint();
     dataPoint.setExpenses(new HashSet<>());
     LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
@@ -180,9 +186,6 @@ public class StatisticsServiceImplDiffblueTest {
     dataPoint.setRates(new HashMap<>());
     dataPoint.setStatistics(new HashMap<>());
     when(dataPointRepository.save((DataPoint) any())).thenReturn(dataPoint);
-    when(exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>());
-    when(exchangeRatesService.convert((Currency) any(), (Currency) any(), (BigDecimal) any()))
-        .thenReturn(BigDecimal.valueOf(1L));
 
     Saving saving = new Saving();
     saving.setAmount(BigDecimal.valueOf(1L));
@@ -226,9 +229,9 @@ public class StatisticsServiceImplDiffblueTest {
 
     // Act and Assert
     assertSame(dataPoint, statisticsServiceImpl.save("Dr Jane Doe", account));
-    verify(dataPointRepository).save((DataPoint) any());
     verify(exchangeRatesService, atLeast(1)).convert((Currency) any(), (Currency) any(), (BigDecimal) any());
     verify(exchangeRatesService).getCurrentRates();
+    verify(dataPointRepository).save((DataPoint) any());
     verify(account).getSaving();
     verify(account).getExpenses();
     verify(account).getIncomes();
@@ -243,6 +246,10 @@ public class StatisticsServiceImplDiffblueTest {
   @Test
   public void testSave4() {
     // Arrange
+    when(exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>());
+    when(exchangeRatesService.convert((Currency) any(), (Currency) any(), (BigDecimal) any()))
+        .thenReturn(BigDecimal.valueOf(1L));
+
     DataPoint dataPoint = new DataPoint();
     dataPoint.setExpenses(new HashSet<>());
     LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
@@ -251,9 +258,6 @@ public class StatisticsServiceImplDiffblueTest {
     dataPoint.setRates(new HashMap<>());
     dataPoint.setStatistics(new HashMap<>());
     when(dataPointRepository.save((DataPoint) any())).thenReturn(dataPoint);
-    when(exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>());
-    when(exchangeRatesService.convert((Currency) any(), (Currency) any(), (BigDecimal) any()))
-        .thenReturn(BigDecimal.valueOf(1L));
 
     Saving saving = new Saving();
     saving.setAmount(BigDecimal.valueOf(1L));
@@ -290,9 +294,9 @@ public class StatisticsServiceImplDiffblueTest {
 
     // Act and Assert
     assertSame(dataPoint, statisticsServiceImpl.save("Dr Jane Doe", account));
-    verify(dataPointRepository).save((DataPoint) any());
     verify(exchangeRatesService, atLeast(1)).convert((Currency) any(), (Currency) any(), (BigDecimal) any());
     verify(exchangeRatesService).getCurrentRates();
+    verify(dataPointRepository).save((DataPoint) any());
     verify(account).getSaving();
     verify(account).getExpenses();
     verify(account).getIncomes();

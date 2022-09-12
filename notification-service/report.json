@@ -3,22 +3,21 @@
     "reportVersion" : "2.2"
   },
   "run" : {
-    "version" : "2022.08.05-2f0e40c",
-    "creationTimestamp" : "2022-08-31T16:46:40.479+01:00",
-    "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --trace-log --working-directory=notification-service",
-    "totalTime" : 375.133,
-    "environmentDetectionTime" : 10.459,
-    "indexingTime" : 0.932,
-    "entryPointsTime" : 1.855,
-    "generationTime" : 241.0,
-    "indexQueryTime" : 14.753,
-    "verificationTime" : 41.0,
-    "validationTime" : 28.005
+    "version" : "2022.09.01-cb67a33",
+    "creationTimestamp" : "2022-09-12T17:53:00.492+01:00",
+    "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --working-directory=notification-service",
+    "totalTime" : 346.637,
+    "environmentDetectionTime" : 15.248,
+    "indexingTime" : 0.0,
+    "entryPointsTime" : 0.517,
+    "generationTime" : 218.0,
+    "indexQueryTime" : 10.594,
+    "verificationTime" : 55.0,
+    "validationTime" : 22.011
   },
   "codes" : {
     "E052" : "Missing test dependency",
     "R000" : "Success",
-    "R002" : "Missing observers",
     "R004" : "No meaningful assertions found",
     "R013" : "No inputs found that don't throw a trivial exception",
     "T000" : "Should be tested directly",
@@ -33,7 +32,7 @@
   "summary" : {
     "classesCount" : 19,
     "methodsCount" : 84,
-    "completeTestCount" : 22,
+    "completeTestCount" : 30,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "perMethodTestability" : {
@@ -47,18 +46,17 @@
     },
     "perMethodOutcome" : {
       "E052" : 14,
-      "R000" : 30,
-      "R002" : 2,
+      "R000" : 32,
       "R004" : 1,
       "R013" : 2,
       "T005" : 9,
       "T006" : 1
     },
     "perTestOutcome" : {
-      "R000" : 22
+      "R000" : 30
     },
     "perTestValidation" : {
-      "V000" : 22
+      "V000" : 30
     }
   },
   "classes" : {
@@ -268,15 +266,18 @@
     },
     "com.piggymetrics.notification.service.NotificationServiceImpl" : {
       "methodsCount" : 3,
-      "completeTestCount" : 0,
+      "completeTestCount" : 8,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 3,
         "T003" : 4
       },
       "perMethodOutcome" : {
-        "R002" : 2,
+        "R000" : 2,
         "T005" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 8
       }
     },
     "com.piggymetrics.notification.service.RecipientService" : {
@@ -818,16 +819,22 @@
       "perMethodOutcome" : "F009"
     },
     "com.piggymetrics.notification.service.NotificationServiceImpl.sendBackupNotifications:()V" : {
-      "completeTestCount" : 0,
+      "completeTestCount" : 4,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R002"
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 4
+      }
     },
     "com.piggymetrics.notification.service.NotificationServiceImpl.sendRemindNotifications:()V" : {
-      "completeTestCount" : 0,
+      "completeTestCount" : 4,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R002"
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 4
+      }
     },
     "com.piggymetrics.notification.service.RecipientService.findByAccountName:(Ljava/lang/String;)Lcom/piggymetrics/notification/domain/Recipient;" : {
       "completeTestCount" : 0,

@@ -3,23 +3,24 @@
     "reportVersion" : "2.2"
   },
   "run" : {
-    "version" : "2022.08.05-2f0e40c",
-    "creationTimestamp" : "2022-08-31T16:41:07.996+01:00",
-    "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --trace-log --working-directory=statistics-service",
-    "totalTime" : 327.5,
-    "environmentDetectionTime" : 10.265,
-    "indexingTime" : 0.8280000000000001,
-    "entryPointsTime" : 1.92,
-    "generationTime" : 160.0,
-    "indexQueryTime" : 15.433,
-    "verificationTime" : 70.0,
-    "validationTime" : 29.012
+    "version" : "2022.09.01-cb67a33",
+    "creationTimestamp" : "2022-09-12T17:48:16.453+01:00",
+    "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --working-directory=statistics-service",
+    "totalTime" : 279.536,
+    "environmentDetectionTime" : 14.969,
+    "indexingTime" : 0.0,
+    "entryPointsTime" : 0.64,
+    "generationTime" : 148.0,
+    "indexQueryTime" : 11.005,
+    "verificationTime" : 55.0,
+    "validationTime" : 23.012
   },
   "codes" : {
     "E052" : "Missing test dependency",
     "R000" : "Success",
     "R002" : "Missing observers",
     "R004" : "No meaningful assertions found",
+    "R011" : "Sandboxing policy violation",
     "R013" : "No inputs found that don't throw a trivial exception",
     "T000" : "Should be tested directly",
     "T001" : "Trivial getter",
@@ -50,7 +51,8 @@
       "R000" : 68,
       "R002" : 3,
       "R004" : 2,
-      "R013" : 3,
+      "R011" : 1,
+      "R013" : 2,
       "T005" : 9,
       "T006" : 1
     },
@@ -356,7 +358,8 @@
         "T005" : 1
       },
       "perMethodOutcome" : {
-        "R013" : 2,
+        "R011" : 1,
+        "R013" : 1,
         "T005" : 1
       }
     },
@@ -1236,7 +1239,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R013"
+      "perMethodOutcome" : "R011"
     },
     "com.piggymetrics.statistics.service.StatisticsService.findByAccountName:(Ljava/lang/String;)Ljava/util/List;" : {
       "completeTestCount" : 0,

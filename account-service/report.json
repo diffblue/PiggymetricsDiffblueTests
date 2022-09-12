@@ -3,17 +3,17 @@
     "reportVersion" : "2.2"
   },
   "run" : {
-    "version" : "2022.08.05-2f0e40c",
-    "creationTimestamp" : "2022-08-31T16:34:10.584+01:00",
-    "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --trace-log --working-directory=account-service",
-    "totalTime" : 412.579,
-    "environmentDetectionTime" : 10.222,
-    "indexingTime" : 0.9510000000000001,
-    "entryPointsTime" : 2.025,
-    "generationTime" : 262.0,
-    "indexQueryTime" : 15.739,
-    "verificationTime" : 45.0,
-    "validationTime" : 34.008
+    "version" : "2022.09.01-cb67a33",
+    "creationTimestamp" : "2022-09-12T17:42:08.883+01:00",
+    "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --working-directory=account-service",
+    "totalTime" : 363.367,
+    "environmentDetectionTime" : 14.446,
+    "indexingTime" : 0.0,
+    "entryPointsTime" : 0.64,
+    "generationTime" : 224.0,
+    "indexQueryTime" : 11.85,
+    "verificationTime" : 58.0,
+    "validationTime" : 26.009
   },
   "codes" : {
     "E052" : "Missing test dependency",
@@ -27,7 +27,8 @@
     "T003" : "Private method",
     "T005" : "Trivial constructor",
     "T006" : "Main method",
-    "V000" : "Validated successfully"
+    "V000" : "Validated successfully",
+    "W002" : "Test compiled, but did not pass"
   },
   "summary" : {
     "classesCount" : 17,
@@ -45,18 +46,22 @@
     },
     "perMethodOutcome" : {
       "E052" : 12,
-      "R000" : 54,
+      "R000" : 53,
       "R002" : 4,
       "R004" : 2,
       "R013" : 2,
       "T005" : 5,
-      "T006" : 1
+      "T006" : 1,
+      "W002" : 1
     },
     "perTestOutcome" : {
       "R000" : 20
     },
     "perTestValidation" : {
       "V000" : 20
+    },
+    "warnings" : {
+      "W002" : 1
     }
   },
   "classes" : {
@@ -259,23 +264,27 @@
     },
     "com.piggymetrics.account.service.AccountServiceImpl" : {
       "methodsCount" : 4,
-      "completeTestCount" : 2,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 4
       },
       "perMethodOutcome" : {
-        "R000" : 2,
+        "R000" : 1,
         "R013" : 1,
-        "T005" : 1
+        "T005" : 1,
+        "W002" : 1
       },
       "perTestOutcome" : {
-        "R000" : 2
+        "R000" : 1
+      },
+      "warnings" : {
+        "W002" : 1
       }
     },
     "com.piggymetrics.account.service.security.CustomUserInfoTokenServices" : {
       "methodsCount" : 6,
-      "completeTestCount" : 3,
+      "completeTestCount" : 4,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 3,
@@ -288,7 +297,7 @@
         "R004" : 1
       },
       "perTestOutcome" : {
-        "R000" : 3
+        "R000" : 4
       }
     }
   },
@@ -969,12 +978,12 @@
       }
     },
     "com.piggymetrics.account.service.AccountServiceImpl.saveChanges:(Ljava/lang/String;Lcom/piggymetrics/account/domain/Account;)V" : {
-      "completeTestCount" : 1,
+      "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R000",
-      "perTestOutcome" : {
-        "R000" : 1
+      "perMethodOutcome" : "W002",
+      "warnings" : {
+        "W002" : 1
       }
     },
     "com.piggymetrics.account.service.security.CustomUserInfoTokenServices.<clinit>:()V" : {
@@ -1023,12 +1032,12 @@
       }
     },
     "com.piggymetrics.account.service.security.CustomUserInfoTokenServices.readAccessToken:(Ljava/lang/String;)Lorg/springframework/security/oauth2/common/OAuth2AccessToken;" : {
-      "completeTestCount" : 1,
+      "completeTestCount" : 2,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 1
+        "R000" : 2
       }
     },
     "com.piggymetrics.account.service.security.CustomUserInfoTokenServices.setAuthoritiesExtractor:(Lorg/springframework/boot/autoconfigure/security/oauth2/resource/AuthoritiesExtractor;)V" : {

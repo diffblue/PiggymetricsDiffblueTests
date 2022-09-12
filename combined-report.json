@@ -1,15 +1,15 @@
 {
-  "totalTime" : 1687.918,
-  "environmentDetectionTime" : 85.52099999999999,
-  "indexingTime" : 7.7940000000000005,
-  "entryPointsTime" : 12.804,
-  "generationTime" : 952.0,
-  "verificationTime" : 206.0,
-  "validationTime" : 113.03899999999999,
+  "totalTime" : 1443.3220000000001,
+  "environmentDetectionTime" : 134.44,
+  "indexingTime" : 0.0,
+  "entryPointsTime" : 4.929,
+  "generationTime" : 816.0,
+  "verificationTime" : 209.0,
+  "validationTime" : 88.048,
   "summary" : {
     "classesCount" : 75,
     "methodsCount" : 362,
-    "completeTestCount" : 87,
+    "completeTestCount" : 95,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "perMethodTestability" : {
@@ -23,24 +23,29 @@
     },
     "perMethodOutcome" : {
       "E052" : 49,
-      "R000" : 170,
-      "R002" : 9,
+      "R000" : 171,
+      "R002" : 7,
       "R004" : 6,
-      "R013" : 9,
+      "R011" : 1,
+      "R013" : 8,
       "T005" : 35,
-      "T006" : 9
+      "T006" : 9,
+      "W002" : 1
     },
     "perTestOutcome" : {
-      "R000" : 87
+      "R000" : 95
     },
     "perTestValidation" : {
-      "V000" : 87
+      "V000" : 95
+    },
+    "warnings" : {
+      "W002" : 1
     }
   },
   "coverageMetrics" : {
     "classesWithIncompleteInstructionCoverage" : [ "com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices", "com.piggymetrics.statistics.StatisticsApplication", "com.piggymetrics.statistics.repository.converter.DataPointIdReaderConverter", "com.piggymetrics.statistics.service.ExchangeRatesServiceImpl", "com.piggymetrics.notification.domain.Frequency", "com.piggymetrics.notification.NotificationServiceApplication", "com.piggymetrics.notification.controller.RecipientController", "com.piggymetrics.notification.service.NotificationServiceImpl", "com.piggymetrics.notification.service.EmailServiceImpl", "com.piggymetrics.notification.service.RecipientServiceImpl", "com.piggymetrics.auth.AuthApplication", "com.piggymetrics.auth.controller.UserController", "com.piggymetrics.account.controller.ErrorHandler", "com.piggymetrics.account.service.AccountServiceImpl", "com.piggymetrics.account.service.security.CustomUserInfoTokenServices", "com.piggymetrics.account.AccountApplication" ],
-    "coveredLines" : 466,
-    "lineCoveragePercent" : "79.25%",
+    "coveredLines" : 476,
+    "lineCoveragePercent" : "80.95%",
     "totalLines" : 588
   },
   "piTestMetrics" : {
@@ -51,8 +56,8 @@
     "mutationsTotal" : 0
   },
   "testDiffStatSummary" : {
-    "files" : 1,
-    "insertions" : 19,
-    "deletions" : 2
+    "files" : 5,
+    "insertions" : 273,
+    "deletions" : 106
   }
 }
