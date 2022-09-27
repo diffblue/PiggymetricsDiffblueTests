@@ -3,6 +3,7 @@ package com.piggymetrics.account.client;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
 import com.piggymetrics.account.domain.Account;
 import com.piggymetrics.account.domain.Currency;
 import com.piggymetrics.account.domain.Saving;
@@ -56,6 +57,38 @@ public class StatisticsServiceClientFallbackDiffblueTest {
     assertTrue(account.getIncomes().isEmpty());
     assertEquals("Name", account.getName());
     assertSame(fromResult, account.getLastSeen());
+  }
+
+  /**
+   * Method under test: {@link StatisticsServiceClientFallback#updateStatistics(String, Account)}
+   */
+  @Test
+  public void testUpdateStatistics2() {
+    // Arrange
+    Saving saving = new Saving();
+    saving.setAmount(BigDecimal.valueOf(1L));
+    saving.setCapitalization(true);
+    saving.setCurrency(Currency.USD);
+    saving.setDeposit(true);
+    saving.setInterest(BigDecimal.valueOf(1L));
+
+    Account account = new Account();
+    account.setExpenses(new ArrayList<>());
+    account.setIncomes(new ArrayList<>());
+    account.setLastSeen(mock(java.sql.Date.class));
+    account.setName("Name");
+    account.setNote("Note");
+    account.setSaving(saving);
+
+    // Act
+    statisticsServiceClientFallback.updateStatistics("Dr Jane Doe", account);
+
+    // Assert that nothing has changed
+    assertTrue(account.getExpenses().isEmpty());
+    assertSame(saving, account.getSaving());
+    assertEquals("Note", account.getNote());
+    assertTrue(account.getIncomes().isEmpty());
+    assertEquals("Name", account.getName());
   }
 }
 

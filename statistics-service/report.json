@@ -3,17 +3,19 @@
     "reportVersion" : "2.2"
   },
   "run" : {
-    "version" : "2022.09.01-cb67a33",
-    "creationTimestamp" : "2022-09-12T17:48:16.453+01:00",
+    "version" : "2022.09.02-99f97e6",
+    "creationTimestamp" : "2022-09-27T12:00:24.004+01:00",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --working-directory=statistics-service",
-    "totalTime" : 279.536,
-    "environmentDetectionTime" : 14.969,
+    "totalTime" : 275.139,
+    "environmentDetectionTime" : 15.08,
     "indexingTime" : 0.0,
-    "entryPointsTime" : 0.64,
-    "generationTime" : 148.0,
-    "indexQueryTime" : 11.005,
-    "verificationTime" : 55.0,
-    "validationTime" : 23.012
+    "entryPointsTime" : 0.645,
+    "generationTime" : 147.604,
+    "timeToFirstTest" : 70.381,
+    "timeToLastTest" : 217.912,
+    "indexQueryTime" : 11.771,
+    "verificationTime" : 54.533,
+    "validationTime" : 22.021
   },
   "codes" : {
     "E052" : "Missing test dependency",
@@ -34,7 +36,7 @@
   "summary" : {
     "classesCount" : 24,
     "methodsCount" : 125,
-    "completeTestCount" : 31,
+    "completeTestCount" : 32,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "perMethodTestability" : {
@@ -57,10 +59,10 @@
       "T006" : 1
     },
     "perTestOutcome" : {
-      "R000" : 31
+      "R000" : 32
     },
     "perTestValidation" : {
-      "V000" : 31
+      "V000" : 32
     }
   },
   "classes" : {
@@ -325,7 +327,7 @@
     },
     "com.piggymetrics.statistics.repository.converter.DataPointIdWriterConverter" : {
       "methodsCount" : 2,
-      "completeTestCount" : 1,
+      "completeTestCount" : 2,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 1,
@@ -337,7 +339,7 @@
         "T005" : 1
       },
       "perTestOutcome" : {
-        "R000" : 1
+        "R000" : 2
       }
     },
     "com.piggymetrics.statistics.service.ExchangeRatesService" : {
@@ -1191,12 +1193,12 @@
       "perMethodOutcome" : "T005"
     },
     "com.piggymetrics.statistics.repository.converter.DataPointIdWriterConverter.convert:(Lcom/piggymetrics/statistics/domain/timeseries/DataPointId;)Lcom/mongodb/DBObject;" : {
-      "completeTestCount" : 1,
+      "completeTestCount" : 2,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 1
+        "R000" : 2
       }
     },
     "com.piggymetrics.statistics.repository.converter.DataPointIdWriterConverter.convert:(Ljava/lang/Object;)Ljava/lang/Object;" : {

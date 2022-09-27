@@ -50,11 +50,7 @@ public class ResourceServerConfigDiffblueTest {
   public void testClientCredentialsResourceDetails() {
     //   Diffblue Cover was unable to write a Spring test,
     //   so wrote a non-Spring test instead.
-    //   Reason: R004 No meaningful assertions found.
-    //   Diffblue Cover was unable to create an assertion.
-    //   Make sure that fields modified by clientCredentialsResourceDetails()
-    //   have package-private, protected, or public getters.
-    //   See https://diff.blue/R004 to resolve this issue.
+    //   Diffblue AI was unable to find a test
 
     // Arrange and Act
     ClientCredentialsResourceDetails actualClientCredentialsResourceDetailsResult = (new ResourceServerConfig())
@@ -84,11 +80,7 @@ public class ResourceServerConfigDiffblueTest {
   public void testClientCredentialsRestTemplate() {
     //   Diffblue Cover was unable to write a Spring test,
     //   so wrote a non-Spring test instead.
-    //   Reason: R004 No meaningful assertions found.
-    //   Diffblue Cover was unable to create an assertion.
-    //   Make sure that fields modified by clientCredentialsRestTemplate()
-    //   have package-private, protected, or public getters.
-    //   See https://diff.blue/R004 to resolve this issue.
+    //   Diffblue AI was unable to find a test
 
     // Arrange and Act
     OAuth2RestTemplate actualClientCredentialsRestTemplateResult = (new ResourceServerConfig())
