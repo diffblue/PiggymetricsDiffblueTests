@@ -83,9 +83,8 @@ public class UserServiceImplDiffblueTest {
   @Test
   public void testCreate3() {
     // Arrange
-    when(userRepository.save((User) any())).thenThrow(new IllegalArgumentException("new user has been created: {}"));
-    when(userRepository.findById((String) any()))
-        .thenThrow(new IllegalArgumentException("new user has been created: {}"));
+    when(userRepository.save((User) any())).thenThrow(new IllegalArgumentException());
+    when(userRepository.findById((String) any())).thenThrow(new IllegalArgumentException());
 
     User user = new User();
     user.setPassword("iloveyou");

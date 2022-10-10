@@ -61,7 +61,7 @@ public class RecipientServiceImplDiffblueTest {
   @Test
   public void testFindByAccountName2() {
     // Arrange
-    when(recipientRepository.findByAccountName((String) any())).thenThrow(new IllegalArgumentException("foo"));
+    when(recipientRepository.findByAccountName((String) any())).thenThrow(new IllegalArgumentException());
 
     // Act and Assert
     thrown.expect(IllegalArgumentException.class);
@@ -136,8 +136,7 @@ public class RecipientServiceImplDiffblueTest {
   @Test
   public void testSave3() {
     // Arrange
-    when(recipientRepository.save((Recipient) any()))
-        .thenThrow(new IllegalArgumentException("recipient {} settings has been updated"));
+    when(recipientRepository.save((Recipient) any())).thenThrow(new IllegalArgumentException());
 
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
@@ -227,13 +226,27 @@ public class RecipientServiceImplDiffblueTest {
   @Test
   public void testFindReadyToNotify3() {
     // Arrange
-    when(recipientRepository.findReadyForRemind()).thenThrow(new IllegalArgumentException("foo"));
+    when(recipientRepository.findReadyForRemind()).thenThrow(new IllegalArgumentException());
     when(recipientRepository.findReadyForBackup()).thenReturn(new ArrayList<>());
 
     // Act and Assert
     thrown.expect(IllegalArgumentException.class);
     recipientServiceImpl.findReadyToNotify(NotificationType.REMIND);
     verify(recipientRepository).findReadyForRemind();
+  }
+
+  /**
+   * Method under test: {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
+   */
+  @Test
+  public void testFindReadyToNotify4() {
+    // Arrange
+    when(recipientRepository.findReadyForBackup()).thenThrow(new IllegalArgumentException());
+
+    // Act and Assert
+    thrown.expect(IllegalArgumentException.class);
+    recipientServiceImpl.findReadyToNotify(NotificationType.BACKUP);
+    verify(recipientRepository).findReadyForBackup();
   }
 
   /**
@@ -275,7 +288,7 @@ public class RecipientServiceImplDiffblueTest {
   @Test
   public void testMarkNotified2() {
     // Arrange
-    when(recipientRepository.save((Recipient) any())).thenThrow(new IllegalArgumentException("foo"));
+    when(recipientRepository.save((Recipient) any())).thenThrow(new IllegalArgumentException());
 
     NotificationSettings notificationSettings = new NotificationSettings();
     notificationSettings.setActive(true);
@@ -289,6 +302,34 @@ public class RecipientServiceImplDiffblueTest {
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
     recipient.setEmail("jane.doe@example.org");
+    recipient.setScheduledNotifications(notificationTypeNotificationSettingsMap);
+
+    // Act and Assert
+    thrown.expect(IllegalArgumentException.class);
+    recipientServiceImpl.markNotified(NotificationType.BACKUP, recipient);
+    verify(recipientRepository).save((Recipient) any());
+  }
+
+  /**
+   * Method under test: {@link RecipientServiceImpl#markNotified(NotificationType, Recipient)}
+   */
+  @Test
+  public void testMarkNotified3() {
+    // Arrange
+    when(recipientRepository.save((Recipient) any())).thenThrow(new IllegalArgumentException());
+
+    NotificationSettings notificationSettings = new NotificationSettings();
+    notificationSettings.setActive(true);
+    notificationSettings.setFrequency(Frequency.WEEKLY);
+    LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
+    notificationSettings.setLastNotified(Date.from(atStartOfDayResult.atZone(ZoneId.of("UTC")).toInstant()));
+
+    HashMap<NotificationType, NotificationSettings> notificationTypeNotificationSettingsMap = new HashMap<>();
+    notificationTypeNotificationSettingsMap.put(NotificationType.BACKUP, notificationSettings);
+
+    Recipient recipient = new Recipient();
+    recipient.setAccountName("Dr Jane Doe");
+    recipient.setEmail("Email42");
     recipient.setScheduledNotifications(notificationTypeNotificationSettingsMap);
 
     // Act and Assert

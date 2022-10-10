@@ -1,10 +1,20 @@
 package com.piggymetrics.auth.domain;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 public class UserDiffblueTest {
+  /**
+   * Method under test: {@link User#getAuthorities()}
+   */
+  @Test
+  public void testGetAuthorities() {
+    // Arrange, Act and Assert
+    assertNull((new User()).getAuthorities());
+  }
+
   /**
   * Methods under test: 
   * 
@@ -12,7 +22,6 @@ public class UserDiffblueTest {
   *   <li>default or parameterless constructor of {@link User}
   *   <li>{@link User#setPassword(String)}
   *   <li>{@link User#setUsername(String)}
-  *   <li>{@link User#getAuthorities()}
   *   <li>{@link User#getPassword()}
   *   <li>{@link User#getUsername()}
   *   <li>{@link User#isAccountNonExpired()}
@@ -27,9 +36,8 @@ public class UserDiffblueTest {
     User actualUser = new User();
     actualUser.setPassword("iloveyou");
     actualUser.setUsername("janedoe");
-    actualUser.getAuthorities();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("iloveyou", actualUser.getPassword());
     assertEquals("janedoe", actualUser.getUsername());
     assertTrue(actualUser.isAccountNonExpired());
