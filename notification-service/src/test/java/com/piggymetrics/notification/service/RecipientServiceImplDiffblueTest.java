@@ -309,33 +309,5 @@ public class RecipientServiceImplDiffblueTest {
     recipientServiceImpl.markNotified(NotificationType.BACKUP, recipient);
     verify(recipientRepository).save((Recipient) any());
   }
-
-  /**
-   * Method under test: {@link RecipientServiceImpl#markNotified(NotificationType, Recipient)}
-   */
-  @Test
-  public void testMarkNotified3() {
-    // Arrange
-    when(recipientRepository.save((Recipient) any())).thenThrow(new IllegalArgumentException());
-
-    NotificationSettings notificationSettings = new NotificationSettings();
-    notificationSettings.setActive(true);
-    notificationSettings.setFrequency(Frequency.WEEKLY);
-    LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
-    notificationSettings.setLastNotified(Date.from(atStartOfDayResult.atZone(ZoneId.of("UTC")).toInstant()));
-
-    HashMap<NotificationType, NotificationSettings> notificationTypeNotificationSettingsMap = new HashMap<>();
-    notificationTypeNotificationSettingsMap.put(NotificationType.BACKUP, notificationSettings);
-
-    Recipient recipient = new Recipient();
-    recipient.setAccountName("Dr Jane Doe");
-    recipient.setEmail("Email42");
-    recipient.setScheduledNotifications(notificationTypeNotificationSettingsMap);
-
-    // Act and Assert
-    thrown.expect(IllegalArgumentException.class);
-    recipientServiceImpl.markNotified(NotificationType.BACKUP, recipient);
-    verify(recipientRepository).save((Recipient) any());
-  }
 }
 

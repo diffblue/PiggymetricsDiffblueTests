@@ -3,24 +3,24 @@
     "reportVersion" : "2.3"
   },
   "run" : {
-    "version" : "2022.10.01-08b9219",
-    "creationTimestamp" : "2022-10-10T16:19:05.022+01:00",
+    "version" : "2022.10.02-0780dde",
+    "creationTimestamp" : "2022-10-25T16:58:28.755+01:00",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --working-directory=auth-service",
-    "totalTime" : 261.895,
-    "environmentDetectionTime" : 14.509,
+    "totalTime" : 268.08,
+    "environmentDetectionTime" : 14.484,
     "indexingTime" : 0.0,
-    "entryPointsTime" : 0.541,
-    "generationTime" : 153.928,
-    "timeToFirstTest" : 81.062,
-    "timeToLastTest" : 213.673,
-    "indexQueryTime" : 11.662,
-    "verificationTime" : 44.658,
-    "validationTime" : 19.01
+    "entryPointsTime" : 0.592,
+    "generationTime" : 157.706,
+    "timeToFirstTest" : 82.0,
+    "timeToLastTest" : 217.835,
+    "indexQueryTime" : 13.087,
+    "verificationTime" : 45.02,
+    "validationTime" : 19.028
   },
   "codes" : {
     "E052" : "Missing test dependency",
     "R000" : "Success",
-    "R004" : "No meaningful assertions found",
+    "R002" : "Missing observers",
     "R013" : "No inputs found that don't throw a trivial exception",
     "T000" : "Should be tested directly",
     "T001" : "Trivial getter",
@@ -49,7 +49,7 @@
     "perMethodOutcome" : {
       "E052" : 11,
       "R000" : 18,
-      "R004" : 1,
+      "R002" : 1,
       "R013" : 1,
       "T005" : 6,
       "T006" : 1,
@@ -101,7 +101,7 @@
       },
       "perMethodOutcome" : {
         "R000" : 1,
-        "R004" : 1,
+        "R002" : 1,
         "R013" : 1,
         "T005" : 1
       },
@@ -256,7 +256,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R004"
+      "perMethodOutcome" : "R002"
     },
     "com.piggymetrics.auth.config.WebSecurityConfig.configure:(Lorg/springframework/security/config/annotation/authentication/builders/AuthenticationManagerBuilder;)V" : {
       "completeTestCount" : 2,
