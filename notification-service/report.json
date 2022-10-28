@@ -3,19 +3,19 @@
     "reportVersion" : "2.3"
   },
   "run" : {
-    "version" : "2022.10.02-0780dde",
-    "creationTimestamp" : "2022-10-25T17:15:10.244+01:00",
+    "version" : "2022.10.03-3e0a532",
+    "creationTimestamp" : "2022-10-28T11:09:28.169+01:00",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --working-directory=notification-service",
-    "totalTime" : 351.59,
-    "environmentDetectionTime" : 14.928,
+    "totalTime" : 316.781,
+    "environmentDetectionTime" : 14.301,
     "indexingTime" : 0.0,
-    "entryPointsTime" : 0.608,
-    "generationTime" : 222.284,
-    "timeToFirstTest" : 78.49,
-    "timeToLastTest" : 294.34,
-    "indexQueryTime" : 11.254,
-    "verificationTime" : 56.486,
-    "validationTime" : 22.018
+    "entryPointsTime" : 0.542,
+    "generationTime" : 202.278,
+    "timeToFirstTest" : 72.03,
+    "timeToLastTest" : 267.608,
+    "indexQueryTime" : 10.726,
+    "verificationTime" : 50.46,
+    "validationTime" : 19.008
   },
   "codes" : {
     "E052" : "Missing test dependency",
@@ -36,7 +36,7 @@
   "summary" : {
     "classesCount" : 19,
     "methodsCount" : 84,
-    "completeTestCount" : 29,
+    "completeTestCount" : 30,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "perMethodTestability" : {
@@ -62,10 +62,10 @@
       "T012" : 15
     },
     "perTestOutcome" : {
-      "R000" : 29
+      "R000" : 30
     },
     "perTestValidation" : {
-      "V000" : 29
+      "V000" : 30
     }
   },
   "classes" : {
@@ -320,7 +320,7 @@
     },
     "com.piggymetrics.notification.service.RecipientServiceImpl" : {
       "methodsCount" : 6,
-      "completeTestCount" : 12,
+      "completeTestCount" : 13,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 5,
@@ -332,7 +332,7 @@
         "T012" : 1
       },
       "perTestOutcome" : {
-        "R000" : 12
+        "R000" : 13
       }
     },
     "com.piggymetrics.notification.service.RecipientServiceImpl$1" : {
@@ -931,12 +931,12 @@
       "perMethodOutcome" : "T012"
     },
     "com.piggymetrics.notification.service.RecipientServiceImpl.markNotified:(Lcom/piggymetrics/notification/domain/NotificationType;Lcom/piggymetrics/notification/domain/Recipient;)V" : {
-      "completeTestCount" : 2,
+      "completeTestCount" : 3,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 2
+        "R000" : 3
       }
     },
     "com.piggymetrics.notification.service.RecipientServiceImpl.save:(Ljava/lang/String;Lcom/piggymetrics/notification/domain/Recipient;)Lcom/piggymetrics/notification/domain/Recipient;" : {
