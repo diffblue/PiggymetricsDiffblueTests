@@ -288,39 +288,6 @@ public class RecipientServiceImplDiffblueTest {
   @Test
   public void testMarkNotified2() {
     // Arrange
-    Recipient recipient = new Recipient();
-    recipient.setAccountName("Dr Jane Doe");
-    recipient.setEmail("jane.doe@example.org");
-    recipient.setScheduledNotifications(new HashMap<>());
-    when(recipientRepository.save((Recipient) any())).thenReturn(recipient);
-
-    NotificationSettings notificationSettings = new NotificationSettings();
-    notificationSettings.setActive(true);
-    notificationSettings.setFrequency(Frequency.WEEKLY);
-    LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
-    notificationSettings.setLastNotified(Date.from(atStartOfDayResult.atZone(ZoneId.of("UTC")).toInstant()));
-
-    HashMap<NotificationType, NotificationSettings> notificationTypeNotificationSettingsMap = new HashMap<>();
-    notificationTypeNotificationSettingsMap.put(NotificationType.BACKUP, notificationSettings);
-
-    Recipient recipient1 = new Recipient();
-    recipient1.setAccountName("Account Name");
-    recipient1.setEmail("jane.doe@example.org");
-    recipient1.setScheduledNotifications(notificationTypeNotificationSettingsMap);
-
-    // Act
-    recipientServiceImpl.markNotified(NotificationType.BACKUP, recipient1);
-
-    // Assert
-    verify(recipientRepository).save((Recipient) any());
-  }
-
-  /**
-   * Method under test: {@link RecipientServiceImpl#markNotified(NotificationType, Recipient)}
-   */
-  @Test
-  public void testMarkNotified3() {
-    // Arrange
     when(recipientRepository.save((Recipient) any())).thenThrow(new IllegalArgumentException());
 
     NotificationSettings notificationSettings = new NotificationSettings();

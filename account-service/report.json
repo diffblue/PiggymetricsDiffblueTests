@@ -3,19 +3,19 @@
     "reportVersion" : "2.3"
   },
   "run" : {
-    "version" : "2022.10.03-3e0a532",
-    "creationTimestamp" : "2022-10-28T10:58:57.765+01:00",
+    "version" : "2022.11.01-0407503",
+    "creationTimestamp" : "2022-11-08T17:37:01.076Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --working-directory=account-service",
-    "totalTime" : 334.879,
-    "environmentDetectionTime" : 13.968,
+    "totalTime" : 371.001,
+    "environmentDetectionTime" : 15.174,
     "indexingTime" : 0.0,
-    "entryPointsTime" : 0.514,
-    "generationTime" : 210.71,
-    "timeToFirstTest" : 40.082,
-    "timeToLastTest" : 277.697,
-    "indexQueryTime" : 12.567,
-    "verificationTime" : 52.477,
-    "validationTime" : 23.016
+    "entryPointsTime" : 0.705,
+    "generationTime" : 231.461,
+    "timeToFirstTest" : 43.297,
+    "timeToLastTest" : 305.765,
+    "indexQueryTime" : 13.262,
+    "verificationTime" : 58.394,
+    "validationTime" : 26.02
   },
   "codes" : {
     "E052" : "Missing test dependency",
@@ -129,7 +129,7 @@
     },
     "com.piggymetrics.account.config.ResourceServerConfig" : {
       "methodsCount" : 6,
-      "completeTestCount" : 6,
+      "completeTestCount" : 5,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 5,
@@ -141,7 +141,7 @@
         "T005" : 1
       },
       "perTestOutcome" : {
-        "R000" : 6
+        "R000" : 5
       }
     },
     "com.piggymetrics.account.controller.AccountController" : {
@@ -310,7 +310,7 @@
     },
     "com.piggymetrics.account.service.security.CustomUserInfoTokenServices" : {
       "methodsCount" : 11,
-      "completeTestCount" : 3,
+      "completeTestCount" : 4,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 3,
@@ -326,7 +326,7 @@
         "T012" : 1
       },
       "perTestOutcome" : {
-        "R000" : 3
+        "R000" : 4
       }
     }
   },
@@ -383,12 +383,12 @@
       "perMethodOutcome" : "T005"
     },
     "com.piggymetrics.account.config.ResourceServerConfig.clientCredentialsResourceDetails:()Lorg/springframework/security/oauth2/client/token/grant/client/ClientCredentialsResourceDetails;" : {
-      "completeTestCount" : 2,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 2
+        "R000" : 1
       }
     },
     "com.piggymetrics.account.config.ResourceServerConfig.clientCredentialsRestTemplate:()Lorg/springframework/security/oauth2/client/OAuth2RestTemplate;" : {
@@ -1061,12 +1061,12 @@
       }
     },
     "com.piggymetrics.account.service.security.CustomUserInfoTokenServices.readAccessToken:(Ljava/lang/String;)Lorg/springframework/security/oauth2/common/OAuth2AccessToken;" : {
-      "completeTestCount" : 1,
+      "completeTestCount" : 2,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 1
+        "R000" : 2
       }
     },
     "com.piggymetrics.account.service.security.CustomUserInfoTokenServices.setAuthoritiesExtractor:(Lorg/springframework/boot/autoconfigure/security/oauth2/resource/AuthoritiesExtractor;)V" : {
