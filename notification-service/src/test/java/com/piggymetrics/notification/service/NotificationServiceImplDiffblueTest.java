@@ -2,17 +2,10 @@ package com.piggymetrics.notification.service;
 
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.piggymetrics.notification.domain.Frequency;
-import com.piggymetrics.notification.domain.NotificationSettings;
-import com.piggymetrics.notification.domain.NotificationType;
 import com.piggymetrics.notification.domain.Recipient;
 import com.piggymetrics.notification.repository.RecipientRepository;
 import de.flapdoodle.embed.mongo.MongodExecutable;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -103,7 +96,14 @@ public class NotificationServiceImplDiffblueTest {
   @Test
   public void testSendRemindNotifications() {
     // Arrange
-    when(recipientRepository.findReadyForRemind()).thenReturn(new ArrayList<>());
+    Recipient recipient = new Recipient();
+    recipient.setAccountName("Dr Jane Doe");
+    recipient.setEmail("jane.doe@example.org");
+    recipient.setScheduledNotifications(new HashMap<>());
+
+    ArrayList<Recipient> recipientList = new ArrayList<>();
+    recipientList.add(recipient);
+    when(recipientRepository.findReadyForRemind()).thenReturn(recipientList);
 
     // Act
     notificationServiceImpl.sendRemindNotifications();
@@ -123,28 +123,6 @@ public class NotificationServiceImplDiffblueTest {
     recipient.setEmail("jane.doe@example.org");
     recipient.setScheduledNotifications(new HashMap<>());
 
-    ArrayList<Recipient> recipientList = new ArrayList<>();
-    recipientList.add(recipient);
-    when(recipientRepository.findReadyForRemind()).thenReturn(recipientList);
-
-    // Act
-    notificationServiceImpl.sendRemindNotifications();
-
-    // Assert
-    verify(recipientRepository).findReadyForRemind();
-  }
-
-  /**
-   * Method under test: {@link NotificationServiceImpl#sendRemindNotifications()}
-   */
-  @Test
-  public void testSendRemindNotifications3() {
-    // Arrange
-    Recipient recipient = new Recipient();
-    recipient.setAccountName("Dr Jane Doe");
-    recipient.setEmail("jane.doe@example.org");
-    recipient.setScheduledNotifications(new HashMap<>());
-
     Recipient recipient1 = new Recipient();
     recipient1.setAccountName("Dr Jane Doe");
     recipient1.setEmail("jane.doe@example.org");
@@ -152,37 +130,6 @@ public class NotificationServiceImplDiffblueTest {
 
     ArrayList<Recipient> recipientList = new ArrayList<>();
     recipientList.add(recipient1);
-    recipientList.add(recipient);
-    when(recipientRepository.findReadyForRemind()).thenReturn(recipientList);
-
-    // Act
-    notificationServiceImpl.sendRemindNotifications();
-
-    // Assert
-    verify(recipientRepository).findReadyForRemind();
-  }
-
-  /**
-   * Method under test: {@link NotificationServiceImpl#sendRemindNotifications()}
-   */
-  @Test
-  public void testSendRemindNotifications4() {
-    // Arrange
-    NotificationSettings notificationSettings = new NotificationSettings();
-    notificationSettings.setActive(true);
-    notificationSettings.setFrequency(Frequency.WEEKLY);
-    LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
-    notificationSettings.setLastNotified(Date.from(atStartOfDayResult.atZone(ZoneId.of("UTC")).toInstant()));
-
-    HashMap<NotificationType, NotificationSettings> notificationTypeNotificationSettingsMap = new HashMap<>();
-    notificationTypeNotificationSettingsMap.put(NotificationType.BACKUP, notificationSettings);
-
-    Recipient recipient = new Recipient();
-    recipient.setAccountName("Dr Jane Doe");
-    recipient.setEmail("jane.doe@example.org");
-    recipient.setScheduledNotifications(notificationTypeNotificationSettingsMap);
-
-    ArrayList<Recipient> recipientList = new ArrayList<>();
     recipientList.add(recipient);
     when(recipientRepository.findReadyForRemind()).thenReturn(recipientList);
 
