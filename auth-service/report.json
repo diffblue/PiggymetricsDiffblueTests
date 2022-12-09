@@ -3,19 +3,19 @@
     "reportVersion" : "2.3"
   },
   "run" : {
-    "version" : "2022.11.02-0cc3d0e",
-    "creationTimestamp" : "2022-11-24T11:39:25.177Z",
+    "version" : "2022.12.01-7c37119",
+    "creationTimestamp" : "2022-12-09T10:06:16.813Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --working-directory=auth-service",
-    "totalTime" : 254.285,
-    "environmentDetectionTime" : 14.544,
+    "totalTime" : 259.674,
+    "environmentDetectionTime" : 14.844,
     "indexingTime" : 0.0,
-    "entryPointsTime" : 0.582,
-    "generationTime" : 151.399,
-    "timeToFirstTest" : 77.061,
-    "timeToLastTest" : 208.069,
-    "indexQueryTime" : 11.424,
-    "verificationTime" : 41.51,
-    "validationTime" : 18.023
+    "entryPointsTime" : 0.531,
+    "generationTime" : 156.085,
+    "timeToFirstTest" : 78.5,
+    "timeToLastTest" : 213.507,
+    "indexQueryTime" : 11.295,
+    "verificationTime" : 42.014,
+    "validationTime" : 18.015
   },
   "codes" : {
     "E052" : "Missing test dependency",
@@ -34,7 +34,7 @@
   "summary" : {
     "classesCount" : 9,
     "methodsCount" : 42,
-    "completeTestCount" : 17,
+    "completeTestCount" : 16,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "perMethodTestability" : {
@@ -57,10 +57,10 @@
       "T012" : 3
     },
     "perTestOutcome" : {
-      "R000" : 17
+      "R000" : 16
     },
     "perTestValidation" : {
-      "V000" : 17
+      "V000" : 16
     }
   },
   "classes" : {
@@ -183,7 +183,7 @@
     },
     "com.piggymetrics.auth.service.security.MongoUserDetailsService" : {
       "methodsCount" : 3,
-      "completeTestCount" : 4,
+      "completeTestCount" : 3,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 1,
@@ -196,7 +196,7 @@
         "T012" : 1
       },
       "perTestOutcome" : {
-        "R000" : 4
+        "R000" : 3
       }
     }
   },
@@ -499,12 +499,12 @@
       "perMethodOutcome" : "T012"
     },
     "com.piggymetrics.auth.service.security.MongoUserDetailsService.loadUserByUsername:(Ljava/lang/String;)Lorg/springframework/security/core/userdetails/UserDetails;" : {
-      "completeTestCount" : 4,
+      "completeTestCount" : 3,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 4
+        "R000" : 3
       }
     }
   }

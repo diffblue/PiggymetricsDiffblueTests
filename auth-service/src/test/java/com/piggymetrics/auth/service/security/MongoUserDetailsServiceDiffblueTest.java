@@ -72,22 +72,5 @@ public class MongoUserDetailsServiceDiffblueTest {
     mongoUserDetailsService.loadUserByUsername("janedoe");
     verify(userRepository).findById((String) any());
   }
-
-  /**
-   * Method under test: {@link MongoUserDetailsService#loadUserByUsername(String)}
-   */
-  @Test
-  public void testLoadUserByUsername4() throws UsernameNotFoundException {
-    // Arrange
-    User user = new User();
-    user.setPassword("iloveyou");
-    user.setUsername("janedoe");
-    Optional<User> ofResult = Optional.of(user);
-    when(userRepository.findById((String) any())).thenReturn(ofResult);
-
-    // Act and Assert
-    assertSame(user, mongoUserDetailsService.loadUserByUsername("UsernameUsername"));
-    verify(userRepository).findById((String) any());
-  }
 }
 

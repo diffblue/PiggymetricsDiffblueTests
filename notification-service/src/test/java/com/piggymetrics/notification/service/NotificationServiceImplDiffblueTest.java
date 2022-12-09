@@ -96,6 +96,21 @@ public class NotificationServiceImplDiffblueTest {
   @Test
   public void testSendRemindNotifications() {
     // Arrange
+    when(recipientRepository.findReadyForRemind()).thenReturn(new ArrayList<>());
+
+    // Act
+    notificationServiceImpl.sendRemindNotifications();
+
+    // Assert
+    verify(recipientRepository).findReadyForRemind();
+  }
+
+  /**
+   * Method under test: {@link NotificationServiceImpl#sendRemindNotifications()}
+   */
+  @Test
+  public void testSendRemindNotifications2() {
+    // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
     recipient.setEmail("jane.doe@example.org");
@@ -116,7 +131,7 @@ public class NotificationServiceImplDiffblueTest {
    * Method under test: {@link NotificationServiceImpl#sendRemindNotifications()}
    */
   @Test
-  public void testSendRemindNotifications2() {
+  public void testSendRemindNotifications3() {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
