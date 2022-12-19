@@ -109,6 +109,46 @@ public class StatisticsServiceImplDiffblueTest {
   @Test
   public void testSave2() {
     // Arrange
+    HashMap<Currency, BigDecimal> currencyBigDecimalMap = new HashMap<>();
+    currencyBigDecimalMap.putAll(new HashMap<>());
+    when(exchangeRatesService.getCurrentRates()).thenReturn(currencyBigDecimalMap);
+    when(exchangeRatesService.convert((Currency) any(), (Currency) any(), (BigDecimal) any()))
+        .thenReturn(BigDecimal.valueOf(1L));
+
+    DataPoint dataPoint = new DataPoint();
+    dataPoint.setExpenses(new HashSet<>());
+    LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
+    dataPoint.setId(new DataPointId("3", Date.from(atStartOfDayResult.atZone(ZoneId.of("UTC")).toInstant())));
+    dataPoint.setIncomes(new HashSet<>());
+    dataPoint.setRates(new HashMap<>());
+    dataPoint.setStatistics(new HashMap<>());
+    when(dataPointRepository.save((DataPoint) any())).thenReturn(dataPoint);
+
+    Saving saving = new Saving();
+    saving.setAmount(BigDecimal.valueOf(1L));
+    saving.setCapitalization(true);
+    saving.setCurrency(Currency.USD);
+    saving.setDeposit(true);
+    saving.setInterest(BigDecimal.valueOf(1L));
+
+    Account account = new Account();
+    account.setExpenses(new ArrayList<>());
+    account.setIncomes(new ArrayList<>());
+    account.setSaving(saving);
+
+    // Act and Assert
+    assertSame(dataPoint, statisticsServiceImpl.save("Dr Jane Doe", account));
+    verify(exchangeRatesService).convert((Currency) any(), (Currency) any(), (BigDecimal) any());
+    verify(exchangeRatesService).getCurrentRates();
+    verify(dataPointRepository).save((DataPoint) any());
+  }
+
+  /**
+   * Method under test: {@link StatisticsServiceImpl#save(String, Account)}
+   */
+  @Test
+  public void testSave3() {
+    // Arrange
     when(exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>());
     when(exchangeRatesService.convert((Currency) any(), (Currency) any(), (BigDecimal) any()))
         .thenReturn(BigDecimal.valueOf(1L));
@@ -172,7 +212,7 @@ public class StatisticsServiceImplDiffblueTest {
    * Method under test: {@link StatisticsServiceImpl#save(String, Account)}
    */
   @Test
-  public void testSave3() {
+  public void testSave4() {
     // Arrange
     when(exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>());
     when(exchangeRatesService.convert((Currency) any(), (Currency) any(), (BigDecimal) any()))
@@ -244,7 +284,7 @@ public class StatisticsServiceImplDiffblueTest {
    * Method under test: {@link StatisticsServiceImpl#save(String, Account)}
    */
   @Test
-  public void testSave4() {
+  public void testSave5() {
     // Arrange
     when(exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>());
     when(exchangeRatesService.convert((Currency) any(), (Currency) any(), (BigDecimal) any()))
