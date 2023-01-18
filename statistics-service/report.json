@@ -3,19 +3,19 @@
     "reportVersion" : "2.3"
   },
   "run" : {
-    "version" : "2022.12.02-c9d4ae2",
-    "creationTimestamp" : "2022-12-19T12:41:57.451Z",
+    "version" : "2023.01.01-8a5ba19",
+    "creationTimestamp" : "2023-01-18T17:27:00.917Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --working-directory=statistics-service",
-    "totalTime" : 264.571,
-    "environmentDetectionTime" : 15.04,
+    "totalTime" : 256.185,
+    "environmentDetectionTime" : 14.59,
     "indexingTime" : 0.0,
-    "entryPointsTime" : 0.514,
-    "generationTime" : 143.298,
-    "timeToFirstTest" : 69.193,
-    "timeToLastTest" : 210.364,
-    "indexQueryTime" : 11.546,
-    "verificationTime" : 51.475,
-    "validationTime" : 21.018
+    "entryPointsTime" : 0.613,
+    "generationTime" : 137.937,
+    "timeToFirstTest" : 68.253,
+    "timeToLastTest" : 202.994,
+    "indexQueryTime" : 12.068,
+    "verificationTime" : 49.817,
+    "validationTime" : 20.01
   },
   "codes" : {
     "E052" : "Missing test dependency",
@@ -38,7 +38,7 @@
   "summary" : {
     "classesCount" : 24,
     "methodsCount" : 125,
-    "completeTestCount" : 33,
+    "completeTestCount" : 32,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "perMethodTestability" : {
@@ -66,10 +66,10 @@
       "T012" : 13
     },
     "perTestOutcome" : {
-      "R000" : 33
+      "R000" : 32
     },
     "perTestValidation" : {
-      "V000" : 33
+      "V000" : 32
     }
   },
   "classes" : {
@@ -405,7 +405,7 @@
     },
     "com.piggymetrics.statistics.service.StatisticsServiceImpl" : {
       "methodsCount" : 5,
-      "completeTestCount" : 6,
+      "completeTestCount" : 5,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 3,
@@ -417,7 +417,7 @@
         "T005" : 1
       },
       "perTestOutcome" : {
-        "R000" : 6
+        "R000" : 5
       }
     },
     "com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices" : {
@@ -1317,12 +1317,12 @@
       }
     },
     "com.piggymetrics.statistics.service.StatisticsServiceImpl.save:(Ljava/lang/String;Lcom/piggymetrics/statistics/domain/Account;)Lcom/piggymetrics/statistics/domain/timeseries/DataPoint;" : {
-      "completeTestCount" : 5,
+      "completeTestCount" : 4,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 5
+        "R000" : 4
       }
     },
     "com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices.<clinit>:()V" : {
