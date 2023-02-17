@@ -85,7 +85,7 @@ public class ItemMetricDiffblueTest {
   @Test
   public void testEquals4() {
     // Arrange
-    ItemMetric itemMetric = new ItemMetric("Title", BigDecimal.valueOf(1L));
+    ItemMetric itemMetric = new ItemMetric("Mr", BigDecimal.valueOf(1L));
 
     // Act and Assert
     assertNotEquals(itemMetric, new ItemMetric("Dr", BigDecimal.valueOf(1L)));

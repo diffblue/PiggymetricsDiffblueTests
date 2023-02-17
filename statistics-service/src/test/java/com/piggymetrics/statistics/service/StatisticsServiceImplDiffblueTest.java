@@ -209,9 +209,9 @@ public class StatisticsServiceImplDiffblueTest {
 
     Item item1 = new Item();
     item1.setAmount(BigDecimal.valueOf(4L));
-    item1.setCurrency(Currency.USD);
-    item1.setPeriod(TimePeriod.YEAR);
-    item1.setTitle("Dr");
+    item1.setCurrency(Currency.EUR);
+    item1.setPeriod(TimePeriod.QUARTER);
+    item1.setTitle("Mr");
 
     ArrayList<Item> itemList = new ArrayList<>();
     itemList.add(item1);

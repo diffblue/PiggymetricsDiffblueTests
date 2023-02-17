@@ -3,19 +3,19 @@
     "reportVersion" : "2.3"
   },
   "run" : {
-    "version" : "2023.01.02-e8d557b",
-    "creationTimestamp" : "2023-02-01T14:47:30.135Z",
+    "version" : "2023.02.01-a61c106",
+    "creationTimestamp" : "2023-02-17T11:31:10.395Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --working-directory=auth-service",
-    "totalTime" : 251.443,
-    "environmentDetectionTime" : 1.506,
-    "indexingTime" : 0.001,
-    "entryPointsTime" : 1.142,
-    "generationTime" : 149.029,
-    "timeToFirstTest" : 77.436,
-    "timeToLastTest" : 205.251,
-    "indexQueryTime" : 12.446,
-    "verificationTime" : 41.094,
-    "validationTime" : 18.011
+    "totalTime" : 258.167,
+    "environmentDetectionTime" : 1.445,
+    "indexingTime" : 0.278,
+    "entryPointsTime" : 1.107,
+    "generationTime" : 158.027,
+    "timeToFirstTest" : 83.565,
+    "timeToLastTest" : 213.995,
+    "indexQueryTime" : 14.331,
+    "verificationTime" : 40.238,
+    "validationTime" : 17.008
   },
   "codes" : {
     "E052" : "Missing dependency",
@@ -34,7 +34,7 @@
   "summary" : {
     "classesCount" : 9,
     "methodsCount" : 42,
-    "completeTestCount" : 16,
+    "completeTestCount" : 17,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "perMethodTestability" : {
@@ -57,10 +57,10 @@
       "T012" : 3
     },
     "perTestOutcome" : {
-      "R000" : 16
+      "R000" : 17
     },
     "perTestValidation" : {
-      "V000" : 16
+      "V000" : 17
     }
   },
   "classes" : {
@@ -79,7 +79,7 @@
     },
     "com.piggymetrics.auth.config.OAuth2AuthorizationConfig" : {
       "methodsCount" : 4,
-      "completeTestCount" : 3,
+      "completeTestCount" : 4,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 4
@@ -89,7 +89,7 @@
         "T005" : 1
       },
       "perTestOutcome" : {
-        "R000" : 3
+        "R000" : 4
       }
     },
     "com.piggymetrics.auth.config.WebSecurityConfig" : {
@@ -220,12 +220,12 @@
       "perMethodOutcome" : "T005"
     },
     "com.piggymetrics.auth.config.OAuth2AuthorizationConfig.configure:(Lorg/springframework/security/oauth2/config/annotation/configurers/ClientDetailsServiceConfigurer;)V" : {
-      "completeTestCount" : 1,
+      "completeTestCount" : 2,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 1
+        "R000" : 2
       }
     },
     "com.piggymetrics.auth.config.OAuth2AuthorizationConfig.configure:(Lorg/springframework/security/oauth2/config/annotation/web/configurers/AuthorizationServerEndpointsConfigurer;)V" : {

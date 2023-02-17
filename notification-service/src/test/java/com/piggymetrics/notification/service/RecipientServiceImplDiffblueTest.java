@@ -136,6 +136,48 @@ public class RecipientServiceImplDiffblueTest {
   @Test
   public void testSave3() {
     // Arrange
+    Recipient recipient = new Recipient();
+    recipient.setAccountName("Dr Jane Doe");
+    recipient.setEmail("jane.doe@example.org");
+    recipient.setScheduledNotifications(new HashMap<>());
+    when(recipientRepository.save((Recipient) any())).thenReturn(recipient);
+
+    NotificationSettings notificationSettings = new NotificationSettings();
+    notificationSettings.setActive(true);
+    notificationSettings.setFrequency(Frequency.WEEKLY);
+    LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
+    notificationSettings.setLastNotified(Date.from(atStartOfDayResult.atZone(ZoneId.of("UTC")).toInstant()));
+
+    NotificationSettings notificationSettings1 = new NotificationSettings();
+    notificationSettings1.setActive(false);
+    notificationSettings1.setFrequency(Frequency.MONTHLY);
+    LocalDateTime atStartOfDayResult1 = LocalDate.of(1970, 1, 1).atStartOfDay();
+    notificationSettings1.setLastNotified(Date.from(atStartOfDayResult1.atZone(ZoneId.of("UTC")).toInstant()));
+
+    HashMap<NotificationType, NotificationSettings> notificationTypeNotificationSettingsMap = new HashMap<>();
+    notificationTypeNotificationSettingsMap.put(NotificationType.REMIND, notificationSettings1);
+    notificationTypeNotificationSettingsMap.put(NotificationType.BACKUP, notificationSettings);
+
+    Recipient recipient1 = new Recipient();
+    recipient1.setAccountName("Dr Jane Doe");
+    recipient1.setEmail("jane.doe@example.org");
+    recipient1.setScheduledNotifications(notificationTypeNotificationSettingsMap);
+
+    // Act
+    Recipient actualSaveResult = recipientServiceImpl.save("Dr Jane Doe", recipient1);
+
+    // Assert
+    assertSame(recipient1, actualSaveResult);
+    assertEquals("Dr Jane Doe", actualSaveResult.getAccountName());
+    verify(recipientRepository).save((Recipient) any());
+  }
+
+  /**
+   * Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
+   */
+  @Test
+  public void testSave4() {
+    // Arrange
     when(recipientRepository.save((Recipient) any())).thenThrow(new IllegalArgumentException());
 
     Recipient recipient = new Recipient();
@@ -153,7 +195,7 @@ public class RecipientServiceImplDiffblueTest {
    * Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
    */
   @Test
-  public void testSave4() {
+  public void testSave5() {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
