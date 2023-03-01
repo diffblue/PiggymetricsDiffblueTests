@@ -91,6 +91,36 @@ public class NotificationServiceImplDiffblueTest {
   }
 
   /**
+   * Method under test: {@link NotificationServiceImpl#sendBackupNotifications()}
+   */
+  @Test
+  public void testSendBackupNotifications4() {
+    // Arrange
+    Recipient recipient = new Recipient();
+    recipient.setAccountName("Dr Jane Doe");
+    recipient.setEmail("jane.doe@example.org");
+    recipient.setScheduledNotifications(new HashMap<>());
+
+    Recipient recipient1 = new Recipient();
+    recipient1.setAccountName("Mr John Smith");
+    recipient1.setEmail("john.smith@example.org");
+    recipient1.setScheduledNotifications(new HashMap<>());
+
+    ArrayList<Recipient> recipientList = new ArrayList<>();
+    recipientList.addAll(new ArrayList<>());
+    recipientList.addAll(new ArrayList<>());
+    recipientList.add(recipient1);
+    recipientList.add(recipient);
+    when(recipientRepository.findReadyForBackup()).thenReturn(recipientList);
+
+    // Act
+    notificationServiceImpl.sendBackupNotifications();
+
+    // Assert
+    verify(recipientRepository).findReadyForBackup();
+  }
+
+  /**
    * Method under test: {@link NotificationServiceImpl#sendRemindNotifications()}
    */
   @Test
