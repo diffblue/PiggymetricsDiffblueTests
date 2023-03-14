@@ -13,8 +13,7 @@ import com.sun.security.auth.UserPrincipal;
 import java.math.BigDecimal;
 import java.security.Principal;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -103,8 +102,8 @@ public class StatisticsControllerDiffblueTest {
     // Arrange
     DataPoint dataPoint = new DataPoint();
     dataPoint.setExpenses(new HashSet<>());
-    LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
-    dataPoint.setId(new DataPointId("3", Date.from(atStartOfDayResult.atZone(ZoneId.of("UTC")).toInstant())));
+    dataPoint.setId(
+        new DataPointId("3", Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant())));
     dataPoint.setIncomes(new HashSet<>());
     dataPoint.setRates(new HashMap<>());
     dataPoint.setStatistics(new HashMap<>());

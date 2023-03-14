@@ -12,8 +12,7 @@ import com.piggymetrics.notification.domain.NotificationType;
 import com.piggymetrics.notification.domain.Recipient;
 import com.piggymetrics.notification.repository.RecipientRepository;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -110,8 +109,8 @@ public class RecipientServiceImplDiffblueTest {
     NotificationSettings notificationSettings = new NotificationSettings();
     notificationSettings.setActive(true);
     notificationSettings.setFrequency(Frequency.WEEKLY);
-    LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
-    notificationSettings.setLastNotified(Date.from(atStartOfDayResult.atZone(ZoneId.of("UTC")).toInstant()));
+    notificationSettings
+        .setLastNotified(Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
 
     HashMap<NotificationType, NotificationSettings> notificationTypeNotificationSettingsMap = new HashMap<>();
     notificationTypeNotificationSettingsMap.put(NotificationType.BACKUP, notificationSettings);
@@ -145,14 +144,14 @@ public class RecipientServiceImplDiffblueTest {
     NotificationSettings notificationSettings = new NotificationSettings();
     notificationSettings.setActive(true);
     notificationSettings.setFrequency(Frequency.WEEKLY);
-    LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
-    notificationSettings.setLastNotified(Date.from(atStartOfDayResult.atZone(ZoneId.of("UTC")).toInstant()));
+    notificationSettings
+        .setLastNotified(Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
 
     NotificationSettings notificationSettings1 = new NotificationSettings();
     notificationSettings1.setActive(false);
     notificationSettings1.setFrequency(Frequency.MONTHLY);
-    LocalDateTime atStartOfDayResult1 = LocalDate.of(1970, 1, 1).atStartOfDay();
-    notificationSettings1.setLastNotified(Date.from(atStartOfDayResult1.atZone(ZoneId.of("UTC")).toInstant()));
+    notificationSettings1
+        .setLastNotified(Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
 
     HashMap<NotificationType, NotificationSettings> notificationTypeNotificationSettingsMap = new HashMap<>();
     notificationTypeNotificationSettingsMap.put(NotificationType.REMIND, notificationSettings1);
@@ -306,8 +305,8 @@ public class RecipientServiceImplDiffblueTest {
     NotificationSettings notificationSettings = new NotificationSettings();
     notificationSettings.setActive(true);
     notificationSettings.setFrequency(Frequency.WEEKLY);
-    LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
-    notificationSettings.setLastNotified(Date.from(atStartOfDayResult.atZone(ZoneId.of("UTC")).toInstant()));
+    notificationSettings
+        .setLastNotified(Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
 
     HashMap<NotificationType, NotificationSettings> notificationTypeNotificationSettingsMap = new HashMap<>();
     notificationTypeNotificationSettingsMap.put(NotificationType.BACKUP, notificationSettings);
@@ -335,8 +334,8 @@ public class RecipientServiceImplDiffblueTest {
     NotificationSettings notificationSettings = new NotificationSettings();
     notificationSettings.setActive(true);
     notificationSettings.setFrequency(Frequency.WEEKLY);
-    LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
-    notificationSettings.setLastNotified(Date.from(atStartOfDayResult.atZone(ZoneId.of("UTC")).toInstant()));
+    notificationSettings
+        .setLastNotified(Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
 
     HashMap<NotificationType, NotificationSettings> notificationTypeNotificationSettingsMap = new HashMap<>();
     notificationTypeNotificationSettingsMap.put(NotificationType.BACKUP, notificationSettings);

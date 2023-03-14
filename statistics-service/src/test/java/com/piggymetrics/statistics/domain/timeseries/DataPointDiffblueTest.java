@@ -4,8 +4,7 @@ import static org.junit.Assert.assertSame;
 import com.piggymetrics.statistics.domain.Currency;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -37,8 +36,8 @@ public class DataPointDiffblueTest {
     DataPoint actualDataPoint = new DataPoint();
     HashSet<ItemMetric> itemMetricSet = new HashSet<>();
     actualDataPoint.setExpenses(itemMetricSet);
-    LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
-    DataPointId dataPointId = new DataPointId("3", Date.from(atStartOfDayResult.atZone(ZoneId.of("UTC")).toInstant()));
+    DataPointId dataPointId = new DataPointId("3",
+        Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
 
     actualDataPoint.setId(dataPointId);
     HashSet<ItemMetric> itemMetricSet1 = new HashSet<>();

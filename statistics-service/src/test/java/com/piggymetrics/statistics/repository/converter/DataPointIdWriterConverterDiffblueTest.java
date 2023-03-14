@@ -5,8 +5,7 @@ import static org.mockito.Mockito.mock;
 import com.mongodb.BasicDBObject;
 import com.piggymetrics.statistics.domain.timeseries.DataPointId;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.util.Date;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,20 +23,10 @@ public class DataPointIdWriterConverterDiffblueTest {
   */
   @Test
   public void testConvert() {
-    // Arrange
-    LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
-
-    // Act and Assert
-    assertEquals(2, ((BasicDBObject) dataPointIdWriterConverter
-        .convert(new DataPointId("3", Date.from(atStartOfDayResult.atZone(ZoneId.of("UTC")).toInstant())))).size());
-  }
-
-  /**
-   * Method under test: {@link DataPointIdWriterConverter#convert(DataPointId)}
-   */
-  @Test
-  public void testConvert2() {
     // Arrange, Act and Assert
+    assertEquals(2, ((BasicDBObject) dataPointIdWriterConverter.convert(
+        new DataPointId("3", Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()))))
+            .size());
     assertEquals(2,
         ((BasicDBObject) dataPointIdWriterConverter.convert(new DataPointId("3", mock(java.sql.Date.class)))).size());
   }

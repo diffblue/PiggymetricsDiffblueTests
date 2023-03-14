@@ -4,8 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.util.Date;
 import org.junit.Test;
 
@@ -29,8 +28,7 @@ public class NotificationSettingsDiffblueTest {
     NotificationSettings actualNotificationSettings = new NotificationSettings();
     actualNotificationSettings.setActive(true);
     actualNotificationSettings.setFrequency(Frequency.WEEKLY);
-    LocalDateTime atStartOfDayResult = LocalDate.of(1970, 1, 1).atStartOfDay();
-    Date fromResult = Date.from(atStartOfDayResult.atZone(ZoneId.of("UTC")).toInstant());
+    Date fromResult = Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
     actualNotificationSettings.setLastNotified(fromResult);
 
     // Assert
