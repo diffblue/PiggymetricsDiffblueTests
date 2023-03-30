@@ -21,15 +21,15 @@ public class DataPointIdDiffblueTest {
   @Test
   public void testConstructor() {
     // Arrange
-    Date fromResult = Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
+    Date date = Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
 
     // Act
-    DataPointId actualDataPointId = new DataPointId("3", fromResult);
+    DataPointId actualDataPointId = new DataPointId("3", date);
     actualDataPointId.toString();
 
     // Assert
     assertEquals("3", actualDataPointId.getAccount());
-    assertSame(fromResult, actualDataPointId.getDate());
+    assertSame(date, actualDataPointId.getDate());
   }
 }
 

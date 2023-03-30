@@ -39,8 +39,8 @@ public class StatisticsServiceClientFallbackDiffblueTest {
     Account account = new Account();
     account.setExpenses(new ArrayList<>());
     account.setIncomes(new ArrayList<>());
-    Date fromResult = Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
-    account.setLastSeen(fromResult);
+    Date lastSeen = Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
+    account.setLastSeen(lastSeen);
     account.setName("Name");
     account.setNote("Note");
     account.setSaving(saving);
@@ -54,7 +54,7 @@ public class StatisticsServiceClientFallbackDiffblueTest {
     assertEquals("Note", account.getNote());
     assertTrue(account.getIncomes().isEmpty());
     assertEquals("Name", account.getName());
-    assertSame(fromResult, account.getLastSeen());
+    assertSame(lastSeen, account.getLastSeen());
   }
 
   /**

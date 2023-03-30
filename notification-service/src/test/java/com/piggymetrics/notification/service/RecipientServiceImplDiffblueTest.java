@@ -3,7 +3,6 @@ package com.piggymetrics.notification.service;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import com.piggymetrics.notification.domain.Frequency;
@@ -21,6 +20,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
@@ -47,11 +47,11 @@ public class RecipientServiceImplDiffblueTest {
     recipient.setAccountName("Dr Jane Doe");
     recipient.setEmail("jane.doe@example.org");
     recipient.setScheduledNotifications(new HashMap<>());
-    when(recipientRepository.findByAccountName((String) any())).thenReturn(recipient);
+    when(recipientRepository.findByAccountName(Mockito.<String>any())).thenReturn(recipient);
 
     // Act and Assert
     assertSame(recipient, recipientServiceImpl.findByAccountName("Dr Jane Doe"));
-    verify(recipientRepository).findByAccountName((String) any());
+    verify(recipientRepository).findByAccountName(Mockito.<String>any());
   }
 
   /**
@@ -60,12 +60,12 @@ public class RecipientServiceImplDiffblueTest {
   @Test
   public void testFindByAccountName2() {
     // Arrange
-    when(recipientRepository.findByAccountName((String) any())).thenThrow(new IllegalArgumentException());
+    when(recipientRepository.findByAccountName(Mockito.<String>any())).thenThrow(new IllegalArgumentException());
 
     // Act and Assert
     thrown.expect(IllegalArgumentException.class);
     recipientServiceImpl.findByAccountName("Dr Jane Doe");
-    verify(recipientRepository).findByAccountName((String) any());
+    verify(recipientRepository).findByAccountName(Mockito.<String>any());
   }
 
   /**
@@ -78,20 +78,20 @@ public class RecipientServiceImplDiffblueTest {
     recipient.setAccountName("Dr Jane Doe");
     recipient.setEmail("jane.doe@example.org");
     recipient.setScheduledNotifications(new HashMap<>());
-    when(recipientRepository.save((Recipient) any())).thenReturn(recipient);
+    when(recipientRepository.save(Mockito.<Recipient>any())).thenReturn(recipient);
 
-    Recipient recipient1 = new Recipient();
-    recipient1.setAccountName("Dr Jane Doe");
-    recipient1.setEmail("jane.doe@example.org");
-    recipient1.setScheduledNotifications(new HashMap<>());
+    Recipient recipient2 = new Recipient();
+    recipient2.setAccountName("Dr Jane Doe");
+    recipient2.setEmail("jane.doe@example.org");
+    recipient2.setScheduledNotifications(new HashMap<>());
 
     // Act
-    Recipient actualSaveResult = recipientServiceImpl.save("Dr Jane Doe", recipient1);
+    Recipient actualSaveResult = recipientServiceImpl.save("Dr Jane Doe", recipient2);
 
     // Assert
-    assertSame(recipient1, actualSaveResult);
+    assertSame(recipient2, actualSaveResult);
     assertEquals("Dr Jane Doe", actualSaveResult.getAccountName());
-    verify(recipientRepository).save((Recipient) any());
+    verify(recipientRepository).save(Mockito.<Recipient>any());
   }
 
   /**
@@ -104,7 +104,7 @@ public class RecipientServiceImplDiffblueTest {
     recipient.setAccountName("Dr Jane Doe");
     recipient.setEmail("jane.doe@example.org");
     recipient.setScheduledNotifications(new HashMap<>());
-    when(recipientRepository.save((Recipient) any())).thenReturn(recipient);
+    when(recipientRepository.save(Mockito.<Recipient>any())).thenReturn(recipient);
 
     NotificationSettings notificationSettings = new NotificationSettings();
     notificationSettings.setActive(true);
@@ -112,21 +112,21 @@ public class RecipientServiceImplDiffblueTest {
     notificationSettings
         .setLastNotified(Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
 
-    HashMap<NotificationType, NotificationSettings> notificationTypeNotificationSettingsMap = new HashMap<>();
-    notificationTypeNotificationSettingsMap.put(NotificationType.BACKUP, notificationSettings);
+    HashMap<NotificationType, NotificationSettings> scheduledNotifications = new HashMap<>();
+    scheduledNotifications.put(NotificationType.BACKUP, notificationSettings);
 
-    Recipient recipient1 = new Recipient();
-    recipient1.setAccountName("Dr Jane Doe");
-    recipient1.setEmail("jane.doe@example.org");
-    recipient1.setScheduledNotifications(notificationTypeNotificationSettingsMap);
+    Recipient recipient2 = new Recipient();
+    recipient2.setAccountName("Dr Jane Doe");
+    recipient2.setEmail("jane.doe@example.org");
+    recipient2.setScheduledNotifications(scheduledNotifications);
 
     // Act
-    Recipient actualSaveResult = recipientServiceImpl.save("Dr Jane Doe", recipient1);
+    Recipient actualSaveResult = recipientServiceImpl.save("Dr Jane Doe", recipient2);
 
     // Assert
-    assertSame(recipient1, actualSaveResult);
+    assertSame(recipient2, actualSaveResult);
     assertEquals("Dr Jane Doe", actualSaveResult.getAccountName());
-    verify(recipientRepository).save((Recipient) any());
+    verify(recipientRepository).save(Mockito.<Recipient>any());
   }
 
   /**
@@ -139,7 +139,7 @@ public class RecipientServiceImplDiffblueTest {
     recipient.setAccountName("Dr Jane Doe");
     recipient.setEmail("jane.doe@example.org");
     recipient.setScheduledNotifications(new HashMap<>());
-    when(recipientRepository.save((Recipient) any())).thenReturn(recipient);
+    when(recipientRepository.save(Mockito.<Recipient>any())).thenReturn(recipient);
 
     NotificationSettings notificationSettings = new NotificationSettings();
     notificationSettings.setActive(true);
@@ -147,28 +147,28 @@ public class RecipientServiceImplDiffblueTest {
     notificationSettings
         .setLastNotified(Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
 
-    NotificationSettings notificationSettings1 = new NotificationSettings();
-    notificationSettings1.setActive(false);
-    notificationSettings1.setFrequency(Frequency.MONTHLY);
-    notificationSettings1
+    NotificationSettings notificationSettings2 = new NotificationSettings();
+    notificationSettings2.setActive(false);
+    notificationSettings2.setFrequency(Frequency.MONTHLY);
+    notificationSettings2
         .setLastNotified(Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
 
-    HashMap<NotificationType, NotificationSettings> notificationTypeNotificationSettingsMap = new HashMap<>();
-    notificationTypeNotificationSettingsMap.put(NotificationType.REMIND, notificationSettings1);
-    notificationTypeNotificationSettingsMap.put(NotificationType.BACKUP, notificationSettings);
+    HashMap<NotificationType, NotificationSettings> scheduledNotifications = new HashMap<>();
+    scheduledNotifications.put(NotificationType.REMIND, notificationSettings2);
+    scheduledNotifications.put(NotificationType.BACKUP, notificationSettings);
 
-    Recipient recipient1 = new Recipient();
-    recipient1.setAccountName("Dr Jane Doe");
-    recipient1.setEmail("jane.doe@example.org");
-    recipient1.setScheduledNotifications(notificationTypeNotificationSettingsMap);
+    Recipient recipient2 = new Recipient();
+    recipient2.setAccountName("Dr Jane Doe");
+    recipient2.setEmail("jane.doe@example.org");
+    recipient2.setScheduledNotifications(scheduledNotifications);
 
     // Act
-    Recipient actualSaveResult = recipientServiceImpl.save("Dr Jane Doe", recipient1);
+    Recipient actualSaveResult = recipientServiceImpl.save("Dr Jane Doe", recipient2);
 
     // Assert
-    assertSame(recipient1, actualSaveResult);
+    assertSame(recipient2, actualSaveResult);
     assertEquals("Dr Jane Doe", actualSaveResult.getAccountName());
-    verify(recipientRepository).save((Recipient) any());
+    verify(recipientRepository).save(Mockito.<Recipient>any());
   }
 
   /**
@@ -177,7 +177,7 @@ public class RecipientServiceImplDiffblueTest {
   @Test
   public void testSave4() {
     // Arrange
-    when(recipientRepository.save((Recipient) any())).thenThrow(new IllegalArgumentException());
+    when(recipientRepository.save(Mockito.<Recipient>any())).thenThrow(new IllegalArgumentException());
 
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
@@ -187,7 +187,7 @@ public class RecipientServiceImplDiffblueTest {
     // Act and Assert
     thrown.expect(IllegalArgumentException.class);
     recipientServiceImpl.save("Dr Jane Doe", recipient);
-    verify(recipientRepository).save((Recipient) any());
+    verify(recipientRepository).save(Mockito.<Recipient>any());
   }
 
   /**
@@ -200,28 +200,28 @@ public class RecipientServiceImplDiffblueTest {
     recipient.setAccountName("Dr Jane Doe");
     recipient.setEmail("jane.doe@example.org");
     recipient.setScheduledNotifications(new HashMap<>());
-    when(recipientRepository.save((Recipient) any())).thenReturn(recipient);
+    when(recipientRepository.save(Mockito.<Recipient>any())).thenReturn(recipient);
 
     NotificationSettings notificationSettings = new NotificationSettings();
     notificationSettings.setActive(true);
     notificationSettings.setFrequency(Frequency.WEEKLY);
     notificationSettings.setLastNotified(null);
 
-    HashMap<NotificationType, NotificationSettings> notificationTypeNotificationSettingsMap = new HashMap<>();
-    notificationTypeNotificationSettingsMap.put(NotificationType.BACKUP, notificationSettings);
+    HashMap<NotificationType, NotificationSettings> scheduledNotifications = new HashMap<>();
+    scheduledNotifications.put(NotificationType.BACKUP, notificationSettings);
 
-    Recipient recipient1 = new Recipient();
-    recipient1.setAccountName("Dr Jane Doe");
-    recipient1.setEmail("jane.doe@example.org");
-    recipient1.setScheduledNotifications(notificationTypeNotificationSettingsMap);
+    Recipient recipient2 = new Recipient();
+    recipient2.setAccountName("Dr Jane Doe");
+    recipient2.setEmail("jane.doe@example.org");
+    recipient2.setScheduledNotifications(scheduledNotifications);
 
     // Act
-    Recipient actualSaveResult = recipientServiceImpl.save("Dr Jane Doe", recipient1);
+    Recipient actualSaveResult = recipientServiceImpl.save("Dr Jane Doe", recipient2);
 
     // Assert
-    assertSame(recipient1, actualSaveResult);
+    assertSame(recipient2, actualSaveResult);
     assertEquals("Dr Jane Doe", actualSaveResult.getAccountName());
-    verify(recipientRepository).save((Recipient) any());
+    verify(recipientRepository).save(Mockito.<Recipient>any());
   }
 
   /**
@@ -300,7 +300,7 @@ public class RecipientServiceImplDiffblueTest {
     recipient.setAccountName("Dr Jane Doe");
     recipient.setEmail("jane.doe@example.org");
     recipient.setScheduledNotifications(new HashMap<>());
-    when(recipientRepository.save((Recipient) any())).thenReturn(recipient);
+    when(recipientRepository.save(Mockito.<Recipient>any())).thenReturn(recipient);
 
     NotificationSettings notificationSettings = new NotificationSettings();
     notificationSettings.setActive(true);
@@ -308,19 +308,19 @@ public class RecipientServiceImplDiffblueTest {
     notificationSettings
         .setLastNotified(Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
 
-    HashMap<NotificationType, NotificationSettings> notificationTypeNotificationSettingsMap = new HashMap<>();
-    notificationTypeNotificationSettingsMap.put(NotificationType.BACKUP, notificationSettings);
+    HashMap<NotificationType, NotificationSettings> scheduledNotifications = new HashMap<>();
+    scheduledNotifications.put(NotificationType.BACKUP, notificationSettings);
 
-    Recipient recipient1 = new Recipient();
-    recipient1.setAccountName("Dr Jane Doe");
-    recipient1.setEmail("jane.doe@example.org");
-    recipient1.setScheduledNotifications(notificationTypeNotificationSettingsMap);
+    Recipient recipient2 = new Recipient();
+    recipient2.setAccountName("Dr Jane Doe");
+    recipient2.setEmail("jane.doe@example.org");
+    recipient2.setScheduledNotifications(scheduledNotifications);
 
     // Act
-    recipientServiceImpl.markNotified(NotificationType.BACKUP, recipient1);
+    recipientServiceImpl.markNotified(NotificationType.BACKUP, recipient2);
 
     // Assert
-    verify(recipientRepository).save((Recipient) any());
+    verify(recipientRepository).save(Mockito.<Recipient>any());
   }
 
   /**
@@ -329,7 +329,7 @@ public class RecipientServiceImplDiffblueTest {
   @Test
   public void testMarkNotified2() {
     // Arrange
-    when(recipientRepository.save((Recipient) any())).thenThrow(new IllegalArgumentException());
+    when(recipientRepository.save(Mockito.<Recipient>any())).thenThrow(new IllegalArgumentException());
 
     NotificationSettings notificationSettings = new NotificationSettings();
     notificationSettings.setActive(true);
@@ -337,18 +337,18 @@ public class RecipientServiceImplDiffblueTest {
     notificationSettings
         .setLastNotified(Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
 
-    HashMap<NotificationType, NotificationSettings> notificationTypeNotificationSettingsMap = new HashMap<>();
-    notificationTypeNotificationSettingsMap.put(NotificationType.BACKUP, notificationSettings);
+    HashMap<NotificationType, NotificationSettings> scheduledNotifications = new HashMap<>();
+    scheduledNotifications.put(NotificationType.BACKUP, notificationSettings);
 
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
     recipient.setEmail("jane.doe@example.org");
-    recipient.setScheduledNotifications(notificationTypeNotificationSettingsMap);
+    recipient.setScheduledNotifications(scheduledNotifications);
 
     // Act and Assert
     thrown.expect(IllegalArgumentException.class);
     recipientServiceImpl.markNotified(NotificationType.BACKUP, recipient);
-    verify(recipientRepository).save((Recipient) any());
+    verify(recipientRepository).save(Mockito.<Recipient>any());
   }
 }
 

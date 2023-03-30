@@ -28,13 +28,13 @@ public class NotificationSettingsDiffblueTest {
     NotificationSettings actualNotificationSettings = new NotificationSettings();
     actualNotificationSettings.setActive(true);
     actualNotificationSettings.setFrequency(Frequency.WEEKLY);
-    Date fromResult = Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
-    actualNotificationSettings.setLastNotified(fromResult);
+    Date lastNotified = Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
+    actualNotificationSettings.setLastNotified(lastNotified);
 
     // Assert
     assertTrue(actualNotificationSettings.getActive());
     assertEquals(Frequency.WEEKLY, actualNotificationSettings.getFrequency());
-    assertSame(fromResult, actualNotificationSettings.getLastNotified());
+    assertSame(lastNotified, actualNotificationSettings.getLastNotified());
   }
 }
 

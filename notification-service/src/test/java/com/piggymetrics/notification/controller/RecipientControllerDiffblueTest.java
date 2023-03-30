@@ -1,6 +1,5 @@
 package com.piggymetrics.notification.controller;
 
-import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.when;
 import com.piggymetrics.notification.domain.Recipient;
 import com.piggymetrics.notification.service.RecipientService;
@@ -9,6 +8,7 @@ import java.security.Principal;
 import java.util.HashMap;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
@@ -36,14 +36,14 @@ public class RecipientControllerDiffblueTest {
     recipient.setAccountName("Dr Jane Doe");
     recipient.setEmail("jane.doe@example.org");
     recipient.setScheduledNotifications(new HashMap<>());
-    when(recipientService.findByAccountName((String) any())).thenReturn(recipient);
-    MockHttpServletRequestBuilder getResult = MockMvcRequestBuilders.get("/recipients/current");
-    getResult.principal(new UserPrincipal("principal"));
+    when(recipientService.findByAccountName(Mockito.<String>any())).thenReturn(recipient);
+    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/recipients/current");
+    requestBuilder.principal(new UserPrincipal("principal"));
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(recipientController)
         .build()
-        .perform(getResult)
+        .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
         .andExpect(MockMvcResultMatchers.content().contentType("application/json;charset=UTF-8"))
         .andExpect(MockMvcResultMatchers.content()

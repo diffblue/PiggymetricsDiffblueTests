@@ -37,14 +37,13 @@ public class OAuth2AuthorizationConfigDiffblueTest {
   @Test
   public void testConfigure() throws Exception {
     // Arrange
-    ClientDetailsServiceConfigurer clientDetailsServiceConfigurer = new ClientDetailsServiceConfigurer(
-        new ClientDetailsServiceBuilder<>());
+    ClientDetailsServiceConfigurer clients = new ClientDetailsServiceConfigurer(new ClientDetailsServiceBuilder<>());
 
     // Act
-    oAuth2AuthorizationConfig.configure(clientDetailsServiceConfigurer);
+    oAuth2AuthorizationConfig.configure(clients);
 
     // Assert
-    assertTrue(clientDetailsServiceConfigurer.and() instanceof InMemoryClientDetailsServiceBuilder);
+    assertTrue(clients.and() instanceof InMemoryClientDetailsServiceBuilder);
   }
 
   /**
@@ -53,16 +52,15 @@ public class OAuth2AuthorizationConfigDiffblueTest {
   @Test
   public void testConfigure2() throws Exception {
     // Arrange
-    JdbcClientDetailsServiceBuilder jdbcClientDetailsServiceBuilder = new JdbcClientDetailsServiceBuilder();
-    jdbcClientDetailsServiceBuilder.dataSource(mock(DataSource.class));
-    ClientDetailsServiceConfigurer clientDetailsServiceConfigurer = new ClientDetailsServiceConfigurer(
-        jdbcClientDetailsServiceBuilder);
+    JdbcClientDetailsServiceBuilder builder = new JdbcClientDetailsServiceBuilder();
+    builder.dataSource(mock(DataSource.class));
+    ClientDetailsServiceConfigurer clients = new ClientDetailsServiceConfigurer(builder);
 
     // Act
-    oAuth2AuthorizationConfig.configure(clientDetailsServiceConfigurer);
+    oAuth2AuthorizationConfig.configure(clients);
 
     // Assert
-    assertTrue(clientDetailsServiceConfigurer.and() instanceof InMemoryClientDetailsServiceBuilder);
+    assertTrue(clients.and() instanceof InMemoryClientDetailsServiceBuilder);
   }
 
   /**
@@ -71,14 +69,14 @@ public class OAuth2AuthorizationConfigDiffblueTest {
   @Test
   public void testConfigure3() throws Exception {
     // Arrange
-    AuthorizationServerEndpointsConfigurer authorizationServerEndpointsConfigurer = new AuthorizationServerEndpointsConfigurer();
+    AuthorizationServerEndpointsConfigurer endpoints = new AuthorizationServerEndpointsConfigurer();
 
     // Act
-    oAuth2AuthorizationConfig.configure(authorizationServerEndpointsConfigurer);
+    oAuth2AuthorizationConfig.configure(endpoints);
 
     // Assert
-    assertTrue(authorizationServerEndpointsConfigurer.isUserDetailsServiceOverride());
-    assertTrue(authorizationServerEndpointsConfigurer.getTokenStore() instanceof InMemoryTokenStore);
+    assertTrue(endpoints.isUserDetailsServiceOverride());
+    assertTrue(endpoints.getTokenStore() instanceof InMemoryTokenStore);
   }
 
   /**
@@ -87,14 +85,14 @@ public class OAuth2AuthorizationConfigDiffblueTest {
   @Test
   public void testConfigure4() throws Exception {
     // Arrange
-    AuthorizationServerSecurityConfigurer authorizationServerSecurityConfigurer = new AuthorizationServerSecurityConfigurer();
+    AuthorizationServerSecurityConfigurer oauthServer = new AuthorizationServerSecurityConfigurer();
 
     // Act
-    oAuth2AuthorizationConfig.configure(authorizationServerSecurityConfigurer);
+    oAuth2AuthorizationConfig.configure(oauthServer);
 
     // Assert
-    assertEquals("isAuthenticated()", authorizationServerSecurityConfigurer.getCheckTokenAccess());
-    assertEquals("permitAll()", authorizationServerSecurityConfigurer.getTokenKeyAccess());
+    assertEquals("isAuthenticated()", oauthServer.getCheckTokenAccess());
+    assertEquals("permitAll()", oauthServer.getTokenKeyAccess());
   }
 }
 

@@ -32,11 +32,11 @@ public class SavingDiffblueTest {
     actualSaving.setCapitalization(true);
     actualSaving.setCurrency(Currency.USD);
     actualSaving.setDeposit(true);
-    BigDecimal valueOfResult = BigDecimal.valueOf(1L);
-    actualSaving.setInterest(valueOfResult);
+    BigDecimal interest = BigDecimal.valueOf(1L);
+    actualSaving.setInterest(interest);
 
     // Assert
-    BigDecimal expectedAmount = valueOfResult.ONE;
+    BigDecimal expectedAmount = interest.ONE;
     BigDecimal amount = actualSaving.getAmount();
     assertSame(expectedAmount, amount);
     assertTrue(actualSaving.getCapitalization());

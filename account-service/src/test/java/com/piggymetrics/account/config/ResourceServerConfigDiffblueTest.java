@@ -83,15 +83,15 @@ public class ResourceServerConfigDiffblueTest {
     //   Diffblue AI was unable to find a test
 
     // Arrange
-    DefaultListableBeanFactory defaultListableBeanFactory = new DefaultListableBeanFactory();
-    defaultListableBeanFactory.addEmbeddedValueResolver(mock(StringValueResolver.class));
+    DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
+    beanFactory.addEmbeddedValueResolver(mock(StringValueResolver.class));
 
-    ResourceServerProperties resourceServerProperties = new ResourceServerProperties();
-    resourceServerProperties.setBeanFactory(defaultListableBeanFactory);
+    ResourceServerProperties sso = new ResourceServerProperties();
+    sso.setBeanFactory(beanFactory);
 
     // Act
-    ClientCredentialsResourceDetails actualClientCredentialsResourceDetailsResult = (new ResourceServerConfig(
-        resourceServerProperties)).clientCredentialsResourceDetails();
+    ClientCredentialsResourceDetails actualClientCredentialsResourceDetailsResult = (new ResourceServerConfig(sso))
+        .clientCredentialsResourceDetails();
 
     // Assert
     assertEquals("access_token", actualClientCredentialsResourceDetailsResult.getTokenName());
@@ -164,14 +164,14 @@ public class ResourceServerConfigDiffblueTest {
     //   Diffblue AI was unable to find a test
 
     // Arrange
-    DefaultListableBeanFactory defaultListableBeanFactory = new DefaultListableBeanFactory();
-    defaultListableBeanFactory.addEmbeddedValueResolver(mock(StringValueResolver.class));
+    DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
+    beanFactory.addEmbeddedValueResolver(mock(StringValueResolver.class));
 
-    ResourceServerProperties resourceServerProperties = new ResourceServerProperties();
-    resourceServerProperties.setBeanFactory(defaultListableBeanFactory);
+    ResourceServerProperties sso = new ResourceServerProperties();
+    sso.setBeanFactory(beanFactory);
 
     // Act
-    OAuth2RestTemplate actualClientCredentialsRestTemplateResult = (new ResourceServerConfig(resourceServerProperties))
+    OAuth2RestTemplate actualClientCredentialsRestTemplateResult = (new ResourceServerConfig(sso))
         .clientCredentialsRestTemplate();
 
     // Assert

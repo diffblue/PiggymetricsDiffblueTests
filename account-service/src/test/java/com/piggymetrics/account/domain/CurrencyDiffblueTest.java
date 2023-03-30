@@ -1,6 +1,6 @@
 package com.piggymetrics.account.domain;
 
-import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 public class CurrencyDiffblueTest {
@@ -14,11 +14,8 @@ public class CurrencyDiffblueTest {
   */
   @Test
   public void testValueOf() {
-    // Arrange and Act
-    Currency actualValueOfResult = Currency.valueOf("USD");
-
-    // Assert
-    assertSame(actualValueOfResult, actualValueOfResult.getDefault());
+    // Arrange, Act and Assert
+    assertEquals(Currency.USD, Currency.valueOf("USD").getDefault());
   }
 }
 

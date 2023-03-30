@@ -67,13 +67,13 @@ public class UserControllerDiffblueTest {
   @Test
   public void testGetUser2() throws Exception {
     // Arrange
-    MockHttpServletRequestBuilder getResult = MockMvcRequestBuilders.get("/users/current");
-    getResult.characterEncoding("Encoding");
+    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/users/current");
+    requestBuilder.characterEncoding("Encoding");
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(userController)
         .build()
-        .perform(getResult)
+        .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk());
   }
 }

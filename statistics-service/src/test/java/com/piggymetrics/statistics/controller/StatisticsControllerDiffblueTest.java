@@ -1,6 +1,5 @@
 package com.piggymetrics.statistics.controller;
 
-import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.when;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.piggymetrics.statistics.domain.Account;
@@ -20,6 +19,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
@@ -44,14 +44,14 @@ public class StatisticsControllerDiffblueTest {
   @Test
   public void testGetCurrentAccountStatistics() throws Exception {
     // Arrange
-    when(statisticsService.findByAccountName((String) any())).thenReturn(new ArrayList<>());
-    MockHttpServletRequestBuilder getResult = MockMvcRequestBuilders.get("/current");
-    getResult.principal(new UserPrincipal("principal"));
+    when(statisticsService.findByAccountName(Mockito.<String>any())).thenReturn(new ArrayList<>());
+    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/current");
+    requestBuilder.principal(new UserPrincipal("principal"));
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(statisticsController)
         .build()
-        .perform(getResult)
+        .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
         .andExpect(MockMvcResultMatchers.content().contentType("application/json;charset=UTF-8"))
         .andExpect(MockMvcResultMatchers.content().string("[]"));
@@ -63,7 +63,7 @@ public class StatisticsControllerDiffblueTest {
   @Test
   public void testGetStatisticsByAccountName() throws Exception {
     // Arrange
-    when(statisticsService.findByAccountName((String) any())).thenReturn(new ArrayList<>());
+    when(statisticsService.findByAccountName(Mockito.<String>any())).thenReturn(new ArrayList<>());
     MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/{accountName}", "Dr Jane Doe");
 
     // Act and Assert
@@ -81,14 +81,14 @@ public class StatisticsControllerDiffblueTest {
   @Test
   public void testGetStatisticsByAccountName2() throws Exception {
     // Arrange
-    when(statisticsService.findByAccountName((String) any())).thenReturn(new ArrayList<>());
-    MockHttpServletRequestBuilder getResult = MockMvcRequestBuilders.get("/{accountName}", "Dr Jane Doe");
-    getResult.characterEncoding("Encoding");
+    when(statisticsService.findByAccountName(Mockito.<String>any())).thenReturn(new ArrayList<>());
+    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/{accountName}", "Dr Jane Doe");
+    requestBuilder.characterEncoding("Encoding");
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(statisticsController)
         .build()
-        .perform(getResult)
+        .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
         .andExpect(MockMvcResultMatchers.content().contentType("application/json;charset=UTF-8"))
         .andExpect(MockMvcResultMatchers.content().string("[]"));
@@ -107,7 +107,7 @@ public class StatisticsControllerDiffblueTest {
     dataPoint.setIncomes(new HashSet<>());
     dataPoint.setRates(new HashMap<>());
     dataPoint.setStatistics(new HashMap<>());
-    when(statisticsService.save((String) any(), (Account) any())).thenReturn(dataPoint);
+    when(statisticsService.save(Mockito.<String>any(), Mockito.<Account>any())).thenReturn(dataPoint);
 
     Saving saving = new Saving();
     saving.setAmount(BigDecimal.valueOf(1L));

@@ -27,15 +27,15 @@ public class ItemDiffblueTest {
   public void testConstructor() {
     // Arrange and Act
     Item actualItem = new Item();
-    BigDecimal valueOfResult = BigDecimal.valueOf(1L);
-    actualItem.setAmount(valueOfResult);
+    BigDecimal amount = BigDecimal.valueOf(1L);
+    actualItem.setAmount(amount);
     actualItem.setCurrency(Currency.USD);
     actualItem.setIcon("Icon");
     actualItem.setPeriod(TimePeriod.YEAR);
     actualItem.setTitle("Dr");
 
     // Assert
-    BigDecimal expectedAmount = valueOfResult.ONE;
+    BigDecimal expectedAmount = amount.ONE;
     assertSame(expectedAmount, actualItem.getAmount());
     assertEquals(Currency.USD, actualItem.getCurrency());
     assertEquals("Icon", actualItem.getIcon());

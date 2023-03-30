@@ -34,25 +34,25 @@ public class DataPointDiffblueTest {
   public void testConstructor() {
     // Arrange and Act
     DataPoint actualDataPoint = new DataPoint();
-    HashSet<ItemMetric> itemMetricSet = new HashSet<>();
-    actualDataPoint.setExpenses(itemMetricSet);
-    DataPointId dataPointId = new DataPointId("3",
+    HashSet<ItemMetric> expenses = new HashSet<>();
+    actualDataPoint.setExpenses(expenses);
+    DataPointId id = new DataPointId("3",
         Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
 
-    actualDataPoint.setId(dataPointId);
-    HashSet<ItemMetric> itemMetricSet1 = new HashSet<>();
-    actualDataPoint.setIncomes(itemMetricSet1);
-    HashMap<Currency, BigDecimal> currencyBigDecimalMap = new HashMap<>();
-    actualDataPoint.setRates(currencyBigDecimalMap);
-    HashMap<StatisticMetric, BigDecimal> statisticMetricBigDecimalMap = new HashMap<>();
-    actualDataPoint.setStatistics(statisticMetricBigDecimalMap);
+    actualDataPoint.setId(id);
+    HashSet<ItemMetric> incomes = new HashSet<>();
+    actualDataPoint.setIncomes(incomes);
+    HashMap<Currency, BigDecimal> rates = new HashMap<>();
+    actualDataPoint.setRates(rates);
+    HashMap<StatisticMetric, BigDecimal> statistics = new HashMap<>();
+    actualDataPoint.setStatistics(statistics);
 
     // Assert
-    assertSame(itemMetricSet, actualDataPoint.getExpenses());
-    assertSame(dataPointId, actualDataPoint.getId());
-    assertSame(itemMetricSet1, actualDataPoint.getIncomes());
-    assertSame(currencyBigDecimalMap, actualDataPoint.getRates());
-    assertSame(statisticMetricBigDecimalMap, actualDataPoint.getStatistics());
+    assertSame(expenses, actualDataPoint.getExpenses());
+    assertSame(id, actualDataPoint.getId());
+    assertSame(incomes, actualDataPoint.getIncomes());
+    assertSame(rates, actualDataPoint.getRates());
+    assertSame(statistics, actualDataPoint.getStatistics());
   }
 }
 

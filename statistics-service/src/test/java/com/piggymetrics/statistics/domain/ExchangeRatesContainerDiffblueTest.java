@@ -29,17 +29,17 @@ public class ExchangeRatesContainerDiffblueTest {
     // Arrange and Act
     ExchangeRatesContainer actualExchangeRatesContainer = new ExchangeRatesContainer();
     actualExchangeRatesContainer.setBase(Currency.USD);
-    LocalDate ofEpochDayResult = LocalDate.ofEpochDay(1L);
-    actualExchangeRatesContainer.setDate(ofEpochDayResult);
-    HashMap<String, BigDecimal> stringBigDecimalMap = new HashMap<>();
-    actualExchangeRatesContainer.setRates(stringBigDecimalMap);
+    LocalDate date = LocalDate.of(1970, 1, 1);
+    actualExchangeRatesContainer.setDate(date);
+    HashMap<String, BigDecimal> rates = new HashMap<>();
+    actualExchangeRatesContainer.setRates(rates);
     String actualToStringResult = actualExchangeRatesContainer.toString();
 
     // Assert
     assertEquals(Currency.USD, actualExchangeRatesContainer.getBase());
-    assertSame(ofEpochDayResult, actualExchangeRatesContainer.getDate());
-    assertSame(stringBigDecimalMap, actualExchangeRatesContainer.getRates());
-    assertEquals("RateList{date=1970-01-02, base=USD, rates={}}", actualToStringResult);
+    assertSame(date, actualExchangeRatesContainer.getDate());
+    assertSame(rates, actualExchangeRatesContainer.getRates());
+    assertEquals("RateList{date=1970-01-01, base=USD, rates={}}", actualToStringResult);
   }
 
   /**

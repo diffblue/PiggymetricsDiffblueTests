@@ -2,7 +2,6 @@ package com.piggymetrics.account.service;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
-import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import com.piggymetrics.account.domain.Account;
@@ -17,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -53,7 +53,7 @@ public class AccountServiceImplDiffblueTest {
     account.setName("Name");
     account.setNote("Note");
     account.setSaving(saving);
-    when(accountRepository.findByName((String) any())).thenReturn(account);
+    when(accountRepository.findByName(Mockito.<String>any())).thenReturn(account);
 
     // Act
     Account actualFindByNameResult = accountServiceImpl.findByName("Dr Jane Doe");
@@ -61,7 +61,7 @@ public class AccountServiceImplDiffblueTest {
     // Assert
     assertSame(account, actualFindByNameResult);
     assertEquals("1", actualFindByNameResult.getSaving().getAmount().toString());
-    verify(accountRepository).findByName((String) any());
+    verify(accountRepository).findByName(Mockito.<String>any());
   }
 }
 

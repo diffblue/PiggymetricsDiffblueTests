@@ -34,12 +34,12 @@ public class AccountDiffblueTest {
   public void testConstructor() {
     // Arrange and Act
     Account actualAccount = new Account();
-    ArrayList<Item> itemList = new ArrayList<>();
-    actualAccount.setExpenses(itemList);
-    ArrayList<Item> itemList1 = new ArrayList<>();
-    actualAccount.setIncomes(itemList1);
-    Date fromResult = Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
-    actualAccount.setLastSeen(fromResult);
+    ArrayList<Item> expenses = new ArrayList<>();
+    actualAccount.setExpenses(expenses);
+    ArrayList<Item> incomes = new ArrayList<>();
+    actualAccount.setIncomes(incomes);
+    Date lastSeen = Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
+    actualAccount.setLastSeen(lastSeen);
     actualAccount.setName("Name");
     actualAccount.setNote("Note");
     Saving saving = new Saving();
@@ -51,9 +51,9 @@ public class AccountDiffblueTest {
     actualAccount.setSaving(saving);
 
     // Assert
-    assertSame(itemList, actualAccount.getExpenses());
-    assertSame(itemList1, actualAccount.getIncomes());
-    assertSame(fromResult, actualAccount.getLastSeen());
+    assertSame(expenses, actualAccount.getExpenses());
+    assertSame(incomes, actualAccount.getIncomes());
+    assertSame(lastSeen, actualAccount.getLastSeen());
     assertEquals("Name", actualAccount.getName());
     assertEquals("Note", actualAccount.getNote());
     assertSame(saving, actualAccount.getSaving());

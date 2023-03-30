@@ -1,6 +1,5 @@
 package com.piggymetrics.account.controller;
 
-import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -19,6 +18,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
@@ -58,7 +58,7 @@ public class AccountControllerDiffblueTest {
     account.setName("Name");
     account.setNote("Note");
     account.setSaving(saving);
-    when(accountService.create((User) any())).thenReturn(account);
+    when(accountService.create(Mockito.<User>any())).thenReturn(account);
 
     User user = new User();
     user.setPassword("iloveyou");
@@ -100,7 +100,7 @@ public class AccountControllerDiffblueTest {
     account.setName("Name");
     account.setNote("Note");
     account.setSaving(saving);
-    when(accountService.findByName((String) any())).thenReturn(account);
+    when(accountService.findByName(Mockito.<String>any())).thenReturn(account);
     MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/{name}", "Name");
 
     // Act and Assert
@@ -135,14 +135,14 @@ public class AccountControllerDiffblueTest {
     account.setName("Name");
     account.setNote("Note");
     account.setSaving(saving);
-    when(accountService.findByName((String) any())).thenReturn(account);
-    MockHttpServletRequestBuilder getResult = MockMvcRequestBuilders.get("/current");
-    getResult.principal(new UserPrincipal("principal"));
+    when(accountService.findByName(Mockito.<String>any())).thenReturn(account);
+    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/current");
+    requestBuilder.principal(new UserPrincipal("principal"));
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(accountController)
         .build()
-        .perform(getResult)
+        .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
         .andExpect(MockMvcResultMatchers.content().contentType("application/json;charset=UTF-8"))
         .andExpect(MockMvcResultMatchers.content()
@@ -157,8 +157,8 @@ public class AccountControllerDiffblueTest {
   @Test
   public void testSaveCurrentAccount() throws Exception {
     // Arrange
-    java.sql.Date date = mock(java.sql.Date.class);
-    when(date.getTime()).thenReturn(10L);
+    java.sql.Date lastSeen = mock(java.sql.Date.class);
+    when(lastSeen.getTime()).thenReturn(10L);
 
     Saving saving = new Saving();
     saving.setAmount(null);
@@ -170,7 +170,7 @@ public class AccountControllerDiffblueTest {
     Account account = new Account();
     account.setExpenses(new ArrayList<>());
     account.setIncomes(new ArrayList<>());
-    account.setLastSeen(date);
+    account.setLastSeen(lastSeen);
     account.setName("Name");
     account.setNote("Note");
     account.setSaving(saving);
@@ -194,11 +194,11 @@ public class AccountControllerDiffblueTest {
   @Test
   public void testSaveCurrentAccount2() throws Exception {
     // Arrange
-    doNothing().when(accountService).saveChanges((String) any(), (Account) any());
+    doNothing().when(accountService).saveChanges(Mockito.<String>any(), Mockito.<Account>any());
     MockHttpServletRequestBuilder putResult = MockMvcRequestBuilders.put("/current");
     putResult.principal(new UserPrincipal("principal"));
-    java.sql.Date date = mock(java.sql.Date.class);
-    when(date.getTime()).thenReturn(10L);
+    java.sql.Date lastSeen = mock(java.sql.Date.class);
+    when(lastSeen.getTime()).thenReturn(10L);
 
     Saving saving = new Saving();
     saving.setAmount(BigDecimal.valueOf(1L));
@@ -210,7 +210,7 @@ public class AccountControllerDiffblueTest {
     Account account = new Account();
     account.setExpenses(new ArrayList<>());
     account.setIncomes(new ArrayList<>());
-    account.setLastSeen(date);
+    account.setLastSeen(lastSeen);
     account.setName("Name");
     account.setNote("Note");
     account.setSaving(saving);

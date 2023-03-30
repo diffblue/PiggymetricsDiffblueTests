@@ -24,10 +24,10 @@ public class AccountDiffblueTest {
   public void testConstructor() {
     // Arrange and Act
     Account actualAccount = new Account();
-    ArrayList<Item> itemList = new ArrayList<>();
-    actualAccount.setExpenses(itemList);
-    ArrayList<Item> itemList1 = new ArrayList<>();
-    actualAccount.setIncomes(itemList1);
+    ArrayList<Item> expenses = new ArrayList<>();
+    actualAccount.setExpenses(expenses);
+    ArrayList<Item> incomes = new ArrayList<>();
+    actualAccount.setIncomes(incomes);
     Saving saving = new Saving();
     saving.setAmount(BigDecimal.valueOf(1L));
     saving.setCapitalization(true);
@@ -37,8 +37,8 @@ public class AccountDiffblueTest {
     actualAccount.setSaving(saving);
 
     // Assert
-    assertSame(itemList, actualAccount.getExpenses());
-    assertSame(itemList1, actualAccount.getIncomes());
+    assertSame(expenses, actualAccount.getExpenses());
+    assertSame(incomes, actualAccount.getIncomes());
     assertSame(saving, actualAccount.getSaving());
   }
 }

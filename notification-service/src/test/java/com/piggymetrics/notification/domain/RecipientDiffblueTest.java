@@ -27,14 +27,14 @@ public class RecipientDiffblueTest {
     Recipient actualRecipient = new Recipient();
     actualRecipient.setAccountName("Dr Jane Doe");
     actualRecipient.setEmail("jane.doe@example.org");
-    HashMap<NotificationType, NotificationSettings> notificationTypeNotificationSettingsMap = new HashMap<>();
-    actualRecipient.setScheduledNotifications(notificationTypeNotificationSettingsMap);
+    HashMap<NotificationType, NotificationSettings> scheduledNotifications = new HashMap<>();
+    actualRecipient.setScheduledNotifications(scheduledNotifications);
     String actualToStringResult = actualRecipient.toString();
 
     // Assert
     assertEquals("Dr Jane Doe", actualRecipient.getAccountName());
     assertEquals("jane.doe@example.org", actualRecipient.getEmail());
-    assertSame(notificationTypeNotificationSettingsMap, actualRecipient.getScheduledNotifications());
+    assertSame(scheduledNotifications, actualRecipient.getScheduledNotifications());
     assertEquals("Recipient{accountName='Dr Jane Doe', email='jane.doe@example.org'}", actualToStringResult);
   }
 }

@@ -46,20 +46,19 @@ public class WebSecurityConfigDiffblueTest {
   @Test
   public void testConfigure() throws Exception {
     // Arrange
-    AuthenticationManagerBuilder authenticationManagerBuilder = new AuthenticationManagerBuilder(objectPostProcessor);
+    AuthenticationManagerBuilder auth = new AuthenticationManagerBuilder(objectPostProcessor);
 
     // Act
-    webSecurityConfig.configure(authenticationManagerBuilder);
+    webSecurityConfig.configure(auth);
 
     // Assert
-    assertTrue(authenticationManagerBuilder.getDefaultUserDetailsService() instanceof MongoUserDetailsService);
-    assertTrue(((DaoAuthenticationProvider) ((ProviderManager) authenticationManagerBuilder.getOrBuild()).getProviders()
-        .get(0)).getUserCache() instanceof NullUserCache);
-    assertTrue(((DaoAuthenticationProvider) ((ProviderManager) authenticationManagerBuilder.getOrBuild()).getProviders()
-        .get(0)).isHideUserNotFoundExceptions());
-    assertFalse(
-        ((DaoAuthenticationProvider) ((ProviderManager) authenticationManagerBuilder.getOrBuild()).getProviders()
-            .get(0)).isForcePrincipalAsString());
+    assertTrue(auth.getDefaultUserDetailsService() instanceof MongoUserDetailsService);
+    assertTrue(((DaoAuthenticationProvider) ((ProviderManager) auth.getOrBuild()).getProviders().get(0))
+        .getUserCache() instanceof NullUserCache);
+    assertTrue(((DaoAuthenticationProvider) ((ProviderManager) auth.getOrBuild()).getProviders().get(0))
+        .isHideUserNotFoundExceptions());
+    assertFalse(((DaoAuthenticationProvider) ((ProviderManager) auth.getOrBuild()).getProviders().get(0))
+        .isForcePrincipalAsString());
   }
 
   /**
@@ -68,22 +67,20 @@ public class WebSecurityConfigDiffblueTest {
   @Test
   public void testConfigure2() throws Exception {
     // Arrange
-    AuthenticationManagerBuilder authenticationManagerBuilder = new AuthenticationManagerBuilder(objectPostProcessor);
-    authenticationManagerBuilder
-        .authenticationEventPublisher(new DefaultAuthenticationEventPublisher(mock(ApplicationEventPublisher.class)));
+    AuthenticationManagerBuilder auth = new AuthenticationManagerBuilder(objectPostProcessor);
+    auth.authenticationEventPublisher(new DefaultAuthenticationEventPublisher(mock(ApplicationEventPublisher.class)));
 
     // Act
-    webSecurityConfig.configure(authenticationManagerBuilder);
+    webSecurityConfig.configure(auth);
 
     // Assert
-    assertTrue(authenticationManagerBuilder.getDefaultUserDetailsService() instanceof MongoUserDetailsService);
-    assertTrue(((DaoAuthenticationProvider) ((ProviderManager) authenticationManagerBuilder.getOrBuild()).getProviders()
-        .get(0)).getUserCache() instanceof NullUserCache);
-    assertTrue(((DaoAuthenticationProvider) ((ProviderManager) authenticationManagerBuilder.getOrBuild()).getProviders()
-        .get(0)).isHideUserNotFoundExceptions());
-    assertFalse(
-        ((DaoAuthenticationProvider) ((ProviderManager) authenticationManagerBuilder.getOrBuild()).getProviders()
-            .get(0)).isForcePrincipalAsString());
+    assertTrue(auth.getDefaultUserDetailsService() instanceof MongoUserDetailsService);
+    assertTrue(((DaoAuthenticationProvider) ((ProviderManager) auth.getOrBuild()).getProviders().get(0))
+        .getUserCache() instanceof NullUserCache);
+    assertTrue(((DaoAuthenticationProvider) ((ProviderManager) auth.getOrBuild()).getProviders().get(0))
+        .isHideUserNotFoundExceptions());
+    assertFalse(((DaoAuthenticationProvider) ((ProviderManager) auth.getOrBuild()).getProviders().get(0))
+        .isForcePrincipalAsString());
   }
 }
 

@@ -1,7 +1,6 @@
 package com.piggymetrics.auth.service.security;
 
 import static org.junit.Assert.assertSame;
-import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import com.piggymetrics.auth.domain.User;
@@ -11,6 +10,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -38,11 +38,11 @@ public class MongoUserDetailsServiceDiffblueTest {
     user.setPassword("iloveyou");
     user.setUsername("janedoe");
     Optional<User> ofResult = Optional.of(user);
-    when(userRepository.findById((String) any())).thenReturn(ofResult);
+    when(userRepository.findById(Mockito.<String>any())).thenReturn(ofResult);
 
     // Act and Assert
     assertSame(user, mongoUserDetailsService.loadUserByUsername("janedoe"));
-    verify(userRepository).findById((String) any());
+    verify(userRepository).findById(Mockito.<String>any());
   }
 
   /**
@@ -51,12 +51,12 @@ public class MongoUserDetailsServiceDiffblueTest {
   @Test
   public void testLoadUserByUsername2() throws UsernameNotFoundException {
     // Arrange
-    when(userRepository.findById((String) any())).thenReturn(Optional.empty());
+    when(userRepository.findById(Mockito.<String>any())).thenReturn(Optional.empty());
 
     // Act and Assert
     thrown.expect(UsernameNotFoundException.class);
     mongoUserDetailsService.loadUserByUsername("janedoe");
-    verify(userRepository).findById((String) any());
+    verify(userRepository).findById(Mockito.<String>any());
   }
 
   /**
@@ -65,12 +65,12 @@ public class MongoUserDetailsServiceDiffblueTest {
   @Test
   public void testLoadUserByUsername3() throws UsernameNotFoundException {
     // Arrange
-    when(userRepository.findById((String) any())).thenThrow(new UsernameNotFoundException("Msg"));
+    when(userRepository.findById(Mockito.<String>any())).thenThrow(new UsernameNotFoundException("Msg"));
 
     // Act and Assert
     thrown.expect(UsernameNotFoundException.class);
     mongoUserDetailsService.loadUserByUsername("janedoe");
-    verify(userRepository).findById((String) any());
+    verify(userRepository).findById(Mockito.<String>any());
   }
 }
 

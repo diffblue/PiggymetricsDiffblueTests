@@ -19,13 +19,13 @@ public class ItemMetricDiffblueTest {
   @Test
   public void testConstructor() {
     // Arrange
-    BigDecimal valueOfResult = BigDecimal.valueOf(1L);
+    BigDecimal amount = BigDecimal.valueOf(1L);
 
     // Act
-    ItemMetric actualItemMetric = new ItemMetric("Dr", valueOfResult);
+    ItemMetric actualItemMetric = new ItemMetric("Dr", amount);
 
     // Assert
-    BigDecimal expectedAmount = valueOfResult.ONE;
+    BigDecimal expectedAmount = amount.ONE;
     assertSame(expectedAmount, actualItemMetric.getAmount());
     assertEquals("Dr", actualItemMetric.getTitle());
   }
@@ -71,12 +71,12 @@ public class ItemMetricDiffblueTest {
   public void testEquals3() {
     // Arrange
     ItemMetric itemMetric = new ItemMetric("Dr", BigDecimal.valueOf(1L));
-    ItemMetric itemMetric1 = new ItemMetric("Dr", BigDecimal.valueOf(1L));
+    ItemMetric itemMetric2 = new ItemMetric("Dr", BigDecimal.valueOf(1L));
 
     // Act and Assert
-    assertEquals(itemMetric, itemMetric1);
+    assertEquals(itemMetric, itemMetric2);
     int expectedHashCodeResult = itemMetric.hashCode();
-    assertEquals(expectedHashCodeResult, itemMetric1.hashCode());
+    assertEquals(expectedHashCodeResult, itemMetric2.hashCode());
   }
 
   /**
