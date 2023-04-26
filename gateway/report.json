@@ -1,19 +1,19 @@
 {
   "meta" : {
-    "reportVersion" : "2.4"
+    "reportVersion" : "2.5"
   },
   "run" : {
-    "version" : "2023.04.01-97d133b",
-    "creationTimestamp" : "2023-04-13T16:10:41.349+01:00",
+    "version" : "2023.04.02-25689a0",
+    "creationTimestamp" : "2023-04-26T09:51:01.545+01:00",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --working-directory=gateway",
-    "totalTime" : 50.837,
-    "environmentDetectionTime" : 0.514,
-    "indexingTime" : 0.278,
-    "entryPointsTime" : 0.477,
-    "generationTime" : 20.124,
-    "timeToFirstTest" : 50.84,
-    "timeToLastTest" : 36.686,
-    "indexQueryTime" : 9.26,
+    "totalTime" : 50.04,
+    "environmentDetectionTime" : 0.432,
+    "indexingTime" : 0.329,
+    "entryPointsTime" : 0.407,
+    "generationTime" : 20.003,
+    "timeToFirstTest" : 50.044,
+    "timeToLastTest" : 35.818,
+    "indexQueryTime" : 8.515,
     "verificationTime" : 0.0,
     "validationTime" : 0.0
   },
@@ -56,13 +56,20 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T005",
-      "perMethodOutcome" : "T005"
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        11
+      ]
     },
     "com.piggymetrics.gateway.GatewayApplication.main:([Ljava/lang/String;)V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T006",
-      "perMethodOutcome" : "T006"
+      "perMethodOutcome" : "T006",
+      "lineNumbers" : [
+        14,
+        15
+      ]
     }
   }
 }

@@ -1,19 +1,19 @@
 {
   "meta" : {
-    "reportVersion" : "2.4"
+    "reportVersion" : "2.5"
   },
   "run" : {
-    "version" : "2023.04.01-97d133b",
-    "creationTimestamp" : "2023-04-13T16:40:28.09+01:00",
+    "version" : "2023.04.02-25689a0",
+    "creationTimestamp" : "2023-04-26T10:20:41.252+01:00",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --working-directory=turbine-stream-service",
-    "totalTime" : 50.862,
-    "environmentDetectionTime" : 0.541,
-    "indexingTime" : 0.299,
-    "entryPointsTime" : 0.513,
-    "generationTime" : 21.4,
-    "timeToFirstTest" : 50.866,
-    "timeToLastTest" : 37.705,
-    "indexQueryTime" : 9.753,
+    "totalTime" : 51.298,
+    "environmentDetectionTime" : 0.444,
+    "indexingTime" : 0.295,
+    "entryPointsTime" : 0.419,
+    "generationTime" : 22.03,
+    "timeToFirstTest" : 51.302,
+    "timeToLastTest" : 38.141,
+    "indexQueryTime" : 10.168000000000001,
     "verificationTime" : 0.0,
     "validationTime" : 0.0
   },
@@ -56,13 +56,20 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T005",
-      "perMethodOutcome" : "T005"
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        11
+      ]
     },
     "com.piggymetrics.turbine.TurbineStreamServiceApplication.main:([Ljava/lang/String;)V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T006",
-      "perMethodOutcome" : "T006"
+      "perMethodOutcome" : "T006",
+      "lineNumbers" : [
+        14,
+        15
+      ]
     }
   }
 }

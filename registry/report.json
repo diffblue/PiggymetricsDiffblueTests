@@ -1,19 +1,19 @@
 {
   "meta" : {
-    "reportVersion" : "2.4"
+    "reportVersion" : "2.5"
   },
   "run" : {
-    "version" : "2023.04.01-97d133b",
-    "creationTimestamp" : "2023-04-13T16:09:25.738+01:00",
+    "version" : "2023.04.02-25689a0",
+    "creationTimestamp" : "2023-04-26T09:49:46.666+01:00",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --working-directory=registry",
-    "totalTime" : 41.85,
-    "environmentDetectionTime" : 0.648,
-    "indexingTime" : 0.274,
-    "entryPointsTime" : 0.62,
-    "generationTime" : 18.522,
-    "timeToFirstTest" : 41.854,
-    "timeToLastTest" : 34.682,
-    "indexQueryTime" : 8.417,
+    "totalTime" : 41.258,
+    "environmentDetectionTime" : 0.587,
+    "indexingTime" : 0.312,
+    "entryPointsTime" : 0.563,
+    "generationTime" : 18.206,
+    "timeToFirstTest" : 41.262,
+    "timeToLastTest" : 34.101,
+    "indexQueryTime" : 8.471,
     "verificationTime" : 0.0,
     "validationTime" : 0.0
   },
@@ -56,13 +56,20 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T005",
-      "perMethodOutcome" : "T005"
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        9
+      ]
     },
     "com.piggymetrics.registry.RegistryApplication.main:([Ljava/lang/String;)V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T006",
-      "perMethodOutcome" : "T006"
+      "perMethodOutcome" : "T006",
+      "lineNumbers" : [
+        12,
+        13
+      ]
     }
   }
 }

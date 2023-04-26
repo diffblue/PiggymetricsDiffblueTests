@@ -1,19 +1,19 @@
 {
   "meta" : {
-    "reportVersion" : "2.4"
+    "reportVersion" : "2.5"
   },
   "run" : {
-    "version" : "2023.04.01-97d133b",
-    "creationTimestamp" : "2023-04-13T16:06:30.838+01:00",
+    "version" : "2023.04.02-25689a0",
+    "creationTimestamp" : "2023-04-26T09:46:53.92+01:00",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --working-directory=config",
-    "totalTime" : 75.812,
-    "environmentDetectionTime" : 0.494,
-    "indexingTime" : 0.279,
-    "entryPointsTime" : 0.462,
-    "generationTime" : 51.718,
-    "timeToFirstTest" : 75.815,
-    "timeToLastTest" : 68.649,
-    "indexQueryTime" : 11.385,
+    "totalTime" : 73.311,
+    "environmentDetectionTime" : 0.482,
+    "indexingTime" : 0.338,
+    "entryPointsTime" : 0.453,
+    "generationTime" : 51.971,
+    "timeToFirstTest" : 73.317,
+    "timeToLastTest" : 67.152,
+    "indexQueryTime" : 10.922,
     "verificationTime" : 0.0,
     "validationTime" : 0.0
   },
@@ -72,25 +72,45 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T005",
-      "perMethodOutcome" : "T005"
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        9
+      ]
     },
     "com.piggymetrics.config.ConfigApplication.main:([Ljava/lang/String;)V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T006",
-      "perMethodOutcome" : "T006"
+      "perMethodOutcome" : "T006",
+      "lineNumbers" : [
+        12,
+        13
+      ]
     },
     "com.piggymetrics.config.SecurityConfig.<init>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "T005"
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        11
+      ]
     },
     "com.piggymetrics.config.SecurityConfig.configure:(Lorg/springframework/security/config/annotation/web/builders/HttpSecurity;)V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R013"
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        23
+      ]
     }
   }
 }

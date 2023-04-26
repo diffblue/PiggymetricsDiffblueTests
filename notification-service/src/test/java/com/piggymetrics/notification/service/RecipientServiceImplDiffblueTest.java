@@ -60,7 +60,7 @@ public class RecipientServiceImplDiffblueTest {
   @Test
   public void testFindByAccountName2() {
     // Arrange
-    when(recipientRepository.findByAccountName(Mockito.<String>any())).thenThrow(new IllegalArgumentException());
+    when(recipientRepository.findByAccountName(Mockito.<String>any())).thenThrow(new IllegalArgumentException("foo"));
 
     // Act and Assert
     thrown.expect(IllegalArgumentException.class);
@@ -177,7 +177,8 @@ public class RecipientServiceImplDiffblueTest {
   @Test
   public void testSave4() {
     // Arrange
-    when(recipientRepository.save(Mockito.<Recipient>any())).thenThrow(new IllegalArgumentException());
+    when(recipientRepository.save(Mockito.<Recipient>any()))
+        .thenThrow(new IllegalArgumentException("recipient {} settings has been updated"));
 
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
@@ -267,27 +268,13 @@ public class RecipientServiceImplDiffblueTest {
   @Test
   public void testFindReadyToNotify3() {
     // Arrange
-    when(recipientRepository.findReadyForRemind()).thenThrow(new IllegalArgumentException());
+    when(recipientRepository.findReadyForRemind()).thenThrow(new IllegalArgumentException("foo"));
     when(recipientRepository.findReadyForBackup()).thenReturn(new ArrayList<>());
 
     // Act and Assert
     thrown.expect(IllegalArgumentException.class);
     recipientServiceImpl.findReadyToNotify(NotificationType.REMIND);
     verify(recipientRepository).findReadyForRemind();
-  }
-
-  /**
-   * Method under test: {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
-   */
-  @Test
-  public void testFindReadyToNotify4() {
-    // Arrange
-    when(recipientRepository.findReadyForBackup()).thenThrow(new IllegalArgumentException());
-
-    // Act and Assert
-    thrown.expect(IllegalArgumentException.class);
-    recipientServiceImpl.findReadyToNotify(NotificationType.BACKUP);
-    verify(recipientRepository).findReadyForBackup();
   }
 
   /**
@@ -329,7 +316,7 @@ public class RecipientServiceImplDiffblueTest {
   @Test
   public void testMarkNotified2() {
     // Arrange
-    when(recipientRepository.save(Mockito.<Recipient>any())).thenThrow(new IllegalArgumentException());
+    when(recipientRepository.save(Mockito.<Recipient>any())).thenThrow(new IllegalArgumentException("foo"));
 
     NotificationSettings notificationSettings = new NotificationSettings();
     notificationSettings.setActive(true);

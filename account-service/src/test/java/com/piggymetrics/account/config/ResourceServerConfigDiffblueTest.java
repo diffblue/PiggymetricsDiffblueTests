@@ -1,6 +1,7 @@
 package com.piggymetrics.account.config;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import com.piggymetrics.account.repository.AccountRepository;
 import com.piggymetrics.account.service.security.CustomUserInfoTokenServices;
@@ -12,8 +13,9 @@ import org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceS
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.cloud.security.oauth2.client.feign.OAuth2FeignRequestInterceptor;
-import org.springframework.security.oauth2.common.AuthenticationScheme;
+import org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsResourceDetails;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.web.util.DefaultUriBuilderFactory;
 
 @SpringBootTest
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -34,9 +36,13 @@ public class ResourceServerConfigDiffblueTest {
   */
   @Test
   public void testClientCredentialsResourceDetails() {
-    // Arrange, Act and Assert
-    assertEquals(AuthenticationScheme.header,
-        resourceServerConfig.clientCredentialsResourceDetails().getAuthenticationScheme());
+    // Arrange and Act
+    ClientCredentialsResourceDetails actualClientCredentialsResourceDetailsResult = resourceServerConfig
+        .clientCredentialsResourceDetails();
+
+    // Assert
+    assertFalse(actualClientCredentialsResourceDetailsResult.isAuthenticationRequired());
+    assertNull(actualClientCredentialsResourceDetailsResult.getId());
   }
 
   /**
@@ -54,7 +60,9 @@ public class ResourceServerConfigDiffblueTest {
   @Test
   public void testClientCredentialsRestTemplate() {
     // Arrange, Act and Assert
-    assertEquals(1, resourceServerConfig.clientCredentialsRestTemplate().getInterceptors().size());
+    assertTrue(((DefaultUriBuilderFactory) resourceServerConfig.clientCredentialsRestTemplate().getUriTemplateHandler())
+        .getDefaultUriVariables()
+        .isEmpty());
   }
 
   /**
