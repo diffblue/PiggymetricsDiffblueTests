@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.cloud.security.oauth2.client.feign.OAuth2FeignRequestInterceptor;
+import org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter;
 import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
 import org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsResourceDetails;
@@ -70,10 +71,8 @@ public class ResourceServerConfigDiffblueTest {
     OAuth2RestTemplate actualClientCredentialsRestTemplateResult = resourceServerConfig.clientCredentialsRestTemplate();
 
     // Assert
-    assertEquals(7, actualClientCredentialsRestTemplateResult.getMessageConverters().size());
     OAuth2ProtectedResourceDetails resource = actualClientCredentialsRestTemplateResult.getResource();
     assertNull(resource.getAccessTokenUri());
-    assertFalse(resource.isAuthenticationRequired());
     assertEquals(DefaultUriBuilderFactory.EncodingMode.URI_COMPONENT,
         ((DefaultUriBuilderFactory) actualClientCredentialsRestTemplateResult.getUriTemplateHandler())
             .getEncodingMode());
@@ -81,6 +80,12 @@ public class ResourceServerConfigDiffblueTest {
     assertNull(resource.getClientId());
     assertNull(resource.getClientSecret());
     assertNull(resource.getScope());
+    assertNull(
+        ((Jaxb2RootElementHttpMessageConverter) actualClientCredentialsRestTemplateResult.getMessageConverters().get(5))
+            .getDefaultCharset());
+    assertFalse(
+        ((Jaxb2RootElementHttpMessageConverter) actualClientCredentialsRestTemplateResult.getMessageConverters().get(5))
+            .isProcessExternalEntities());
   }
 }
 

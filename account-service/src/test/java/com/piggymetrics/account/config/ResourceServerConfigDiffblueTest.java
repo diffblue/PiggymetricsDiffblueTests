@@ -1,6 +1,6 @@
 package com.piggymetrics.account.config;
 
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import com.piggymetrics.account.repository.AccountRepository;
@@ -13,7 +13,9 @@ import org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceS
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.cloud.security.oauth2.client.feign.OAuth2FeignRequestInterceptor;
+import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 import org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsResourceDetails;
+import org.springframework.security.oauth2.common.AuthenticationScheme;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.web.util.DefaultUriBuilderFactory;
 
@@ -41,8 +43,9 @@ public class ResourceServerConfigDiffblueTest {
         .clientCredentialsResourceDetails();
 
     // Assert
-    assertFalse(actualClientCredentialsResourceDetailsResult.isAuthenticationRequired());
-    assertNull(actualClientCredentialsResourceDetailsResult.getId());
+    assertNull(actualClientCredentialsResourceDetailsResult.getAccessTokenUri());
+    assertEquals(AuthenticationScheme.header,
+        actualClientCredentialsResourceDetailsResult.getClientAuthenticationScheme());
   }
 
   /**
@@ -59,8 +62,13 @@ public class ResourceServerConfigDiffblueTest {
    */
   @Test
   public void testClientCredentialsRestTemplate() {
-    // Arrange, Act and Assert
-    assertTrue(((DefaultUriBuilderFactory) resourceServerConfig.clientCredentialsRestTemplate().getUriTemplateHandler())
+    // Arrange and Act
+    OAuth2RestTemplate actualClientCredentialsRestTemplateResult = resourceServerConfig.clientCredentialsRestTemplate();
+
+    // Assert
+    assertEquals(7, actualClientCredentialsRestTemplateResult.getMessageConverters().size());
+    assertEquals("client_credentials", actualClientCredentialsRestTemplateResult.getResource().getGrantType());
+    assertTrue(((DefaultUriBuilderFactory) actualClientCredentialsRestTemplateResult.getUriTemplateHandler())
         .getDefaultUriVariables()
         .isEmpty());
   }
