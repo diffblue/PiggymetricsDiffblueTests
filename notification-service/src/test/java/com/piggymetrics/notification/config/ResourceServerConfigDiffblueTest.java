@@ -1,7 +1,6 @@
 package com.piggymetrics.notification.config;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import com.piggymetrics.notification.repository.RecipientRepository;
@@ -12,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.cloud.security.oauth2.client.feign.OAuth2FeignRequestInterceptor;
-import org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter;
 import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
 import org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsResourceDetails;
@@ -73,19 +71,14 @@ public class ResourceServerConfigDiffblueTest {
     // Assert
     OAuth2ProtectedResourceDetails resource = actualClientCredentialsRestTemplateResult.getResource();
     assertNull(resource.getAccessTokenUri());
-    assertEquals(DefaultUriBuilderFactory.EncodingMode.URI_COMPONENT,
-        ((DefaultUriBuilderFactory) actualClientCredentialsRestTemplateResult.getUriTemplateHandler())
-            .getEncodingMode());
+    assertTrue(resource.isClientOnly());
     assertEquals(AuthenticationScheme.header, resource.getClientAuthenticationScheme());
     assertNull(resource.getClientId());
-    assertNull(resource.getClientSecret());
+    assertTrue(((DefaultUriBuilderFactory) actualClientCredentialsRestTemplateResult.getUriTemplateHandler())
+        .getDefaultUriVariables()
+        .isEmpty());
+    assertNull(resource.getId());
     assertNull(resource.getScope());
-    assertNull(
-        ((Jaxb2RootElementHttpMessageConverter) actualClientCredentialsRestTemplateResult.getMessageConverters().get(5))
-            .getDefaultCharset());
-    assertFalse(
-        ((Jaxb2RootElementHttpMessageConverter) actualClientCredentialsRestTemplateResult.getMessageConverters().get(5))
-            .isProcessExternalEntities());
   }
 }
 

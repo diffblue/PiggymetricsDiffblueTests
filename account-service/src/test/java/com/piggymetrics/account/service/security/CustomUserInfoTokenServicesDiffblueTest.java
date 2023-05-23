@@ -1,37 +1,38 @@
 package com.piggymetrics.account.service.security;
 
+import com.piggymetrics.account.repository.AccountRepository;
+import de.flapdoodle.embed.mongo.MongodExecutable;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.oauth2.client.OAuth2RestTemplate;
-import org.springframework.security.oauth2.client.resource.BaseOAuth2ProtectedResourceDetails;
 import org.springframework.security.oauth2.common.exceptions.InvalidTokenException;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+@SpringBootTest
+@RunWith(SpringJUnit4ClassRunner.class)
 public class CustomUserInfoTokenServicesDiffblueTest {
   @Rule
   public ExpectedException thrown = ExpectedException.none();
+
+  @MockBean
+  private AccountRepository accountRepository;
+
+  @Autowired
+  private CustomUserInfoTokenServices customUserInfoTokenServices;
+
+  @MockBean
+  private MongodExecutable mongodExecutable;
   /**
   * Method under test: {@link CustomUserInfoTokenServices#loadAuthentication(String)}
   */
   @Test
   public void testLoadAuthentication() throws AuthenticationException, InvalidTokenException {
     // Arrange, Act and Assert
-    thrown.expect(InvalidTokenException.class);
-    (new CustomUserInfoTokenServices("https://config.us-east-2.amazonaws.com", "42")).loadAuthentication("ABC123");
-  }
-
-  /**
-   * Method under test: {@link CustomUserInfoTokenServices#loadAuthentication(String)}
-   */
-  @Test
-  public void testLoadAuthentication2() throws AuthenticationException, InvalidTokenException {
-    // Arrange
-    CustomUserInfoTokenServices customUserInfoTokenServices = new CustomUserInfoTokenServices(
-        "https://config.us-east-2.amazonaws.com", "42");
-    customUserInfoTokenServices.setRestTemplate(new OAuth2RestTemplate(new BaseOAuth2ProtectedResourceDetails()));
-
-    // Act and Assert
     thrown.expect(InvalidTokenException.class);
     customUserInfoTokenServices.loadAuthentication("ABC123");
   }
@@ -43,7 +44,7 @@ public class CustomUserInfoTokenServicesDiffblueTest {
   public void testReadAccessToken() {
     // Arrange, Act and Assert
     thrown.expect(UnsupportedOperationException.class);
-    (new CustomUserInfoTokenServices("https://config.us-east-2.amazonaws.com", "42")).readAccessToken("ABC123");
+    customUserInfoTokenServices.readAccessToken("ABC123");
   }
 }
 

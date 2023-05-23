@@ -1,17 +1,17 @@
 {
-  "totalTime" : 1804.734,
-  "environmentDetectionTime" : 6.887,
-  "indexingTime" : 2.817,
-  "entryPointsTime" : 6.619,
-  "generationTime" : 1223.5839999999998,
-  "timeToFirstTest" : 649.3620000000001,
-  "timeToLastTest" : 1510.8630000000003,
-  "verificationTime" : 130.64600000000002,
-  "validationTime" : 92.069,
+  "totalTime" : 1955.889,
+  "environmentDetectionTime" : 6.364,
+  "indexingTime" : 2.9520000000000004,
+  "entryPointsTime" : 6.090000000000001,
+  "generationTime" : 1318.4430000000002,
+  "timeToFirstTest" : 711.3399999999999,
+  "timeToLastTest" : 1677.2040000000002,
+  "verificationTime" : 127.797,
+  "validationTime" : 89.05999999999999,
   "summary" : {
     "classesCount" : 75,
     "methodsCount" : 362,
-    "completeTestCount" : 99,
+    "completeTestCount" : 98,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "perMethodTestability" : {
@@ -29,9 +29,9 @@
       "E052" : 49,
       "R000" : 171,
       "R002" : 9,
-      "R004" : 4,
+      "R004" : 6,
       "R011" : 1,
-      "R013" : 8,
+      "R013" : 6,
       "T003" : 17,
       "T005" : 35,
       "T006" : 9,
@@ -40,10 +40,10 @@
       "W002" : 1
     },
     "perTestOutcome" : {
-      "R000" : 99
+      "R000" : 98
     },
     "perTestValidation" : {
-      "V000" : 99
+      "V000" : 98
     },
     "warnings" : {
       "W002" : 1
@@ -68,8 +68,8 @@
       "com.piggymetrics.notification.service.EmailServiceImpl",
       "com.piggymetrics.notification.service.RecipientServiceImpl"
     ],
-    "coveredLines" : 476,
-    "lineCoveragePercent" : "80.95%",
+    "coveredLines" : 472,
+    "lineCoveragePercent" : "80.27%",
     "totalLines" : 588
   },
   "piTestMetrics" : {
@@ -80,8 +80,8 @@
     "mutationsTotal" : 0
   },
   "testDiffStatSummary" : {
-    "files" : 3,
-    "insertions" : 69,
-    "deletions" : 7
+    "files" : 6,
+    "insertions" : 110,
+    "deletions" : 114
   }
 }
