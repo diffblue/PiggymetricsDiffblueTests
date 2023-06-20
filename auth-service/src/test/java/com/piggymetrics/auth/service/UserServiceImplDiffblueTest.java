@@ -35,21 +35,16 @@ public class UserServiceImplDiffblueTest {
     User user = new User();
     user.setPassword("iloveyou");
     user.setUsername("janedoe");
+    Optional<User> ofResult = Optional.of(user);
+    when(userRepository.findById(Mockito.<String>any())).thenReturn(ofResult);
 
     User user2 = new User();
     user2.setPassword("iloveyou");
     user2.setUsername("janedoe");
-    Optional<User> ofResult = Optional.of(user2);
-    when(userRepository.save(Mockito.<User>any())).thenReturn(user);
-    when(userRepository.findById(Mockito.<String>any())).thenReturn(ofResult);
-
-    User user3 = new User();
-    user3.setPassword("iloveyou");
-    user3.setUsername("janedoe");
 
     // Act and Assert
     thrown.expect(IllegalArgumentException.class);
-    userServiceImpl.create(user3);
+    userServiceImpl.create(user2);
     verify(userRepository).findById(Mockito.<String>any());
   }
 
@@ -83,8 +78,6 @@ public class UserServiceImplDiffblueTest {
   @Test
   public void testCreate3() {
     // Arrange
-    when(userRepository.save(Mockito.<User>any()))
-        .thenThrow(new IllegalArgumentException("new user has been created: {}"));
     when(userRepository.findById(Mockito.<String>any()))
         .thenThrow(new IllegalArgumentException("new user has been created: {}"));
 

@@ -1,6 +1,7 @@
 package com.piggymetrics.notification.config;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import com.piggymetrics.notification.repository.RecipientRepository;
 import de.flapdoodle.embed.mongo.MongodExecutable;
@@ -10,8 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.cloud.security.oauth2.client.feign.OAuth2FeignRequestInterceptor;
+import org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter;
 import org.springframework.security.oauth2.client.OAuth2RestTemplate;
-import org.springframework.security.oauth2.common.AuthenticationScheme;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.web.util.DefaultUriBuilderFactory;
 
@@ -32,8 +33,7 @@ public class ResourceServerConfigDiffblueTest {
   @Test
   public void testClientCredentialsResourceDetails() {
     // Arrange, Act and Assert
-    assertEquals(AuthenticationScheme.header,
-        resourceServerConfig.clientCredentialsResourceDetails().getAuthenticationScheme());
+    assertEquals("access_token", resourceServerConfig.clientCredentialsResourceDetails().getTokenName());
   }
 
   /**
@@ -54,13 +54,12 @@ public class ResourceServerConfigDiffblueTest {
     OAuth2RestTemplate actualClientCredentialsRestTemplateResult = resourceServerConfig.clientCredentialsRestTemplate();
 
     // Assert
-    assertEquals(7, actualClientCredentialsRestTemplateResult.getMessageConverters().size());
-    assertEquals(DefaultUriBuilderFactory.EncodingMode.URI_COMPONENT,
-        ((DefaultUriBuilderFactory) actualClientCredentialsRestTemplateResult.getUriTemplateHandler())
-            .getEncodingMode());
     assertTrue(((DefaultUriBuilderFactory) actualClientCredentialsRestTemplateResult.getUriTemplateHandler())
         .getDefaultUriVariables()
         .isEmpty());
+    assertFalse(
+        ((Jaxb2RootElementHttpMessageConverter) actualClientCredentialsRestTemplateResult.getMessageConverters().get(5))
+            .isProcessExternalEntities());
   }
 }
 

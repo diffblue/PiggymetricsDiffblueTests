@@ -107,6 +107,29 @@ public class NotificationServiceImplDiffblueTest {
     recipient.setEmail("jane.doe@example.org");
     recipient.setScheduledNotifications(new HashMap<>());
 
+    ArrayList<Recipient> recipientList = new ArrayList<>();
+    recipientList.addAll(new ArrayList<>());
+    recipientList.add(recipient);
+    when(recipientRepository.findReadyForBackup()).thenReturn(recipientList);
+
+    // Act
+    notificationServiceImpl.sendBackupNotifications();
+
+    // Assert
+    verify(recipientRepository).findReadyForBackup();
+  }
+
+  /**
+   * Method under test: {@link NotificationServiceImpl#sendBackupNotifications()}
+   */
+  @Test
+  public void testSendBackupNotifications5() {
+    // Arrange
+    Recipient recipient = new Recipient();
+    recipient.setAccountName("Dr Jane Doe");
+    recipient.setEmail("jane.doe@example.org");
+    recipient.setScheduledNotifications(new HashMap<>());
+
     NotificationSettings notificationSettings = new NotificationSettings();
     notificationSettings.setActive(true);
     notificationSettings.setFrequency(Frequency.WEEKLY);
@@ -188,29 +211,6 @@ public class NotificationServiceImplDiffblueTest {
 
     ArrayList<Recipient> recipientList = new ArrayList<>();
     recipientList.add(recipient2);
-    recipientList.add(recipient);
-    when(recipientRepository.findReadyForRemind()).thenReturn(recipientList);
-
-    // Act
-    notificationServiceImpl.sendRemindNotifications();
-
-    // Assert
-    verify(recipientRepository).findReadyForRemind();
-  }
-
-  /**
-   * Method under test: {@link NotificationServiceImpl#sendRemindNotifications()}
-   */
-  @Test
-  public void testSendRemindNotifications4() {
-    // Arrange
-    Recipient recipient = new Recipient();
-    recipient.setAccountName("Dr Jane Doe");
-    recipient.setEmail("jane.doe@example.org");
-    recipient.setScheduledNotifications(new HashMap<>());
-
-    ArrayList<Recipient> recipientList = new ArrayList<>();
-    recipientList.addAll(new ArrayList<>());
     recipientList.add(recipient);
     when(recipientRepository.findReadyForRemind()).thenReturn(recipientList);
 

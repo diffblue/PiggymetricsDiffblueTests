@@ -251,7 +251,6 @@ public class RecipientServiceImplDiffblueTest {
     // Arrange
     ArrayList<Recipient> recipientList = new ArrayList<>();
     when(recipientRepository.findReadyForRemind()).thenReturn(recipientList);
-    when(recipientRepository.findReadyForBackup()).thenReturn(new ArrayList<>());
 
     // Act
     List<Recipient> actualFindReadyToNotifyResult = recipientServiceImpl.findReadyToNotify(NotificationType.REMIND);
@@ -269,7 +268,6 @@ public class RecipientServiceImplDiffblueTest {
   public void testFindReadyToNotify3() {
     // Arrange
     when(recipientRepository.findReadyForRemind()).thenThrow(new IllegalArgumentException("foo"));
-    when(recipientRepository.findReadyForBackup()).thenReturn(new ArrayList<>());
 
     // Act and Assert
     thrown.expect(IllegalArgumentException.class);
