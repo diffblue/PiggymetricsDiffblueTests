@@ -1,6 +1,7 @@
 package com.piggymetrics.notification.config;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import com.piggymetrics.notification.repository.RecipientRepository;
@@ -11,10 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.cloud.security.oauth2.client.feign.OAuth2FeignRequestInterceptor;
+import org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter;
 import org.springframework.security.oauth2.client.OAuth2RestTemplate;
+import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
 import org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsResourceDetails;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.web.util.DefaultUriBuilderFactory;
 
 @SpringBootTest
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -39,7 +41,6 @@ public class ResourceServerConfigDiffblueTest {
     // Assert
     assertEquals("access_token", actualClientCredentialsResourceDetailsResult.getTokenName());
     assertNull(actualClientCredentialsResourceDetailsResult.getId());
-    assertEquals("client_credentials", actualClientCredentialsResourceDetailsResult.getGrantType());
   }
 
   /**
@@ -60,13 +61,13 @@ public class ResourceServerConfigDiffblueTest {
     OAuth2RestTemplate actualClientCredentialsRestTemplateResult = resourceServerConfig.clientCredentialsRestTemplate();
 
     // Assert
-    assertEquals(7, actualClientCredentialsRestTemplateResult.getMessageConverters().size());
-    assertEquals(DefaultUriBuilderFactory.EncodingMode.URI_COMPONENT,
-        ((DefaultUriBuilderFactory) actualClientCredentialsRestTemplateResult.getUriTemplateHandler())
-            .getEncodingMode());
-    assertTrue(((DefaultUriBuilderFactory) actualClientCredentialsRestTemplateResult.getUriTemplateHandler())
-        .getDefaultUriVariables()
-        .isEmpty());
+    assertNull(actualClientCredentialsRestTemplateResult.getOAuth2ClientContext().getAccessToken());
+    OAuth2ProtectedResourceDetails resource = actualClientCredentialsRestTemplateResult.getResource();
+    assertFalse(resource.isAuthenticationRequired());
+    assertNull(resource.getId());
+    assertFalse(
+        ((Jaxb2RootElementHttpMessageConverter) actualClientCredentialsRestTemplateResult.getMessageConverters().get(5))
+            .isProcessExternalEntities());
   }
 }
 
