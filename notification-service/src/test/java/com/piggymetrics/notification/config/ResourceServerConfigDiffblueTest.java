@@ -1,8 +1,6 @@
 package com.piggymetrics.notification.config;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import com.piggymetrics.notification.repository.RecipientRepository;
 import de.flapdoodle.embed.mongo.MongodExecutable;
@@ -12,10 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.cloud.security.oauth2.client.feign.OAuth2FeignRequestInterceptor;
-import org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter;
-import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
-import org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsResourceDetails;
+import org.springframework.security.oauth2.common.AuthenticationScheme;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @SpringBootTest
@@ -34,13 +30,8 @@ public class ResourceServerConfigDiffblueTest {
   */
   @Test
   public void testClientCredentialsResourceDetails() {
-    // Arrange and Act
-    ClientCredentialsResourceDetails actualClientCredentialsResourceDetailsResult = resourceServerConfig
-        .clientCredentialsResourceDetails();
-
-    // Assert
-    assertEquals("access_token", actualClientCredentialsResourceDetailsResult.getTokenName());
-    assertNull(actualClientCredentialsResourceDetailsResult.getId());
+    // Arrange, Act and Assert
+    assertEquals("access_token", resourceServerConfig.clientCredentialsResourceDetails().getTokenName());
   }
 
   /**
@@ -57,17 +48,10 @@ public class ResourceServerConfigDiffblueTest {
    */
   @Test
   public void testClientCredentialsRestTemplate() {
-    // Arrange and Act
-    OAuth2RestTemplate actualClientCredentialsRestTemplateResult = resourceServerConfig.clientCredentialsRestTemplate();
-
-    // Assert
-    assertNull(actualClientCredentialsRestTemplateResult.getOAuth2ClientContext().getAccessToken());
-    OAuth2ProtectedResourceDetails resource = actualClientCredentialsRestTemplateResult.getResource();
-    assertFalse(resource.isAuthenticationRequired());
-    assertNull(resource.getId());
-    assertFalse(
-        ((Jaxb2RootElementHttpMessageConverter) actualClientCredentialsRestTemplateResult.getMessageConverters().get(5))
-            .isProcessExternalEntities());
+    // Arrange, Act and Assert
+    OAuth2ProtectedResourceDetails resource = resourceServerConfig.clientCredentialsRestTemplate().getResource();
+    assertTrue(resource.isClientOnly());
+    assertEquals(AuthenticationScheme.header, resource.getClientAuthenticationScheme());
   }
 }
 

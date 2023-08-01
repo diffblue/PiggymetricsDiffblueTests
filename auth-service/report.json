@@ -3,25 +3,25 @@
     "reportVersion" : "2.5"
   },
   "run" : {
-    "version" : "2023.07.02-846c24e-licensed",
-    "creationTimestamp" : "2023-07-19T12:39:12.088+01:00",
+    "version" : "2023.07.03-9bc032c-licensed",
+    "creationTimestamp" : "2023-08-01T18:19:31.245+01:00",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --working-directory=auth-service",
-    "totalTime" : 319.982,
-    "environmentDetectionTime" : 0.837,
-    "indexingTime" : 0.313,
-    "entryPointsTime" : 0.81,
-    "generationTime" : 214.724,
-    "timeToFirstTest" : 102.199,
-    "timeToLastTest" : 269.773,
-    "indexQueryTime" : 19.501,
-    "verificationTime" : 29.448,
-    "validationTime" : 19.018
+    "totalTime" : 347.099,
+    "environmentDetectionTime" : 0.907,
+    "indexingTime" : 0.373,
+    "entryPointsTime" : 0.87,
+    "generationTime" : 234.833,
+    "timeToFirstTest" : 108.596,
+    "timeToLastTest" : 293.857,
+    "indexQueryTime" : 21.601,
+    "verificationTime" : 30.876,
+    "validationTime" : 21.024
   },
   "codes" : {
     "E052" : "Missing dependency",
     "R000" : "Success",
     "R002" : "Missing observers",
-    "R004" : "No meaningful assertions found",
+    "R013" : "No inputs found that don't throw a trivial exception",
     "T000" : "Method eligible for test creation",
     "T001" : "Trivial getter",
     "T002" : "Trivial setter",
@@ -50,7 +50,7 @@
       "E052" : 11,
       "R000" : 18,
       "R002" : 1,
-      "R004" : 1,
+      "R013" : 1,
       "T005" : 6,
       "T006" : 1,
       "T010" : 1,
@@ -102,7 +102,7 @@
       "perMethodOutcome" : {
         "R000" : 1,
         "R002" : 1,
-        "R004" : 1,
+        "R013" : 1,
         "T005" : 1
       },
       "perTestOutcome" : {
@@ -330,7 +330,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R004",
+      "perMethodOutcome" : "R013",
       "lineNumbers" : [
         25,
         26,
@@ -394,7 +394,7 @@
         "R000" : 1
       },
       "lineNumbers" : [
-        10
+        30
       ]
     },
     "com.piggymetrics.auth.domain.User.getPassword:()Ljava/lang/String;" : {

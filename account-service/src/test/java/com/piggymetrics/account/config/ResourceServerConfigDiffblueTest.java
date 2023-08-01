@@ -13,9 +13,7 @@ import org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceS
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.cloud.security.oauth2.client.feign.OAuth2FeignRequestInterceptor;
-import org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter;
 import org.springframework.security.oauth2.client.OAuth2RestTemplate;
-import org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsResourceDetails;
 import org.springframework.security.oauth2.common.AuthenticationScheme;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.web.util.DefaultUriBuilderFactory;
@@ -39,14 +37,8 @@ public class ResourceServerConfigDiffblueTest {
   */
   @Test
   public void testClientCredentialsResourceDetails() {
-    // Arrange and Act
-    ClientCredentialsResourceDetails actualClientCredentialsResourceDetailsResult = resourceServerConfig
-        .clientCredentialsResourceDetails();
-
-    // Assert
-    assertEquals(AuthenticationScheme.header,
-        actualClientCredentialsResourceDetailsResult.getClientAuthenticationScheme());
-    assertEquals(AuthenticationScheme.header, actualClientCredentialsResourceDetailsResult.getAuthenticationScheme());
+    // Arrange, Act and Assert
+    assertNull(resourceServerConfig.clientCredentialsResourceDetails().getAccessTokenUri());
   }
 
   /**
@@ -67,12 +59,11 @@ public class ResourceServerConfigDiffblueTest {
     OAuth2RestTemplate actualClientCredentialsRestTemplateResult = resourceServerConfig.clientCredentialsRestTemplate();
 
     // Assert
-    assertTrue(actualClientCredentialsRestTemplateResult.getUriTemplateHandler() instanceof DefaultUriBuilderFactory);
-    assertNull(actualClientCredentialsRestTemplateResult.getOAuth2ClientContext().getAccessToken());
-    assertEquals("access_token", actualClientCredentialsRestTemplateResult.getResource().getTokenName());
-    assertNull(
-        ((Jaxb2RootElementHttpMessageConverter) actualClientCredentialsRestTemplateResult.getMessageConverters().get(5))
-            .getDefaultCharset());
+    assertEquals(AuthenticationScheme.header,
+        actualClientCredentialsRestTemplateResult.getResource().getClientAuthenticationScheme());
+    assertTrue(((DefaultUriBuilderFactory) actualClientCredentialsRestTemplateResult.getUriTemplateHandler())
+        .getDefaultUriVariables()
+        .isEmpty());
   }
 
   /**
