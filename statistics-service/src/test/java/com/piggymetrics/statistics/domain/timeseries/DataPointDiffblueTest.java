@@ -46,12 +46,16 @@ public class DataPointDiffblueTest {
     actualDataPoint.setRates(rates);
     HashMap<StatisticMetric, BigDecimal> statistics = new HashMap<>();
     actualDataPoint.setStatistics(statistics);
+    Set<ItemMetric> actualExpenses = actualDataPoint.getExpenses();
+    DataPointId actualId = actualDataPoint.getId();
+    Set<ItemMetric> actualIncomes = actualDataPoint.getIncomes();
+    Map<Currency, BigDecimal> actualRates = actualDataPoint.getRates();
 
-    // Assert
-    assertSame(expenses, actualDataPoint.getExpenses());
-    assertSame(id, actualDataPoint.getId());
-    assertSame(incomes, actualDataPoint.getIncomes());
-    assertSame(rates, actualDataPoint.getRates());
+    // Assert that nothing has changed
+    assertSame(expenses, actualExpenses);
+    assertSame(id, actualId);
+    assertSame(incomes, actualIncomes);
+    assertSame(rates, actualRates);
     assertSame(statistics, actualDataPoint.getStatistics());
   }
 }

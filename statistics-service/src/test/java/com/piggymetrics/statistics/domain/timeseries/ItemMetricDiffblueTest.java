@@ -18,15 +18,12 @@ public class ItemMetricDiffblueTest {
   */
   @Test
   public void testConstructor() {
-    // Arrange
-    BigDecimal amount = BigDecimal.valueOf(1L);
-
-    // Act
-    ItemMetric actualItemMetric = new ItemMetric("Dr", amount);
+    // Arrange and Act
+    ItemMetric actualItemMetric = new ItemMetric("Dr", BigDecimal.valueOf(1L));
+    BigDecimal actualAmount = actualItemMetric.getAmount();
 
     // Assert
-    BigDecimal expectedAmount = amount.ONE;
-    assertSame(expectedAmount, actualItemMetric.getAmount());
+    assertSame(actualAmount.ONE, actualAmount);
     assertEquals("Dr", actualItemMetric.getTitle());
   }
 

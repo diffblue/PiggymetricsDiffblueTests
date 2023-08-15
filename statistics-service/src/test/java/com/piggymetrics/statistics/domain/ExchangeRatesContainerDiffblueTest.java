@@ -11,10 +11,22 @@ import org.junit.Test;
 
 public class ExchangeRatesContainerDiffblueTest {
   /**
+   * Method under test: default or parameterless constructor of {@link ExchangeRatesContainer}
+   */
+  @Test
+  public void testConstructor() {
+    // Arrange and Act
+    ExchangeRatesContainer actualExchangeRatesContainer = new ExchangeRatesContainer();
+
+    // Assert
+    assertNull(actualExchangeRatesContainer.getBase());
+    assertNull(actualExchangeRatesContainer.getRates());
+  }
+
+  /**
   * Methods under test: 
   * 
   * <ul>
-  *   <li>default or parameterless constructor of {@link ExchangeRatesContainer}
   *   <li>{@link ExchangeRatesContainer#setBase(Currency)}
   *   <li>{@link ExchangeRatesContainer#setDate(LocalDate)}
   *   <li>{@link ExchangeRatesContainer#setRates(Map)}
@@ -25,34 +37,25 @@ public class ExchangeRatesContainerDiffblueTest {
   * </ul>
   */
   @Test
-  public void testConstructor() {
-    // Arrange and Act
-    ExchangeRatesContainer actualExchangeRatesContainer = new ExchangeRatesContainer();
-    actualExchangeRatesContainer.setBase(Currency.USD);
+  public void testSetBase() {
+    // Arrange
+    ExchangeRatesContainer exchangeRatesContainer = new ExchangeRatesContainer();
+
+    // Act
+    exchangeRatesContainer.setBase(Currency.USD);
     LocalDate date = LocalDate.of(1970, 1, 1);
-    actualExchangeRatesContainer.setDate(date);
+    exchangeRatesContainer.setDate(date);
     HashMap<String, BigDecimal> rates = new HashMap<>();
-    actualExchangeRatesContainer.setRates(rates);
-    String actualToStringResult = actualExchangeRatesContainer.toString();
+    exchangeRatesContainer.setRates(rates);
+    String actualToStringResult = exchangeRatesContainer.toString();
+    Currency actualBase = exchangeRatesContainer.getBase();
+    LocalDate actualDate = exchangeRatesContainer.getDate();
 
-    // Assert
-    assertEquals(Currency.USD, actualExchangeRatesContainer.getBase());
-    assertSame(date, actualExchangeRatesContainer.getDate());
-    assertSame(rates, actualExchangeRatesContainer.getRates());
+    // Assert that nothing has changed
+    assertEquals(Currency.USD, actualBase);
+    assertSame(date, actualDate);
+    assertSame(rates, exchangeRatesContainer.getRates());
     assertEquals("RateList{date=1970-01-01, base=USD, rates={}}", actualToStringResult);
-  }
-
-  /**
-   * Method under test: default or parameterless constructor of {@link ExchangeRatesContainer}
-   */
-  @Test
-  public void testConstructor2() {
-    // Arrange and Act
-    ExchangeRatesContainer actualExchangeRatesContainer = new ExchangeRatesContainer();
-
-    // Assert
-    assertNull(actualExchangeRatesContainer.getBase());
-    assertNull(actualExchangeRatesContainer.getRates());
   }
 }
 

@@ -8,21 +8,24 @@ public class NotificationTypeDiffblueTest {
   * Methods under test: 
   * 
   * <ul>
-  *   <li>{@link NotificationType#valueOf(String)}
   *   <li>{@link NotificationType#getAttachment()}
   *   <li>{@link NotificationType#getSubject()}
   *   <li>{@link NotificationType#getText()}
   * </ul>
   */
   @Test
-  public void testValueOf() {
-    // Arrange and Act
-    NotificationType actualValueOfResult = NotificationType.valueOf("BACKUP");
+  public void testGetAttachment() {
+    // Arrange
+    NotificationType valueOfResult = NotificationType.valueOf("BACKUP");
+
+    // Act
+    String actualAttachment = valueOfResult.getAttachment();
+    String actualSubject = valueOfResult.getSubject();
 
     // Assert
-    assertEquals("backup.email.attachment", actualValueOfResult.getAttachment());
-    assertEquals("backup.email.subject", actualValueOfResult.getSubject());
-    assertEquals("backup.email.text", actualValueOfResult.getText());
+    assertEquals("backup.email.attachment", actualAttachment);
+    assertEquals("backup.email.subject", actualSubject);
+    assertEquals("backup.email.text", valueOfResult.getText());
   }
 }
 

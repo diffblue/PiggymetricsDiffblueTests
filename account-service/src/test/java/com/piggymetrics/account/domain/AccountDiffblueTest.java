@@ -49,13 +49,18 @@ public class AccountDiffblueTest {
     saving.setDeposit(true);
     saving.setInterest(BigDecimal.valueOf(1L));
     actualAccount.setSaving(saving);
+    List<Item> actualExpenses = actualAccount.getExpenses();
+    List<Item> actualIncomes = actualAccount.getIncomes();
+    Date actualLastSeen = actualAccount.getLastSeen();
+    String actualName = actualAccount.getName();
+    String actualNote = actualAccount.getNote();
 
-    // Assert
-    assertSame(expenses, actualAccount.getExpenses());
-    assertSame(incomes, actualAccount.getIncomes());
-    assertSame(lastSeen, actualAccount.getLastSeen());
-    assertEquals("Name", actualAccount.getName());
-    assertEquals("Note", actualAccount.getNote());
+    // Assert that nothing has changed
+    assertSame(expenses, actualExpenses);
+    assertSame(incomes, actualIncomes);
+    assertSame(lastSeen, actualLastSeen);
+    assertEquals("Name", actualName);
+    assertEquals("Note", actualNote);
     assertSame(saving, actualAccount.getSaving());
   }
 }

@@ -26,9 +26,10 @@ public class DataPointIdDiffblueTest {
     // Act
     DataPointId actualDataPointId = new DataPointId("3", date);
     actualDataPointId.toString();
+    String actualAccount = actualDataPointId.getAccount();
 
     // Assert
-    assertEquals("3", actualDataPointId.getAccount());
+    assertEquals("3", actualAccount);
     assertSame(date, actualDataPointId.getDate());
   }
 }

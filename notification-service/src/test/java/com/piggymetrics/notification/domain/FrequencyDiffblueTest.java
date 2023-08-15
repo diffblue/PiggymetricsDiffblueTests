@@ -5,15 +5,10 @@ import org.junit.Test;
 
 public class FrequencyDiffblueTest {
   /**
-  * Methods under test: 
-  * 
-  * <ul>
-  *   <li>{@link Frequency#valueOf(String)}
-  *   <li>{@link Frequency#getDays()}
-  * </ul>
+  * Method under test: {@link Frequency#getDays()}
   */
   @Test
-  public void testValueOf() {
+  public void testGetDays() {
     // Arrange, Act and Assert
     assertEquals(7, Frequency.valueOf("WEEKLY").getDays());
   }

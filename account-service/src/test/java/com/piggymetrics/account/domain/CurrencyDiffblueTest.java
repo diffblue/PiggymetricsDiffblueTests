@@ -5,15 +5,10 @@ import org.junit.Test;
 
 public class CurrencyDiffblueTest {
   /**
-  * Methods under test: 
-  * 
-  * <ul>
-  *   <li>{@link Currency#valueOf(String)}
-  *   <li>{@link Currency#getDefault()}
-  * </ul>
+  * Method under test: {@link Currency#getDefault()}
   */
   @Test
-  public void testValueOf() {
+  public void testGetDefault() {
     // Arrange, Act and Assert
     assertEquals(Currency.USD, Currency.valueOf("USD").getDefault());
   }

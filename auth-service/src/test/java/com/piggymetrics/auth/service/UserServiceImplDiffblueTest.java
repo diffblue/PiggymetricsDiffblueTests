@@ -58,7 +58,8 @@ public class UserServiceImplDiffblueTest {
     user.setPassword("iloveyou");
     user.setUsername("janedoe");
     when(userRepository.save(Mockito.<User>any())).thenReturn(user);
-    when(userRepository.findById(Mockito.<String>any())).thenReturn(Optional.empty());
+    Optional<User> emptyResult = Optional.empty();
+    when(userRepository.findById(Mockito.<String>any())).thenReturn(emptyResult);
 
     User user2 = new User();
     user2.setPassword("iloveyou");

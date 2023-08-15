@@ -51,7 +51,8 @@ public class MongoUserDetailsServiceDiffblueTest {
   @Test
   public void testLoadUserByUsername2() throws UsernameNotFoundException {
     // Arrange
-    when(userRepository.findById(Mockito.<String>any())).thenReturn(Optional.empty());
+    Optional<User> emptyResult = Optional.empty();
+    when(userRepository.findById(Mockito.<String>any())).thenReturn(emptyResult);
 
     // Act and Assert
     thrown.expect(UsernameNotFoundException.class);

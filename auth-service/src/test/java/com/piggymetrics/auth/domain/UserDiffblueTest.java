@@ -36,13 +36,18 @@ public class UserDiffblueTest {
     User actualUser = new User();
     actualUser.setPassword("iloveyou");
     actualUser.setUsername("janedoe");
+    String actualPassword = actualUser.getPassword();
+    String actualUsername = actualUser.getUsername();
+    boolean actualIsAccountNonExpiredResult = actualUser.isAccountNonExpired();
+    boolean actualIsAccountNonLockedResult = actualUser.isAccountNonLocked();
+    boolean actualIsCredentialsNonExpiredResult = actualUser.isCredentialsNonExpired();
 
-    // Assert
-    assertEquals("iloveyou", actualUser.getPassword());
-    assertEquals("janedoe", actualUser.getUsername());
-    assertTrue(actualUser.isAccountNonExpired());
-    assertTrue(actualUser.isAccountNonLocked());
-    assertTrue(actualUser.isCredentialsNonExpired());
+    // Assert that nothing has changed
+    assertEquals("iloveyou", actualPassword);
+    assertEquals("janedoe", actualUsername);
+    assertTrue(actualIsAccountNonExpiredResult);
+    assertTrue(actualIsAccountNonLockedResult);
+    assertTrue(actualIsCredentialsNonExpiredResult);
     assertTrue(actualUser.isEnabled());
   }
 }

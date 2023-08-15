@@ -32,17 +32,19 @@ public class SavingDiffblueTest {
     actualSaving.setCapitalization(true);
     actualSaving.setCurrency(Currency.USD);
     actualSaving.setDeposit(true);
-    BigDecimal interest = BigDecimal.valueOf(1L);
-    actualSaving.setInterest(interest);
+    actualSaving.setInterest(BigDecimal.valueOf(1L));
+    BigDecimal actualAmount = actualSaving.getAmount();
+    Boolean actualCapitalization = actualSaving.getCapitalization();
+    Currency actualCurrency = actualSaving.getCurrency();
+    Boolean actualDeposit = actualSaving.getDeposit();
+    BigDecimal actualInterest = actualSaving.getInterest();
 
-    // Assert
-    BigDecimal expectedAmount = interest.ONE;
-    BigDecimal amount = actualSaving.getAmount();
-    assertSame(expectedAmount, amount);
-    assertTrue(actualSaving.getCapitalization());
-    assertEquals(Currency.USD, actualSaving.getCurrency());
-    assertTrue(actualSaving.getDeposit());
-    assertSame(amount, actualSaving.getInterest());
+    // Assert that nothing has changed
+    assertSame(actualInterest.ONE, actualAmount);
+    assertTrue(actualCapitalization);
+    assertEquals(Currency.USD, actualCurrency);
+    assertTrue(actualDeposit);
+    assertSame(actualAmount, actualInterest);
   }
 }
 

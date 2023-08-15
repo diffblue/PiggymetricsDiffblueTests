@@ -35,10 +35,12 @@ public class AccountDiffblueTest {
     saving.setDeposit(true);
     saving.setInterest(BigDecimal.valueOf(1L));
     actualAccount.setSaving(saving);
+    List<Item> actualExpenses = actualAccount.getExpenses();
+    List<Item> actualIncomes = actualAccount.getIncomes();
 
-    // Assert
-    assertSame(expenses, actualAccount.getExpenses());
-    assertSame(incomes, actualAccount.getIncomes());
+    // Assert that nothing has changed
+    assertSame(expenses, actualExpenses);
+    assertSame(incomes, actualIncomes);
     assertSame(saving, actualAccount.getSaving());
   }
 }

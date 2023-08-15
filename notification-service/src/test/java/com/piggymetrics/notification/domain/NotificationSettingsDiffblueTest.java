@@ -30,10 +30,12 @@ public class NotificationSettingsDiffblueTest {
     actualNotificationSettings.setFrequency(Frequency.WEEKLY);
     Date lastNotified = Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
     actualNotificationSettings.setLastNotified(lastNotified);
+    Boolean actualActive = actualNotificationSettings.getActive();
+    Frequency actualFrequency = actualNotificationSettings.getFrequency();
 
-    // Assert
-    assertTrue(actualNotificationSettings.getActive());
-    assertEquals(Frequency.WEEKLY, actualNotificationSettings.getFrequency());
+    // Assert that nothing has changed
+    assertTrue(actualActive);
+    assertEquals(Frequency.WEEKLY, actualFrequency);
     assertSame(lastNotified, actualNotificationSettings.getLastNotified());
   }
 }

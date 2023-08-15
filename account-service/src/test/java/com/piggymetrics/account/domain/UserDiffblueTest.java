@@ -21,9 +21,10 @@ public class UserDiffblueTest {
     User actualUser = new User();
     actualUser.setPassword("iloveyou");
     actualUser.setUsername("janedoe");
+    String actualPassword = actualUser.getPassword();
 
-    // Assert
-    assertEquals("iloveyou", actualUser.getPassword());
+    // Assert that nothing has changed
+    assertEquals("iloveyou", actualPassword);
     assertEquals("janedoe", actualUser.getUsername());
   }
 }
