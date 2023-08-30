@@ -1,7 +1,6 @@
 package com.piggymetrics.account.config;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import com.piggymetrics.account.repository.AccountRepository;
@@ -15,11 +14,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.cloud.security.oauth2.client.feign.OAuth2FeignRequestInterceptor;
 import org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter;
-import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 import org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsResourceDetails;
 import org.springframework.security.oauth2.common.AuthenticationScheme;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.web.util.DefaultUriBuilderFactory;
 
 @SpringBootTest
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -46,7 +43,9 @@ public class ResourceServerConfigDiffblueTest {
 
     // Assert
     assertNull(actualClientCredentialsResourceDetailsResult.getAccessTokenUri());
-    assertEquals(AuthenticationScheme.header, actualClientCredentialsResourceDetailsResult.getAuthenticationScheme());
+    assertTrue(actualClientCredentialsResourceDetailsResult.isClientOnly());
+    assertEquals(AuthenticationScheme.header,
+        actualClientCredentialsResourceDetailsResult.getClientAuthenticationScheme());
   }
 
   /**
@@ -63,16 +62,10 @@ public class ResourceServerConfigDiffblueTest {
    */
   @Test
   public void testClientCredentialsRestTemplate() {
-    // Arrange and Act
-    OAuth2RestTemplate actualClientCredentialsRestTemplateResult = resourceServerConfig.clientCredentialsRestTemplate();
-
-    // Assert
-    assertTrue(((DefaultUriBuilderFactory) actualClientCredentialsRestTemplateResult.getUriTemplateHandler())
-        .getDefaultUriVariables()
-        .isEmpty());
-    assertFalse(
-        ((Jaxb2RootElementHttpMessageConverter) actualClientCredentialsRestTemplateResult.getMessageConverters().get(5))
-            .isSupportDtd());
+    // Arrange, Act and Assert
+    assertNull(((Jaxb2RootElementHttpMessageConverter) resourceServerConfig.clientCredentialsRestTemplate()
+        .getMessageConverters()
+        .get(5)).getDefaultCharset());
   }
 
   /**
