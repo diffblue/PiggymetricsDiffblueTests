@@ -11,6 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.cloud.security.oauth2.client.feign.OAuth2FeignRequestInterceptor;
+import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
+import org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsResourceDetails;
+import org.springframework.security.oauth2.common.AuthenticationScheme;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @SpringBootTest
@@ -24,13 +27,26 @@ public class ResourceServerConfigDiffblueTest {
 
   @Autowired
   private ResourceServerConfig resourceServerConfig;
+
   /**
   * Method under test: {@link ResourceServerConfig#clientCredentialsResourceDetails()}
   */
   @Test
   public void testClientCredentialsResourceDetails() {
-    // Arrange, Act and Assert
-    assertNull(resourceServerConfig.clientCredentialsResourceDetails().getId());
+    //   Diffblue Cover was unable to write a Spring test,
+    //   so wrote a non-Spring test instead.
+    //   Diffblue AI was unable to find a test
+
+    // Arrange and Act
+    ClientCredentialsResourceDetails actualClientCredentialsResourceDetailsResult = (new ResourceServerConfig())
+        .clientCredentialsResourceDetails();
+
+    // Assert
+    assertEquals("access_token", actualClientCredentialsResourceDetailsResult.getTokenName());
+    assertEquals("client_credentials", actualClientCredentialsResourceDetailsResult.getGrantType());
+    assertEquals(AuthenticationScheme.header,
+        actualClientCredentialsResourceDetailsResult.getClientAuthenticationScheme());
+    assertEquals(AuthenticationScheme.header, actualClientCredentialsResourceDetailsResult.getAuthenticationScheme());
   }
 
   /**
@@ -48,7 +64,11 @@ public class ResourceServerConfigDiffblueTest {
   @Test
   public void testClientCredentialsRestTemplate() {
     // Arrange, Act and Assert
-    assertEquals(1, resourceServerConfig.clientCredentialsRestTemplate().getInterceptors().size());
+    OAuth2ProtectedResourceDetails resource = resourceServerConfig.clientCredentialsRestTemplate().getResource();
+    assertNull(resource.getAccessTokenUri());
+    assertNull(resource.getClientId());
+    assertNull(resource.getClientSecret());
+    assertEquals("client_credentials", resource.getGrantType());
   }
 }
 

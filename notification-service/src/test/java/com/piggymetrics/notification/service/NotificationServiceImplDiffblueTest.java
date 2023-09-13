@@ -163,7 +163,7 @@ public class NotificationServiceImplDiffblueTest {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
-    recipient.setEmail("jane.doe@example.org");
+    recipient.setEmail("Email");
     recipient.setScheduledNotifications(new HashMap<>());
 
     Recipient recipient2 = new Recipient();
@@ -171,19 +171,7 @@ public class NotificationServiceImplDiffblueTest {
     recipient2.setEmail("john.smith@example.org");
     recipient2.setScheduledNotifications(new HashMap<>());
 
-    Recipient recipient3 = new Recipient();
-    recipient3.setAccountName("Prof Albert Einstein");
-    recipient3.setEmail("prof.einstein@example.org");
-    recipient3.setScheduledNotifications(new HashMap<>());
-
-    Recipient recipient4 = new Recipient();
-    recipient4.setAccountName("Mr John Smith");
-    recipient4.setEmail("john.smith@example.org");
-    recipient4.setScheduledNotifications(new HashMap<>());
-
     ArrayList<Recipient> recipientList = new ArrayList<>();
-    recipientList.add(recipient4);
-    recipientList.add(recipient3);
     recipientList.add(recipient2);
     recipientList.add(recipient);
     when(recipientRepository.findReadyForRemind()).thenReturn(recipientList);
