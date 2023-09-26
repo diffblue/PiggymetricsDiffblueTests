@@ -2,10 +2,16 @@ package com.piggymetrics.notification.service;
 
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.piggymetrics.notification.domain.Frequency;
+import com.piggymetrics.notification.domain.NotificationSettings;
+import com.piggymetrics.notification.domain.NotificationType;
 import com.piggymetrics.notification.domain.Recipient;
 import com.piggymetrics.notification.repository.RecipientRepository;
 import de.flapdoodle.embed.mongo.MongodExecutable;
+import java.time.LocalDate;
+import java.time.ZoneOffset;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -163,7 +169,7 @@ public class NotificationServiceImplDiffblueTest {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
-    recipient.setEmail("Email");
+    recipient.setEmail("jane.doe@example.org");
     recipient.setScheduledNotifications(new HashMap<>());
 
     Recipient recipient2 = new Recipient();
@@ -171,7 +177,22 @@ public class NotificationServiceImplDiffblueTest {
     recipient2.setEmail("john.smith@example.org");
     recipient2.setScheduledNotifications(new HashMap<>());
 
+    NotificationSettings notificationSettings = new NotificationSettings();
+    notificationSettings.setActive(true);
+    notificationSettings.setFrequency(Frequency.WEEKLY);
+    notificationSettings
+        .setLastNotified(Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
+
+    HashMap<NotificationType, NotificationSettings> scheduledNotifications = new HashMap<>();
+    scheduledNotifications.put(NotificationType.BACKUP, notificationSettings);
+
+    Recipient recipient3 = new Recipient();
+    recipient3.setAccountName("Prof Albert Einstein");
+    recipient3.setEmail("prof.einstein@example.org");
+    recipient3.setScheduledNotifications(scheduledNotifications);
+
     ArrayList<Recipient> recipientList = new ArrayList<>();
+    recipientList.add(recipient3);
     recipientList.add(recipient2);
     recipientList.add(recipient);
     when(recipientRepository.findReadyForRemind()).thenReturn(recipientList);

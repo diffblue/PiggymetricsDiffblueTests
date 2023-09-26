@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.cloud.security.oauth2.client.feign.OAuth2FeignRequestInterceptor;
+import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
 import org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsResourceDetails;
 import org.springframework.security.oauth2.common.AuthenticationScheme;
@@ -63,12 +64,16 @@ public class ResourceServerConfigDiffblueTest {
    */
   @Test
   public void testClientCredentialsRestTemplate() {
-    // Arrange, Act and Assert
-    OAuth2ProtectedResourceDetails resource = resourceServerConfig.clientCredentialsRestTemplate().getResource();
+    // Arrange and Act
+    OAuth2RestTemplate actualClientCredentialsRestTemplateResult = resourceServerConfig.clientCredentialsRestTemplate();
+
+    // Assert
+    assertEquals(1, actualClientCredentialsRestTemplateResult.getInterceptors().size());
+    OAuth2ProtectedResourceDetails resource = actualClientCredentialsRestTemplateResult.getResource();
     assertNull(resource.getAccessTokenUri());
     assertNull(resource.getClientId());
     assertNull(resource.getClientSecret());
-    assertEquals("client_credentials", resource.getGrantType());
+    assertNull(resource.getId());
   }
 }
 

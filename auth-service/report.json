@@ -3,25 +3,25 @@
     "reportVersion" : "2.5"
   },
   "run" : {
-    "version" : "2023.09.01-9200f07-licensed",
-    "creationTimestamp" : "2023-09-13T15:14:13.227+01:00",
+    "version" : "2023.09.02-e7a5dbe-licensed",
+    "creationTimestamp" : "2023-09-26T18:32:38.324+01:00",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --working-directory=auth-service",
-    "totalTime" : 313.409,
-    "environmentDetectionTime" : 0.899,
-    "indexingTime" : 0.289,
-    "entryPointsTime" : 0.871,
-    "generationTime" : 207.035,
-    "timeToFirstTest" : 105.498,
-    "timeToLastTest" : 263.178,
-    "indexQueryTime" : 18.725,
-    "verificationTime" : 29.46,
-    "validationTime" : 19.027
+    "totalTime" : 307.625,
+    "environmentDetectionTime" : 0.906,
+    "indexingTime" : 0.327,
+    "entryPointsTime" : 0.882,
+    "generationTime" : 204.118,
+    "timeToFirstTest" : 102.685,
+    "timeToLastTest" : 258.403,
+    "indexQueryTime" : 18.641000000000002,
+    "verificationTime" : 28.405,
+    "validationTime" : 19.026
   },
   "codes" : {
     "E052" : "Missing dependency",
     "R000" : "Success",
     "R002" : "Missing observers",
-    "R013" : "No inputs found that don't throw a trivial exception",
+    "R004" : "No meaningful assertions found",
     "T000" : "Method eligible for test creation",
     "T001" : "Trivial getter",
     "T002" : "Trivial setter",
@@ -50,7 +50,7 @@
       "E052" : 11,
       "R000" : 18,
       "R002" : 1,
-      "R013" : 1,
+      "R004" : 1,
       "T005" : 6,
       "T006" : 1,
       "T010" : 1,
@@ -102,7 +102,7 @@
       "perMethodOutcome" : {
         "R000" : 1,
         "R002" : 1,
-        "R013" : 1,
+        "R004" : 1,
         "T005" : 1
       },
       "perTestOutcome" : {
@@ -330,7 +330,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R013",
+      "perMethodOutcome" : "R004",
       "lineNumbers" : [
         25,
         26,
