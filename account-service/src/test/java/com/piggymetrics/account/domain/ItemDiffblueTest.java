@@ -27,7 +27,8 @@ public class ItemDiffblueTest {
   public void testConstructor() {
     // Arrange and Act
     Item actualItem = new Item();
-    actualItem.setAmount(BigDecimal.valueOf(1L));
+    BigDecimal amount = new BigDecimal("2.3");
+    actualItem.setAmount(amount);
     actualItem.setCurrency(Currency.USD);
     actualItem.setIcon("Icon");
     actualItem.setPeriod(TimePeriod.YEAR);
@@ -36,13 +37,15 @@ public class ItemDiffblueTest {
     Currency actualCurrency = actualItem.getCurrency();
     String actualIcon = actualItem.getIcon();
     TimePeriod actualPeriod = actualItem.getPeriod();
+    String actualTitle = actualItem.getTitle();
 
     // Assert that nothing has changed
-    assertSame(actualAmount.ONE, actualAmount);
+    assertSame(amount, actualAmount);
+    assertEquals(new BigDecimal("2.3"), actualAmount);
     assertEquals(Currency.USD, actualCurrency);
     assertEquals("Icon", actualIcon);
     assertEquals(TimePeriod.YEAR, actualPeriod);
-    assertEquals("Dr", actualItem.getTitle());
+    assertEquals("Dr", actualTitle);
   }
 }
 

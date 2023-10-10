@@ -43,11 +43,11 @@ public class AccountDiffblueTest {
     actualAccount.setName("Name");
     actualAccount.setNote("Note");
     Saving saving = new Saving();
-    saving.setAmount(BigDecimal.valueOf(1L));
+    saving.setAmount(new BigDecimal("2.3"));
     saving.setCapitalization(true);
     saving.setCurrency(Currency.USD);
     saving.setDeposit(true);
-    saving.setInterest(BigDecimal.valueOf(1L));
+    saving.setInterest(new BigDecimal("2.3"));
     actualAccount.setSaving(saving);
     List<Item> actualExpenses = actualAccount.getExpenses();
     List<Item> actualIncomes = actualAccount.getIncomes();

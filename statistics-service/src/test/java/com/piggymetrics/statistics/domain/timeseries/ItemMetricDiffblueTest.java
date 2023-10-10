@@ -18,13 +18,18 @@ public class ItemMetricDiffblueTest {
   */
   @Test
   public void testConstructor() {
-    // Arrange and Act
-    ItemMetric actualItemMetric = new ItemMetric("Dr", BigDecimal.valueOf(1L));
+    // Arrange
+    BigDecimal amount = new BigDecimal("2.3");
+
+    // Act
+    ItemMetric actualItemMetric = new ItemMetric("Dr", amount);
     BigDecimal actualAmount = actualItemMetric.getAmount();
+    String actualTitle = actualItemMetric.getTitle();
 
     // Assert
-    assertSame(actualAmount.ONE, actualAmount);
-    assertEquals("Dr", actualItemMetric.getTitle());
+    assertSame(amount, actualAmount);
+    assertEquals(new BigDecimal("2.3"), actualAmount);
+    assertEquals("Dr", actualTitle);
   }
 
   /**
@@ -33,8 +38,8 @@ public class ItemMetricDiffblueTest {
   @Test
   public void testEquals() {
     // Arrange, Act and Assert
-    assertNotEquals(new ItemMetric("Dr", BigDecimal.valueOf(1L)), null);
-    assertNotEquals(new ItemMetric("Dr", BigDecimal.valueOf(1L)), "Different type to ItemMetric");
+    assertNotEquals(new ItemMetric("Dr", new BigDecimal("2.3")), null);
+    assertNotEquals(new ItemMetric("Dr", new BigDecimal("2.3")), "Different type to ItemMetric");
   }
 
   /**
@@ -48,7 +53,7 @@ public class ItemMetricDiffblueTest {
   @Test
   public void testEquals2() {
     // Arrange
-    ItemMetric itemMetric = new ItemMetric("Dr", BigDecimal.valueOf(1L));
+    ItemMetric itemMetric = new ItemMetric("Dr", new BigDecimal("2.3"));
 
     // Act and Assert
     assertEquals(itemMetric, itemMetric);
@@ -67,8 +72,8 @@ public class ItemMetricDiffblueTest {
   @Test
   public void testEquals3() {
     // Arrange
-    ItemMetric itemMetric = new ItemMetric("Dr", BigDecimal.valueOf(1L));
-    ItemMetric itemMetric2 = new ItemMetric("Dr", BigDecimal.valueOf(1L));
+    ItemMetric itemMetric = new ItemMetric("Dr", new BigDecimal("2.3"));
+    ItemMetric itemMetric2 = new ItemMetric("Dr", new BigDecimal("2.3"));
 
     // Act and Assert
     assertEquals(itemMetric, itemMetric2);
@@ -82,10 +87,10 @@ public class ItemMetricDiffblueTest {
   @Test
   public void testEquals4() {
     // Arrange
-    ItemMetric itemMetric = new ItemMetric("Mr", BigDecimal.valueOf(1L));
+    ItemMetric itemMetric = new ItemMetric("Mr", new BigDecimal("2.3"));
 
     // Act and Assert
-    assertNotEquals(itemMetric, new ItemMetric("Dr", BigDecimal.valueOf(1L)));
+    assertNotEquals(itemMetric, new ItemMetric("Dr", new BigDecimal("2.3")));
   }
 }
 

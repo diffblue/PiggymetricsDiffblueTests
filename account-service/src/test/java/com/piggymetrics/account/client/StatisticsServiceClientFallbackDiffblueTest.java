@@ -30,11 +30,11 @@ public class StatisticsServiceClientFallbackDiffblueTest {
   public void testUpdateStatistics() {
     // Arrange
     Saving saving = new Saving();
-    saving.setAmount(BigDecimal.valueOf(1L));
+    saving.setAmount(new BigDecimal("2.3"));
     saving.setCapitalization(true);
     saving.setCurrency(Currency.USD);
     saving.setDeposit(true);
-    saving.setInterest(BigDecimal.valueOf(1L));
+    saving.setInterest(new BigDecimal("2.3"));
 
     Account account = new Account();
     account.setExpenses(new ArrayList<>());
@@ -64,11 +64,11 @@ public class StatisticsServiceClientFallbackDiffblueTest {
   public void testUpdateStatistics2() {
     // Arrange
     Saving saving = new Saving();
-    saving.setAmount(BigDecimal.valueOf(1L));
+    saving.setAmount(new BigDecimal("2.3"));
     saving.setCapitalization(true);
     saving.setCurrency(Currency.USD);
     saving.setDeposit(true);
-    saving.setInterest(BigDecimal.valueOf(1L));
+    saving.setInterest(new BigDecimal("2.3"));
 
     Account account = new Account();
     account.setExpenses(new ArrayList<>());

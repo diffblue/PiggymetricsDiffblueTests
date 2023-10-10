@@ -45,11 +45,11 @@ public class AccountControllerDiffblueTest {
   public void testCreateNewAccount() throws Exception {
     // Arrange
     Saving saving = new Saving();
-    saving.setAmount(BigDecimal.valueOf(1L));
+    saving.setAmount(new BigDecimal("2.3"));
     saving.setCapitalization(true);
     saving.setCurrency(Currency.USD);
     saving.setDeposit(true);
-    saving.setInterest(BigDecimal.valueOf(1L));
+    saving.setInterest(new BigDecimal("2.3"));
 
     Account account = new Account();
     account.setExpenses(new ArrayList<>());
@@ -76,8 +76,8 @@ public class AccountControllerDiffblueTest {
         .andExpect(MockMvcResultMatchers.content().contentType("application/json;charset=UTF-8"))
         .andExpect(MockMvcResultMatchers.content()
             .string(
-                "{\"name\":\"Name\",\"lastSeen\":0,\"incomes\":[],\"expenses\":[],\"saving\":{\"amount\":1,\"currency\":\"USD\",\"interest"
-                    + "\":1,\"deposit\":true,\"capitalization\":true},\"note\":\"Note\"}"));
+                "{\"name\":\"Name\",\"lastSeen\":0,\"incomes\":[],\"expenses\":[],\"saving\":{\"amount\":2.3,\"currency\":\"USD\",\"interest"
+                    + "\":2.3,\"deposit\":true,\"capitalization\":true},\"note\":\"Note\"}"));
   }
 
   /**
@@ -87,11 +87,11 @@ public class AccountControllerDiffblueTest {
   public void testGetAccountByName() throws Exception {
     // Arrange
     Saving saving = new Saving();
-    saving.setAmount(BigDecimal.valueOf(1L));
+    saving.setAmount(new BigDecimal("2.3"));
     saving.setCapitalization(true);
     saving.setCurrency(Currency.USD);
     saving.setDeposit(true);
-    saving.setInterest(BigDecimal.valueOf(1L));
+    saving.setInterest(new BigDecimal("2.3"));
 
     Account account = new Account();
     account.setExpenses(new ArrayList<>());
@@ -111,8 +111,8 @@ public class AccountControllerDiffblueTest {
         .andExpect(MockMvcResultMatchers.content().contentType("application/json;charset=UTF-8"))
         .andExpect(MockMvcResultMatchers.content()
             .string(
-                "{\"name\":\"Name\",\"lastSeen\":0,\"incomes\":[],\"expenses\":[],\"saving\":{\"amount\":1,\"currency\":\"USD\",\"interest"
-                    + "\":1,\"deposit\":true,\"capitalization\":true},\"note\":\"Note\"}"));
+                "{\"name\":\"Name\",\"lastSeen\":0,\"incomes\":[],\"expenses\":[],\"saving\":{\"amount\":2.3,\"currency\":\"USD\",\"interest"
+                    + "\":2.3,\"deposit\":true,\"capitalization\":true},\"note\":\"Note\"}"));
   }
 
   /**
@@ -122,11 +122,11 @@ public class AccountControllerDiffblueTest {
   public void testGetCurrentAccount() throws Exception {
     // Arrange
     Saving saving = new Saving();
-    saving.setAmount(BigDecimal.valueOf(1L));
+    saving.setAmount(new BigDecimal("2.3"));
     saving.setCapitalization(true);
     saving.setCurrency(Currency.USD);
     saving.setDeposit(true);
-    saving.setInterest(BigDecimal.valueOf(1L));
+    saving.setInterest(new BigDecimal("2.3"));
 
     Account account = new Account();
     account.setExpenses(new ArrayList<>());
@@ -147,8 +147,8 @@ public class AccountControllerDiffblueTest {
         .andExpect(MockMvcResultMatchers.content().contentType("application/json;charset=UTF-8"))
         .andExpect(MockMvcResultMatchers.content()
             .string(
-                "{\"name\":\"Name\",\"lastSeen\":0,\"incomes\":[],\"expenses\":[],\"saving\":{\"amount\":1,\"currency\":\"USD\",\"interest"
-                    + "\":1,\"deposit\":true,\"capitalization\":true},\"note\":\"Note\"}"));
+                "{\"name\":\"Name\",\"lastSeen\":0,\"incomes\":[],\"expenses\":[],\"saving\":{\"amount\":2.3,\"currency\":\"USD\",\"interest"
+                    + "\":2.3,\"deposit\":true,\"capitalization\":true},\"note\":\"Note\"}"));
   }
 
   /**
@@ -165,7 +165,7 @@ public class AccountControllerDiffblueTest {
     saving.setCapitalization(true);
     saving.setCurrency(Currency.USD);
     saving.setDeposit(true);
-    saving.setInterest(BigDecimal.valueOf(1L));
+    saving.setInterest(new BigDecimal("2.3"));
 
     Account account = new Account();
     account.setExpenses(new ArrayList<>());
@@ -201,11 +201,11 @@ public class AccountControllerDiffblueTest {
     when(lastSeen.getTime()).thenReturn(10L);
 
     Saving saving = new Saving();
-    saving.setAmount(BigDecimal.valueOf(1L));
+    saving.setAmount(new BigDecimal("2.3"));
     saving.setCapitalization(true);
     saving.setCurrency(Currency.USD);
     saving.setDeposit(true);
-    saving.setInterest(BigDecimal.valueOf(1L));
+    saving.setInterest(new BigDecimal("2.3"));
 
     Account account = new Account();
     account.setExpenses(new ArrayList<>());

@@ -1,6 +1,5 @@
 package com.piggymetrics.account.service;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -40,11 +39,11 @@ public class AccountServiceImplDiffblueTest {
   public void testFindByName() {
     // Arrange
     Saving saving = new Saving();
-    saving.setAmount(BigDecimal.valueOf(1L));
+    saving.setAmount(new BigDecimal("2.3"));
     saving.setCapitalization(true);
     saving.setCurrency(Currency.USD);
     saving.setDeposit(true);
-    saving.setInterest(BigDecimal.valueOf(1L));
+    saving.setInterest(new BigDecimal("2.3"));
 
     Account account = new Account();
     account.setExpenses(new ArrayList<>());
@@ -55,12 +54,8 @@ public class AccountServiceImplDiffblueTest {
     account.setSaving(saving);
     when(accountRepository.findByName(Mockito.<String>any())).thenReturn(account);
 
-    // Act
-    Account actualFindByNameResult = accountServiceImpl.findByName("Dr Jane Doe");
-
-    // Assert
-    assertSame(account, actualFindByNameResult);
-    assertEquals("1", actualFindByNameResult.getSaving().getAmount().toString());
+    // Act and Assert
+    assertSame(account, accountServiceImpl.findByName("Dr Jane Doe"));
     verify(accountRepository).findByName(Mockito.<String>any());
   }
 }

@@ -72,7 +72,7 @@ public class StatisticsServiceImplDiffblueTest {
     // Arrange
     when(exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>());
     when(exchangeRatesService.convert(Mockito.<Currency>any(), Mockito.<Currency>any(), Mockito.<BigDecimal>any()))
-        .thenReturn(BigDecimal.valueOf(1L));
+        .thenReturn(new BigDecimal("2.3"));
 
     DataPoint dataPoint = new DataPoint();
     dataPoint.setExpenses(new HashSet<>());
@@ -84,11 +84,11 @@ public class StatisticsServiceImplDiffblueTest {
     when(dataPointRepository.save(Mockito.<DataPoint>any())).thenReturn(dataPoint);
 
     Saving saving = new Saving();
-    saving.setAmount(BigDecimal.valueOf(1L));
+    saving.setAmount(new BigDecimal("2.3"));
     saving.setCapitalization(true);
     saving.setCurrency(Currency.USD);
     saving.setDeposit(true);
-    saving.setInterest(BigDecimal.valueOf(1L));
+    saving.setInterest(new BigDecimal("2.3"));
 
     Account account = new Account();
     account.setExpenses(new ArrayList<>());
@@ -110,7 +110,7 @@ public class StatisticsServiceImplDiffblueTest {
     // Arrange
     when(exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>());
     when(exchangeRatesService.convert(Mockito.<Currency>any(), Mockito.<Currency>any(), Mockito.<BigDecimal>any()))
-        .thenReturn(BigDecimal.valueOf(1L));
+        .thenReturn(new BigDecimal("2.3"));
 
     DataPoint dataPoint = new DataPoint();
     dataPoint.setExpenses(new HashSet<>());
@@ -122,21 +122,21 @@ public class StatisticsServiceImplDiffblueTest {
     when(dataPointRepository.save(Mockito.<DataPoint>any())).thenReturn(dataPoint);
 
     Saving saving = new Saving();
-    saving.setAmount(BigDecimal.valueOf(1L));
+    saving.setAmount(new BigDecimal("2.3"));
     saving.setCapitalization(true);
     saving.setCurrency(Currency.USD);
     saving.setDeposit(true);
-    saving.setInterest(BigDecimal.valueOf(1L));
+    saving.setInterest(new BigDecimal("2.3"));
 
     Saving saving2 = new Saving();
-    saving2.setAmount(BigDecimal.valueOf(1L));
+    saving2.setAmount(new BigDecimal("2.3"));
     saving2.setCapitalization(true);
     saving2.setCurrency(Currency.USD);
     saving2.setDeposit(true);
-    saving2.setInterest(BigDecimal.valueOf(1L));
+    saving2.setInterest(new BigDecimal("2.3"));
 
     Item item = new Item();
-    item.setAmount(BigDecimal.valueOf(1L));
+    item.setAmount(new BigDecimal("2.3"));
     item.setCurrency(Currency.USD);
     item.setPeriod(TimePeriod.YEAR);
     item.setTitle("Dr");
@@ -176,7 +176,7 @@ public class StatisticsServiceImplDiffblueTest {
     // Arrange
     when(exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>());
     when(exchangeRatesService.convert(Mockito.<Currency>any(), Mockito.<Currency>any(), Mockito.<BigDecimal>any()))
-        .thenReturn(BigDecimal.valueOf(1L));
+        .thenReturn(new BigDecimal("2.3"));
 
     DataPoint dataPoint = new DataPoint();
     dataPoint.setExpenses(new HashSet<>());
@@ -188,27 +188,27 @@ public class StatisticsServiceImplDiffblueTest {
     when(dataPointRepository.save(Mockito.<DataPoint>any())).thenReturn(dataPoint);
 
     Saving saving = new Saving();
-    saving.setAmount(BigDecimal.valueOf(1L));
+    saving.setAmount(new BigDecimal("2.3"));
     saving.setCapitalization(true);
     saving.setCurrency(Currency.USD);
     saving.setDeposit(true);
-    saving.setInterest(BigDecimal.valueOf(1L));
+    saving.setInterest(new BigDecimal("2.3"));
 
     Saving saving2 = new Saving();
-    saving2.setAmount(BigDecimal.valueOf(1L));
+    saving2.setAmount(new BigDecimal("2.3"));
     saving2.setCapitalization(true);
     saving2.setCurrency(Currency.USD);
     saving2.setDeposit(true);
-    saving2.setInterest(BigDecimal.valueOf(1L));
+    saving2.setInterest(new BigDecimal("2.3"));
 
     Item item = new Item();
-    item.setAmount(BigDecimal.valueOf(1L));
+    item.setAmount(new BigDecimal("2.3"));
     item.setCurrency(Currency.USD);
     item.setPeriod(TimePeriod.YEAR);
     item.setTitle("Dr");
 
     Item item2 = new Item();
-    item2.setAmount(BigDecimal.valueOf(4L));
+    item2.setAmount(new BigDecimal("2.3"));
     item2.setCurrency(Currency.EUR);
     item2.setPeriod(TimePeriod.QUARTER);
     item2.setTitle("Mr");
@@ -249,7 +249,7 @@ public class StatisticsServiceImplDiffblueTest {
     // Arrange
     when(exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>());
     when(exchangeRatesService.convert(Mockito.<Currency>any(), Mockito.<Currency>any(), Mockito.<BigDecimal>any()))
-        .thenReturn(BigDecimal.valueOf(1L));
+        .thenReturn(new BigDecimal("2.3"));
 
     DataPoint dataPoint = new DataPoint();
     dataPoint.setExpenses(new HashSet<>());
@@ -261,21 +261,21 @@ public class StatisticsServiceImplDiffblueTest {
     when(dataPointRepository.save(Mockito.<DataPoint>any())).thenReturn(dataPoint);
 
     Saving saving = new Saving();
-    saving.setAmount(BigDecimal.valueOf(1L));
+    saving.setAmount(new BigDecimal("2.3"));
     saving.setCapitalization(true);
     saving.setCurrency(Currency.USD);
     saving.setDeposit(true);
-    saving.setInterest(BigDecimal.valueOf(1L));
+    saving.setInterest(new BigDecimal("2.3"));
 
     Saving saving2 = new Saving();
-    saving2.setAmount(BigDecimal.valueOf(1L));
+    saving2.setAmount(new BigDecimal("2.3"));
     saving2.setCapitalization(true);
     saving2.setCurrency(Currency.USD);
     saving2.setDeposit(true);
-    saving2.setInterest(BigDecimal.valueOf(1L));
+    saving2.setInterest(new BigDecimal("2.3"));
 
     Item item = new Item();
-    item.setAmount(BigDecimal.valueOf(1L));
+    item.setAmount(new BigDecimal("2.3"));
     item.setCurrency(Currency.USD);
     item.setPeriod(TimePeriod.YEAR);
     item.setTitle("Dr");

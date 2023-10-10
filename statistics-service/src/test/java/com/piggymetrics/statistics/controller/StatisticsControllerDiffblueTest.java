@@ -110,11 +110,11 @@ public class StatisticsControllerDiffblueTest {
     when(statisticsService.save(Mockito.<String>any(), Mockito.<Account>any())).thenReturn(dataPoint);
 
     Saving saving = new Saving();
-    saving.setAmount(BigDecimal.valueOf(1L));
+    saving.setAmount(new BigDecimal("2.3"));
     saving.setCapitalization(true);
     saving.setCurrency(Currency.USD);
     saving.setDeposit(true);
-    saving.setInterest(BigDecimal.valueOf(1L));
+    saving.setInterest(new BigDecimal("2.3"));
 
     Account account = new Account();
     account.setExpenses(new ArrayList<>());

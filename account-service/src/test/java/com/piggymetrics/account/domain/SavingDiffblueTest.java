@@ -28,11 +28,13 @@ public class SavingDiffblueTest {
   public void testConstructor() {
     // Arrange and Act
     Saving actualSaving = new Saving();
-    actualSaving.setAmount(BigDecimal.valueOf(1L));
+    BigDecimal amount = new BigDecimal("2.3");
+    actualSaving.setAmount(amount);
     actualSaving.setCapitalization(true);
     actualSaving.setCurrency(Currency.USD);
     actualSaving.setDeposit(true);
-    actualSaving.setInterest(BigDecimal.valueOf(1L));
+    BigDecimal interest = new BigDecimal("2.3");
+    actualSaving.setInterest(interest);
     BigDecimal actualAmount = actualSaving.getAmount();
     Boolean actualCapitalization = actualSaving.getCapitalization();
     Currency actualCurrency = actualSaving.getCurrency();
@@ -40,11 +42,13 @@ public class SavingDiffblueTest {
     BigDecimal actualInterest = actualSaving.getInterest();
 
     // Assert that nothing has changed
-    assertSame(actualInterest.ONE, actualAmount);
+    assertSame(amount, actualAmount);
+    assertEquals(new BigDecimal("2.3"), actualAmount);
     assertTrue(actualCapitalization);
     assertEquals(Currency.USD, actualCurrency);
     assertTrue(actualDeposit);
-    assertSame(actualAmount, actualInterest);
+    assertSame(interest, actualInterest);
+    assertEquals(new BigDecimal("2.3"), actualInterest);
   }
 }
 
