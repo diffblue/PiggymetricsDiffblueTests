@@ -1,13 +1,9 @@
 package com.piggymetrics.account.config;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import com.piggymetrics.account.repository.AccountRepository;
 import com.piggymetrics.account.service.security.CustomUserInfoTokenServices;
 import de.flapdoodle.embed.mongo.MongodExecutable;
-import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +11,7 @@ import org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceS
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.cloud.security.oauth2.client.feign.OAuth2FeignRequestInterceptor;
-import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.security.oauth2.client.OAuth2RestTemplate;
+import org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsResourceDetails;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @SpringBootTest
@@ -39,7 +34,7 @@ public class ResourceServerConfigDiffblueTest {
   @Test
   public void testClientCredentialsResourceDetails() {
     // Arrange, Act and Assert
-    assertNull(resourceServerConfig.clientCredentialsResourceDetails().getId());
+    assertTrue(resourceServerConfig.clientCredentialsResourceDetails().isClientOnly());
   }
 
   /**
@@ -56,14 +51,9 @@ public class ResourceServerConfigDiffblueTest {
    */
   @Test
   public void testClientCredentialsRestTemplate() {
-    // Arrange and Act
-    OAuth2RestTemplate actualClientCredentialsRestTemplateResult = resourceServerConfig.clientCredentialsRestTemplate();
-
-    // Assert
-    assertFalse(actualClientCredentialsRestTemplateResult.getResource().isScoped());
-    List<HttpMessageConverter<?>> messageConverters = actualClientCredentialsRestTemplateResult.getMessageConverters();
-    assertEquals(3, messageConverters.get(5).getSupportedMediaTypes().size());
-    assertEquals(2, messageConverters.get(6).getSupportedMediaTypes().size());
+    // Arrange, Act and Assert
+    assertTrue(
+        resourceServerConfig.clientCredentialsRestTemplate().getResource() instanceof ClientCredentialsResourceDetails);
   }
 
   /**
