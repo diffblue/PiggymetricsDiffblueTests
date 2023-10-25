@@ -13,8 +13,9 @@ import org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceS
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.cloud.security.oauth2.client.feign.OAuth2FeignRequestInterceptor;
-import org.springframework.security.oauth2.client.OAuth2RestTemplate;
-import org.springframework.security.oauth2.client.http.OAuth2ErrorHandler;
+import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
+import org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsResourceDetails;
+import org.springframework.security.oauth2.common.AuthenticationScheme;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @SpringBootTest
@@ -37,7 +38,8 @@ public class ResourceServerConfigDiffblueTest {
   @Test
   public void testClientCredentialsResourceDetails() {
     // Arrange, Act and Assert
-    assertNull(resourceServerConfig.clientCredentialsResourceDetails().getClientId());
+    assertEquals(AuthenticationScheme.header,
+        resourceServerConfig.clientCredentialsResourceDetails().getAuthenticationScheme());
   }
 
   /**
@@ -54,12 +56,10 @@ public class ResourceServerConfigDiffblueTest {
    */
   @Test
   public void testClientCredentialsRestTemplate() {
-    // Arrange and Act
-    OAuth2RestTemplate actualClientCredentialsRestTemplateResult = resourceServerConfig.clientCredentialsRestTemplate();
-
-    // Assert
-    assertTrue(actualClientCredentialsRestTemplateResult.getErrorHandler() instanceof OAuth2ErrorHandler);
-    assertEquals(1, actualClientCredentialsRestTemplateResult.getInterceptors().size());
+    // Arrange, Act and Assert
+    OAuth2ProtectedResourceDetails resource = resourceServerConfig.clientCredentialsRestTemplate().getResource();
+    assertTrue(resource instanceof ClientCredentialsResourceDetails);
+    assertNull(resource.getScope());
   }
 
   /**
