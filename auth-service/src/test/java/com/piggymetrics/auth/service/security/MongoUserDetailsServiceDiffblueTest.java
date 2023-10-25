@@ -13,6 +13,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -40,9 +41,12 @@ public class MongoUserDetailsServiceDiffblueTest {
     Optional<User> ofResult = Optional.of(user);
     when(userRepository.findById(Mockito.<String>any())).thenReturn(ofResult);
 
-    // Act and Assert
-    assertSame(user, mongoUserDetailsService.loadUserByUsername("janedoe"));
+    // Act
+    UserDetails actualLoadUserByUsernameResult = mongoUserDetailsService.loadUserByUsername("janedoe");
+
+    // Assert
     verify(userRepository).findById(Mockito.<String>any());
+    assertSame(user, actualLoadUserByUsernameResult);
   }
 
   /**

@@ -49,11 +49,11 @@ public class StatisticsServiceClientFallbackDiffblueTest {
     statisticsServiceClientFallback.updateStatistics("Dr Jane Doe", account);
 
     // Assert that nothing has changed
-    assertTrue(account.getExpenses().isEmpty());
-    assertSame(saving, account.getSaving());
-    assertEquals("Note", account.getNote());
-    assertTrue(account.getIncomes().isEmpty());
     assertEquals("Name", account.getName());
+    assertEquals("Note", account.getNote());
+    assertTrue(account.getExpenses().isEmpty());
+    assertTrue(account.getIncomes().isEmpty());
+    assertSame(saving, account.getSaving());
     assertSame(lastSeen, account.getLastSeen());
   }
 
@@ -82,11 +82,11 @@ public class StatisticsServiceClientFallbackDiffblueTest {
     statisticsServiceClientFallback.updateStatistics("Dr Jane Doe", account);
 
     // Assert that nothing has changed
-    assertTrue(account.getExpenses().isEmpty());
-    assertSame(saving, account.getSaving());
-    assertEquals("Note", account.getNote());
-    assertTrue(account.getIncomes().isEmpty());
     assertEquals("Name", account.getName());
+    assertEquals("Note", account.getNote());
+    assertTrue(account.getExpenses().isEmpty());
+    assertTrue(account.getIncomes().isEmpty());
+    assertSame(saving, account.getSaving());
   }
 }
 

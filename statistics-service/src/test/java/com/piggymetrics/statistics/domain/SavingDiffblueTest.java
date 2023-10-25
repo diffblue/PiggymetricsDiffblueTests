@@ -42,13 +42,13 @@ public class SavingDiffblueTest {
     BigDecimal actualInterest = actualSaving.getInterest();
 
     // Assert that nothing has changed
-    assertSame(amount, actualAmount);
-    assertEquals(new BigDecimal("2.3"), actualAmount);
-    assertTrue(actualCapitalization);
     assertEquals(Currency.USD, actualCurrency);
+    assertTrue(actualCapitalization);
     assertTrue(actualDeposit);
-    assertSame(interest, actualInterest);
+    assertEquals(new BigDecimal("2.3"), actualAmount);
     assertEquals(new BigDecimal("2.3"), actualInterest);
+    assertSame(amount, actualAmount);
+    assertSame(interest, actualInterest);
   }
 }
 

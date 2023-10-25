@@ -55,8 +55,8 @@ public class OAuth2AuthorizationConfigDiffblueTest {
     oAuth2AuthorizationConfig.configure(endpoints);
 
     // Assert
-    assertTrue(endpoints.isUserDetailsServiceOverride());
     assertTrue(endpoints.getTokenStore() instanceof InMemoryTokenStore);
+    assertTrue(endpoints.isUserDetailsServiceOverride());
   }
 
   /**

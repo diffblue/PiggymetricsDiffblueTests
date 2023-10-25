@@ -49,9 +49,12 @@ public class RecipientServiceImplDiffblueTest {
     recipient.setScheduledNotifications(new HashMap<>());
     when(recipientRepository.findByAccountName(Mockito.<String>any())).thenReturn(recipient);
 
-    // Act and Assert
-    assertSame(recipient, recipientServiceImpl.findByAccountName("Dr Jane Doe"));
+    // Act
+    Recipient actualFindByAccountNameResult = recipientServiceImpl.findByAccountName("Dr Jane Doe");
+
+    // Assert
     verify(recipientRepository).findByAccountName(Mockito.<String>any());
+    assertSame(recipient, actualFindByAccountNameResult);
   }
 
   /**
@@ -89,9 +92,9 @@ public class RecipientServiceImplDiffblueTest {
     Recipient actualSaveResult = recipientServiceImpl.save("Dr Jane Doe", recipient2);
 
     // Assert
-    assertSame(recipient2, actualSaveResult);
-    assertEquals("Dr Jane Doe", actualSaveResult.getAccountName());
     verify(recipientRepository).save(Mockito.<Recipient>any());
+    assertEquals("Dr Jane Doe", actualSaveResult.getAccountName());
+    assertSame(recipient2, actualSaveResult);
   }
 
   /**
@@ -124,9 +127,9 @@ public class RecipientServiceImplDiffblueTest {
     Recipient actualSaveResult = recipientServiceImpl.save("Dr Jane Doe", recipient2);
 
     // Assert
-    assertSame(recipient2, actualSaveResult);
-    assertEquals("Dr Jane Doe", actualSaveResult.getAccountName());
     verify(recipientRepository).save(Mockito.<Recipient>any());
+    assertEquals("Dr Jane Doe", actualSaveResult.getAccountName());
+    assertSame(recipient2, actualSaveResult);
   }
 
   /**
@@ -166,9 +169,9 @@ public class RecipientServiceImplDiffblueTest {
     Recipient actualSaveResult = recipientServiceImpl.save("Dr Jane Doe", recipient2);
 
     // Assert
-    assertSame(recipient2, actualSaveResult);
-    assertEquals("Dr Jane Doe", actualSaveResult.getAccountName());
     verify(recipientRepository).save(Mockito.<Recipient>any());
+    assertEquals("Dr Jane Doe", actualSaveResult.getAccountName());
+    assertSame(recipient2, actualSaveResult);
   }
 
   /**
@@ -220,9 +223,9 @@ public class RecipientServiceImplDiffblueTest {
     Recipient actualSaveResult = recipientServiceImpl.save("Dr Jane Doe", recipient2);
 
     // Assert
-    assertSame(recipient2, actualSaveResult);
-    assertEquals("Dr Jane Doe", actualSaveResult.getAccountName());
     verify(recipientRepository).save(Mockito.<Recipient>any());
+    assertEquals("Dr Jane Doe", actualSaveResult.getAccountName());
+    assertSame(recipient2, actualSaveResult);
   }
 
   /**
@@ -238,9 +241,9 @@ public class RecipientServiceImplDiffblueTest {
     List<Recipient> actualFindReadyToNotifyResult = recipientServiceImpl.findReadyToNotify(NotificationType.BACKUP);
 
     // Assert
-    assertSame(recipientList, actualFindReadyToNotifyResult);
-    assertTrue(actualFindReadyToNotifyResult.isEmpty());
     verify(recipientRepository).findReadyForBackup();
+    assertTrue(actualFindReadyToNotifyResult.isEmpty());
+    assertSame(recipientList, actualFindReadyToNotifyResult);
   }
 
   /**
@@ -256,9 +259,9 @@ public class RecipientServiceImplDiffblueTest {
     List<Recipient> actualFindReadyToNotifyResult = recipientServiceImpl.findReadyToNotify(NotificationType.REMIND);
 
     // Assert
-    assertSame(recipientList, actualFindReadyToNotifyResult);
-    assertTrue(actualFindReadyToNotifyResult.isEmpty());
     verify(recipientRepository).findReadyForRemind();
+    assertTrue(actualFindReadyToNotifyResult.isEmpty());
+    assertSame(recipientList, actualFindReadyToNotifyResult);
   }
 
   /**

@@ -54,9 +54,12 @@ public class AccountServiceImplDiffblueTest {
     account.setSaving(saving);
     when(accountRepository.findByName(Mockito.<String>any())).thenReturn(account);
 
-    // Act and Assert
-    assertSame(account, accountServiceImpl.findByName("Dr Jane Doe"));
+    // Act
+    Account actualFindByNameResult = accountServiceImpl.findByName("Dr Jane Doe");
+
+    // Assert
     verify(accountRepository).findByName(Mockito.<String>any());
+    assertSame(account, actualFindByNameResult);
   }
 }
 

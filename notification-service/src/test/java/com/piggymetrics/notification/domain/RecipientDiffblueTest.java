@@ -35,9 +35,9 @@ public class RecipientDiffblueTest {
 
     // Assert that nothing has changed
     assertEquals("Dr Jane Doe", actualAccountName);
+    assertEquals("Recipient{accountName='Dr Jane Doe', email='jane.doe@example.org'}", actualToStringResult);
     assertEquals("jane.doe@example.org", actualEmail);
     assertSame(scheduledNotifications, actualRecipient.getScheduledNotifications());
-    assertEquals("Recipient{accountName='Dr Jane Doe', email='jane.doe@example.org'}", actualToStringResult);
   }
 }
 

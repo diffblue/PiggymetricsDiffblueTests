@@ -39,9 +39,9 @@ public class AccountDiffblueTest {
     List<Item> actualIncomes = actualAccount.getIncomes();
 
     // Assert that nothing has changed
+    assertSame(saving, actualAccount.getSaving());
     assertSame(expenses, actualExpenses);
     assertSame(incomes, actualIncomes);
-    assertSame(saving, actualAccount.getSaving());
   }
 }
 

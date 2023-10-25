@@ -52,10 +52,10 @@ public class ExchangeRatesContainerDiffblueTest {
     LocalDate actualDate = exchangeRatesContainer.getDate();
 
     // Assert that nothing has changed
-    assertEquals(Currency.USD, actualBase);
-    assertSame(date, actualDate);
-    assertSame(rates, exchangeRatesContainer.getRates());
     assertEquals("RateList{date=1970-01-01, base=USD, rates={}}", actualToStringResult);
+    assertEquals(Currency.USD, actualBase);
+    assertSame(rates, exchangeRatesContainer.getRates());
+    assertSame(date, actualDate);
   }
 }
 

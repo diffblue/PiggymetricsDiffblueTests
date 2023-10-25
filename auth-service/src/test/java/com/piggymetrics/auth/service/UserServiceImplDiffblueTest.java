@@ -69,8 +69,8 @@ public class UserServiceImplDiffblueTest {
     userServiceImpl.create(user2);
 
     // Assert
-    verify(userRepository).save(Mockito.<User>any());
     verify(userRepository).findById(Mockito.<String>any());
+    verify(userRepository).save(Mockito.<User>any());
   }
 
   /**

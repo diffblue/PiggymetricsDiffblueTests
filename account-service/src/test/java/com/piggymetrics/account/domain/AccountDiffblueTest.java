@@ -56,12 +56,12 @@ public class AccountDiffblueTest {
     String actualNote = actualAccount.getNote();
 
     // Assert that nothing has changed
-    assertSame(expenses, actualExpenses);
-    assertSame(incomes, actualIncomes);
-    assertSame(lastSeen, actualLastSeen);
     assertEquals("Name", actualName);
     assertEquals("Note", actualNote);
     assertSame(saving, actualAccount.getSaving());
+    assertSame(expenses, actualExpenses);
+    assertSame(incomes, actualIncomes);
+    assertSame(lastSeen, actualLastSeen);
   }
 }
 

@@ -52,11 +52,11 @@ public class DataPointDiffblueTest {
     Map<Currency, BigDecimal> actualRates = actualDataPoint.getRates();
 
     // Assert that nothing has changed
-    assertSame(expenses, actualExpenses);
     assertSame(id, actualId);
-    assertSame(incomes, actualIncomes);
     assertSame(rates, actualRates);
     assertSame(statistics, actualDataPoint.getStatistics());
+    assertSame(expenses, actualExpenses);
+    assertSame(incomes, actualIncomes);
   }
 }
 

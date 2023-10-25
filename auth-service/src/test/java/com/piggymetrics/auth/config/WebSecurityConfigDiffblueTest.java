@@ -55,10 +55,10 @@ public class WebSecurityConfigDiffblueTest {
     assertTrue(auth.getDefaultUserDetailsService() instanceof MongoUserDetailsService);
     assertTrue(((DaoAuthenticationProvider) ((ProviderManager) auth.getOrBuild()).getProviders().get(0))
         .getUserCache() instanceof NullUserCache);
-    assertTrue(((DaoAuthenticationProvider) ((ProviderManager) auth.getOrBuild()).getProviders().get(0))
-        .isHideUserNotFoundExceptions());
     assertFalse(((DaoAuthenticationProvider) ((ProviderManager) auth.getOrBuild()).getProviders().get(0))
         .isForcePrincipalAsString());
+    assertTrue(((DaoAuthenticationProvider) ((ProviderManager) auth.getOrBuild()).getProviders().get(0))
+        .isHideUserNotFoundExceptions());
   }
 
   /**
@@ -77,10 +77,10 @@ public class WebSecurityConfigDiffblueTest {
     assertTrue(auth.getDefaultUserDetailsService() instanceof MongoUserDetailsService);
     assertTrue(((DaoAuthenticationProvider) ((ProviderManager) auth.getOrBuild()).getProviders().get(0))
         .getUserCache() instanceof NullUserCache);
-    assertTrue(((DaoAuthenticationProvider) ((ProviderManager) auth.getOrBuild()).getProviders().get(0))
-        .isHideUserNotFoundExceptions());
     assertFalse(((DaoAuthenticationProvider) ((ProviderManager) auth.getOrBuild()).getProviders().get(0))
         .isForcePrincipalAsString());
+    assertTrue(((DaoAuthenticationProvider) ((ProviderManager) auth.getOrBuild()).getProviders().get(0))
+        .isHideUserNotFoundExceptions());
   }
 }
 

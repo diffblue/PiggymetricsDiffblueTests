@@ -33,14 +33,13 @@ public class ItemDiffblueTest {
     BigDecimal actualAmount = actualItem.getAmount();
     Currency actualCurrency = actualItem.getCurrency();
     TimePeriod actualPeriod = actualItem.getPeriod();
-    String actualTitle = actualItem.getTitle();
 
     // Assert that nothing has changed
-    assertSame(amount, actualAmount);
-    assertEquals(new BigDecimal("2.3"), actualAmount);
+    assertEquals("Dr", actualItem.getTitle());
     assertEquals(Currency.USD, actualCurrency);
     assertEquals(TimePeriod.YEAR, actualPeriod);
-    assertEquals("Dr", actualTitle);
+    assertEquals(new BigDecimal("2.3"), actualAmount);
+    assertSame(amount, actualAmount);
   }
 }
 

@@ -59,9 +59,9 @@ public class StatisticsServiceImplDiffblueTest {
     List<DataPoint> actualFindByAccountNameResult = statisticsServiceImpl.findByAccountName("Dr Jane Doe");
 
     // Assert
-    assertSame(dataPointList, actualFindByAccountNameResult);
-    assertTrue(actualFindByAccountNameResult.isEmpty());
     verify(dataPointRepository).findByIdAccount(Mockito.<String>any());
+    assertTrue(actualFindByAccountNameResult.isEmpty());
+    assertSame(dataPointList, actualFindByAccountNameResult);
   }
 
   /**
@@ -95,11 +95,14 @@ public class StatisticsServiceImplDiffblueTest {
     account.setIncomes(new ArrayList<>());
     account.setSaving(saving);
 
-    // Act and Assert
-    assertSame(dataPoint, statisticsServiceImpl.save("Dr Jane Doe", account));
+    // Act
+    DataPoint actualSaveResult = statisticsServiceImpl.save("Dr Jane Doe", account);
+
+    // Assert
     verify(exchangeRatesService).convert(Mockito.<Currency>any(), Mockito.<Currency>any(), Mockito.<BigDecimal>any());
     verify(exchangeRatesService).getCurrentRates();
     verify(dataPointRepository).save(Mockito.<DataPoint>any());
+    assertSame(dataPoint, actualSaveResult);
   }
 
   /**
@@ -154,18 +157,21 @@ public class StatisticsServiceImplDiffblueTest {
     account.setIncomes(new ArrayList<>());
     account.setSaving(saving);
 
-    // Act and Assert
-    assertSame(dataPoint, statisticsServiceImpl.save("Dr Jane Doe", account));
+    // Act
+    DataPoint actualSaveResult = statisticsServiceImpl.save("Dr Jane Doe", account);
+
+    // Assert
+    verify(account).getExpenses();
+    verify(account).getIncomes();
+    verify(account).getSaving();
+    verify(account).setExpenses(Mockito.<List<Item>>any());
+    verify(account).setIncomes(Mockito.<List<Item>>any());
+    verify(account).setSaving(Mockito.<Saving>any());
     verify(exchangeRatesService, atLeast(1)).convert(Mockito.<Currency>any(), Mockito.<Currency>any(),
         Mockito.<BigDecimal>any());
     verify(exchangeRatesService).getCurrentRates();
     verify(dataPointRepository).save(Mockito.<DataPoint>any());
-    verify(account).getSaving();
-    verify(account).getExpenses();
-    verify(account).getIncomes();
-    verify(account).setExpenses(Mockito.<List<Item>>any());
-    verify(account).setIncomes(Mockito.<List<Item>>any());
-    verify(account).setSaving(Mockito.<Saving>any());
+    assertSame(dataPoint, actualSaveResult);
   }
 
   /**
@@ -227,18 +233,21 @@ public class StatisticsServiceImplDiffblueTest {
     account.setIncomes(new ArrayList<>());
     account.setSaving(saving);
 
-    // Act and Assert
-    assertSame(dataPoint, statisticsServiceImpl.save("Dr Jane Doe", account));
+    // Act
+    DataPoint actualSaveResult = statisticsServiceImpl.save("Dr Jane Doe", account);
+
+    // Assert
+    verify(account).getExpenses();
+    verify(account).getIncomes();
+    verify(account).getSaving();
+    verify(account).setExpenses(Mockito.<List<Item>>any());
+    verify(account).setIncomes(Mockito.<List<Item>>any());
+    verify(account).setSaving(Mockito.<Saving>any());
     verify(exchangeRatesService, atLeast(1)).convert(Mockito.<Currency>any(), Mockito.<Currency>any(),
         Mockito.<BigDecimal>any());
     verify(exchangeRatesService).getCurrentRates();
     verify(dataPointRepository).save(Mockito.<DataPoint>any());
-    verify(account).getSaving();
-    verify(account).getExpenses();
-    verify(account).getIncomes();
-    verify(account).setExpenses(Mockito.<List<Item>>any());
-    verify(account).setIncomes(Mockito.<List<Item>>any());
-    verify(account).setSaving(Mockito.<Saving>any());
+    assertSame(dataPoint, actualSaveResult);
   }
 
   /**
@@ -293,18 +302,21 @@ public class StatisticsServiceImplDiffblueTest {
     account.setIncomes(new ArrayList<>());
     account.setSaving(saving);
 
-    // Act and Assert
-    assertSame(dataPoint, statisticsServiceImpl.save("Dr Jane Doe", account));
+    // Act
+    DataPoint actualSaveResult = statisticsServiceImpl.save("Dr Jane Doe", account);
+
+    // Assert
+    verify(account).getExpenses();
+    verify(account).getIncomes();
+    verify(account).getSaving();
+    verify(account).setExpenses(Mockito.<List<Item>>any());
+    verify(account).setIncomes(Mockito.<List<Item>>any());
+    verify(account).setSaving(Mockito.<Saving>any());
     verify(exchangeRatesService, atLeast(1)).convert(Mockito.<Currency>any(), Mockito.<Currency>any(),
         Mockito.<BigDecimal>any());
     verify(exchangeRatesService).getCurrentRates();
     verify(dataPointRepository).save(Mockito.<DataPoint>any());
-    verify(account).getSaving();
-    verify(account).getExpenses();
-    verify(account).getIncomes();
-    verify(account).setExpenses(Mockito.<List<Item>>any());
-    verify(account).setIncomes(Mockito.<List<Item>>any());
-    verify(account).setSaving(Mockito.<Saving>any());
+    assertSame(dataPoint, actualSaveResult);
   }
 }
 

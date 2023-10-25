@@ -24,12 +24,11 @@ public class ItemMetricDiffblueTest {
     // Act
     ItemMetric actualItemMetric = new ItemMetric("Dr", amount);
     BigDecimal actualAmount = actualItemMetric.getAmount();
-    String actualTitle = actualItemMetric.getTitle();
 
     // Assert
-    assertSame(amount, actualAmount);
+    assertEquals("Dr", actualItemMetric.getTitle());
     assertEquals(new BigDecimal("2.3"), actualAmount);
-    assertEquals("Dr", actualTitle);
+    assertSame(amount, actualAmount);
   }
 
   /**
