@@ -13,6 +13,7 @@ import org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceS
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.cloud.security.oauth2.client.feign.OAuth2FeignRequestInterceptor;
+import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
 import org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsResourceDetails;
 import org.springframework.security.oauth2.common.AuthenticationScheme;
@@ -37,9 +38,15 @@ public class ResourceServerConfigDiffblueTest {
   */
   @Test
   public void testClientCredentialsResourceDetails() {
-    // Arrange, Act and Assert
+    // Arrange and Act
+    ClientCredentialsResourceDetails actualClientCredentialsResourceDetailsResult = resourceServerConfig
+        .clientCredentialsResourceDetails();
+
+    // Assert
+    assertNull(actualClientCredentialsResourceDetailsResult.getId());
+    assertEquals(AuthenticationScheme.header, actualClientCredentialsResourceDetailsResult.getAuthenticationScheme());
     assertEquals(AuthenticationScheme.header,
-        resourceServerConfig.clientCredentialsResourceDetails().getAuthenticationScheme());
+        actualClientCredentialsResourceDetailsResult.getClientAuthenticationScheme());
   }
 
   /**
@@ -56,10 +63,15 @@ public class ResourceServerConfigDiffblueTest {
    */
   @Test
   public void testClientCredentialsRestTemplate() {
-    // Arrange, Act and Assert
-    OAuth2ProtectedResourceDetails resource = resourceServerConfig.clientCredentialsRestTemplate().getResource();
-    assertTrue(resource instanceof ClientCredentialsResourceDetails);
-    assertNull(resource.getScope());
+    // Arrange and Act
+    OAuth2RestTemplate actualClientCredentialsRestTemplateResult = resourceServerConfig.clientCredentialsRestTemplate();
+
+    // Assert
+    OAuth2ProtectedResourceDetails resource = actualClientCredentialsRestTemplateResult.getResource();
+    assertEquals("access_token", resource.getTokenName());
+    assertNull(actualClientCredentialsRestTemplateResult.getOAuth2ClientContext().getAccessToken());
+    assertEquals(1, actualClientCredentialsRestTemplateResult.getInterceptors().size());
+    assertEquals(AuthenticationScheme.header, resource.getClientAuthenticationScheme());
   }
 
   /**

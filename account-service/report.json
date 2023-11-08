@@ -3,19 +3,19 @@
     "reportVersion" : "2.5"
   },
   "run" : {
-    "version" : "2023.10.02-9fa722d-licensed",
-    "creationTimestamp" : "2023-10-25T17:11:29.143+01:00",
+    "version" : "2023.11.01-fe2f45b-licensed",
+    "creationTimestamp" : "2023-11-08T11:24:47.378Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --working-directory=account-service",
-    "totalTime" : 506.959,
-    "environmentDetectionTime" : 0.934,
-    "indexingTime" : 0.403,
-    "entryPointsTime" : 0.908,
-    "generationTime" : 375.217,
-    "timeToFirstTest" : 66.731,
-    "timeToLastTest" : 438.611,
-    "indexQueryTime" : 21.543,
-    "verificationTime" : 34.261,
-    "validationTime" : 28.11
+    "totalTime" : 486.227,
+    "environmentDetectionTime" : 0.855,
+    "indexingTime" : 0.381,
+    "entryPointsTime" : 0.828,
+    "generationTime" : 360.093,
+    "timeToFirstTest" : 65.769,
+    "timeToLastTest" : 422.855,
+    "indexQueryTime" : 20.499,
+    "verificationTime" : 33.826,
+    "validationTime" : 26.162
   },
   "codes" : {
     "E052" : "Missing dependency",
