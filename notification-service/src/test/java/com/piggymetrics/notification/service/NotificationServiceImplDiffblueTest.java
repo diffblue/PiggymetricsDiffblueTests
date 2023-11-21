@@ -191,7 +191,7 @@ public class NotificationServiceImplDiffblueTest {
 
     Recipient recipient2 = new Recipient();
     recipient2.setAccountName("Mr John Smith");
-    recipient2.setEmail("john.smith@example.org");
+    recipient2.setEmail("42");
     recipient2.setScheduledNotifications(new HashMap<>());
 
     Recipient recipient3 = new Recipient();
@@ -199,13 +199,7 @@ public class NotificationServiceImplDiffblueTest {
     recipient3.setEmail("prof.einstein@example.org");
     recipient3.setScheduledNotifications(new HashMap<>());
 
-    Recipient recipient4 = new Recipient();
-    recipient4.setAccountName("Mr John Smith");
-    recipient4.setEmail("john.smith@example.org");
-    recipient4.setScheduledNotifications(new HashMap<>());
-
     ArrayList<Recipient> recipientList = new ArrayList<>();
-    recipientList.add(recipient4);
     recipientList.add(recipient3);
     recipientList.add(recipient2);
     recipientList.add(recipient);

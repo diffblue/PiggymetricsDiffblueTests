@@ -1,5 +1,6 @@
 package com.piggymetrics.account.config;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import com.piggymetrics.account.repository.AccountRepository;
@@ -12,11 +13,9 @@ import org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceS
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.cloud.security.oauth2.client.feign.OAuth2FeignRequestInterceptor;
-import org.springframework.security.oauth2.client.DefaultOAuth2ClientContext;
 import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 import org.springframework.security.oauth2.client.http.OAuth2ErrorHandler;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.web.util.DefaultUriBuilderFactory;
 
 @SpringBootTest
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -62,10 +61,9 @@ public class ResourceServerConfigDiffblueTest {
     OAuth2RestTemplate actualClientCredentialsRestTemplateResult = resourceServerConfig.clientCredentialsRestTemplate();
 
     // Assert
-    assertTrue(
-        actualClientCredentialsRestTemplateResult.getOAuth2ClientContext() instanceof DefaultOAuth2ClientContext);
     assertTrue(actualClientCredentialsRestTemplateResult.getErrorHandler() instanceof OAuth2ErrorHandler);
-    assertTrue(actualClientCredentialsRestTemplateResult.getUriTemplateHandler() instanceof DefaultUriBuilderFactory);
+    assertNull(actualClientCredentialsRestTemplateResult.getResource().getAccessTokenUri());
+    assertEquals(7, actualClientCredentialsRestTemplateResult.getMessageConverters().size());
   }
 
   /**

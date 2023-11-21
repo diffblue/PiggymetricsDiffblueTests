@@ -5,12 +5,19 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import com.piggymetrics.notification.repository.RecipientRepository;
 import de.flapdoodle.embed.mongo.MongodExecutable;
+import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.cloud.security.oauth2.client.feign.OAuth2FeignRequestInterceptor;
+import org.springframework.http.converter.ByteArrayHttpMessageConverter;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.security.oauth2.client.OAuth2RestTemplate;
+import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
+import org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsResourceDetails;
+import org.springframework.security.oauth2.common.AuthenticationScheme;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @SpringBootTest
@@ -24,14 +31,27 @@ public class ResourceServerConfigDiffblueTest {
 
   @Autowired
   private ResourceServerConfig resourceServerConfig;
+
   /**
    * Method under test:
    * {@link ResourceServerConfig#clientCredentialsResourceDetails()}
    */
   @Test
   public void testClientCredentialsResourceDetails() {
-    // Arrange, Act and Assert
-    assertNull(resourceServerConfig.clientCredentialsResourceDetails().getId());
+    //   Diffblue Cover was unable to write a Spring test,
+    //   so wrote a non-Spring test instead.
+    //   Diffblue AI was unable to find a test
+
+    // Arrange and Act
+    ClientCredentialsResourceDetails actualClientCredentialsResourceDetailsResult = (new ResourceServerConfig())
+        .clientCredentialsResourceDetails();
+
+    // Assert
+    assertEquals("access_token", actualClientCredentialsResourceDetailsResult.getTokenName());
+    assertEquals("client_credentials", actualClientCredentialsResourceDetailsResult.getGrantType());
+    assertEquals(AuthenticationScheme.header, actualClientCredentialsResourceDetailsResult.getAuthenticationScheme());
+    assertEquals(AuthenticationScheme.header,
+        actualClientCredentialsResourceDetailsResult.getClientAuthenticationScheme());
   }
 
   /**
@@ -50,7 +70,18 @@ public class ResourceServerConfigDiffblueTest {
    */
   @Test
   public void testClientCredentialsRestTemplate() {
-    // Arrange, Act and Assert
-    assertEquals(1, resourceServerConfig.clientCredentialsRestTemplate().getInterceptors().size());
+    // Arrange and Act
+    OAuth2RestTemplate actualClientCredentialsRestTemplateResult = resourceServerConfig.clientCredentialsRestTemplate();
+
+    // Assert
+    OAuth2ProtectedResourceDetails resource = actualClientCredentialsRestTemplateResult.getResource();
+    assertNull(resource.getAccessTokenUri());
+    assertNull(resource.getClientId());
+    assertNull(resource.getClientSecret());
+    List<HttpMessageConverter<?>> messageConverters = actualClientCredentialsRestTemplateResult.getMessageConverters();
+    HttpMessageConverter<?> getResult = messageConverters.get(0);
+    assertNull(((ByteArrayHttpMessageConverter) getResult).getDefaultCharset());
+    assertEquals(2, getResult.getSupportedMediaTypes().size());
+    assertEquals(3, messageConverters.get(5).getSupportedMediaTypes().size());
   }
 }
