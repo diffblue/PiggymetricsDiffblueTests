@@ -30,8 +30,8 @@ public class MongoUserDetailsServiceDiffblueTest {
   @MockBean
   private UserRepository userRepository;
   /**
-  * Method under test: {@link MongoUserDetailsService#loadUserByUsername(String)}
-  */
+   * Method under test: {@link MongoUserDetailsService#loadUserByUsername(String)}
+   */
   @Test
   public void testLoadUserByUsername() throws UsernameNotFoundException {
     // Arrange
@@ -78,4 +78,3 @@ public class MongoUserDetailsServiceDiffblueTest {
     verify(userRepository).findById(Mockito.<String>any());
   }
 }
-

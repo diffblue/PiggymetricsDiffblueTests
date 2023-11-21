@@ -9,15 +9,15 @@ import org.junit.Test;
 
 public class DataPointIdDiffblueTest {
   /**
-  * Methods under test: 
-  * 
-  * <ul>
-  *   <li>{@link DataPointId#DataPointId(String, Date)}
-  *   <li>{@link DataPointId#toString()}
-  *   <li>{@link DataPointId#getAccount()}
-  *   <li>{@link DataPointId#getDate()}
-  * </ul>
-  */
+   * Methods under test:
+   * 
+   * <ul>
+   *   <li>{@link DataPointId#DataPointId(String, Date)}
+   *   <li>{@link DataPointId#toString()}
+   *   <li>{@link DataPointId#getAccount()}
+   *   <li>{@link DataPointId#getDate()}
+   * </ul>
+   */
   @Test
   public void testConstructor() {
     // Arrange
@@ -33,4 +33,3 @@ public class DataPointIdDiffblueTest {
     assertSame(date, actualDataPointId.getDate());
   }
 }
-

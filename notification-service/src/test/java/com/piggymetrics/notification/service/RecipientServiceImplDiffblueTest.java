@@ -38,8 +38,8 @@ public class RecipientServiceImplDiffblueTest {
   @Autowired
   private RecipientServiceImpl recipientServiceImpl;
   /**
-  * Method under test: {@link RecipientServiceImpl#findByAccountName(String)}
-  */
+   * Method under test: {@link RecipientServiceImpl#findByAccountName(String)}
+   */
   @Test
   public void testFindByAccountName() {
     // Arrange
@@ -229,7 +229,8 @@ public class RecipientServiceImplDiffblueTest {
   }
 
   /**
-   * Method under test: {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
+   * Method under test:
+   * {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
    */
   @Test
   public void testFindReadyToNotify() {
@@ -247,7 +248,8 @@ public class RecipientServiceImplDiffblueTest {
   }
 
   /**
-   * Method under test: {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
+   * Method under test:
+   * {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
    */
   @Test
   public void testFindReadyToNotify2() {
@@ -265,7 +267,8 @@ public class RecipientServiceImplDiffblueTest {
   }
 
   /**
-   * Method under test: {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
+   * Method under test:
+   * {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
    */
   @Test
   public void testFindReadyToNotify3() {
@@ -279,7 +282,8 @@ public class RecipientServiceImplDiffblueTest {
   }
 
   /**
-   * Method under test: {@link RecipientServiceImpl#markNotified(NotificationType, Recipient)}
+   * Method under test:
+   * {@link RecipientServiceImpl#markNotified(NotificationType, Recipient)}
    */
   @Test
   public void testMarkNotified() {
@@ -312,7 +316,8 @@ public class RecipientServiceImplDiffblueTest {
   }
 
   /**
-   * Method under test: {@link RecipientServiceImpl#markNotified(NotificationType, Recipient)}
+   * Method under test:
+   * {@link RecipientServiceImpl#markNotified(NotificationType, Recipient)}
    */
   @Test
   public void testMarkNotified2() {
@@ -339,4 +344,3 @@ public class RecipientServiceImplDiffblueTest {
     verify(recipientRepository).save(Mockito.<Recipient>any());
   }
 }
-

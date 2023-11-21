@@ -24,8 +24,9 @@ public class StatisticsServiceClientFallbackDiffblueTest {
   @Autowired
   private StatisticsServiceClientFallback statisticsServiceClientFallback;
   /**
-  * Method under test: {@link StatisticsServiceClientFallback#updateStatistics(String, Account)}
-  */
+   * Method under test:
+   * {@link StatisticsServiceClientFallback#updateStatistics(String, Account)}
+   */
   @Test
   public void testUpdateStatistics() {
     // Arrange
@@ -58,7 +59,8 @@ public class StatisticsServiceClientFallbackDiffblueTest {
   }
 
   /**
-   * Method under test: {@link StatisticsServiceClientFallback#updateStatistics(String, Account)}
+   * Method under test:
+   * {@link StatisticsServiceClientFallback#updateStatistics(String, Account)}
    */
   @Test
   public void testUpdateStatistics2() {
@@ -89,4 +91,3 @@ public class StatisticsServiceClientFallbackDiffblueTest {
     assertSame(saving, account.getSaving());
   }
 }
-

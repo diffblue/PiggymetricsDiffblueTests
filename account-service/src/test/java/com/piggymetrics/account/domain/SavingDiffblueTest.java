@@ -8,22 +8,22 @@ import org.junit.Test;
 
 public class SavingDiffblueTest {
   /**
-  * Methods under test: 
-  * 
-  * <ul>
-  *   <li>default or parameterless constructor of {@link Saving}
-  *   <li>{@link Saving#setAmount(BigDecimal)}
-  *   <li>{@link Saving#setCapitalization(Boolean)}
-  *   <li>{@link Saving#setCurrency(Currency)}
-  *   <li>{@link Saving#setDeposit(Boolean)}
-  *   <li>{@link Saving#setInterest(BigDecimal)}
-  *   <li>{@link Saving#getAmount()}
-  *   <li>{@link Saving#getCapitalization()}
-  *   <li>{@link Saving#getCurrency()}
-  *   <li>{@link Saving#getDeposit()}
-  *   <li>{@link Saving#getInterest()}
-  * </ul>
-  */
+   * Methods under test:
+   * 
+   * <ul>
+   *   <li>default or parameterless constructor of {@link Saving}
+   *   <li>{@link Saving#setAmount(BigDecimal)}
+   *   <li>{@link Saving#setCapitalization(Boolean)}
+   *   <li>{@link Saving#setCurrency(Currency)}
+   *   <li>{@link Saving#setDeposit(Boolean)}
+   *   <li>{@link Saving#setInterest(BigDecimal)}
+   *   <li>{@link Saving#getAmount()}
+   *   <li>{@link Saving#getCapitalization()}
+   *   <li>{@link Saving#getCurrency()}
+   *   <li>{@link Saving#getDeposit()}
+   *   <li>{@link Saving#getInterest()}
+   * </ul>
+   */
   @Test
   public void testConstructor() {
     // Arrange and Act
@@ -51,4 +51,3 @@ public class SavingDiffblueTest {
     assertSame(interest, actualInterest);
   }
 }
-

@@ -11,7 +11,8 @@ import org.junit.Test;
 
 public class ExchangeRatesContainerDiffblueTest {
   /**
-   * Method under test: default or parameterless constructor of {@link ExchangeRatesContainer}
+   * Method under test: default or parameterless constructor of
+   * {@link ExchangeRatesContainer}
    */
   @Test
   public void testConstructor() {
@@ -24,18 +25,18 @@ public class ExchangeRatesContainerDiffblueTest {
   }
 
   /**
-  * Methods under test: 
-  * 
-  * <ul>
-  *   <li>{@link ExchangeRatesContainer#setBase(Currency)}
-  *   <li>{@link ExchangeRatesContainer#setDate(LocalDate)}
-  *   <li>{@link ExchangeRatesContainer#setRates(Map)}
-  *   <li>{@link ExchangeRatesContainer#toString()}
-  *   <li>{@link ExchangeRatesContainer#getBase()}
-  *   <li>{@link ExchangeRatesContainer#getDate()}
-  *   <li>{@link ExchangeRatesContainer#getRates()}
-  * </ul>
-  */
+   * Methods under test:
+   * 
+   * <ul>
+   *   <li>{@link ExchangeRatesContainer#setBase(Currency)}
+   *   <li>{@link ExchangeRatesContainer#setDate(LocalDate)}
+   *   <li>{@link ExchangeRatesContainer#setRates(Map)}
+   *   <li>{@link ExchangeRatesContainer#toString()}
+   *   <li>{@link ExchangeRatesContainer#getBase()}
+   *   <li>{@link ExchangeRatesContainer#getDate()}
+   *   <li>{@link ExchangeRatesContainer#getRates()}
+   * </ul>
+   */
   @Test
   public void testSetBase() {
     // Arrange
@@ -58,4 +59,3 @@ public class ExchangeRatesContainerDiffblueTest {
     assertSame(date, actualDate);
   }
 }
-

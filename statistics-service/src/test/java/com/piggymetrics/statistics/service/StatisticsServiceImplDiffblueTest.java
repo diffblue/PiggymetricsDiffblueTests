@@ -47,8 +47,8 @@ public class StatisticsServiceImplDiffblueTest {
   @Autowired
   private StatisticsServiceImpl statisticsServiceImpl;
   /**
-  * Method under test: {@link StatisticsServiceImpl#findByAccountName(String)}
-  */
+   * Method under test: {@link StatisticsServiceImpl#findByAccountName(String)}
+   */
   @Test
   public void testFindByAccountName() {
     // Arrange
@@ -319,4 +319,3 @@ public class StatisticsServiceImplDiffblueTest {
     assertSame(dataPoint, actualSaveResult);
   }
 }
-

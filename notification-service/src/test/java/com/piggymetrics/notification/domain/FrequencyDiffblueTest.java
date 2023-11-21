@@ -5,8 +5,8 @@ import org.junit.Test;
 
 public class FrequencyDiffblueTest {
   /**
-  * Method under test: {@link Frequency#getDays()}
-  */
+   * Method under test: {@link Frequency#getDays()}
+   */
   @Test
   public void testGetDays() {
     // Arrange, Act and Assert
@@ -22,4 +22,3 @@ public class FrequencyDiffblueTest {
     assertEquals(Frequency.WEEKLY, Frequency.withDays(7));
   }
 }
-

@@ -16,8 +16,8 @@ public class ExchangeRatesClientFallbackDiffblueTest {
   @Autowired
   private ExchangeRatesClientFallback exchangeRatesClientFallback;
   /**
-  * Method under test: {@link ExchangeRatesClientFallback#getRates(Currency)}
-  */
+   * Method under test: {@link ExchangeRatesClientFallback#getRates(Currency)}
+   */
   @Test
   public void testGetRates() {
     // Arrange and Act
@@ -28,4 +28,3 @@ public class ExchangeRatesClientFallbackDiffblueTest {
     assertTrue(actualRates.getRates().isEmpty());
   }
 }
-

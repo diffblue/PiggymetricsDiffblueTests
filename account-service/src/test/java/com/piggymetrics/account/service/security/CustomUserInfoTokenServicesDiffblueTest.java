@@ -28,8 +28,9 @@ public class CustomUserInfoTokenServicesDiffblueTest {
   @MockBean
   private MongodExecutable mongodExecutable;
   /**
-  * Method under test: {@link CustomUserInfoTokenServices#loadAuthentication(String)}
-  */
+   * Method under test:
+   * {@link CustomUserInfoTokenServices#loadAuthentication(String)}
+   */
   @Test
   public void testLoadAuthentication() throws AuthenticationException, InvalidTokenException {
     // Arrange, Act and Assert
@@ -38,7 +39,8 @@ public class CustomUserInfoTokenServicesDiffblueTest {
   }
 
   /**
-   * Method under test: {@link CustomUserInfoTokenServices#readAccessToken(String)}
+   * Method under test:
+   * {@link CustomUserInfoTokenServices#readAccessToken(String)}
    */
   @Test
   public void testReadAccessToken() {
@@ -47,4 +49,3 @@ public class CustomUserInfoTokenServicesDiffblueTest {
     customUserInfoTokenServices.readAccessToken("ABC123");
   }
 }
-

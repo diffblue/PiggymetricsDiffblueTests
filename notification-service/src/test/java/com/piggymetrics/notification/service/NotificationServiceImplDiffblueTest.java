@@ -2,8 +2,6 @@ package com.piggymetrics.notification.service;
 
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.piggymetrics.notification.domain.NotificationSettings;
-import com.piggymetrics.notification.domain.NotificationType;
 import com.piggymetrics.notification.domain.Recipient;
 import com.piggymetrics.notification.repository.RecipientRepository;
 import de.flapdoodle.embed.mongo.MongodExecutable;
@@ -28,8 +26,8 @@ public class NotificationServiceImplDiffblueTest {
   @MockBean
   private RecipientRepository recipientRepository;
   /**
-  * Method under test: {@link NotificationServiceImpl#sendBackupNotifications()}
-  */
+   * Method under test: {@link NotificationServiceImpl#sendBackupNotifications()}
+   */
   @Test
   public void testSendBackupNotifications() {
     // Arrange
@@ -156,36 +154,4 @@ public class NotificationServiceImplDiffblueTest {
     // Assert
     verify(recipientRepository).findReadyForRemind();
   }
-
-  /**
-   * Method under test: {@link NotificationServiceImpl#sendRemindNotifications()}
-   */
-  @Test
-  public void testSendRemindNotifications4() {
-    // Arrange
-    HashMap<NotificationType, NotificationSettings> scheduledNotifications = new HashMap<>();
-    scheduledNotifications.keySet();
-
-    Recipient recipient = new Recipient();
-    recipient.setAccountName("Dr Jane Doe");
-    recipient.setEmail("jane.doe@example.org");
-    recipient.setScheduledNotifications(scheduledNotifications);
-
-    Recipient recipient2 = new Recipient();
-    recipient2.setAccountName("Mr John Smith");
-    recipient2.setEmail("john.smith@example.org");
-    recipient2.setScheduledNotifications(new HashMap<>());
-
-    ArrayList<Recipient> recipientList = new ArrayList<>();
-    recipientList.add(recipient2);
-    recipientList.add(recipient);
-    when(recipientRepository.findReadyForRemind()).thenReturn(recipientList);
-
-    // Act
-    notificationServiceImpl.sendRemindNotifications();
-
-    // Assert
-    verify(recipientRepository).findReadyForRemind();
-  }
 }
-

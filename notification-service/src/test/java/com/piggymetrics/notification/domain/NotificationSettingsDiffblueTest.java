@@ -10,18 +10,18 @@ import org.junit.Test;
 
 public class NotificationSettingsDiffblueTest {
   /**
-  * Methods under test: 
-  * 
-  * <ul>
-  *   <li>default or parameterless constructor of {@link NotificationSettings}
-  *   <li>{@link NotificationSettings#setActive(Boolean)}
-  *   <li>{@link NotificationSettings#setFrequency(Frequency)}
-  *   <li>{@link NotificationSettings#setLastNotified(Date)}
-  *   <li>{@link NotificationSettings#getActive()}
-  *   <li>{@link NotificationSettings#getFrequency()}
-  *   <li>{@link NotificationSettings#getLastNotified()}
-  * </ul>
-  */
+   * Methods under test:
+   * 
+   * <ul>
+   *   <li>default or parameterless constructor of {@link NotificationSettings}
+   *   <li>{@link NotificationSettings#setActive(Boolean)}
+   *   <li>{@link NotificationSettings#setFrequency(Frequency)}
+   *   <li>{@link NotificationSettings#setLastNotified(Date)}
+   *   <li>{@link NotificationSettings#getActive()}
+   *   <li>{@link NotificationSettings#getFrequency()}
+   *   <li>{@link NotificationSettings#getLastNotified()}
+   * </ul>
+   */
   @Test
   public void testConstructor() {
     // Arrange and Act
@@ -39,4 +39,3 @@ public class NotificationSettingsDiffblueTest {
     assertSame(lastNotified, actualNotificationSettings.getLastNotified());
   }
 }
-

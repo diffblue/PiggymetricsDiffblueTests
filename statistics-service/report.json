@@ -3,19 +3,19 @@
     "reportVersion" : "2.5"
   },
   "run" : {
-    "version" : "2023.11.01-fe2f45b-licensed",
-    "creationTimestamp" : "2023-11-08T11:33:47.94Z",
+    "version" : "2023.11.02-c0a9d60-licensed",
+    "creationTimestamp" : "2023-11-21T17:01:17.893Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --working-directory=statistics-service",
-    "totalTime" : 377.699,
-    "environmentDetectionTime" : 1.03,
-    "indexingTime" : 0.363,
-    "entryPointsTime" : 0.991,
-    "generationTime" : 257.448,
-    "timeToFirstTest" : 119.752,
-    "timeToLastTest" : 320.305,
-    "indexQueryTime" : 17.167,
-    "verificationTime" : 34.363,
-    "validationTime" : 22.163
+    "totalTime" : 398.439,
+    "environmentDetectionTime" : 1.114,
+    "indexingTime" : 0.357,
+    "entryPointsTime" : 1.089,
+    "generationTime" : 272.797,
+    "timeToFirstTest" : 129.393,
+    "timeToLastTest" : 336.985,
+    "indexQueryTime" : 19.241,
+    "verificationTime" : 34.622,
+    "validationTime" : 24.211
   },
   "codes" : {
     "E052" : "Missing dependency",
@@ -57,8 +57,8 @@
       "R000" : 68,
       "R002" : 3,
       "R004" : 2,
-      "R011" : 1,
-      "R013" : 2,
+      "R011" : 2,
+      "R013" : 1,
       "T003" : 9,
       "T005" : 9,
       "T006" : 1,
@@ -386,8 +386,7 @@
         "T012" : 1
       },
       "perMethodOutcome" : {
-        "R011" : 1,
-        "R013" : 1,
+        "R011" : 2,
         "T005" : 1,
         "T012" : 1
       }
@@ -1584,7 +1583,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R013",
+      "perMethodOutcome" : "R011",
       "lineNumbers" : [
         52,
         54,

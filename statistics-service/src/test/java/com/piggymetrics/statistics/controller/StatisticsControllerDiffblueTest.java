@@ -39,8 +39,9 @@ public class StatisticsControllerDiffblueTest {
   @MockBean
   private StatisticsService statisticsService;
   /**
-  * Method under test: {@link StatisticsController#getCurrentAccountStatistics(Principal)}
-  */
+   * Method under test:
+   * {@link StatisticsController#getCurrentAccountStatistics(Principal)}
+   */
   @Test
   public void testGetCurrentAccountStatistics() throws Exception {
     // Arrange
@@ -58,7 +59,8 @@ public class StatisticsControllerDiffblueTest {
   }
 
   /**
-   * Method under test: {@link StatisticsController#getStatisticsByAccountName(String)}
+   * Method under test:
+   * {@link StatisticsController#getStatisticsByAccountName(String)}
    */
   @Test
   public void testGetStatisticsByAccountName() throws Exception {
@@ -76,7 +78,8 @@ public class StatisticsControllerDiffblueTest {
   }
 
   /**
-   * Method under test: {@link StatisticsController#getStatisticsByAccountName(String)}
+   * Method under test:
+   * {@link StatisticsController#getStatisticsByAccountName(String)}
    */
   @Test
   public void testGetStatisticsByAccountName2() throws Exception {
@@ -95,7 +98,8 @@ public class StatisticsControllerDiffblueTest {
   }
 
   /**
-   * Method under test: {@link StatisticsController#saveAccountStatistics(String, Account)}
+   * Method under test:
+   * {@link StatisticsController#saveAccountStatistics(String, Account)}
    */
   @Test
   public void testSaveAccountStatistics() throws Exception {
@@ -132,4 +136,3 @@ public class StatisticsControllerDiffblueTest {
         .andExpect(MockMvcResultMatchers.status().isOk());
   }
 }
-

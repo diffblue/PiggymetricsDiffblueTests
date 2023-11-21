@@ -33,8 +33,8 @@ public class AccountServiceImplDiffblueTest {
   @MockBean
   private MongodExecutable mongodExecutable;
   /**
-  * Method under test: {@link AccountServiceImpl#findByName(String)}
-  */
+   * Method under test: {@link AccountServiceImpl#findByName(String)}
+   */
   @Test
   public void testFindByName() {
     // Arrange
@@ -62,4 +62,3 @@ public class AccountServiceImplDiffblueTest {
     assertSame(account, actualFindByNameResult);
   }
 }
-

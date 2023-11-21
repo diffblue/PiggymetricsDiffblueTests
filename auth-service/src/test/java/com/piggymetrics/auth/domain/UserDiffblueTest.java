@@ -16,20 +16,20 @@ public class UserDiffblueTest {
   }
 
   /**
-  * Methods under test: 
-  * 
-  * <ul>
-  *   <li>default or parameterless constructor of {@link User}
-  *   <li>{@link User#setPassword(String)}
-  *   <li>{@link User#setUsername(String)}
-  *   <li>{@link User#getPassword()}
-  *   <li>{@link User#getUsername()}
-  *   <li>{@link User#isAccountNonExpired()}
-  *   <li>{@link User#isAccountNonLocked()}
-  *   <li>{@link User#isCredentialsNonExpired()}
-  *   <li>{@link User#isEnabled()}
-  * </ul>
-  */
+   * Methods under test:
+   * 
+   * <ul>
+   *   <li>default or parameterless constructor of {@link User}
+   *   <li>{@link User#setPassword(String)}
+   *   <li>{@link User#setUsername(String)}
+   *   <li>{@link User#getPassword()}
+   *   <li>{@link User#getUsername()}
+   *   <li>{@link User#isAccountNonExpired()}
+   *   <li>{@link User#isAccountNonLocked()}
+   *   <li>{@link User#isCredentialsNonExpired()}
+   *   <li>{@link User#isEnabled()}
+   * </ul>
+   */
   @Test
   public void testConstructor() {
     // Arrange and Act
@@ -51,4 +51,3 @@ public class UserDiffblueTest {
     assertTrue(actualUser.isEnabled());
   }
 }
-

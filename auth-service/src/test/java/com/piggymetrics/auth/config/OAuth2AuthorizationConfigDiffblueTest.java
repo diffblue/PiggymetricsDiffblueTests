@@ -29,8 +29,9 @@ public class OAuth2AuthorizationConfigDiffblueTest {
   @MockBean
   private UserRepository userRepository;
   /**
-  * Method under test: {@link OAuth2AuthorizationConfig#configure(ClientDetailsServiceConfigurer)}
-  */
+   * Method under test:
+   * {@link OAuth2AuthorizationConfig#configure(ClientDetailsServiceConfigurer)}
+   */
   @Test
   public void testConfigure() throws Exception {
     // Arrange
@@ -44,7 +45,8 @@ public class OAuth2AuthorizationConfigDiffblueTest {
   }
 
   /**
-   * Method under test: {@link OAuth2AuthorizationConfig#configure(AuthorizationServerEndpointsConfigurer)}
+   * Method under test:
+   * {@link OAuth2AuthorizationConfig#configure(AuthorizationServerEndpointsConfigurer)}
    */
   @Test
   public void testConfigure2() throws Exception {
@@ -60,7 +62,8 @@ public class OAuth2AuthorizationConfigDiffblueTest {
   }
 
   /**
-   * Method under test: {@link OAuth2AuthorizationConfig#configure(AuthorizationServerSecurityConfigurer)}
+   * Method under test:
+   * {@link OAuth2AuthorizationConfig#configure(AuthorizationServerSecurityConfigurer)}
    */
   @Test
   public void testConfigure3() throws Exception {
@@ -75,4 +78,3 @@ public class OAuth2AuthorizationConfigDiffblueTest {
     assertEquals("permitAll()", oauthServer.getTokenKeyAccess());
   }
 }
-

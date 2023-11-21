@@ -5,16 +5,16 @@ import org.junit.Test;
 
 public class UserDiffblueTest {
   /**
-  * Methods under test: 
-  * 
-  * <ul>
-  *   <li>default or parameterless constructor of {@link User}
-  *   <li>{@link User#setPassword(String)}
-  *   <li>{@link User#setUsername(String)}
-  *   <li>{@link User#getPassword()}
-  *   <li>{@link User#getUsername()}
-  * </ul>
-  */
+   * Methods under test:
+   * 
+   * <ul>
+   *   <li>default or parameterless constructor of {@link User}
+   *   <li>{@link User#setPassword(String)}
+   *   <li>{@link User#setUsername(String)}
+   *   <li>{@link User#getPassword()}
+   *   <li>{@link User#getUsername()}
+   * </ul>
+   */
   @Test
   public void testConstructor() {
     // Arrange and Act
@@ -28,4 +28,3 @@ public class UserDiffblueTest {
     assertEquals("janedoe", actualUser.getUsername());
   }
 }
-

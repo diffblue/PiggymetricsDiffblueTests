@@ -3,24 +3,25 @@
     "reportVersion" : "2.5"
   },
   "run" : {
-    "version" : "2023.11.01-fe2f45b-licensed",
-    "creationTimestamp" : "2023-11-08T11:40:59.844Z",
+    "version" : "2023.11.02-c0a9d60-licensed",
+    "creationTimestamp" : "2023-11-21T17:08:53.609Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --working-directory=notification-service",
-    "totalTime" : 424.087,
-    "environmentDetectionTime" : 0.881,
-    "indexingTime" : 0.332,
-    "entryPointsTime" : 0.847,
-    "generationTime" : 311.942,
-    "timeToFirstTest" : 155.82,
-    "timeToLastTest" : 370.703,
-    "indexQueryTime" : 15.348,
-    "verificationTime" : 30.431,
-    "validationTime" : 20.171
+    "totalTime" : 430.96,
+    "environmentDetectionTime" : 0.93,
+    "indexingTime" : 0.386,
+    "entryPointsTime" : 0.896,
+    "generationTime" : 311.97,
+    "timeToFirstTest" : 162.181,
+    "timeToLastTest" : 372.62,
+    "indexQueryTime" : 16.428,
+    "verificationTime" : 31.573,
+    "validationTime" : 23.112
   },
   "codes" : {
     "E052" : "Missing dependency",
     "R000" : "Success",
     "R004" : "No meaningful assertions found",
+    "R011" : "Sandboxing policy violation",
     "R013" : "No inputs found that don't throw a trivial exception",
     "T000" : "Method eligible for test creation",
     "T001" : "Trivial getter",
@@ -36,7 +37,7 @@
   "summary" : {
     "classesCount" : 19,
     "methodsCount" : 84,
-    "completeTestCount" : 30,
+    "completeTestCount" : 29,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "perMethodTestability" : {
@@ -54,7 +55,8 @@
       "E052" : 14,
       "R000" : 32,
       "R004" : 1,
-      "R013" : 2,
+      "R011" : 1,
+      "R013" : 1,
       "T003" : 2,
       "T005" : 9,
       "T006" : 1,
@@ -62,10 +64,10 @@
       "T012" : 15
     },
     "perTestOutcome" : {
-      "R000" : 30
+      "R000" : 29
     },
     "perTestValidation" : {
-      "V000" : 30
+      "V000" : 29
     }
   },
   "classes" : {
@@ -275,7 +277,7 @@
         "T000" : 2
       },
       "perMethodOutcome" : {
-        "R013" : 1,
+        "R011" : 1,
         "T005" : 1
       }
     },
@@ -292,7 +294,7 @@
     },
     "com.piggymetrics.notification.service.NotificationServiceImpl" : {
       "methodsCount" : 7,
-      "completeTestCount" : 7,
+      "completeTestCount" : 6,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 3,
@@ -304,7 +306,7 @@
         "T012" : 4
       },
       "perTestOutcome" : {
-        "R000" : 7
+        "R000" : 6
       }
     },
     "com.piggymetrics.notification.service.RecipientService" : {
@@ -970,7 +972,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R013",
+      "perMethodOutcome" : "R011",
       "lineNumbers" : [
         36,
         37,
@@ -1072,12 +1074,12 @@
       ]
     },
     "com.piggymetrics.notification.service.NotificationServiceImpl.sendRemindNotifications:()V" : {
-      "completeTestCount" : 4,
+      "completeTestCount" : 3,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 4
+        "R000" : 3
       },
       "lineNumbers" : [
         53,

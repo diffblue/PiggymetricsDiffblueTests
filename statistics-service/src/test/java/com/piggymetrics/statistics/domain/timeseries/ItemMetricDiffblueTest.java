@@ -8,14 +8,14 @@ import org.junit.Test;
 
 public class ItemMetricDiffblueTest {
   /**
-  * Methods under test: 
-  * 
-  * <ul>
-  *   <li>{@link ItemMetric#ItemMetric(String, BigDecimal)}
-  *   <li>{@link ItemMetric#getAmount()}
-  *   <li>{@link ItemMetric#getTitle()}
-  * </ul>
-  */
+   * Methods under test:
+   * 
+   * <ul>
+   *   <li>{@link ItemMetric#ItemMetric(String, BigDecimal)}
+   *   <li>{@link ItemMetric#getAmount()}
+   *   <li>{@link ItemMetric#getTitle()}
+   * </ul>
+   */
   @Test
   public void testConstructor() {
     // Arrange
@@ -42,7 +42,7 @@ public class ItemMetricDiffblueTest {
   }
 
   /**
-   * Methods under test: 
+   * Methods under test:
    * 
    * <ul>
    *   <li>{@link ItemMetric#equals(Object)}
@@ -61,7 +61,7 @@ public class ItemMetricDiffblueTest {
   }
 
   /**
-   * Methods under test: 
+   * Methods under test:
    * 
    * <ul>
    *   <li>{@link ItemMetric#equals(Object)}
@@ -92,4 +92,3 @@ public class ItemMetricDiffblueTest {
     assertNotEquals(itemMetric, new ItemMetric("Dr", new BigDecimal("2.3")));
   }
 }
-

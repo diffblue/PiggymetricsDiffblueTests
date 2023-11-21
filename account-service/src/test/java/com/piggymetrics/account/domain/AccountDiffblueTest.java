@@ -12,24 +12,24 @@ import org.junit.Test;
 
 public class AccountDiffblueTest {
   /**
-  * Methods under test: 
-  * 
-  * <ul>
-  *   <li>default or parameterless constructor of {@link Account}
-  *   <li>{@link Account#setExpenses(List)}
-  *   <li>{@link Account#setIncomes(List)}
-  *   <li>{@link Account#setLastSeen(Date)}
-  *   <li>{@link Account#setName(String)}
-  *   <li>{@link Account#setNote(String)}
-  *   <li>{@link Account#setSaving(Saving)}
-  *   <li>{@link Account#getExpenses()}
-  *   <li>{@link Account#getIncomes()}
-  *   <li>{@link Account#getLastSeen()}
-  *   <li>{@link Account#getName()}
-  *   <li>{@link Account#getNote()}
-  *   <li>{@link Account#getSaving()}
-  * </ul>
-  */
+   * Methods under test:
+   * 
+   * <ul>
+   *   <li>default or parameterless constructor of {@link Account}
+   *   <li>{@link Account#setExpenses(List)}
+   *   <li>{@link Account#setIncomes(List)}
+   *   <li>{@link Account#setLastSeen(Date)}
+   *   <li>{@link Account#setName(String)}
+   *   <li>{@link Account#setNote(String)}
+   *   <li>{@link Account#setSaving(Saving)}
+   *   <li>{@link Account#getExpenses()}
+   *   <li>{@link Account#getIncomes()}
+   *   <li>{@link Account#getLastSeen()}
+   *   <li>{@link Account#getName()}
+   *   <li>{@link Account#getNote()}
+   *   <li>{@link Account#getSaving()}
+   * </ul>
+   */
   @Test
   public void testConstructor() {
     // Arrange and Act
@@ -64,4 +64,3 @@ public class AccountDiffblueTest {
     assertSame(lastSeen, actualLastSeen);
   }
 }
-

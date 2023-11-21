@@ -6,8 +6,8 @@ import org.junit.Test;
 
 public class TimePeriodDiffblueTest {
   /**
-  * Method under test: {@link TimePeriod#getBase()}
-  */
+   * Method under test: {@link TimePeriod#getBase()}
+   */
   @Test
   public void testGetBase() {
     // Arrange, Act and Assert
@@ -26,4 +26,3 @@ public class TimePeriodDiffblueTest {
     assertEquals(new BigDecimal("1"), actualBaseRatio);
   }
 }
-

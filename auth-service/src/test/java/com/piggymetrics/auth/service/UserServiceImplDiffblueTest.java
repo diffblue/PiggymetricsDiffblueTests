@@ -27,8 +27,8 @@ public class UserServiceImplDiffblueTest {
   @Autowired
   private UserServiceImpl userServiceImpl;
   /**
-  * Method under test: {@link UserServiceImpl#create(User)}
-  */
+   * Method under test: {@link UserServiceImpl#create(User)}
+   */
   @Test
   public void testCreate() {
     // Arrange
@@ -92,4 +92,3 @@ public class UserServiceImplDiffblueTest {
     verify(userRepository).findById(Mockito.<String>any());
   }
 }
-

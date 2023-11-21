@@ -27,8 +27,9 @@ public class RecipientControllerDiffblueTest {
   @MockBean
   private RecipientService recipientService;
   /**
-  * Method under test: {@link RecipientController#getCurrentNotificationsSettings(Principal)}
-  */
+   * Method under test:
+   * {@link RecipientController#getCurrentNotificationsSettings(Principal)}
+   */
   @Test
   public void testGetCurrentNotificationsSettings() throws Exception {
     // Arrange
@@ -51,4 +52,3 @@ public class RecipientControllerDiffblueTest {
                 "{\"accountName\":\"Dr Jane Doe\",\"email\":\"jane.doe@example.org\",\"scheduledNotifications\":{}}"));
   }
 }
-

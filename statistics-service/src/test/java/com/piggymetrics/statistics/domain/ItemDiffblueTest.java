@@ -7,20 +7,20 @@ import org.junit.Test;
 
 public class ItemDiffblueTest {
   /**
-  * Methods under test: 
-  * 
-  * <ul>
-  *   <li>default or parameterless constructor of {@link Item}
-  *   <li>{@link Item#setAmount(BigDecimal)}
-  *   <li>{@link Item#setCurrency(Currency)}
-  *   <li>{@link Item#setPeriod(TimePeriod)}
-  *   <li>{@link Item#setTitle(String)}
-  *   <li>{@link Item#getAmount()}
-  *   <li>{@link Item#getCurrency()}
-  *   <li>{@link Item#getPeriod()}
-  *   <li>{@link Item#getTitle()}
-  * </ul>
-  */
+   * Methods under test:
+   * 
+   * <ul>
+   *   <li>default or parameterless constructor of {@link Item}
+   *   <li>{@link Item#setAmount(BigDecimal)}
+   *   <li>{@link Item#setCurrency(Currency)}
+   *   <li>{@link Item#setPeriod(TimePeriod)}
+   *   <li>{@link Item#setTitle(String)}
+   *   <li>{@link Item#getAmount()}
+   *   <li>{@link Item#getCurrency()}
+   *   <li>{@link Item#getPeriod()}
+   *   <li>{@link Item#getTitle()}
+   * </ul>
+   */
   @Test
   public void testConstructor() {
     // Arrange and Act
@@ -42,4 +42,3 @@ public class ItemDiffblueTest {
     assertSame(amount, actualAmount);
   }
 }
-

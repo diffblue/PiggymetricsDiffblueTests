@@ -14,12 +14,11 @@ public class FrequencyReaderConverterDiffblueTest {
   @Autowired
   private FrequencyReaderConverter frequencyReaderConverter;
   /**
-  * Method under test: {@link FrequencyReaderConverter#convert(Integer)}
-  */
+   * Method under test: {@link FrequencyReaderConverter#convert(Integer)}
+   */
   @Test
   public void testConvert() {
     // Arrange, Act and Assert
     assertEquals(Frequency.WEEKLY, frequencyReaderConverter.convert(7));
   }
 }
-

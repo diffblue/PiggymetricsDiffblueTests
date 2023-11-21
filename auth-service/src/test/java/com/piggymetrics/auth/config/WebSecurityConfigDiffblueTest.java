@@ -41,8 +41,9 @@ public class WebSecurityConfigDiffblueTest {
   @Autowired
   private WebSecurityConfig webSecurityConfig;
   /**
-  * Method under test: {@link WebSecurityConfig#configure(AuthenticationManagerBuilder)}
-  */
+   * Method under test:
+   * {@link WebSecurityConfig#configure(AuthenticationManagerBuilder)}
+   */
   @Test
   public void testConfigure() throws Exception {
     // Arrange
@@ -62,7 +63,8 @@ public class WebSecurityConfigDiffblueTest {
   }
 
   /**
-   * Method under test: {@link WebSecurityConfig#configure(AuthenticationManagerBuilder)}
+   * Method under test:
+   * {@link WebSecurityConfig#configure(AuthenticationManagerBuilder)}
    */
   @Test
   public void testConfigure2() throws Exception {
@@ -83,4 +85,3 @@ public class WebSecurityConfigDiffblueTest {
         .isHideUserNotFoundExceptions());
   }
 }
-

@@ -19,8 +19,8 @@ public class DataPointIdWriterConverterDiffblueTest {
   @Autowired
   private DataPointIdWriterConverter dataPointIdWriterConverter;
   /**
-  * Method under test: {@link DataPointIdWriterConverter#convert(DataPointId)}
-  */
+   * Method under test: {@link DataPointIdWriterConverter#convert(DataPointId)}
+   */
   @Test
   public void testConvert() {
     // Arrange, Act and Assert
@@ -31,4 +31,3 @@ public class DataPointIdWriterConverterDiffblueTest {
         ((BasicDBObject) dataPointIdWriterConverter.convert(new DataPointId("3", mock(java.sql.Date.class)))).size());
   }
 }
-

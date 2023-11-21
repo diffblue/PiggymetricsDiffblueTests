@@ -5,14 +5,14 @@ import org.junit.Test;
 
 public class NotificationTypeDiffblueTest {
   /**
-  * Methods under test: 
-  * 
-  * <ul>
-  *   <li>{@link NotificationType#getAttachment()}
-  *   <li>{@link NotificationType#getSubject()}
-  *   <li>{@link NotificationType#getText()}
-  * </ul>
-  */
+   * Methods under test:
+   * 
+   * <ul>
+   *   <li>{@link NotificationType#getAttachment()}
+   *   <li>{@link NotificationType#getSubject()}
+   *   <li>{@link NotificationType#getText()}
+   * </ul>
+   */
   @Test
   public void testGetAttachment() {
     // Arrange
@@ -28,4 +28,3 @@ public class NotificationTypeDiffblueTest {
     assertEquals("backup.email.text", valueOfResult.getText());
   }
 }
-

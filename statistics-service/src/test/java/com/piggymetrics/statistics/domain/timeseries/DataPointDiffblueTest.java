@@ -14,22 +14,22 @@ import org.junit.Test;
 
 public class DataPointDiffblueTest {
   /**
-  * Methods under test: 
-  * 
-  * <ul>
-  *   <li>default or parameterless constructor of {@link DataPoint}
-  *   <li>{@link DataPoint#setExpenses(Set)}
-  *   <li>{@link DataPoint#setId(DataPointId)}
-  *   <li>{@link DataPoint#setIncomes(Set)}
-  *   <li>{@link DataPoint#setRates(Map)}
-  *   <li>{@link DataPoint#setStatistics(Map)}
-  *   <li>{@link DataPoint#getExpenses()}
-  *   <li>{@link DataPoint#getId()}
-  *   <li>{@link DataPoint#getIncomes()}
-  *   <li>{@link DataPoint#getRates()}
-  *   <li>{@link DataPoint#getStatistics()}
-  * </ul>
-  */
+   * Methods under test:
+   * 
+   * <ul>
+   *   <li>default or parameterless constructor of {@link DataPoint}
+   *   <li>{@link DataPoint#setExpenses(Set)}
+   *   <li>{@link DataPoint#setId(DataPointId)}
+   *   <li>{@link DataPoint#setIncomes(Set)}
+   *   <li>{@link DataPoint#setRates(Map)}
+   *   <li>{@link DataPoint#setStatistics(Map)}
+   *   <li>{@link DataPoint#getExpenses()}
+   *   <li>{@link DataPoint#getId()}
+   *   <li>{@link DataPoint#getIncomes()}
+   *   <li>{@link DataPoint#getRates()}
+   *   <li>{@link DataPoint#getStatistics()}
+   * </ul>
+   */
   @Test
   public void testConstructor() {
     // Arrange and Act
@@ -59,4 +59,3 @@ public class DataPointDiffblueTest {
     assertSame(incomes, actualIncomes);
   }
 }
-

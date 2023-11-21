@@ -39,8 +39,8 @@ public class AccountControllerDiffblueTest {
   @MockBean
   private AccountService accountService;
   /**
-  * Method under test: {@link AccountController#createNewAccount(User)}
-  */
+   * Method under test: {@link AccountController#createNewAccount(User)}
+   */
   @Test
   public void testCreateNewAccount() throws Exception {
     // Arrange
@@ -152,7 +152,8 @@ public class AccountControllerDiffblueTest {
   }
 
   /**
-   * Method under test: {@link AccountController#saveCurrentAccount(Principal, Account)}
+   * Method under test:
+   * {@link AccountController#saveCurrentAccount(Principal, Account)}
    */
   @Test
   public void testSaveCurrentAccount() throws Exception {
@@ -189,7 +190,8 @@ public class AccountControllerDiffblueTest {
   }
 
   /**
-   * Method under test: {@link AccountController#saveCurrentAccount(Principal, Account)}
+   * Method under test:
+   * {@link AccountController#saveCurrentAccount(Principal, Account)}
    */
   @Test
   public void testSaveCurrentAccount2() throws Exception {
@@ -224,4 +226,3 @@ public class AccountControllerDiffblueTest {
         .andExpect(MockMvcResultMatchers.status().isOk());
   }
 }
-

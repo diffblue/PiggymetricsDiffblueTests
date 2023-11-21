@@ -26,8 +26,8 @@ public class UserControllerDiffblueTest {
   @MockBean
   private UserService userService;
   /**
-  * Method under test: {@link UserController#createUser(User)}
-  */
+   * Method under test: {@link UserController#createUser(User)}
+   */
   @Test
   public void testCreateUser() throws Exception {
     // Arrange
@@ -77,4 +77,3 @@ public class UserControllerDiffblueTest {
         .andExpect(MockMvcResultMatchers.status().isOk());
   }
 }
-
