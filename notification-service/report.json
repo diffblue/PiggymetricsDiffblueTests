@@ -3,24 +3,25 @@
     "reportVersion" : "2.5"
   },
   "run" : {
-    "version" : "2023.11.02-d5b0416-licensed",
-    "creationTimestamp" : "2023-11-21T22:25:12.95Z",
+    "version" : "2023.11.02-f12bfac-licensed",
+    "creationTimestamp" : "2023-11-22T04:09:24.834Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --working-directory=notification-service",
-    "totalTime" : 442.078,
-    "environmentDetectionTime" : 0.872,
-    "indexingTime" : 0.381,
-    "entryPointsTime" : 0.845,
-    "generationTime" : 324.529,
-    "timeToFirstTest" : 145.86,
-    "timeToLastTest" : 384.722,
-    "indexQueryTime" : 16.498,
-    "verificationTime" : 30.976,
-    "validationTime" : 22.118
+    "totalTime" : 461.368,
+    "environmentDetectionTime" : 0.944,
+    "indexingTime" : 0.394,
+    "entryPointsTime" : 0.908,
+    "generationTime" : 336.615,
+    "timeToFirstTest" : 152.54,
+    "timeToLastTest" : 399.986,
+    "indexQueryTime" : 17.527,
+    "verificationTime" : 33.527,
+    "validationTime" : 24.121
   },
   "codes" : {
     "E052" : "Missing dependency",
     "R000" : "Success",
     "R004" : "No meaningful assertions found",
+    "R011" : "Sandboxing policy violation",
     "R013" : "No inputs found that don't throw a trivial exception",
     "T000" : "Method eligible for test creation",
     "T001" : "Trivial getter",
@@ -54,7 +55,8 @@
       "E052" : 14,
       "R000" : 32,
       "R004" : 1,
-      "R013" : 2,
+      "R011" : 1,
+      "R013" : 1,
       "T003" : 2,
       "T005" : 9,
       "T006" : 1,
@@ -275,7 +277,7 @@
         "T000" : 2
       },
       "perMethodOutcome" : {
-        "R013" : 1,
+        "R011" : 1,
         "T005" : 1
       }
     },
@@ -970,7 +972,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R013",
+      "perMethodOutcome" : "R011",
       "lineNumbers" : [
         36,
         37,
