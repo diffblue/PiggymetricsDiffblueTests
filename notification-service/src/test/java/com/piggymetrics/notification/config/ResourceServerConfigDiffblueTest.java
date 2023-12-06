@@ -1,6 +1,7 @@
 package com.piggymetrics.notification.config;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import com.piggymetrics.notification.repository.RecipientRepository;
@@ -19,7 +20,6 @@ import org.springframework.security.oauth2.client.token.grant.client.ClientCrede
 import org.springframework.security.oauth2.common.AuthenticationScheme;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.web.util.DefaultUriBuilderFactory;
-import org.springframework.web.util.UriTemplateHandler;
 
 @SpringBootTest
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -75,17 +75,15 @@ public class ResourceServerConfigDiffblueTest {
     OAuth2RestTemplate actualClientCredentialsRestTemplateResult = resourceServerConfig.clientCredentialsRestTemplate();
 
     // Assert
-    UriTemplateHandler uriTemplateHandler = actualClientCredentialsRestTemplateResult.getUriTemplateHandler();
-    assertTrue(uriTemplateHandler instanceof DefaultUriBuilderFactory);
     OAuth2ProtectedResourceDetails resource = actualClientCredentialsRestTemplateResult.getResource();
     assertNull(resource.getAccessTokenUri());
-    assertNull(
+    assertNull(resource.getClientSecret());
+    assertNull(resource.getId());
+    assertFalse(
         ((Jaxb2RootElementHttpMessageConverter) actualClientCredentialsRestTemplateResult.getMessageConverters().get(5))
-            .getDefaultCharset());
-    assertNull(resource.getScope());
-    assertEquals(DefaultUriBuilderFactory.EncodingMode.URI_COMPONENT,
-        ((DefaultUriBuilderFactory) uriTemplateHandler).getEncodingMode());
+            .isSupportDtd());
     assertEquals(actualClientCredentialsRestTemplateResult.getOAuth2ClientContext().getAccessTokenRequest(),
-        ((DefaultUriBuilderFactory) uriTemplateHandler).getDefaultUriVariables());
+        ((DefaultUriBuilderFactory) actualClientCredentialsRestTemplateResult.getUriTemplateHandler())
+            .getDefaultUriVariables());
   }
 }
