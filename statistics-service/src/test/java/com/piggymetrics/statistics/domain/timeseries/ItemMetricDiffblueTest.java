@@ -8,37 +8,15 @@ import org.junit.Test;
 
 public class ItemMetricDiffblueTest {
   /**
-   * Methods under test:
-   * 
-   * <ul>
-   *   <li>{@link ItemMetric#ItemMetric(String, BigDecimal)}
-   *   <li>{@link ItemMetric#getAmount()}
-   *   <li>{@link ItemMetric#getTitle()}
-   * </ul>
-   */
-  @Test
-  public void testConstructor() {
-    // Arrange
-    BigDecimal amount = new BigDecimal("2.3");
-
-    // Act
-    ItemMetric actualItemMetric = new ItemMetric("Dr", amount);
-    BigDecimal actualAmount = actualItemMetric.getAmount();
-
-    // Assert
-    assertEquals("Dr", actualItemMetric.getTitle());
-    assertEquals(new BigDecimal("2.3"), actualAmount);
-    assertSame(amount, actualAmount);
-  }
-
-  /**
    * Method under test: {@link ItemMetric#equals(Object)}
    */
   @Test
-  public void testEquals() {
-    // Arrange, Act and Assert
-    assertNotEquals(new ItemMetric("Dr", new BigDecimal("2.3")), null);
-    assertNotEquals(new ItemMetric("Dr", new BigDecimal("2.3")), "Different type to ItemMetric");
+  public void testEquals2() {
+    // Arrange
+    ItemMetric itemMetric = new ItemMetric("Mr", new BigDecimal("2.3"));
+
+    // Act and Assert
+    assertNotEquals(itemMetric, new ItemMetric("Dr", new BigDecimal("2.3")));
   }
 
   /**
@@ -50,7 +28,7 @@ public class ItemMetricDiffblueTest {
    * </ul>
    */
   @Test
-  public void testEquals2() {
+  public void testEqualsAndHashCode() {
     // Arrange
     ItemMetric itemMetric = new ItemMetric("Dr", new BigDecimal("2.3"));
 
@@ -69,7 +47,7 @@ public class ItemMetricDiffblueTest {
    * </ul>
    */
   @Test
-  public void testEquals3() {
+  public void testEqualsAndHashCode2() {
     // Arrange
     ItemMetric itemMetric = new ItemMetric("Dr", new BigDecimal("2.3"));
     ItemMetric itemMetric2 = new ItemMetric("Dr", new BigDecimal("2.3"));
@@ -84,11 +62,33 @@ public class ItemMetricDiffblueTest {
    * Method under test: {@link ItemMetric#equals(Object)}
    */
   @Test
-  public void testEquals4() {
-    // Arrange
-    ItemMetric itemMetric = new ItemMetric("Mr", new BigDecimal("2.3"));
+  public void testEquals() {
+    // Arrange, Act and Assert
+    assertNotEquals(new ItemMetric("Dr", new BigDecimal("2.3")), null);
+    assertNotEquals(new ItemMetric("Dr", new BigDecimal("2.3")), "Different type to ItemMetric");
+  }
 
-    // Act and Assert
-    assertNotEquals(itemMetric, new ItemMetric("Dr", new BigDecimal("2.3")));
+  /**
+   * Methods under test:
+   * 
+   * <ul>
+   *   <li>{@link ItemMetric#ItemMetric(String, BigDecimal)}
+   *   <li>{@link ItemMetric#getAmount()}
+   *   <li>{@link ItemMetric#getTitle()}
+   * </ul>
+   */
+  @Test
+  public void testGettersAndSetters() {
+    // Arrange
+    BigDecimal amount = new BigDecimal("2.3");
+
+    // Act
+    ItemMetric actualItemMetric = new ItemMetric("Dr", amount);
+    BigDecimal actualAmount = actualItemMetric.getAmount();
+
+    // Assert
+    assertEquals("Dr", actualItemMetric.getTitle());
+    assertEquals(new BigDecimal("2.3"), actualAmount);
+    assertSame(amount, actualAmount);
   }
 }

@@ -24,7 +24,7 @@ public class ItemDiffblueTest {
    * </ul>
    */
   @Test
-  public void testConstructor() {
+  public void testGettersAndSetters() {
     // Arrange and Act
     Item actualItem = new Item();
     BigDecimal amount = new BigDecimal("2.3");

@@ -19,7 +19,7 @@ public class DataPointIdDiffblueTest {
    * </ul>
    */
   @Test
-  public void testConstructor() {
+  public void testGettersAndSetters() {
     // Arrange
     Date date = Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
 

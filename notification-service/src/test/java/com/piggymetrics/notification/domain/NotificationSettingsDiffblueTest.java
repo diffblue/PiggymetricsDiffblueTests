@@ -23,7 +23,7 @@ public class NotificationSettingsDiffblueTest {
    * </ul>
    */
   @Test
-  public void testConstructor() {
+  public void testGettersAndSetters() {
     // Arrange and Act
     NotificationSettings actualNotificationSettings = new NotificationSettings();
     actualNotificationSettings.setActive(true);

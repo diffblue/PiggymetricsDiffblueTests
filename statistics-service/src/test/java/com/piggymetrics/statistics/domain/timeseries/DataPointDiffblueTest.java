@@ -31,7 +31,7 @@ public class DataPointDiffblueTest {
    * </ul>
    */
   @Test
-  public void testConstructor() {
+  public void testGettersAndSetters() {
     // Arrange and Act
     DataPoint actualDataPoint = new DataPoint();
     HashSet<ItemMetric> expenses = new HashSet<>();

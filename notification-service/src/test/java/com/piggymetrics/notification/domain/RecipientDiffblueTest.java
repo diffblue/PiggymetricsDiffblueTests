@@ -22,7 +22,7 @@ public class RecipientDiffblueTest {
    * </ul>
    */
   @Test
-  public void testConstructor() {
+  public void testGettersAndSetters() {
     // Arrange and Act
     Recipient actualRecipient = new Recipient();
     actualRecipient.setAccountName("Dr Jane Doe");

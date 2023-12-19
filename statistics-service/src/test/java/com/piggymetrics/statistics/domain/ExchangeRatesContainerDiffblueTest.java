@@ -11,20 +11,6 @@ import org.junit.Test;
 
 public class ExchangeRatesContainerDiffblueTest {
   /**
-   * Method under test: default or parameterless constructor of
-   * {@link ExchangeRatesContainer}
-   */
-  @Test
-  public void testConstructor() {
-    // Arrange and Act
-    ExchangeRatesContainer actualExchangeRatesContainer = new ExchangeRatesContainer();
-
-    // Assert
-    assertNull(actualExchangeRatesContainer.getBase());
-    assertNull(actualExchangeRatesContainer.getRates());
-  }
-
-  /**
    * Methods under test:
    * 
    * <ul>
@@ -38,7 +24,7 @@ public class ExchangeRatesContainerDiffblueTest {
    * </ul>
    */
   @Test
-  public void testSetBase() {
+  public void testGettersAndSetters() {
     // Arrange
     ExchangeRatesContainer exchangeRatesContainer = new ExchangeRatesContainer();
 
@@ -57,5 +43,19 @@ public class ExchangeRatesContainerDiffblueTest {
     assertEquals(Currency.USD, actualBase);
     assertSame(rates, exchangeRatesContainer.getRates());
     assertSame(date, actualDate);
+  }
+
+  /**
+   * Method under test: default or parameterless constructor of
+   * {@link ExchangeRatesContainer}
+   */
+  @Test
+  public void testNewExchangeRatesContainer() {
+    // Arrange and Act
+    ExchangeRatesContainer actualExchangeRatesContainer = new ExchangeRatesContainer();
+
+    // Assert
+    assertNull(actualExchangeRatesContainer.getBase());
+    assertNull(actualExchangeRatesContainer.getRates());
   }
 }

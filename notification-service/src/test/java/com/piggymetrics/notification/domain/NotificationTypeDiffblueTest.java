@@ -14,7 +14,7 @@ public class NotificationTypeDiffblueTest {
    * </ul>
    */
   @Test
-  public void testGetAttachment() {
+  public void testGettersAndSetters() {
     // Arrange
     NotificationType valueOfResult = NotificationType.valueOf("BACKUP");
 

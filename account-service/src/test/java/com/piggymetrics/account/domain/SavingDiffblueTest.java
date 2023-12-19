@@ -25,7 +25,7 @@ public class SavingDiffblueTest {
    * </ul>
    */
   @Test
-  public void testConstructor() {
+  public void testGettersAndSetters() {
     // Arrange and Act
     Saving actualSaving = new Saving();
     BigDecimal amount = new BigDecimal("2.3");
