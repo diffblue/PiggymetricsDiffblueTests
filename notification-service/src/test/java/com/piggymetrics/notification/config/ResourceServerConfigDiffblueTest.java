@@ -1,7 +1,6 @@
 package com.piggymetrics.notification.config;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import com.piggymetrics.notification.repository.RecipientRepository;
 import de.flapdoodle.embed.mongo.MongodExecutable;
@@ -11,12 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.cloud.security.oauth2.client.feign.OAuth2FeignRequestInterceptor;
+import org.springframework.http.client.InterceptingClientHttpRequestFactory;
 import org.springframework.security.oauth2.client.OAuth2RestTemplate;
-import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
-import org.springframework.security.oauth2.client.token.DefaultAccessTokenRequest;
-import org.springframework.security.oauth2.common.AuthenticationScheme;
+import org.springframework.security.oauth2.client.http.OAuth2ErrorHandler;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.web.util.DefaultUriBuilderFactory;
 
 @SpringBootTest
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -36,7 +33,7 @@ public class ResourceServerConfigDiffblueTest {
   @Test
   public void testClientCredentialsResourceDetails() {
     // Arrange, Act and Assert
-    assertNull(resourceServerConfig.clientCredentialsResourceDetails().getScope());
+    assertFalse(resourceServerConfig.clientCredentialsResourceDetails().isScoped());
   }
 
   /**
@@ -59,11 +56,8 @@ public class ResourceServerConfigDiffblueTest {
     OAuth2RestTemplate actualClientCredentialsRestTemplateResult = resourceServerConfig.clientCredentialsRestTemplate();
 
     // Assert
-    OAuth2ProtectedResourceDetails resource = actualClientCredentialsRestTemplateResult.getResource();
-    assertNull(resource.getClientId());
-    assertEquals(AuthenticationScheme.header, resource.getClientAuthenticationScheme());
-    assertEquals(actualClientCredentialsRestTemplateResult.getOAuth2ClientContext().getAccessTokenRequest(),
-        ((DefaultUriBuilderFactory) actualClientCredentialsRestTemplateResult.getUriTemplateHandler())
-            .getDefaultUriVariables());
+    assertTrue(
+        actualClientCredentialsRestTemplateResult.getRequestFactory() instanceof InterceptingClientHttpRequestFactory);
+    assertTrue(actualClientCredentialsRestTemplateResult.getErrorHandler() instanceof OAuth2ErrorHandler);
   }
 }

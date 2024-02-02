@@ -3,25 +3,25 @@
     "reportVersion" : "2.5"
   },
   "run" : {
-    "version" : "2024.01.02-d4f996c-licensed",
-    "creationTimestamp" : "2024-02-02T10:40:20.184Z",
+    "version" : "2024.01.02-a6615a1-licensed",
+    "creationTimestamp" : "2024-02-02T11:12:18.692Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --working-directory=auth-service",
-    "totalTime" : 305.933,
-    "environmentDetectionTime" : 0.772,
-    "indexingTime" : 0.351,
-    "entryPointsTime" : 0.753,
-    "generationTime" : 194.048,
-    "timeToFirstTest" : 113.624,
-    "timeToLastTest" : 257.67,
-    "indexQueryTime" : 18.449,
-    "verificationTime" : 28.457,
-    "validationTime" : 19.075
+    "totalTime" : 313.997,
+    "environmentDetectionTime" : 0.845,
+    "indexingTime" : 0.369,
+    "entryPointsTime" : 0.823,
+    "generationTime" : 199.228,
+    "timeToFirstTest" : 113.787,
+    "timeToLastTest" : 262.667,
+    "indexQueryTime" : 18.38,
+    "verificationTime" : 27.912,
+    "validationTime" : 20.115
   },
   "codes" : {
     "E052" : "Missing dependency",
     "R000" : "Success",
     "R002" : "Missing observers",
-    "R004" : "No meaningful assertions found",
+    "R013" : "No inputs found that don't throw a trivial exception",
     "T000" : "Method eligible for test creation",
     "T001" : "Trivial getter",
     "T002" : "Trivial setter",
@@ -50,7 +50,7 @@
       "E052" : 11,
       "R000" : 18,
       "R002" : 1,
-      "R004" : 1,
+      "R013" : 1,
       "T005" : 6,
       "T006" : 1,
       "T010" : 1,
@@ -102,7 +102,7 @@
       "perMethodOutcome" : {
         "R000" : 1,
         "R002" : 1,
-        "R004" : 1,
+        "R013" : 1,
         "T005" : 1
       },
       "perTestOutcome" : {
@@ -330,7 +330,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R004",
+      "perMethodOutcome" : "R013",
       "lineNumbers" : [
         25,
         26,

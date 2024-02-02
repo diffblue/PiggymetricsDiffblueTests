@@ -1,7 +1,6 @@
 package com.piggymetrics.account.config;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import com.piggymetrics.account.repository.AccountRepository;
@@ -15,8 +14,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.cloud.security.oauth2.client.feign.OAuth2FeignRequestInterceptor;
 import org.springframework.security.oauth2.client.OAuth2RestTemplate;
-import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
 import org.springframework.security.oauth2.client.token.DefaultAccessTokenRequest;
+import org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsResourceDetails;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.web.util.DefaultUriBuilderFactory;
 
@@ -40,8 +39,15 @@ public class ResourceServerConfigDiffblueTest {
    */
   @Test
   public void testClientCredentialsResourceDetails() {
-    // Arrange, Act and Assert
-    assertNull(resourceServerConfig.clientCredentialsResourceDetails().getClientSecret());
+    // Arrange and Act
+    ClientCredentialsResourceDetails actualClientCredentialsResourceDetailsResult = resourceServerConfig
+        .clientCredentialsResourceDetails();
+
+    // Assert
+    assertEquals("access_token", actualClientCredentialsResourceDetailsResult.getTokenName());
+    assertEquals("client_credentials", actualClientCredentialsResourceDetailsResult.getGrantType());
+    assertNull(actualClientCredentialsResourceDetailsResult.getScope());
+    assertTrue(actualClientCredentialsResourceDetailsResult.isClientOnly());
   }
 
   /**
@@ -64,9 +70,7 @@ public class ResourceServerConfigDiffblueTest {
     OAuth2RestTemplate actualClientCredentialsRestTemplateResult = resourceServerConfig.clientCredentialsRestTemplate();
 
     // Assert
-    OAuth2ProtectedResourceDetails resource = actualClientCredentialsRestTemplateResult.getResource();
-    assertEquals("access_token", resource.getTokenName());
-    assertFalse(resource.isAuthenticationRequired());
+    assertEquals(7, actualClientCredentialsRestTemplateResult.getMessageConverters().size());
     assertEquals(actualClientCredentialsRestTemplateResult.getOAuth2ClientContext().getAccessTokenRequest(),
         ((DefaultUriBuilderFactory) actualClientCredentialsRestTemplateResult.getUriTemplateHandler())
             .getDefaultUriVariables());

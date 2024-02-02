@@ -3,19 +3,19 @@
     "reportVersion" : "2.5"
   },
   "run" : {
-    "version" : "2024.01.02-d4f996c-licensed",
-    "creationTimestamp" : "2024-02-02T10:55:22.787Z",
+    "version" : "2024.01.02-a6615a1-licensed",
+    "creationTimestamp" : "2024-02-02T11:27:37.157Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --working-directory=statistics-service",
-    "totalTime" : 396.561,
-    "environmentDetectionTime" : 1.14,
-    "indexingTime" : 0.33,
-    "entryPointsTime" : 1.121,
-    "generationTime" : 267.174,
-    "timeToFirstTest" : 131.486,
-    "timeToLastTest" : 338.175,
-    "indexQueryTime" : 19.135,
-    "verificationTime" : 34.104,
-    "validationTime" : 23.159
+    "totalTime" : 402.607,
+    "environmentDetectionTime" : 1.008,
+    "indexingTime" : 0.358,
+    "entryPointsTime" : 0.989,
+    "generationTime" : 270.381,
+    "timeToFirstTest" : 133.016,
+    "timeToLastTest" : 341.221,
+    "indexQueryTime" : 19.194,
+    "verificationTime" : 33.791,
+    "validationTime" : 24.16
   },
   "codes" : {
     "E052" : "Missing dependency",
@@ -24,6 +24,7 @@
     "R004" : "No meaningful assertions found",
     "R005" : "Unable to load class",
     "R011" : "Sandboxing policy violation",
+    "R013" : "No inputs found that don't throw a trivial exception",
     "T000" : "Method eligible for test creation",
     "T001" : "Trivial getter",
     "T002" : "Trivial setter",
@@ -58,7 +59,8 @@
       "R002" : 3,
       "R004" : 2,
       "R005" : 1,
-      "R011" : 2,
+      "R011" : 1,
+      "R013" : 1,
       "T003" : 9,
       "T005" : 9,
       "T006" : 1,
@@ -386,7 +388,8 @@
         "T012" : 1
       },
       "perMethodOutcome" : {
-        "R011" : 2,
+        "R011" : 1,
+        "R013" : 1,
         "T005" : 1,
         "T012" : 1
       }
@@ -1583,7 +1586,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R011",
+      "perMethodOutcome" : "R013",
       "lineNumbers" : [
         52,
         54,
