@@ -7,7 +7,6 @@ import static org.junit.Assert.assertTrue;
 import com.piggymetrics.account.repository.AccountRepository;
 import com.piggymetrics.account.service.security.CustomUserInfoTokenServices;
 import de.flapdoodle.embed.mongo.MongodExecutable;
-import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +14,11 @@ import org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceS
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.cloud.security.oauth2.client.feign.OAuth2FeignRequestInterceptor;
-import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter;
 import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
-import org.springframework.security.oauth2.common.AuthenticationScheme;
+import org.springframework.security.oauth2.client.token.DefaultAccessTokenRequest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.web.util.DefaultUriBuilderFactory;
 
 @SpringBootTest
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -43,8 +41,7 @@ public class ResourceServerConfigDiffblueTest {
   @Test
   public void testClientCredentialsResourceDetails() {
     // Arrange, Act and Assert
-    assertEquals(AuthenticationScheme.header,
-        resourceServerConfig.clientCredentialsResourceDetails().getAuthenticationScheme());
+    assertNull(resourceServerConfig.clientCredentialsResourceDetails().getClientSecret());
   }
 
   /**
@@ -69,14 +66,10 @@ public class ResourceServerConfigDiffblueTest {
     // Assert
     OAuth2ProtectedResourceDetails resource = actualClientCredentialsRestTemplateResult.getResource();
     assertEquals("access_token", resource.getTokenName());
-    List<HttpMessageConverter<?>> messageConverters = actualClientCredentialsRestTemplateResult.getMessageConverters();
-    assertNull(((Jaxb2RootElementHttpMessageConverter) messageConverters.get(5)).getDefaultCharset());
-    assertNull(resource.getScope());
-    assertNull(actualClientCredentialsRestTemplateResult.getOAuth2ClientContext().getAccessToken());
-    assertEquals(1, actualClientCredentialsRestTemplateResult.getInterceptors().size());
-    assertEquals(2, messageConverters.get(6).getSupportedMediaTypes().size());
-    assertEquals(AuthenticationScheme.header, resource.getClientAuthenticationScheme());
-    assertFalse(resource.isScoped());
+    assertFalse(resource.isAuthenticationRequired());
+    assertEquals(actualClientCredentialsRestTemplateResult.getOAuth2ClientContext().getAccessTokenRequest(),
+        ((DefaultUriBuilderFactory) actualClientCredentialsRestTemplateResult.getUriTemplateHandler())
+            .getDefaultUriVariables());
   }
 
   /**

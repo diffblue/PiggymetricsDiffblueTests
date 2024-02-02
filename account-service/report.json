@@ -3,25 +3,26 @@
     "reportVersion" : "2.5"
   },
   "run" : {
-    "version" : "2024.01.01-37a522c-licensed",
-    "creationTimestamp" : "2024-01-16T14:12:38.319Z",
+    "version" : "2024.01.02-d4f996c-licensed",
+    "creationTimestamp" : "2024-02-02T10:46:33.068Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --working-directory=account-service",
-    "totalTime" : 526.952,
-    "environmentDetectionTime" : 1.042,
-    "indexingTime" : 0.326,
-    "entryPointsTime" : 1.015,
-    "generationTime" : 392.999,
-    "timeToFirstTest" : 73.368,
-    "timeToLastTest" : 461.581,
-    "indexQueryTime" : 21.583000000000002,
-    "verificationTime" : 32.199,
-    "validationTime" : 26.143
+    "totalTime" : 467.106,
+    "environmentDetectionTime" : 1.178,
+    "indexingTime" : 0.363,
+    "entryPointsTime" : 1.151,
+    "generationTime" : 333.197,
+    "timeToFirstTest" : 74.312,
+    "timeToLastTest" : 401.782,
+    "indexQueryTime" : 18.756,
+    "verificationTime" : 32.278,
+    "validationTime" : 26.108
   },
   "codes" : {
     "E052" : "Missing dependency",
     "R000" : "Success",
     "R002" : "Missing observers",
     "R004" : "No meaningful assertions found",
+    "R005" : "Unable to load class",
     "R013" : "No inputs found that don't throw a trivial exception",
     "T000" : "Method eligible for test creation",
     "T001" : "Trivial getter",
@@ -55,7 +56,8 @@
       "R000" : 53,
       "R002" : 5,
       "R004" : 1,
-      "R013" : 2,
+      "R005" : 1,
+      "R013" : 1,
       "T003" : 6,
       "T005" : 5,
       "T006" : 1,
@@ -137,7 +139,7 @@
       },
       "perMethodOutcome" : {
         "R000" : 4,
-        "R013" : 1,
+        "R005" : 1,
         "T005" : 1
       },
       "perTestOutcome" : {
@@ -432,7 +434,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R013",
+      "perMethodOutcome" : "R005",
       "lineNumbers" : [
         56,
         57,

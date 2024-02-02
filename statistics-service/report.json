@@ -3,27 +3,27 @@
     "reportVersion" : "2.5"
   },
   "run" : {
-    "version" : "2024.01.01-37a522c-licensed",
-    "creationTimestamp" : "2024-01-16T14:22:27.35Z",
+    "version" : "2024.01.02-d4f996c-licensed",
+    "creationTimestamp" : "2024-02-02T10:55:22.787Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --working-directory=statistics-service",
-    "totalTime" : 385.127,
-    "environmentDetectionTime" : 1.067,
-    "indexingTime" : 0.333,
-    "entryPointsTime" : 1.048,
-    "generationTime" : 257.287,
-    "timeToFirstTest" : 128.878,
-    "timeToLastTest" : 326.72,
-    "indexQueryTime" : 18.6,
-    "verificationTime" : 33.058,
-    "validationTime" : 23.2
+    "totalTime" : 396.561,
+    "environmentDetectionTime" : 1.14,
+    "indexingTime" : 0.33,
+    "entryPointsTime" : 1.121,
+    "generationTime" : 267.174,
+    "timeToFirstTest" : 131.486,
+    "timeToLastTest" : 338.175,
+    "indexQueryTime" : 19.135,
+    "verificationTime" : 34.104,
+    "validationTime" : 23.159
   },
   "codes" : {
     "E052" : "Missing dependency",
     "R000" : "Success",
     "R002" : "Missing observers",
     "R004" : "No meaningful assertions found",
+    "R005" : "Unable to load class",
     "R011" : "Sandboxing policy violation",
-    "R013" : "No inputs found that don't throw a trivial exception",
     "T000" : "Method eligible for test creation",
     "T001" : "Trivial getter",
     "T002" : "Trivial setter",
@@ -57,8 +57,8 @@
       "R000" : 68,
       "R002" : 3,
       "R004" : 2,
+      "R005" : 1,
       "R011" : 2,
-      "R013" : 1,
       "T003" : 9,
       "T005" : 9,
       "T006" : 1,
@@ -342,7 +342,7 @@
         "T012" : 1
       },
       "perMethodOutcome" : {
-        "R013" : 1,
+        "R005" : 1,
         "T005" : 1,
         "T012" : 1
       }
@@ -1500,7 +1500,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R013",
+      "perMethodOutcome" : "R005",
       "lineNumbers" : [
         16,
         17,
