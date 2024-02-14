@@ -1,17 +1,18 @@
 package com.piggymetrics.auth.controller;
 
+import static org.mockito.Mockito.doNothing;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.piggymetrics.auth.domain.User;
 import com.piggymetrics.auth.service.UserService;
 import java.security.Principal;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
@@ -31,19 +32,21 @@ public class UserControllerDiffblueTest {
   @Test
   public void testCreateUser() throws Exception {
     // Arrange
+    doNothing().when(userService).create(Mockito.<User>any());
+
     User user = new User();
     user.setPassword("iloveyou");
     user.setUsername("janedoe");
     String content = (new ObjectMapper()).writeValueAsString(user);
-    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/users")
+    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.post("/users")
         .contentType(MediaType.APPLICATION_JSON)
         .content(content);
 
-    // Act
-    ResultActions actualPerformResult = MockMvcBuilders.standaloneSetup(userController).build().perform(requestBuilder);
-
-    // Assert
-    actualPerformResult.andExpect(MockMvcResultMatchers.status().is(405));
+    // Act and Assert
+    MockMvcBuilders.standaloneSetup(userController)
+        .build()
+        .perform(requestBuilder)
+        .andExpect(MockMvcResultMatchers.status().isOk());
   }
 
   /**

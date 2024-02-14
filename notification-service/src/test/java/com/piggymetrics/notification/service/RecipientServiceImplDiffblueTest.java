@@ -3,6 +3,7 @@ package com.piggymetrics.notification.service;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import com.piggymetrics.notification.domain.Frequency;
@@ -53,7 +54,7 @@ public class RecipientServiceImplDiffblueTest {
     Recipient actualFindByAccountNameResult = recipientServiceImpl.findByAccountName("Dr Jane Doe");
 
     // Assert
-    verify(recipientRepository).findByAccountName(Mockito.<String>any());
+    verify(recipientRepository).findByAccountName(eq("Dr Jane Doe"));
     assertSame(recipient, actualFindByAccountNameResult);
   }
 
@@ -68,7 +69,7 @@ public class RecipientServiceImplDiffblueTest {
     // Act and Assert
     thrown.expect(IllegalArgumentException.class);
     recipientServiceImpl.findByAccountName("Dr Jane Doe");
-    verify(recipientRepository).findByAccountName(Mockito.<String>any());
+    verify(recipientRepository).findByAccountName(eq("Dr Jane Doe"));
   }
 
   /**

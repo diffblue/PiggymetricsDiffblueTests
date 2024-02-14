@@ -2,6 +2,7 @@ package com.piggymetrics.statistics.service;
 
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
@@ -59,7 +60,7 @@ public class StatisticsServiceImplDiffblueTest {
     List<DataPoint> actualFindByAccountNameResult = statisticsServiceImpl.findByAccountName("Dr Jane Doe");
 
     // Assert
-    verify(dataPointRepository).findByIdAccount(Mockito.<String>any());
+    verify(dataPointRepository).findByIdAccount(eq("Dr Jane Doe"));
     assertTrue(actualFindByAccountNameResult.isEmpty());
     assertSame(dataPointList, actualFindByAccountNameResult);
   }
@@ -99,7 +100,7 @@ public class StatisticsServiceImplDiffblueTest {
     DataPoint actualSaveResult = statisticsServiceImpl.save("Dr Jane Doe", account);
 
     // Assert
-    verify(exchangeRatesService).convert(Mockito.<Currency>any(), Mockito.<Currency>any(), Mockito.<BigDecimal>any());
+    verify(exchangeRatesService).convert(eq(Currency.USD), eq(Currency.USD), Mockito.<BigDecimal>any());
     verify(exchangeRatesService).getCurrentRates();
     verify(dataPointRepository).save(Mockito.<DataPoint>any());
     assertSame(dataPoint, actualSaveResult);
@@ -167,8 +168,7 @@ public class StatisticsServiceImplDiffblueTest {
     verify(account).setExpenses(Mockito.<List<Item>>any());
     verify(account).setIncomes(Mockito.<List<Item>>any());
     verify(account).setSaving(Mockito.<Saving>any());
-    verify(exchangeRatesService, atLeast(1)).convert(Mockito.<Currency>any(), Mockito.<Currency>any(),
-        Mockito.<BigDecimal>any());
+    verify(exchangeRatesService, atLeast(1)).convert(eq(Currency.USD), eq(Currency.USD), Mockito.<BigDecimal>any());
     verify(exchangeRatesService).getCurrentRates();
     verify(dataPointRepository).save(Mockito.<DataPoint>any());
     assertSame(dataPoint, actualSaveResult);
@@ -243,7 +243,7 @@ public class StatisticsServiceImplDiffblueTest {
     verify(account).setExpenses(Mockito.<List<Item>>any());
     verify(account).setIncomes(Mockito.<List<Item>>any());
     verify(account).setSaving(Mockito.<Saving>any());
-    verify(exchangeRatesService, atLeast(1)).convert(Mockito.<Currency>any(), Mockito.<Currency>any(),
+    verify(exchangeRatesService, atLeast(1)).convert(Mockito.<Currency>any(), eq(Currency.USD),
         Mockito.<BigDecimal>any());
     verify(exchangeRatesService).getCurrentRates();
     verify(dataPointRepository).save(Mockito.<DataPoint>any());
@@ -312,8 +312,7 @@ public class StatisticsServiceImplDiffblueTest {
     verify(account).setExpenses(Mockito.<List<Item>>any());
     verify(account).setIncomes(Mockito.<List<Item>>any());
     verify(account).setSaving(Mockito.<Saving>any());
-    verify(exchangeRatesService, atLeast(1)).convert(Mockito.<Currency>any(), Mockito.<Currency>any(),
-        Mockito.<BigDecimal>any());
+    verify(exchangeRatesService, atLeast(1)).convert(eq(Currency.USD), eq(Currency.USD), Mockito.<BigDecimal>any());
     verify(exchangeRatesService).getCurrentRates();
     verify(dataPointRepository).save(Mockito.<DataPoint>any());
     assertSame(dataPoint, actualSaveResult);

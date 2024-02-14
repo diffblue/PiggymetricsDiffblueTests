@@ -3,26 +3,25 @@
     "reportVersion" : "2.5"
   },
   "run" : {
-    "version" : "2024.01.02-a6615a1-licensed",
-    "creationTimestamp" : "2024-02-02T11:18:40.209Z",
+    "version" : "2024.02.01-290d7b6-licensed",
+    "creationTimestamp" : "2024-02-14T16:36:48.517Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --working-directory=account-service",
-    "totalTime" : 473.466,
-    "environmentDetectionTime" : 0.984,
-    "indexingTime" : 0.339,
-    "entryPointsTime" : 0.963,
-    "generationTime" : 338.704,
-    "timeToFirstTest" : 75.698,
-    "timeToLastTest" : 408.13,
-    "indexQueryTime" : 19.109,
-    "verificationTime" : 32.726,
-    "validationTime" : 26.121
+    "totalTime" : 514.124,
+    "environmentDetectionTime" : 0.958,
+    "indexingTime" : 0.743,
+    "entryPointsTime" : 0.938,
+    "generationTime" : 356.232,
+    "timeToFirstTest" : 70.334,
+    "timeToLastTest" : 418.677,
+    "indexQueryTime" : 16.692,
+    "verificationTime" : 29.253,
+    "validationTime" : 55.206
   },
   "codes" : {
     "E052" : "Missing dependency",
     "R000" : "Success",
     "R002" : "Missing observers",
     "R004" : "No meaningful assertions found",
-    "R005" : "Unable to load class",
     "R013" : "No inputs found that don't throw a trivial exception",
     "T000" : "Method eligible for test creation",
     "T001" : "Trivial getter",
@@ -33,12 +32,12 @@
     "T010" : "Abstract or interface method",
     "T012" : "Synthetic method",
     "V000" : "Validated successfully",
-    "W002" : "Test compiled, but did not pass"
+    "V003" : "Tests discarded during validation"
   },
   "summary" : {
     "classesCount" : 17,
     "methodsCount" : 99,
-    "completeTestCount" : 19,
+    "completeTestCount" : 20,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "perMethodTestability" : {
@@ -53,26 +52,22 @@
     },
     "perMethodOutcome" : {
       "E052" : 12,
-      "R000" : 53,
+      "R000" : 54,
       "R002" : 5,
       "R004" : 1,
-      "R005" : 1,
-      "R013" : 1,
+      "R013" : 2,
       "T003" : 6,
       "T005" : 5,
       "T006" : 1,
       "T010" : 5,
-      "T012" : 8,
-      "W002" : 1
+      "T012" : 8
     },
     "perTestOutcome" : {
-      "R000" : 19
+      "R000" : 20
     },
     "perTestValidation" : {
-      "V000" : 19
-    },
-    "warnings" : {
-      "W002" : 1
+      "V000" : 18,
+      "V003" : 2
     }
   },
   "classes" : {
@@ -139,7 +134,7 @@
       },
       "perMethodOutcome" : {
         "R000" : 4,
-        "R005" : 1,
+        "R013" : 1,
         "T005" : 1
       },
       "perTestOutcome" : {
@@ -292,22 +287,18 @@
     },
     "com.piggymetrics.account.service.AccountServiceImpl" : {
       "methodsCount" : 4,
-      "completeTestCount" : 1,
+      "completeTestCount" : 2,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 4
       },
       "perMethodOutcome" : {
-        "R000" : 1,
+        "R000" : 2,
         "R013" : 1,
-        "T005" : 1,
-        "W002" : 1
+        "T005" : 1
       },
       "perTestOutcome" : {
-        "R000" : 1
-      },
-      "warnings" : {
-        "W002" : 1
+        "R000" : 2
       }
     },
     "com.piggymetrics.account.service.security.CustomUserInfoTokenServices" : {
@@ -434,7 +425,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R005",
+      "perMethodOutcome" : "R013",
       "lineNumbers" : [
         56,
         57,
@@ -1266,12 +1257,12 @@
       ]
     },
     "com.piggymetrics.account.service.AccountServiceImpl.saveChanges:(Ljava/lang/String;Lcom/piggymetrics/account/domain/Account;)V" : {
-      "completeTestCount" : 0,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "W002",
-      "warnings" : {
-        "W002" : 1
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
       },
       "lineNumbers" : [
         78,

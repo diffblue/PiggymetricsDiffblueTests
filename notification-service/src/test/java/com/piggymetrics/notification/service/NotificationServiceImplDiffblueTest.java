@@ -154,4 +154,27 @@ public class NotificationServiceImplDiffblueTest {
     // Assert
     verify(recipientRepository).findReadyForRemind();
   }
+
+  /**
+   * Method under test: {@link NotificationServiceImpl#sendRemindNotifications()}
+   */
+  @Test
+  public void testSendRemindNotifications4() {
+    // Arrange
+    Recipient recipient = new Recipient();
+    recipient.setAccountName("");
+    recipient.setEmail("jane.doe@example.org");
+    recipient.setScheduledNotifications(new HashMap<>());
+
+    ArrayList<Recipient> recipientList = new ArrayList<>();
+    recipientList.addAll(new ArrayList<>());
+    recipientList.add(recipient);
+    when(recipientRepository.findReadyForRemind()).thenReturn(recipientList);
+
+    // Act
+    notificationServiceImpl.sendRemindNotifications();
+
+    // Assert
+    verify(recipientRepository).findReadyForRemind();
+  }
 }

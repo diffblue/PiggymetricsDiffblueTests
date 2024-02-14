@@ -1,5 +1,6 @@
 package com.piggymetrics.auth.service;
 
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import com.piggymetrics.auth.domain.User;
@@ -45,7 +46,7 @@ public class UserServiceImplDiffblueTest {
     // Act and Assert
     thrown.expect(IllegalArgumentException.class);
     userServiceImpl.create(user2);
-    verify(userRepository).findById(Mockito.<String>any());
+    verify(userRepository).findById(eq("janedoe"));
   }
 
   /**
@@ -69,7 +70,7 @@ public class UserServiceImplDiffblueTest {
     userServiceImpl.create(user2);
 
     // Assert
-    verify(userRepository).findById(Mockito.<String>any());
+    verify(userRepository).findById(eq("janedoe"));
     verify(userRepository).save(Mockito.<User>any());
   }
 
@@ -89,6 +90,6 @@ public class UserServiceImplDiffblueTest {
     // Act and Assert
     thrown.expect(IllegalArgumentException.class);
     userServiceImpl.create(user);
-    verify(userRepository).findById(Mockito.<String>any());
+    verify(userRepository).findById(eq("janedoe"));
   }
 }

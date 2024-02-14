@@ -1,6 +1,7 @@
 package com.piggymetrics.auth.service.security;
 
 import static org.junit.Assert.assertSame;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import com.piggymetrics.auth.domain.User;
@@ -45,7 +46,7 @@ public class MongoUserDetailsServiceDiffblueTest {
     UserDetails actualLoadUserByUsernameResult = mongoUserDetailsService.loadUserByUsername("janedoe");
 
     // Assert
-    verify(userRepository).findById(Mockito.<String>any());
+    verify(userRepository).findById(eq("janedoe"));
     assertSame(user, actualLoadUserByUsernameResult);
   }
 
@@ -61,7 +62,7 @@ public class MongoUserDetailsServiceDiffblueTest {
     // Act and Assert
     thrown.expect(UsernameNotFoundException.class);
     mongoUserDetailsService.loadUserByUsername("janedoe");
-    verify(userRepository).findById(Mockito.<String>any());
+    verify(userRepository).findById(eq("janedoe"));
   }
 
   /**
@@ -75,6 +76,6 @@ public class MongoUserDetailsServiceDiffblueTest {
     // Act and Assert
     thrown.expect(UsernameNotFoundException.class);
     mongoUserDetailsService.loadUserByUsername("janedoe");
-    verify(userRepository).findById(Mockito.<String>any());
+    verify(userRepository).findById(eq("janedoe"));
   }
 }

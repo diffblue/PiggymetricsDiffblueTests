@@ -14,10 +14,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.cloud.security.oauth2.client.feign.OAuth2FeignRequestInterceptor;
 import org.springframework.security.oauth2.client.OAuth2RestTemplate;
-import org.springframework.security.oauth2.client.token.DefaultAccessTokenRequest;
 import org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsResourceDetails;
+import org.springframework.security.oauth2.common.AuthenticationScheme;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.web.util.DefaultUriBuilderFactory;
 
 @SpringBootTest
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -44,10 +43,9 @@ public class ResourceServerConfigDiffblueTest {
         .clientCredentialsResourceDetails();
 
     // Assert
-    assertEquals("access_token", actualClientCredentialsResourceDetailsResult.getTokenName());
-    assertEquals("client_credentials", actualClientCredentialsResourceDetailsResult.getGrantType());
-    assertNull(actualClientCredentialsResourceDetailsResult.getScope());
-    assertTrue(actualClientCredentialsResourceDetailsResult.isClientOnly());
+    assertNull(actualClientCredentialsResourceDetailsResult.getClientSecret());
+    assertEquals(AuthenticationScheme.header,
+        actualClientCredentialsResourceDetailsResult.getClientAuthenticationScheme());
   }
 
   /**
@@ -70,10 +68,8 @@ public class ResourceServerConfigDiffblueTest {
     OAuth2RestTemplate actualClientCredentialsRestTemplateResult = resourceServerConfig.clientCredentialsRestTemplate();
 
     // Assert
-    assertEquals(7, actualClientCredentialsRestTemplateResult.getMessageConverters().size());
-    assertEquals(actualClientCredentialsRestTemplateResult.getOAuth2ClientContext().getAccessTokenRequest(),
-        ((DefaultUriBuilderFactory) actualClientCredentialsRestTemplateResult.getUriTemplateHandler())
-            .getDefaultUriVariables());
+    assertNull(actualClientCredentialsRestTemplateResult.getResource().getScope());
+    assertEquals(1, actualClientCredentialsRestTemplateResult.getInterceptors().size());
   }
 
   /**
