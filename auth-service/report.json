@@ -3,25 +3,25 @@
     "reportVersion" : "2.5"
   },
   "run" : {
-    "version" : "2024.02.01-290d7b6-licensed",
-    "creationTimestamp" : "2024-02-14T16:30:36.95Z",
+    "version" : "2024.02.02-8736aee-licensed",
+    "creationTimestamp" : "2024-03-04T15:36:53.184Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --working-directory=auth-service",
-    "totalTime" : 307.39,
-    "environmentDetectionTime" : 0.727,
-    "indexingTime" : 0.677,
-    "entryPointsTime" : 0.706,
-    "generationTime" : 197.22,
-    "timeToFirstTest" : 105.819,
-    "timeToLastTest" : 256.032,
-    "indexQueryTime" : 15.819,
-    "verificationTime" : 26.022,
-    "validationTime" : 20.11
+    "totalTime" : 265.485,
+    "environmentDetectionTime" : 0.608,
+    "indexingTime" : 0.303,
+    "entryPointsTime" : 0.586,
+    "generationTime" : 170.093,
+    "timeToFirstTest" : 96.908,
+    "timeToLastTest" : 224.153,
+    "indexQueryTime" : 13.008000000000001,
+    "verificationTime" : 23.612,
+    "validationTime" : 16.088
   },
   "codes" : {
     "E052" : "Missing dependency",
     "R000" : "Success",
     "R002" : "Missing observers",
-    "R004" : "No meaningful assertions found",
+    "R013" : "No inputs found that don't throw a trivial exception",
     "T000" : "Method eligible for test creation",
     "T001" : "Trivial getter",
     "T002" : "Trivial setter",
@@ -50,7 +50,7 @@
       "E052" : 11,
       "R000" : 18,
       "R002" : 1,
-      "R004" : 1,
+      "R013" : 1,
       "T005" : 6,
       "T006" : 1,
       "T010" : 1,
@@ -102,7 +102,7 @@
       "perMethodOutcome" : {
         "R000" : 1,
         "R002" : 1,
-        "R004" : 1,
+        "R013" : 1,
         "T005" : 1
       },
       "perTestOutcome" : {
@@ -330,7 +330,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R004",
+      "perMethodOutcome" : "R013",
       "lineNumbers" : [
         25,
         26,

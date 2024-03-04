@@ -1,7 +1,6 @@
 package com.piggymetrics.statistics.repository.converter;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
 import com.mongodb.BasicDBObject;
 import com.piggymetrics.statistics.domain.timeseries.DataPointId;
 import java.time.LocalDate;
@@ -27,7 +26,5 @@ public class DataPointIdWriterConverterDiffblueTest {
     assertEquals(2, ((BasicDBObject) dataPointIdWriterConverter.convert(
         new DataPointId("3", Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()))))
             .size());
-    assertEquals(2,
-        ((BasicDBObject) dataPointIdWriterConverter.convert(new DataPointId("3", mock(java.sql.Date.class)))).size());
   }
 }

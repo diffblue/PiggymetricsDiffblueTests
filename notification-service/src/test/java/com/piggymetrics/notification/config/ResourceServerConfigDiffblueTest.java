@@ -1,20 +1,19 @@
 package com.piggymetrics.notification.config;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.piggymetrics.notification.repository.RecipientRepository;
 import de.flapdoodle.embed.mongo.MongodExecutable;
-import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.cloud.security.oauth2.client.feign.OAuth2FeignRequestInterceptor;
-import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.security.oauth2.client.OAuth2RestTemplate;
-import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsResourceDetails;
 import org.springframework.security.oauth2.common.AuthenticationScheme;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -67,18 +66,12 @@ public class ResourceServerConfigDiffblueTest {
    */
   @Test
   public void testClientCredentialsRestTemplate() {
-    // Arrange and Act
-    OAuth2RestTemplate actualClientCredentialsRestTemplateResult = resourceServerConfig.clientCredentialsRestTemplate();
-
-    // Assert
-    OAuth2ProtectedResourceDetails resource = actualClientCredentialsRestTemplateResult.getResource();
-    assertNull(resource.getClientId());
-    assertNull(resource.getClientSecret());
-    assertNull(resource.getId());
-    List<HttpMessageConverter<?>> messageConverters = actualClientCredentialsRestTemplateResult.getMessageConverters();
-    assertEquals(7, messageConverters.size());
-    assertEquals(3, messageConverters.get(5).getSupportedMediaTypes().size());
-    assertEquals(AuthenticationScheme.header, resource.getClientAuthenticationScheme());
-    assertTrue(resource.isClientOnly());
+    // Arrange, Act and Assert
+    ObjectMapper objectMapper = ((MappingJackson2HttpMessageConverter) resourceServerConfig
+        .clientCredentialsRestTemplate()
+        .getMessageConverters()
+        .get(6)).getObjectMapper();
+    TypeFactory expectedTypeFactory = objectMapper.getTypeFactory();
+    assertSame(expectedTypeFactory, objectMapper.getSerializerProviderInstance().getTypeFactory());
   }
 }

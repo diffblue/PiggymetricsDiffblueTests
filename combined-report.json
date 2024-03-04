@@ -1,13 +1,13 @@
 {
-  "totalTime" : 1987.275,
-  "environmentDetectionTime" : 7.036999999999999,
-  "indexingTime" : 6.527,
-  "entryPointsTime" : 6.823,
-  "generationTime" : 1272.5910000000001,
-  "timeToFirstTest" : 780.1419999999999,
-  "timeToLastTest" : 1669.973,
-  "verificationTime" : 114.144,
-  "validationTime" : 122.584,
+  "totalTime" : 1700.9650000000001,
+  "environmentDetectionTime" : 5.531000000000001,
+  "indexingTime" : 2.8160000000000003,
+  "entryPointsTime" : 5.353999999999999,
+  "generationTime" : 1063.981,
+  "timeToFirstTest" : 698.473,
+  "timeToLastTest" : 1434.456,
+  "verificationTime" : 104.74600000000001,
+  "validationTime" : 99.54400000000001,
   "summary" : {
     "classesCount" : 75,
     "methodsCount" : 362,
@@ -30,8 +30,8 @@
       "R000" : 172,
       "R002" : 9,
       "R004" : 5,
-      "R011" : 3,
-      "R013" : 5,
+      "R011" : 2,
+      "R013" : 6,
       "T003" : 17,
       "T005" : 35,
       "T006" : 9,
@@ -48,10 +48,6 @@
   },
   "coverageMetrics" : {
     "classesWithIncompleteInstructionCoverage" : [
-      "com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices",
-      "com.piggymetrics.statistics.StatisticsApplication",
-      "com.piggymetrics.statistics.repository.converter.DataPointIdReaderConverter",
-      "com.piggymetrics.statistics.service.ExchangeRatesServiceImpl",
       "com.piggymetrics.account.controller.ErrorHandler",
       "com.piggymetrics.account.service.AccountServiceImpl",
       "com.piggymetrics.account.service.security.CustomUserInfoTokenServices",
@@ -62,7 +58,11 @@
       "com.piggymetrics.notification.controller.RecipientController",
       "com.piggymetrics.notification.service.NotificationServiceImpl",
       "com.piggymetrics.notification.service.EmailServiceImpl",
-      "com.piggymetrics.notification.service.RecipientServiceImpl"
+      "com.piggymetrics.notification.service.RecipientServiceImpl",
+      "com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices",
+      "com.piggymetrics.statistics.StatisticsApplication",
+      "com.piggymetrics.statistics.repository.converter.DataPointIdReaderConverter",
+      "com.piggymetrics.statistics.service.ExchangeRatesServiceImpl"
     ],
     "coveredLines" : 472,
     "lineCoveragePercent" : "80.27%",
@@ -76,8 +76,8 @@
     "mutationsTotal" : 0
   },
   "testDiffStatSummary" : {
-    "files" : 9,
-    "insertions" : 85,
-    "deletions" : 105
+    "files" : 4,
+    "insertions" : 88,
+    "deletions" : 54
   }
 }
