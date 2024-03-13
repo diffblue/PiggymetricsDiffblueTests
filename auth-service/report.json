@@ -3,25 +3,25 @@
     "reportVersion" : "2.5"
   },
   "run" : {
-    "version" : "2024.02.02-8736aee-licensed",
-    "creationTimestamp" : "2024-03-04T15:36:53.184Z",
+    "version" : "2024.03.01-a5fb261-licensed",
+    "creationTimestamp" : "2024-03-13T16:27:04.918Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --working-directory=auth-service",
-    "totalTime" : 265.485,
-    "environmentDetectionTime" : 0.608,
-    "indexingTime" : 0.303,
-    "entryPointsTime" : 0.586,
-    "generationTime" : 170.093,
-    "timeToFirstTest" : 96.908,
-    "timeToLastTest" : 224.153,
-    "indexQueryTime" : 13.008000000000001,
-    "verificationTime" : 23.612,
-    "validationTime" : 16.088
+    "totalTime" : 283.215,
+    "environmentDetectionTime" : 0.609,
+    "indexingTime" : 0.386,
+    "entryPointsTime" : 0.588,
+    "generationTime" : 176.908,
+    "timeToFirstTest" : 114.028,
+    "timeToLastTest" : 240.782,
+    "indexQueryTime" : 13.47,
+    "verificationTime" : 24.18,
+    "validationTime" : 17.07
   },
   "codes" : {
     "E052" : "Missing dependency",
     "R000" : "Success",
     "R002" : "Missing observers",
-    "R013" : "No inputs found that don't throw a trivial exception",
+    "R004" : "No meaningful assertions found",
     "T000" : "Method eligible for test creation",
     "T001" : "Trivial getter",
     "T002" : "Trivial setter",
@@ -34,7 +34,7 @@
   "summary" : {
     "classesCount" : 9,
     "methodsCount" : 42,
-    "completeTestCount" : 16,
+    "completeTestCount" : 17,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "perMethodTestability" : {
@@ -50,17 +50,17 @@
       "E052" : 11,
       "R000" : 18,
       "R002" : 1,
-      "R013" : 1,
+      "R004" : 1,
       "T005" : 6,
       "T006" : 1,
       "T010" : 1,
       "T012" : 3
     },
     "perTestOutcome" : {
-      "R000" : 16
+      "R000" : 17
     },
     "perTestValidation" : {
-      "V000" : 16
+      "V000" : 17
     }
   },
   "classes" : {
@@ -79,7 +79,7 @@
     },
     "com.piggymetrics.auth.config.OAuth2AuthorizationConfig" : {
       "methodsCount" : 4,
-      "completeTestCount" : 3,
+      "completeTestCount" : 4,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 4
@@ -89,7 +89,7 @@
         "T005" : 1
       },
       "perTestOutcome" : {
-        "R000" : 3
+        "R000" : 4
       }
     },
     "com.piggymetrics.auth.config.WebSecurityConfig" : {
@@ -102,7 +102,7 @@
       "perMethodOutcome" : {
         "R000" : 1,
         "R002" : 1,
-        "R013" : 1,
+        "R004" : 1,
         "T005" : 1
       },
       "perTestOutcome" : {
@@ -232,12 +232,12 @@
       ]
     },
     "com.piggymetrics.auth.config.OAuth2AuthorizationConfig.configure:(Lorg/springframework/security/oauth2/config/annotation/configurers/ClientDetailsServiceConfigurer;)V" : {
-      "completeTestCount" : 1,
+      "completeTestCount" : 2,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 1
+        "R000" : 2
       },
       "lineNumbers" : [
         44,
@@ -330,7 +330,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R013",
+      "perMethodOutcome" : "R004",
       "lineNumbers" : [
         25,
         26,

@@ -20,9 +20,9 @@ public class TimePeriodDiffblueTest {
   @Test
   public void testGetBaseRatio() {
     // Arrange and Act
-    BigDecimal actualBaseRatio = TimePeriod.getBase().getBaseRatio();
+    BigDecimal actualBaseRatio = TimePeriod.YEAR.getBaseRatio();
 
     // Assert
-    assertEquals(new BigDecimal("1"), actualBaseRatio);
+    assertEquals(new BigDecimal("365.24250000000000682121026329696178436279296875"), actualBaseRatio);
   }
 }
