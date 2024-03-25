@@ -108,7 +108,7 @@ public class NotificationServiceImplDiffblueTest {
 
     Recipient recipient3 = new Recipient();
     recipient3.setAccountName("Prof Albert Einstein");
-    recipient3.setEmail("prof.einstein@example.org");
+    recipient3.setEmail("42");
     recipient3.setScheduledNotifications(new HashMap<>());
 
     ArrayList<Recipient> recipientList = new ArrayList<>();

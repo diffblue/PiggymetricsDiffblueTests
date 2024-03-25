@@ -1,11 +1,13 @@
 package com.piggymetrics.auth.config;
 
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import com.piggymetrics.auth.repository.UserRepository;
 import com.piggymetrics.auth.service.security.MongoUserDetailsService;
 import de.flapdoodle.embed.mongo.MongodExecutable;
+import java.util.HashMap;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,7 @@ import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.ObjectPostProcessor;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.cache.NullUserCache;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -83,5 +86,21 @@ public class WebSecurityConfigDiffblueTest {
         .isForcePrincipalAsString());
     assertTrue(((DaoAuthenticationProvider) ((ProviderManager) auth.getOrBuild()).getProviders().get(0))
         .isHideUserNotFoundExceptions());
+  }
+
+  /**
+   * Method under test: {@link WebSecurityConfig#configure(HttpSecurity)}
+   */
+  @Test
+  public void testConfigure3() throws Exception {
+    // Arrange
+    AuthenticationManagerBuilder authenticationBuilder = new AuthenticationManagerBuilder(objectPostProcessor);
+    HttpSecurity http = new HttpSecurity(objectPostProcessor, authenticationBuilder, new HashMap<>());
+
+    // Act
+    webSecurityConfig.configure(http);
+
+    // Assert
+    assertSame(http, http.anonymous().and());
   }
 }

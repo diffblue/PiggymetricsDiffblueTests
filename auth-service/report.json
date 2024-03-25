@@ -3,25 +3,24 @@
     "reportVersion" : "2.5"
   },
   "run" : {
-    "version" : "2024.03.01-a5fb261-licensed",
-    "creationTimestamp" : "2024-03-13T16:27:04.918Z",
+    "version" : "2024.03.02-f430b2a-licensed",
+    "creationTimestamp" : "2024-03-25T17:54:36.627Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --working-directory=auth-service",
-    "totalTime" : 283.215,
-    "environmentDetectionTime" : 0.609,
-    "indexingTime" : 0.386,
-    "entryPointsTime" : 0.588,
-    "generationTime" : 176.908,
-    "timeToFirstTest" : 114.028,
-    "timeToLastTest" : 240.782,
-    "indexQueryTime" : 13.47,
-    "verificationTime" : 24.18,
-    "validationTime" : 17.07
+    "totalTime" : 277.347,
+    "environmentDetectionTime" : 0.568,
+    "indexingTime" : 0.268,
+    "entryPointsTime" : 0.552,
+    "generationTime" : 167.534,
+    "timeToFirstTest" : 114.929,
+    "timeToLastTest" : 233.024,
+    "indexQueryTime" : 12.97,
+    "verificationTime" : 26.126,
+    "validationTime" : 18.099
   },
   "codes" : {
     "E052" : "Missing dependency",
     "R000" : "Success",
     "R002" : "Missing observers",
-    "R004" : "No meaningful assertions found",
     "T000" : "Method eligible for test creation",
     "T001" : "Trivial getter",
     "T002" : "Trivial setter",
@@ -34,7 +33,7 @@
   "summary" : {
     "classesCount" : 9,
     "methodsCount" : 42,
-    "completeTestCount" : 17,
+    "completeTestCount" : 18,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "perMethodTestability" : {
@@ -48,19 +47,18 @@
     },
     "perMethodOutcome" : {
       "E052" : 11,
-      "R000" : 18,
+      "R000" : 19,
       "R002" : 1,
-      "R004" : 1,
       "T005" : 6,
       "T006" : 1,
       "T010" : 1,
       "T012" : 3
     },
     "perTestOutcome" : {
-      "R000" : 17
+      "R000" : 18
     },
     "perTestValidation" : {
-      "V000" : 17
+      "V000" : 18
     }
   },
   "classes" : {
@@ -94,19 +92,18 @@
     },
     "com.piggymetrics.auth.config.WebSecurityConfig" : {
       "methodsCount" : 4,
-      "completeTestCount" : 2,
+      "completeTestCount" : 3,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 4
       },
       "perMethodOutcome" : {
-        "R000" : 1,
+        "R000" : 2,
         "R002" : 1,
-        "R004" : 1,
         "T005" : 1
       },
       "perTestOutcome" : {
-        "R000" : 2
+        "R000" : 3
       }
     },
     "com.piggymetrics.auth.controller.UserController" : {
@@ -327,10 +324,13 @@
       ]
     },
     "com.piggymetrics.auth.config.WebSecurityConfig.configure:(Lorg/springframework/security/config/annotation/web/builders/HttpSecurity;)V" : {
-      "completeTestCount" : 0,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R004",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
       "lineNumbers" : [
         25,
         26,

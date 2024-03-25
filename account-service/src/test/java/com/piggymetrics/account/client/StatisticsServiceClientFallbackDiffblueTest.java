@@ -54,7 +54,8 @@ public class StatisticsServiceClientFallbackDiffblueTest {
     assertEquals("Note", account.getNote());
     assertTrue(account.getExpenses().isEmpty());
     assertTrue(account.getIncomes().isEmpty());
-    assertSame(saving, account.getSaving());
+    BigDecimal expectedAmount = new BigDecimal("2.3");
+    assertEquals(expectedAmount, account.getSaving().getAmount());
     assertSame(lastSeen, account.getLastSeen());
   }
 
@@ -88,6 +89,7 @@ public class StatisticsServiceClientFallbackDiffblueTest {
     assertEquals("Note", account.getNote());
     assertTrue(account.getExpenses().isEmpty());
     assertTrue(account.getIncomes().isEmpty());
-    assertSame(saving, account.getSaving());
+    BigDecimal expectedAmount = new BigDecimal("2.3");
+    assertEquals(expectedAmount, account.getSaving().getAmount());
   }
 }

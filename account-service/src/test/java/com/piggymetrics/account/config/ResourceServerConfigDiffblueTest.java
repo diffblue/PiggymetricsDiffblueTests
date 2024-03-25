@@ -39,7 +39,7 @@ public class ResourceServerConfigDiffblueTest {
   @Test
   public void testClientCredentialsResourceDetails() {
     // Arrange, Act and Assert
-    assertFalse(resourceServerConfig.clientCredentialsResourceDetails().isAuthenticationRequired());
+    assertFalse(resourceServerConfig.clientCredentialsResourceDetails().isScoped());
   }
 
   /**

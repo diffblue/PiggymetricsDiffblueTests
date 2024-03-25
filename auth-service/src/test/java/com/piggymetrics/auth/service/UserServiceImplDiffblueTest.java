@@ -1,6 +1,7 @@
 package com.piggymetrics.auth.service;
 
 import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import com.piggymetrics.auth.domain.User;
@@ -71,7 +72,7 @@ public class UserServiceImplDiffblueTest {
 
     // Assert
     verify(userRepository).findById(eq("janedoe"));
-    verify(userRepository).save(Mockito.<User>any());
+    verify(userRepository).save(isA(User.class));
   }
 
   /**

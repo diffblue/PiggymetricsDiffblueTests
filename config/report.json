@@ -3,30 +3,31 @@
     "reportVersion" : "2.5"
   },
   "run" : {
-    "version" : "2024.03.01-a5fb261-licensed",
-    "creationTimestamp" : "2024-03-13T16:18:45.866Z",
+    "version" : "2024.03.02-f430b2a-licensed",
+    "creationTimestamp" : "2024-03-25T17:46:03.685Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --working-directory=config",
-    "totalTime" : 100.036,
-    "environmentDetectionTime" : 0.584,
-    "indexingTime" : 0.289,
-    "entryPointsTime" : 0.566,
-    "generationTime" : 56.769,
-    "timeToFirstTest" : 100.049,
-    "timeToLastTest" : 93.868,
-    "indexQueryTime" : 9.719,
-    "verificationTime" : 0.0,
-    "validationTime" : 0.0
+    "totalTime" : 112.861,
+    "environmentDetectionTime" : 0.689,
+    "indexingTime" : 0.263,
+    "entryPointsTime" : 0.666,
+    "generationTime" : 43.403,
+    "timeToFirstTest" : 93.551,
+    "timeToLastTest" : 93.642,
+    "indexQueryTime" : 9.344,
+    "verificationTime" : 12.013,
+    "validationTime" : 8.029
   },
   "codes" : {
-    "R004" : "No meaningful assertions found",
+    "R000" : "Success",
     "T000" : "Method eligible for test creation",
     "T005" : "Trivial constructor",
-    "T006" : "Main method"
+    "T006" : "Main method",
+    "V000" : "Validated successfully"
   },
   "summary" : {
     "classesCount" : 2,
     "methodsCount" : 4,
-    "completeTestCount" : 0,
+    "completeTestCount" : 1,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "perMethodTestability" : {
@@ -35,9 +36,15 @@
       "T006" : 1
     },
     "perMethodOutcome" : {
-      "R004" : 1,
+      "R000" : 1,
       "T005" : 2,
       "T006" : 1
+    },
+    "perTestOutcome" : {
+      "R000" : 1
+    },
+    "perTestValidation" : {
+      "V000" : 1
     }
   },
   "classes" : {
@@ -56,14 +63,17 @@
     },
     "com.piggymetrics.config.SecurityConfig" : {
       "methodsCount" : 2,
-      "completeTestCount" : 0,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 2
       },
       "perMethodOutcome" : {
-        "R004" : 1,
+        "R000" : 1,
         "T005" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 1
       }
     }
   },
@@ -97,10 +107,13 @@
       ]
     },
     "com.piggymetrics.config.SecurityConfig.configure:(Lorg/springframework/security/config/annotation/web/builders/HttpSecurity;)V" : {
-      "completeTestCount" : 0,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R004",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
       "lineNumbers" : [
         15,
         16,

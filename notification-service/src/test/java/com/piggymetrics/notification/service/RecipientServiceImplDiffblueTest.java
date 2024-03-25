@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import com.piggymetrics.notification.domain.Frequency;
@@ -93,7 +94,7 @@ public class RecipientServiceImplDiffblueTest {
     Recipient actualSaveResult = recipientServiceImpl.save("Dr Jane Doe", recipient2);
 
     // Assert
-    verify(recipientRepository).save(Mockito.<Recipient>any());
+    verify(recipientRepository).save(isA(Recipient.class));
     assertEquals("Dr Jane Doe", actualSaveResult.getAccountName());
     assertSame(recipient2, actualSaveResult);
   }
@@ -128,7 +129,7 @@ public class RecipientServiceImplDiffblueTest {
     Recipient actualSaveResult = recipientServiceImpl.save("Dr Jane Doe", recipient2);
 
     // Assert
-    verify(recipientRepository).save(Mockito.<Recipient>any());
+    verify(recipientRepository).save(isA(Recipient.class));
     assertEquals("Dr Jane Doe", actualSaveResult.getAccountName());
     assertSame(recipient2, actualSaveResult);
   }
@@ -170,7 +171,7 @@ public class RecipientServiceImplDiffblueTest {
     Recipient actualSaveResult = recipientServiceImpl.save("Dr Jane Doe", recipient2);
 
     // Assert
-    verify(recipientRepository).save(Mockito.<Recipient>any());
+    verify(recipientRepository).save(isA(Recipient.class));
     assertEquals("Dr Jane Doe", actualSaveResult.getAccountName());
     assertSame(recipient2, actualSaveResult);
   }
@@ -192,7 +193,7 @@ public class RecipientServiceImplDiffblueTest {
     // Act and Assert
     thrown.expect(IllegalArgumentException.class);
     recipientServiceImpl.save("Dr Jane Doe", recipient);
-    verify(recipientRepository).save(Mockito.<Recipient>any());
+    verify(recipientRepository).save(isA(Recipient.class));
   }
 
   /**
@@ -224,7 +225,7 @@ public class RecipientServiceImplDiffblueTest {
     Recipient actualSaveResult = recipientServiceImpl.save("Dr Jane Doe", recipient2);
 
     // Assert
-    verify(recipientRepository).save(Mockito.<Recipient>any());
+    verify(recipientRepository).save(isA(Recipient.class));
     assertEquals("Dr Jane Doe", actualSaveResult.getAccountName());
     assertSame(recipient2, actualSaveResult);
   }
@@ -313,7 +314,7 @@ public class RecipientServiceImplDiffblueTest {
     recipientServiceImpl.markNotified(NotificationType.BACKUP, recipient2);
 
     // Assert
-    verify(recipientRepository).save(Mockito.<Recipient>any());
+    verify(recipientRepository).save(isA(Recipient.class));
   }
 
   /**
@@ -342,6 +343,6 @@ public class RecipientServiceImplDiffblueTest {
     // Act and Assert
     thrown.expect(IllegalArgumentException.class);
     recipientServiceImpl.markNotified(NotificationType.BACKUP, recipient);
-    verify(recipientRepository).save(Mockito.<Recipient>any());
+    verify(recipientRepository).save(isA(Recipient.class));
   }
 }
