@@ -39,6 +39,7 @@ public class RecipientServiceImplDiffblueTest {
 
   @Autowired
   private RecipientServiceImpl recipientServiceImpl;
+
   /**
    * Method under test: {@link RecipientServiceImpl#findByAccountName(String)}
    */

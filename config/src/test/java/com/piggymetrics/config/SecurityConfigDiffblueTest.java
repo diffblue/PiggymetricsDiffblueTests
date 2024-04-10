@@ -23,6 +23,7 @@ public class SecurityConfigDiffblueTest {
 
   @Autowired
   private SecurityConfig securityConfig;
+
   /**
    * Method under test: {@link SecurityConfig#configure(HttpSecurity)}
    */

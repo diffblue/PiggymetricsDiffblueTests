@@ -48,6 +48,7 @@ public class StatisticsServiceImplDiffblueTest {
 
   @Autowired
   private StatisticsServiceImpl statisticsServiceImpl;
+
   /**
    * Method under test: {@link StatisticsServiceImpl#findByAccountName(String)}
    */

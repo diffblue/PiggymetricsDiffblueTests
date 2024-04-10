@@ -23,6 +23,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class StatisticsServiceClientFallbackDiffblueTest {
   @Autowired
   private StatisticsServiceClientFallback statisticsServiceClientFallback;
+
   /**
    * Method under test:
    * {@link StatisticsServiceClientFallback#updateStatistics(String, Account)}

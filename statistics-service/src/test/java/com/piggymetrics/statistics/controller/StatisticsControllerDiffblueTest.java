@@ -38,6 +38,7 @@ public class StatisticsControllerDiffblueTest {
 
   @MockBean
   private StatisticsService statisticsService;
+
   /**
    * Method under test:
    * {@link StatisticsController#getCurrentAccountStatistics(Principal)}

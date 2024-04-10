@@ -1,6 +1,8 @@
 package com.piggymetrics.statistics.repository.converter;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
 import com.mongodb.BasicDBObject;
 import com.piggymetrics.statistics.domain.timeseries.DataPointId;
 import java.time.LocalDate;
@@ -17,6 +19,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class DataPointIdWriterConverterDiffblueTest {
   @Autowired
   private DataPointIdWriterConverter dataPointIdWriterConverter;
+
   /**
    * Method under test: {@link DataPointIdWriterConverter#convert(DataPointId)}
    */
@@ -26,5 +29,9 @@ public class DataPointIdWriterConverterDiffblueTest {
     assertEquals(2, ((BasicDBObject) dataPointIdWriterConverter.convert(
         new DataPointId("3", Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()))))
             .size());
+    assertTrue(((BasicDBObject) dataPointIdWriterConverter.convert(new DataPointId("3", mock(java.sql.Date.class))))
+        .containsKey((Object) "date"));
+    assertEquals(2,
+        ((BasicDBObject) dataPointIdWriterConverter.convert(new DataPointId("3", mock(java.sql.Date.class)))).size());
   }
 }

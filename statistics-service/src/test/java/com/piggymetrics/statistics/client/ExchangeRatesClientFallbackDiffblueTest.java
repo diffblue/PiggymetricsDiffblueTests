@@ -15,6 +15,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class ExchangeRatesClientFallbackDiffblueTest {
   @Autowired
   private ExchangeRatesClientFallback exchangeRatesClientFallback;
+
   /**
    * Method under test: {@link ExchangeRatesClientFallback#getRates(Currency)}
    */

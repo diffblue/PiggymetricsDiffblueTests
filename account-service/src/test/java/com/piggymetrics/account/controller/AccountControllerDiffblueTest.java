@@ -38,6 +38,7 @@ public class AccountControllerDiffblueTest {
 
   @MockBean
   private AccountService accountService;
+
   /**
    * Method under test: {@link AccountController#createNewAccount(User)}
    */

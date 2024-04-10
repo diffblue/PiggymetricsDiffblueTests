@@ -28,6 +28,7 @@ public class UserServiceImplDiffblueTest {
 
   @Autowired
   private UserServiceImpl userServiceImpl;
+
   /**
    * Method under test: {@link UserServiceImpl#create(User)}
    */

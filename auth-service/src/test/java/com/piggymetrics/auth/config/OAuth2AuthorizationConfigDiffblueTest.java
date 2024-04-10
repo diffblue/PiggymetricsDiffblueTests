@@ -31,6 +31,7 @@ public class OAuth2AuthorizationConfigDiffblueTest {
 
   @MockBean
   private UserRepository userRepository;
+
   /**
    * Method under test:
    * {@link OAuth2AuthorizationConfig#configure(ClientDetailsServiceConfigurer)}

@@ -26,6 +26,7 @@ public class ResourceServerConfigDiffblueTest {
 
   @Autowired
   private ResourceServerProperties resourceServerProperties;
+
   /**
    * Method under test: {@link ResourceServerConfig#tokenServices()}
    */

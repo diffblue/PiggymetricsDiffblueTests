@@ -43,6 +43,7 @@ public class WebSecurityConfigDiffblueTest {
 
   @Autowired
   private WebSecurityConfig webSecurityConfig;
+
   /**
    * Method under test:
    * {@link WebSecurityConfig#configure(AuthenticationManagerBuilder)}

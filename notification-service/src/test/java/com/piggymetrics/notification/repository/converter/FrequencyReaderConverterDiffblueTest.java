@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class FrequencyReaderConverterDiffblueTest {
   @Autowired
   private FrequencyReaderConverter frequencyReaderConverter;
+
   /**
    * Method under test: {@link FrequencyReaderConverter#convert(Integer)}
    */

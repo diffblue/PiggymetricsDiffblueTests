@@ -30,6 +30,7 @@ public class MongoUserDetailsServiceDiffblueTest {
 
   @MockBean
   private UserRepository userRepository;
+
   /**
    * Method under test: {@link MongoUserDetailsService#loadUserByUsername(String)}
    */

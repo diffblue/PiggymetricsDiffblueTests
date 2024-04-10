@@ -27,6 +27,7 @@ public class CustomUserInfoTokenServicesDiffblueTest {
 
   @MockBean
   private MongodExecutable mongodExecutable;
+
   /**
    * Method under test:
    * {@link CustomUserInfoTokenServices#loadAuthentication(String)}
