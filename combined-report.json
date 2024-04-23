@@ -1,17 +1,17 @@
 {
-  "totalTime" : 1904.087,
-  "environmentDetectionTime" : 5.413,
-  "indexingTime" : 2.558,
-  "entryPointsTime" : 5.211999999999999,
-  "generationTime" : 1112.845,
-  "timeToFirstTest" : 816.687,
-  "timeToLastTest" : 1612.0870000000002,
-  "verificationTime" : 124.375,
-  "validationTime" : 112.50999999999999,
+  "totalTime" : 1825.9590000000003,
+  "environmentDetectionTime" : 5.248999999999999,
+  "indexingTime" : 2.8200000000000003,
+  "entryPointsTime" : 5.090000000000001,
+  "generationTime" : 1065.605,
+  "timeToFirstTest" : 798.49,
+  "timeToLastTest" : 1546.154,
+  "verificationTime" : 118.428,
+  "validationTime" : 107.568,
   "summary" : {
     "classesCount" : 75,
     "methodsCount" : 362,
-    "completeTestCount" : 102,
+    "completeTestCount" : 101,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "perMethodTestability" : {
@@ -30,8 +30,8 @@
       "R000" : 174,
       "R002" : 9,
       "R004" : 4,
-      "R011" : 3,
-      "R013" : 4,
+      "R011" : 2,
+      "R013" : 5,
       "T003" : 17,
       "T005" : 35,
       "T006" : 9,
@@ -39,10 +39,10 @@
       "T012" : 39
     },
     "perTestOutcome" : {
-      "R000" : 102
+      "R000" : 101
     },
     "perTestValidation" : {
-      "V000" : 100,
+      "V000" : 99,
       "V003" : 2
     }
   },
@@ -65,8 +65,8 @@
       "com.piggymetrics.statistics.service.ExchangeRatesServiceImpl",
       "com.piggymetrics.config.ConfigApplication"
     ],
-    "coveredLines" : 482,
-    "lineCoveragePercent" : "80.33%",
+    "coveredLines" : 485,
+    "lineCoveragePercent" : "80.83%",
     "totalLines" : 600
   },
   "piTestMetrics" : {
@@ -77,13 +77,13 @@
     "mutationsTotal" : 0
   },
   "testDiffStatSummary" : {
-    "files" : 18,
-    "insertions" : 84,
-    "deletions" : 42
+    "files" : 3,
+    "insertions" : 23,
+    "deletions" : 52
   },
   "diffblueTestDiffStatSummary" : {
-    "files" : 18,
-    "insertions" : 84,
-    "deletions" : 42
+    "files" : 3,
+    "insertions" : 23,
+    "deletions" : 52
   }
 }

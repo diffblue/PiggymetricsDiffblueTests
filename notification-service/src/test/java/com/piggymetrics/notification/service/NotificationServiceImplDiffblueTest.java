@@ -2,16 +2,12 @@ package com.piggymetrics.notification.service;
 
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.piggymetrics.notification.domain.Frequency;
 import com.piggymetrics.notification.domain.NotificationSettings;
 import com.piggymetrics.notification.domain.NotificationType;
 import com.piggymetrics.notification.domain.Recipient;
 import com.piggymetrics.notification.repository.RecipientRepository;
 import de.flapdoodle.embed.mongo.MongodExecutable;
-import java.time.LocalDate;
-import java.time.ZoneOffset;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -98,35 +94,6 @@ public class NotificationServiceImplDiffblueTest {
   }
 
   /**
-   * Method under test: {@link NotificationServiceImpl#sendBackupNotifications()}
-   */
-  @Test
-  public void testSendBackupNotifications4() {
-    // Arrange
-    Recipient recipient = new Recipient();
-    recipient.setAccountName("Dr Jane Doe");
-    recipient.setEmail("jane.doe@example.org");
-    recipient.setScheduledNotifications(new HashMap<>());
-
-    Recipient recipient2 = new Recipient();
-    recipient2.setAccountName("Dr Jane Doe");
-    recipient2.setEmail("jane.doe@example.org");
-    recipient2.setScheduledNotifications(new HashMap<>());
-
-    ArrayList<Recipient> recipientList = new ArrayList<>();
-    recipientList.add(recipient2);
-    recipientList.addAll(new ArrayList<>());
-    recipientList.add(recipient);
-    when(recipientRepository.findReadyForBackup()).thenReturn(recipientList);
-
-    // Act
-    notificationServiceImpl.sendBackupNotifications();
-
-    // Assert
-    verify(recipientRepository).findReadyForBackup();
-  }
-
-  /**
    * Method under test: {@link NotificationServiceImpl#sendRemindNotifications()}
    */
   @Test
@@ -197,15 +164,9 @@ public class NotificationServiceImplDiffblueTest {
   @Test
   public void testSendRemindNotifications4() {
     // Arrange
-    NotificationSettings notificationSettings = new NotificationSettings();
-    notificationSettings.setActive(false);
-    notificationSettings.setFrequency(Frequency.MONTHLY);
-    notificationSettings
-        .setLastNotified(Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
-
     HashMap<NotificationType, NotificationSettings> scheduledNotifications = new HashMap<>();
-    scheduledNotifications.entrySet();
-    scheduledNotifications.putIfAbsent(NotificationType.REMIND, notificationSettings);
+    scheduledNotifications.values();
+    scheduledNotifications.putAll(new HashMap<>());
 
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
