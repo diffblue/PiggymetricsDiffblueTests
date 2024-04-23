@@ -11,7 +11,6 @@ import org.junit.Test;
 public class NotificationSettingsDiffblueTest {
   /**
    * Methods under test:
-   * 
    * <ul>
    *   <li>default or parameterless constructor of {@link NotificationSettings}
    *   <li>{@link NotificationSettings#setActive(Boolean)}

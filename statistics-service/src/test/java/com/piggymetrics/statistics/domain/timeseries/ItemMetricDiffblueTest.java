@@ -21,7 +21,6 @@ public class ItemMetricDiffblueTest {
 
   /**
    * Methods under test:
-   * 
    * <ul>
    *   <li>{@link ItemMetric#equals(Object)}
    *   <li>{@link ItemMetric#hashCode()}
@@ -40,7 +39,6 @@ public class ItemMetricDiffblueTest {
 
   /**
    * Methods under test:
-   * 
    * <ul>
    *   <li>{@link ItemMetric#equals(Object)}
    *   <li>{@link ItemMetric#hashCode()}
@@ -70,7 +68,6 @@ public class ItemMetricDiffblueTest {
 
   /**
    * Methods under test:
-   * 
    * <ul>
    *   <li>{@link ItemMetric#ItemMetric(String, BigDecimal)}
    *   <li>{@link ItemMetric#getAmount()}

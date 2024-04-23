@@ -103,28 +103,19 @@ public class NotificationServiceImplDiffblueTest {
   @Test
   public void testSendBackupNotifications4() {
     // Arrange
-    NotificationSettings notificationSettings = new NotificationSettings();
-    notificationSettings.setActive(false);
-    notificationSettings.setFrequency(Frequency.MONTHLY);
-    notificationSettings
-        .setLastNotified(Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
-
-    HashMap<NotificationType, NotificationSettings> scheduledNotifications = new HashMap<>();
-    scheduledNotifications.putAll(new HashMap<>());
-    scheduledNotifications.put(NotificationType.REMIND, notificationSettings);
-
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
     recipient.setEmail("jane.doe@example.org");
-    recipient.setScheduledNotifications(scheduledNotifications);
+    recipient.setScheduledNotifications(new HashMap<>());
 
     Recipient recipient2 = new Recipient();
-    recipient2.setAccountName("Mr John Smith");
-    recipient2.setEmail("john.smith@example.org");
+    recipient2.setAccountName("Dr Jane Doe");
+    recipient2.setEmail("jane.doe@example.org");
     recipient2.setScheduledNotifications(new HashMap<>());
 
     ArrayList<Recipient> recipientList = new ArrayList<>();
     recipientList.add(recipient2);
+    recipientList.addAll(new ArrayList<>());
     recipientList.add(recipient);
     when(recipientRepository.findReadyForBackup()).thenReturn(recipientList);
 
@@ -206,10 +197,20 @@ public class NotificationServiceImplDiffblueTest {
   @Test
   public void testSendRemindNotifications4() {
     // Arrange
+    NotificationSettings notificationSettings = new NotificationSettings();
+    notificationSettings.setActive(false);
+    notificationSettings.setFrequency(Frequency.MONTHLY);
+    notificationSettings
+        .setLastNotified(Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
+
+    HashMap<NotificationType, NotificationSettings> scheduledNotifications = new HashMap<>();
+    scheduledNotifications.entrySet();
+    scheduledNotifications.putIfAbsent(NotificationType.REMIND, notificationSettings);
+
     Recipient recipient = new Recipient();
-    recipient.setAccountName("Dr Jane Doe3");
+    recipient.setAccountName("Dr Jane Doe");
     recipient.setEmail("jane.doe@example.org");
-    recipient.setScheduledNotifications(new HashMap<>());
+    recipient.setScheduledNotifications(scheduledNotifications);
 
     Recipient recipient2 = new Recipient();
     recipient2.setAccountName("Mr John Smith");

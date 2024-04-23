@@ -17,7 +17,6 @@ public class UserDiffblueTest {
 
   /**
    * Methods under test:
-   * 
    * <ul>
    *   <li>default or parameterless constructor of {@link User}
    *   <li>{@link User#setPassword(String)}

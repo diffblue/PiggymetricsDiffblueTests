@@ -9,7 +9,6 @@ import org.junit.Test;
 public class SavingDiffblueTest {
   /**
    * Methods under test:
-   * 
    * <ul>
    *   <li>default or parameterless constructor of {@link Saving}
    *   <li>{@link Saving#setAmount(BigDecimal)}

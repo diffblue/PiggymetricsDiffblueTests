@@ -9,7 +9,6 @@ import org.junit.Test;
 public class RecipientDiffblueTest {
   /**
    * Methods under test:
-   * 
    * <ul>
    *   <li>default or parameterless constructor of {@link Recipient}
    *   <li>{@link Recipient#setAccountName(String)}

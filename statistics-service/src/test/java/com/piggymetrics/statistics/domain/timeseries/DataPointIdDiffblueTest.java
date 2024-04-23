@@ -10,7 +10,6 @@ import org.junit.Test;
 public class DataPointIdDiffblueTest {
   /**
    * Methods under test:
-   * 
    * <ul>
    *   <li>{@link DataPointId#DataPointId(String, Date)}
    *   <li>{@link DataPointId#toString()}

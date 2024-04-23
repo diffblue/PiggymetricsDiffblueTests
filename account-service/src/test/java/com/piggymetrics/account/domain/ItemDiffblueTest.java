@@ -8,7 +8,6 @@ import org.junit.Test;
 public class ItemDiffblueTest {
   /**
    * Methods under test:
-   * 
    * <ul>
    *   <li>default or parameterless constructor of {@link Item}
    *   <li>{@link Item#setAmount(BigDecimal)}

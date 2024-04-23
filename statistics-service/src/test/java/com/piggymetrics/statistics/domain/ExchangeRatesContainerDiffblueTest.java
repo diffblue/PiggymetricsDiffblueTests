@@ -12,7 +12,6 @@ import org.junit.Test;
 public class ExchangeRatesContainerDiffblueTest {
   /**
    * Methods under test:
-   * 
    * <ul>
    *   <li>{@link ExchangeRatesContainer#setBase(Currency)}
    *   <li>{@link ExchangeRatesContainer#setDate(LocalDate)}

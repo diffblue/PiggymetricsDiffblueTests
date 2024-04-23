@@ -13,7 +13,6 @@ import org.junit.Test;
 public class AccountDiffblueTest {
   /**
    * Methods under test:
-   * 
    * <ul>
    *   <li>default or parameterless constructor of {@link Account}
    *   <li>{@link Account#setExpenses(List)}

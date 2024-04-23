@@ -6,7 +6,6 @@ import org.junit.Test;
 public class NotificationTypeDiffblueTest {
   /**
    * Methods under test:
-   * 
    * <ul>
    *   <li>{@link NotificationType#getAttachment()}
    *   <li>{@link NotificationType#getSubject()}

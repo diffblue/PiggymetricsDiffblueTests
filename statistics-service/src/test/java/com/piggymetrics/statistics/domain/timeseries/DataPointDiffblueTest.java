@@ -15,7 +15,6 @@ import org.junit.Test;
 public class DataPointDiffblueTest {
   /**
    * Methods under test:
-   * 
    * <ul>
    *   <li>default or parameterless constructor of {@link DataPoint}
    *   <li>{@link DataPoint#setExpenses(Set)}
