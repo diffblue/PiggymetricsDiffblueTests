@@ -1,7 +1,9 @@
 package com.piggymetrics.config;
 
 import static org.junit.Assert.assertSame;
+import static org.mockito.Mockito.mock;
 import java.util.HashMap;
+import java.util.function.BiFunction;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +34,25 @@ public class SecurityConfigDiffblueTest {
     // Arrange
     AuthenticationManagerBuilder authenticationBuilder = new AuthenticationManagerBuilder(objectPostProcessor);
     HttpSecurity http = new HttpSecurity(objectPostProcessor, authenticationBuilder, new HashMap<>());
+
+    // Act
+    securityConfig.configure(http);
+
+    // Assert
+    assertSame(http, http.anonymous().and());
+  }
+
+  /**
+   * Method under test: {@link SecurityConfig#configure(HttpSecurity)}
+   */
+  @Test
+  public void testConfigure2() throws Exception {
+    // Arrange
+    HashMap<Class<?>, Object> sharedObjects = new HashMap<>();
+    Class<Object> forNameResult = Object.class;
+    sharedObjects.computeIfPresent(forNameResult, mock(BiFunction.class));
+    HttpSecurity http = new HttpSecurity(objectPostProcessor, new AuthenticationManagerBuilder(objectPostProcessor),
+        sharedObjects);
 
     // Act
     securityConfig.configure(http);

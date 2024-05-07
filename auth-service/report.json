@@ -3,19 +3,19 @@
     "reportVersion" : "2.5"
   },
   "run" : {
-    "version" : "2024.04.02-e8d31c1-licensed",
-    "creationTimestamp" : "2024-04-23T11:12:42.72Z",
+    "version" : "2024.05.01-4d239d1-licensed",
+    "creationTimestamp" : "2024-05-07T14:19:05.991Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --working-directory=auth-service",
-    "totalTime" : 273.713,
-    "environmentDetectionTime" : 0.562,
-    "indexingTime" : 0.295,
-    "entryPointsTime" : 0.546,
-    "generationTime" : 162.795,
-    "timeToFirstTest" : 112.461,
-    "timeToLastTest" : 229.297,
-    "indexQueryTime" : 12.784,
-    "verificationTime" : 26.222,
-    "validationTime" : 18.094
+    "totalTime" : 286.185,
+    "environmentDetectionTime" : 0.575,
+    "indexingTime" : 0.285,
+    "entryPointsTime" : 0.555,
+    "generationTime" : 169.907,
+    "timeToFirstTest" : 117.943,
+    "timeToLastTest" : 238.878,
+    "indexQueryTime" : 14.393,
+    "verificationTime" : 26.001,
+    "validationTime" : 20.062
   },
   "codes" : {
     "E052" : "Missing dependency",
@@ -33,7 +33,7 @@
   "summary" : {
     "classesCount" : 9,
     "methodsCount" : 42,
-    "completeTestCount" : 18,
+    "completeTestCount" : 19,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "perMethodTestability" : {
@@ -55,10 +55,10 @@
       "T012" : 3
     },
     "perTestOutcome" : {
-      "R000" : 18
+      "R000" : 19
     },
     "perTestValidation" : {
-      "V000" : 18
+      "V000" : 19
     }
   },
   "classes" : {
@@ -92,7 +92,7 @@
     },
     "com.piggymetrics.auth.config.WebSecurityConfig" : {
       "methodsCount" : 4,
-      "completeTestCount" : 3,
+      "completeTestCount" : 4,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 4
@@ -103,7 +103,7 @@
         "T005" : 1
       },
       "perTestOutcome" : {
-        "R000" : 3
+        "R000" : 4
       }
     },
     "com.piggymetrics.auth.controller.UserController" : {
@@ -324,12 +324,12 @@
       ]
     },
     "com.piggymetrics.auth.config.WebSecurityConfig.configure:(Lorg/springframework/security/config/annotation/web/builders/HttpSecurity;)V" : {
-      "completeTestCount" : 1,
+      "completeTestCount" : 2,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 1
+        "R000" : 2
       },
       "lineNumbers" : [
         25,

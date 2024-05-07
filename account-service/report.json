@@ -3,19 +3,19 @@
     "reportVersion" : "2.5"
   },
   "run" : {
-    "version" : "2024.04.02-e8d31c1-licensed",
-    "creationTimestamp" : "2024-04-23T11:18:23.051Z",
+    "version" : "2024.05.01-4d239d1-licensed",
+    "creationTimestamp" : "2024-05-07T14:25:02.468Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --working-directory=account-service",
-    "totalTime" : 440.463,
-    "environmentDetectionTime" : 0.696,
-    "indexingTime" : 0.274,
-    "entryPointsTime" : 0.675,
-    "generationTime" : 293.416,
-    "timeToFirstTest" : 72.17,
-    "timeToLastTest" : 363.031,
-    "indexQueryTime" : 13.362,
-    "verificationTime" : 27.148,
-    "validationTime" : 44.155
+    "totalTime" : 441.553,
+    "environmentDetectionTime" : 0.649,
+    "indexingTime" : 0.263,
+    "entryPointsTime" : 0.622,
+    "generationTime" : 289.583,
+    "timeToFirstTest" : 77.209,
+    "timeToLastTest" : 363.116,
+    "indexQueryTime" : 13.951,
+    "verificationTime" : 27.212,
+    "validationTime" : 45.157
   },
   "codes" : {
     "E052" : "Missing dependency",
@@ -37,7 +37,7 @@
   "summary" : {
     "classesCount" : 17,
     "methodsCount" : 99,
-    "completeTestCount" : 21,
+    "completeTestCount" : 20,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "perMethodTestability" : {
@@ -63,10 +63,10 @@
       "T012" : 8
     },
     "perTestOutcome" : {
-      "R000" : 21
+      "R000" : 20
     },
     "perTestValidation" : {
-      "V000" : 19,
+      "V000" : 18,
       "V003" : 2
     }
   },
@@ -126,7 +126,7 @@
     },
     "com.piggymetrics.account.config.ResourceServerConfig" : {
       "methodsCount" : 6,
-      "completeTestCount" : 5,
+      "completeTestCount" : 4,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 5,
@@ -138,7 +138,7 @@
         "T005" : 1
       },
       "perTestOutcome" : {
-        "R000" : 5
+        "R000" : 4
       }
     },
     "com.piggymetrics.account.controller.AccountController" : {
@@ -398,12 +398,12 @@
       ]
     },
     "com.piggymetrics.account.config.ResourceServerConfig.clientCredentialsResourceDetails:()Lorg/springframework/security/oauth2/client/token/grant/client/ClientCredentialsResourceDetails;" : {
-      "completeTestCount" : 2,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 2
+        "R000" : 1
       },
       "lineNumbers" : [
         36

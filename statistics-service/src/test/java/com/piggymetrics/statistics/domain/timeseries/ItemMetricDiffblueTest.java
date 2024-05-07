@@ -8,18 +8,6 @@ import org.junit.Test;
 
 public class ItemMetricDiffblueTest {
   /**
-   * Method under test: {@link ItemMetric#equals(Object)}
-   */
-  @Test
-  public void testEquals2() {
-    // Arrange
-    ItemMetric itemMetric = new ItemMetric("Mr", new BigDecimal("2.3"));
-
-    // Act and Assert
-    assertNotEquals(itemMetric, new ItemMetric("Dr", new BigDecimal("2.3")));
-  }
-
-  /**
    * Methods under test:
    * <ul>
    *   <li>{@link ItemMetric#equals(Object)}
@@ -27,25 +15,7 @@ public class ItemMetricDiffblueTest {
    * </ul>
    */
   @Test
-  public void testEqualsAndHashCode() {
-    // Arrange
-    ItemMetric itemMetric = new ItemMetric("Dr", new BigDecimal("2.3"));
-
-    // Act and Assert
-    assertEquals(itemMetric, itemMetric);
-    int expectedHashCodeResult = itemMetric.hashCode();
-    assertEquals(expectedHashCodeResult, itemMetric.hashCode());
-  }
-
-  /**
-   * Methods under test:
-   * <ul>
-   *   <li>{@link ItemMetric#equals(Object)}
-   *   <li>{@link ItemMetric#hashCode()}
-   * </ul>
-   */
-  @Test
-  public void testEqualsAndHashCode2() {
+  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     ItemMetric itemMetric = new ItemMetric("Dr", new BigDecimal("2.3"));
     ItemMetric itemMetric2 = new ItemMetric("Dr", new BigDecimal("2.3"));
@@ -57,12 +27,50 @@ public class ItemMetricDiffblueTest {
   }
 
   /**
+   * Methods under test:
+   * <ul>
+   *   <li>{@link ItemMetric#equals(Object)}
+   *   <li>{@link ItemMetric#hashCode()}
+   * </ul>
+   */
+  @Test
+  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+    // Arrange
+    ItemMetric itemMetric = new ItemMetric("Dr", new BigDecimal("2.3"));
+
+    // Act and Assert
+    assertEquals(itemMetric, itemMetric);
+    int expectedHashCodeResult = itemMetric.hashCode();
+    assertEquals(expectedHashCodeResult, itemMetric.hashCode());
+  }
+
+  /**
    * Method under test: {@link ItemMetric#equals(Object)}
    */
   @Test
-  public void testEquals() {
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+    // Arrange
+    ItemMetric itemMetric = new ItemMetric("Mr", new BigDecimal("2.3"));
+
+    // Act and Assert
+    assertNotEquals(itemMetric, new ItemMetric("Dr", new BigDecimal("2.3")));
+  }
+
+  /**
+   * Method under test: {@link ItemMetric#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new ItemMetric("Dr", new BigDecimal("2.3")), null);
+  }
+
+  /**
+   * Method under test: {@link ItemMetric#equals(Object)}
+   */
+  @Test
+  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+    // Arrange, Act and Assert
     assertNotEquals(new ItemMetric("Dr", new BigDecimal("2.3")), "Different type to ItemMetric");
   }
 

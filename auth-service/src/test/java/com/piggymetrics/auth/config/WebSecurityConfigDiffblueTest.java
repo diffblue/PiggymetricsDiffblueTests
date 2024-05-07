@@ -8,6 +8,7 @@ import com.piggymetrics.auth.repository.UserRepository;
 import com.piggymetrics.auth.service.security.MongoUserDetailsService;
 import de.flapdoodle.embed.mongo.MongodExecutable;
 import java.util.HashMap;
+import java.util.function.BiFunction;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -97,6 +98,25 @@ public class WebSecurityConfigDiffblueTest {
     // Arrange
     AuthenticationManagerBuilder authenticationBuilder = new AuthenticationManagerBuilder(objectPostProcessor);
     HttpSecurity http = new HttpSecurity(objectPostProcessor, authenticationBuilder, new HashMap<>());
+
+    // Act
+    webSecurityConfig.configure(http);
+
+    // Assert
+    assertSame(http, http.anonymous().and());
+  }
+
+  /**
+   * Method under test: {@link WebSecurityConfig#configure(HttpSecurity)}
+   */
+  @Test
+  public void testConfigure4() throws Exception {
+    // Arrange
+    HashMap<Class<?>, Object> sharedObjects = new HashMap<>();
+    Class<Object> forNameResult = Object.class;
+    sharedObjects.computeIfPresent(forNameResult, mock(BiFunction.class));
+    HttpSecurity http = new HttpSecurity(objectPostProcessor, new AuthenticationManagerBuilder(objectPostProcessor),
+        sharedObjects);
 
     // Act
     webSecurityConfig.configure(http);
