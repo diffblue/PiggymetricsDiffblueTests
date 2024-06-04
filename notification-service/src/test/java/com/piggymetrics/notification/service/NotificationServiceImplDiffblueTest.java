@@ -2,8 +2,6 @@ package com.piggymetrics.notification.service;
 
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.piggymetrics.notification.domain.NotificationSettings;
-import com.piggymetrics.notification.domain.NotificationType;
 import com.piggymetrics.notification.domain.Recipient;
 import com.piggymetrics.notification.repository.RecipientRepository;
 import de.flapdoodle.embed.mongo.MongodExecutable;
@@ -114,7 +112,13 @@ public class NotificationServiceImplDiffblueTest {
     recipient3.setEmail("prof.einstein@example.org");
     recipient3.setScheduledNotifications(new HashMap<>());
 
+    Recipient recipient4 = new Recipient();
+    recipient4.setAccountName("Mr John Smith");
+    recipient4.setEmail("john.smith@example.org");
+    recipient4.setScheduledNotifications(new HashMap<>());
+
     ArrayList<Recipient> recipientList = new ArrayList<>();
+    recipientList.add(recipient4);
     recipientList.add(recipient3);
     recipientList.add(recipient2);
     recipientList.add(recipient);
@@ -203,20 +207,23 @@ public class NotificationServiceImplDiffblueTest {
     recipient.setEmail("jane.doe@example.org");
     recipient.setScheduledNotifications(new HashMap<>());
 
-    HashMap<NotificationType, NotificationSettings> scheduledNotifications = new HashMap<>();
-    scheduledNotifications.putAll(new HashMap<>());
-
     Recipient recipient2 = new Recipient();
     recipient2.setAccountName("Mr John Smith");
     recipient2.setEmail("john.smith@example.org");
-    recipient2.setScheduledNotifications(scheduledNotifications);
+    recipient2.setScheduledNotifications(new HashMap<>());
 
     Recipient recipient3 = new Recipient();
     recipient3.setAccountName("Prof Albert Einstein");
     recipient3.setEmail("prof.einstein@example.org");
     recipient3.setScheduledNotifications(new HashMap<>());
 
+    Recipient recipient4 = new Recipient();
+    recipient4.setAccountName("Mr John Smith");
+    recipient4.setEmail("john.smith@example.org");
+    recipient4.setScheduledNotifications(new HashMap<>());
+
     ArrayList<Recipient> recipientList = new ArrayList<>();
+    recipientList.add(recipient4);
     recipientList.add(recipient3);
     recipientList.add(recipient2);
     recipientList.add(recipient);
