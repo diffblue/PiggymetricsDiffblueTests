@@ -3,19 +3,19 @@
     "reportVersion" : "2.5"
   },
   "run" : {
-    "version" : "2024.06.01-9fa6b7c-licensed",
-    "creationTimestamp" : "2024-06-04T14:04:11.791Z",
+    "version" : "2024.06.02-fb1cb04-licensed",
+    "creationTimestamp" : "2024-06-18T13:22:21.552Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --working-directory=account-service",
-    "totalTime" : 428.073,
-    "environmentDetectionTime" : 0.822,
-    "indexingTime" : 0.261,
-    "entryPointsTime" : 0.783,
-    "generationTime" : 299.447,
-    "timeToFirstTest" : 80.249,
-    "timeToLastTest" : 374.685,
-    "indexQueryTime" : 15.450000000000001,
-    "verificationTime" : 27.618,
-    "validationTime" : 21.087
+    "totalTime" : 460.819,
+    "environmentDetectionTime" : 0.76,
+    "indexingTime" : 0.252,
+    "entryPointsTime" : 0.729,
+    "generationTime" : 307.79,
+    "timeToFirstTest" : 82.761,
+    "timeToLastTest" : 384.203,
+    "indexQueryTime" : 15.867,
+    "verificationTime" : 27.482,
+    "validationTime" : 43.255
   },
   "codes" : {
     "E052" : "Missing dependency",
@@ -31,7 +31,8 @@
     "T006" : "Main method",
     "T010" : "Abstract or interface method",
     "T012" : "Synthetic method",
-    "V000" : "Validated successfully"
+    "V000" : "Validated successfully",
+    "V003" : "Tests discarded during validation"
   },
   "summary" : {
     "classesCount" : 17,
@@ -65,7 +66,8 @@
       "R000" : 20
     },
     "perTestValidation" : {
-      "V000" : 20
+      "V000" : 18,
+      "V003" : 2
     }
   },
   "classes" : {

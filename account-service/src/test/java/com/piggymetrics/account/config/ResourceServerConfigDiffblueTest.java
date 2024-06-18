@@ -2,7 +2,10 @@ package com.piggymetrics.account.config;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.piggymetrics.account.repository.AccountRepository;
 import com.piggymetrics.account.service.security.CustomUserInfoTokenServices;
 import de.flapdoodle.embed.mongo.MongodExecutable;
@@ -13,8 +16,7 @@ import org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceS
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.cloud.security.oauth2.client.feign.OAuth2FeignRequestInterceptor;
-import org.springframework.security.oauth2.client.OAuth2RestTemplate;
-import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsResourceDetails;
 import org.springframework.security.oauth2.common.AuthenticationScheme;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -45,8 +47,8 @@ public class ResourceServerConfigDiffblueTest {
         .clientCredentialsResourceDetails();
 
     // Assert
-    assertNull(actualClientCredentialsResourceDetailsResult.getClientSecret());
-    assertNull(actualClientCredentialsResourceDetailsResult.getId());
+    assertNull(actualClientCredentialsResourceDetailsResult.getClientId());
+    assertEquals(AuthenticationScheme.header, actualClientCredentialsResourceDetailsResult.getAuthenticationScheme());
   }
 
   /**
@@ -65,14 +67,13 @@ public class ResourceServerConfigDiffblueTest {
    */
   @Test
   public void testClientCredentialsRestTemplate() {
-    // Arrange and Act
-    OAuth2RestTemplate actualClientCredentialsRestTemplateResult = resourceServerConfig.clientCredentialsRestTemplate();
-
-    // Assert
-    OAuth2ProtectedResourceDetails resource = actualClientCredentialsRestTemplateResult.getResource();
-    assertEquals("client_credentials", resource.getGrantType());
-    assertNull(actualClientCredentialsRestTemplateResult.getOAuth2ClientContext().getAccessToken());
-    assertEquals(AuthenticationScheme.header, resource.getAuthenticationScheme());
+    // Arrange, Act and Assert
+    ObjectMapper objectMapper = ((MappingJackson2HttpMessageConverter) resourceServerConfig
+        .clientCredentialsRestTemplate()
+        .getMessageConverters()
+        .get(6)).getObjectMapper();
+    TypeFactory expectedTypeFactory = objectMapper.getTypeFactory();
+    assertSame(expectedTypeFactory, objectMapper.getSerializerProviderInstance().getTypeFactory());
   }
 
   /**

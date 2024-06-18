@@ -1,17 +1,17 @@
 {
-  "totalTime" : 1962.5020000000002,
-  "environmentDetectionTime" : 5.232,
-  "indexingTime" : 2.421,
-  "entryPointsTime" : 4.907000000000001,
-  "generationTime" : 1172.7029999999997,
-  "timeToFirstTest" : 899.8670000000002,
-  "timeToLastTest" : 1700.9700000000003,
-  "verificationTime" : 124.511,
-  "validationTime" : 88.34800000000001,
+  "totalTime" : 1974.779,
+  "environmentDetectionTime" : 5.217,
+  "indexingTime" : 2.5810000000000004,
+  "entryPointsTime" : 4.917,
+  "generationTime" : 1154.7330000000002,
+  "timeToFirstTest" : 883.292,
+  "timeToLastTest" : 1686.7169999999999,
+  "verificationTime" : 122.544,
+  "validationTime" : 110.75800000000001,
   "summary" : {
     "classesCount" : 75,
     "methodsCount" : 362,
-    "completeTestCount" : 103,
+    "completeTestCount" : 101,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "perMethodTestability" : {
@@ -30,8 +30,8 @@
       "R000" : 174,
       "R002" : 9,
       "R004" : 4,
-      "R011" : 2,
-      "R013" : 5,
+      "R011" : 3,
+      "R013" : 4,
       "T003" : 17,
       "T005" : 35,
       "T006" : 9,
@@ -39,10 +39,11 @@
       "T012" : 39
     },
     "perTestOutcome" : {
-      "R000" : 103
+      "R000" : 101
     },
     "perTestValidation" : {
-      "V000" : 103
+      "V000" : 99,
+      "V003" : 2
     }
   },
   "coverageMetrics" : {
@@ -64,8 +65,8 @@
       "com.piggymetrics.account.AccountApplication",
       "com.piggymetrics.config.ConfigApplication"
     ],
-    "coveredLines" : 495,
-    "lineCoveragePercent" : "82.5%",
+    "coveredLines" : 482,
+    "lineCoveragePercent" : "80.33%",
     "totalLines" : 600
   },
   "piTestMetrics" : {
@@ -77,12 +78,12 @@
   },
   "testDiffStatSummary" : {
     "files" : 4,
-    "insertions" : 174,
-    "deletions" : 78
+    "insertions" : 31,
+    "deletions" : 255
   },
   "diffblueTestDiffStatSummary" : {
     "files" : 4,
-    "insertions" : 174,
-    "deletions" : 78
+    "insertions" : 31,
+    "deletions" : 255
   }
 }
