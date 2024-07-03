@@ -1,5 +1,6 @@
 package com.piggymetrics.auth.config;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
@@ -7,8 +8,7 @@ import static org.mockito.Mockito.mock;
 import com.piggymetrics.auth.repository.UserRepository;
 import com.piggymetrics.auth.service.security.MongoUserDetailsService;
 import de.flapdoodle.embed.mongo.MongodExecutable;
-import java.util.HashMap;
-import java.util.function.BiFunction;
+import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +16,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.DefaultAuthenticationEventPublisher;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.ObjectPostProcessor;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.cache.NullUserCache;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -59,12 +60,18 @@ public class WebSecurityConfigDiffblueTest {
 
     // Assert
     assertTrue(auth.getDefaultUserDetailsService() instanceof MongoUserDetailsService);
-    assertTrue(((DaoAuthenticationProvider) ((ProviderManager) auth.getOrBuild()).getProviders().get(0))
-        .getUserCache() instanceof NullUserCache);
-    assertFalse(((DaoAuthenticationProvider) ((ProviderManager) auth.getOrBuild()).getProviders().get(0))
-        .isForcePrincipalAsString());
-    assertTrue(((DaoAuthenticationProvider) ((ProviderManager) auth.getOrBuild()).getProviders().get(0))
-        .isHideUserNotFoundExceptions());
+    AuthenticationManager orBuild = auth.getOrBuild();
+    assertTrue(orBuild instanceof ProviderManager);
+    List<AuthenticationProvider> providers = ((ProviderManager) orBuild).getProviders();
+    assertEquals(1, providers.size());
+    AuthenticationProvider getResult = providers.get(0);
+    assertTrue(getResult instanceof DaoAuthenticationProvider);
+    assertTrue(((DaoAuthenticationProvider) getResult).getUserCache() instanceof NullUserCache);
+    assertFalse(((DaoAuthenticationProvider) getResult).isForcePrincipalAsString());
+    assertTrue(((ProviderManager) orBuild).isEraseCredentialsAfterAuthentication());
+    assertTrue(((DaoAuthenticationProvider) getResult).isHideUserNotFoundExceptions());
+    assertTrue(auth.isConfigured());
+    assertSame(orBuild, auth.getObject());
   }
 
   /**
@@ -82,46 +89,17 @@ public class WebSecurityConfigDiffblueTest {
 
     // Assert
     assertTrue(auth.getDefaultUserDetailsService() instanceof MongoUserDetailsService);
-    assertTrue(((DaoAuthenticationProvider) ((ProviderManager) auth.getOrBuild()).getProviders().get(0))
-        .getUserCache() instanceof NullUserCache);
-    assertFalse(((DaoAuthenticationProvider) ((ProviderManager) auth.getOrBuild()).getProviders().get(0))
-        .isForcePrincipalAsString());
-    assertTrue(((DaoAuthenticationProvider) ((ProviderManager) auth.getOrBuild()).getProviders().get(0))
-        .isHideUserNotFoundExceptions());
-  }
-
-  /**
-   * Method under test: {@link WebSecurityConfig#configure(HttpSecurity)}
-   */
-  @Test
-  public void testConfigure3() throws Exception {
-    // Arrange
-    AuthenticationManagerBuilder authenticationBuilder = new AuthenticationManagerBuilder(objectPostProcessor);
-    HttpSecurity http = new HttpSecurity(objectPostProcessor, authenticationBuilder, new HashMap<>());
-
-    // Act
-    webSecurityConfig.configure(http);
-
-    // Assert
-    assertSame(http, http.anonymous().and());
-  }
-
-  /**
-   * Method under test: {@link WebSecurityConfig#configure(HttpSecurity)}
-   */
-  @Test
-  public void testConfigure4() throws Exception {
-    // Arrange
-    HashMap<Class<?>, Object> sharedObjects = new HashMap<>();
-    Class<Object> forNameResult = Object.class;
-    sharedObjects.computeIfPresent(forNameResult, mock(BiFunction.class));
-    HttpSecurity http = new HttpSecurity(objectPostProcessor, new AuthenticationManagerBuilder(objectPostProcessor),
-        sharedObjects);
-
-    // Act
-    webSecurityConfig.configure(http);
-
-    // Assert
-    assertSame(http, http.anonymous().and());
+    AuthenticationManager orBuild = auth.getOrBuild();
+    assertTrue(orBuild instanceof ProviderManager);
+    List<AuthenticationProvider> providers = ((ProviderManager) orBuild).getProviders();
+    assertEquals(1, providers.size());
+    AuthenticationProvider getResult = providers.get(0);
+    assertTrue(getResult instanceof DaoAuthenticationProvider);
+    assertTrue(((DaoAuthenticationProvider) getResult).getUserCache() instanceof NullUserCache);
+    assertFalse(((DaoAuthenticationProvider) getResult).isForcePrincipalAsString());
+    assertTrue(((ProviderManager) orBuild).isEraseCredentialsAfterAuthentication());
+    assertTrue(((DaoAuthenticationProvider) getResult).isHideUserNotFoundExceptions());
+    assertTrue(auth.isConfigured());
+    assertSame(orBuild, auth.getObject());
   }
 }

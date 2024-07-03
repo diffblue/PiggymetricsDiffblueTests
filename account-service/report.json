@@ -3,19 +3,19 @@
     "reportVersion" : "2.5"
   },
   "run" : {
-    "version" : "2024.06.02-fb1cb04-licensed",
-    "creationTimestamp" : "2024-06-18T13:22:21.552Z",
+    "version" : "2024.07.01-f33ef1e-licensed",
+    "creationTimestamp" : "2024-07-03T16:13:00.097Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --working-directory=account-service",
-    "totalTime" : 460.819,
-    "environmentDetectionTime" : 0.76,
-    "indexingTime" : 0.252,
-    "entryPointsTime" : 0.729,
-    "generationTime" : 307.79,
-    "timeToFirstTest" : 82.761,
-    "timeToLastTest" : 384.203,
-    "indexQueryTime" : 15.867,
-    "verificationTime" : 27.482,
-    "validationTime" : 43.255
+    "totalTime" : 444.244,
+    "environmentDetectionTime" : 0.742,
+    "indexingTime" : 0.267,
+    "entryPointsTime" : 0.702,
+    "generationTime" : 290.015,
+    "timeToFirstTest" : 84.38,
+    "timeToLastTest" : 365.718,
+    "indexQueryTime" : 15.302,
+    "verificationTime" : 27.944,
+    "validationTime" : 43.222
   },
   "codes" : {
     "E052" : "Missing dependency",
@@ -37,7 +37,7 @@
   "summary" : {
     "classesCount" : 17,
     "methodsCount" : 99,
-    "completeTestCount" : 20,
+    "completeTestCount" : 19,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "perMethodTestability" : {
@@ -63,10 +63,10 @@
       "T012" : 8
     },
     "perTestOutcome" : {
-      "R000" : 20
+      "R000" : 19
     },
     "perTestValidation" : {
-      "V000" : 18,
+      "V000" : 17,
       "V003" : 2
     }
   },
@@ -108,7 +108,7 @@
     },
     "com.piggymetrics.account.client.StatisticsServiceClientFallback" : {
       "methodsCount" : 3,
-      "completeTestCount" : 2,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 1,
@@ -121,7 +121,7 @@
         "T012" : 1
       },
       "perTestOutcome" : {
-        "R000" : 2
+        "R000" : 1
       }
     },
     "com.piggymetrics.account.config.ResourceServerConfig" : {
@@ -374,12 +374,12 @@
       ]
     },
     "com.piggymetrics.account.client.StatisticsServiceClientFallback.updateStatistics:(Ljava/lang/String;Lcom/piggymetrics/account/domain/Account;)V" : {
-      "completeTestCount" : 2,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 2
+        "R000" : 1
       },
       "lineNumbers" : [
         16,

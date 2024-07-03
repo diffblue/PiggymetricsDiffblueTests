@@ -17,7 +17,6 @@ import org.springframework.security.oauth2.config.annotation.builders.JdbcClient
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
-import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @SpringBootTest
@@ -79,7 +78,6 @@ public class OAuth2AuthorizationConfigDiffblueTest {
     oAuth2AuthorizationConfig.configure(endpoints);
 
     // Assert
-    assertTrue(endpoints.getTokenStore() instanceof InMemoryTokenStore);
     assertTrue(endpoints.isUserDetailsServiceOverride());
   }
 

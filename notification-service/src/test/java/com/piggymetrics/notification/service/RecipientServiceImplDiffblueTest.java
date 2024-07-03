@@ -1,6 +1,5 @@
 package com.piggymetrics.notification.service;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.eq;
@@ -89,15 +88,16 @@ public class RecipientServiceImplDiffblueTest {
     Recipient recipient2 = new Recipient();
     recipient2.setAccountName("Dr Jane Doe");
     recipient2.setEmail("jane.doe@example.org");
-    recipient2.setScheduledNotifications(new HashMap<>());
+    HashMap<NotificationType, NotificationSettings> scheduledNotifications = new HashMap<>();
+    recipient2.setScheduledNotifications(scheduledNotifications);
 
     // Act
     Recipient actualSaveResult = recipientServiceImpl.save("Dr Jane Doe", recipient2);
 
     // Assert
     verify(recipientRepository).save(isA(Recipient.class));
-    assertEquals("Dr Jane Doe", actualSaveResult.getAccountName());
     assertSame(recipient2, actualSaveResult);
+    assertSame(scheduledNotifications, recipient2.getScheduledNotifications());
   }
 
   /**
@@ -131,8 +131,8 @@ public class RecipientServiceImplDiffblueTest {
 
     // Assert
     verify(recipientRepository).save(isA(Recipient.class));
-    assertEquals("Dr Jane Doe", actualSaveResult.getAccountName());
     assertSame(recipient2, actualSaveResult);
+    assertSame(scheduledNotifications, recipient2.getScheduledNotifications());
   }
 
   /**
@@ -173,8 +173,8 @@ public class RecipientServiceImplDiffblueTest {
 
     // Assert
     verify(recipientRepository).save(isA(Recipient.class));
-    assertEquals("Dr Jane Doe", actualSaveResult.getAccountName());
     assertSame(recipient2, actualSaveResult);
+    assertSame(scheduledNotifications, recipient2.getScheduledNotifications());
   }
 
   /**
@@ -227,8 +227,8 @@ public class RecipientServiceImplDiffblueTest {
 
     // Assert
     verify(recipientRepository).save(isA(Recipient.class));
-    assertEquals("Dr Jane Doe", actualSaveResult.getAccountName());
     assertSame(recipient2, actualSaveResult);
+    assertSame(scheduledNotifications, recipient2.getScheduledNotifications());
   }
 
   /**
@@ -316,6 +316,7 @@ public class RecipientServiceImplDiffblueTest {
 
     // Assert
     verify(recipientRepository).save(isA(Recipient.class));
+    assertSame(scheduledNotifications, recipient2.getScheduledNotifications());
   }
 
   /**
