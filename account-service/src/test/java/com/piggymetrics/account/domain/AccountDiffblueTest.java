@@ -2,6 +2,7 @@ package com.piggymetrics.account.domain;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.ZoneOffset;
@@ -53,11 +54,14 @@ public class AccountDiffblueTest {
     Date actualLastSeen = actualAccount.getLastSeen();
     String actualName = actualAccount.getName();
     String actualNote = actualAccount.getNote();
+    Saving actualSaving = actualAccount.getSaving();
 
     // Assert that nothing has changed
     assertEquals("Name", actualName);
     assertEquals("Note", actualNote);
-    assertSame(saving, actualAccount.getSaving());
+    assertTrue(actualExpenses.isEmpty());
+    assertTrue(actualIncomes.isEmpty());
+    assertSame(saving, actualSaving);
     assertSame(expenses, actualExpenses);
     assertSame(incomes, actualIncomes);
     assertSame(lastSeen, actualLastSeen);

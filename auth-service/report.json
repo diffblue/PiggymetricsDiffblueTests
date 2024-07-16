@@ -3,19 +3,19 @@
     "reportVersion" : "2.5"
   },
   "run" : {
-    "version" : "2024.07.01-f33ef1e-licensed",
-    "creationTimestamp" : "2024-07-03T16:05:55.558Z",
-    "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --working-directory=auth-service",
-    "totalTime" : 350.756,
-    "environmentDetectionTime" : 0.554,
-    "indexingTime" : 0.257,
-    "entryPointsTime" : 0.519,
-    "generationTime" : 236.841,
-    "timeToFirstTest" : 127.054,
-    "timeToLastTest" : 308.453,
-    "indexQueryTime" : 14.975,
-    "verificationTime" : 24.76,
-    "validationTime" : 17.046
+    "version" : "2024.07.03-f961e91-licensed",
+    "creationTimestamp" : "2024-07-16T12:58:05.911Z",
+    "command" : "dcover create --batch --report-file=report.json -Dcom.diffblue.feature.test.naming=true --coverage-reports --spring-integration-tests --verbose --working-directory=auth-service",
+    "totalTime" : 377.456,
+    "environmentDetectionTime" : 0.685,
+    "indexingTime" : 0.279,
+    "entryPointsTime" : 0.65,
+    "generationTime" : 253.808,
+    "timeToFirstTest" : 133.893,
+    "timeToLastTest" : 327.948,
+    "indexQueryTime" : 15.929,
+    "verificationTime" : 25.177,
+    "validationTime" : 20.075
   },
   "codes" : {
     "E052" : "Missing dependency",

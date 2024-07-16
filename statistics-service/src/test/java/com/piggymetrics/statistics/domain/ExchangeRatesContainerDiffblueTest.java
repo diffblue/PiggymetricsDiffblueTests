@@ -3,6 +3,7 @@ package com.piggymetrics.statistics.domain;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.HashMap;
@@ -36,11 +37,14 @@ public class ExchangeRatesContainerDiffblueTest {
     String actualToStringResult = exchangeRatesContainer.toString();
     Currency actualBase = exchangeRatesContainer.getBase();
     LocalDate actualDate = exchangeRatesContainer.getDate();
+    Map<String, BigDecimal> actualRates = exchangeRatesContainer.getRates();
 
     // Assert that nothing has changed
+    assertEquals("1970-01-01", actualDate.toString());
     assertEquals("RateList{date=1970-01-01, base=USD, rates={}}", actualToStringResult);
     assertEquals(Currency.USD, actualBase);
-    assertSame(rates, exchangeRatesContainer.getRates());
+    assertTrue(actualRates.isEmpty());
+    assertSame(rates, actualRates);
     assertSame(date, actualDate);
   }
 

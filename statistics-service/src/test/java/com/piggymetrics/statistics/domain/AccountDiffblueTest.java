@@ -1,6 +1,7 @@
 package com.piggymetrics.statistics.domain;
 
 import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,9 +37,12 @@ public class AccountDiffblueTest {
     actualAccount.setSaving(saving);
     List<Item> actualExpenses = actualAccount.getExpenses();
     List<Item> actualIncomes = actualAccount.getIncomes();
+    Saving actualSaving = actualAccount.getSaving();
 
     // Assert that nothing has changed
-    assertSame(saving, actualAccount.getSaving());
+    assertTrue(actualExpenses.isEmpty());
+    assertTrue(actualIncomes.isEmpty());
+    assertSame(saving, actualSaving);
     assertSame(expenses, actualExpenses);
     assertSame(incomes, actualIncomes);
   }

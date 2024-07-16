@@ -1,6 +1,7 @@
 package com.piggymetrics.statistics.domain.timeseries;
 
 import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
 import com.piggymetrics.statistics.domain.Currency;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -49,11 +50,16 @@ public class DataPointDiffblueTest {
     DataPointId actualId = actualDataPoint.getId();
     Set<ItemMetric> actualIncomes = actualDataPoint.getIncomes();
     Map<Currency, BigDecimal> actualRates = actualDataPoint.getRates();
+    Map<StatisticMetric, BigDecimal> actualStatistics = actualDataPoint.getStatistics();
 
     // Assert that nothing has changed
+    assertTrue(actualRates.isEmpty());
+    assertTrue(actualStatistics.isEmpty());
+    assertTrue(actualExpenses.isEmpty());
+    assertTrue(actualIncomes.isEmpty());
     assertSame(id, actualId);
     assertSame(rates, actualRates);
-    assertSame(statistics, actualDataPoint.getStatistics());
+    assertSame(statistics, actualStatistics);
     assertSame(expenses, actualExpenses);
     assertSame(incomes, actualIncomes);
   }

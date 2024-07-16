@@ -2,6 +2,7 @@ package com.piggymetrics.notification.domain;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
 import java.util.HashMap;
 import java.util.Map;
 import org.junit.Test;
@@ -31,11 +32,14 @@ public class RecipientDiffblueTest {
     String actualToStringResult = actualRecipient.toString();
     String actualAccountName = actualRecipient.getAccountName();
     String actualEmail = actualRecipient.getEmail();
+    Map<NotificationType, NotificationSettings> actualScheduledNotifications = actualRecipient
+        .getScheduledNotifications();
 
     // Assert that nothing has changed
     assertEquals("Dr Jane Doe", actualAccountName);
     assertEquals("Recipient{accountName='Dr Jane Doe', email='jane.doe@example.org'}", actualToStringResult);
     assertEquals("jane.doe@example.org", actualEmail);
-    assertSame(scheduledNotifications, actualRecipient.getScheduledNotifications());
+    assertTrue(actualScheduledNotifications.isEmpty());
+    assertSame(scheduledNotifications, actualScheduledNotifications);
   }
 }
