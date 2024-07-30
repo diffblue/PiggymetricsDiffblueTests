@@ -53,7 +53,7 @@ public class StatisticsServiceImplDiffblueTest {
    * Method under test: {@link StatisticsServiceImpl#findByAccountName(String)}
    */
   @Test
-  public void testFindByAccountName() {
+  public void testFindByAccountName_thenReturnsEmptyIsTrueAndReturnsSameAsNewArrayList() {
     // Arrange
     ArrayList<DataPoint> dataPointList = new ArrayList<>();
     when(dataPointRepository.findByIdAccount(Mockito.<String>any())).thenReturn(dataPointList);
@@ -71,7 +71,7 @@ public class StatisticsServiceImplDiffblueTest {
    * Method under test: {@link StatisticsServiceImpl#save(String, Account)}
    */
   @Test
-  public void testSave() {
+  public void testSave_thenReturnsSameAsNewDataPoint() {
     // Arrange
     when(exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>());
     when(exchangeRatesService.convert(Mockito.<Currency>any(), Mockito.<Currency>any(), Mockito.<BigDecimal>any()))
@@ -112,7 +112,7 @@ public class StatisticsServiceImplDiffblueTest {
    * Method under test: {@link StatisticsServiceImpl#save(String, Account)}
    */
   @Test
-  public void testSave2() {
+  public void testSave_thenReturnsSameAsNewDataPoint2() {
     // Arrange
     when(exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>());
     when(exchangeRatesService.convert(Mockito.<Currency>any(), Mockito.<Currency>any(), Mockito.<BigDecimal>any()))
@@ -180,7 +180,7 @@ public class StatisticsServiceImplDiffblueTest {
    * Method under test: {@link StatisticsServiceImpl#save(String, Account)}
    */
   @Test
-  public void testSave3() {
+  public void testSave_thenReturnsSameAsNewDataPoint3() {
     // Arrange
     when(exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>());
     when(exchangeRatesService.convert(Mockito.<Currency>any(), Mockito.<Currency>any(), Mockito.<BigDecimal>any()))
@@ -255,7 +255,7 @@ public class StatisticsServiceImplDiffblueTest {
    * Method under test: {@link StatisticsServiceImpl#save(String, Account)}
    */
   @Test
-  public void testSave4() {
+  public void testSave_thenReturnsSameAsNewDataPoint4() {
     // Arrange
     when(exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>());
     when(exchangeRatesService.convert(Mockito.<Currency>any(), Mockito.<Currency>any(), Mockito.<BigDecimal>any()))

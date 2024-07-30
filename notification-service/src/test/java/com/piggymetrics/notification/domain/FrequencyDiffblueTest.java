@@ -8,7 +8,7 @@ public class FrequencyDiffblueTest {
    * Method under test: {@link Frequency#getDays()}
    */
   @Test
-  public void testGetDays() {
+  public void testGetDays_thenReturnsSeven() {
     // Arrange, Act and Assert
     assertEquals(7, Frequency.valueOf("WEEKLY").getDays());
   }
@@ -17,7 +17,7 @@ public class FrequencyDiffblueTest {
    * Method under test: {@link Frequency#withDays(int)}
    */
   @Test
-  public void testWithDays() {
+  public void testWithDays_thenReturnsWEEKLY() {
     // Arrange, Act and Assert
     assertEquals(Frequency.WEEKLY, Frequency.withDays(7));
   }

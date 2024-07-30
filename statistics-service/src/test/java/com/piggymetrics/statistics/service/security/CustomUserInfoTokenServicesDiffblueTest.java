@@ -33,7 +33,8 @@ public class CustomUserInfoTokenServicesDiffblueTest {
    * {@link CustomUserInfoTokenServices#loadAuthentication(String)}
    */
   @Test
-  public void testLoadAuthentication() throws AuthenticationException, InvalidTokenException {
+  public void testLoadAuthentication_thenThrowsInvalidTokenException()
+      throws AuthenticationException, InvalidTokenException {
     // Arrange, Act and Assert
     thrown.expect(InvalidTokenException.class);
     customUserInfoTokenServices.loadAuthentication("ABC123");
@@ -44,7 +45,7 @@ public class CustomUserInfoTokenServicesDiffblueTest {
    * {@link CustomUserInfoTokenServices#readAccessToken(String)}
    */
   @Test
-  public void testReadAccessToken() {
+  public void testReadAccessToken_thenThrowsUnsupportedOperationException() {
     // Arrange, Act and Assert
     thrown.expect(UnsupportedOperationException.class);
     customUserInfoTokenServices.readAccessToken("ABC123");

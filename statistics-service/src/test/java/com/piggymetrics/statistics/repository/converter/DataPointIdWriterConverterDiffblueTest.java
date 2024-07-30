@@ -26,7 +26,7 @@ public class DataPointIdWriterConverterDiffblueTest {
    * Method under test: {@link DataPointIdWriterConverter#convert(DataPointId)}
    */
   @Test
-  public void testConvert() {
+  public void testConvert_thenReturnsInstanceOfBasicDBObject() {
     // Arrange
     Date date = Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
     DataPointId id = new DataPointId("3", date);
@@ -37,18 +37,16 @@ public class DataPointIdWriterConverterDiffblueTest {
     // Assert
     assertTrue(actualConvertResult instanceof BasicDBObject);
     assertEquals(2, ((BasicDBObject) actualConvertResult).size());
-    Object getResult = ((BasicDBObject) actualConvertResult).get((Object) "account");
-    assertEquals("3", getResult);
-    assertSame(getResult, id.getAccount());
-    assertSame(date, id.getDate());
+    assertEquals("3", ((BasicDBObject) actualConvertResult).get((Object) "account"));
     assertSame(date, ((BasicDBObject) actualConvertResult).get((Object) "date"));
+    assertSame(((BasicDBObject) actualConvertResult).get((Object) "account"), id.getAccount());
   }
 
   /**
    * Method under test: {@link DataPointIdWriterConverter#convert(DataPointId)}
    */
   @Test
-  public void testConvert2() {
+  public void testConvert_thenReturnsInstanceOfBasicDBObject2() {
     // Arrange
     DataPointId id = new DataPointId("3", mock(java.sql.Date.class));
 
@@ -58,11 +56,10 @@ public class DataPointIdWriterConverterDiffblueTest {
     // Assert
     assertTrue(actualConvertResult instanceof BasicDBObject);
     assertEquals(2, ((BasicDBObject) actualConvertResult).size());
-    Object getResult = ((BasicDBObject) actualConvertResult).get((Object) "account");
-    assertEquals("3", getResult);
+    assertEquals("3", ((BasicDBObject) actualConvertResult).get((Object) "account"));
     assertTrue(((BasicDBObject) actualConvertResult).containsKey((Object) "date"));
-    assertSame(getResult, id.getAccount());
     Object expectedDate = ((BasicDBObject) actualConvertResult).get((Object) "date");
     assertSame(expectedDate, id.getDate());
+    assertSame(((BasicDBObject) actualConvertResult).get((Object) "account"), id.getAccount());
   }
 }

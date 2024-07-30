@@ -33,44 +33,11 @@ public class OAuth2AuthorizationConfigDiffblueTest {
 
   /**
    * Method under test:
-   * {@link OAuth2AuthorizationConfig#configure(ClientDetailsServiceConfigurer)}
-   */
-  @Test
-  public void testConfigure() throws Exception {
-    // Arrange
-    ClientDetailsServiceConfigurer clients = new ClientDetailsServiceConfigurer(new ClientDetailsServiceBuilder<>());
-
-    // Act
-    oAuth2AuthorizationConfig.configure(clients);
-
-    // Assert
-    assertTrue(clients.and() instanceof InMemoryClientDetailsServiceBuilder);
-  }
-
-  /**
-   * Method under test:
-   * {@link OAuth2AuthorizationConfig#configure(ClientDetailsServiceConfigurer)}
-   */
-  @Test
-  public void testConfigure2() throws Exception {
-    // Arrange
-    JdbcClientDetailsServiceBuilder builder = new JdbcClientDetailsServiceBuilder();
-    builder.dataSource(mock(DataSource.class));
-    ClientDetailsServiceConfigurer clients = new ClientDetailsServiceConfigurer(builder);
-
-    // Act
-    oAuth2AuthorizationConfig.configure(clients);
-
-    // Assert
-    assertTrue(clients.and() instanceof InMemoryClientDetailsServiceBuilder);
-  }
-
-  /**
-   * Method under test:
    * {@link OAuth2AuthorizationConfig#configure(AuthorizationServerEndpointsConfigurer)}
    */
   @Test
-  public void testConfigure3() throws Exception {
+  public void testConfigure_thenNewAuthorizationServerEndpointsConfigurerUserDetailsServiceOverrideIsTrue()
+      throws Exception {
     // Arrange
     AuthorizationServerEndpointsConfigurer endpoints = new AuthorizationServerEndpointsConfigurer();
 
@@ -86,7 +53,8 @@ public class OAuth2AuthorizationConfigDiffblueTest {
    * {@link OAuth2AuthorizationConfig#configure(AuthorizationServerSecurityConfigurer)}
    */
   @Test
-  public void testConfigure4() throws Exception {
+  public void testConfigure_thenNewAuthorizationServerSecurityConfigurerCheckTokenAccessIsIsAuthenticatedLeftParenthesisRightParenthesisAndNewAuthorizationServerSecurityConfigurerTokenKeyAccessIsPermitAllLeftParenthesisRightParenthesis()
+      throws Exception {
     // Arrange
     AuthorizationServerSecurityConfigurer oauthServer = new AuthorizationServerSecurityConfigurer();
 
@@ -96,5 +64,41 @@ public class OAuth2AuthorizationConfigDiffblueTest {
     // Assert
     assertEquals("isAuthenticated()", oauthServer.getCheckTokenAccess());
     assertEquals("permitAll()", oauthServer.getTokenKeyAccess());
+  }
+
+  /**
+   * Method under test:
+   * {@link OAuth2AuthorizationConfig#configure(ClientDetailsServiceConfigurer)}
+   */
+  @Test
+  public void testConfigure_thenNewClientDetailsServiceConfigurerAndInstanceOfInMemoryClientDetailsServiceBuilder()
+      throws Exception {
+    // Arrange
+    ClientDetailsServiceConfigurer clients = new ClientDetailsServiceConfigurer(new ClientDetailsServiceBuilder<>());
+
+    // Act
+    oAuth2AuthorizationConfig.configure(clients);
+
+    // Assert
+    assertTrue(clients.and() instanceof InMemoryClientDetailsServiceBuilder);
+  }
+
+  /**
+   * Method under test:
+   * {@link OAuth2AuthorizationConfig#configure(ClientDetailsServiceConfigurer)}
+   */
+  @Test
+  public void testConfigure_thenNewClientDetailsServiceConfigurerAndInstanceOfInMemoryClientDetailsServiceBuilder2()
+      throws Exception {
+    // Arrange
+    JdbcClientDetailsServiceBuilder builder = new JdbcClientDetailsServiceBuilder();
+    builder.dataSource(mock(DataSource.class));
+    ClientDetailsServiceConfigurer clients = new ClientDetailsServiceConfigurer(builder);
+
+    // Act
+    oAuth2AuthorizationConfig.configure(clients);
+
+    // Assert
+    assertTrue(clients.and() instanceof InMemoryClientDetailsServiceBuilder);
   }
 }

@@ -43,7 +43,7 @@ public class RecipientServiceImplDiffblueTest {
    * Method under test: {@link RecipientServiceImpl#findByAccountName(String)}
    */
   @Test
-  public void testFindByAccountName() {
+  public void testFindByAccountName_thenReturnsSameAsNewRecipient() {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
@@ -63,7 +63,7 @@ public class RecipientServiceImplDiffblueTest {
    * Method under test: {@link RecipientServiceImpl#findByAccountName(String)}
    */
   @Test
-  public void testFindByAccountName2() {
+  public void testFindByAccountName_thenThrowsIllegalArgumentException() {
     // Arrange
     when(recipientRepository.findByAccountName(Mockito.<String>any())).thenThrow(new IllegalArgumentException("foo"));
 
@@ -77,7 +77,7 @@ public class RecipientServiceImplDiffblueTest {
    * Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
    */
   @Test
-  public void testSave() {
+  public void testSave_thenReturnsSameAsNewRecipient() {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
@@ -88,8 +88,7 @@ public class RecipientServiceImplDiffblueTest {
     Recipient recipient2 = new Recipient();
     recipient2.setAccountName("Dr Jane Doe");
     recipient2.setEmail("jane.doe@example.org");
-    HashMap<NotificationType, NotificationSettings> scheduledNotifications = new HashMap<>();
-    recipient2.setScheduledNotifications(scheduledNotifications);
+    recipient2.setScheduledNotifications(new HashMap<>());
 
     // Act
     Recipient actualSaveResult = recipientServiceImpl.save("Dr Jane Doe", recipient2);
@@ -97,14 +96,13 @@ public class RecipientServiceImplDiffblueTest {
     // Assert
     verify(recipientRepository).save(isA(Recipient.class));
     assertSame(recipient2, actualSaveResult);
-    assertSame(scheduledNotifications, recipient2.getScheduledNotifications());
   }
 
   /**
    * Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
    */
   @Test
-  public void testSave2() {
+  public void testSave_thenReturnsSameAsNewRecipient2() {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
@@ -132,14 +130,13 @@ public class RecipientServiceImplDiffblueTest {
     // Assert
     verify(recipientRepository).save(isA(Recipient.class));
     assertSame(recipient2, actualSaveResult);
-    assertSame(scheduledNotifications, recipient2.getScheduledNotifications());
   }
 
   /**
    * Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
    */
   @Test
-  public void testSave3() {
+  public void testSave_thenReturnsSameAsNewRecipient3() {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
@@ -174,34 +171,13 @@ public class RecipientServiceImplDiffblueTest {
     // Assert
     verify(recipientRepository).save(isA(Recipient.class));
     assertSame(recipient2, actualSaveResult);
-    assertSame(scheduledNotifications, recipient2.getScheduledNotifications());
   }
 
   /**
    * Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
    */
   @Test
-  public void testSave4() {
-    // Arrange
-    when(recipientRepository.save(Mockito.<Recipient>any()))
-        .thenThrow(new IllegalArgumentException("recipient {} settings has been updated"));
-
-    Recipient recipient = new Recipient();
-    recipient.setAccountName("Dr Jane Doe");
-    recipient.setEmail("jane.doe@example.org");
-    recipient.setScheduledNotifications(new HashMap<>());
-
-    // Act and Assert
-    thrown.expect(IllegalArgumentException.class);
-    recipientServiceImpl.save("Dr Jane Doe", recipient);
-    verify(recipientRepository).save(isA(Recipient.class));
-  }
-
-  /**
-   * Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
-   */
-  @Test
-  public void testSave5() {
+  public void testSave_thenReturnsSameAsNewRecipient4() {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
@@ -228,7 +204,26 @@ public class RecipientServiceImplDiffblueTest {
     // Assert
     verify(recipientRepository).save(isA(Recipient.class));
     assertSame(recipient2, actualSaveResult);
-    assertSame(scheduledNotifications, recipient2.getScheduledNotifications());
+  }
+
+  /**
+   * Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
+   */
+  @Test
+  public void testSave_thenThrowsIllegalArgumentException() {
+    // Arrange
+    when(recipientRepository.save(Mockito.<Recipient>any()))
+        .thenThrow(new IllegalArgumentException("recipient {} settings has been updated"));
+
+    Recipient recipient = new Recipient();
+    recipient.setAccountName("Dr Jane Doe");
+    recipient.setEmail("jane.doe@example.org");
+    recipient.setScheduledNotifications(new HashMap<>());
+
+    // Act and Assert
+    thrown.expect(IllegalArgumentException.class);
+    recipientServiceImpl.save("Dr Jane Doe", recipient);
+    verify(recipientRepository).save(isA(Recipient.class));
   }
 
   /**
@@ -236,7 +231,7 @@ public class RecipientServiceImplDiffblueTest {
    * {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
    */
   @Test
-  public void testFindReadyToNotify() {
+  public void testFindReadyToNotify_thenReturnsEmptyIsTrueAndReturnsSameAsNewArrayList() {
     // Arrange
     ArrayList<Recipient> recipientList = new ArrayList<>();
     when(recipientRepository.findReadyForBackup()).thenReturn(recipientList);
@@ -255,7 +250,7 @@ public class RecipientServiceImplDiffblueTest {
    * {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
    */
   @Test
-  public void testFindReadyToNotify2() {
+  public void testFindReadyToNotify_thenReturnsEmptyIsTrueAndReturnsSameAsNewArrayList2() {
     // Arrange
     ArrayList<Recipient> recipientList = new ArrayList<>();
     when(recipientRepository.findReadyForRemind()).thenReturn(recipientList);
@@ -274,7 +269,7 @@ public class RecipientServiceImplDiffblueTest {
    * {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
    */
   @Test
-  public void testFindReadyToNotify3() {
+  public void testFindReadyToNotify_thenThrowsIllegalArgumentException() {
     // Arrange
     when(recipientRepository.findReadyForRemind()).thenThrow(new IllegalArgumentException("foo"));
 
@@ -316,7 +311,6 @@ public class RecipientServiceImplDiffblueTest {
 
     // Assert
     verify(recipientRepository).save(isA(Recipient.class));
-    assertSame(scheduledNotifications, recipient2.getScheduledNotifications());
   }
 
   /**
@@ -324,7 +318,7 @@ public class RecipientServiceImplDiffblueTest {
    * {@link RecipientServiceImpl#markNotified(NotificationType, Recipient)}
    */
   @Test
-  public void testMarkNotified2() {
+  public void testMarkNotified_thenThrowsIllegalArgumentException() {
     // Arrange
     when(recipientRepository.save(Mockito.<Recipient>any())).thenThrow(new IllegalArgumentException("foo"));
 

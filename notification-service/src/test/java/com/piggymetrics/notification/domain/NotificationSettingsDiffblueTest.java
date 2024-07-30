@@ -22,7 +22,7 @@ public class NotificationSettingsDiffblueTest {
    * </ul>
    */
   @Test
-  public void testGettersAndSetters() {
+  public void testGettersAndSetters_thenReturnsFrequencyIsWEEKLYAndReturnsActiveIsTrue() {
     // Arrange and Act
     NotificationSettings actualNotificationSettings = new NotificationSettings();
     actualNotificationSettings.setActive(true);

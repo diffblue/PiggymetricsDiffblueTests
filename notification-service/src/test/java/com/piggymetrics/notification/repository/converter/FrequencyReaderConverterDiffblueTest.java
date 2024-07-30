@@ -18,7 +18,7 @@ public class FrequencyReaderConverterDiffblueTest {
    * Method under test: {@link FrequencyReaderConverter#convert(Integer)}
    */
   @Test
-  public void testConvert() {
+  public void testConvert_thenReturnsWEEKLY() {
     // Arrange, Act and Assert
     assertEquals(Frequency.WEEKLY, frequencyReaderConverter.convert(7));
   }

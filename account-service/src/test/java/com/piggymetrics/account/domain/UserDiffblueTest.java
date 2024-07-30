@@ -15,7 +15,7 @@ public class UserDiffblueTest {
    * </ul>
    */
   @Test
-  public void testGettersAndSetters() {
+  public void testGettersAndSetters_thenReturnsPasswordIsIloveyouAndReturnsUsernameIsJanedoe() {
     // Arrange and Act
     User actualUser = new User();
     actualUser.setPassword("iloveyou");

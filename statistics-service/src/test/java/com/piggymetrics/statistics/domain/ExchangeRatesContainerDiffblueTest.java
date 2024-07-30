@@ -24,7 +24,7 @@ public class ExchangeRatesContainerDiffblueTest {
    * </ul>
    */
   @Test
-  public void testGettersAndSetters() {
+  public void testGettersAndSetters_thenReturnsToStringIs1970HyphenMinus01HyphenMinus01AndReturnsRateListLeftCurlyBracketDateEqualsSign1970HyphenMinus01HyphenMinus01CommaBaseEqualsSignUSDCommaRatesEqualsSignLeftCurlyBracketRightCurlyBracketRightCurlyBracketAndReturnsUSDAndReturnsEmptyIsTrueAndReturnsSameAsNewHashMap() {
     // Arrange
     ExchangeRatesContainer exchangeRatesContainer = new ExchangeRatesContainer();
 
@@ -53,7 +53,7 @@ public class ExchangeRatesContainerDiffblueTest {
    * {@link ExchangeRatesContainer}
    */
   @Test
-  public void testNewExchangeRatesContainer() {
+  public void testNewExchangeRatesContainer_thenReturnsBaseIsNullAndReturnsRatesIsNull() {
     // Arrange and Act
     ExchangeRatesContainer actualExchangeRatesContainer = new ExchangeRatesContainer();
 

@@ -12,6 +12,7 @@ import com.fasterxml.jackson.core.Base64Variant;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.Version;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
+import com.fasterxml.jackson.databind.AnnotationIntrospector;
 import com.fasterxml.jackson.databind.DeserializationConfig;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonSerializer;
@@ -27,15 +28,19 @@ import com.fasterxml.jackson.databind.deser.DefaultDeserializationContext;
 import com.fasterxml.jackson.databind.deser.DeserializerFactory;
 import com.fasterxml.jackson.databind.deser.Deserializers;
 import com.fasterxml.jackson.databind.introspect.BasicClassIntrospector;
+import com.fasterxml.jackson.databind.introspect.ClassIntrospector;
 import com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
 import com.fasterxml.jackson.databind.introspect.VisibilityChecker;
+import com.fasterxml.jackson.databind.jsontype.SubtypeResolver;
 import com.fasterxml.jackson.databind.jsontype.impl.StdSubtypeResolver;
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.ser.BeanSerializerFactory;
 import com.fasterxml.jackson.databind.ser.DefaultSerializerProvider;
 import com.fasterxml.jackson.databind.ser.SerializerFactory;
 import com.fasterxml.jackson.databind.ser.Serializers;
 import com.fasterxml.jackson.databind.ser.impl.FailingSerializer;
 import com.fasterxml.jackson.databind.ser.std.NullSerializer;
+import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.fasterxml.jackson.databind.util.ArrayIterator;
 import com.fasterxml.jackson.databind.util.StdDateFormat;
 import com.piggymetrics.notification.repository.RecipientRepository;
@@ -91,7 +96,7 @@ public class ResourceServerConfigDiffblueTest {
    * {@link ResourceServerConfig#clientCredentialsResourceDetails()}
    */
   @Test
-  public void testClientCredentialsResourceDetails() {
+  public void testClientCredentialsResourceDetails_thenReturnsTokenNameIsAccessUnderscoreTokenAndReturnsGrantTypeIsClientUnderscoreCredentialsAndReturnsAccessTokenUriIsNullAndReturnsClientIdIsNullAndReturnsClientSecretIsNullAndReturnsIdIsNullAndReturnsScopeIsNullAndReturnsAuthenticationSchemeIsHeaderAndReturnsClientAuthenticationSchemeIsHeaderAndReturnsAuthenticationRequiredIsFalseAndReturnsScopedIsFalseAndReturnsClientOnlyIsTrue() {
     // Arrange and Act
     ClientCredentialsResourceDetails actualClientCredentialsResourceDetailsResult = resourceServerConfig
         .clientCredentialsResourceDetails();
@@ -117,7 +122,7 @@ public class ResourceServerConfigDiffblueTest {
    * {@link ResourceServerConfig#oauth2FeignRequestInterceptor()}
    */
   @Test
-  public void testOauth2FeignRequestInterceptor() {
+  public void testOauth2FeignRequestInterceptor_thenReturnsInstanceOfOAuth2FeignRequestInterceptor() {
     // Arrange, Act and Assert
     assertTrue(resourceServerConfig.oauth2FeignRequestInterceptor() instanceof OAuth2FeignRequestInterceptor);
   }
@@ -127,7 +132,8 @@ public class ResourceServerConfigDiffblueTest {
    * {@link ResourceServerConfig#clientCredentialsRestTemplate()}
    */
   @Test
-  public void testClientCredentialsRestTemplate() throws MissingResourceException {
+  public void testClientCredentialsRestTemplate_thenReturnsMessageConvertersSizeIsSevenAndRequestFactoryReturnsInstanceOfInterceptingClientHttpRequestFactoryAndMessageConvertersZeroReturnsInstanceOfByteArrayHttpMessageConverterAndMessageConvertersTwoReturnsInstanceOfResourceHttpMessageConverterAndMessageConvertersOneReturnsInstanceOfStringHttpMessageConverterAndMessageConvertersSixReturnsInstanceOfMappingJackson2HttpMessageConverterAndMessageConvertersFourReturnsInstanceOfAllEncompassingFormHttpMessageConverterAndMessageConvertersFiveReturnsInstanceOfJaxb2RootElementHttpMessageConverterAndOAuth2ClientContextReturnsInstanceOfDefaultOAuth2ClientContextAndErrorHandlerReturnsInstanceOfOAuth2ErrorHandlerAndOAuth2ClientContextAccessTokenRequestReturnsInstanceOfDefaultAccessTokenRequestAndResourceReturnsInstanceOfClientCredentialsResourceDetailsAndUriTemplateHandlerReturnsInstanceOfDefaultUriBuilderFactoryAndReturnsMessageConvertersZeroSupportedMediaTypesSizeIsTwoAndReturnsMessageConvertersZeroSupportedMediaTypesOneSubtypeIsAsteriskAndReturnsMessageConvertersZeroSupportedMediaTypesOneTypeIsAsteriskAndReturnsMessageConvertersSixSupportedMediaTypesSizeIsTwoAndReturnsMessageConvertersSixSupportedMediaTypesOneSubtypeIsAsteriskPlusSignJsonAndReturnsMessageConvertersFiveSupportedMediaTypesSizeIsThreeAndReturnsMessageConvertersFiveSupportedMediaTypesTwoSubtypeIsAsteriskPlusSignXmlAndReturnsResourceTokenNameIsAccessUnderscoreTokenAndReturnsMessageConvertersZeroSupportedMediaTypesZeroTypeIsApplicationAndReturnsMessageConvertersFourSupportedMediaTypesSizeIsTwoAndReturnsMessageConvertersFourSupportedMediaTypesZeroTypeIsApplicationAndReturnsMessageConvertersFiveSupportedMediaTypesZeroTypeIsApplicationAndReturnsMessageConvertersFiveSupportedMediaTypesTwoTypeIsApplicationAndReturnsMessageConvertersSixSupportedMediaTypesZeroTypeIsApplicationAndReturnsMessageConvertersSixSupportedMediaTypesOneTypeIsApplicationAndReturnsResourceGrantTypeIsClientUnderscoreCredentialsAndReturnsMessageConvertersFourSupportedMediaTypesOneSubtypeIsFormHyphenMinusDataAndReturnsMessageConvertersSixSupportedMediaTypesZeroSubtypeIsJsonAndReturnsMessageConvertersFourSupportedMediaTypesOneTypeIsMultipartAndReturnsMessageConvertersZeroSupportedMediaTypesZeroSubtypeIsOctetHyphenMinusStreamAndReturnsMessageConvertersOneSupportedMediaTypesSizeIsTwoAndReturnsMessageConvertersOneSupportedMediaTypesZeroSubtypeIsPlainAndReturnsMessageConvertersOneSupportedMediaTypesZeroTypeIsTextAndReturnsMessageConvertersFiveSupportedMediaTypesOneTypeIsTextAndReturnsMessageConvertersFourSupportedMediaTypesZeroSubtypeIsXHyphenMinusWwwHyphenMinusFormHyphenMinusUrlencodedAndReturnsMessageConvertersFiveSupportedMediaTypesZeroSubtypeIsXmlAndReturnsMessageConvertersFiveSupportedMediaTypesOneSubtypeIsXmlAndReturnsResourceAccessTokenUriIsNullAndReturnsResourceClientIdIsNullAndReturnsResourceClientSecretIsNullAndReturnsResourceIdIsNullAndReturnsMessageConvertersZeroSupportedMediaTypesZeroCharsetIsNullAndReturnsMessageConvertersZeroSupportedMediaTypesOneCharsetIsNullAndReturnsMessageConvertersOneSupportedMediaTypesZeroCharsetIsNullAndReturnsMessageConvertersFourSupportedMediaTypesZeroCharsetIsNullAndReturnsMessageConvertersFourSupportedMediaTypesOneCharsetIsNullAndReturnsMessageConvertersFiveSupportedMediaTypesZeroCharsetIsNullAndReturnsMessageConvertersFiveSupportedMediaTypesOneCharsetIsNullAndReturnsMessageConvertersFiveSupportedMediaTypesTwoCharsetIsNullAndReturnsMessageConvertersSixSupportedMediaTypesZeroCharsetIsNullAndReturnsMessageConvertersSixSupportedMediaTypesOneCharsetIsNullAndReturnsResourceScopeIsNullAndReturnsOAuth2ClientContextAccessTokenIsNullAndReturnsInterceptorsSizeIsOneAndReturnsMessageConvertersTwoSupportedMediaTypesSizeIsOneAndReturnsMessageConvertersZeroSupportedMediaTypesZeroQualityValueIsOneAndReturnsMessageConvertersZeroSupportedMediaTypesOneQualityValueIsOneAndReturnsMessageConvertersOneSupportedMediaTypesZeroQualityValueIsOneAndReturnsMessageConvertersFourSupportedMediaTypesZeroQualityValueIsOneAndReturnsMessageConvertersFourSupportedMediaTypesOneQualityValueIsOneAndReturnsMessageConvertersFiveSupportedMediaTypesZeroQualityValueIsOneAndReturnsMessageConvertersFiveSupportedMediaTypesOneQualityValueIsOneAndReturnsMessageConvertersFiveSupportedMediaTypesTwoQualityValueIsOneAndReturnsMessageConvertersSixSupportedMediaTypesZeroQualityValueIsOneAndReturnsMessageConvertersSixSupportedMediaTypesOneQualityValueIsOneAndReturnsResourceAuthenticationSchemeIsHeaderAndReturnsResourceClientAuthenticationSchemeIsHeaderAndReturnsResourceAuthenticationRequiredIsFalseAndReturnsResourceScopedIsFalseAndReturnsMessageConvertersZeroSupportedMediaTypesOneConcreteIsFalseAndReturnsMessageConvertersFiveSupportedMediaTypesTwoConcreteIsFalseAndReturnsMessageConvertersSixSupportedMediaTypesOneConcreteIsFalseAndReturnsMessageConvertersZeroSupportedMediaTypesZeroWildcardTypeIsFalseAndReturnsMessageConvertersOneSupportedMediaTypesZeroWildcardTypeIsFalseAndReturnsMessageConvertersFourSupportedMediaTypesZeroWildcardTypeIsFalseAndReturnsMessageConvertersFourSupportedMediaTypesOneWildcardTypeIsFalseAndReturnsMessageConvertersFiveSupportedMediaTypesZeroWildcardTypeIsFalseAndReturnsMessageConvertersFiveSupportedMediaTypesOneWildcardTypeIsFalseAndReturnsMessageConvertersFiveSupportedMediaTypesTwoWildcardTypeIsFalseAndReturnsMessageConvertersSixSupportedMediaTypesZeroWildcardTypeIsFalseAndReturnsMessageConvertersSixSupportedMediaTypesOneWildcardTypeIsFalseAndReturnsOAuth2ClientContextAccessTokenRequestEmptyIsTrueAndReturnsMessageConvertersZeroSupportedMediaTypesZeroParametersEmptyIsTrueAndReturnsResourceClientOnlyIsTrueAndReturnsMessageConvertersZeroSupportedMediaTypesZeroConcreteIsTrueAndReturnsMessageConvertersOneSupportedMediaTypesZeroConcreteIsTrueAndReturnsMessageConvertersFourSupportedMediaTypesZeroConcreteIsTrueAndReturnsMessageConvertersFourSupportedMediaTypesOneConcreteIsTrueAndReturnsMessageConvertersFiveSupportedMediaTypesZeroConcreteIsTrueAndReturnsMessageConvertersFiveSupportedMediaTypesOneConcreteIsTrueAndReturnsMessageConvertersSixSupportedMediaTypesZeroConcreteIsTrueAndReturnsMessageConvertersZeroSupportedMediaTypesOneWildcardTypeIsTrueAndReturnsMessageConvertersOneSupportedMediaTypesOneIsSameAsMessageConvertersZeroSupportedMediaTypesOneAndReturnsMessageConvertersTwoSupportedMediaTypesZeroIsSameAsMessageConvertersZeroSupportedMediaTypesOne()
+      throws MissingResourceException {
     // Arrange and Act
     OAuth2RestTemplate actualClientCredentialsRestTemplateResult = resourceServerConfig.clientCredentialsRestTemplate();
 
@@ -140,20 +146,26 @@ public class ResourceServerConfigDiffblueTest {
     assertTrue(serializationConfig.getDefaultPrettyPrinter() instanceof DefaultPrettyPrinter);
     JsonFactory factory = objectMapper.getFactory();
     assertTrue(factory instanceof MappingJsonFactory);
-    assertTrue(serializationConfig.getAttributes() instanceof ContextAttributes.Impl);
+    DeserializationConfig deserializationConfig = objectMapper.getDeserializationConfig();
+    ContextAttributes attributes = deserializationConfig.getAttributes();
+    assertTrue(attributes instanceof ContextAttributes.Impl);
     DeserializationContext deserializationContext = objectMapper.getDeserializationContext();
     DeserializerFactory factory2 = deserializationContext.getFactory();
     assertTrue(factory2 instanceof BeanDeserializerFactory);
     assertTrue(deserializationContext instanceof DefaultDeserializationContext.Impl);
-    assertTrue(serializationConfig.getClassIntrospector() instanceof BasicClassIntrospector);
-    SerializerProvider serializerProviderInstance = objectMapper.getSerializerProviderInstance();
-    assertTrue(serializerProviderInstance.getAnnotationIntrospector() instanceof JacksonAnnotationIntrospector);
-    assertTrue(objectMapper.getVisibilityChecker() instanceof VisibilityChecker.Std);
-    assertTrue(objectMapper.getSubtypeResolver() instanceof StdSubtypeResolver);
+    ClassIntrospector classIntrospector = deserializationConfig.getClassIntrospector();
+    assertTrue(classIntrospector instanceof BasicClassIntrospector);
+    AnnotationIntrospector annotationIntrospector = deserializationConfig.getAnnotationIntrospector();
+    assertTrue(annotationIntrospector instanceof JacksonAnnotationIntrospector);
+    VisibilityChecker<?> visibilityChecker = objectMapper.getVisibilityChecker();
+    assertTrue(visibilityChecker instanceof VisibilityChecker.Std);
+    SubtypeResolver subtypeResolver = objectMapper.getSubtypeResolver();
+    assertTrue(subtypeResolver instanceof StdSubtypeResolver);
     SerializerFactory serializerFactory = objectMapper.getSerializerFactory();
     assertTrue(serializerFactory instanceof BeanSerializerFactory);
     SerializerProvider serializerProvider = objectMapper.getSerializerProvider();
     assertTrue(serializerProvider instanceof DefaultSerializerProvider.Impl);
+    SerializerProvider serializerProviderInstance = objectMapper.getSerializerProviderInstance();
     assertTrue(serializerProviderInstance instanceof DefaultSerializerProvider.Impl);
     JsonSerializer<Object> defaultNullKeySerializer = serializerProvider.getDefaultNullKeySerializer();
     assertTrue(defaultNullKeySerializer instanceof FailingSerializer);
@@ -190,7 +202,7 @@ public class ResourceServerConfigDiffblueTest {
     UriTemplateHandler uriTemplateHandler = actualClientCredentialsRestTemplateResult.getUriTemplateHandler();
     assertTrue(uriTemplateHandler instanceof DefaultUriBuilderFactory);
     assertEquals(" ", factory.getRootValueSeparator());
-    Locale locale = serializerProviderInstance.getLocale();
+    Locale locale = deserializationConfig.getLocale();
     assertEquals("", locale.getCountry());
     assertEquals("", locale.getDisplayCountry());
     assertEquals("", locale.getDisplayScript());
@@ -198,7 +210,7 @@ public class ResourceServerConfigDiffblueTest {
     assertEquals("", locale.getISO3Country());
     assertEquals("", locale.getScript());
     assertEquals("", locale.getVariant());
-    List<MediaType> supportedMediaTypes = getResult4.getSupportedMediaTypes();
+    List<MediaType> supportedMediaTypes = getResult2.getSupportedMediaTypes();
     assertEquals(2, supportedMediaTypes.size());
     MediaType getResult7 = supportedMediaTypes.get(1);
     assertEquals("*", getResult7.getSubtype());
@@ -211,13 +223,13 @@ public class ResourceServerConfigDiffblueTest {
     assertEquals(3, supportedMediaTypes3.size());
     MediaType getResult9 = supportedMediaTypes3.get(2);
     assertEquals("*+xml", getResult9.getSubtype());
-    TimeZone timeZone = serializationConfig.getTimeZone();
+    TimeZone timeZone = deserializationConfig.getTimeZone();
     assertEquals("Coordinated Universal Time", timeZone.getDisplayName());
     assertEquals("English", locale.getDisplayLanguage());
     assertEquals("English", locale.getDisplayName());
     assertEquals("ISO-8859-1", ((StringHttpMessageConverter) getResult4).getDefaultCharset().name());
     assertEquals("JSON", factory.getFormatName());
-    Base64Variant base64Variant = serializationConfig.getBase64Variant();
+    Base64Variant base64Variant = deserializationConfig.getBase64Variant();
     assertEquals("MIME-NO-LINEFEEDS", base64Variant.getName());
     assertEquals("MIME-NO-LINEFEEDS", base64Variant.toString());
     assertEquals("UTC", timeZone.getID());
@@ -225,13 +237,11 @@ public class ResourceServerConfigDiffblueTest {
     assertEquals("[one of: 'yyyy-MM-dd'T'HH:mm:ss.SSSZ', 'EEE, dd MMM yyyy HH:mm:ss zzz' (lenient)]",
         ((StdDateFormat) dateFormat).toPattern());
     assertEquals("access_token", resource.getTokenName());
-    List<MediaType> supportedMediaTypes4 = getResult2.getSupportedMediaTypes();
-    assertEquals(2, supportedMediaTypes4.size());
-    MediaType getResult10 = supportedMediaTypes4.get(0);
+    MediaType getResult10 = supportedMediaTypes.get(0);
     assertEquals("application", getResult10.getType());
-    List<MediaType> supportedMediaTypes5 = getResult5.getSupportedMediaTypes();
-    assertEquals(2, supportedMediaTypes5.size());
-    MediaType getResult11 = supportedMediaTypes5.get(0);
+    List<MediaType> supportedMediaTypes4 = getResult5.getSupportedMediaTypes();
+    assertEquals(2, supportedMediaTypes4.size());
+    MediaType getResult11 = supportedMediaTypes4.get(0);
     assertEquals("application", getResult11.getType());
     MediaType getResult12 = supportedMediaTypes3.get(0);
     assertEquals("application", getResult12.getType());
@@ -248,14 +258,16 @@ public class ResourceServerConfigDiffblueTest {
     assertEquals("com.fasterxml.jackson.core/jackson-databind/2.9.6", versionResult2.toFullString());
     assertEquals("en", locale.getLanguage());
     assertEquals("eng", locale.getISO3Language());
-    MediaType getResult14 = supportedMediaTypes5.get(1);
+    MediaType getResult14 = supportedMediaTypes4.get(1);
     assertEquals("form-data", getResult14.getSubtype());
     assertEquals("jackson-core", versionResult.getArtifactId());
     assertEquals("jackson-databind", versionResult2.getArtifactId());
     assertEquals("json", getResult13.getSubtype());
     assertEquals("multipart", getResult14.getType());
     assertEquals("octet-stream", getResult10.getSubtype());
-    MediaType getResult15 = supportedMediaTypes.get(0);
+    List<MediaType> supportedMediaTypes5 = getResult4.getSupportedMediaTypes();
+    assertEquals(2, supportedMediaTypes5.size());
+    MediaType getResult15 = supportedMediaTypes5.get(0);
     assertEquals("plain", getResult15.getSubtype());
     assertEquals("text", getResult15.getType());
     MediaType getResult16 = supportedMediaTypes3.get(1);
@@ -275,7 +287,6 @@ public class ResourceServerConfigDiffblueTest {
     assertNull(deserializationContext.getContextualType());
     assertNull(defaultNullKeySerializer.getDelegatee());
     assertNull(defaultNullValueSerializer.getDelegatee());
-    DeserializationConfig deserializationConfig = objectMapper.getDeserializationConfig();
     assertNull(deserializationConfig.getFullRootName());
     assertNull(serializationConfig.getFullRootName());
     assertNull(objectMapper.getPropertyNamingStrategy());
@@ -291,7 +302,7 @@ public class ResourceServerConfigDiffblueTest {
     assertNull(serializationConfig.getDefaultMergeable());
     assertNull(factory.getFormatReadFeatureType());
     assertNull(factory.getFormatWriteFeatureType());
-    JsonInclude.Value defaultPropertyInclusion = serializationConfig.getDefaultPropertyInclusion();
+    JsonInclude.Value defaultPropertyInclusion = deserializationConfig.getDefaultPropertyInclusion();
     assertNull(defaultPropertyInclusion.getContentFilter());
     assertNull(defaultPropertyInclusion.getValueFilter());
     assertNull(deserializationContext.getActiveView());
@@ -301,7 +312,8 @@ public class ResourceServerConfigDiffblueTest {
     assertNull(serializerProviderInstance.getSerializationView());
     assertNull(deserializationConfig.getActiveView());
     assertNull(serializationConfig.getActiveView());
-    assertNull(objectMapper.getTypeFactory().getClassLoader());
+    TypeFactory typeFactory = objectMapper.getTypeFactory();
+    assertNull(typeFactory.getClassLoader());
     assertNull(deserializationConfig.getRootName());
     assertNull(serializationConfig.getRootName());
     assertNull(resource.getAccessTokenUri());
@@ -312,8 +324,8 @@ public class ResourceServerConfigDiffblueTest {
     assertNull(((ResourceHttpMessageConverter) getResult3).getDefaultCharset());
     assertNull(((Jaxb2RootElementHttpMessageConverter) getResult6).getDefaultCharset());
     assertNull(getResult10.getCharset());
-    assertNull(getResult15.getCharset());
     assertNull(getResult7.getCharset());
+    assertNull(getResult15.getCharset());
     assertNull(getResult11.getCharset());
     assertNull(getResult14.getCharset());
     assertNull(getResult12.getCharset());
@@ -332,8 +344,8 @@ public class ResourceServerConfigDiffblueTest {
     List<MediaType> supportedMediaTypes6 = getResult3.getSupportedMediaTypes();
     assertEquals(1, supportedMediaTypes6.size());
     assertEquals(1.0d, getResult10.getQualityValue(), 0.0);
-    assertEquals(1.0d, getResult15.getQualityValue(), 0.0);
     assertEquals(1.0d, getResult7.getQualityValue(), 0.0);
+    assertEquals(1.0d, getResult15.getQualityValue(), 0.0);
     assertEquals(1.0d, getResult11.getQualityValue(), 0.0);
     assertEquals(1.0d, getResult14.getQualityValue(), 0.0);
     assertEquals(1.0d, getResult12.getQualityValue(), 0.0);
@@ -353,7 +365,7 @@ public class ResourceServerConfigDiffblueTest {
     assertEquals(JsonInclude.Include.ALWAYS, serializationConfig.getSerializationInclusion());
     assertEquals(JsonInclude.Include.USE_DEFAULTS, defaultPropertyInclusion.getContentInclusion());
     assertEquals(JsonInclude.Include.USE_DEFAULTS, defaultPropertyInclusion.getValueInclusion());
-    JsonSetter.Value defaultSetterInfo = serializationConfig.getDefaultSetterInfo();
+    JsonSetter.Value defaultSetterInfo = deserializationConfig.getDefaultSetterInfo();
     assertEquals(Nulls.DEFAULT, defaultSetterInfo.getContentNulls());
     assertEquals(Nulls.DEFAULT, defaultSetterInfo.getValueNulls());
     assertEquals(AuthenticationScheme.header, resource.getAuthenticationScheme());
@@ -400,8 +412,10 @@ public class ResourceServerConfigDiffblueTest {
     assertTrue(((ArrayIterator<Serializers>) serializersResult).hasNext());
     assertTrue(dateFormat.isLenient());
     assertTrue(accessTokenRequest.isEmpty());
-    Set<String> unicodeLocaleAttributes = locale.getUnicodeLocaleAttributes();
-    assertTrue(unicodeLocaleAttributes.isEmpty());
+    assertTrue(getResult10.getParameters().isEmpty());
+    assertTrue(((DefaultUriBuilderFactory) uriTemplateHandler).getDefaultUriVariables().isEmpty());
+    Set<Character> extensionKeys = locale.getExtensionKeys();
+    assertTrue(extensionKeys.isEmpty());
     assertTrue(resource.isClientOnly());
     assertTrue(getResult10.isConcrete());
     assertTrue(getResult15.isConcrete());
@@ -411,20 +425,39 @@ public class ResourceServerConfigDiffblueTest {
     assertTrue(getResult16.isConcrete());
     assertTrue(getResult13.isConcrete());
     assertTrue(getResult7.isWildcardType());
-    assertEquals(accessTokenRequest, getResult10.getParameters());
-    assertEquals(accessTokenRequest, ((DefaultUriBuilderFactory) uriTemplateHandler).getDefaultUriVariables());
     assertEquals(Integer.MAX_VALUE, base64Variant.getMaxLineLength());
     assertEquals('=', base64Variant.getPaddingByte());
-    assertSame(dateFormat, deserializationConfig.getDateFormat());
-    assertSame(dateFormat, serializationConfig.getDateFormat());
-    assertSame(factory, objectMapper.getJsonFactory());
+    JsonNodeFactory expectedNodeFactory = objectMapper.getNodeFactory();
+    assertSame(expectedNodeFactory, deserializationConfig.getNodeFactory());
     assertSame(serializationConfig, serializerProviderInstance.getConfig());
+    assertSame(typeFactory, serializerProviderInstance.getTypeFactory());
+    assertSame(typeFactory, deserializationConfig.getTypeFactory());
+    assertSame(typeFactory, serializationConfig.getTypeFactory());
+    assertSame(versionResult2, annotationIntrospector.version());
+    assertSame(base64Variant, serializationConfig.getBase64Variant());
+    assertSame(locale, serializerProviderInstance.getLocale());
+    assertSame(locale, serializationConfig.getLocale());
+    assertSame(timeZone, serializerProviderInstance.getTimeZone());
+    assertSame(timeZone, serializationConfig.getTimeZone());
+    assertSame(defaultPropertyInclusion, serializationConfig.getDefaultPropertyInclusion());
+    assertSame(defaultSetterInfo, serializationConfig.getDefaultSetterInfo());
+    assertSame(getResult7, supportedMediaTypes5.get(1));
+    assertSame(getResult7, supportedMediaTypes6.get(0));
+    assertSame(extensionKeys, locale.getUnicodeLocaleAttributes());
+    assertSame(extensionKeys, locale.getUnicodeLocaleKeys());
+    assertSame(objectMapper, factory.getCodec());
+    assertSame(factory, objectMapper.getJsonFactory());
+    assertSame(attributes, serializationConfig.getAttributes());
+    assertSame(classIntrospector, serializationConfig.getClassIntrospector());
+    assertSame(annotationIntrospector, serializerProviderInstance.getAnnotationIntrospector());
+    assertSame(annotationIntrospector, serializationConfig.getAnnotationIntrospector());
+    assertSame(visibilityChecker, deserializationConfig.getDefaultVisibilityChecker());
+    assertSame(visibilityChecker, serializationConfig.getDefaultVisibilityChecker());
+    assertSame(subtypeResolver, deserializationConfig.getSubtypeResolver());
+    assertSame(subtypeResolver, serializationConfig.getSubtypeResolver());
     assertSame(defaultNullKeySerializer, serializerProviderInstance.getDefaultNullKeySerializer());
     assertSame(defaultNullValueSerializer, serializerProviderInstance.getDefaultNullValueSerializer());
-    assertSame(timeZone, serializerProviderInstance.getTimeZone());
-    assertSame(getResult7, supportedMediaTypes4.get(1));
-    assertSame(getResult7, supportedMediaTypes6.get(0));
-    assertSame(unicodeLocaleAttributes, locale.getUnicodeLocaleKeys());
-    assertSame(objectMapper, factory.getCodec());
+    assertSame(dateFormat, deserializationConfig.getDateFormat());
+    assertSame(dateFormat, serializationConfig.getDateFormat());
   }
 }

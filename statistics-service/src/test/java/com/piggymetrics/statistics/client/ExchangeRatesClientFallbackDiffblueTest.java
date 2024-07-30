@@ -20,7 +20,7 @@ public class ExchangeRatesClientFallbackDiffblueTest {
    * Method under test: {@link ExchangeRatesClientFallback#getRates(Currency)}
    */
   @Test
-  public void testGetRates() {
+  public void testGetRates_thenReturnsBaseIsUSDAndReturnsRatesEmptyIsTrue() {
     // Arrange and Act
     ExchangeRatesContainer actualRates = exchangeRatesClientFallback.getRates(Currency.USD);
 
