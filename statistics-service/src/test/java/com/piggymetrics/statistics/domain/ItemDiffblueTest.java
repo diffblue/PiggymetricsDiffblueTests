@@ -21,7 +21,7 @@ public class ItemDiffblueTest {
    * </ul>
    */
   @Test
-  public void testGettersAndSetters_thenReturnsTitleIsDrAndReturnsCurrencyIsUSDAndReturnsPeriodIsYEARAndReturnsAmountIsNewBigDecimalAndReturnsAmountIsNewBigDecimalWith2Dot3AndReturnsAmountIsSameAsNewBigDecimalAndReturnsAmountIsSameAsNewBigDecimalWith2Dot3() {
+  public void testGettersAndSetters_thenReturnsTitleIsDrAndReturnsCurrencyIsUsdAndReturnsPeriodIsYearAndReturnsAmountIsNewBigDecimalAndReturnsAmountIsNewBigDecimalWith2Dot3AndReturnsAmountIsSameAsNewBigDecimalAndReturnsAmountIsSameAsNewBigDecimalWith2Dot3() {
     // Arrange and Act
     Item actualItem = new Item();
     BigDecimal amount = new BigDecimal("2.3");

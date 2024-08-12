@@ -33,7 +33,7 @@ public class UserServiceImplDiffblueTest {
    * Method under test: {@link UserServiceImpl#create(User)}
    */
   @Test
-  public void testCreate() {
+  public void testCreate_thenCallsSaveAndCallsFindById() {
     // Arrange
     User user = new User();
     user.setPassword("iloveyou");
@@ -58,7 +58,7 @@ public class UserServiceImplDiffblueTest {
    * Method under test: {@link UserServiceImpl#create(User)}
    */
   @Test
-  public void testCreate_thenThrowsIllegalArgumentException() {
+  public void testCreate_thenThrowsIllegalArgumentExceptionAndCallsFindById() {
     // Arrange
     User user = new User();
     user.setPassword("iloveyou");
@@ -80,7 +80,7 @@ public class UserServiceImplDiffblueTest {
    * Method under test: {@link UserServiceImpl#create(User)}
    */
   @Test
-  public void testCreate_thenThrowsIllegalArgumentException2() {
+  public void testCreate_thenThrowsIllegalArgumentExceptionAndCallsFindById2() {
     // Arrange
     when(userRepository.findById(Mockito.<String>any()))
         .thenThrow(new IllegalArgumentException("new user has been created: {}"));

@@ -31,7 +31,7 @@ public class UserControllerDiffblueTest {
    * Method under test: {@link UserController#createUser(User)}
    */
   @Test
-  public void testCreateUser() throws Exception {
+  public void testCreateUser_thenStatusOk() throws Exception {
     // Arrange
     doNothing().when(userService).create(Mockito.<User>any());
 
@@ -54,7 +54,7 @@ public class UserControllerDiffblueTest {
    * Method under test: {@link UserController#getUser(Principal)}
    */
   @Test
-  public void testGetUser() throws Exception {
+  public void testGetUser_thenStatusOk() throws Exception {
     // Arrange
     MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/users/current");
 
@@ -69,7 +69,7 @@ public class UserControllerDiffblueTest {
    * Method under test: {@link UserController#getUser(Principal)}
    */
   @Test
-  public void testGetUser2() throws Exception {
+  public void testGetUser_thenStatusOk2() throws Exception {
     // Arrange
     MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/users/current");
     requestBuilder.characterEncoding("Encoding");

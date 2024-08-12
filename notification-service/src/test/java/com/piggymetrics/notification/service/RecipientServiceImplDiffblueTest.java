@@ -43,7 +43,7 @@ public class RecipientServiceImplDiffblueTest {
    * Method under test: {@link RecipientServiceImpl#findByAccountName(String)}
    */
   @Test
-  public void testFindByAccountName_thenReturnsSameAsNewRecipient() {
+  public void testFindByAccountName_thenReturnsSameAsNewRecipientAndCallsFindByAccountName() {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
@@ -63,7 +63,7 @@ public class RecipientServiceImplDiffblueTest {
    * Method under test: {@link RecipientServiceImpl#findByAccountName(String)}
    */
   @Test
-  public void testFindByAccountName_thenThrowsIllegalArgumentException() {
+  public void testFindByAccountName_thenThrowsIllegalArgumentExceptionAndCallsFindByAccountName() {
     // Arrange
     when(recipientRepository.findByAccountName(Mockito.<String>any())).thenThrow(new IllegalArgumentException("foo"));
 
@@ -77,7 +77,7 @@ public class RecipientServiceImplDiffblueTest {
    * Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
    */
   @Test
-  public void testSave_thenReturnsSameAsNewRecipient() {
+  public void testSave_thenReturnsSameAsNewRecipientAndCallsSave() {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
@@ -102,7 +102,7 @@ public class RecipientServiceImplDiffblueTest {
    * Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
    */
   @Test
-  public void testSave_thenReturnsSameAsNewRecipient2() {
+  public void testSave_thenReturnsSameAsNewRecipientAndCallsSave2() {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
@@ -136,7 +136,7 @@ public class RecipientServiceImplDiffblueTest {
    * Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
    */
   @Test
-  public void testSave_thenReturnsSameAsNewRecipient3() {
+  public void testSave_thenReturnsSameAsNewRecipientAndCallsSave3() {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
@@ -177,7 +177,7 @@ public class RecipientServiceImplDiffblueTest {
    * Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
    */
   @Test
-  public void testSave_thenReturnsSameAsNewRecipient4() {
+  public void testSave_thenReturnsSameAsNewRecipientAndCallsSave4() {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
@@ -210,7 +210,7 @@ public class RecipientServiceImplDiffblueTest {
    * Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
    */
   @Test
-  public void testSave_thenThrowsIllegalArgumentException() {
+  public void testSave_thenThrowsIllegalArgumentExceptionAndCallsSave() {
     // Arrange
     when(recipientRepository.save(Mockito.<Recipient>any()))
         .thenThrow(new IllegalArgumentException("recipient {} settings has been updated"));
@@ -231,7 +231,7 @@ public class RecipientServiceImplDiffblueTest {
    * {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
    */
   @Test
-  public void testFindReadyToNotify_thenReturnsEmptyIsTrueAndReturnsSameAsNewArrayList() {
+  public void testFindReadyToNotify_thenCallsFindReadyForBackupAndReturnsEmptyIsTrueAndReturnsSameAsNewArrayList() {
     // Arrange
     ArrayList<Recipient> recipientList = new ArrayList<>();
     when(recipientRepository.findReadyForBackup()).thenReturn(recipientList);
@@ -250,7 +250,7 @@ public class RecipientServiceImplDiffblueTest {
    * {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
    */
   @Test
-  public void testFindReadyToNotify_thenReturnsEmptyIsTrueAndReturnsSameAsNewArrayList2() {
+  public void testFindReadyToNotify_thenReturnsEmptyIsTrueAndReturnsSameAsNewArrayListAndCallsFindReadyForRemind() {
     // Arrange
     ArrayList<Recipient> recipientList = new ArrayList<>();
     when(recipientRepository.findReadyForRemind()).thenReturn(recipientList);
@@ -269,7 +269,7 @@ public class RecipientServiceImplDiffblueTest {
    * {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
    */
   @Test
-  public void testFindReadyToNotify_thenThrowsIllegalArgumentException() {
+  public void testFindReadyToNotify_thenThrowsIllegalArgumentExceptionAndCallsFindReadyForRemind() {
     // Arrange
     when(recipientRepository.findReadyForRemind()).thenThrow(new IllegalArgumentException("foo"));
 
@@ -284,7 +284,7 @@ public class RecipientServiceImplDiffblueTest {
    * {@link RecipientServiceImpl#markNotified(NotificationType, Recipient)}
    */
   @Test
-  public void testMarkNotified() {
+  public void testMarkNotified_thenCallsSave() {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
@@ -318,7 +318,7 @@ public class RecipientServiceImplDiffblueTest {
    * {@link RecipientServiceImpl#markNotified(NotificationType, Recipient)}
    */
   @Test
-  public void testMarkNotified_thenThrowsIllegalArgumentException() {
+  public void testMarkNotified_thenThrowsIllegalArgumentExceptionAndCallsSave() {
     // Arrange
     when(recipientRepository.save(Mockito.<Recipient>any())).thenThrow(new IllegalArgumentException("foo"));
 

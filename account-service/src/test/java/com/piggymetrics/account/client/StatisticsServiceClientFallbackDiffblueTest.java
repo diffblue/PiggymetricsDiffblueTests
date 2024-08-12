@@ -33,7 +33,7 @@ public class StatisticsServiceClientFallbackDiffblueTest {
    * {@link StatisticsServiceClientFallback#updateStatistics(String, Account)}
    */
   @Test
-  public void testUpdateStatistics() {
+  public void testUpdateStatistics_thenCallsSetExpensesAndCallsSetIncomesAndCallsSetLastSeenAndCallsSetNameAndCallsSetNoteAndCallsSetSaving() {
     // Arrange
     Saving saving = new Saving();
     saving.setAmount(new BigDecimal("2.3"));

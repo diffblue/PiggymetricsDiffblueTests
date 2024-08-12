@@ -32,7 +32,8 @@ public class RecipientControllerDiffblueTest {
    * {@link RecipientController#getCurrentNotificationsSettings(Principal)}
    */
   @Test
-  public void testGetCurrentNotificationsSettings() throws Exception {
+  public void testGetCurrentNotificationsSettings_thenStatusOkAndContentContentTypeApplicationSlashJsonSemicolonCharsetEqualsSignUtfHyphenMinus8AndContentStringAString()
+      throws Exception {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");

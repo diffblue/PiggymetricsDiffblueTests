@@ -26,40 +26,32 @@ public class DataPointIdWriterConverterDiffblueTest {
    * Method under test: {@link DataPointIdWriterConverter#convert(DataPointId)}
    */
   @Test
-  public void testConvert_thenReturnsInstanceOfBasicDBObject() {
-    // Arrange
-    Date date = Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
-    DataPointId id = new DataPointId("3", date);
-
-    // Act
-    DBObject actualConvertResult = dataPointIdWriterConverter.convert(id);
-
-    // Assert
-    assertTrue(actualConvertResult instanceof BasicDBObject);
-    assertEquals(2, ((BasicDBObject) actualConvertResult).size());
-    assertEquals("3", ((BasicDBObject) actualConvertResult).get((Object) "account"));
-    assertSame(date, ((BasicDBObject) actualConvertResult).get((Object) "date"));
-    assertSame(((BasicDBObject) actualConvertResult).get((Object) "account"), id.getAccount());
-  }
-
-  /**
-   * Method under test: {@link DataPointIdWriterConverter#convert(DataPointId)}
-   */
-  @Test
-  public void testConvert_thenReturnsInstanceOfBasicDBObject2() {
-    // Arrange
-    DataPointId id = new DataPointId("3", mock(java.sql.Date.class));
-
-    // Act
-    DBObject actualConvertResult = dataPointIdWriterConverter.convert(id);
+  public void testConvert_thenReturnsContainsKeyIsTrueAndReturnsInstanceOfBasicDBObjectAndReturnsSizeIsTwo() {
+    // Arrange and Act
+    DBObject actualConvertResult = dataPointIdWriterConverter.convert(new DataPointId("3", mock(java.sql.Date.class)));
 
     // Assert
     assertTrue(actualConvertResult instanceof BasicDBObject);
     assertEquals(2, ((BasicDBObject) actualConvertResult).size());
     assertEquals("3", ((BasicDBObject) actualConvertResult).get((Object) "account"));
     assertTrue(((BasicDBObject) actualConvertResult).containsKey((Object) "date"));
-    Object expectedDate = ((BasicDBObject) actualConvertResult).get((Object) "date");
-    assertSame(expectedDate, id.getDate());
-    assertSame(((BasicDBObject) actualConvertResult).get((Object) "account"), id.getAccount());
+  }
+
+  /**
+   * Method under test: {@link DataPointIdWriterConverter#convert(DataPointId)}
+   */
+  @Test
+  public void testConvert_thenReturnsGetIsSameAsFromOfAtStartOfDayAtZoneUtcToInstantAndReturnsInstanceOfBasicDBObjectAndReturnsSizeIsTwo() {
+    // Arrange
+    Date date = Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
+
+    // Act
+    DBObject actualConvertResult = dataPointIdWriterConverter.convert(new DataPointId("3", date));
+
+    // Assert
+    assertTrue(actualConvertResult instanceof BasicDBObject);
+    assertEquals(2, ((BasicDBObject) actualConvertResult).size());
+    assertEquals("3", ((BasicDBObject) actualConvertResult).get((Object) "account"));
+    assertSame(date, ((BasicDBObject) actualConvertResult).get((Object) "date"));
   }
 }

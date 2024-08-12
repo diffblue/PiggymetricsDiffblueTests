@@ -44,7 +44,8 @@ public class StatisticsControllerDiffblueTest {
    * {@link StatisticsController#getCurrentAccountStatistics(Principal)}
    */
   @Test
-  public void testGetCurrentAccountStatistics() throws Exception {
+  public void testGetCurrentAccountStatistics_thenStatusOkAndContentContentTypeApplicationSlashJsonSemicolonCharsetEqualsSignUtfHyphenMinus8AndContentStringLeftSquareBracketRightSquareBracket()
+      throws Exception {
     // Arrange
     when(statisticsService.findByAccountName(Mockito.<String>any())).thenReturn(new ArrayList<>());
     MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/current");
@@ -64,7 +65,8 @@ public class StatisticsControllerDiffblueTest {
    * {@link StatisticsController#getStatisticsByAccountName(String)}
    */
   @Test
-  public void testGetStatisticsByAccountName() throws Exception {
+  public void testGetStatisticsByAccountName_thenStatusOkAndContentContentTypeApplicationSlashJsonSemicolonCharsetEqualsSignUtfHyphenMinus8AndContentStringLeftSquareBracketRightSquareBracket()
+      throws Exception {
     // Arrange
     when(statisticsService.findByAccountName(Mockito.<String>any())).thenReturn(new ArrayList<>());
     MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/{accountName}", "Dr Jane Doe");
@@ -83,7 +85,8 @@ public class StatisticsControllerDiffblueTest {
    * {@link StatisticsController#getStatisticsByAccountName(String)}
    */
   @Test
-  public void testGetStatisticsByAccountName2() throws Exception {
+  public void testGetStatisticsByAccountName_thenStatusOkAndContentContentTypeApplicationSlashJsonSemicolonCharsetEqualsSignUtfHyphenMinus8AndContentStringLeftSquareBracketRightSquareBracket2()
+      throws Exception {
     // Arrange
     when(statisticsService.findByAccountName(Mockito.<String>any())).thenReturn(new ArrayList<>());
     MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/{accountName}", "Dr Jane Doe");
@@ -103,7 +106,7 @@ public class StatisticsControllerDiffblueTest {
    * {@link StatisticsController#saveAccountStatistics(String, Account)}
    */
   @Test
-  public void testSaveAccountStatistics() throws Exception {
+  public void testSaveAccountStatistics_thenStatusOk() throws Exception {
     // Arrange
     DataPoint dataPoint = new DataPoint();
     dataPoint.setExpenses(new HashSet<>());

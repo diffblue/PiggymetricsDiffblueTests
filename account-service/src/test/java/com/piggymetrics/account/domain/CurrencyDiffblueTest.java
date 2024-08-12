@@ -8,7 +8,7 @@ public class CurrencyDiffblueTest {
    * Method under test: {@link Currency#getDefault()}
    */
   @Test
-  public void testGetDefault_thenReturnsUSD() {
+  public void testGetDefault_thenReturnsUsd() {
     // Arrange, Act and Assert
     assertEquals(Currency.USD, Currency.valueOf("USD").getDefault());
   }

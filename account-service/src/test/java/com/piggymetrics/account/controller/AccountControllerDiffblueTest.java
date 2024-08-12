@@ -43,7 +43,8 @@ public class AccountControllerDiffblueTest {
    * Method under test: {@link AccountController#createNewAccount(User)}
    */
   @Test
-  public void testCreateNewAccount() throws Exception {
+  public void testCreateNewAccount_thenStatusOkAndContentContentTypeApplicationSlashJsonSemicolonCharsetEqualsSignUtfHyphenMinus8AndContentStringAString()
+      throws Exception {
     // Arrange
     Saving saving = new Saving();
     saving.setAmount(new BigDecimal("2.3"));
@@ -85,7 +86,8 @@ public class AccountControllerDiffblueTest {
    * Method under test: {@link AccountController#getAccountByName(String)}
    */
   @Test
-  public void testGetAccountByName() throws Exception {
+  public void testGetAccountByName_thenStatusOkAndContentContentTypeApplicationSlashJsonSemicolonCharsetEqualsSignUtfHyphenMinus8AndContentStringAString()
+      throws Exception {
     // Arrange
     Saving saving = new Saving();
     saving.setAmount(new BigDecimal("2.3"));
@@ -120,7 +122,8 @@ public class AccountControllerDiffblueTest {
    * Method under test: {@link AccountController#getCurrentAccount(Principal)}
    */
   @Test
-  public void testGetCurrentAccount() throws Exception {
+  public void testGetCurrentAccount_thenStatusOkAndContentContentTypeApplicationSlashJsonSemicolonCharsetEqualsSignUtfHyphenMinus8AndContentStringAString()
+      throws Exception {
     // Arrange
     Saving saving = new Saving();
     saving.setAmount(new BigDecimal("2.3"));
@@ -157,7 +160,7 @@ public class AccountControllerDiffblueTest {
    * {@link AccountController#saveCurrentAccount(Principal, Account)}
    */
   @Test
-  public void testSaveCurrentAccount() throws Exception {
+  public void testSaveCurrentAccount_thenStatusFourHundred() throws Exception {
     // Arrange
     java.sql.Date lastSeen = mock(java.sql.Date.class);
     when(lastSeen.getTime()).thenReturn(10L);
@@ -195,7 +198,7 @@ public class AccountControllerDiffblueTest {
    * {@link AccountController#saveCurrentAccount(Principal, Account)}
    */
   @Test
-  public void testSaveCurrentAccount2() throws Exception {
+  public void testSaveCurrentAccount_thenStatusOk() throws Exception {
     // Arrange
     doNothing().when(accountService).saveChanges(Mockito.<String>any(), Mockito.<Account>any());
     MockHttpServletRequestBuilder putResult = MockMvcRequestBuilders.put("/current");

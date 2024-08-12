@@ -3,25 +3,26 @@
     "reportVersion" : "2.5"
   },
   "run" : {
-    "version" : "2024.07.04-1e40f87-licensed",
-    "creationTimestamp" : "2024-07-30T14:06:29.365Z",
+    "version" : "2024.08.01-93de256-licensed",
+    "creationTimestamp" : "2024-08-12T15:22:04.193Z",
     "command" : "dcover create --batch --report-file=report.json -Dcom.diffblue.feature.test.naming=true --coverage-reports --spring-integration-tests --verbose --working-directory=auth-service",
-    "totalTime" : 481.238,
-    "environmentDetectionTime" : 0.63,
-    "indexingTime" : 0.304,
-    "entryPointsTime" : 0.585,
-    "generationTime" : 367.096,
-    "timeToFirstTest" : 141.078,
-    "timeToLastTest" : 439.748,
-    "indexQueryTime" : 19.135,
-    "verificationTime" : 22.292,
-    "validationTime" : 16.056
+    "totalTime" : 527.643,
+    "environmentDetectionTime" : 0.553,
+    "indexingTime" : 0.251,
+    "entryPointsTime" : 0.517,
+    "generationTime" : 418.051,
+    "timeToFirstTest" : 128.88,
+    "timeToLastTest" : 486.128,
+    "indexQueryTime" : 15.475,
+    "verificationTime" : 20.858,
+    "validationTime" : 16.063
   },
   "codes" : {
     "E052" : "Missing dependency",
     "R000" : "Success",
     "R002" : "Missing observers",
     "R013" : "No inputs found that don't throw a trivial exception",
+    "R015" : "Method may be nondeterministic",
     "T000" : "Method eligible for test creation",
     "T001" : "Trivial getter",
     "T002" : "Trivial setter",
@@ -50,7 +51,8 @@
       "E052" : 11,
       "R000" : 17,
       "R002" : 1,
-      "R013" : 2,
+      "R013" : 1,
+      "R015" : 1,
       "T005" : 6,
       "T006" : 1,
       "T010" : 1,
@@ -101,7 +103,8 @@
       },
       "perMethodOutcome" : {
         "R002" : 1,
-        "R013" : 2,
+        "R013" : 1,
+        "R015" : 1,
         "T005" : 1
       }
     },
@@ -312,7 +315,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R013",
+      "perMethodOutcome" : "R015",
       "lineNumbers" : [
         34,
         35,

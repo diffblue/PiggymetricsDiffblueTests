@@ -21,7 +21,7 @@ public class TimePeriodDiffblueTest {
    * Method under test: {@link TimePeriod#getBase()}
    */
   @Test
-  public void testGetBase_thenReturnsDAY() {
+  public void testGetBase_thenReturnsDay() {
     // Arrange, Act and Assert
     assertEquals(TimePeriod.DAY, TimePeriod.valueOf("YEAR").getBase());
   }

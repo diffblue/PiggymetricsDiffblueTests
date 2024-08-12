@@ -30,7 +30,7 @@ public class NotificationServiceImplDiffblueTest {
    * Method under test: {@link NotificationServiceImpl#sendBackupNotifications()}
    */
   @Test
-  public void testSendBackupNotifications() {
+  public void testSendBackupNotifications_thenCallsFindReadyForBackup() {
     // Arrange
     when(recipientRepository.findReadyForBackup()).thenReturn(new ArrayList<>());
 
@@ -45,7 +45,7 @@ public class NotificationServiceImplDiffblueTest {
    * Method under test: {@link NotificationServiceImpl#sendBackupNotifications()}
    */
   @Test
-  public void testSendBackupNotifications2() {
+  public void testSendBackupNotifications_thenCallsFindReadyForBackup2() {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
@@ -67,7 +67,7 @@ public class NotificationServiceImplDiffblueTest {
    * Method under test: {@link NotificationServiceImpl#sendBackupNotifications()}
    */
   @Test
-  public void testSendBackupNotifications3() {
+  public void testSendBackupNotifications_thenCallsFindReadyForBackup3() {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
@@ -95,7 +95,7 @@ public class NotificationServiceImplDiffblueTest {
    * Method under test: {@link NotificationServiceImpl#sendBackupNotifications()}
    */
   @Test
-  public void testSendBackupNotifications4() {
+  public void testSendBackupNotifications_thenCallsFindReadyForBackup4() {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
@@ -108,7 +108,7 @@ public class NotificationServiceImplDiffblueTest {
     recipient2.setScheduledNotifications(new HashMap<>());
 
     Recipient recipient3 = new Recipient();
-    recipient3.setAccountName("Prof Albert Einstein");
+    recipient3.setAccountName("Mr John Smith");
     recipient3.setEmail("prof.einstein@example.org");
     recipient3.setScheduledNotifications(new HashMap<>());
 
@@ -129,7 +129,7 @@ public class NotificationServiceImplDiffblueTest {
    * Method under test: {@link NotificationServiceImpl#sendRemindNotifications()}
    */
   @Test
-  public void testSendRemindNotifications() {
+  public void testSendRemindNotifications_thenCallsFindReadyForRemind() {
     // Arrange
     when(recipientRepository.findReadyForRemind()).thenReturn(new ArrayList<>());
 
@@ -144,7 +144,7 @@ public class NotificationServiceImplDiffblueTest {
    * Method under test: {@link NotificationServiceImpl#sendRemindNotifications()}
    */
   @Test
-  public void testSendRemindNotifications2() {
+  public void testSendRemindNotifications_thenCallsFindReadyForRemind2() {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
@@ -166,7 +166,7 @@ public class NotificationServiceImplDiffblueTest {
    * Method under test: {@link NotificationServiceImpl#sendRemindNotifications()}
    */
   @Test
-  public void testSendRemindNotifications3() {
+  public void testSendRemindNotifications_thenCallsFindReadyForRemind3() {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");

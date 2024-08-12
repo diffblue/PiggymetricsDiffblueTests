@@ -53,7 +53,7 @@ public class StatisticsServiceImplDiffblueTest {
    * Method under test: {@link StatisticsServiceImpl#findByAccountName(String)}
    */
   @Test
-  public void testFindByAccountName_thenReturnsEmptyIsTrueAndReturnsSameAsNewArrayList() {
+  public void testFindByAccountName_thenReturnsEmptyIsTrueAndReturnsSameAsNewArrayListAndCallsFindByIdAccount() {
     // Arrange
     ArrayList<DataPoint> dataPointList = new ArrayList<>();
     when(dataPointRepository.findByIdAccount(Mockito.<String>any())).thenReturn(dataPointList);
@@ -71,48 +71,7 @@ public class StatisticsServiceImplDiffblueTest {
    * Method under test: {@link StatisticsServiceImpl#save(String, Account)}
    */
   @Test
-  public void testSave_thenReturnsSameAsNewDataPoint() {
-    // Arrange
-    when(exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>());
-    when(exchangeRatesService.convert(Mockito.<Currency>any(), Mockito.<Currency>any(), Mockito.<BigDecimal>any()))
-        .thenReturn(new BigDecimal("2.3"));
-
-    DataPoint dataPoint = new DataPoint();
-    dataPoint.setExpenses(new HashSet<>());
-    dataPoint.setId(
-        new DataPointId("3", Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant())));
-    dataPoint.setIncomes(new HashSet<>());
-    dataPoint.setRates(new HashMap<>());
-    dataPoint.setStatistics(new HashMap<>());
-    when(dataPointRepository.save(Mockito.<DataPoint>any())).thenReturn(dataPoint);
-
-    Saving saving = new Saving();
-    saving.setAmount(new BigDecimal("2.3"));
-    saving.setCapitalization(true);
-    saving.setCurrency(Currency.USD);
-    saving.setDeposit(true);
-    saving.setInterest(new BigDecimal("2.3"));
-
-    Account account = new Account();
-    account.setExpenses(new ArrayList<>());
-    account.setIncomes(new ArrayList<>());
-    account.setSaving(saving);
-
-    // Act
-    DataPoint actualSaveResult = statisticsServiceImpl.save("Dr Jane Doe", account);
-
-    // Assert
-    verify(exchangeRatesService).convert(eq(Currency.USD), eq(Currency.USD), isA(BigDecimal.class));
-    verify(exchangeRatesService).getCurrentRates();
-    verify(dataPointRepository).save(isA(DataPoint.class));
-    assertSame(dataPoint, actualSaveResult);
-  }
-
-  /**
-   * Method under test: {@link StatisticsServiceImpl#save(String, Account)}
-   */
-  @Test
-  public void testSave_thenReturnsSameAsNewDataPoint2() {
+  public void testSave_thenCallsGetExpensesAndCallsGetIncomesAndCallsGetSavingAndCallsSetExpensesAndCallsSetIncomesAndCallsSetSavingAndReturnsSameAsNewDataPointAndCallsConvertAndCallsGetCurrentRatesAndCallsSave() {
     // Arrange
     when(exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>());
     when(exchangeRatesService.convert(Mockito.<Currency>any(), Mockito.<Currency>any(), Mockito.<BigDecimal>any()))
@@ -180,7 +139,7 @@ public class StatisticsServiceImplDiffblueTest {
    * Method under test: {@link StatisticsServiceImpl#save(String, Account)}
    */
   @Test
-  public void testSave_thenReturnsSameAsNewDataPoint3() {
+  public void testSave_thenCallsGetExpensesAndCallsGetIncomesAndCallsGetSavingAndCallsSetExpensesAndCallsSetIncomesAndCallsSetSavingAndReturnsSameAsNewDataPointAndCallsConvertAndCallsGetCurrentRatesAndCallsSave2() {
     // Arrange
     when(exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>());
     when(exchangeRatesService.convert(Mockito.<Currency>any(), Mockito.<Currency>any(), Mockito.<BigDecimal>any()))
@@ -255,7 +214,7 @@ public class StatisticsServiceImplDiffblueTest {
    * Method under test: {@link StatisticsServiceImpl#save(String, Account)}
    */
   @Test
-  public void testSave_thenReturnsSameAsNewDataPoint4() {
+  public void testSave_thenCallsGetExpensesAndCallsGetIncomesAndCallsGetSavingAndCallsSetExpensesAndCallsSetIncomesAndCallsSetSavingAndReturnsSameAsNewDataPointAndCallsConvertAndCallsGetCurrentRatesAndCallsSave3() {
     // Arrange
     when(exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>());
     when(exchangeRatesService.convert(Mockito.<Currency>any(), Mockito.<Currency>any(), Mockito.<BigDecimal>any()))
@@ -314,6 +273,47 @@ public class StatisticsServiceImplDiffblueTest {
     verify(account).setIncomes(isA(List.class));
     verify(account).setSaving(isA(Saving.class));
     verify(exchangeRatesService, atLeast(1)).convert(eq(Currency.USD), eq(Currency.USD), isA(BigDecimal.class));
+    verify(exchangeRatesService).getCurrentRates();
+    verify(dataPointRepository).save(isA(DataPoint.class));
+    assertSame(dataPoint, actualSaveResult);
+  }
+
+  /**
+   * Method under test: {@link StatisticsServiceImpl#save(String, Account)}
+   */
+  @Test
+  public void testSave_thenReturnsSameAsNewDataPointAndCallsConvertAndCallsGetCurrentRatesAndCallsSave() {
+    // Arrange
+    when(exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>());
+    when(exchangeRatesService.convert(Mockito.<Currency>any(), Mockito.<Currency>any(), Mockito.<BigDecimal>any()))
+        .thenReturn(new BigDecimal("2.3"));
+
+    DataPoint dataPoint = new DataPoint();
+    dataPoint.setExpenses(new HashSet<>());
+    dataPoint.setId(
+        new DataPointId("3", Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant())));
+    dataPoint.setIncomes(new HashSet<>());
+    dataPoint.setRates(new HashMap<>());
+    dataPoint.setStatistics(new HashMap<>());
+    when(dataPointRepository.save(Mockito.<DataPoint>any())).thenReturn(dataPoint);
+
+    Saving saving = new Saving();
+    saving.setAmount(new BigDecimal("2.3"));
+    saving.setCapitalization(true);
+    saving.setCurrency(Currency.USD);
+    saving.setDeposit(true);
+    saving.setInterest(new BigDecimal("2.3"));
+
+    Account account = new Account();
+    account.setExpenses(new ArrayList<>());
+    account.setIncomes(new ArrayList<>());
+    account.setSaving(saving);
+
+    // Act
+    DataPoint actualSaveResult = statisticsServiceImpl.save("Dr Jane Doe", account);
+
+    // Assert
+    verify(exchangeRatesService).convert(eq(Currency.USD), eq(Currency.USD), isA(BigDecimal.class));
     verify(exchangeRatesService).getCurrentRates();
     verify(dataPointRepository).save(isA(DataPoint.class));
     assertSame(dataPoint, actualSaveResult);
