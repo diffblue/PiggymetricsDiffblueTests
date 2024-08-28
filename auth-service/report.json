@@ -1,27 +1,26 @@
 {
   "meta" : {
-    "reportVersion" : "2.5"
+    "reportVersion" : "2.6"
   },
   "run" : {
-    "version" : "2024.08.01-93de256-licensed",
-    "creationTimestamp" : "2024-08-12T15:22:04.193Z",
+    "version" : "2024.08.02-68c1165-licensed",
+    "creationTimestamp" : "2024-08-28T16:56:59.17Z",
     "command" : "dcover create --batch --report-file=report.json -Dcom.diffblue.feature.test.naming=true --coverage-reports --spring-integration-tests --verbose --working-directory=auth-service",
-    "totalTime" : 527.643,
-    "environmentDetectionTime" : 0.553,
-    "indexingTime" : 0.251,
-    "entryPointsTime" : 0.517,
-    "generationTime" : 418.051,
-    "timeToFirstTest" : 128.88,
-    "timeToLastTest" : 486.128,
-    "indexQueryTime" : 15.475,
-    "verificationTime" : 20.858,
-    "validationTime" : 16.063
+    "totalTime" : 506.212,
+    "environmentDetectionTime" : 0.807,
+    "indexingTime" : 0.464,
+    "entryPointsTime" : 0.777,
+    "generationTime" : 397.343,
+    "timeToFirstTest" : 130.719,
+    "timeToLastTest" : 463.658,
+    "indexQueryTime" : 16.716,
+    "verificationTime" : 21.051,
+    "validationTime" : 16.049
   },
   "codes" : {
     "E052" : "Missing dependency",
     "R000" : "Success",
-    "R002" : "Missing observers",
-    "R013" : "No inputs found that don't throw a trivial exception",
+    "R004" : "No meaningful assertions found",
     "R015" : "Method may be nondeterministic",
     "T000" : "Method eligible for test creation",
     "T001" : "Trivial getter",
@@ -35,6 +34,8 @@
   "summary" : {
     "classesCount" : 9,
     "methodsCount" : 42,
+    "cumulativeDiffblueTestCount" : 15,
+    "cumulativeManualTestCount" : 9,
     "completeTestCount" : 15,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
@@ -50,8 +51,7 @@
     "perMethodOutcome" : {
       "E052" : 11,
       "R000" : 17,
-      "R002" : 1,
-      "R013" : 1,
+      "R004" : 2,
       "R015" : 1,
       "T005" : 6,
       "T006" : 1,
@@ -102,8 +102,7 @@
         "T000" : 4
       },
       "perMethodOutcome" : {
-        "R002" : 1,
-        "R013" : 1,
+        "R004" : 2,
         "R015" : 1,
         "T005" : 1
       }
@@ -306,7 +305,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R002",
+      "perMethodOutcome" : "R004",
       "lineNumbers" : [
         41
       ]
@@ -326,7 +325,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R013",
+      "perMethodOutcome" : "R004",
       "lineNumbers" : [
         25,
         26,

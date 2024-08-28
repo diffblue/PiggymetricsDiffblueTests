@@ -43,7 +43,7 @@ public class AccountControllerDiffblueTest {
    * Method under test: {@link AccountController#createNewAccount(User)}
    */
   @Test
-  public void testCreateNewAccount_thenStatusOkAndContentContentTypeApplicationSlashJsonSemicolonCharsetEqualsSignUtfHyphenMinus8AndContentStringAString()
+  public void testCreateNewAccount_whenNewUserPasswordIsIloveyouAndNewUserUsernameIsJanedoeAndPostSlashContentTypeApplication_jsonContentNewObjectMapperWriteValueAsStringNewUser_thenStatusIsOkAndContentContentTypeApplicationSlashJsonSemicolonCharsetEqualsSignUtfHyphenMinus8AndContentStringAString()
       throws Exception {
     // Arrange
     Saving saving = new Saving();
@@ -86,7 +86,7 @@ public class AccountControllerDiffblueTest {
    * Method under test: {@link AccountController#getAccountByName(String)}
    */
   @Test
-  public void testGetAccountByName_thenStatusOkAndContentContentTypeApplicationSlashJsonSemicolonCharsetEqualsSignUtfHyphenMinus8AndContentStringAString()
+  public void testGetAccountByName_whenNameAndGetSlashLeftCurlyBracketNameRightCurlyBracket_thenStatusIsOkAndContentContentTypeApplicationSlashJsonSemicolonCharsetEqualsSignUtfHyphenMinus8AndContentStringAString()
       throws Exception {
     // Arrange
     Saving saving = new Saving();
@@ -122,7 +122,7 @@ public class AccountControllerDiffblueTest {
    * Method under test: {@link AccountController#getCurrentAccount(Principal)}
    */
   @Test
-  public void testGetCurrentAccount_thenStatusOkAndContentContentTypeApplicationSlashJsonSemicolonCharsetEqualsSignUtfHyphenMinus8AndContentStringAString()
+  public void testGetCurrentAccount_whenGetSlashCurrentPrincipalNewUserPrincipal_thenStatusIsOkAndContentContentTypeApplicationSlashJsonSemicolonCharsetEqualsSignUtfHyphenMinus8AndContentStringAString()
       throws Exception {
     // Arrange
     Saving saving = new Saving();
@@ -160,7 +160,8 @@ public class AccountControllerDiffblueTest {
    * {@link AccountController#saveCurrentAccount(Principal, Account)}
    */
   @Test
-  public void testSaveCurrentAccount_thenStatusFourHundred() throws Exception {
+  public void testSaveCurrentAccount_whenNewAccountExpensesIsNewArrayListAndNewAccountIncomesIsNewArrayListAndNewAccountLastSeenIsMockDateAndNewAccountNameIsNameAndNewAccountNoteIsNoteAndNewAccountSavingIsNewSavingAndPutSlashCurrentContentTypeApplication_jsonContentNewObjectMapperWriteValueAsStringNewAccount_thenStatusFourHundred()
+      throws Exception {
     // Arrange
     java.sql.Date lastSeen = mock(java.sql.Date.class);
     when(lastSeen.getTime()).thenReturn(10L);
@@ -198,7 +199,8 @@ public class AccountControllerDiffblueTest {
    * {@link AccountController#saveCurrentAccount(Principal, Account)}
    */
   @Test
-  public void testSaveCurrentAccount_thenStatusOk() throws Exception {
+  public void testSaveCurrentAccount_whenPutSlashCurrentPrincipalNewUserPrincipalAndNewAccountExpensesIsNewArrayListAndNewAccountIncomesIsNewArrayListAndNewAccountLastSeenIsMockDateAndNewAccountNameIsNameAndNewAccountNoteIsNoteAndNewAccountSavingIsNewSavingAndPutSlashCurrentContentTypeApplication_jsonContentNewObjectMapperWriteValueAsStringNewAccount_thenStatusIsOk()
+      throws Exception {
     // Arrange
     doNothing().when(accountService).saveChanges(Mockito.<String>any(), Mockito.<Account>any());
     MockHttpServletRequestBuilder putResult = MockMvcRequestBuilders.put("/current");

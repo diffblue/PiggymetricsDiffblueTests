@@ -83,7 +83,7 @@ public class ItemMetricDiffblueTest {
    * </ul>
    */
   @Test
-  public void testGettersAndSetters_thenReturnsTitleIsDrAndReturnsAmountIsNewBigDecimalAndReturnsAmountIsNewBigDecimalWith2Dot3AndReturnsAmountIsSameAsNewBigDecimalAndReturnsAmountIsSameAsNewBigDecimalWith2Dot3() {
+  public void testGettersAndSetters_whenDrAnd2Dot3AndNewBigDecimal_thenReturnsTitleIsDrAndReturnsAmountIsNewBigDecimal() {
     // Arrange
     BigDecimal amount = new BigDecimal("2.3");
 

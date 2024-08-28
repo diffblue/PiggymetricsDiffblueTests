@@ -18,7 +18,7 @@ public class FrequencyWriterConverterDiffblueTest {
    * Method under test: {@link FrequencyWriterConverter#convert(Frequency)}
    */
   @Test
-  public void testConvert_thenReturnsIntValueIsSeven() {
+  public void testConvert_whenWeekly_thenReturnsIntValueIsSeven() {
     // Arrange, Act and Assert
     assertEquals(7, frequencyWriterConverter.convert(Frequency.WEEKLY).intValue());
   }

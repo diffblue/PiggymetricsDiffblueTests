@@ -44,7 +44,7 @@ public class StatisticsControllerDiffblueTest {
    * {@link StatisticsController#getCurrentAccountStatistics(Principal)}
    */
   @Test
-  public void testGetCurrentAccountStatistics_thenStatusOkAndContentContentTypeApplicationSlashJsonSemicolonCharsetEqualsSignUtfHyphenMinus8AndContentStringLeftSquareBracketRightSquareBracket()
+  public void testGetCurrentAccountStatistics_whenGetSlashCurrentPrincipalNewUserPrincipal_thenStatusIsOkAndContentContentTypeApplicationSlashJsonSemicolonCharsetEqualsSignUtfHyphenMinus8AndContentStringLeftSquareBracketRightSquareBracket()
       throws Exception {
     // Arrange
     when(statisticsService.findByAccountName(Mockito.<String>any())).thenReturn(new ArrayList<>());
@@ -65,7 +65,7 @@ public class StatisticsControllerDiffblueTest {
    * {@link StatisticsController#getStatisticsByAccountName(String)}
    */
   @Test
-  public void testGetStatisticsByAccountName_thenStatusOkAndContentContentTypeApplicationSlashJsonSemicolonCharsetEqualsSignUtfHyphenMinus8AndContentStringLeftSquareBracketRightSquareBracket()
+  public void testGetStatisticsByAccountName_whenGetSlashLeftCurlyBracketAccountNameRightCurlyBracketAndDrJaneDoe_thenStatusIsOkAndContentContentTypeApplicationSlashJsonSemicolonCharsetEqualsSignUtfHyphenMinus8AndContentStringLeftSquareBracketRightSquareBracket()
       throws Exception {
     // Arrange
     when(statisticsService.findByAccountName(Mockito.<String>any())).thenReturn(new ArrayList<>());
@@ -85,7 +85,7 @@ public class StatisticsControllerDiffblueTest {
    * {@link StatisticsController#getStatisticsByAccountName(String)}
    */
   @Test
-  public void testGetStatisticsByAccountName_thenStatusOkAndContentContentTypeApplicationSlashJsonSemicolonCharsetEqualsSignUtfHyphenMinus8AndContentStringLeftSquareBracketRightSquareBracket2()
+  public void testGetStatisticsByAccountName_whenGetSlashLeftCurlyBracketAccountNameRightCurlyBracketCharacterEncodingEncodingAndDrJaneDoe_thenStatusIsOkAndContentContentTypeApplicationSlashJsonSemicolonCharsetEqualsSignUtfHyphenMinus8AndContentStringLeftSquareBracketRightSquareBracket()
       throws Exception {
     // Arrange
     when(statisticsService.findByAccountName(Mockito.<String>any())).thenReturn(new ArrayList<>());
@@ -106,7 +106,8 @@ public class StatisticsControllerDiffblueTest {
    * {@link StatisticsController#saveAccountStatistics(String, Account)}
    */
   @Test
-  public void testSaveAccountStatistics_thenStatusOk() throws Exception {
+  public void testSaveAccountStatistics_whenNewAccountExpensesIsNewArrayListAndNewAccountIncomesIsNewArrayListAndNewAccountSavingIsNewSavingAndDrJaneDoeAndPutSlashLeftCurlyBracketAccountNameRightCurlyBracketContentTypeApplication_jsonContentNewObjectMapperWriteValueAsStringNewAccount_thenStatusIsOk()
+      throws Exception {
     // Arrange
     DataPoint dataPoint = new DataPoint();
     dataPoint.setExpenses(new HashSet<>());

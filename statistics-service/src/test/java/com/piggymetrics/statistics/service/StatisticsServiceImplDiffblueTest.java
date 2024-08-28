@@ -53,7 +53,7 @@ public class StatisticsServiceImplDiffblueTest {
    * Method under test: {@link StatisticsServiceImpl#findByAccountName(String)}
    */
   @Test
-  public void testFindByAccountName_thenReturnsEmptyIsTrueAndReturnsSameAsNewArrayListAndCallsFindByIdAccount() {
+  public void testFindByAccountName_whenDrJaneDoe_thenReturnsEmptyIsTrueAndReturnsNewArrayListAndCallsFindByIdAccount() {
     // Arrange
     ArrayList<DataPoint> dataPointList = new ArrayList<>();
     when(dataPointRepository.findByIdAccount(Mockito.<String>any())).thenReturn(dataPointList);
@@ -71,7 +71,7 @@ public class StatisticsServiceImplDiffblueTest {
    * Method under test: {@link StatisticsServiceImpl#save(String, Account)}
    */
   @Test
-  public void testSave_thenCallsGetExpensesAndCallsGetIncomesAndCallsGetSavingAndCallsSetExpensesAndCallsSetIncomesAndCallsSetSavingAndReturnsSameAsNewDataPointAndCallsConvertAndCallsGetCurrentRatesAndCallsSave() {
+  public void testSave_whenMockAccountGetSavingReturnsNewSavingAndMockAccountGetExpensesReturnsNewArrayListAndMockAccountGetIncomesReturnsNewArrayListAndMockAccountSetExpensesDoesNothingAndMockAccountSetIncomesDoesNothingAndMockAccountSetSavingDoesNothingAndMockAccountExpensesIsNewArrayListAndMockAccountIncomesIsNewArrayListAndMockAccountSavingIsNewSavingAndDrJaneDoe_thenCallsGetExpensesAndCallsGetIncomesAndCallsGetSavingAndCallsSetExpensesAndCallsSetIncomesAndCallsSetSavingAndReturnsNewDataPointAndCallsConvertAndCallsGetCurrentRatesAndCallsSave() {
     // Arrange
     when(exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>());
     when(exchangeRatesService.convert(Mockito.<Currency>any(), Mockito.<Currency>any(), Mockito.<BigDecimal>any()))
@@ -139,7 +139,7 @@ public class StatisticsServiceImplDiffblueTest {
    * Method under test: {@link StatisticsServiceImpl#save(String, Account)}
    */
   @Test
-  public void testSave_thenCallsGetExpensesAndCallsGetIncomesAndCallsGetSavingAndCallsSetExpensesAndCallsSetIncomesAndCallsSetSavingAndReturnsSameAsNewDataPointAndCallsConvertAndCallsGetCurrentRatesAndCallsSave2() {
+  public void testSave_whenMockAccountGetSavingReturnsNewSavingAndMockAccountGetExpensesReturnsNewArrayListAndMockAccountGetIncomesReturnsNewArrayListAndMockAccountSetExpensesDoesNothingAndMockAccountSetIncomesDoesNothingAndMockAccountSetSavingDoesNothingAndMockAccountExpensesIsNewArrayListAndMockAccountIncomesIsNewArrayListAndMockAccountSavingIsNewSavingAndDrJaneDoe_thenCallsGetExpensesAndCallsGetIncomesAndCallsGetSavingAndCallsSetExpensesAndCallsSetIncomesAndCallsSetSavingAndReturnsNewDataPointAndCallsConvertAndCallsGetCurrentRatesAndCallsSave2() {
     // Arrange
     when(exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>());
     when(exchangeRatesService.convert(Mockito.<Currency>any(), Mockito.<Currency>any(), Mockito.<BigDecimal>any()))
@@ -214,7 +214,7 @@ public class StatisticsServiceImplDiffblueTest {
    * Method under test: {@link StatisticsServiceImpl#save(String, Account)}
    */
   @Test
-  public void testSave_thenCallsGetExpensesAndCallsGetIncomesAndCallsGetSavingAndCallsSetExpensesAndCallsSetIncomesAndCallsSetSavingAndReturnsSameAsNewDataPointAndCallsConvertAndCallsGetCurrentRatesAndCallsSave3() {
+  public void testSave_whenMockAccountGetSavingReturnsNewSavingAndMockAccountGetExpensesReturnsNewArrayListAndMockAccountGetIncomesReturnsNewArrayListAndMockAccountSetExpensesDoesNothingAndMockAccountSetIncomesDoesNothingAndMockAccountSetSavingDoesNothingAndMockAccountExpensesIsNewArrayListAndMockAccountIncomesIsNewArrayListAndMockAccountSavingIsNewSavingAndDrJaneDoe_thenCallsGetExpensesAndCallsGetIncomesAndCallsGetSavingAndCallsSetExpensesAndCallsSetIncomesAndCallsSetSavingAndReturnsNewDataPointAndCallsConvertAndCallsGetCurrentRatesAndCallsSave3() {
     // Arrange
     when(exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>());
     when(exchangeRatesService.convert(Mockito.<Currency>any(), Mockito.<Currency>any(), Mockito.<BigDecimal>any()))
@@ -282,7 +282,7 @@ public class StatisticsServiceImplDiffblueTest {
    * Method under test: {@link StatisticsServiceImpl#save(String, Account)}
    */
   @Test
-  public void testSave_thenReturnsSameAsNewDataPointAndCallsConvertAndCallsGetCurrentRatesAndCallsSave() {
+  public void testSave_whenNewAccountExpensesIsNewArrayListAndNewAccountIncomesIsNewArrayListAndNewAccountSavingIsNewSavingAndDrJaneDoe_thenReturnsNewDataPointAndCallsConvertAndCallsGetCurrentRatesAndCallsSave() {
     // Arrange
     when(exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>());
     when(exchangeRatesService.convert(Mockito.<Currency>any(), Mockito.<Currency>any(), Mockito.<BigDecimal>any()))

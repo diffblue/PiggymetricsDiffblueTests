@@ -1,19 +1,19 @@
 {
   "meta" : {
-    "reportVersion" : "2.5"
+    "reportVersion" : "2.6"
   },
   "run" : {
-    "version" : "2024.08.01-93de256-licensed",
-    "creationTimestamp" : "2024-08-12T15:17:23.569Z",
+    "version" : "2024.08.02-68c1165-licensed",
+    "creationTimestamp" : "2024-08-28T16:52:23.002Z",
     "command" : "dcover create --batch --report-file=report.json -Dcom.diffblue.feature.test.naming=true --coverage-reports --spring-integration-tests --verbose --working-directory=registry",
-    "totalTime" : 69.832,
-    "environmentDetectionTime" : 0.472,
-    "indexingTime" : 0.253,
-    "entryPointsTime" : 0.442,
-    "generationTime" : 19.901,
-    "timeToFirstTest" : 69.937,
-    "timeToLastTest" : 63.565,
-    "indexQueryTime" : 9.912,
+    "totalTime" : 72.041,
+    "environmentDetectionTime" : 0.481,
+    "indexingTime" : 0.286,
+    "entryPointsTime" : 0.448,
+    "generationTime" : 21.713,
+    "timeToFirstTest" : 72.15,
+    "timeToLastTest" : 65.736,
+    "indexQueryTime" : 8.819,
     "verificationTime" : 0.0,
     "validationTime" : 0.0
   },
@@ -24,6 +24,8 @@
   "summary" : {
     "classesCount" : 1,
     "methodsCount" : 2,
+    "cumulativeDiffblueTestCount" : 1,
+    "cumulativeManualTestCount" : 0,
     "completeTestCount" : 0,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,

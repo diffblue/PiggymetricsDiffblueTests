@@ -1,21 +1,21 @@
 {
   "meta" : {
-    "reportVersion" : "2.5"
+    "reportVersion" : "2.6"
   },
   "run" : {
-    "version" : "2024.08.01-93de256-licensed",
-    "creationTimestamp" : "2024-08-12T15:48:37.691Z",
+    "version" : "2024.08.02-68c1165-licensed",
+    "creationTimestamp" : "2024-08-28T17:23:36.067Z",
     "command" : "dcover create --batch --report-file=report.json -Dcom.diffblue.feature.test.naming=true --coverage-reports --spring-integration-tests --verbose --working-directory=notification-service",
-    "totalTime" : 455.749,
-    "environmentDetectionTime" : 0.964,
-    "indexingTime" : 0.498,
-    "entryPointsTime" : 0.931,
-    "generationTime" : 327.685,
-    "timeToFirstTest" : 173.017,
-    "timeToLastTest" : 405.215,
-    "indexQueryTime" : 15.614,
-    "verificationTime" : 27.99,
-    "validationTime" : 20.061
+    "totalTime" : 431.203,
+    "environmentDetectionTime" : 0.927,
+    "indexingTime" : 0.542,
+    "entryPointsTime" : 0.893,
+    "generationTime" : 304.351,
+    "timeToFirstTest" : 166.902,
+    "timeToLastTest" : 379.635,
+    "indexQueryTime" : 15.161,
+    "verificationTime" : 27.49,
+    "validationTime" : 20.092
   },
   "codes" : {
     "E052" : "Missing dependency",
@@ -36,6 +36,8 @@
   "summary" : {
     "classesCount" : 19,
     "methodsCount" : 84,
+    "cumulativeDiffblueTestCount" : 30,
+    "cumulativeManualTestCount" : 16,
     "completeTestCount" : 30,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,

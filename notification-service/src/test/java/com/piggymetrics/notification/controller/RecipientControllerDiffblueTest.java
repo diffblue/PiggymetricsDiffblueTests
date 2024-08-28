@@ -32,7 +32,7 @@ public class RecipientControllerDiffblueTest {
    * {@link RecipientController#getCurrentNotificationsSettings(Principal)}
    */
   @Test
-  public void testGetCurrentNotificationsSettings_thenStatusOkAndContentContentTypeApplicationSlashJsonSemicolonCharsetEqualsSignUtfHyphenMinus8AndContentStringAString()
+  public void testGetCurrentNotificationsSettings_whenGetSlashRecipientsSlashCurrentPrincipalNewUserPrincipal_thenStatusIsOkAndContentContentTypeApplicationSlashJsonSemicolonCharsetEqualsSignUtfHyphenMinus8AndContentStringAString()
       throws Exception {
     // Arrange
     Recipient recipient = new Recipient();

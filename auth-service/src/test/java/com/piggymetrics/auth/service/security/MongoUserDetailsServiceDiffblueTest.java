@@ -35,7 +35,7 @@ public class MongoUserDetailsServiceDiffblueTest {
    * Method under test: {@link MongoUserDetailsService#loadUserByUsername(String)}
    */
   @Test
-  public void testLoadUserByUsername_thenReturnsSameAsNewUserAndCallsFindById() throws UsernameNotFoundException {
+  public void testLoadUserByUsername_whenJanedoe_thenReturnsNewUserAndCallsFindById() throws UsernameNotFoundException {
     // Arrange
     User user = new User();
     user.setPassword("iloveyou");
@@ -55,7 +55,7 @@ public class MongoUserDetailsServiceDiffblueTest {
    * Method under test: {@link MongoUserDetailsService#loadUserByUsername(String)}
    */
   @Test
-  public void testLoadUserByUsername_thenThrowsUsernameNotFoundExceptionAndCallsFindById()
+  public void testLoadUserByUsername_whenJanedoe_thenThrowsUsernameNotFoundExceptionAndCallsFindById()
       throws UsernameNotFoundException {
     // Arrange
     Optional<User> emptyResult = Optional.empty();
@@ -71,7 +71,7 @@ public class MongoUserDetailsServiceDiffblueTest {
    * Method under test: {@link MongoUserDetailsService#loadUserByUsername(String)}
    */
   @Test
-  public void testLoadUserByUsername_thenThrowsUsernameNotFoundExceptionAndCallsFindById2()
+  public void testLoadUserByUsername_whenJanedoe_thenThrowsUsernameNotFoundExceptionAndCallsFindById2()
       throws UsernameNotFoundException {
     // Arrange
     when(userRepository.findById(Mockito.<String>any())).thenThrow(new UsernameNotFoundException("Msg"));

@@ -9,7 +9,7 @@ public class TimePeriodDiffblueTest {
    * Method under test: {@link TimePeriod#getBaseRatio()}
    */
   @Test
-  public void testGetBaseRatio_thenReturnsNewBigDecimalAndReturnsNewBigDecimalWith365Dot24250000000000682121026329696178436279296875() {
+  public void testGetBaseRatio_thenReturnsNewBigDecimal() {
     // Arrange and Act
     BigDecimal actualBaseRatio = TimePeriod.YEAR.getBaseRatio();
 

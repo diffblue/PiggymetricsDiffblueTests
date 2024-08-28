@@ -31,7 +31,8 @@ public class UserControllerDiffblueTest {
    * Method under test: {@link UserController#createUser(User)}
    */
   @Test
-  public void testCreateUser_thenStatusOk() throws Exception {
+  public void testCreateUser_whenNewUserPasswordIsIloveyouAndNewUserUsernameIsJanedoeAndPostSlashUsersContentTypeApplication_jsonContentNewObjectMapperWriteValueAsStringNewUser_thenStatusIsOk()
+      throws Exception {
     // Arrange
     doNothing().when(userService).create(Mockito.<User>any());
 
@@ -54,9 +55,10 @@ public class UserControllerDiffblueTest {
    * Method under test: {@link UserController#getUser(Principal)}
    */
   @Test
-  public void testGetUser_thenStatusOk() throws Exception {
+  public void testGetUser_whenGetSlashUsersSlashCurrentCharacterEncodingEncoding_thenStatusIsOk() throws Exception {
     // Arrange
     MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/users/current");
+    requestBuilder.characterEncoding("Encoding");
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(userController)
@@ -69,10 +71,9 @@ public class UserControllerDiffblueTest {
    * Method under test: {@link UserController#getUser(Principal)}
    */
   @Test
-  public void testGetUser_thenStatusOk2() throws Exception {
+  public void testGetUser_whenGetSlashUsersSlashCurrent_thenStatusIsOk() throws Exception {
     // Arrange
     MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/users/current");
-    requestBuilder.characterEncoding("Encoding");
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(userController)

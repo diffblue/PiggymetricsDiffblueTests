@@ -36,7 +36,7 @@ public class OAuth2AuthorizationConfigDiffblueTest {
    * {@link OAuth2AuthorizationConfig#configure(AuthorizationServerEndpointsConfigurer)}
    */
   @Test
-  public void testConfigure_thenNewAuthorizationServerEndpointsConfigurerUserDetailsServiceOverrideIsTrue()
+  public void testConfigure_whenNewAuthorizationServerEndpointsConfigurerUserDetailsServiceOverride_thenNewAuthorizationServerEndpointsConfigurerUserDetailsServiceOverrideIsTrue()
       throws Exception {
     // Arrange
     AuthorizationServerEndpointsConfigurer endpoints = new AuthorizationServerEndpointsConfigurer();
@@ -53,7 +53,7 @@ public class OAuth2AuthorizationConfigDiffblueTest {
    * {@link OAuth2AuthorizationConfig#configure(AuthorizationServerSecurityConfigurer)}
    */
   @Test
-  public void testConfigure_thenNewAuthorizationServerSecurityConfigurerCheckTokenAccessIsIsAuthenticatedLeftParenthesisRightParenthesisAndNewAuthorizationServerSecurityConfigurerTokenKeyAccessIsPermitAllLeftParenthesisRightParenthesis()
+  public void testConfigure_whenNewAuthorizationServerSecurityConfigurerCheckTokenAccessAndNewAuthorizationServerSecurityConfigurerTokenKeyAccess_thenNewAuthorizationServerSecurityConfigurerCheckTokenAccessIsIsAuthenticatedLeftParenthesisRightParenthesisAndNewAuthorizationServerSecurityConfigurerTokenKeyAccessIsPermitAllLeftParenthesisRightParenthesis()
       throws Exception {
     // Arrange
     AuthorizationServerSecurityConfigurer oauthServer = new AuthorizationServerSecurityConfigurer();
@@ -71,7 +71,7 @@ public class OAuth2AuthorizationConfigDiffblueTest {
    * {@link OAuth2AuthorizationConfig#configure(ClientDetailsServiceConfigurer)}
    */
   @Test
-  public void testConfigure_thenNewClientDetailsServiceConfigurerAndInstanceOfInMemoryClientDetailsServiceBuilder()
+  public void testConfigure_whenNewClientDetailsServiceBuilderAndNewClientDetailsServiceConfigurerAnd_thenNewClientDetailsServiceConfigurerAndInstanceOfInMemoryClientDetailsServiceBuilder()
       throws Exception {
     // Arrange
     ClientDetailsServiceConfigurer clients = new ClientDetailsServiceConfigurer(new ClientDetailsServiceBuilder<>());
@@ -88,7 +88,7 @@ public class OAuth2AuthorizationConfigDiffblueTest {
    * {@link OAuth2AuthorizationConfig#configure(ClientDetailsServiceConfigurer)}
    */
   @Test
-  public void testConfigure_thenNewClientDetailsServiceConfigurerAndInstanceOfInMemoryClientDetailsServiceBuilder2()
+  public void testConfigure_whenNewJdbcClientDetailsServiceBuilderDataSourceMockDataSourceAndNewClientDetailsServiceConfigurerAnd_thenNewClientDetailsServiceConfigurerAndInstanceOfInMemoryClientDetailsServiceBuilder()
       throws Exception {
     // Arrange
     JdbcClientDetailsServiceBuilder builder = new JdbcClientDetailsServiceBuilder();

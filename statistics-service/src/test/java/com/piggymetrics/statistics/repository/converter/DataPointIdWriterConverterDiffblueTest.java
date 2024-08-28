@@ -26,22 +26,7 @@ public class DataPointIdWriterConverterDiffblueTest {
    * Method under test: {@link DataPointIdWriterConverter#convert(DataPointId)}
    */
   @Test
-  public void testConvert_thenReturnsContainsKeyIsTrueAndReturnsInstanceOfBasicDBObjectAndReturnsSizeIsTwo() {
-    // Arrange and Act
-    DBObject actualConvertResult = dataPointIdWriterConverter.convert(new DataPointId("3", mock(java.sql.Date.class)));
-
-    // Assert
-    assertTrue(actualConvertResult instanceof BasicDBObject);
-    assertEquals(2, ((BasicDBObject) actualConvertResult).size());
-    assertEquals("3", ((BasicDBObject) actualConvertResult).get((Object) "account"));
-    assertTrue(((BasicDBObject) actualConvertResult).containsKey((Object) "date"));
-  }
-
-  /**
-   * Method under test: {@link DataPointIdWriterConverter#convert(DataPointId)}
-   */
-  @Test
-  public void testConvert_thenReturnsGetIsSameAsFromOfAtStartOfDayAtZoneUtcToInstantAndReturnsInstanceOfBasicDBObjectAndReturnsSizeIsTwo() {
+  public void testConvert_when1970AndOneAndFromLocalDateAtStartOfDayAtZoneUtcToInstantAnd3AndNewDataPointId_thenReturnsDateIsFromLocalDateAtStartOfDayAtZoneUtcToInstantAndReturnsInstanceOfBasicDBObjectAndReturnsSizeIsTwoAndReturnsAccountIs3() {
     // Arrange
     Date date = Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
 
@@ -53,5 +38,20 @@ public class DataPointIdWriterConverterDiffblueTest {
     assertEquals(2, ((BasicDBObject) actualConvertResult).size());
     assertEquals("3", ((BasicDBObject) actualConvertResult).get((Object) "account"));
     assertSame(date, ((BasicDBObject) actualConvertResult).get((Object) "date"));
+  }
+
+  /**
+   * Method under test: {@link DataPointIdWriterConverter#convert(DataPointId)}
+   */
+  @Test
+  public void testConvert_whenMockDateAnd3AndNewDataPointId_thenReturnsContainsKeyDateIsTrueAndReturnsInstanceOfBasicDBObjectAndReturnsSizeIsTwoAndReturnsAccountIs3() {
+    // Arrange and Act
+    DBObject actualConvertResult = dataPointIdWriterConverter.convert(new DataPointId("3", mock(java.sql.Date.class)));
+
+    // Assert
+    assertTrue(actualConvertResult instanceof BasicDBObject);
+    assertEquals(2, ((BasicDBObject) actualConvertResult).size());
+    assertEquals("3", ((BasicDBObject) actualConvertResult).get((Object) "account"));
+    assertTrue(((BasicDBObject) actualConvertResult).containsKey((Object) "date"));
   }
 }

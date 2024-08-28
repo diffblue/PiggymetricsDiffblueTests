@@ -1,19 +1,19 @@
 {
   "meta" : {
-    "reportVersion" : "2.5"
+    "reportVersion" : "2.6"
   },
   "run" : {
-    "version" : "2024.08.01-93de256-licensed",
-    "creationTimestamp" : "2024-08-12T15:57:14.838Z",
+    "version" : "2024.08.02-68c1165-licensed",
+    "creationTimestamp" : "2024-08-28T17:31:47.995Z",
     "command" : "dcover create --batch --report-file=report.json -Dcom.diffblue.feature.test.naming=true --coverage-reports --spring-integration-tests --verbose --working-directory=turbine-stream-service",
-    "totalTime" : 78.215,
-    "environmentDetectionTime" : 0.715,
-    "indexingTime" : 0.251,
-    "entryPointsTime" : 0.676,
-    "generationTime" : 20.561,
-    "timeToFirstTest" : 78.322,
-    "timeToLastTest" : 65.938,
-    "indexQueryTime" : 10.274000000000001,
+    "totalTime" : 77.18,
+    "environmentDetectionTime" : 0.472,
+    "indexingTime" : 0.257,
+    "entryPointsTime" : 0.435,
+    "generationTime" : 19.165,
+    "timeToFirstTest" : 77.289,
+    "timeToLastTest" : 64.862,
+    "indexQueryTime" : 8.704,
     "verificationTime" : 0.0,
     "validationTime" : 0.0
   },
@@ -24,6 +24,8 @@
   "summary" : {
     "classesCount" : 1,
     "methodsCount" : 2,
+    "cumulativeDiffblueTestCount" : 1,
+    "cumulativeManualTestCount" : 1,
     "completeTestCount" : 0,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,

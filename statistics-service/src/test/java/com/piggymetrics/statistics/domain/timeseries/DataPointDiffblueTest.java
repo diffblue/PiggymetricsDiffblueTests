@@ -31,7 +31,7 @@ public class DataPointDiffblueTest {
    * </ul>
    */
   @Test
-  public void testGettersAndSetters_thenReturnsRatesEmptyIsTrueAndReturnsStatisticsEmptyIsTrueAndReturnsExpensesEmptyIsTrueAndReturnsIncomesEmptyIsTrueAndReturnsIdIsSameAsNewDataPointIdAndReturnsIdIsSameAsNewDataPointIdWithAccountIs3AndReturnsIdIsSameAsNewDataPointIdWithDateIsFromOfAtStartOfDayAtZoneUtcToInstantAndReturnsRatesIsSameAsNewHashMapAndReturnsStatisticsIsSameAsNewHashMapAndReturnsExpensesIsSameAsNewHashSetAndReturnsIncomesIsSameAsNewHashSet() {
+  public void testGettersAndSetters_thenReturnsRatesEmptyIsTrueAndReturnsStatisticsEmptyIsTrueAndReturnsExpensesEmptyIsTrueAndReturnsIncomesEmptyIsTrueAndReturnsIdIsNewDataPointIdAndReturnsRatesIsNewHashMapAndReturnsStatisticsIsNewHashMapAndReturnsExpensesIsNewHashSetAndReturnsIncomesIsNewHashSet() {
     // Arrange and Act
     DataPoint actualDataPoint = new DataPoint();
     HashSet<ItemMetric> expenses = new HashSet<>();
