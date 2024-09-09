@@ -24,7 +24,7 @@ public class SavingDiffblueTest {
    * </ul>
    */
   @Test
-  public void testGettersAndSetters_thenReturnsCurrencyIsUsdAndReturnsCapitalizationIsTrueAndReturnsDepositIsTrueAndReturnsAmountIsNewBigDecimalAndReturnsInterestIsNewBigDecimal() {
+  public void testGettersAndSetters_thenReturnsCurrencyIsUsdAndReturnsCapitalizationAndReturnsDepositAndReturnsAmountIsNewBigDecimalWith2Dot3AndReturnsInterestIsNewBigDecimalWith2Dot3() {
     // Arrange and Act
     Saving actualSaving = new Saving();
     BigDecimal amount = new BigDecimal("2.3");

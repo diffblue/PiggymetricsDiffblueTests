@@ -36,7 +36,97 @@ public class NotificationServiceImplDiffblueTest {
    * Method under test: {@link NotificationServiceImpl#sendBackupNotifications()}
    */
   @Test
-  public void testSendBackupNotifications_thenCallsFindReadyForBackup() {
+  public void testSendBackupNotifications_givenNewRecipientAccountNameIsDrJaneDoeAndNewRecipientEmailIsJaneDotDoeCommercialAtExampleDotOrgAndNewRecipientScheduledNotificationsIsNewHashMapAndNewArrayListAddNewRecipientAndRecipientRepositoryFindReadyForBackupReturnsNewArrayListAndMongodExecutableAndNotificationServiceImpl_thenCallsFindReadyForBackup() {
+    // Arrange
+    Recipient recipient = new Recipient();
+    recipient.setAccountName("Dr Jane Doe");
+    recipient.setEmail("jane.doe@example.org");
+    recipient.setScheduledNotifications(new HashMap<>());
+
+    ArrayList<Recipient> recipientList = new ArrayList<>();
+    recipientList.add(recipient);
+    when(recipientRepository.findReadyForBackup()).thenReturn(recipientList);
+
+    // Act
+    notificationServiceImpl.sendBackupNotifications();
+
+    // Assert
+    verify(recipientRepository).findReadyForBackup();
+  }
+
+  /**
+   * Method under test: {@link NotificationServiceImpl#sendBackupNotifications()}
+   */
+  @Test
+  public void testSendBackupNotifications_givenNewRecipientAccountNameIsMrJohnSmithAndNewRecipientEmailIsJohnDotSmithCommercialAtExampleDotOrgAndNewRecipientAccountNameIsDrJaneDoeAndNewRecipientEmailIsJaneDotDoeCommercialAtExampleDotOrgAndNewRecipientScheduledNotificationsIsNewHashMapAndNewArrayListAddNewRecipientAndRecipientRepositoryFindReadyForBackupReturnsNewArrayListAndMongodExecutableAndNotificationServiceImpl_thenCallsFindReadyForBackup() {
+    // Arrange
+    Recipient recipient = new Recipient();
+    recipient.setAccountName("Dr Jane Doe");
+    recipient.setEmail("jane.doe@example.org");
+    recipient.setScheduledNotifications(new HashMap<>());
+
+    Recipient recipient2 = new Recipient();
+    recipient2.setAccountName("Mr John Smith");
+    recipient2.setEmail("john.smith@example.org");
+    recipient2.setScheduledNotifications(new HashMap<>());
+
+    ArrayList<Recipient> recipientList = new ArrayList<>();
+    recipientList.add(recipient2);
+    recipientList.add(recipient);
+    when(recipientRepository.findReadyForBackup()).thenReturn(recipientList);
+
+    // Act
+    notificationServiceImpl.sendBackupNotifications();
+
+    // Assert
+    verify(recipientRepository).findReadyForBackup();
+  }
+
+  /**
+   * Method under test: {@link NotificationServiceImpl#sendBackupNotifications()}
+   */
+  @Test
+  public void testSendBackupNotifications_givenNewRecipientAccountNameIsProfAlbertEinsteinAndNewRecipientEmailIsProfDotEinsteinCommercialAtExampleDotOrgAndNewRecipientAccountNameIsMrJohnSmithAndNewRecipientEmailIsJohnDotSmithCommercialAtExampleDotOrgAndNewRecipientAccountNameIsDrJaneDoeAndNewRecipientEmailIsJaneDotDoeCommercialAtExampleDotOrgAndNewRecipientScheduledNotificationsIsNewHashMapAndNewArrayListAddNewRecipientAndRecipientRepositoryFindReadyForBackupReturnsNewArrayListAndMongodExecutableAndNotificationServiceImpl_thenCallsFindReadyForBackup() {
+    // Arrange
+    Recipient recipient = new Recipient();
+    recipient.setAccountName("Dr Jane Doe");
+    recipient.setEmail("jane.doe@example.org");
+    recipient.setScheduledNotifications(new HashMap<>());
+
+    Recipient recipient2 = new Recipient();
+    recipient2.setAccountName("Mr John Smith");
+    recipient2.setEmail("john.smith@example.org");
+    recipient2.setScheduledNotifications(new HashMap<>());
+
+    Recipient recipient3 = new Recipient();
+    recipient3.setAccountName("Prof Albert Einstein");
+    recipient3.setEmail("prof.einstein@example.org");
+    recipient3.setScheduledNotifications(new HashMap<>());
+
+    Recipient recipient4 = new Recipient();
+    recipient4.setAccountName("Mr John Smith");
+    recipient4.setEmail("john.smith@example.org");
+    recipient4.setScheduledNotifications(new HashMap<>());
+
+    ArrayList<Recipient> recipientList = new ArrayList<>();
+    recipientList.add(recipient4);
+    recipientList.add(recipient3);
+    recipientList.add(recipient2);
+    recipientList.add(recipient);
+    when(recipientRepository.findReadyForBackup()).thenReturn(recipientList);
+
+    // Act
+    notificationServiceImpl.sendBackupNotifications();
+
+    // Assert
+    verify(recipientRepository).findReadyForBackup();
+  }
+
+  /**
+   * Method under test: {@link NotificationServiceImpl#sendBackupNotifications()}
+   */
+  @Test
+  public void testSendBackupNotifications_givenRecipientRepositoryFindReadyForBackupReturnsNewArrayListAndMongodExecutableAndNotificationServiceImpl_thenCallsFindReadyForBackup() {
     // Arrange
     when(recipientRepository.findReadyForBackup()).thenReturn(new ArrayList<>());
 
@@ -48,81 +138,80 @@ public class NotificationServiceImplDiffblueTest {
   }
 
   /**
-   * Method under test: {@link NotificationServiceImpl#sendBackupNotifications()}
+   * Method under test: {@link NotificationServiceImpl#sendRemindNotifications()}
    */
   @Test
-  public void testSendBackupNotifications_thenCallsFindReadyForBackup2() {
+  public void testSendRemindNotifications_givenNewNotificationSettingsActiveIsTrueAndNewNotificationSettingsFrequencyIsMonthlyAndNewNotificationSettingsLastNotifiedIsFromLocalDateWith1970AndOneAndOneAtStartOfDayAtZoneUtcToInstantAndNewHashMapIfAbsentBackupIsNewNotificationSettingsAndNewRecipientAccountNameIsProfAlbertEinsteinAndNewRecipientEmailIsProfDotEinsteinCommercialAtExampleDotOrgAndNewRecipientAccountNameIsMrJohnSmithAndNewRecipientEmailIsJohnDotSmithCommercialAtExampleDotOrgAndNewRecipientAccountNameIsDrJaneDoeAndNewRecipientEmailIsJaneDotDoeCommercialAtExampleDotOrgAndNewRecipientScheduledNotificationsIsNewHashMapAndNewArrayListAddNewRecipientAndRecipientRepositoryFindReadyForRemindReturnsNewArrayListAndMongodExecutableAndNotificationServiceImpl_thenCallsFindReadyForRemind() {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
     recipient.setEmail("jane.doe@example.org");
     recipient.setScheduledNotifications(new HashMap<>());
 
-    ArrayList<Recipient> recipientList = new ArrayList<>();
-    recipientList.add(recipient);
-    when(recipientRepository.findReadyForBackup()).thenReturn(recipientList);
-
-    // Act
-    notificationServiceImpl.sendBackupNotifications();
-
-    // Assert
-    verify(recipientRepository).findReadyForBackup();
-  }
-
-  /**
-   * Method under test: {@link NotificationServiceImpl#sendBackupNotifications()}
-   */
-  @Test
-  public void testSendBackupNotifications_thenCallsFindReadyForBackup3() {
-    // Arrange
-    Recipient recipient = new Recipient();
-    recipient.setAccountName("Dr Jane Doe");
-    recipient.setEmail("jane.doe@example.org");
-    recipient.setScheduledNotifications(new HashMap<>());
-
-    Recipient recipient2 = new Recipient();
-    recipient2.setAccountName("Mr John Smith");
-    recipient2.setEmail("john.smith@example.org");
-    recipient2.setScheduledNotifications(new HashMap<>());
-
-    ArrayList<Recipient> recipientList = new ArrayList<>();
-    recipientList.add(recipient2);
-    recipientList.add(recipient);
-    when(recipientRepository.findReadyForBackup()).thenReturn(recipientList);
-
-    // Act
-    notificationServiceImpl.sendBackupNotifications();
-
-    // Assert
-    verify(recipientRepository).findReadyForBackup();
-  }
-
-  /**
-   * Method under test: {@link NotificationServiceImpl#sendBackupNotifications()}
-   */
-  @Test
-  public void testSendBackupNotifications_thenCallsFindReadyForBackup4() {
-    // Arrange
     NotificationSettings notificationSettings = new NotificationSettings();
-    notificationSettings.setActive(false);
+    notificationSettings.setActive(true);
     notificationSettings.setFrequency(Frequency.MONTHLY);
     notificationSettings
         .setLastNotified(Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
 
-    NotificationSettings notificationSettings2 = new NotificationSettings();
-    notificationSettings2.setActive(false);
-    notificationSettings2.setFrequency(Frequency.MONTHLY);
-    notificationSettings2
-        .setLastNotified(Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
-
     HashMap<NotificationType, NotificationSettings> scheduledNotifications = new HashMap<>();
-    scheduledNotifications.putIfAbsent(NotificationType.REMIND, notificationSettings2);
-    scheduledNotifications.putIfAbsent(NotificationType.REMIND, notificationSettings);
+    scheduledNotifications.putIfAbsent(NotificationType.BACKUP, notificationSettings);
 
+    Recipient recipient2 = new Recipient();
+    recipient2.setAccountName("Mr John Smith");
+    recipient2.setEmail("john.smith@example.org");
+    recipient2.setScheduledNotifications(scheduledNotifications);
+
+    Recipient recipient3 = new Recipient();
+    recipient3.setAccountName("Prof Albert Einstein");
+    recipient3.setEmail("prof.einstein@example.org");
+    recipient3.setScheduledNotifications(new HashMap<>());
+
+    ArrayList<Recipient> recipientList = new ArrayList<>();
+    recipientList.add(recipient3);
+    recipientList.add(recipient2);
+    recipientList.add(recipient);
+    when(recipientRepository.findReadyForRemind()).thenReturn(recipientList);
+
+    // Act
+    notificationServiceImpl.sendRemindNotifications();
+
+    // Assert
+    verify(recipientRepository).findReadyForRemind();
+  }
+
+  /**
+   * Method under test: {@link NotificationServiceImpl#sendRemindNotifications()}
+   */
+  @Test
+  public void testSendRemindNotifications_givenNewRecipientAccountNameIsDrJaneDoeAndNewRecipientEmailIsJaneDotDoeCommercialAtExampleDotOrgAndNewRecipientScheduledNotificationsIsNewHashMapAndNewArrayListAddNewRecipientAndRecipientRepositoryFindReadyForRemindReturnsNewArrayListAndMongodExecutableAndNotificationServiceImpl_thenCallsFindReadyForRemind() {
+    // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
     recipient.setEmail("jane.doe@example.org");
-    recipient.setScheduledNotifications(scheduledNotifications);
+    recipient.setScheduledNotifications(new HashMap<>());
+
+    ArrayList<Recipient> recipientList = new ArrayList<>();
+    recipientList.add(recipient);
+    when(recipientRepository.findReadyForRemind()).thenReturn(recipientList);
+
+    // Act
+    notificationServiceImpl.sendRemindNotifications();
+
+    // Assert
+    verify(recipientRepository).findReadyForRemind();
+  }
+
+  /**
+   * Method under test: {@link NotificationServiceImpl#sendRemindNotifications()}
+   */
+  @Test
+  public void testSendRemindNotifications_givenNewRecipientAccountNameIsMrJohnSmithAndNewRecipientEmailIsJohnDotSmithCommercialAtExampleDotOrgAndNewRecipientAccountNameIsDrJaneDoeAndNewRecipientEmailIsJaneDotDoeCommercialAtExampleDotOrgAndNewRecipientScheduledNotificationsIsNewHashMapAndNewArrayListAddNewRecipientAndRecipientRepositoryFindReadyForRemindReturnsNewArrayListAndMongodExecutableAndNotificationServiceImpl_thenCallsFindReadyForRemind() {
+    // Arrange
+    Recipient recipient = new Recipient();
+    recipient.setAccountName("Dr Jane Doe");
+    recipient.setEmail("jane.doe@example.org");
+    recipient.setScheduledNotifications(new HashMap<>());
 
     Recipient recipient2 = new Recipient();
     recipient2.setAccountName("Mr John Smith");
@@ -132,72 +221,22 @@ public class NotificationServiceImplDiffblueTest {
     ArrayList<Recipient> recipientList = new ArrayList<>();
     recipientList.add(recipient2);
     recipientList.add(recipient);
-    when(recipientRepository.findReadyForBackup()).thenReturn(recipientList);
+    when(recipientRepository.findReadyForRemind()).thenReturn(recipientList);
 
     // Act
-    notificationServiceImpl.sendBackupNotifications();
+    notificationServiceImpl.sendRemindNotifications();
 
     // Assert
-    verify(recipientRepository).findReadyForBackup();
+    verify(recipientRepository).findReadyForRemind();
   }
 
   /**
    * Method under test: {@link NotificationServiceImpl#sendRemindNotifications()}
    */
   @Test
-  public void testSendRemindNotifications_thenCallsFindReadyForRemind() {
+  public void testSendRemindNotifications_givenRecipientRepositoryFindReadyForRemindReturnsNewArrayListAndMongodExecutableAndNotificationServiceImpl_thenCallsFindReadyForRemind() {
     // Arrange
     when(recipientRepository.findReadyForRemind()).thenReturn(new ArrayList<>());
-
-    // Act
-    notificationServiceImpl.sendRemindNotifications();
-
-    // Assert
-    verify(recipientRepository).findReadyForRemind();
-  }
-
-  /**
-   * Method under test: {@link NotificationServiceImpl#sendRemindNotifications()}
-   */
-  @Test
-  public void testSendRemindNotifications_thenCallsFindReadyForRemind2() {
-    // Arrange
-    Recipient recipient = new Recipient();
-    recipient.setAccountName("Dr Jane Doe");
-    recipient.setEmail("jane.doe@example.org");
-    recipient.setScheduledNotifications(new HashMap<>());
-
-    ArrayList<Recipient> recipientList = new ArrayList<>();
-    recipientList.add(recipient);
-    when(recipientRepository.findReadyForRemind()).thenReturn(recipientList);
-
-    // Act
-    notificationServiceImpl.sendRemindNotifications();
-
-    // Assert
-    verify(recipientRepository).findReadyForRemind();
-  }
-
-  /**
-   * Method under test: {@link NotificationServiceImpl#sendRemindNotifications()}
-   */
-  @Test
-  public void testSendRemindNotifications_thenCallsFindReadyForRemind3() {
-    // Arrange
-    Recipient recipient = new Recipient();
-    recipient.setAccountName("Dr Jane Doe");
-    recipient.setEmail("jane.doe@example.org");
-    recipient.setScheduledNotifications(new HashMap<>());
-
-    Recipient recipient2 = new Recipient();
-    recipient2.setAccountName("Mr John Smith");
-    recipient2.setEmail("john.smith@example.org");
-    recipient2.setScheduledNotifications(new HashMap<>());
-
-    ArrayList<Recipient> recipientList = new ArrayList<>();
-    recipientList.add(recipient2);
-    recipientList.add(recipient);
-    when(recipientRepository.findReadyForRemind()).thenReturn(recipientList);
 
     // Act
     notificationServiceImpl.sendRemindNotifications();

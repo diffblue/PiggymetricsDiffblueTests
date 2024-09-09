@@ -3,19 +3,19 @@
     "reportVersion" : "2.6"
   },
   "run" : {
-    "version" : "2024.08.02-68c1165-licensed",
-    "creationTimestamp" : "2024-08-28T16:56:59.17Z",
+    "version" : "2024.09.01-7fa8dcd-licensed",
+    "creationTimestamp" : "2024-09-09T15:23:41.323Z",
     "command" : "dcover create --batch --report-file=report.json -Dcom.diffblue.feature.test.naming=true --coverage-reports --spring-integration-tests --verbose --working-directory=auth-service",
-    "totalTime" : 506.212,
-    "environmentDetectionTime" : 0.807,
-    "indexingTime" : 0.464,
-    "entryPointsTime" : 0.777,
-    "generationTime" : 397.343,
-    "timeToFirstTest" : 130.719,
-    "timeToLastTest" : 463.658,
-    "indexQueryTime" : 16.716,
-    "verificationTime" : 21.051,
-    "validationTime" : 16.049
+    "totalTime" : 503.82,
+    "environmentDetectionTime" : 0.814,
+    "indexingTime" : 0.426,
+    "entryPointsTime" : 0.784,
+    "generationTime" : 393.782,
+    "timeToFirstTest" : 130.507,
+    "timeToLastTest" : 462.265,
+    "indexQueryTime" : 16.797,
+    "verificationTime" : 21.559,
+    "validationTime" : 16.065
   },
   "codes" : {
     "E052" : "Missing dependency",
@@ -34,9 +34,9 @@
   "summary" : {
     "classesCount" : 9,
     "methodsCount" : 42,
-    "cumulativeDiffblueTestCount" : 15,
+    "cumulativeDiffblueTestCount" : 14,
     "cumulativeManualTestCount" : 9,
-    "completeTestCount" : 15,
+    "completeTestCount" : 14,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "perMethodTestability" : {
@@ -59,10 +59,10 @@
       "T012" : 3
     },
     "perTestOutcome" : {
-      "R000" : 15
+      "R000" : 14
     },
     "perTestValidation" : {
-      "V000" : 15
+      "V000" : 14
     }
   },
   "classes" : {
@@ -109,7 +109,7 @@
     },
     "com.piggymetrics.auth.controller.UserController" : {
       "methodsCount" : 3,
-      "completeTestCount" : 3,
+      "completeTestCount" : 2,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 2,
@@ -120,7 +120,7 @@
         "T005" : 1
       },
       "perTestOutcome" : {
-        "R000" : 3
+        "R000" : 2
       }
     },
     "com.piggymetrics.auth.domain.User" : {
@@ -357,12 +357,12 @@
       ]
     },
     "com.piggymetrics.auth.controller.UserController.getUser:(Ljava/security/Principal;)Ljava/security/Principal;" : {
-      "completeTestCount" : 2,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 2
+        "R000" : 1
       },
       "lineNumbers" : [
         24

@@ -13,7 +13,7 @@ public class NotificationTypeDiffblueTest {
    * </ul>
    */
   @Test
-  public void testGettersAndSetters_thenReturnsBackupDotEmailDotAttachmentAndReturnsBackupDotEmailDotSubjectAndReturnsBackupDotEmailDotText() {
+  public void testGettersAndSetters_givenValueOfBackup_thenReturnsBackupDotEmailDotAttachmentAndReturnsBackupDotEmailDotSubjectAndReturnsBackupDotEmailDotText() {
     // Arrange
     NotificationType valueOfResult = NotificationType.valueOf("BACKUP");
 

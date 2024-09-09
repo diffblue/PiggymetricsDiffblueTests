@@ -33,7 +33,7 @@ public class CustomUserInfoTokenServicesDiffblueTest {
    * {@link CustomUserInfoTokenServices#loadAuthentication(String)}
    */
   @Test
-  public void testLoadAuthentication_whenAbc123_thenThrowsInvalidTokenException()
+  public void testLoadAuthentication_givenDataPointRepositoryAndMongodExecutableAndCustomUserInfoTokenServices_whenAbc123_thenThrowsInvalidTokenException()
       throws AuthenticationException, InvalidTokenException {
     // Arrange, Act and Assert
     thrown.expect(InvalidTokenException.class);
@@ -45,7 +45,7 @@ public class CustomUserInfoTokenServicesDiffblueTest {
    * {@link CustomUserInfoTokenServices#readAccessToken(String)}
    */
   @Test
-  public void testReadAccessToken_whenAbc123_thenThrowsUnsupportedOperationException() {
+  public void testReadAccessToken_givenDataPointRepositoryAndMongodExecutableAndCustomUserInfoTokenServices_whenAbc123_thenThrowsUnsupportedOperationException() {
     // Arrange, Act and Assert
     thrown.expect(UnsupportedOperationException.class);
     customUserInfoTokenServices.readAccessToken("ABC123");

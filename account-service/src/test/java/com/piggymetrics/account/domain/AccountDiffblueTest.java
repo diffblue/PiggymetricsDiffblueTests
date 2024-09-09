@@ -31,7 +31,7 @@ public class AccountDiffblueTest {
    * </ul>
    */
   @Test
-  public void testGettersAndSetters_thenReturnsNameIsNameAndReturnsNoteIsNoteAndReturnsExpensesEmptyIsTrueAndReturnsIncomesEmptyIsTrueAndReturnsSavingIsNewSavingAndReturnsExpensesIsNewArrayListAndReturnsIncomesIsNewArrayListAndReturnsLastSeenIsFromLocalDateAtStartOfDayAtZoneUtcToInstant() {
+  public void testGettersAndSetters_thenReturnsNameAndReturnsNoteAndReturnsExpensesEmptyAndReturnsIncomesEmptyAndReturnsSavingIsNewSavingAndReturnsExpensesIsNewArrayListAndReturnsIncomesIsNewArrayListAndReturnsLastSeenIsFromLocalDateWith1970AndOneAndOneAtStartOfDayAtZoneUtcToInstant() {
     // Arrange and Act
     Account actualAccount = new Account();
     ArrayList<Item> expenses = new ArrayList<>();

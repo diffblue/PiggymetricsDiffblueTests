@@ -24,7 +24,7 @@ public class ExchangeRatesContainerDiffblueTest {
    * </ul>
    */
   @Test
-  public void testGettersAndSetters_whenUsd_thenReturnsToStringIs1970HyphenMinus01HyphenMinus01AndReturnsAStringAndReturnsUsdAndReturnsEmptyIsTrueAndReturnsNewHashMapAndReturnsLocalDate() {
+  public void testGettersAndSetters_givenNewExchangeRatesContainer_whenUsd_thenReturnsToStringIs1970Dash01Dash01AndReturnsAStringAndReturnsUsdAndReturnsEmptyAndReturnsNewHashMapAndReturnsLocalDateWith1970AndOneAndOne() {
     // Arrange
     ExchangeRatesContainer exchangeRatesContainer = new ExchangeRatesContainer();
 

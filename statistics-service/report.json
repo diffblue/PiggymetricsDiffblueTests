@@ -3,19 +3,19 @@
     "reportVersion" : "2.6"
   },
   "run" : {
-    "version" : "2024.08.02-68c1165-licensed",
-    "creationTimestamp" : "2024-08-28T17:16:15.147Z",
+    "version" : "2024.09.01-7fa8dcd-licensed",
+    "creationTimestamp" : "2024-09-09T15:42:10.697Z",
     "command" : "dcover create --batch --report-file=report.json -Dcom.diffblue.feature.test.naming=true --coverage-reports --spring-integration-tests --verbose --working-directory=statistics-service",
-    "totalTime" : 371.033,
-    "environmentDetectionTime" : 1.041,
-    "indexingTime" : 0.351,
-    "entryPointsTime" : 1.001,
-    "generationTime" : 236.309,
-    "timeToFirstTest" : 145.756,
-    "timeToLastTest" : 316.351,
-    "indexQueryTime" : 17.67,
-    "verificationTime" : 27.312,
-    "validationTime" : 22.106
+    "totalTime" : 371.058,
+    "environmentDetectionTime" : 0.996,
+    "indexingTime" : 0.29,
+    "entryPointsTime" : 0.958,
+    "generationTime" : 229.725,
+    "timeToFirstTest" : 142.285,
+    "timeToLastTest" : 314.428,
+    "indexQueryTime" : 16.011,
+    "verificationTime" : 28.557,
+    "validationTime" : 23.107
   },
   "codes" : {
     "E052" : "Missing dependency",
@@ -38,9 +38,9 @@
   "summary" : {
     "classesCount" : 24,
     "methodsCount" : 125,
-    "cumulativeDiffblueTestCount" : 31,
+    "cumulativeDiffblueTestCount" : 30,
     "cumulativeManualTestCount" : 14,
-    "completeTestCount" : 31,
+    "completeTestCount" : 30,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "perMethodTestability" : {
@@ -68,10 +68,10 @@
       "T012" : 13
     },
     "perTestOutcome" : {
-      "R000" : 31
+      "R000" : 30
     },
     "perTestValidation" : {
-      "V000" : 31
+      "V000" : 30
     }
   },
   "classes" : {
@@ -146,7 +146,7 @@
     },
     "com.piggymetrics.statistics.controller.StatisticsController" : {
       "methodsCount" : 4,
-      "completeTestCount" : 4,
+      "completeTestCount" : 3,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 3,
@@ -157,7 +157,7 @@
         "T005" : 1
       },
       "perTestOutcome" : {
-        "R000" : 4
+        "R000" : 3
       }
     },
     "com.piggymetrics.statistics.domain.Account" : {
@@ -554,12 +554,12 @@
       ]
     },
     "com.piggymetrics.statistics.controller.StatisticsController.getStatisticsByAccountName:(Ljava/lang/String;)Ljava/util/List;" : {
-      "completeTestCount" : 2,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 2
+        "R000" : 1
       },
       "lineNumbers" : [
         28

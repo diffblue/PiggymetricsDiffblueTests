@@ -10,7 +10,7 @@ public class UserDiffblueTest {
    * Method under test: {@link User#getAuthorities()}
    */
   @Test
-  public void testGetAuthorities_thenReturnsNull() {
+  public void testGetAuthorities_givenNewUser_thenReturnsNull() {
     // Arrange, Act and Assert
     assertNull((new User()).getAuthorities());
   }
@@ -30,7 +30,7 @@ public class UserDiffblueTest {
    * </ul>
    */
   @Test
-  public void testGettersAndSetters_thenReturnsPasswordIsIloveyouAndReturnsUsernameIsJanedoeAndReturnsAccountNonExpiredIsTrueAndReturnsAccountNonLockedIsTrueAndReturnsCredentialsNonExpiredIsTrueAndReturnsEnabledIsTrue() {
+  public void testGettersAndSetters_thenReturnsPasswordIsIloveyouAndReturnsUsernameIsJanedoeAndReturnsAccountNonExpiredAndReturnsAccountNonLockedAndReturnsCredentialsNonExpiredAndReturnsEnabled() {
     // Arrange and Act
     User actualUser = new User();
     actualUser.setPassword("iloveyou");

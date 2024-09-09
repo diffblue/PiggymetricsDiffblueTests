@@ -23,7 +23,7 @@ public class ItemDiffblueTest {
    * </ul>
    */
   @Test
-  public void testGettersAndSetters_thenReturnsTitleIsDrAndReturnsIconIsIconAndReturnsCurrencyIsUsdAndReturnsPeriodIsYearAndReturnsAmountIsNewBigDecimal() {
+  public void testGettersAndSetters_thenReturnsTitleIsDrAndReturnsIconAndReturnsCurrencyIsUsdAndReturnsPeriodIsYearAndReturnsAmountIsNewBigDecimalWith2Dot3() {
     // Arrange and Act
     Item actualItem = new Item();
     BigDecimal amount = new BigDecimal("2.3");

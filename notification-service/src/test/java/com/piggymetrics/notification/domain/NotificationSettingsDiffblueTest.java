@@ -22,7 +22,7 @@ public class NotificationSettingsDiffblueTest {
    * </ul>
    */
   @Test
-  public void testGettersAndSetters_thenReturnsFrequencyIsWeeklyAndReturnsActiveIsTrueAndReturnsLastNotifiedIsFromLocalDateAtStartOfDayAtZoneUtcToInstant() {
+  public void testGettersAndSetters_thenReturnsFrequencyIsWeeklyAndReturnsActiveAndReturnsLastNotifiedIsFromLocalDateWith1970AndOneAndOneAtStartOfDayAtZoneUtcToInstant() {
     // Arrange and Act
     NotificationSettings actualNotificationSettings = new NotificationSettings();
     actualNotificationSettings.setActive(true);

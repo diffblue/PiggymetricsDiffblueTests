@@ -26,7 +26,7 @@ public class DataPointIdWriterConverterDiffblueTest {
    * Method under test: {@link DataPointIdWriterConverter#convert(DataPointId)}
    */
   @Test
-  public void testConvert_when1970AndOneAndFromLocalDateAtStartOfDayAtZoneUtcToInstantAnd3AndNewDataPointId_thenReturnsDateIsFromLocalDateAtStartOfDayAtZoneUtcToInstantAndReturnsInstanceOfBasicDBObjectAndReturnsSizeIsTwoAndReturnsAccountIs3() {
+  public void testConvert_givenDataPointIdWriterConverter_whenFromLocalDateWith1970AndOneAndOneAtStartOfDayAtZoneUtcToInstantAndNewDataPointIdWithAccountIs3AndDateIsFromLocalDateAtStartOfDayAtZoneUtcToInstant_thenReturnsDateIsFromLocalDateWith1970AndOneAndOneAtStartOfDayAtZoneUtcToInstantAndReturnsInstanceOfBasicDBObjectAndReturnsSizeIsTwoAndReturnsAccountIs3() {
     // Arrange
     Date date = Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
 
@@ -44,7 +44,7 @@ public class DataPointIdWriterConverterDiffblueTest {
    * Method under test: {@link DataPointIdWriterConverter#convert(DataPointId)}
    */
   @Test
-  public void testConvert_whenMockDateAnd3AndNewDataPointId_thenReturnsContainsKeyDateIsTrueAndReturnsInstanceOfBasicDBObjectAndReturnsSizeIsTwoAndReturnsAccountIs3() {
+  public void testConvert_givenDataPointIdWriterConverter_whenNewDataPointIdWithAccountIs3AndDate_thenReturnsContainsKeyDateAndReturnsInstanceOfBasicDBObjectAndReturnsSizeIsTwoAndReturnsAccountIs3() {
     // Arrange and Act
     DBObject actualConvertResult = dataPointIdWriterConverter.convert(new DataPointId("3", mock(java.sql.Date.class)));
 

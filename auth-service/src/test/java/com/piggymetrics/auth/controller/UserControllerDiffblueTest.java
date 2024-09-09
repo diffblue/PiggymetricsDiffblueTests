@@ -31,7 +31,7 @@ public class UserControllerDiffblueTest {
    * Method under test: {@link UserController#createUser(User)}
    */
   @Test
-  public void testCreateUser_whenNewUserPasswordIsIloveyouAndNewUserUsernameIsJanedoeAndPostSlashUsersContentTypeApplication_jsonContentNewObjectMapperWriteValueAsStringNewUser_thenStatusIsOk()
+  public void testCreateUser_givenUserServiceCreateDoesNothingAndIloveyouAndJanedoeAndStandaloneSetupWithUserControllerBuild_whenNewUserPasswordIsIloveyouAndNewUserUsernameIsJanedoeAndPostSlashUsersContentTypeApplication_jsonContentNewObjectMapperWriteValueAsStringNewUser_thenStatusIsOk()
       throws Exception {
     // Arrange
     doNothing().when(userService).create(Mockito.<User>any());
@@ -55,23 +55,8 @@ public class UserControllerDiffblueTest {
    * Method under test: {@link UserController#getUser(Principal)}
    */
   @Test
-  public void testGetUser_whenGetSlashUsersSlashCurrentCharacterEncodingEncoding_thenStatusIsOk() throws Exception {
-    // Arrange
-    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/users/current");
-    requestBuilder.characterEncoding("Encoding");
-
-    // Act and Assert
-    MockMvcBuilders.standaloneSetup(userController)
-        .build()
-        .perform(requestBuilder)
-        .andExpect(MockMvcResultMatchers.status().isOk());
-  }
-
-  /**
-   * Method under test: {@link UserController#getUser(Principal)}
-   */
-  @Test
-  public void testGetUser_whenGetSlashUsersSlashCurrent_thenStatusIsOk() throws Exception {
+  public void testGetUser_givenUserServiceAndStandaloneSetupWithUserControllerBuild_whenGetSlashUsersSlashCurrent_thenStatusIsOk()
+      throws Exception {
     // Arrange
     MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/users/current");
 

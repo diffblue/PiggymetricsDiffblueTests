@@ -31,7 +31,7 @@ public class ResourceServerConfigDiffblueTest {
    * Method under test: {@link ResourceServerConfig#tokenServices()}
    */
   @Test
-  public void testTokenServices_thenReturnsInstanceOfCustomUserInfoTokenServices() {
+  public void testTokenServices_givenDataPointRepositoryAndMongodExecutableAndResourceServerConfig_thenReturnsInstanceOfCustomUserInfoTokenServices() {
     // Arrange, Act and Assert
     assertTrue(resourceServerConfig.tokenServices() instanceof CustomUserInfoTokenServices);
   }

@@ -1,19 +1,19 @@
 {
-  "totalTime" : 2215.506,
-  "environmentDetectionTime" : 6.3420000000000005,
-  "indexingTime" : 3.2270000000000003,
-  "entryPointsTime" : 6.0440000000000005,
-  "generationTime" : 1403.664,
-  "timeToFirstTest" : 942.5090000000001,
-  "timeToLastTest" : 1925.5550000000003,
-  "verificationTime" : 105.72099999999999,
-  "validationTime" : 110.35900000000001,
+  "totalTime" : 2203.428,
+  "environmentDetectionTime" : 6.0600000000000005,
+  "indexingTime" : 2.9,
+  "entryPointsTime" : 5.79,
+  "generationTime" : 1397.155,
+  "timeToFirstTest" : 936.4,
+  "timeToLastTest" : 1920.3139999999999,
+  "verificationTime" : 107.822,
+  "validationTime" : 107.351,
   "summary" : {
     "classesCount" : 75,
     "methodsCount" : 362,
-    "cumulativeDiffblueTestCount" : 98,
+    "cumulativeDiffblueTestCount" : 97,
     "cumulativeManualTestCount" : 57,
-    "completeTestCount" : 95,
+    "completeTestCount" : 94,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "perMethodTestability" : {
@@ -31,9 +31,9 @@
       "E052" : 49,
       "R000" : 171,
       "R002" : 8,
-      "R004" : 7,
+      "R004" : 6,
       "R011" : 2,
-      "R013" : 5,
+      "R013" : 6,
       "R015" : 1,
       "T003" : 17,
       "T005" : 35,
@@ -42,10 +42,10 @@
       "T012" : 39
     },
     "perTestOutcome" : {
-      "R000" : 95
+      "R000" : 94
     },
     "perTestValidation" : {
-      "V000" : 93,
+      "V000" : 92,
       "V003" : 2
     }
   },
@@ -80,13 +80,13 @@
     "mutationsTotal" : 0
   },
   "testDiffStatSummary" : {
-    "files" : 33,
-    "insertions" : 108,
-    "deletions" : 94
+    "files" : 38,
+    "insertions" : 396,
+    "deletions" : 392
   },
   "diffblueTestDiffStatSummary" : {
-    "files" : 33,
-    "insertions" : 108,
-    "deletions" : 94
+    "files" : 38,
+    "insertions" : 396,
+    "deletions" : 392
   }
 }

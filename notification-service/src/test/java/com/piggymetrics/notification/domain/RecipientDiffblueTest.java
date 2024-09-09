@@ -22,7 +22,7 @@ public class RecipientDiffblueTest {
    * </ul>
    */
   @Test
-  public void testGettersAndSetters_thenReturnsAccountNameIsDrJaneDoeAndReturnsToStringIsAStringAndReturnsEmailIsJaneDotDoeCommercialAtExampleDotOrgAndReturnsScheduledNotificationsEmptyIsTrueAndReturnsScheduledNotificationsIsNewHashMap() {
+  public void testGettersAndSetters_thenReturnsAccountNameIsDrJaneDoeAndReturnsToStringIsAStringAndReturnsEmailIsJaneDotDoeCommercialAtExampleDotOrgAndReturnsScheduledNotificationsEmptyAndReturnsScheduledNotificationsIsNewHashMap() {
     // Arrange and Act
     Recipient actualRecipient = new Recipient();
     actualRecipient.setAccountName("Dr Jane Doe");

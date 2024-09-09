@@ -44,7 +44,7 @@ public class StatisticsControllerDiffblueTest {
    * {@link StatisticsController#getCurrentAccountStatistics(Principal)}
    */
   @Test
-  public void testGetCurrentAccountStatistics_whenGetSlashCurrentPrincipalNewUserPrincipal_thenStatusIsOkAndContentContentTypeApplicationSlashJsonSemicolonCharsetEqualsSignUtfHyphenMinus8AndContentStringLeftSquareBracketRightSquareBracket()
+  public void testGetCurrentAccountStatistics_givenStatisticsServiceFindByAccountNameReturnsNewArrayListAndNewUserPrincipalWithPrincipalAndStandaloneSetupWithStatisticsControllerBuild_whenGetSlashCurrentPrincipalNewUserPrincipalWithPrincipal_thenStatusIsOkAndContentContentTypeApplicationSlashJsonSemicolonCharsetEqualsSignUtfDash8AndContentStringLeftSquareBracketRightSquareBracket()
       throws Exception {
     // Arrange
     when(statisticsService.findByAccountName(Mockito.<String>any())).thenReturn(new ArrayList<>());
@@ -65,32 +65,11 @@ public class StatisticsControllerDiffblueTest {
    * {@link StatisticsController#getStatisticsByAccountName(String)}
    */
   @Test
-  public void testGetStatisticsByAccountName_whenGetSlashLeftCurlyBracketAccountNameRightCurlyBracketAndDrJaneDoe_thenStatusIsOkAndContentContentTypeApplicationSlashJsonSemicolonCharsetEqualsSignUtfHyphenMinus8AndContentStringLeftSquareBracketRightSquareBracket()
+  public void testGetStatisticsByAccountName_givenStatisticsServiceFindByAccountNameReturnsNewArrayListAndStandaloneSetupWithStatisticsControllerBuild_whenGetSlashLeftCurlyBracketAccountNameRightCurlyBracketWithDrJaneDoe_thenStatusIsOkAndContentContentTypeApplicationSlashJsonSemicolonCharsetEqualsSignUtfDash8AndContentStringLeftSquareBracketRightSquareBracket()
       throws Exception {
     // Arrange
     when(statisticsService.findByAccountName(Mockito.<String>any())).thenReturn(new ArrayList<>());
     MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/{accountName}", "Dr Jane Doe");
-
-    // Act and Assert
-    MockMvcBuilders.standaloneSetup(statisticsController)
-        .build()
-        .perform(requestBuilder)
-        .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/json;charset=UTF-8"))
-        .andExpect(MockMvcResultMatchers.content().string("[]"));
-  }
-
-  /**
-   * Method under test:
-   * {@link StatisticsController#getStatisticsByAccountName(String)}
-   */
-  @Test
-  public void testGetStatisticsByAccountName_whenGetSlashLeftCurlyBracketAccountNameRightCurlyBracketCharacterEncodingEncodingAndDrJaneDoe_thenStatusIsOkAndContentContentTypeApplicationSlashJsonSemicolonCharsetEqualsSignUtfHyphenMinus8AndContentStringLeftSquareBracketRightSquareBracket()
-      throws Exception {
-    // Arrange
-    when(statisticsService.findByAccountName(Mockito.<String>any())).thenReturn(new ArrayList<>());
-    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/{accountName}", "Dr Jane Doe");
-    requestBuilder.characterEncoding("Encoding");
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(statisticsController)
@@ -106,7 +85,7 @@ public class StatisticsControllerDiffblueTest {
    * {@link StatisticsController#saveAccountStatistics(String, Account)}
    */
   @Test
-  public void testSaveAccountStatistics_whenNewAccountExpensesIsNewArrayListAndNewAccountIncomesIsNewArrayListAndNewAccountSavingIsNewSavingAndDrJaneDoeAndPutSlashLeftCurlyBracketAccountNameRightCurlyBracketContentTypeApplication_jsonContentNewObjectMapperWriteValueAsStringNewAccount_thenStatusIsOk()
+  public void testSaveAccountStatistics_givenNewDataPointExpensesIsNewHashSetAndFromLocalDateWith1970AndOneAndOneAtStartOfDayAtZoneUtcToInstantAndNewDataPointIdIsNewDataPointIdWithAccountIs3AndDateIsFromLocalDateAtStartOfDayAtZoneUtcToInstantAndNewDataPointIncomesIsNewHashSetAndNewDataPointRatesIsNewHashMapAndNewDataPointStatisticsIsNewHashMapAndStatisticsServiceSaveReturnsNewDataPointAndNewSavingAmountIsNewBigDecimalWith2Dot3AndNewSavingCapitalizationIsTrueAndNewSavingCurrencyIsUsdAndNewSavingDepositIsTrueAndNewSavingInterestIsNewBigDecimalWith2Dot3AndNewArrayListAndStandaloneSetupWithStatisticsControllerBuild_whenNewAccountExpensesIsNewArrayListAndNewAccountIncomesIsNewArrayListAndNewAccountSavingIsNewSavingAndPutSlashLeftCurlyBracketAccountNameRightCurlyBracketWithDrJaneDoeContentTypeApplication_jsonContentNewObjectMapperWriteValueAsStringNewAccount_thenStatusIsOk()
       throws Exception {
     // Arrange
     DataPoint dataPoint = new DataPoint();

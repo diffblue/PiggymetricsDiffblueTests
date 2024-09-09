@@ -33,32 +33,7 @@ public class UserServiceImplDiffblueTest {
    * Method under test: {@link UserServiceImpl#create(User)}
    */
   @Test
-  public void testCreate_whenNewUserPasswordIsIloveyouAndNewUserUsernameIsJanedoe_thenCallsSaveAndCallsFindById() {
-    // Arrange
-    User user = new User();
-    user.setPassword("iloveyou");
-    user.setUsername("janedoe");
-    when(userRepository.save(Mockito.<User>any())).thenReturn(user);
-    Optional<User> emptyResult = Optional.empty();
-    when(userRepository.findById(Mockito.<String>any())).thenReturn(emptyResult);
-
-    User user2 = new User();
-    user2.setPassword("iloveyou");
-    user2.setUsername("janedoe");
-
-    // Act
-    userServiceImpl.create(user2);
-
-    // Assert
-    verify(userRepository).findById(eq("janedoe"));
-    verify(userRepository).save(isA(User.class));
-  }
-
-  /**
-   * Method under test: {@link UserServiceImpl#create(User)}
-   */
-  @Test
-  public void testCreate_whenNewUserPasswordIsIloveyouAndNewUserUsernameIsJanedoe_thenThrowsIllegalArgumentExceptionAndCallsFindById() {
+  public void testCreate_givenUserRepositoryFindByIdReturnsOptionalWithNewUserAndNewUserPasswordIsIloveyouAndNewUserUsernameIsJanedoeAndUserServiceImplAndIloveyouAndJanedoe_whenNewUserPasswordIsIloveyouAndNewUserUsernameIsJanedoe_thenThrowsIllegalArgumentExceptionAndCallsFindById() {
     // Arrange
     User user = new User();
     user.setPassword("iloveyou");
@@ -80,7 +55,7 @@ public class UserServiceImplDiffblueTest {
    * Method under test: {@link UserServiceImpl#create(User)}
    */
   @Test
-  public void testCreate_whenNewUserPasswordIsIloveyouAndNewUserUsernameIsJanedoe_thenThrowsIllegalArgumentExceptionAndCallsFindById2() {
+  public void testCreate_givenUserRepositoryFindByIdThrowsNewIllegalArgumentExceptionWithNewUserHasBeenCreatedColonLeftCurlyBracketRightCurlyBracketAndUserServiceImplAndIloveyouAndJanedoe_whenNewUserPasswordIsIloveyouAndNewUserUsernameIsJanedoe_thenThrowsIllegalArgumentExceptionAndCallsFindById() {
     // Arrange
     when(userRepository.findById(Mockito.<String>any()))
         .thenThrow(new IllegalArgumentException("new user has been created: {}"));
@@ -93,5 +68,30 @@ public class UserServiceImplDiffblueTest {
     thrown.expect(IllegalArgumentException.class);
     userServiceImpl.create(user);
     verify(userRepository).findById(eq("janedoe"));
+  }
+
+  /**
+   * Method under test: {@link UserServiceImpl#create(User)}
+   */
+  @Test
+  public void testCreate_givenUserRepositorySaveReturnsNewUserAndUserRepositoryFindByIdReturnsEmptyAndNewUserPasswordIsIloveyouAndNewUserUsernameIsJanedoeAndUserServiceImplAndIloveyouAndJanedoe_whenNewUserPasswordIsIloveyouAndNewUserUsernameIsJanedoe_thenCallsSaveAndCallsFindById() {
+    // Arrange
+    User user = new User();
+    user.setPassword("iloveyou");
+    user.setUsername("janedoe");
+    when(userRepository.save(Mockito.<User>any())).thenReturn(user);
+    Optional<User> emptyResult = Optional.empty();
+    when(userRepository.findById(Mockito.<String>any())).thenReturn(emptyResult);
+
+    User user2 = new User();
+    user2.setPassword("iloveyou");
+    user2.setUsername("janedoe");
+
+    // Act
+    userServiceImpl.create(user2);
+
+    // Assert
+    verify(userRepository).findById(eq("janedoe"));
+    verify(userRepository).save(isA(User.class));
   }
 }

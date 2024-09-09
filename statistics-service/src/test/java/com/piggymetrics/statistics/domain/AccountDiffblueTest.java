@@ -21,7 +21,7 @@ public class AccountDiffblueTest {
    * </ul>
    */
   @Test
-  public void testGettersAndSetters_thenReturnsExpensesEmptyIsTrueAndReturnsIncomesEmptyIsTrueAndReturnsSavingIsNewSavingAndReturnsExpensesIsNewArrayListAndReturnsIncomesIsNewArrayList() {
+  public void testGettersAndSetters_thenReturnsExpensesEmptyAndReturnsIncomesEmptyAndReturnsSavingIsNewSavingAndReturnsExpensesIsNewArrayListAndReturnsIncomesIsNewArrayList() {
     // Arrange and Act
     Account actualAccount = new Account();
     ArrayList<Item> expenses = new ArrayList<>();

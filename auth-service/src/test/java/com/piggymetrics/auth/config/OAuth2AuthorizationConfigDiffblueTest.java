@@ -33,10 +33,29 @@ public class OAuth2AuthorizationConfigDiffblueTest {
 
   /**
    * Method under test:
+   * {@link OAuth2AuthorizationConfig#configure(ClientDetailsServiceConfigurer)}
+   */
+  @Test
+  public void testConfigure_givenDataSourceAndUserRepositoryAndMongodExecutableAndOAuth2AuthorizationConfig_whenNewJdbcClientDetailsServiceBuilderDataSourceDataSourceAndNewClientDetailsServiceConfigurerWithBuilderIsNewJdbcClientDetailsServiceBuilder_thenNewClientDetailsServiceConfigurerWithBuilderIsNewJdbcClientDetailsServiceBuilderAndInstanceOfInMemoryClientDetailsServiceBuilder()
+      throws Exception {
+    // Arrange
+    JdbcClientDetailsServiceBuilder builder = new JdbcClientDetailsServiceBuilder();
+    builder.dataSource(mock(DataSource.class));
+    ClientDetailsServiceConfigurer clients = new ClientDetailsServiceConfigurer(builder);
+
+    // Act
+    oAuth2AuthorizationConfig.configure(clients);
+
+    // Assert
+    assertTrue(clients.and() instanceof InMemoryClientDetailsServiceBuilder);
+  }
+
+  /**
+   * Method under test:
    * {@link OAuth2AuthorizationConfig#configure(AuthorizationServerEndpointsConfigurer)}
    */
   @Test
-  public void testConfigure_whenNewAuthorizationServerEndpointsConfigurerUserDetailsServiceOverride_thenNewAuthorizationServerEndpointsConfigurerUserDetailsServiceOverrideIsTrue()
+  public void testConfigure_givenUserRepositoryAndMongodExecutableAndOAuth2AuthorizationConfig_whenNewAuthorizationServerEndpointsConfigurer_thenNewAuthorizationServerEndpointsConfigurerUserDetailsServiceOverride()
       throws Exception {
     // Arrange
     AuthorizationServerEndpointsConfigurer endpoints = new AuthorizationServerEndpointsConfigurer();
@@ -53,7 +72,7 @@ public class OAuth2AuthorizationConfigDiffblueTest {
    * {@link OAuth2AuthorizationConfig#configure(AuthorizationServerSecurityConfigurer)}
    */
   @Test
-  public void testConfigure_whenNewAuthorizationServerSecurityConfigurerCheckTokenAccessAndNewAuthorizationServerSecurityConfigurerTokenKeyAccess_thenNewAuthorizationServerSecurityConfigurerCheckTokenAccessIsIsAuthenticatedLeftParenthesisRightParenthesisAndNewAuthorizationServerSecurityConfigurerTokenKeyAccessIsPermitAllLeftParenthesisRightParenthesis()
+  public void testConfigure_givenUserRepositoryAndMongodExecutableAndOAuth2AuthorizationConfig_whenNewAuthorizationServerSecurityConfigurer_thenNewAuthorizationServerSecurityConfigurerCheckTokenAccessIsIsAuthenticatedLeftParenthesisRightParenthesisAndNewAuthorizationServerSecurityConfigurerTokenKeyAccessIsPermitAllLeftParenthesisRightParenthesis()
       throws Exception {
     // Arrange
     AuthorizationServerSecurityConfigurer oauthServer = new AuthorizationServerSecurityConfigurer();
@@ -71,29 +90,10 @@ public class OAuth2AuthorizationConfigDiffblueTest {
    * {@link OAuth2AuthorizationConfig#configure(ClientDetailsServiceConfigurer)}
    */
   @Test
-  public void testConfigure_whenNewClientDetailsServiceBuilderAndNewClientDetailsServiceConfigurerAnd_thenNewClientDetailsServiceConfigurerAndInstanceOfInMemoryClientDetailsServiceBuilder()
+  public void testConfigure_givenUserRepositoryAndMongodExecutableAndOAuth2AuthorizationConfig_whenNewClientDetailsServiceConfigurerWithBuilderIsNewClientDetailsServiceBuilder_thenNewClientDetailsServiceConfigurerWithBuilderIsNewClientDetailsServiceBuilderAndInstanceOfInMemoryClientDetailsServiceBuilder()
       throws Exception {
     // Arrange
     ClientDetailsServiceConfigurer clients = new ClientDetailsServiceConfigurer(new ClientDetailsServiceBuilder<>());
-
-    // Act
-    oAuth2AuthorizationConfig.configure(clients);
-
-    // Assert
-    assertTrue(clients.and() instanceof InMemoryClientDetailsServiceBuilder);
-  }
-
-  /**
-   * Method under test:
-   * {@link OAuth2AuthorizationConfig#configure(ClientDetailsServiceConfigurer)}
-   */
-  @Test
-  public void testConfigure_whenNewJdbcClientDetailsServiceBuilderDataSourceMockDataSourceAndNewClientDetailsServiceConfigurerAnd_thenNewClientDetailsServiceConfigurerAndInstanceOfInMemoryClientDetailsServiceBuilder()
-      throws Exception {
-    // Arrange
-    JdbcClientDetailsServiceBuilder builder = new JdbcClientDetailsServiceBuilder();
-    builder.dataSource(mock(DataSource.class));
-    ClientDetailsServiceConfigurer clients = new ClientDetailsServiceConfigurer(builder);
 
     // Act
     oAuth2AuthorizationConfig.configure(clients);

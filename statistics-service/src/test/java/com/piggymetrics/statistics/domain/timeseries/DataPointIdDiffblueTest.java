@@ -18,7 +18,7 @@ public class DataPointIdDiffblueTest {
    * </ul>
    */
   @Test
-  public void testGettersAndSetters_when3And1970AndOneAndFromLocalDateAtStartOfDayAtZoneUtcToInstant_thenReturnsAccountIs3AndReturnsDateIsFromLocalDateAtStartOfDayAtZoneUtcToInstant() {
+  public void testGettersAndSetters_when3AndFromLocalDateWith1970AndOneAndOneAtStartOfDayAtZoneUtcToInstant_thenReturnsAccountIs3AndReturnsDateIsFromLocalDateWith1970AndOneAndOneAtStartOfDayAtZoneUtcToInstant() {
     // Arrange
     Date date = Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
 
