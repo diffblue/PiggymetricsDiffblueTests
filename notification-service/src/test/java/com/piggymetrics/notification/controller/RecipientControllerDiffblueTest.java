@@ -28,12 +28,11 @@ public class RecipientControllerDiffblueTest {
   private RecipientService recipientService;
 
   /**
-   * Method under test:
-   * {@link RecipientController#getCurrentNotificationsSettings(Principal)}
+   * Test
+   * {@link com.piggymetrics.notification.controller.RecipientController#getCurrentNotificationsSettings(Principal)}.
    */
   @Test
-  public void testGetCurrentNotificationsSettings_givenNewRecipientAccountNameIsDrJaneDoeAndNewRecipientEmailIsJaneDotDoeCommercialAtExampleDotOrgAndNewRecipientScheduledNotificationsIsNewHashMapAndRecipientServiceFindByAccountNameReturnsNewRecipientAndNewUserPrincipalWithPrincipalAndStandaloneSetupWithRecipientControllerBuild_whenGetSlashRecipientsSlashCurrentPrincipalNewUserPrincipalWithPrincipal_thenStatusIsOkAndContentContentTypeApplicationSlashJsonSemicolonCharsetEqualsSignUtfDash8AndContentStringAString()
-      throws Exception {
+  public void testGetCurrentNotificationsSettings() throws Exception {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");

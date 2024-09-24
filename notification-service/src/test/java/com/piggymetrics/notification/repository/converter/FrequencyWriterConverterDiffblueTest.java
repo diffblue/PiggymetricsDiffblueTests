@@ -15,10 +15,12 @@ public class FrequencyWriterConverterDiffblueTest {
   private FrequencyWriterConverter frequencyWriterConverter;
 
   /**
-   * Method under test: {@link FrequencyWriterConverter#convert(Frequency)}
+   * Test
+   * {@link com.piggymetrics.notification.repository.converter.FrequencyWriterConverter#convert(Frequency)}
+   * with {@code Frequency}.
    */
   @Test
-  public void testConvert_givenFrequencyWriterConverter_whenWeekly_thenReturnsIntValueIsSeven() {
+  public void testConvertWithFrequency() {
     // Arrange, Act and Assert
     assertEquals(7, frequencyWriterConverter.convert(Frequency.WEEKLY).intValue());
   }

@@ -40,10 +40,17 @@ public class RecipientServiceImplDiffblueTest {
   private RecipientServiceImpl recipientServiceImpl;
 
   /**
-   * Method under test: {@link RecipientServiceImpl#findByAccountName(String)}
+   * Test
+   * {@link com.piggymetrics.notification.service.RecipientServiceImpl#findByAccountName(String)}.
+   * <ul>
+   *   <li>Given {@link com.piggymetrics.notification.domain.Recipient#Recipient()}
+   * AccountName is {@code Dr Jane Doe}.</li>
+   *   <li>Then returns
+   * {@link com.piggymetrics.notification.domain.Recipient#Recipient()}.</li>
+   * <ul>
    */
   @Test
-  public void testFindByAccountName_givenNewRecipientAccountNameIsDrJaneDoeAndNewRecipientEmailIsJaneDotDoeCommercialAtExampleDotOrgAndNewRecipientScheduledNotificationsIsNewHashMapAndRecipientRepositoryFindByAccountNameReturnsNewRecipientAndRecipientServiceImpl_whenDrJaneDoe_thenReturnsNewRecipientAndCallsFindByAccountName() {
+  public void testFindByAccountName_givenRecipientAccountNameIsDrJaneDoe_thenReturnsRecipient() {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
@@ -60,10 +67,14 @@ public class RecipientServiceImplDiffblueTest {
   }
 
   /**
-   * Method under test: {@link RecipientServiceImpl#findByAccountName(String)}
+   * Test
+   * {@link com.piggymetrics.notification.service.RecipientServiceImpl#findByAccountName(String)}.
+   * <ul>
+   *   <li>Then throws {@link java.lang.IllegalArgumentException}.</li>
+   * <ul>
    */
   @Test
-  public void testFindByAccountName_givenRecipientRepositoryFindByAccountNameThrowsNewIllegalArgumentExceptionWithFooAndRecipientServiceImpl_whenDrJaneDoe_thenThrowsIllegalArgumentExceptionAndCallsFindByAccountName() {
+  public void testFindByAccountName_thenThrowsIllegalArgumentException() {
     // Arrange
     when(recipientRepository.findByAccountName(Mockito.<String>any())).thenThrow(new IllegalArgumentException("foo"));
 
@@ -74,10 +85,51 @@ public class RecipientServiceImplDiffblueTest {
   }
 
   /**
-   * Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
+   * Test
+   * {@link com.piggymetrics.notification.service.RecipientServiceImpl#save(String, Recipient)}.
    */
   @Test
-  public void testSave_givenNewHashMapAndNewRecipientAccountNameIsDrJaneDoeAndNewRecipientEmailIsJaneDotDoeCommercialAtExampleDotOrgAndNewRecipientScheduledNotificationsIsNewHashMapAndRecipientRepositorySaveReturnsNewRecipientAndRecipientServiceImplAndDrJaneDoeAndJaneDotDoeCommercialAtExampleDotOrg_whenDrJaneDoeAndNewRecipientAccountNameIsDrJaneDoeAndNewRecipientEmailIsJaneDotDoeCommercialAtExampleDotOrgAndNewRecipientScheduledNotificationsIsNewHashMap_thenReturnsNewRecipientAndCallsSave() {
+  public void testSave() {
+    // Arrange
+    Recipient recipient = new Recipient();
+    recipient.setAccountName("Dr Jane Doe");
+    recipient.setEmail("jane.doe@example.org");
+    recipient.setScheduledNotifications(new HashMap<>());
+    when(recipientRepository.save(Mockito.<Recipient>any())).thenReturn(recipient);
+
+    NotificationSettings notificationSettings = new NotificationSettings();
+    notificationSettings.setActive(true);
+    notificationSettings.setFrequency(Frequency.WEEKLY);
+    notificationSettings
+        .setLastNotified(Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
+
+    HashMap<NotificationType, NotificationSettings> scheduledNotifications = new HashMap<>();
+    scheduledNotifications.put(NotificationType.BACKUP, notificationSettings);
+
+    Recipient recipient2 = new Recipient();
+    recipient2.setAccountName("Dr Jane Doe");
+    recipient2.setEmail("jane.doe@example.org");
+    recipient2.setScheduledNotifications(scheduledNotifications);
+
+    // Act
+    Recipient actualSaveResult = recipientServiceImpl.save("Dr Jane Doe", recipient2);
+
+    // Assert
+    verify(recipientRepository).save(isA(Recipient.class));
+    assertSame(recipient2, actualSaveResult);
+  }
+
+  /**
+   * Test
+   * {@link com.piggymetrics.notification.service.RecipientServiceImpl#save(String, Recipient)}.
+   * <ul>
+   *   <li>Given {@link java.util.HashMap#HashMap()}.</li>
+   *   <li>Then returns
+   * {@link com.piggymetrics.notification.domain.Recipient#Recipient()}.</li>
+   * <ul>
+   */
+  @Test
+  public void testSave_givenHashMap_thenReturnsRecipient() {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
@@ -99,10 +151,18 @@ public class RecipientServiceImplDiffblueTest {
   }
 
   /**
-   * Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
+   * Test
+   * {@link com.piggymetrics.notification.service.RecipientServiceImpl#save(String, Recipient)}.
+   * <ul>
+   *   <li>Given
+   * {@link com.piggymetrics.notification.domain.NotificationSettings#NotificationSettings()}
+   * Active is {@code false}.</li>
+   *   <li>Then returns
+   * {@link com.piggymetrics.notification.domain.Recipient#Recipient()}.</li>
+   * <ul>
    */
   @Test
-  public void testSave_givenNewNotificationSettingsActiveIsFalseAndNewNotificationSettingsFrequencyIsMonthlyAndNewHashMapRemindIsNewNotificationSettingsAndNewNotificationSettingsLastNotifiedIsFromLocalDateWith1970AndOneAndOneAtStartOfDayAtZoneUtcToInstantAndNewNotificationSettingsActiveIsTrueAndNewNotificationSettingsFrequencyIsWeeklyAndNewHashMapBackupIsNewNotificationSettingsAndNewRecipientAccountNameIsDrJaneDoeAndNewRecipientEmailIsJaneDotDoeCommercialAtExampleDotOrgAndNewRecipientScheduledNotificationsIsNewHashMapAndRecipientRepositorySaveReturnsNewRecipientAndRecipientServiceImplAndDrJaneDoeAndJaneDotDoeCommercialAtExampleDotOrg_whenDrJaneDoeAndNewRecipientAccountNameIsDrJaneDoeAndNewRecipientEmailIsJaneDotDoeCommercialAtExampleDotOrgAndNewRecipientScheduledNotificationsIsNewHashMap_thenReturnsNewRecipientAndCallsSave() {
+  public void testSave_givenNotificationSettingsActiveIsFalse_thenReturnsRecipient() {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
@@ -140,44 +200,18 @@ public class RecipientServiceImplDiffblueTest {
   }
 
   /**
-   * Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
+   * Test
+   * {@link com.piggymetrics.notification.service.RecipientServiceImpl#save(String, Recipient)}.
+   * <ul>
+   *   <li>Given
+   * {@link com.piggymetrics.notification.domain.NotificationSettings#NotificationSettings()}
+   * LastNotified is {@code null}.</li>
+   *   <li>Then returns
+   * {@link com.piggymetrics.notification.domain.Recipient#Recipient()}.</li>
+   * <ul>
    */
   @Test
-  public void testSave_givenNewNotificationSettingsLastNotifiedIsFromLocalDateWith1970AndOneAndOneAtStartOfDayAtZoneUtcToInstantAndNewNotificationSettingsActiveIsTrueAndNewNotificationSettingsFrequencyIsWeeklyAndNewHashMapBackupIsNewNotificationSettingsAndNewRecipientAccountNameIsDrJaneDoeAndNewRecipientEmailIsJaneDotDoeCommercialAtExampleDotOrgAndNewRecipientScheduledNotificationsIsNewHashMapAndRecipientRepositorySaveReturnsNewRecipientAndRecipientServiceImplAndDrJaneDoeAndJaneDotDoeCommercialAtExampleDotOrg_whenDrJaneDoeAndNewRecipientAccountNameIsDrJaneDoeAndNewRecipientEmailIsJaneDotDoeCommercialAtExampleDotOrgAndNewRecipientScheduledNotificationsIsNewHashMap_thenReturnsNewRecipientAndCallsSave() {
-    // Arrange
-    Recipient recipient = new Recipient();
-    recipient.setAccountName("Dr Jane Doe");
-    recipient.setEmail("jane.doe@example.org");
-    recipient.setScheduledNotifications(new HashMap<>());
-    when(recipientRepository.save(Mockito.<Recipient>any())).thenReturn(recipient);
-
-    NotificationSettings notificationSettings = new NotificationSettings();
-    notificationSettings.setActive(true);
-    notificationSettings.setFrequency(Frequency.WEEKLY);
-    notificationSettings
-        .setLastNotified(Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
-
-    HashMap<NotificationType, NotificationSettings> scheduledNotifications = new HashMap<>();
-    scheduledNotifications.put(NotificationType.BACKUP, notificationSettings);
-
-    Recipient recipient2 = new Recipient();
-    recipient2.setAccountName("Dr Jane Doe");
-    recipient2.setEmail("jane.doe@example.org");
-    recipient2.setScheduledNotifications(scheduledNotifications);
-
-    // Act
-    Recipient actualSaveResult = recipientServiceImpl.save("Dr Jane Doe", recipient2);
-
-    // Assert
-    verify(recipientRepository).save(isA(Recipient.class));
-    assertSame(recipient2, actualSaveResult);
-  }
-
-  /**
-   * Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
-   */
-  @Test
-  public void testSave_givenNewNotificationSettingsLastNotifiedIsNullAndNewNotificationSettingsActiveIsTrueAndNewNotificationSettingsFrequencyIsWeeklyAndNewHashMapBackupIsNewNotificationSettingsAndNewRecipientAccountNameIsDrJaneDoeAndNewRecipientEmailIsJaneDotDoeCommercialAtExampleDotOrgAndNewRecipientScheduledNotificationsIsNewHashMapAndRecipientRepositorySaveReturnsNewRecipientAndRecipientServiceImplAndDrJaneDoeAndJaneDotDoeCommercialAtExampleDotOrg_whenDrJaneDoeAndNewRecipientAccountNameIsDrJaneDoeAndNewRecipientEmailIsJaneDotDoeCommercialAtExampleDotOrgAndNewRecipientScheduledNotificationsIsNewHashMap_thenReturnsNewRecipientAndCallsSave() {
+  public void testSave_givenNotificationSettingsLastNotifiedIsNull_thenReturnsRecipient() {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
@@ -207,10 +241,14 @@ public class RecipientServiceImplDiffblueTest {
   }
 
   /**
-   * Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
+   * Test
+   * {@link com.piggymetrics.notification.service.RecipientServiceImpl#save(String, Recipient)}.
+   * <ul>
+   *   <li>Then throws {@link java.lang.IllegalArgumentException}.</li>
+   * <ul>
    */
   @Test
-  public void testSave_givenRecipientRepositorySaveThrowsNewIllegalArgumentExceptionWithRecipientLeftCurlyBracketRightCurlyBracketSettingsHasBeenUpdatedAndNewHashMapAndRecipientServiceImplAndDrJaneDoeAndJaneDotDoeCommercialAtExampleDotOrg_whenDrJaneDoeAndNewRecipientAccountNameIsDrJaneDoeAndNewRecipientEmailIsJaneDotDoeCommercialAtExampleDotOrgAndNewRecipientScheduledNotificationsIsNewHashMap_thenThrowsIllegalArgumentExceptionAndCallsSave() {
+  public void testSave_thenThrowsIllegalArgumentException() {
     // Arrange
     when(recipientRepository.save(Mockito.<Recipient>any()))
         .thenThrow(new IllegalArgumentException("recipient {} settings has been updated"));
@@ -227,30 +265,17 @@ public class RecipientServiceImplDiffblueTest {
   }
 
   /**
-   * Method under test:
-   * {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
+   * Test
+   * {@link com.piggymetrics.notification.service.RecipientServiceImpl#findReadyToNotify(NotificationType)}.
+   * <ul>
+   *   <li>Given
+   * {@link com.piggymetrics.notification.repository.RecipientRepository}
+   * {@link com.piggymetrics.notification.repository.RecipientRepository#findReadyForRemind()}
+   * returns {@link java.util.ArrayList#ArrayList()}.</li>
+   * <ul>
    */
   @Test
-  public void testFindReadyToNotify_givenRecipientRepositoryFindReadyForBackupReturnsNewArrayListAndRecipientServiceImpl_whenBackup_thenCallsFindReadyForBackupAndReturnsEmptyAndReturnsNewArrayList() {
-    // Arrange
-    ArrayList<Recipient> recipientList = new ArrayList<>();
-    when(recipientRepository.findReadyForBackup()).thenReturn(recipientList);
-
-    // Act
-    List<Recipient> actualFindReadyToNotifyResult = recipientServiceImpl.findReadyToNotify(NotificationType.BACKUP);
-
-    // Assert
-    verify(recipientRepository).findReadyForBackup();
-    assertTrue(actualFindReadyToNotifyResult.isEmpty());
-    assertSame(recipientList, actualFindReadyToNotifyResult);
-  }
-
-  /**
-   * Method under test:
-   * {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
-   */
-  @Test
-  public void testFindReadyToNotify_givenRecipientRepositoryFindReadyForRemindReturnsNewArrayListAndRecipientServiceImpl_whenRemind_thenReturnsEmptyAndReturnsNewArrayListAndCallsFindReadyForRemind() {
+  public void testFindReadyToNotify_givenRecipientRepositoryFindReadyForRemindReturnsArrayList() {
     // Arrange
     ArrayList<Recipient> recipientList = new ArrayList<>();
     when(recipientRepository.findReadyForRemind()).thenReturn(recipientList);
@@ -265,11 +290,37 @@ public class RecipientServiceImplDiffblueTest {
   }
 
   /**
-   * Method under test:
-   * {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
+   * Test
+   * {@link com.piggymetrics.notification.service.RecipientServiceImpl#findReadyToNotify(NotificationType)}.
+   * <ul>
+   *   <li>Then calls
+   * {@link com.piggymetrics.notification.repository.RecipientRepository#findReadyForBackup()}.</li>
+   * <ul>
    */
   @Test
-  public void testFindReadyToNotify_givenRecipientRepositoryFindReadyForRemindThrowsNewIllegalArgumentExceptionWithFooAndRecipientServiceImpl_whenRemind_thenThrowsIllegalArgumentExceptionAndCallsFindReadyForRemind() {
+  public void testFindReadyToNotify_thenCallsFindReadyForBackup() {
+    // Arrange
+    ArrayList<Recipient> recipientList = new ArrayList<>();
+    when(recipientRepository.findReadyForBackup()).thenReturn(recipientList);
+
+    // Act
+    List<Recipient> actualFindReadyToNotifyResult = recipientServiceImpl.findReadyToNotify(NotificationType.BACKUP);
+
+    // Assert
+    verify(recipientRepository).findReadyForBackup();
+    assertTrue(actualFindReadyToNotifyResult.isEmpty());
+    assertSame(recipientList, actualFindReadyToNotifyResult);
+  }
+
+  /**
+   * Test
+   * {@link com.piggymetrics.notification.service.RecipientServiceImpl#findReadyToNotify(NotificationType)}.
+   * <ul>
+   *   <li>Then throws {@link java.lang.IllegalArgumentException}.</li>
+   * <ul>
+   */
+  @Test
+  public void testFindReadyToNotify_thenThrowsIllegalArgumentException() {
     // Arrange
     when(recipientRepository.findReadyForRemind()).thenThrow(new IllegalArgumentException("foo"));
 
@@ -280,11 +331,17 @@ public class RecipientServiceImplDiffblueTest {
   }
 
   /**
-   * Method under test:
-   * {@link RecipientServiceImpl#markNotified(NotificationType, Recipient)}
+   * Test
+   * {@link com.piggymetrics.notification.service.RecipientServiceImpl#markNotified(NotificationType, Recipient)}.
+   * <ul>
+   *   <li>Given {@link com.piggymetrics.notification.domain.Recipient#Recipient()}
+   * AccountName is {@code Dr Jane Doe}.</li>
+   *   <li>Then calls
+   * {@link org.springframework.data.repository.CrudRepository#save(Object)}.</li>
+   * <ul>
    */
   @Test
-  public void testMarkNotified_givenNewRecipientAccountNameIsDrJaneDoeAndNewRecipientEmailIsJaneDotDoeCommercialAtExampleDotOrgAndNewRecipientScheduledNotificationsIsNewHashMapAndRecipientRepositorySaveReturnsNewRecipientAndNewNotificationSettingsActiveIsTrueAndNewNotificationSettingsFrequencyIsWeeklyAndNewNotificationSettingsLastNotifiedIsFromLocalDateWith1970AndOneAndOneAtStartOfDayAtZoneUtcToInstantAndNewHashMapBackupIsNewNotificationSettingsAndRecipientServiceImplAndDrJaneDoeAndJaneDotDoeCommercialAtExampleDotOrg_whenBackupAndNewRecipientAccountNameIsDrJaneDoeAndNewRecipientEmailIsJaneDotDoeCommercialAtExampleDotOrgAndNewRecipientScheduledNotificationsIsNewHashMap_thenCallsSave() {
+  public void testMarkNotified_givenRecipientAccountNameIsDrJaneDoe_thenCallsSave() {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
@@ -314,11 +371,14 @@ public class RecipientServiceImplDiffblueTest {
   }
 
   /**
-   * Method under test:
-   * {@link RecipientServiceImpl#markNotified(NotificationType, Recipient)}
+   * Test
+   * {@link com.piggymetrics.notification.service.RecipientServiceImpl#markNotified(NotificationType, Recipient)}.
+   * <ul>
+   *   <li>Then throws {@link java.lang.IllegalArgumentException}.</li>
+   * <ul>
    */
   @Test
-  public void testMarkNotified_givenRecipientRepositorySaveThrowsNewIllegalArgumentExceptionWithFooAndNewNotificationSettingsActiveIsTrueAndNewNotificationSettingsFrequencyIsWeeklyAndNewNotificationSettingsLastNotifiedIsFromLocalDateWith1970AndOneAndOneAtStartOfDayAtZoneUtcToInstantAndNewHashMapBackupIsNewNotificationSettingsAndRecipientServiceImplAndDrJaneDoeAndJaneDotDoeCommercialAtExampleDotOrg_whenBackupAndNewRecipientAccountNameIsDrJaneDoeAndNewRecipientEmailIsJaneDotDoeCommercialAtExampleDotOrgAndNewRecipientScheduledNotificationsIsNewHashMap_thenThrowsIllegalArgumentExceptionAndCallsSave() {
+  public void testMarkNotified_thenThrowsIllegalArgumentException() {
     // Arrange
     when(recipientRepository.save(Mockito.<Recipient>any())).thenThrow(new IllegalArgumentException("foo"));
 

@@ -17,10 +17,11 @@ public class ExchangeRatesClientFallbackDiffblueTest {
   private ExchangeRatesClientFallback exchangeRatesClientFallback;
 
   /**
-   * Method under test: {@link ExchangeRatesClientFallback#getRates(Currency)}
+   * Test
+   * {@link com.piggymetrics.statistics.client.ExchangeRatesClientFallback#getRates(Currency)}.
    */
   @Test
-  public void testGetRates_givenExchangeRatesClientFallback_whenUsd_thenReturnsBaseIsUsdAndReturnsRatesEmpty() {
+  public void testGetRates() {
     // Arrange and Act
     ExchangeRatesContainer actualRates = exchangeRatesClientFallback.getRates(Currency.USD);
 

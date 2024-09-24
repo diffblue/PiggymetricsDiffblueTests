@@ -40,11 +40,11 @@ public class AccountControllerDiffblueTest {
   private AccountService accountService;
 
   /**
-   * Method under test: {@link AccountController#createNewAccount(User)}
+   * Test
+   * {@link com.piggymetrics.account.controller.AccountController#createNewAccount(User)}.
    */
   @Test
-  public void testCreateNewAccount_givenNewSavingAmountIsNewBigDecimalWith2Dot3AndNewSavingCapitalizationIsTrueAndNewSavingCurrencyIsUsdAndNewSavingDepositIsTrueAndNewSavingInterestIsNewBigDecimalWith2Dot3AndNewAccountExpensesIsNewArrayListAndNewAccountIncomesIsNewArrayListAndNewAccountLastSeenIsFromLocalDateWith1970AndOneAndOneAtStartOfDayAtZoneUtcToInstantAndNewAccountNameIsNameAndNewAccountNoteIsNoteAndNewAccountSavingIsNewSavingAndAccountServiceCreateReturnsNewAccountAndIloveyouAndJanedoeAndStandaloneSetupWithAccountControllerBuild_whenNewUserPasswordIsIloveyouAndNewUserUsernameIsJanedoeAndPostSlashContentTypeApplication_jsonContentNewObjectMapperWriteValueAsStringNewUser_thenStatusIsOkAndContentContentTypeApplicationSlashJsonSemicolonCharsetEqualsSignUtfDash8AndContentStringAString()
-      throws Exception {
+  public void testCreateNewAccount() throws Exception {
     // Arrange
     Saving saving = new Saving();
     saving.setAmount(new BigDecimal("2.3"));
@@ -83,11 +83,11 @@ public class AccountControllerDiffblueTest {
   }
 
   /**
-   * Method under test: {@link AccountController#getAccountByName(String)}
+   * Test
+   * {@link com.piggymetrics.account.controller.AccountController#getAccountByName(String)}.
    */
   @Test
-  public void testGetAccountByName_givenNewSavingAmountIsNewBigDecimalWith2Dot3AndNewSavingCapitalizationIsTrueAndNewSavingCurrencyIsUsdAndNewSavingDepositIsTrueAndNewSavingInterestIsNewBigDecimalWith2Dot3AndNewAccountExpensesIsNewArrayListAndNewAccountIncomesIsNewArrayListAndNewAccountLastSeenIsFromLocalDateWith1970AndOneAndOneAtStartOfDayAtZoneUtcToInstantAndNewAccountNameIsNameAndNewAccountNoteIsNoteAndNewAccountSavingIsNewSavingAndAccountServiceFindByNameReturnsNewAccountAndStandaloneSetupWithAccountControllerBuild_whenGetSlashLeftCurlyBracketNameRightCurlyBracketWithName_thenStatusIsOkAndContentContentTypeApplicationSlashJsonSemicolonCharsetEqualsSignUtfDash8AndContentStringAString()
-      throws Exception {
+  public void testGetAccountByName() throws Exception {
     // Arrange
     Saving saving = new Saving();
     saving.setAmount(new BigDecimal("2.3"));
@@ -119,11 +119,11 @@ public class AccountControllerDiffblueTest {
   }
 
   /**
-   * Method under test: {@link AccountController#getCurrentAccount(Principal)}
+   * Test
+   * {@link com.piggymetrics.account.controller.AccountController#getCurrentAccount(Principal)}.
    */
   @Test
-  public void testGetCurrentAccount_givenNewSavingAmountIsNewBigDecimalWith2Dot3AndNewSavingCapitalizationIsTrueAndNewSavingCurrencyIsUsdAndNewSavingDepositIsTrueAndNewSavingInterestIsNewBigDecimalWith2Dot3AndNewAccountExpensesIsNewArrayListAndNewAccountIncomesIsNewArrayListAndNewAccountLastSeenIsFromLocalDateWith1970AndOneAndOneAtStartOfDayAtZoneUtcToInstantAndNewAccountNameIsNameAndNewAccountNoteIsNoteAndNewAccountSavingIsNewSavingAndAccountServiceFindByNameReturnsNewAccountAndNewUserPrincipalWithPrincipalAndStandaloneSetupWithAccountControllerBuild_whenGetSlashCurrentPrincipalNewUserPrincipalWithPrincipal_thenStatusIsOkAndContentContentTypeApplicationSlashJsonSemicolonCharsetEqualsSignUtfDash8AndContentStringAString()
-      throws Exception {
+  public void testGetCurrentAccount() throws Exception {
     // Arrange
     Saving saving = new Saving();
     saving.setAmount(new BigDecimal("2.3"));
@@ -156,12 +156,59 @@ public class AccountControllerDiffblueTest {
   }
 
   /**
-   * Method under test:
-   * {@link AccountController#saveCurrentAccount(Principal, Account)}
+   * Test
+   * {@link com.piggymetrics.account.controller.AccountController#saveCurrentAccount(Principal, Account)}.
+   * <ul>
+   *   <li>Given {@link com.piggymetrics.account.service.AccountService}
+   * {@link com.piggymetrics.account.service.AccountService#saveChanges(String, Account)}
+   * does nothing.</li>
+   *   <li>Then status
+   * {@link org.springframework.test.web.servlet.result.StatusResultMatchers#isOk()}.</li>
+   * <ul>
    */
   @Test
-  public void testSaveCurrentAccount_givenAccountServiceAndNewSavingAmountIsNullAndDateGetTimeReturnsTenAndNewSavingCapitalizationIsTrueAndNewSavingCurrencyIsUsdAndNewSavingDepositIsTrueAndNewSavingInterestIsNewBigDecimalWith2Dot3AndNewArrayListAndNameAndNoteAndStandaloneSetupWithAccountControllerBuild_whenNewAccountExpensesIsNewArrayListAndNewAccountIncomesIsNewArrayListAndNewAccountLastSeenIsDateAndNewAccountNameIsNameAndNewAccountNoteIsNoteAndNewAccountSavingIsNewSavingAndPutSlashCurrentContentTypeApplication_jsonContentNewObjectMapperWriteValueAsStringNewAccount_thenStatusFourHundred()
-      throws Exception {
+  public void testSaveCurrentAccount_givenAccountServiceSaveChangesDoesNothing_thenStatusIsOk() throws Exception {
+    // Arrange
+    doNothing().when(accountService).saveChanges(Mockito.<String>any(), Mockito.<Account>any());
+    MockHttpServletRequestBuilder putResult = MockMvcRequestBuilders.put("/current");
+    putResult.principal(new UserPrincipal("principal"));
+    java.sql.Date lastSeen = mock(java.sql.Date.class);
+    when(lastSeen.getTime()).thenReturn(10L);
+
+    Saving saving = new Saving();
+    saving.setAmount(new BigDecimal("2.3"));
+    saving.setCapitalization(true);
+    saving.setCurrency(Currency.USD);
+    saving.setDeposit(true);
+    saving.setInterest(new BigDecimal("2.3"));
+
+    Account account = new Account();
+    account.setExpenses(new ArrayList<>());
+    account.setIncomes(new ArrayList<>());
+    account.setLastSeen(lastSeen);
+    account.setName("Name");
+    account.setNote("Note");
+    account.setSaving(saving);
+    String content = (new ObjectMapper()).writeValueAsString(account);
+    MockHttpServletRequestBuilder requestBuilder = putResult.contentType(MediaType.APPLICATION_JSON).content(content);
+
+    // Act and Assert
+    MockMvcBuilders.standaloneSetup(accountController)
+        .build()
+        .perform(requestBuilder)
+        .andExpect(MockMvcResultMatchers.status().isOk());
+  }
+
+  /**
+   * Test
+   * {@link com.piggymetrics.account.controller.AccountController#saveCurrentAccount(Principal, Account)}.
+   * <ul>
+   *   <li>Given {@link com.piggymetrics.account.service.AccountService}.</li>
+   *   <li>Then status four hundred.</li>
+   * <ul>
+   */
+  @Test
+  public void testSaveCurrentAccount_givenAccountService_thenStatusFourHundred() throws Exception {
     // Arrange
     java.sql.Date lastSeen = mock(java.sql.Date.class);
     when(lastSeen.getTime()).thenReturn(10L);
@@ -192,43 +239,5 @@ public class AccountControllerDiffblueTest {
 
     // Assert
     actualPerformResult.andExpect(MockMvcResultMatchers.status().is(400));
-  }
-
-  /**
-   * Method under test:
-   * {@link AccountController#saveCurrentAccount(Principal, Account)}
-   */
-  @Test
-  public void testSaveCurrentAccount_givenAccountServiceSaveChangesDoesNothingAndNewUserPrincipalWithPrincipalAndNewSavingAmountIsNewBigDecimalWith2Dot3AndDateGetTimeReturnsTenAndNewSavingCapitalizationIsTrueAndNewSavingCurrencyIsUsdAndNewSavingDepositIsTrueAndNewSavingInterestIsNewBigDecimalWith2Dot3AndNewArrayListAndNameAndNoteAndStandaloneSetupWithAccountControllerBuild_whenPutSlashCurrentPrincipalNewUserPrincipalWithPrincipalAndNewAccountExpensesIsNewArrayListAndNewAccountIncomesIsNewArrayListAndNewAccountLastSeenIsDateAndNewAccountNameIsNameAndNewAccountNoteIsNoteAndNewAccountSavingIsNewSavingAndPutSlashCurrentContentTypeApplication_jsonContentNewObjectMapperWriteValueAsStringNewAccount_thenStatusIsOk()
-      throws Exception {
-    // Arrange
-    doNothing().when(accountService).saveChanges(Mockito.<String>any(), Mockito.<Account>any());
-    MockHttpServletRequestBuilder putResult = MockMvcRequestBuilders.put("/current");
-    putResult.principal(new UserPrincipal("principal"));
-    java.sql.Date lastSeen = mock(java.sql.Date.class);
-    when(lastSeen.getTime()).thenReturn(10L);
-
-    Saving saving = new Saving();
-    saving.setAmount(new BigDecimal("2.3"));
-    saving.setCapitalization(true);
-    saving.setCurrency(Currency.USD);
-    saving.setDeposit(true);
-    saving.setInterest(new BigDecimal("2.3"));
-
-    Account account = new Account();
-    account.setExpenses(new ArrayList<>());
-    account.setIncomes(new ArrayList<>());
-    account.setLastSeen(lastSeen);
-    account.setName("Name");
-    account.setNote("Note");
-    account.setSaving(saving);
-    String content = (new ObjectMapper()).writeValueAsString(account);
-    MockHttpServletRequestBuilder requestBuilder = putResult.contentType(MediaType.APPLICATION_JSON).content(content);
-
-    // Act and Assert
-    MockMvcBuilders.standaloneSetup(accountController)
-        .build()
-        .perform(requestBuilder)
-        .andExpect(MockMvcResultMatchers.status().isOk());
   }
 }

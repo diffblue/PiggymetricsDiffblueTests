@@ -6,23 +6,23 @@ import org.junit.Test;
 
 public class TimePeriodDiffblueTest {
   /**
-   * Method under test: {@link TimePeriod#getBaseRatio()}
+   * Test {@link com.piggymetrics.statistics.domain.TimePeriod#getBase()}.
    */
   @Test
-  public void testGetBaseRatio_givenYear_thenReturnsNewBigDecimalWith365Dot24250000000000682121026329696178436279296875() {
+  public void testGetBase() {
+    // Arrange, Act and Assert
+    assertEquals(TimePeriod.DAY, TimePeriod.valueOf("YEAR").getBase());
+  }
+
+  /**
+   * Test {@link com.piggymetrics.statistics.domain.TimePeriod#getBaseRatio()}.
+   */
+  @Test
+  public void testGetBaseRatio() {
     // Arrange and Act
     BigDecimal actualBaseRatio = TimePeriod.YEAR.getBaseRatio();
 
     // Assert
     assertEquals(new BigDecimal("365.24250000000000682121026329696178436279296875"), actualBaseRatio);
-  }
-
-  /**
-   * Method under test: {@link TimePeriod#getBase()}
-   */
-  @Test
-  public void testGetBase_givenValueOfYear_thenReturnsDay() {
-    // Arrange, Act and Assert
-    assertEquals(TimePeriod.DAY, TimePeriod.valueOf("YEAR").getBase());
   }
 }

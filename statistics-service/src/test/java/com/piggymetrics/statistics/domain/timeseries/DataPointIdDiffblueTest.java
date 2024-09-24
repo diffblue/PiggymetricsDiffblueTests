@@ -9,6 +9,8 @@ import org.junit.Test;
 
 public class DataPointIdDiffblueTest {
   /**
+   * Test getters and setters.
+   * <p>
    * Methods under test:
    * <ul>
    *   <li>{@link DataPointId#DataPointId(String, Date)}
@@ -18,7 +20,7 @@ public class DataPointIdDiffblueTest {
    * </ul>
    */
   @Test
-  public void testGettersAndSetters_when3AndFromLocalDateWith1970AndOneAndOneAtStartOfDayAtZoneUtcToInstant_thenReturnsAccountIs3AndReturnsDateIsFromLocalDateWith1970AndOneAndOneAtStartOfDayAtZoneUtcToInstant() {
+  public void testGettersAndSetters() {
     // Arrange
     Date date = Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
 

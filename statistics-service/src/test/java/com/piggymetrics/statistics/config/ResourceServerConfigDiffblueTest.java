@@ -28,10 +28,11 @@ public class ResourceServerConfigDiffblueTest {
   private ResourceServerProperties resourceServerProperties;
 
   /**
-   * Method under test: {@link ResourceServerConfig#tokenServices()}
+   * Test
+   * {@link com.piggymetrics.statistics.config.ResourceServerConfig#tokenServices()}.
    */
   @Test
-  public void testTokenServices_givenDataPointRepositoryAndMongodExecutableAndResourceServerConfig_thenReturnsInstanceOfCustomUserInfoTokenServices() {
+  public void testTokenServices() {
     // Arrange, Act and Assert
     assertTrue(resourceServerConfig.tokenServices() instanceof CustomUserInfoTokenServices);
   }

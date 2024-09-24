@@ -9,6 +9,8 @@ import org.junit.Test;
 
 public class RecipientDiffblueTest {
   /**
+   * Test getters and setters.
+   * <p>
    * Methods under test:
    * <ul>
    *   <li>default or parameterless constructor of {@link Recipient}
@@ -22,7 +24,7 @@ public class RecipientDiffblueTest {
    * </ul>
    */
   @Test
-  public void testGettersAndSetters_thenReturnsAccountNameIsDrJaneDoeAndReturnsToStringIsAStringAndReturnsEmailIsJaneDotDoeCommercialAtExampleDotOrgAndReturnsScheduledNotificationsEmptyAndReturnsScheduledNotificationsIsNewHashMap() {
+  public void testGettersAndSetters() {
     // Arrange and Act
     Recipient actualRecipient = new Recipient();
     actualRecipient.setAccountName("Dr Jane Doe");

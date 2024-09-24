@@ -23,10 +23,11 @@ public class DataPointIdWriterConverterDiffblueTest {
   private DataPointIdWriterConverter dataPointIdWriterConverter;
 
   /**
-   * Method under test: {@link DataPointIdWriterConverter#convert(DataPointId)}
+   * Test
+   * {@link com.piggymetrics.statistics.repository.converter.DataPointIdWriterConverter#convert(DataPointId)}.
    */
   @Test
-  public void testConvert_givenDataPointIdWriterConverter_whenFromLocalDateWith1970AndOneAndOneAtStartOfDayAtZoneUtcToInstantAndNewDataPointIdWithAccountIs3AndDateIsFromLocalDateAtStartOfDayAtZoneUtcToInstant_thenReturnsDateIsFromLocalDateWith1970AndOneAndOneAtStartOfDayAtZoneUtcToInstantAndReturnsInstanceOfBasicDBObjectAndReturnsSizeIsTwoAndReturnsAccountIs3() {
+  public void testConvert() {
     // Arrange
     Date date = Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
 
@@ -41,10 +42,17 @@ public class DataPointIdWriterConverterDiffblueTest {
   }
 
   /**
-   * Method under test: {@link DataPointIdWriterConverter#convert(DataPointId)}
+   * Test
+   * {@link com.piggymetrics.statistics.repository.converter.DataPointIdWriterConverter#convert(DataPointId)}.
+   * <ul>
+   *   <li>When
+   * {@link com.piggymetrics.statistics.domain.timeseries.DataPointId#DataPointId(String, Date)}
+   * with account is {@code 3} and {@link java.sql.Date}.</li>
+   *   <li>Then returns containsKey {@code date}.</li>
+   * <ul>
    */
   @Test
-  public void testConvert_givenDataPointIdWriterConverter_whenNewDataPointIdWithAccountIs3AndDate_thenReturnsContainsKeyDateAndReturnsInstanceOfBasicDBObjectAndReturnsSizeIsTwoAndReturnsAccountIs3() {
+  public void testConvert_whenDataPointIdWithAccountIs3AndDate_thenReturnsContainsKeyDate() {
     // Arrange and Act
     DBObject actualConvertResult = dataPointIdWriterConverter.convert(new DataPointId("3", mock(java.sql.Date.class)));
 

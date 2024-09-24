@@ -9,6 +9,8 @@ import org.junit.Test;
 
 public class AccountDiffblueTest {
   /**
+   * Test getters and setters.
+   * <p>
    * Methods under test:
    * <ul>
    *   <li>default or parameterless constructor of {@link Account}
@@ -21,7 +23,7 @@ public class AccountDiffblueTest {
    * </ul>
    */
   @Test
-  public void testGettersAndSetters_thenReturnsExpensesEmptyAndReturnsIncomesEmptyAndReturnsSavingIsNewSavingAndReturnsExpensesIsNewArrayListAndReturnsIncomesIsNewArrayList() {
+  public void testGettersAndSetters() {
     // Arrange and Act
     Account actualAccount = new Account();
     ArrayList<Item> expenses = new ArrayList<>();

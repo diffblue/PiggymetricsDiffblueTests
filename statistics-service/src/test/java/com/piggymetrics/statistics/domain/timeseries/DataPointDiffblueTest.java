@@ -15,6 +15,8 @@ import org.junit.Test;
 
 public class DataPointDiffblueTest {
   /**
+   * Test getters and setters.
+   * <p>
    * Methods under test:
    * <ul>
    *   <li>default or parameterless constructor of {@link DataPoint}
@@ -31,7 +33,7 @@ public class DataPointDiffblueTest {
    * </ul>
    */
   @Test
-  public void testGettersAndSetters_thenReturnsRatesEmptyAndReturnsStatisticsEmptyAndReturnsExpensesEmptyAndReturnsIncomesEmptyAndReturnsIdIsNewDataPointIdWithAccountIs3AndDateIsFromLocalDateAtStartOfDayAtZoneUtcToInstantAndReturnsRatesIsNewHashMapAndReturnsStatisticsIsNewHashMapAndReturnsExpensesIsNewHashSetAndReturnsIncomesIsNewHashSet() {
+  public void testGettersAndSetters() {
     // Arrange and Act
     DataPoint actualDataPoint = new DataPoint();
     HashSet<ItemMetric> expenses = new HashSet<>();

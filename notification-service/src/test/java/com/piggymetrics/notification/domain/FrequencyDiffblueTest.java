@@ -5,16 +5,20 @@ import org.junit.Test;
 
 public class FrequencyDiffblueTest {
   /**
-   * Method under test: {@link Frequency#getDays()}
+   * Test {@link com.piggymetrics.notification.domain.Frequency#getDays()}.
    */
   @Test
-  public void testGetDays_givenValueOfWeekly_thenReturnsSeven() {
+  public void testGetDays() {
     // Arrange, Act and Assert
     assertEquals(7, Frequency.valueOf("WEEKLY").getDays());
   }
 
   /**
-   * Method under test: {@link Frequency#withDays(int)}
+   * Test {@link com.piggymetrics.notification.domain.Frequency#withDays(int)}.
+   * <ul>
+   *   <li>When seven.</li>
+   *   <li>Then returns {@code WEEKLY}.</li>
+   * <ul>
    */
   @Test
   public void testWithDays_whenSeven_thenReturnsWeekly() {

@@ -5,6 +5,8 @@ import org.junit.Test;
 
 public class NotificationTypeDiffblueTest {
   /**
+   * Test getters and setters.
+   * <p>
    * Methods under test:
    * <ul>
    *   <li>{@link NotificationType#getAttachment()}
@@ -13,7 +15,7 @@ public class NotificationTypeDiffblueTest {
    * </ul>
    */
   @Test
-  public void testGettersAndSetters_givenValueOfBackup_thenReturnsBackupDotEmailDotAttachmentAndReturnsBackupDotEmailDotSubjectAndReturnsBackupDotEmailDotText() {
+  public void testGettersAndSetters() {
     // Arrange
     NotificationType valueOfResult = NotificationType.valueOf("BACKUP");
 

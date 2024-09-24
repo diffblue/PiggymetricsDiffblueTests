@@ -7,15 +7,17 @@ import org.junit.Test;
 
 public class UserDiffblueTest {
   /**
-   * Method under test: {@link User#getAuthorities()}
+   * Test {@link com.piggymetrics.auth.domain.User#getAuthorities()}.
    */
   @Test
-  public void testGetAuthorities_givenNewUser_thenReturnsNull() {
+  public void testGetAuthorities() {
     // Arrange, Act and Assert
     assertNull((new User()).getAuthorities());
   }
 
   /**
+   * Test getters and setters.
+   * <p>
    * Methods under test:
    * <ul>
    *   <li>default or parameterless constructor of {@link User}
@@ -30,7 +32,7 @@ public class UserDiffblueTest {
    * </ul>
    */
   @Test
-  public void testGettersAndSetters_thenReturnsPasswordIsIloveyouAndReturnsUsernameIsJanedoeAndReturnsAccountNonExpiredAndReturnsAccountNonLockedAndReturnsCredentialsNonExpiredAndReturnsEnabled() {
+  public void testGettersAndSetters() {
     // Arrange and Act
     User actualUser = new User();
     actualUser.setPassword("iloveyou");

@@ -2,16 +2,10 @@ package com.piggymetrics.notification.service;
 
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.piggymetrics.notification.domain.Frequency;
-import com.piggymetrics.notification.domain.NotificationSettings;
-import com.piggymetrics.notification.domain.NotificationType;
 import com.piggymetrics.notification.domain.Recipient;
 import com.piggymetrics.notification.repository.RecipientRepository;
 import de.flapdoodle.embed.mongo.MongodExecutable;
-import java.time.LocalDate;
-import java.time.ZoneOffset;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,10 +27,31 @@ public class NotificationServiceImplDiffblueTest {
   private RecipientRepository recipientRepository;
 
   /**
-   * Method under test: {@link NotificationServiceImpl#sendBackupNotifications()}
+   * Test
+   * {@link com.piggymetrics.notification.service.NotificationServiceImpl#sendBackupNotifications()}.
    */
   @Test
-  public void testSendBackupNotifications_givenNewRecipientAccountNameIsDrJaneDoeAndNewRecipientEmailIsJaneDotDoeCommercialAtExampleDotOrgAndNewRecipientScheduledNotificationsIsNewHashMapAndNewArrayListAddNewRecipientAndRecipientRepositoryFindReadyForBackupReturnsNewArrayListAndMongodExecutableAndNotificationServiceImpl_thenCallsFindReadyForBackup() {
+  public void testSendBackupNotifications() {
+    // Arrange
+    when(recipientRepository.findReadyForBackup()).thenReturn(new ArrayList<>());
+
+    // Act
+    notificationServiceImpl.sendBackupNotifications();
+
+    // Assert
+    verify(recipientRepository).findReadyForBackup();
+  }
+
+  /**
+   * Test
+   * {@link com.piggymetrics.notification.service.NotificationServiceImpl#sendBackupNotifications()}.
+   * <ul>
+   *   <li>Given {@link com.piggymetrics.notification.domain.Recipient#Recipient()}
+   * AccountName is {@code Dr Jane Doe}.</li>
+   * <ul>
+   */
+  @Test
+  public void testSendBackupNotifications_givenRecipientAccountNameIsDrJaneDoe() {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
@@ -55,10 +70,15 @@ public class NotificationServiceImplDiffblueTest {
   }
 
   /**
-   * Method under test: {@link NotificationServiceImpl#sendBackupNotifications()}
+   * Test
+   * {@link com.piggymetrics.notification.service.NotificationServiceImpl#sendBackupNotifications()}.
+   * <ul>
+   *   <li>Given {@link com.piggymetrics.notification.domain.Recipient#Recipient()}
+   * AccountName is {@code Mr John Smith}.</li>
+   * <ul>
    */
   @Test
-  public void testSendBackupNotifications_givenNewRecipientAccountNameIsMrJohnSmithAndNewRecipientEmailIsJohnDotSmithCommercialAtExampleDotOrgAndNewRecipientAccountNameIsDrJaneDoeAndNewRecipientEmailIsJaneDotDoeCommercialAtExampleDotOrgAndNewRecipientScheduledNotificationsIsNewHashMapAndNewArrayListAddNewRecipientAndRecipientRepositoryFindReadyForBackupReturnsNewArrayListAndMongodExecutableAndNotificationServiceImpl_thenCallsFindReadyForBackup() {
+  public void testSendBackupNotifications_givenRecipientAccountNameIsMrJohnSmith() {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
@@ -83,10 +103,15 @@ public class NotificationServiceImplDiffblueTest {
   }
 
   /**
-   * Method under test: {@link NotificationServiceImpl#sendBackupNotifications()}
+   * Test
+   * {@link com.piggymetrics.notification.service.NotificationServiceImpl#sendBackupNotifications()}.
+   * <ul>
+   *   <li>Given {@link com.piggymetrics.notification.domain.Recipient#Recipient()}
+   * AccountName is {@code Prof Albert Einstein}.</li>
+   * <ul>
    */
   @Test
-  public void testSendBackupNotifications_givenNewRecipientAccountNameIsProfAlbertEinsteinAndNewRecipientEmailIsProfDotEinsteinCommercialAtExampleDotOrgAndNewRecipientAccountNameIsMrJohnSmithAndNewRecipientEmailIsJohnDotSmithCommercialAtExampleDotOrgAndNewRecipientAccountNameIsDrJaneDoeAndNewRecipientEmailIsJaneDotDoeCommercialAtExampleDotOrgAndNewRecipientScheduledNotificationsIsNewHashMapAndNewArrayListAddNewRecipientAndRecipientRepositoryFindReadyForBackupReturnsNewArrayListAndMongodExecutableAndNotificationServiceImpl_thenCallsFindReadyForBackup() {
+  public void testSendBackupNotifications_givenRecipientAccountNameIsProfAlbertEinstein() {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
@@ -123,55 +148,13 @@ public class NotificationServiceImplDiffblueTest {
   }
 
   /**
-   * Method under test: {@link NotificationServiceImpl#sendBackupNotifications()}
+   * Test
+   * {@link com.piggymetrics.notification.service.NotificationServiceImpl#sendRemindNotifications()}.
    */
   @Test
-  public void testSendBackupNotifications_givenRecipientRepositoryFindReadyForBackupReturnsNewArrayListAndMongodExecutableAndNotificationServiceImpl_thenCallsFindReadyForBackup() {
+  public void testSendRemindNotifications() {
     // Arrange
-    when(recipientRepository.findReadyForBackup()).thenReturn(new ArrayList<>());
-
-    // Act
-    notificationServiceImpl.sendBackupNotifications();
-
-    // Assert
-    verify(recipientRepository).findReadyForBackup();
-  }
-
-  /**
-   * Method under test: {@link NotificationServiceImpl#sendRemindNotifications()}
-   */
-  @Test
-  public void testSendRemindNotifications_givenNewNotificationSettingsActiveIsTrueAndNewNotificationSettingsFrequencyIsMonthlyAndNewNotificationSettingsLastNotifiedIsFromLocalDateWith1970AndOneAndOneAtStartOfDayAtZoneUtcToInstantAndNewHashMapIfAbsentBackupIsNewNotificationSettingsAndNewRecipientAccountNameIsProfAlbertEinsteinAndNewRecipientEmailIsProfDotEinsteinCommercialAtExampleDotOrgAndNewRecipientAccountNameIsMrJohnSmithAndNewRecipientEmailIsJohnDotSmithCommercialAtExampleDotOrgAndNewRecipientAccountNameIsDrJaneDoeAndNewRecipientEmailIsJaneDotDoeCommercialAtExampleDotOrgAndNewRecipientScheduledNotificationsIsNewHashMapAndNewArrayListAddNewRecipientAndRecipientRepositoryFindReadyForRemindReturnsNewArrayListAndMongodExecutableAndNotificationServiceImpl_thenCallsFindReadyForRemind() {
-    // Arrange
-    Recipient recipient = new Recipient();
-    recipient.setAccountName("Dr Jane Doe");
-    recipient.setEmail("jane.doe@example.org");
-    recipient.setScheduledNotifications(new HashMap<>());
-
-    NotificationSettings notificationSettings = new NotificationSettings();
-    notificationSettings.setActive(true);
-    notificationSettings.setFrequency(Frequency.MONTHLY);
-    notificationSettings
-        .setLastNotified(Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
-
-    HashMap<NotificationType, NotificationSettings> scheduledNotifications = new HashMap<>();
-    scheduledNotifications.putIfAbsent(NotificationType.BACKUP, notificationSettings);
-
-    Recipient recipient2 = new Recipient();
-    recipient2.setAccountName("Mr John Smith");
-    recipient2.setEmail("john.smith@example.org");
-    recipient2.setScheduledNotifications(scheduledNotifications);
-
-    Recipient recipient3 = new Recipient();
-    recipient3.setAccountName("Prof Albert Einstein");
-    recipient3.setEmail("prof.einstein@example.org");
-    recipient3.setScheduledNotifications(new HashMap<>());
-
-    ArrayList<Recipient> recipientList = new ArrayList<>();
-    recipientList.add(recipient3);
-    recipientList.add(recipient2);
-    recipientList.add(recipient);
-    when(recipientRepository.findReadyForRemind()).thenReturn(recipientList);
+    when(recipientRepository.findReadyForRemind()).thenReturn(new ArrayList<>());
 
     // Act
     notificationServiceImpl.sendRemindNotifications();
@@ -181,32 +164,11 @@ public class NotificationServiceImplDiffblueTest {
   }
 
   /**
-   * Method under test: {@link NotificationServiceImpl#sendRemindNotifications()}
+   * Test
+   * {@link com.piggymetrics.notification.service.NotificationServiceImpl#sendRemindNotifications()}.
    */
   @Test
-  public void testSendRemindNotifications_givenNewRecipientAccountNameIsDrJaneDoeAndNewRecipientEmailIsJaneDotDoeCommercialAtExampleDotOrgAndNewRecipientScheduledNotificationsIsNewHashMapAndNewArrayListAddNewRecipientAndRecipientRepositoryFindReadyForRemindReturnsNewArrayListAndMongodExecutableAndNotificationServiceImpl_thenCallsFindReadyForRemind() {
-    // Arrange
-    Recipient recipient = new Recipient();
-    recipient.setAccountName("Dr Jane Doe");
-    recipient.setEmail("jane.doe@example.org");
-    recipient.setScheduledNotifications(new HashMap<>());
-
-    ArrayList<Recipient> recipientList = new ArrayList<>();
-    recipientList.add(recipient);
-    when(recipientRepository.findReadyForRemind()).thenReturn(recipientList);
-
-    // Act
-    notificationServiceImpl.sendRemindNotifications();
-
-    // Assert
-    verify(recipientRepository).findReadyForRemind();
-  }
-
-  /**
-   * Method under test: {@link NotificationServiceImpl#sendRemindNotifications()}
-   */
-  @Test
-  public void testSendRemindNotifications_givenNewRecipientAccountNameIsMrJohnSmithAndNewRecipientEmailIsJohnDotSmithCommercialAtExampleDotOrgAndNewRecipientAccountNameIsDrJaneDoeAndNewRecipientEmailIsJaneDotDoeCommercialAtExampleDotOrgAndNewRecipientScheduledNotificationsIsNewHashMapAndNewArrayListAddNewRecipientAndRecipientRepositoryFindReadyForRemindReturnsNewArrayListAndMongodExecutableAndNotificationServiceImpl_thenCallsFindReadyForRemind() {
+  public void testSendRemindNotifications2() {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
@@ -231,12 +193,63 @@ public class NotificationServiceImplDiffblueTest {
   }
 
   /**
-   * Method under test: {@link NotificationServiceImpl#sendRemindNotifications()}
+   * Test
+   * {@link com.piggymetrics.notification.service.NotificationServiceImpl#sendRemindNotifications()}.
+   * <ul>
+   *   <li>Given {@link com.piggymetrics.notification.domain.Recipient#Recipient()}
+   * AccountName is {@code Dr Jane Doe}.</li>
+   * <ul>
    */
   @Test
-  public void testSendRemindNotifications_givenRecipientRepositoryFindReadyForRemindReturnsNewArrayListAndMongodExecutableAndNotificationServiceImpl_thenCallsFindReadyForRemind() {
+  public void testSendRemindNotifications_givenRecipientAccountNameIsDrJaneDoe() {
     // Arrange
-    when(recipientRepository.findReadyForRemind()).thenReturn(new ArrayList<>());
+    Recipient recipient = new Recipient();
+    recipient.setAccountName("Dr Jane Doe");
+    recipient.setEmail("jane.doe@example.org");
+    recipient.setScheduledNotifications(new HashMap<>());
+
+    ArrayList<Recipient> recipientList = new ArrayList<>();
+    recipientList.add(recipient);
+    when(recipientRepository.findReadyForRemind()).thenReturn(recipientList);
+
+    // Act
+    notificationServiceImpl.sendRemindNotifications();
+
+    // Assert
+    verify(recipientRepository).findReadyForRemind();
+  }
+
+  /**
+   * Test
+   * {@link com.piggymetrics.notification.service.NotificationServiceImpl#sendRemindNotifications()}.
+   * <ul>
+   *   <li>Given {@link com.piggymetrics.notification.domain.Recipient#Recipient()}
+   * Email is empty string.</li>
+   * <ul>
+   */
+  @Test
+  public void testSendRemindNotifications_givenRecipientEmailIsEmptyString() {
+    // Arrange
+    Recipient recipient = new Recipient();
+    recipient.setAccountName("Dr Jane Doe");
+    recipient.setEmail("jane.doe@example.org");
+    recipient.setScheduledNotifications(new HashMap<>());
+
+    Recipient recipient2 = new Recipient();
+    recipient2.setAccountName("Mr John Smith");
+    recipient2.setEmail("");
+    recipient2.setScheduledNotifications(new HashMap<>());
+
+    Recipient recipient3 = new Recipient();
+    recipient3.setAccountName("Prof Albert Einstein");
+    recipient3.setEmail("prof.einstein@example.org");
+    recipient3.setScheduledNotifications(new HashMap<>());
+
+    ArrayList<Recipient> recipientList = new ArrayList<>();
+    recipientList.add(recipient3);
+    recipientList.add(recipient2);
+    recipientList.add(recipient);
+    when(recipientRepository.findReadyForRemind()).thenReturn(recipientList);
 
     // Act
     notificationServiceImpl.sendRemindNotifications();

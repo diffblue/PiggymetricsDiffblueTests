@@ -1,13 +1,14 @@
 {
-  "totalTime" : 2203.428,
-  "environmentDetectionTime" : 6.0600000000000005,
-  "indexingTime" : 2.9,
-  "entryPointsTime" : 5.79,
-  "generationTime" : 1397.155,
-  "timeToFirstTest" : 936.4,
-  "timeToLastTest" : 1920.3139999999999,
-  "verificationTime" : 107.822,
-  "validationTime" : 107.351,
+  "version" : "2024.09.02-2708b1e-licensed",
+  "totalTime" : 2018.6979999999999,
+  "environmentDetectionTime" : 6.654,
+  "indexingTime" : 3.445,
+  "entryPointsTime" : 6.362000000000001,
+  "generationTime" : 1361.888,
+  "timeToFirstTest" : 787.646,
+  "timeToLastTest" : 1737.086,
+  "verificationTime" : 104.385,
+  "validationTime" : 117.12,
   "summary" : {
     "classesCount" : 75,
     "methodsCount" : 362,
@@ -31,10 +32,9 @@
       "E052" : 49,
       "R000" : 171,
       "R002" : 8,
-      "R004" : 6,
-      "R011" : 2,
-      "R013" : 6,
-      "R015" : 1,
+      "R004" : 5,
+      "R011" : 1,
+      "R013" : 9,
       "T003" : 17,
       "T005" : 35,
       "T006" : 9,
@@ -45,31 +45,30 @@
       "R000" : 94
     },
     "perTestValidation" : {
-      "V000" : 92,
-      "V003" : 2
+      "V000" : 94
     }
   },
   "coverageMetrics" : {
     "classesWithIncompleteInstructionCoverage" : [
-      "com.piggymetrics.config.ConfigApplication",
-      "com.piggymetrics.auth.AuthApplication",
-      "com.piggymetrics.account.controller.ErrorHandler",
-      "com.piggymetrics.account.service.AccountServiceImpl",
-      "com.piggymetrics.account.service.security.CustomUserInfoTokenServices",
-      "com.piggymetrics.account.AccountApplication",
+      "com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices",
+      "com.piggymetrics.statistics.StatisticsApplication",
+      "com.piggymetrics.statistics.repository.converter.DataPointIdReaderConverter",
+      "com.piggymetrics.statistics.service.ExchangeRatesServiceImpl",
       "com.piggymetrics.notification.domain.Frequency",
       "com.piggymetrics.notification.NotificationServiceApplication",
       "com.piggymetrics.notification.controller.RecipientController",
       "com.piggymetrics.notification.service.NotificationServiceImpl",
       "com.piggymetrics.notification.service.EmailServiceImpl",
       "com.piggymetrics.notification.service.RecipientServiceImpl",
-      "com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices",
-      "com.piggymetrics.statistics.StatisticsApplication",
-      "com.piggymetrics.statistics.repository.converter.DataPointIdReaderConverter",
-      "com.piggymetrics.statistics.service.ExchangeRatesServiceImpl"
+      "com.piggymetrics.auth.AuthApplication",
+      "com.piggymetrics.config.ConfigApplication",
+      "com.piggymetrics.account.controller.ErrorHandler",
+      "com.piggymetrics.account.service.AccountServiceImpl",
+      "com.piggymetrics.account.service.security.CustomUserInfoTokenServices",
+      "com.piggymetrics.account.AccountApplication"
     ],
-    "coveredLines" : 482,
-    "lineCoveragePercent" : "80.33%",
+    "coveredLines" : 485,
+    "lineCoveragePercent" : "80.83%",
     "totalLines" : 600
   },
   "piTestMetrics" : {
@@ -80,13 +79,13 @@
     "mutationsTotal" : 0
   },
   "testDiffStatSummary" : {
-    "files" : 38,
-    "insertions" : 396,
-    "deletions" : 392
+    "files" : 39,
+    "insertions" : 814,
+    "deletions" : 600
   },
   "diffblueTestDiffStatSummary" : {
-    "files" : 38,
-    "insertions" : 396,
-    "deletions" : 392
+    "files" : 39,
+    "insertions" : 814,
+    "deletions" : 600
   }
 }

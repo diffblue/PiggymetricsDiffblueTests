@@ -28,11 +28,11 @@ public class UserControllerDiffblueTest {
   private UserService userService;
 
   /**
-   * Method under test: {@link UserController#createUser(User)}
+   * Test
+   * {@link com.piggymetrics.auth.controller.UserController#createUser(User)}.
    */
   @Test
-  public void testCreateUser_givenUserServiceCreateDoesNothingAndIloveyouAndJanedoeAndStandaloneSetupWithUserControllerBuild_whenNewUserPasswordIsIloveyouAndNewUserUsernameIsJanedoeAndPostSlashUsersContentTypeApplication_jsonContentNewObjectMapperWriteValueAsStringNewUser_thenStatusIsOk()
-      throws Exception {
+  public void testCreateUser() throws Exception {
     // Arrange
     doNothing().when(userService).create(Mockito.<User>any());
 
@@ -52,11 +52,11 @@ public class UserControllerDiffblueTest {
   }
 
   /**
-   * Method under test: {@link UserController#getUser(Principal)}
+   * Test
+   * {@link com.piggymetrics.auth.controller.UserController#getUser(Principal)}.
    */
   @Test
-  public void testGetUser_givenUserServiceAndStandaloneSetupWithUserControllerBuild_whenGetSlashUsersSlashCurrent_thenStatusIsOk()
-      throws Exception {
+  public void testGetUser() throws Exception {
     // Arrange
     MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/users/current");
 

@@ -29,11 +29,18 @@ public class StatisticsServiceClientFallbackDiffblueTest {
   private StatisticsServiceClientFallback statisticsServiceClientFallback;
 
   /**
-   * Method under test:
-   * {@link StatisticsServiceClientFallback#updateStatistics(String, Account)}
+   * Test
+   * {@link com.piggymetrics.account.client.StatisticsServiceClientFallback#updateStatistics(String, Account)}.
+   * <ul>
+   *   <li>When {@link com.piggymetrics.account.domain.Account}
+   * {@link com.piggymetrics.account.domain.Account#setExpenses(List)} does
+   * nothing.</li>
+   *   <li>Then calls
+   * {@link com.piggymetrics.account.domain.Account#setExpenses(List)}.</li>
+   * <ul>
    */
   @Test
-  public void testUpdateStatistics_givenStatisticsServiceClientFallbackAndNewSavingAmountIsNewBigDecimalWith2Dot3AndNewSavingCapitalizationIsTrueAndNewSavingCurrencyIsUsdAndNewSavingDepositIsTrueAndNewSavingInterestIsNewBigDecimalWith2Dot3AndNewArrayListAndFromLocalDateWith1970AndOneAndOneAtStartOfDayAtZoneUtcToInstantAndNameAndNote_whenAccountSetExpensesDoesNothingAndAccountSetIncomesDoesNothingAndAccountSetLastSeenDoesNothingAndAccountSetNameDoesNothingAndAccountSetNoteDoesNothingAndAccountSetSavingDoesNothingAndAccountExpensesIsNewArrayListAndAccountIncomesIsNewArrayListAndAccountLastSeenIsFromLocalDateWith1970AndOneAndOneAtStartOfDayAtZoneUtcToInstantAndAccountNameIsNameAndAccountNoteIsNoteAndAccountSavingIsNewSavingAndDrJaneDoe_thenCallsSetExpensesAndCallsSetIncomesAndCallsSetLastSeenAndCallsSetNameAndCallsSetNoteAndCallsSetSaving() {
+  public void testUpdateStatistics_whenAccountSetExpensesDoesNothing_thenCallsSetExpenses() {
     // Arrange
     Saving saving = new Saving();
     saving.setAmount(new BigDecimal("2.3"));

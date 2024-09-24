@@ -5,6 +5,8 @@ import org.junit.Test;
 
 public class UserDiffblueTest {
   /**
+   * Test getters and setters.
+   * <p>
    * Methods under test:
    * <ul>
    *   <li>default or parameterless constructor of {@link User}
@@ -15,7 +17,7 @@ public class UserDiffblueTest {
    * </ul>
    */
   @Test
-  public void testGettersAndSetters_thenReturnsPasswordIsIloveyouAndReturnsUsernameIsJanedoe() {
+  public void testGettersAndSetters() {
     // Arrange and Act
     User actualUser = new User();
     actualUser.setPassword("iloveyou");

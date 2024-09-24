@@ -40,12 +40,11 @@ public class StatisticsControllerDiffblueTest {
   private StatisticsService statisticsService;
 
   /**
-   * Method under test:
-   * {@link StatisticsController#getCurrentAccountStatistics(Principal)}
+   * Test
+   * {@link com.piggymetrics.statistics.controller.StatisticsController#getCurrentAccountStatistics(Principal)}.
    */
   @Test
-  public void testGetCurrentAccountStatistics_givenStatisticsServiceFindByAccountNameReturnsNewArrayListAndNewUserPrincipalWithPrincipalAndStandaloneSetupWithStatisticsControllerBuild_whenGetSlashCurrentPrincipalNewUserPrincipalWithPrincipal_thenStatusIsOkAndContentContentTypeApplicationSlashJsonSemicolonCharsetEqualsSignUtfDash8AndContentStringLeftSquareBracketRightSquareBracket()
-      throws Exception {
+  public void testGetCurrentAccountStatistics() throws Exception {
     // Arrange
     when(statisticsService.findByAccountName(Mockito.<String>any())).thenReturn(new ArrayList<>());
     MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/current");
@@ -61,12 +60,11 @@ public class StatisticsControllerDiffblueTest {
   }
 
   /**
-   * Method under test:
-   * {@link StatisticsController#getStatisticsByAccountName(String)}
+   * Test
+   * {@link com.piggymetrics.statistics.controller.StatisticsController#getStatisticsByAccountName(String)}.
    */
   @Test
-  public void testGetStatisticsByAccountName_givenStatisticsServiceFindByAccountNameReturnsNewArrayListAndStandaloneSetupWithStatisticsControllerBuild_whenGetSlashLeftCurlyBracketAccountNameRightCurlyBracketWithDrJaneDoe_thenStatusIsOkAndContentContentTypeApplicationSlashJsonSemicolonCharsetEqualsSignUtfDash8AndContentStringLeftSquareBracketRightSquareBracket()
-      throws Exception {
+  public void testGetStatisticsByAccountName() throws Exception {
     // Arrange
     when(statisticsService.findByAccountName(Mockito.<String>any())).thenReturn(new ArrayList<>());
     MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/{accountName}", "Dr Jane Doe");
@@ -81,12 +79,11 @@ public class StatisticsControllerDiffblueTest {
   }
 
   /**
-   * Method under test:
-   * {@link StatisticsController#saveAccountStatistics(String, Account)}
+   * Test
+   * {@link com.piggymetrics.statistics.controller.StatisticsController#saveAccountStatistics(String, Account)}.
    */
   @Test
-  public void testSaveAccountStatistics_givenNewDataPointExpensesIsNewHashSetAndFromLocalDateWith1970AndOneAndOneAtStartOfDayAtZoneUtcToInstantAndNewDataPointIdIsNewDataPointIdWithAccountIs3AndDateIsFromLocalDateAtStartOfDayAtZoneUtcToInstantAndNewDataPointIncomesIsNewHashSetAndNewDataPointRatesIsNewHashMapAndNewDataPointStatisticsIsNewHashMapAndStatisticsServiceSaveReturnsNewDataPointAndNewSavingAmountIsNewBigDecimalWith2Dot3AndNewSavingCapitalizationIsTrueAndNewSavingCurrencyIsUsdAndNewSavingDepositIsTrueAndNewSavingInterestIsNewBigDecimalWith2Dot3AndNewArrayListAndStandaloneSetupWithStatisticsControllerBuild_whenNewAccountExpensesIsNewArrayListAndNewAccountIncomesIsNewArrayListAndNewAccountSavingIsNewSavingAndPutSlashLeftCurlyBracketAccountNameRightCurlyBracketWithDrJaneDoeContentTypeApplication_jsonContentNewObjectMapperWriteValueAsStringNewAccount_thenStatusIsOk()
-      throws Exception {
+  public void testSaveAccountStatistics() throws Exception {
     // Arrange
     DataPoint dataPoint = new DataPoint();
     dataPoint.setExpenses(new HashSet<>());

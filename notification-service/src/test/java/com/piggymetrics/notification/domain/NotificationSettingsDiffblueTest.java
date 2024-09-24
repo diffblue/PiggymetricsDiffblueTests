@@ -10,6 +10,8 @@ import org.junit.Test;
 
 public class NotificationSettingsDiffblueTest {
   /**
+   * Test getters and setters.
+   * <p>
    * Methods under test:
    * <ul>
    *   <li>default or parameterless constructor of {@link NotificationSettings}
@@ -22,7 +24,7 @@ public class NotificationSettingsDiffblueTest {
    * </ul>
    */
   @Test
-  public void testGettersAndSetters_thenReturnsFrequencyIsWeeklyAndReturnsActiveAndReturnsLastNotifiedIsFromLocalDateWith1970AndOneAndOneAtStartOfDayAtZoneUtcToInstant() {
+  public void testGettersAndSetters() {
     // Arrange and Act
     NotificationSettings actualNotificationSettings = new NotificationSettings();
     actualNotificationSettings.setActive(true);

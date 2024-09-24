@@ -30,10 +30,35 @@ public class UserServiceImplDiffblueTest {
   private UserServiceImpl userServiceImpl;
 
   /**
-   * Method under test: {@link UserServiceImpl#create(User)}
+   * Test {@link com.piggymetrics.auth.service.UserServiceImpl#create(User)}.
    */
   @Test
-  public void testCreate_givenUserRepositoryFindByIdReturnsOptionalWithNewUserAndNewUserPasswordIsIloveyouAndNewUserUsernameIsJanedoeAndUserServiceImplAndIloveyouAndJanedoe_whenNewUserPasswordIsIloveyouAndNewUserUsernameIsJanedoe_thenThrowsIllegalArgumentExceptionAndCallsFindById() {
+  public void testCreate() {
+    // Arrange
+    when(userRepository.findById(Mockito.<String>any()))
+        .thenThrow(new IllegalArgumentException("new user has been created: {}"));
+
+    User user = new User();
+    user.setPassword("iloveyou");
+    user.setUsername("janedoe");
+
+    // Act and Assert
+    thrown.expect(IllegalArgumentException.class);
+    userServiceImpl.create(user);
+    verify(userRepository).findById(eq("janedoe"));
+  }
+
+  /**
+   * Test {@link com.piggymetrics.auth.service.UserServiceImpl#create(User)}.
+   * <ul>
+   *   <li>Given {@link com.piggymetrics.auth.repository.UserRepository}
+   * {@link org.springframework.data.repository.CrudRepository#findById(Object)}
+   * returns {@link java.util.Optional} with
+   * {@link com.piggymetrics.auth.domain.User#User()}.</li>
+   * <ul>
+   */
+  @Test
+  public void testCreate_givenUserRepositoryFindByIdReturnsOptionalWithUser() {
     // Arrange
     User user = new User();
     user.setPassword("iloveyou");
@@ -52,29 +77,17 @@ public class UserServiceImplDiffblueTest {
   }
 
   /**
-   * Method under test: {@link UserServiceImpl#create(User)}
+   * Test {@link com.piggymetrics.auth.service.UserServiceImpl#create(User)}.
+   * <ul>
+   *   <li>Given {@link com.piggymetrics.auth.repository.UserRepository}
+   * {@link org.springframework.data.repository.CrudRepository#save(Object)}
+   * returns {@link com.piggymetrics.auth.domain.User#User()}.</li>
+   *   <li>Then calls
+   * {@link org.springframework.data.repository.CrudRepository#save(Object)}.</li>
+   * <ul>
    */
   @Test
-  public void testCreate_givenUserRepositoryFindByIdThrowsNewIllegalArgumentExceptionWithNewUserHasBeenCreatedColonLeftCurlyBracketRightCurlyBracketAndUserServiceImplAndIloveyouAndJanedoe_whenNewUserPasswordIsIloveyouAndNewUserUsernameIsJanedoe_thenThrowsIllegalArgumentExceptionAndCallsFindById() {
-    // Arrange
-    when(userRepository.findById(Mockito.<String>any()))
-        .thenThrow(new IllegalArgumentException("new user has been created: {}"));
-
-    User user = new User();
-    user.setPassword("iloveyou");
-    user.setUsername("janedoe");
-
-    // Act and Assert
-    thrown.expect(IllegalArgumentException.class);
-    userServiceImpl.create(user);
-    verify(userRepository).findById(eq("janedoe"));
-  }
-
-  /**
-   * Method under test: {@link UserServiceImpl#create(User)}
-   */
-  @Test
-  public void testCreate_givenUserRepositorySaveReturnsNewUserAndUserRepositoryFindByIdReturnsEmptyAndNewUserPasswordIsIloveyouAndNewUserUsernameIsJanedoeAndUserServiceImplAndIloveyouAndJanedoe_whenNewUserPasswordIsIloveyouAndNewUserUsernameIsJanedoe_thenCallsSaveAndCallsFindById() {
+  public void testCreate_givenUserRepositorySaveReturnsUser_thenCallsSave() {
     // Arrange
     User user = new User();
     user.setPassword("iloveyou");

@@ -32,12 +32,27 @@ public class OAuth2AuthorizationConfigDiffblueTest {
   private UserRepository userRepository;
 
   /**
-   * Method under test:
-   * {@link OAuth2AuthorizationConfig#configure(ClientDetailsServiceConfigurer)}
+   * Test
+   * {@link com.piggymetrics.auth.config.OAuth2AuthorizationConfig#configure(ClientDetailsServiceConfigurer)}.
    */
   @Test
-  public void testConfigure_givenDataSourceAndUserRepositoryAndMongodExecutableAndOAuth2AuthorizationConfig_whenNewJdbcClientDetailsServiceBuilderDataSourceDataSourceAndNewClientDetailsServiceConfigurerWithBuilderIsNewJdbcClientDetailsServiceBuilder_thenNewClientDetailsServiceConfigurerWithBuilderIsNewJdbcClientDetailsServiceBuilderAndInstanceOfInMemoryClientDetailsServiceBuilder()
-      throws Exception {
+  public void testConfigure() throws Exception {
+    // Arrange
+    ClientDetailsServiceConfigurer clients = new ClientDetailsServiceConfigurer(new ClientDetailsServiceBuilder<>());
+
+    // Act
+    oAuth2AuthorizationConfig.configure(clients);
+
+    // Assert
+    assertTrue(clients.and() instanceof InMemoryClientDetailsServiceBuilder);
+  }
+
+  /**
+   * Test
+   * {@link com.piggymetrics.auth.config.OAuth2AuthorizationConfig#configure(ClientDetailsServiceConfigurer)}.
+   */
+  @Test
+  public void testConfigure2() throws Exception {
     // Arrange
     JdbcClientDetailsServiceBuilder builder = new JdbcClientDetailsServiceBuilder();
     builder.dataSource(mock(DataSource.class));
@@ -51,12 +66,11 @@ public class OAuth2AuthorizationConfigDiffblueTest {
   }
 
   /**
-   * Method under test:
-   * {@link OAuth2AuthorizationConfig#configure(AuthorizationServerEndpointsConfigurer)}
+   * Test
+   * {@link com.piggymetrics.auth.config.OAuth2AuthorizationConfig#configure(AuthorizationServerEndpointsConfigurer)}.
    */
   @Test
-  public void testConfigure_givenUserRepositoryAndMongodExecutableAndOAuth2AuthorizationConfig_whenNewAuthorizationServerEndpointsConfigurer_thenNewAuthorizationServerEndpointsConfigurerUserDetailsServiceOverride()
-      throws Exception {
+  public void testConfigure3() throws Exception {
     // Arrange
     AuthorizationServerEndpointsConfigurer endpoints = new AuthorizationServerEndpointsConfigurer();
 
@@ -68,12 +82,11 @@ public class OAuth2AuthorizationConfigDiffblueTest {
   }
 
   /**
-   * Method under test:
-   * {@link OAuth2AuthorizationConfig#configure(AuthorizationServerSecurityConfigurer)}
+   * Test
+   * {@link com.piggymetrics.auth.config.OAuth2AuthorizationConfig#configure(AuthorizationServerSecurityConfigurer)}.
    */
   @Test
-  public void testConfigure_givenUserRepositoryAndMongodExecutableAndOAuth2AuthorizationConfig_whenNewAuthorizationServerSecurityConfigurer_thenNewAuthorizationServerSecurityConfigurerCheckTokenAccessIsIsAuthenticatedLeftParenthesisRightParenthesisAndNewAuthorizationServerSecurityConfigurerTokenKeyAccessIsPermitAllLeftParenthesisRightParenthesis()
-      throws Exception {
+  public void testConfigure4() throws Exception {
     // Arrange
     AuthorizationServerSecurityConfigurer oauthServer = new AuthorizationServerSecurityConfigurer();
 
@@ -83,22 +96,5 @@ public class OAuth2AuthorizationConfigDiffblueTest {
     // Assert
     assertEquals("isAuthenticated()", oauthServer.getCheckTokenAccess());
     assertEquals("permitAll()", oauthServer.getTokenKeyAccess());
-  }
-
-  /**
-   * Method under test:
-   * {@link OAuth2AuthorizationConfig#configure(ClientDetailsServiceConfigurer)}
-   */
-  @Test
-  public void testConfigure_givenUserRepositoryAndMongodExecutableAndOAuth2AuthorizationConfig_whenNewClientDetailsServiceConfigurerWithBuilderIsNewClientDetailsServiceBuilder_thenNewClientDetailsServiceConfigurerWithBuilderIsNewClientDetailsServiceBuilderAndInstanceOfInMemoryClientDetailsServiceBuilder()
-      throws Exception {
-    // Arrange
-    ClientDetailsServiceConfigurer clients = new ClientDetailsServiceConfigurer(new ClientDetailsServiceBuilder<>());
-
-    // Act
-    oAuth2AuthorizationConfig.configure(clients);
-
-    // Assert
-    assertTrue(clients.and() instanceof InMemoryClientDetailsServiceBuilder);
   }
 }

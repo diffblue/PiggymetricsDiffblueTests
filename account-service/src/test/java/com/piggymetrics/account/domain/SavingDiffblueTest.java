@@ -8,6 +8,8 @@ import org.junit.Test;
 
 public class SavingDiffblueTest {
   /**
+   * Test getters and setters.
+   * <p>
    * Methods under test:
    * <ul>
    *   <li>default or parameterless constructor of {@link Saving}
@@ -24,7 +26,7 @@ public class SavingDiffblueTest {
    * </ul>
    */
   @Test
-  public void testGettersAndSetters_thenReturnsCurrencyIsUsdAndReturnsCapitalizationAndReturnsDepositAndReturnsAmountIsNewBigDecimalWith2Dot3AndReturnsInterestIsNewBigDecimalWith2Dot3() {
+  public void testGettersAndSetters() {
     // Arrange and Act
     Saving actualSaving = new Saving();
     BigDecimal amount = new BigDecimal("2.3");

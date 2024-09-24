@@ -5,10 +5,10 @@ import org.junit.Test;
 
 public class CurrencyDiffblueTest {
   /**
-   * Method under test: {@link Currency#getDefault()}
+   * Test {@link com.piggymetrics.account.domain.Currency#getDefault()}.
    */
   @Test
-  public void testGetDefault_givenValueOfUsd_thenReturnsUsd() {
+  public void testGetDefault() {
     // Arrange, Act and Assert
     assertEquals(Currency.USD, Currency.valueOf("USD").getDefault());
   }

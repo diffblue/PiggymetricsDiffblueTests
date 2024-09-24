@@ -29,23 +29,22 @@ public class CustomUserInfoTokenServicesDiffblueTest {
   private MongodExecutable mongodExecutable;
 
   /**
-   * Method under test:
-   * {@link CustomUserInfoTokenServices#loadAuthentication(String)}
+   * Test
+   * {@link com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices#loadAuthentication(String)}.
    */
   @Test
-  public void testLoadAuthentication_givenDataPointRepositoryAndMongodExecutableAndCustomUserInfoTokenServices_whenAbc123_thenThrowsInvalidTokenException()
-      throws AuthenticationException, InvalidTokenException {
+  public void testLoadAuthentication() throws AuthenticationException, InvalidTokenException {
     // Arrange, Act and Assert
     thrown.expect(InvalidTokenException.class);
     customUserInfoTokenServices.loadAuthentication("ABC123");
   }
 
   /**
-   * Method under test:
-   * {@link CustomUserInfoTokenServices#readAccessToken(String)}
+   * Test
+   * {@link com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices#readAccessToken(String)}.
    */
   @Test
-  public void testReadAccessToken_givenDataPointRepositoryAndMongodExecutableAndCustomUserInfoTokenServices_whenAbc123_thenThrowsUnsupportedOperationException() {
+  public void testReadAccessToken() {
     // Arrange, Act and Assert
     thrown.expect(UnsupportedOperationException.class);
     customUserInfoTokenServices.readAccessToken("ABC123");

@@ -12,6 +12,8 @@ import org.junit.Test;
 
 public class ExchangeRatesContainerDiffblueTest {
   /**
+   * Test getters and setters.
+   * <p>
    * Methods under test:
    * <ul>
    *   <li>{@link ExchangeRatesContainer#setBase(Currency)}
@@ -24,7 +26,7 @@ public class ExchangeRatesContainerDiffblueTest {
    * </ul>
    */
   @Test
-  public void testGettersAndSetters_givenNewExchangeRatesContainer_whenUsd_thenReturnsToStringIs1970Dash01Dash01AndReturnsAStringAndReturnsUsdAndReturnsEmptyAndReturnsNewHashMapAndReturnsLocalDateWith1970AndOneAndOne() {
+  public void testGettersAndSetters() {
     // Arrange
     ExchangeRatesContainer exchangeRatesContainer = new ExchangeRatesContainer();
 
@@ -49,11 +51,11 @@ public class ExchangeRatesContainerDiffblueTest {
   }
 
   /**
-   * Method under test: default or parameterless constructor of
-   * {@link ExchangeRatesContainer}
+   * Test
+   * {@link com.piggymetrics.statistics.domain.ExchangeRatesContainer#ExchangeRatesContainer()}.
    */
   @Test
-  public void testNewExchangeRatesContainer_thenReturnsBaseIsNullAndReturnsRatesIsNull() {
+  public void testNewExchangeRatesContainer() {
     // Arrange and Act
     ExchangeRatesContainer actualExchangeRatesContainer = new ExchangeRatesContainer();
 

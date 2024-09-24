@@ -8,6 +8,15 @@ import org.junit.Test;
 
 public class ItemMetricDiffblueTest {
   /**
+   * Test
+   * {@link com.piggymetrics.statistics.domain.timeseries.ItemMetric#equals(Object)},
+   * and
+   * {@link com.piggymetrics.statistics.domain.timeseries.ItemMetric#hashCode()}.
+   * <ul>
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
+   * <ul>
+   * <p>
    * Methods under test:
    * <ul>
    *   <li>{@link ItemMetric#equals(Object)}
@@ -15,7 +24,7 @@ public class ItemMetricDiffblueTest {
    * </ul>
    */
   @Test
-  public void testEqualsAndHashCode_givenNewItemMetricWithTitleIsDrAndAmountIsNewBigDecimalAndNewBigDecimalWith2Dot3_whenOtherIsEqual_thenReturnEqual() {
+  public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     ItemMetric itemMetric = new ItemMetric("Dr", new BigDecimal("2.3"));
     ItemMetric itemMetric2 = new ItemMetric("Dr", new BigDecimal("2.3"));
@@ -27,6 +36,15 @@ public class ItemMetricDiffblueTest {
   }
 
   /**
+   * Test
+   * {@link com.piggymetrics.statistics.domain.timeseries.ItemMetric#equals(Object)},
+   * and
+   * {@link com.piggymetrics.statistics.domain.timeseries.ItemMetric#hashCode()}.
+   * <ul>
+   *   <li>When other is same.</li>
+   *   <li>Then return equal.</li>
+   * <ul>
+   * <p>
    * Methods under test:
    * <ul>
    *   <li>{@link ItemMetric#equals(Object)}
@@ -34,7 +52,7 @@ public class ItemMetricDiffblueTest {
    * </ul>
    */
   @Test
-  public void testEqualsAndHashCode_givenNewItemMetricWithTitleIsDrAndAmountIsNewBigDecimalAndNewBigDecimalWith2Dot3_whenOtherIsSame_thenReturnEqual() {
+  public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     ItemMetric itemMetric = new ItemMetric("Dr", new BigDecimal("2.3"));
 
@@ -45,28 +63,15 @@ public class ItemMetricDiffblueTest {
   }
 
   /**
-   * Method under test: {@link ItemMetric#equals(Object)}
+   * Test
+   * {@link com.piggymetrics.statistics.domain.timeseries.ItemMetric#equals(Object)}.
+   * <ul>
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
+   * <ul>
    */
   @Test
-  public void testEquals_givenNewItemMetricWithTitleIsDrAndAmountIsNewBigDecimalAndNewBigDecimalWith2Dot3_whenOtherIsNull_thenReturnNotEqual() {
-    // Arrange, Act and Assert
-    assertNotEquals(new ItemMetric("Dr", new BigDecimal("2.3")), null);
-  }
-
-  /**
-   * Method under test: {@link ItemMetric#equals(Object)}
-   */
-  @Test
-  public void testEquals_givenNewItemMetricWithTitleIsDrAndAmountIsNewBigDecimalAndNewBigDecimalWith2Dot3_whenOtherIsWrongType_thenReturnNotEqual() {
-    // Arrange, Act and Assert
-    assertNotEquals(new ItemMetric("Dr", new BigDecimal("2.3")), "Different type to ItemMetric");
-  }
-
-  /**
-   * Method under test: {@link ItemMetric#equals(Object)}
-   */
-  @Test
-  public void testEquals_givenNewItemMetricWithTitleIsMrAndAmountIsNewBigDecimalAndNewBigDecimalWith2Dot3_whenOtherIsDifferent_thenReturnNotEqual() {
+  public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     ItemMetric itemMetric = new ItemMetric("Mr", new BigDecimal("2.3"));
 
@@ -75,6 +80,36 @@ public class ItemMetricDiffblueTest {
   }
 
   /**
+   * Test
+   * {@link com.piggymetrics.statistics.domain.timeseries.ItemMetric#equals(Object)}.
+   * <ul>
+   *   <li>When other is {@code null}.</li>
+   *   <li>Then return not equal.</li>
+   * <ul>
+   */
+  @Test
+  public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+    // Arrange, Act and Assert
+    assertNotEquals(new ItemMetric("Dr", new BigDecimal("2.3")), null);
+  }
+
+  /**
+   * Test
+   * {@link com.piggymetrics.statistics.domain.timeseries.ItemMetric#equals(Object)}.
+   * <ul>
+   *   <li>When other is wrong type.</li>
+   *   <li>Then return not equal.</li>
+   * <ul>
+   */
+  @Test
+  public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+    // Arrange, Act and Assert
+    assertNotEquals(new ItemMetric("Dr", new BigDecimal("2.3")), "Different type to ItemMetric");
+  }
+
+  /**
+   * Test getters and setters.
+   * <p>
    * Methods under test:
    * <ul>
    *   <li>{@link ItemMetric#ItemMetric(String, BigDecimal)}
@@ -83,7 +118,7 @@ public class ItemMetricDiffblueTest {
    * </ul>
    */
   @Test
-  public void testGettersAndSetters_whenDrAndNewBigDecimalWith2Dot3_thenReturnsTitleIsDrAndReturnsAmountIsNewBigDecimalWith2Dot3() {
+  public void testGettersAndSetters() {
     // Arrange
     BigDecimal amount = new BigDecimal("2.3");
 
