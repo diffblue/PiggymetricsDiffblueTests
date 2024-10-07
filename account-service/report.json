@@ -3,19 +3,19 @@
     "reportVersion" : "2.6"
   },
   "run" : {
-    "version" : "2024.09.02-2708b1e-licensed",
-    "creationTimestamp" : "2024-09-24T18:01:25.657Z",
+    "version" : "2024.10.01-2ee2e3d-licensed",
+    "creationTimestamp" : "2024-10-07T16:44:39.694Z",
     "command" : "dcover create --batch --report-file=report.json --descriptive-test-names --coverage-reports --spring-integration-tests --verbose --working-directory=account-service",
-    "totalTime" : 439.572,
-    "environmentDetectionTime" : 0.966,
-    "indexingTime" : 0.35,
-    "entryPointsTime" : 0.932,
-    "generationTime" : 294.106,
-    "timeToFirstTest" : 71.532,
-    "timeToLastTest" : 355.118,
-    "indexQueryTime" : 16.16,
-    "verificationTime" : 28.08,
-    "validationTime" : 50.246
+    "totalTime" : 451.412,
+    "environmentDetectionTime" : 0.703,
+    "indexingTime" : 0.367,
+    "entryPointsTime" : 0.665,
+    "generationTime" : 307.419,
+    "timeToFirstTest" : 73.551,
+    "timeToLastTest" : 367.485,
+    "indexQueryTime" : 15.454,
+    "verificationTime" : 27.371,
+    "validationTime" : 49.932
   },
   "codes" : {
     "E052" : "Missing dependency",
@@ -41,6 +41,7 @@
     "completeTestCount" : 19,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 524,
     "perMethodTestability" : {
       "T000" : 31,
       "T001" : 19,

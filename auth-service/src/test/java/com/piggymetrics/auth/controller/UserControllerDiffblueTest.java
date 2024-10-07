@@ -28,8 +28,9 @@ public class UserControllerDiffblueTest {
   private UserService userService;
 
   /**
-   * Test
-   * {@link com.piggymetrics.auth.controller.UserController#createUser(User)}.
+   * Test {@link UserController#createUser(User)}.
+   * <p>
+   * Method under test: {@link UserController#createUser(User)}
    */
   @Test
   public void testCreateUser() throws Exception {
@@ -52,8 +53,9 @@ public class UserControllerDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.auth.controller.UserController#getUser(Principal)}.
+   * Test {@link UserController#getUser(Principal)}.
+   * <p>
+   * Method under test: {@link UserController#getUser(Principal)}
    */
   @Test
   public void testGetUser() throws Exception {

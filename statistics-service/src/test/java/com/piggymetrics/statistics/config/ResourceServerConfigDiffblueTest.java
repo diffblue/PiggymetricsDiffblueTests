@@ -28,8 +28,9 @@ public class ResourceServerConfigDiffblueTest {
   private ResourceServerProperties resourceServerProperties;
 
   /**
-   * Test
-   * {@link com.piggymetrics.statistics.config.ResourceServerConfig#tokenServices()}.
+   * Test {@link ResourceServerConfig#tokenServices()}.
+   * <p>
+   * Method under test: {@link ResourceServerConfig#tokenServices()}
    */
   @Test
   public void testTokenServices() {

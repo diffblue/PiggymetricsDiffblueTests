@@ -40,8 +40,10 @@ public class StatisticsControllerDiffblueTest {
   private StatisticsService statisticsService;
 
   /**
-   * Test
-   * {@link com.piggymetrics.statistics.controller.StatisticsController#getCurrentAccountStatistics(Principal)}.
+   * Test {@link StatisticsController#getCurrentAccountStatistics(Principal)}.
+   * <p>
+   * Method under test:
+   * {@link StatisticsController#getCurrentAccountStatistics(Principal)}
    */
   @Test
   public void testGetCurrentAccountStatistics() throws Exception {
@@ -60,8 +62,10 @@ public class StatisticsControllerDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.statistics.controller.StatisticsController#getStatisticsByAccountName(String)}.
+   * Test {@link StatisticsController#getStatisticsByAccountName(String)}.
+   * <p>
+   * Method under test:
+   * {@link StatisticsController#getStatisticsByAccountName(String)}
    */
   @Test
   public void testGetStatisticsByAccountName() throws Exception {
@@ -79,8 +83,10 @@ public class StatisticsControllerDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.statistics.controller.StatisticsController#saveAccountStatistics(String, Account)}.
+   * Test {@link StatisticsController#saveAccountStatistics(String, Account)}.
+   * <p>
+   * Method under test:
+   * {@link StatisticsController#saveAccountStatistics(String, Account)}
    */
   @Test
   public void testSaveAccountStatistics() throws Exception {

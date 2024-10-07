@@ -28,8 +28,10 @@ public class RecipientControllerDiffblueTest {
   private RecipientService recipientService;
 
   /**
-   * Test
-   * {@link com.piggymetrics.notification.controller.RecipientController#getCurrentNotificationsSettings(Principal)}.
+   * Test {@link RecipientController#getCurrentNotificationsSettings(Principal)}.
+   * <p>
+   * Method under test:
+   * {@link RecipientController#getCurrentNotificationsSettings(Principal)}
    */
   @Test
   public void testGetCurrentNotificationsSettings() throws Exception {

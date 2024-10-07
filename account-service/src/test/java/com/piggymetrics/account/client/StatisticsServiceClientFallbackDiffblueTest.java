@@ -30,14 +30,14 @@ public class StatisticsServiceClientFallbackDiffblueTest {
 
   /**
    * Test
-   * {@link com.piggymetrics.account.client.StatisticsServiceClientFallback#updateStatistics(String, Account)}.
+   * {@link StatisticsServiceClientFallback#updateStatistics(String, Account)}.
    * <ul>
-   *   <li>When {@link com.piggymetrics.account.domain.Account}
-   * {@link com.piggymetrics.account.domain.Account#setExpenses(List)} does
-   * nothing.</li>
-   *   <li>Then calls
-   * {@link com.piggymetrics.account.domain.Account#setExpenses(List)}.</li>
-   * <ul>
+   *   <li>When {@link Account} {@link Account#setExpenses(List)} does nothing.</li>
+   *   <li>Then calls {@link Account#setExpenses(List)}.</li>
+   * </ul>
+   * <p>
+   * Method under test:
+   * {@link StatisticsServiceClientFallback#updateStatistics(String, Account)}
    */
   @Test
   public void testUpdateStatistics_whenAccountSetExpensesDoesNothing_thenCallsSetExpenses() {

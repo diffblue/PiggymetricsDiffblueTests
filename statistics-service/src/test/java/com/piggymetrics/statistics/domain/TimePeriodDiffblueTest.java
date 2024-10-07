@@ -6,7 +6,9 @@ import org.junit.Test;
 
 public class TimePeriodDiffblueTest {
   /**
-   * Test {@link com.piggymetrics.statistics.domain.TimePeriod#getBase()}.
+   * Test {@link TimePeriod#getBase()}.
+   * <p>
+   * Method under test: {@link TimePeriod#getBase()}
    */
   @Test
   public void testGetBase() {
@@ -15,7 +17,9 @@ public class TimePeriodDiffblueTest {
   }
 
   /**
-   * Test {@link com.piggymetrics.statistics.domain.TimePeriod#getBaseRatio()}.
+   * Test {@link TimePeriod#getBaseRatio()}.
+   * <p>
+   * Method under test: {@link TimePeriod#getBaseRatio()}
    */
   @Test
   public void testGetBaseRatio() {

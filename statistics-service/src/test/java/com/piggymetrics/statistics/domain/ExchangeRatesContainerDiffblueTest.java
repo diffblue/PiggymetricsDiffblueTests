@@ -51,8 +51,10 @@ public class ExchangeRatesContainerDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.statistics.domain.ExchangeRatesContainer#ExchangeRatesContainer()}.
+   * Test new {@link ExchangeRatesContainer} (default constructor).
+   * <p>
+   * Method under test: default or parameterless constructor of
+   * {@link ExchangeRatesContainer}
    */
   @Test
   public void testNewExchangeRatesContainer() {

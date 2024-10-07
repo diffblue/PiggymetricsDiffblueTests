@@ -14,6 +14,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.test.context.ContextConfiguration;
@@ -32,8 +33,9 @@ public class MongoUserDetailsServiceDiffblueTest {
   private UserRepository userRepository;
 
   /**
-   * Test
-   * {@link com.piggymetrics.auth.service.security.MongoUserDetailsService#loadUserByUsername(String)}.
+   * Test {@link MongoUserDetailsService#loadUserByUsername(String)}.
+   * <p>
+   * Method under test: {@link MongoUserDetailsService#loadUserByUsername(String)}
    */
   @Test
   public void testLoadUserByUsername() throws UsernameNotFoundException {
@@ -47,13 +49,14 @@ public class MongoUserDetailsServiceDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.auth.service.security.MongoUserDetailsService#loadUserByUsername(String)}.
+   * Test {@link MongoUserDetailsService#loadUserByUsername(String)}.
    * <ul>
-   *   <li>Given {@link com.piggymetrics.auth.domain.User#User()} Password is
+   *   <li>Given {@link User} (default constructor) Password is
    * {@code iloveyou}.</li>
-   *   <li>Then returns {@link com.piggymetrics.auth.domain.User#User()}.</li>
-   * <ul>
+   *   <li>Then returns {@link User} (default constructor).</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link MongoUserDetailsService#loadUserByUsername(String)}
    */
   @Test
   public void testLoadUserByUsername_givenUserPasswordIsIloveyou_thenReturnsUser() throws UsernameNotFoundException {
@@ -73,13 +76,13 @@ public class MongoUserDetailsServiceDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.auth.service.security.MongoUserDetailsService#loadUserByUsername(String)}.
+   * Test {@link MongoUserDetailsService#loadUserByUsername(String)}.
    * <ul>
-   *   <li>Given {@link com.piggymetrics.auth.repository.UserRepository}
-   * {@link org.springframework.data.repository.CrudRepository#findById(Object)}
+   *   <li>Given {@link UserRepository} {@link CrudRepository#findById(Object)}
    * returns empty.</li>
-   * <ul>
+   * </ul>
+   * <p>
+   * Method under test: {@link MongoUserDetailsService#loadUserByUsername(String)}
    */
   @Test
   public void testLoadUserByUsername_givenUserRepositoryFindByIdReturnsEmpty() throws UsernameNotFoundException {

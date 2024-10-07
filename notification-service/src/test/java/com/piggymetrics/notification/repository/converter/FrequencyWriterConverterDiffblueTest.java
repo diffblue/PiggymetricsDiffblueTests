@@ -15,9 +15,10 @@ public class FrequencyWriterConverterDiffblueTest {
   private FrequencyWriterConverter frequencyWriterConverter;
 
   /**
-   * Test
-   * {@link com.piggymetrics.notification.repository.converter.FrequencyWriterConverter#convert(Frequency)}
-   * with {@code Frequency}.
+   * Test {@link FrequencyWriterConverter#convert(Frequency)} with
+   * {@code Frequency}.
+   * <p>
+   * Method under test: {@link FrequencyWriterConverter#convert(Frequency)}
    */
   @Test
   public void testConvertWithFrequency() {

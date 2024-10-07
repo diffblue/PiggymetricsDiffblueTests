@@ -3,17 +3,17 @@
     "reportVersion" : "2.6"
   },
   "run" : {
-    "version" : "2024.09.02-2708b1e-licensed",
-    "creationTimestamp" : "2024-09-24T17:48:55.597Z",
+    "version" : "2024.10.01-2ee2e3d-licensed",
+    "creationTimestamp" : "2024-10-07T16:32:17.99Z",
     "command" : "dcover create --batch --report-file=report.json --descriptive-test-names --coverage-reports --spring-integration-tests --verbose --working-directory=registry",
-    "totalTime" : 57.01,
-    "environmentDetectionTime" : 0.71,
-    "indexingTime" : 0.377,
-    "entryPointsTime" : 0.681,
-    "generationTime" : 23.005,
-    "timeToFirstTest" : 57.117,
-    "timeToLastTest" : 51.543,
-    "indexQueryTime" : 10.045,
+    "totalTime" : 52.676,
+    "environmentDetectionTime" : 0.443,
+    "indexingTime" : 0.332,
+    "entryPointsTime" : 0.407,
+    "generationTime" : 18.5,
+    "timeToFirstTest" : 52.783,
+    "timeToLastTest" : 47.044,
+    "indexQueryTime" : 8.377,
     "verificationTime" : 0.0,
     "validationTime" : 0.0
   },
@@ -29,6 +29,7 @@
     "completeTestCount" : 0,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 11,
     "perMethodTestability" : {
       "T005" : 1,
       "T006" : 1

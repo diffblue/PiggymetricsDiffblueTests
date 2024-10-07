@@ -5,7 +5,9 @@ import org.junit.Test;
 
 public class CurrencyDiffblueTest {
   /**
-   * Test {@link com.piggymetrics.account.domain.Currency#getDefault()}.
+   * Test {@link Currency#getDefault()}.
+   * <p>
+   * Method under test: {@link Currency#getDefault()}
    */
   @Test
   public void testGetDefault() {

@@ -5,7 +5,9 @@ import org.junit.Test;
 
 public class CurrencyDiffblueTest {
   /**
-   * Test {@link com.piggymetrics.statistics.domain.Currency#getBase()}.
+   * Test {@link Currency#getBase()}.
+   * <p>
+   * Method under test: {@link Currency#getBase()}
    */
   @Test
   public void testGetBase() {

@@ -15,15 +15,16 @@ public class FrequencyReaderConverterDiffblueTest {
   private FrequencyReaderConverter frequencyReaderConverter;
 
   /**
-   * Test
-   * {@link com.piggymetrics.notification.repository.converter.FrequencyReaderConverter#convert(Integer)}.
+   * Test {@link FrequencyReaderConverter#convert(Integer)} with {@code Integer}.
    * <ul>
    *   <li>When seven.</li>
    *   <li>Then returns {@code WEEKLY}.</li>
-   * <ul>
+   * </ul>
+   * <p>
+   * Method under test: {@link FrequencyReaderConverter#convert(Integer)}
    */
   @Test
-  public void testConvert_whenSeven_thenReturnsWeekly() {
+  public void testConvertWithInteger_whenSeven_thenReturnsWeekly() {
     // Arrange, Act and Assert
     assertEquals(Frequency.WEEKLY, frequencyReaderConverter.convert(7));
   }

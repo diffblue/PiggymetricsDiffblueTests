@@ -28,6 +28,7 @@ import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import org.springframework.test.web.servlet.result.StatusResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 @ContextConfiguration(classes = {AccountController.class})
@@ -40,8 +41,9 @@ public class AccountControllerDiffblueTest {
   private AccountService accountService;
 
   /**
-   * Test
-   * {@link com.piggymetrics.account.controller.AccountController#createNewAccount(User)}.
+   * Test {@link AccountController#createNewAccount(User)}.
+   * <p>
+   * Method under test: {@link AccountController#createNewAccount(User)}
    */
   @Test
   public void testCreateNewAccount() throws Exception {
@@ -83,8 +85,9 @@ public class AccountControllerDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.account.controller.AccountController#getAccountByName(String)}.
+   * Test {@link AccountController#getAccountByName(String)}.
+   * <p>
+   * Method under test: {@link AccountController#getAccountByName(String)}
    */
   @Test
   public void testGetAccountByName() throws Exception {
@@ -119,8 +122,9 @@ public class AccountControllerDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.account.controller.AccountController#getCurrentAccount(Principal)}.
+   * Test {@link AccountController#getCurrentAccount(Principal)}.
+   * <p>
+   * Method under test: {@link AccountController#getCurrentAccount(Principal)}
    */
   @Test
   public void testGetCurrentAccount() throws Exception {
@@ -156,15 +160,15 @@ public class AccountControllerDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.account.controller.AccountController#saveCurrentAccount(Principal, Account)}.
+   * Test {@link AccountController#saveCurrentAccount(Principal, Account)}.
    * <ul>
-   *   <li>Given {@link com.piggymetrics.account.service.AccountService}
-   * {@link com.piggymetrics.account.service.AccountService#saveChanges(String, Account)}
-   * does nothing.</li>
-   *   <li>Then status
-   * {@link org.springframework.test.web.servlet.result.StatusResultMatchers#isOk()}.</li>
-   * <ul>
+   *   <li>Given {@link AccountService}
+   * {@link AccountService#saveChanges(String, Account)} does nothing.</li>
+   *   <li>Then status {@link StatusResultMatchers#isOk()}.</li>
+   * </ul>
+   * <p>
+   * Method under test:
+   * {@link AccountController#saveCurrentAccount(Principal, Account)}
    */
   @Test
   public void testSaveCurrentAccount_givenAccountServiceSaveChangesDoesNothing_thenStatusIsOk() throws Exception {
@@ -200,12 +204,14 @@ public class AccountControllerDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.account.controller.AccountController#saveCurrentAccount(Principal, Account)}.
+   * Test {@link AccountController#saveCurrentAccount(Principal, Account)}.
    * <ul>
-   *   <li>Given {@link com.piggymetrics.account.service.AccountService}.</li>
+   *   <li>Given {@link AccountService}.</li>
    *   <li>Then status four hundred.</li>
-   * <ul>
+   * </ul>
+   * <p>
+   * Method under test:
+   * {@link AccountController#saveCurrentAccount(Principal, Account)}
    */
   @Test
   public void testSaveCurrentAccount_givenAccountService_thenStatusFourHundred() throws Exception {

@@ -8,14 +8,11 @@ import org.junit.Test;
 
 public class ItemMetricDiffblueTest {
   /**
-   * Test
-   * {@link com.piggymetrics.statistics.domain.timeseries.ItemMetric#equals(Object)},
-   * and
-   * {@link com.piggymetrics.statistics.domain.timeseries.ItemMetric#hashCode()}.
+   * Test {@link ItemMetric#equals(Object)}, and {@link ItemMetric#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
    *   <li>Then return equal.</li>
-   * <ul>
+   * </ul>
    * <p>
    * Methods under test:
    * <ul>
@@ -36,14 +33,11 @@ public class ItemMetricDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.statistics.domain.timeseries.ItemMetric#equals(Object)},
-   * and
-   * {@link com.piggymetrics.statistics.domain.timeseries.ItemMetric#hashCode()}.
+   * Test {@link ItemMetric#equals(Object)}, and {@link ItemMetric#hashCode()}.
    * <ul>
    *   <li>When other is same.</li>
    *   <li>Then return equal.</li>
-   * <ul>
+   * </ul>
    * <p>
    * Methods under test:
    * <ul>
@@ -63,12 +57,13 @@ public class ItemMetricDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.statistics.domain.timeseries.ItemMetric#equals(Object)}.
+   * Test {@link ItemMetric#equals(Object)}.
    * <ul>
    *   <li>When other is different.</li>
    *   <li>Then return not equal.</li>
-   * <ul>
+   * </ul>
+   * <p>
+   * Method under test: {@link ItemMetric#equals(Object)}
    */
   @Test
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
@@ -80,12 +75,13 @@ public class ItemMetricDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.statistics.domain.timeseries.ItemMetric#equals(Object)}.
+   * Test {@link ItemMetric#equals(Object)}.
    * <ul>
    *   <li>When other is {@code null}.</li>
    *   <li>Then return not equal.</li>
-   * <ul>
+   * </ul>
+   * <p>
+   * Method under test: {@link ItemMetric#equals(Object)}
    */
   @Test
   public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
@@ -94,12 +90,13 @@ public class ItemMetricDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.statistics.domain.timeseries.ItemMetric#equals(Object)}.
+   * Test {@link ItemMetric#equals(Object)}.
    * <ul>
    *   <li>When other is wrong type.</li>
    *   <li>Then return not equal.</li>
-   * <ul>
+   * </ul>
+   * <p>
+   * Method under test: {@link ItemMetric#equals(Object)}
    */
   @Test
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {

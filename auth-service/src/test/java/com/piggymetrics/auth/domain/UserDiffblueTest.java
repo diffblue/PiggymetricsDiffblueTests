@@ -7,7 +7,9 @@ import org.junit.Test;
 
 public class UserDiffblueTest {
   /**
-   * Test {@link com.piggymetrics.auth.domain.User#getAuthorities()}.
+   * Test {@link User#getAuthorities()}.
+   * <p>
+   * Method under test: {@link User#getAuthorities()}
    */
   @Test
   public void testGetAuthorities() {

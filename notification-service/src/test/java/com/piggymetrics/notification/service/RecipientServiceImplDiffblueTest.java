@@ -24,6 +24,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -40,14 +41,14 @@ public class RecipientServiceImplDiffblueTest {
   private RecipientServiceImpl recipientServiceImpl;
 
   /**
-   * Test
-   * {@link com.piggymetrics.notification.service.RecipientServiceImpl#findByAccountName(String)}.
+   * Test {@link RecipientServiceImpl#findByAccountName(String)}.
    * <ul>
-   *   <li>Given {@link com.piggymetrics.notification.domain.Recipient#Recipient()}
-   * AccountName is {@code Dr Jane Doe}.</li>
-   *   <li>Then returns
-   * {@link com.piggymetrics.notification.domain.Recipient#Recipient()}.</li>
-   * <ul>
+   *   <li>Given {@link Recipient} (default constructor) AccountName is
+   * {@code Dr Jane Doe}.</li>
+   *   <li>Then returns {@link Recipient} (default constructor).</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link RecipientServiceImpl#findByAccountName(String)}
    */
   @Test
   public void testFindByAccountName_givenRecipientAccountNameIsDrJaneDoe_thenReturnsRecipient() {
@@ -67,11 +68,12 @@ public class RecipientServiceImplDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.notification.service.RecipientServiceImpl#findByAccountName(String)}.
+   * Test {@link RecipientServiceImpl#findByAccountName(String)}.
    * <ul>
-   *   <li>Then throws {@link java.lang.IllegalArgumentException}.</li>
-   * <ul>
+   *   <li>Then throws {@link IllegalArgumentException}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link RecipientServiceImpl#findByAccountName(String)}
    */
   @Test
   public void testFindByAccountName_thenThrowsIllegalArgumentException() {
@@ -85,8 +87,9 @@ public class RecipientServiceImplDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.notification.service.RecipientServiceImpl#save(String, Recipient)}.
+   * Test {@link RecipientServiceImpl#save(String, Recipient)}.
+   * <p>
+   * Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
    */
   @Test
   public void testSave() {
@@ -120,13 +123,13 @@ public class RecipientServiceImplDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.notification.service.RecipientServiceImpl#save(String, Recipient)}.
+   * Test {@link RecipientServiceImpl#save(String, Recipient)}.
    * <ul>
-   *   <li>Given {@link java.util.HashMap#HashMap()}.</li>
-   *   <li>Then returns
-   * {@link com.piggymetrics.notification.domain.Recipient#Recipient()}.</li>
-   * <ul>
+   *   <li>Given {@link HashMap#HashMap()}.</li>
+   *   <li>Then returns {@link Recipient} (default constructor).</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
    */
   @Test
   public void testSave_givenHashMap_thenReturnsRecipient() {
@@ -151,15 +154,14 @@ public class RecipientServiceImplDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.notification.service.RecipientServiceImpl#save(String, Recipient)}.
+   * Test {@link RecipientServiceImpl#save(String, Recipient)}.
    * <ul>
-   *   <li>Given
-   * {@link com.piggymetrics.notification.domain.NotificationSettings#NotificationSettings()}
-   * Active is {@code false}.</li>
-   *   <li>Then returns
-   * {@link com.piggymetrics.notification.domain.Recipient#Recipient()}.</li>
-   * <ul>
+   *   <li>Given {@link NotificationSettings} (default constructor) Active is
+   * {@code false}.</li>
+   *   <li>Then returns {@link Recipient} (default constructor).</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
    */
   @Test
   public void testSave_givenNotificationSettingsActiveIsFalse_thenReturnsRecipient() {
@@ -200,15 +202,14 @@ public class RecipientServiceImplDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.notification.service.RecipientServiceImpl#save(String, Recipient)}.
+   * Test {@link RecipientServiceImpl#save(String, Recipient)}.
    * <ul>
-   *   <li>Given
-   * {@link com.piggymetrics.notification.domain.NotificationSettings#NotificationSettings()}
-   * LastNotified is {@code null}.</li>
-   *   <li>Then returns
-   * {@link com.piggymetrics.notification.domain.Recipient#Recipient()}.</li>
-   * <ul>
+   *   <li>Given {@link NotificationSettings} (default constructor) LastNotified is
+   * {@code null}.</li>
+   *   <li>Then returns {@link Recipient} (default constructor).</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
    */
   @Test
   public void testSave_givenNotificationSettingsLastNotifiedIsNull_thenReturnsRecipient() {
@@ -241,11 +242,12 @@ public class RecipientServiceImplDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.notification.service.RecipientServiceImpl#save(String, Recipient)}.
+   * Test {@link RecipientServiceImpl#save(String, Recipient)}.
    * <ul>
-   *   <li>Then throws {@link java.lang.IllegalArgumentException}.</li>
-   * <ul>
+   *   <li>Then throws {@link IllegalArgumentException}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
    */
   @Test
   public void testSave_thenThrowsIllegalArgumentException() {
@@ -265,14 +267,15 @@ public class RecipientServiceImplDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.notification.service.RecipientServiceImpl#findReadyToNotify(NotificationType)}.
+   * Test {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}.
    * <ul>
-   *   <li>Given
-   * {@link com.piggymetrics.notification.repository.RecipientRepository}
-   * {@link com.piggymetrics.notification.repository.RecipientRepository#findReadyForRemind()}
-   * returns {@link java.util.ArrayList#ArrayList()}.</li>
-   * <ul>
+   *   <li>Given {@link RecipientRepository}
+   * {@link RecipientRepository#findReadyForRemind()} returns
+   * {@link ArrayList#ArrayList()}.</li>
+   * </ul>
+   * <p>
+   * Method under test:
+   * {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
    */
   @Test
   public void testFindReadyToNotify_givenRecipientRepositoryFindReadyForRemindReturnsArrayList() {
@@ -290,12 +293,13 @@ public class RecipientServiceImplDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.notification.service.RecipientServiceImpl#findReadyToNotify(NotificationType)}.
+   * Test {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}.
    * <ul>
-   *   <li>Then calls
-   * {@link com.piggymetrics.notification.repository.RecipientRepository#findReadyForBackup()}.</li>
-   * <ul>
+   *   <li>Then calls {@link RecipientRepository#findReadyForBackup()}.</li>
+   * </ul>
+   * <p>
+   * Method under test:
+   * {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
    */
   @Test
   public void testFindReadyToNotify_thenCallsFindReadyForBackup() {
@@ -313,11 +317,13 @@ public class RecipientServiceImplDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.notification.service.RecipientServiceImpl#findReadyToNotify(NotificationType)}.
+   * Test {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}.
    * <ul>
-   *   <li>Then throws {@link java.lang.IllegalArgumentException}.</li>
-   * <ul>
+   *   <li>Then throws {@link IllegalArgumentException}.</li>
+   * </ul>
+   * <p>
+   * Method under test:
+   * {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
    */
   @Test
   public void testFindReadyToNotify_thenThrowsIllegalArgumentException() {
@@ -331,14 +337,15 @@ public class RecipientServiceImplDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.notification.service.RecipientServiceImpl#markNotified(NotificationType, Recipient)}.
+   * Test {@link RecipientServiceImpl#markNotified(NotificationType, Recipient)}.
    * <ul>
-   *   <li>Given {@link com.piggymetrics.notification.domain.Recipient#Recipient()}
-   * AccountName is {@code Dr Jane Doe}.</li>
-   *   <li>Then calls
-   * {@link org.springframework.data.repository.CrudRepository#save(Object)}.</li>
-   * <ul>
+   *   <li>Given {@link Recipient} (default constructor) AccountName is
+   * {@code Dr Jane Doe}.</li>
+   *   <li>Then calls {@link CrudRepository#save(Object)}.</li>
+   * </ul>
+   * <p>
+   * Method under test:
+   * {@link RecipientServiceImpl#markNotified(NotificationType, Recipient)}
    */
   @Test
   public void testMarkNotified_givenRecipientAccountNameIsDrJaneDoe_thenCallsSave() {
@@ -371,11 +378,13 @@ public class RecipientServiceImplDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.notification.service.RecipientServiceImpl#markNotified(NotificationType, Recipient)}.
+   * Test {@link RecipientServiceImpl#markNotified(NotificationType, Recipient)}.
    * <ul>
-   *   <li>Then throws {@link java.lang.IllegalArgumentException}.</li>
-   * <ul>
+   *   <li>Then throws {@link IllegalArgumentException}.</li>
+   * </ul>
+   * <p>
+   * Method under test:
+   * {@link RecipientServiceImpl#markNotified(NotificationType, Recipient)}
    */
   @Test
   public void testMarkNotified_thenThrowsIllegalArgumentException() {

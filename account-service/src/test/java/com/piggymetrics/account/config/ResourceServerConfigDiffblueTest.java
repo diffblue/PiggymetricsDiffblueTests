@@ -33,6 +33,8 @@ import com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
 import com.fasterxml.jackson.databind.introspect.VisibilityChecker;
 import com.fasterxml.jackson.databind.jsontype.SubtypeResolver;
 import com.fasterxml.jackson.databind.jsontype.impl.StdSubtypeResolver;
+import com.fasterxml.jackson.databind.module.SimpleDeserializers;
+import com.fasterxml.jackson.databind.module.SimpleSerializers;
 import com.fasterxml.jackson.databind.ser.BeanSerializerFactory;
 import com.fasterxml.jackson.databind.ser.DefaultSerializerProvider;
 import com.fasterxml.jackson.databind.ser.SerializerFactory;
@@ -72,8 +74,6 @@ import org.springframework.security.oauth2.client.OAuth2ClientContext;
 import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 import org.springframework.security.oauth2.client.http.OAuth2ErrorHandler;
 import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
-import org.springframework.security.oauth2.client.token.AccessTokenRequest;
-import org.springframework.security.oauth2.client.token.DefaultAccessTokenRequest;
 import org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsResourceDetails;
 import org.springframework.security.oauth2.common.AuthenticationScheme;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -96,8 +96,10 @@ public class ResourceServerConfigDiffblueTest {
   private ResourceServerProperties resourceServerProperties;
 
   /**
-   * Test
-   * {@link com.piggymetrics.account.config.ResourceServerConfig#clientCredentialsResourceDetails()}.
+   * Test {@link ResourceServerConfig#clientCredentialsResourceDetails()}.
+   * <p>
+   * Method under test:
+   * {@link ResourceServerConfig#clientCredentialsResourceDetails()}
    */
   @Test
   public void testClientCredentialsResourceDetails() {
@@ -122,8 +124,10 @@ public class ResourceServerConfigDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.account.config.ResourceServerConfig#oauth2FeignRequestInterceptor()}.
+   * Test {@link ResourceServerConfig#oauth2FeignRequestInterceptor()}.
+   * <p>
+   * Method under test:
+   * {@link ResourceServerConfig#oauth2FeignRequestInterceptor()}
    */
   @Test
   public void testOauth2FeignRequestInterceptor() {
@@ -132,8 +136,10 @@ public class ResourceServerConfigDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.account.config.ResourceServerConfig#clientCredentialsRestTemplate()}.
+   * Test {@link ResourceServerConfig#clientCredentialsRestTemplate()}.
+   * <p>
+   * Method under test:
+   * {@link ResourceServerConfig#clientCredentialsRestTemplate()}
    */
   @Test
   public void testClientCredentialsRestTemplate() throws MissingResourceException {
@@ -164,7 +170,13 @@ public class ResourceServerConfigDiffblueTest {
     assertTrue(visibilityChecker instanceof VisibilityChecker.Std);
     SubtypeResolver subtypeResolver = objectMapper.getSubtypeResolver();
     assertTrue(subtypeResolver instanceof StdSubtypeResolver);
+    DeserializerFactoryConfig factoryConfig = ((BeanDeserializerFactory) factory2).getFactoryConfig();
+    Iterable<Deserializers> deserializersResult = factoryConfig.deserializers();
+    assertTrue(((ArrayIterator<Deserializers>) deserializersResult).next() instanceof SimpleDeserializers);
     SerializerFactory serializerFactory = objectMapper.getSerializerFactory();
+    SerializerFactoryConfig factoryConfig2 = ((BeanSerializerFactory) serializerFactory).getFactoryConfig();
+    Iterable<Serializers> serializersResult = factoryConfig2.serializers();
+    assertTrue(((ArrayIterator<Serializers>) serializersResult).next() instanceof SimpleSerializers);
     assertTrue(serializerFactory instanceof BeanSerializerFactory);
     SerializerProvider serializerProvider = objectMapper.getSerializerProvider();
     assertTrue(serializerProvider instanceof DefaultSerializerProvider.Impl);
@@ -174,11 +186,7 @@ public class ResourceServerConfigDiffblueTest {
     assertTrue(defaultNullKeySerializer instanceof FailingSerializer);
     JsonSerializer<Object> defaultNullValueSerializer = serializerProvider.getDefaultNullValueSerializer();
     assertTrue(defaultNullValueSerializer instanceof NullSerializer);
-    DeserializerFactoryConfig factoryConfig = ((BeanDeserializerFactory) factory2).getFactoryConfig();
-    Iterable<Deserializers> deserializersResult = factoryConfig.deserializers();
     assertTrue(deserializersResult instanceof ArrayIterator);
-    SerializerFactoryConfig factoryConfig2 = ((BeanSerializerFactory) serializerFactory).getFactoryConfig();
-    Iterable<Serializers> serializersResult = factoryConfig2.serializers();
     assertTrue(serializersResult instanceof ArrayIterator);
     DateFormat dateFormat = objectMapper.getDateFormat();
     assertTrue(dateFormat instanceof StdDateFormat);
@@ -198,8 +206,6 @@ public class ResourceServerConfigDiffblueTest {
     OAuth2ClientContext oAuth2ClientContext = actualClientCredentialsRestTemplateResult.getOAuth2ClientContext();
     assertTrue(oAuth2ClientContext instanceof DefaultOAuth2ClientContext);
     assertTrue(actualClientCredentialsRestTemplateResult.getErrorHandler() instanceof OAuth2ErrorHandler);
-    AccessTokenRequest accessTokenRequest = oAuth2ClientContext.getAccessTokenRequest();
-    assertTrue(accessTokenRequest instanceof DefaultAccessTokenRequest);
     OAuth2ProtectedResourceDetails resource = actualClientCredentialsRestTemplateResult.getResource();
     assertTrue(resource instanceof ClientCredentialsResourceDetails);
     UriTemplateHandler uriTemplateHandler = actualClientCredentialsRestTemplateResult.getUriTemplateHandler();
@@ -414,7 +420,7 @@ public class ResourceServerConfigDiffblueTest {
     assertTrue(((ArrayIterator<Deserializers>) deserializersResult).hasNext());
     assertTrue(((ArrayIterator<Serializers>) serializersResult).hasNext());
     assertTrue(dateFormat.isLenient());
-    assertTrue(accessTokenRequest.isEmpty());
+    assertTrue(oAuth2ClientContext.getAccessTokenRequest().isEmpty());
     assertTrue(getResult10.getParameters().isEmpty());
     assertTrue(((DefaultUriBuilderFactory) uriTemplateHandler).getDefaultUriVariables().isEmpty());
     Set<Character> extensionKeys = locale.getExtensionKeys();
@@ -463,8 +469,9 @@ public class ResourceServerConfigDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.account.config.ResourceServerConfig#tokenServices()}.
+   * Test {@link ResourceServerConfig#tokenServices()}.
+   * <p>
+   * Method under test: {@link ResourceServerConfig#tokenServices()}
    */
   @Test
   public void testTokenServices() {

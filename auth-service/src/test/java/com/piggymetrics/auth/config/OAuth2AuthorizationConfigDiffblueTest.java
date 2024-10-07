@@ -33,10 +33,14 @@ public class OAuth2AuthorizationConfigDiffblueTest {
 
   /**
    * Test
-   * {@link com.piggymetrics.auth.config.OAuth2AuthorizationConfig#configure(ClientDetailsServiceConfigurer)}.
+   * {@link OAuth2AuthorizationConfig#configure(ClientDetailsServiceConfigurer)}
+   * with {@code clients}.
+   * <p>
+   * Method under test:
+   * {@link OAuth2AuthorizationConfig#configure(ClientDetailsServiceConfigurer)}
    */
   @Test
-  public void testConfigure() throws Exception {
+  public void testConfigureWithClients() throws Exception {
     // Arrange
     ClientDetailsServiceConfigurer clients = new ClientDetailsServiceConfigurer(new ClientDetailsServiceBuilder<>());
 
@@ -49,10 +53,14 @@ public class OAuth2AuthorizationConfigDiffblueTest {
 
   /**
    * Test
-   * {@link com.piggymetrics.auth.config.OAuth2AuthorizationConfig#configure(ClientDetailsServiceConfigurer)}.
+   * {@link OAuth2AuthorizationConfig#configure(ClientDetailsServiceConfigurer)}
+   * with {@code clients}.
+   * <p>
+   * Method under test:
+   * {@link OAuth2AuthorizationConfig#configure(ClientDetailsServiceConfigurer)}
    */
   @Test
-  public void testConfigure2() throws Exception {
+  public void testConfigureWithClients2() throws Exception {
     // Arrange
     JdbcClientDetailsServiceBuilder builder = new JdbcClientDetailsServiceBuilder();
     builder.dataSource(mock(DataSource.class));
@@ -67,10 +75,14 @@ public class OAuth2AuthorizationConfigDiffblueTest {
 
   /**
    * Test
-   * {@link com.piggymetrics.auth.config.OAuth2AuthorizationConfig#configure(AuthorizationServerEndpointsConfigurer)}.
+   * {@link OAuth2AuthorizationConfig#configure(AuthorizationServerEndpointsConfigurer)}
+   * with {@code endpoints}.
+   * <p>
+   * Method under test:
+   * {@link OAuth2AuthorizationConfig#configure(AuthorizationServerEndpointsConfigurer)}
    */
   @Test
-  public void testConfigure3() throws Exception {
+  public void testConfigureWithEndpoints() throws Exception {
     // Arrange
     AuthorizationServerEndpointsConfigurer endpoints = new AuthorizationServerEndpointsConfigurer();
 
@@ -83,10 +95,14 @@ public class OAuth2AuthorizationConfigDiffblueTest {
 
   /**
    * Test
-   * {@link com.piggymetrics.auth.config.OAuth2AuthorizationConfig#configure(AuthorizationServerSecurityConfigurer)}.
+   * {@link OAuth2AuthorizationConfig#configure(AuthorizationServerSecurityConfigurer)}
+   * with {@code oauthServer}.
+   * <p>
+   * Method under test:
+   * {@link OAuth2AuthorizationConfig#configure(AuthorizationServerSecurityConfigurer)}
    */
   @Test
-  public void testConfigure4() throws Exception {
+  public void testConfigureWithOauthServer() throws Exception {
     // Arrange
     AuthorizationServerSecurityConfigurer oauthServer = new AuthorizationServerSecurityConfigurer();
 

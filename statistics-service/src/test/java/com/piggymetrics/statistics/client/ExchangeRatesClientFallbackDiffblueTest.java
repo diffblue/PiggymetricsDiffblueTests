@@ -17,8 +17,9 @@ public class ExchangeRatesClientFallbackDiffblueTest {
   private ExchangeRatesClientFallback exchangeRatesClientFallback;
 
   /**
-   * Test
-   * {@link com.piggymetrics.statistics.client.ExchangeRatesClientFallback#getRates(Currency)}.
+   * Test {@link ExchangeRatesClientFallback#getRates(Currency)}.
+   * <p>
+   * Method under test: {@link ExchangeRatesClientFallback#getRates(Currency)}
    */
   @Test
   public void testGetRates() {

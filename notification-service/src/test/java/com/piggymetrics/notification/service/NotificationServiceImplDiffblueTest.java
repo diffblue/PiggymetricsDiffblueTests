@@ -27,8 +27,9 @@ public class NotificationServiceImplDiffblueTest {
   private RecipientRepository recipientRepository;
 
   /**
-   * Test
-   * {@link com.piggymetrics.notification.service.NotificationServiceImpl#sendBackupNotifications()}.
+   * Test {@link NotificationServiceImpl#sendBackupNotifications()}.
+   * <p>
+   * Method under test: {@link NotificationServiceImpl#sendBackupNotifications()}
    */
   @Test
   public void testSendBackupNotifications() {
@@ -43,12 +44,13 @@ public class NotificationServiceImplDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.notification.service.NotificationServiceImpl#sendBackupNotifications()}.
+   * Test {@link NotificationServiceImpl#sendBackupNotifications()}.
    * <ul>
-   *   <li>Given {@link com.piggymetrics.notification.domain.Recipient#Recipient()}
-   * AccountName is {@code Dr Jane Doe}.</li>
-   * <ul>
+   *   <li>Given {@link Recipient} (default constructor) AccountName is
+   * {@code Dr Jane Doe}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link NotificationServiceImpl#sendBackupNotifications()}
    */
   @Test
   public void testSendBackupNotifications_givenRecipientAccountNameIsDrJaneDoe() {
@@ -70,12 +72,13 @@ public class NotificationServiceImplDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.notification.service.NotificationServiceImpl#sendBackupNotifications()}.
+   * Test {@link NotificationServiceImpl#sendBackupNotifications()}.
    * <ul>
-   *   <li>Given {@link com.piggymetrics.notification.domain.Recipient#Recipient()}
-   * AccountName is {@code Mr John Smith}.</li>
-   * <ul>
+   *   <li>Given {@link Recipient} (default constructor) AccountName is
+   * {@code Mr John Smith}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link NotificationServiceImpl#sendBackupNotifications()}
    */
   @Test
   public void testSendBackupNotifications_givenRecipientAccountNameIsMrJohnSmith() {
@@ -103,12 +106,13 @@ public class NotificationServiceImplDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.notification.service.NotificationServiceImpl#sendBackupNotifications()}.
+   * Test {@link NotificationServiceImpl#sendBackupNotifications()}.
    * <ul>
-   *   <li>Given {@link com.piggymetrics.notification.domain.Recipient#Recipient()}
-   * AccountName is {@code Prof Albert Einstein}.</li>
-   * <ul>
+   *   <li>Given {@link Recipient} (default constructor) AccountName is
+   * {@code Prof Albert Einstein}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link NotificationServiceImpl#sendBackupNotifications()}
    */
   @Test
   public void testSendBackupNotifications_givenRecipientAccountNameIsProfAlbertEinstein() {
@@ -128,13 +132,7 @@ public class NotificationServiceImplDiffblueTest {
     recipient3.setEmail("prof.einstein@example.org");
     recipient3.setScheduledNotifications(new HashMap<>());
 
-    Recipient recipient4 = new Recipient();
-    recipient4.setAccountName("Mr John Smith");
-    recipient4.setEmail("john.smith@example.org");
-    recipient4.setScheduledNotifications(new HashMap<>());
-
     ArrayList<Recipient> recipientList = new ArrayList<>();
-    recipientList.add(recipient4);
     recipientList.add(recipient3);
     recipientList.add(recipient2);
     recipientList.add(recipient);
@@ -148,8 +146,9 @@ public class NotificationServiceImplDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.notification.service.NotificationServiceImpl#sendRemindNotifications()}.
+   * Test {@link NotificationServiceImpl#sendRemindNotifications()}.
+   * <p>
+   * Method under test: {@link NotificationServiceImpl#sendRemindNotifications()}
    */
   @Test
   public void testSendRemindNotifications() {
@@ -164,8 +163,9 @@ public class NotificationServiceImplDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.notification.service.NotificationServiceImpl#sendRemindNotifications()}.
+   * Test {@link NotificationServiceImpl#sendRemindNotifications()}.
+   * <p>
+   * Method under test: {@link NotificationServiceImpl#sendRemindNotifications()}
    */
   @Test
   public void testSendRemindNotifications2() {
@@ -193,12 +193,13 @@ public class NotificationServiceImplDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.notification.service.NotificationServiceImpl#sendRemindNotifications()}.
+   * Test {@link NotificationServiceImpl#sendRemindNotifications()}.
    * <ul>
-   *   <li>Given {@link com.piggymetrics.notification.domain.Recipient#Recipient()}
-   * AccountName is {@code Dr Jane Doe}.</li>
-   * <ul>
+   *   <li>Given {@link Recipient} (default constructor) AccountName is
+   * {@code Dr Jane Doe}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link NotificationServiceImpl#sendRemindNotifications()}
    */
   @Test
   public void testSendRemindNotifications_givenRecipientAccountNameIsDrJaneDoe() {
@@ -220,15 +221,16 @@ public class NotificationServiceImplDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.notification.service.NotificationServiceImpl#sendRemindNotifications()}.
+   * Test {@link NotificationServiceImpl#sendRemindNotifications()}.
    * <ul>
-   *   <li>Given {@link com.piggymetrics.notification.domain.Recipient#Recipient()}
-   * Email is empty string.</li>
-   * <ul>
+   *   <li>Given {@link Recipient} (default constructor) AccountName is
+   * {@code Prof Albert Einstein}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link NotificationServiceImpl#sendRemindNotifications()}
    */
   @Test
-  public void testSendRemindNotifications_givenRecipientEmailIsEmptyString() {
+  public void testSendRemindNotifications_givenRecipientAccountNameIsProfAlbertEinstein() {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
@@ -237,7 +239,7 @@ public class NotificationServiceImplDiffblueTest {
 
     Recipient recipient2 = new Recipient();
     recipient2.setAccountName("Mr John Smith");
-    recipient2.setEmail("");
+    recipient2.setEmail("jane.doe@example.org");
     recipient2.setScheduledNotifications(new HashMap<>());
 
     Recipient recipient3 = new Recipient();

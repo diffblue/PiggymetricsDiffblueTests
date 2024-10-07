@@ -5,7 +5,9 @@ import org.junit.Test;
 
 public class FrequencyDiffblueTest {
   /**
-   * Test {@link com.piggymetrics.notification.domain.Frequency#getDays()}.
+   * Test {@link Frequency#getDays()}.
+   * <p>
+   * Method under test: {@link Frequency#getDays()}
    */
   @Test
   public void testGetDays() {
@@ -14,11 +16,13 @@ public class FrequencyDiffblueTest {
   }
 
   /**
-   * Test {@link com.piggymetrics.notification.domain.Frequency#withDays(int)}.
+   * Test {@link Frequency#withDays(int)}.
    * <ul>
    *   <li>When seven.</li>
    *   <li>Then returns {@code WEEKLY}.</li>
-   * <ul>
+   * </ul>
+   * <p>
+   * Method under test: {@link Frequency#withDays(int)}
    */
   @Test
   public void testWithDays_whenSeven_thenReturnsWeekly() {

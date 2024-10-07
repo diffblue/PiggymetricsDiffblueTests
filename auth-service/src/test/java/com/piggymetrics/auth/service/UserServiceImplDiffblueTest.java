@@ -14,6 +14,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -30,7 +31,9 @@ public class UserServiceImplDiffblueTest {
   private UserServiceImpl userServiceImpl;
 
   /**
-   * Test {@link com.piggymetrics.auth.service.UserServiceImpl#create(User)}.
+   * Test {@link UserServiceImpl#create(User)}.
+   * <p>
+   * Method under test: {@link UserServiceImpl#create(User)}
    */
   @Test
   public void testCreate() {
@@ -49,13 +52,13 @@ public class UserServiceImplDiffblueTest {
   }
 
   /**
-   * Test {@link com.piggymetrics.auth.service.UserServiceImpl#create(User)}.
+   * Test {@link UserServiceImpl#create(User)}.
    * <ul>
-   *   <li>Given {@link com.piggymetrics.auth.repository.UserRepository}
-   * {@link org.springframework.data.repository.CrudRepository#findById(Object)}
-   * returns {@link java.util.Optional} with
-   * {@link com.piggymetrics.auth.domain.User#User()}.</li>
-   * <ul>
+   *   <li>Given {@link UserRepository} {@link CrudRepository#findById(Object)}
+   * returns {@link Optional} with {@link User} (default constructor).</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link UserServiceImpl#create(User)}
    */
   @Test
   public void testCreate_givenUserRepositoryFindByIdReturnsOptionalWithUser() {
@@ -77,14 +80,14 @@ public class UserServiceImplDiffblueTest {
   }
 
   /**
-   * Test {@link com.piggymetrics.auth.service.UserServiceImpl#create(User)}.
+   * Test {@link UserServiceImpl#create(User)}.
    * <ul>
-   *   <li>Given {@link com.piggymetrics.auth.repository.UserRepository}
-   * {@link org.springframework.data.repository.CrudRepository#save(Object)}
-   * returns {@link com.piggymetrics.auth.domain.User#User()}.</li>
-   *   <li>Then calls
-   * {@link org.springframework.data.repository.CrudRepository#save(Object)}.</li>
-   * <ul>
+   *   <li>Given {@link UserRepository} {@link CrudRepository#save(Object)} returns
+   * {@link User} (default constructor).</li>
+   *   <li>Then calls {@link CrudRepository#save(Object)}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link UserServiceImpl#create(User)}
    */
   @Test
   public void testCreate_givenUserRepositorySaveReturnsUser_thenCallsSave() {

@@ -1,14 +1,14 @@
 {
-  "version" : "2024.09.02-2708b1e-licensed",
-  "totalTime" : 2018.6979999999999,
-  "environmentDetectionTime" : 6.654,
-  "indexingTime" : 3.445,
-  "entryPointsTime" : 6.362000000000001,
-  "generationTime" : 1361.888,
-  "timeToFirstTest" : 787.646,
-  "timeToLastTest" : 1737.086,
-  "verificationTime" : 104.385,
-  "validationTime" : 117.12,
+  "version" : "2024.10.01-2ee2e3d-licensed",
+  "totalTime" : 2014.878,
+  "environmentDetectionTime" : 5.172000000000001,
+  "indexingTime" : 3.2849999999999997,
+  "entryPointsTime" : 4.898,
+  "generationTime" : 1358.5529999999999,
+  "timeToFirstTest" : 785.3430000000002,
+  "timeToLastTest" : 1732.3539999999998,
+  "verificationTime" : 102.485,
+  "validationTime" : 117.417,
   "summary" : {
     "classesCount" : 75,
     "methodsCount" : 362,
@@ -17,6 +17,7 @@
     "completeTestCount" : 94,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 1927,
     "perMethodTestability" : {
       "T000" : 123,
       "T001" : 61,
@@ -67,8 +68,8 @@
       "com.piggymetrics.account.service.security.CustomUserInfoTokenServices",
       "com.piggymetrics.account.AccountApplication"
     ],
-    "coveredLines" : 485,
-    "lineCoveragePercent" : "80.83%",
+    "coveredLines" : 482,
+    "lineCoveragePercent" : "80.33%",
     "totalLines" : 600
   },
   "piTestMetrics" : {
@@ -79,13 +80,13 @@
     "mutationsTotal" : 0
   },
   "testDiffStatSummary" : {
-    "files" : 39,
-    "insertions" : 814,
-    "deletions" : 600
+    "files" : 27,
+    "insertions" : 390,
+    "deletions" : 302
   },
   "diffblueTestDiffStatSummary" : {
-    "files" : 39,
-    "insertions" : 814,
-    "deletions" : 600
+    "files" : 27,
+    "insertions" : 390,
+    "deletions" : 302
   }
 }

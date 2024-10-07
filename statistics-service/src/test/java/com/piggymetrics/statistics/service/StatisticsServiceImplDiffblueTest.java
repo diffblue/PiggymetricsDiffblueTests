@@ -50,12 +50,13 @@ public class StatisticsServiceImplDiffblueTest {
   private StatisticsServiceImpl statisticsServiceImpl;
 
   /**
-   * Test
-   * {@link com.piggymetrics.statistics.service.StatisticsServiceImpl#findByAccountName(String)}.
+   * Test {@link StatisticsServiceImpl#findByAccountName(String)}.
    * <ul>
    *   <li>When {@code Dr Jane Doe}.</li>
    *   <li>Then returns Empty.</li>
-   * <ul>
+   * </ul>
+   * <p>
+   * Method under test: {@link StatisticsServiceImpl#findByAccountName(String)}
    */
   @Test
   public void testFindByAccountName_whenDrJaneDoe_thenReturnsEmpty() {
@@ -73,14 +74,13 @@ public class StatisticsServiceImplDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.statistics.service.StatisticsServiceImpl#save(String, Account)}.
+   * Test {@link StatisticsServiceImpl#save(String, Account)}.
    * <ul>
-   *   <li>Given {@link com.piggymetrics.statistics.domain.Item#Item()} Currency is
-   * {@code EUR}.</li>
-   *   <li>Then calls
-   * {@link com.piggymetrics.statistics.domain.Account#getExpenses()}.</li>
-   * <ul>
+   *   <li>Given {@link Item} (default constructor) Currency is {@code EUR}.</li>
+   *   <li>Then calls {@link Account#getExpenses()}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link StatisticsServiceImpl#save(String, Account)}
    */
   @Test
   public void testSave_givenItemCurrencyIsEur_thenCallsGetExpenses() {
@@ -155,12 +155,12 @@ public class StatisticsServiceImplDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.statistics.service.StatisticsServiceImpl#save(String, Account)}.
+   * Test {@link StatisticsServiceImpl#save(String, Account)}.
    * <ul>
-   *   <li>Then calls
-   * {@link com.piggymetrics.statistics.domain.Account#getExpenses()}.</li>
-   * <ul>
+   *   <li>Then calls {@link Account#getExpenses()}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link StatisticsServiceImpl#save(String, Account)}
    */
   @Test
   public void testSave_thenCallsGetExpenses() {
@@ -228,12 +228,12 @@ public class StatisticsServiceImplDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.statistics.service.StatisticsServiceImpl#save(String, Account)}.
+   * Test {@link StatisticsServiceImpl#save(String, Account)}.
    * <ul>
-   *   <li>Then calls
-   * {@link com.piggymetrics.statistics.domain.Account#getExpenses()}.</li>
-   * <ul>
+   *   <li>Then calls {@link Account#getExpenses()}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link StatisticsServiceImpl#save(String, Account)}
    */
   @Test
   public void testSave_thenCallsGetExpenses2() {
@@ -301,14 +301,14 @@ public class StatisticsServiceImplDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.statistics.service.StatisticsServiceImpl#save(String, Account)}.
+   * Test {@link StatisticsServiceImpl#save(String, Account)}.
    * <ul>
-   *   <li>When {@link com.piggymetrics.statistics.domain.Account#Account()}
-   * Expenses is {@link java.util.ArrayList#ArrayList()}.</li>
-   *   <li>Then returns
-   * {@link com.piggymetrics.statistics.domain.timeseries.DataPoint#DataPoint()}.</li>
-   * <ul>
+   *   <li>When {@link Account} (default constructor) Expenses is
+   * {@link ArrayList#ArrayList()}.</li>
+   *   <li>Then returns {@link DataPoint} (default constructor).</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link StatisticsServiceImpl#save(String, Account)}
    */
   @Test
   public void testSave_whenAccountExpensesIsArrayList_thenReturnsDataPoint() {

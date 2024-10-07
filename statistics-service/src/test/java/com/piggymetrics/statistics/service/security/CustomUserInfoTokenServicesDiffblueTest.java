@@ -29,8 +29,10 @@ public class CustomUserInfoTokenServicesDiffblueTest {
   private MongodExecutable mongodExecutable;
 
   /**
-   * Test
-   * {@link com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices#loadAuthentication(String)}.
+   * Test {@link CustomUserInfoTokenServices#loadAuthentication(String)}.
+   * <p>
+   * Method under test:
+   * {@link CustomUserInfoTokenServices#loadAuthentication(String)}
    */
   @Test
   public void testLoadAuthentication() throws AuthenticationException, InvalidTokenException {
@@ -40,8 +42,10 @@ public class CustomUserInfoTokenServicesDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices#readAccessToken(String)}.
+   * Test {@link CustomUserInfoTokenServices#readAccessToken(String)}.
+   * <p>
+   * Method under test:
+   * {@link CustomUserInfoTokenServices#readAccessToken(String)}
    */
   @Test
   public void testReadAccessToken() {
