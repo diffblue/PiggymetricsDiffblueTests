@@ -41,50 +41,6 @@ public class AccountControllerDiffblueTest {
   private AccountService accountService;
 
   /**
-   * Test {@link AccountController#createNewAccount(User)}.
-   * <p>
-   * Method under test: {@link AccountController#createNewAccount(User)}
-   */
-  @Test
-  public void testCreateNewAccount() throws Exception {
-    // Arrange
-    Saving saving = new Saving();
-    saving.setAmount(new BigDecimal("2.3"));
-    saving.setCapitalization(true);
-    saving.setCurrency(Currency.USD);
-    saving.setDeposit(true);
-    saving.setInterest(new BigDecimal("2.3"));
-
-    Account account = new Account();
-    account.setExpenses(new ArrayList<>());
-    account.setIncomes(new ArrayList<>());
-    account.setLastSeen(Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
-    account.setName("Name");
-    account.setNote("Note");
-    account.setSaving(saving);
-    when(accountService.create(Mockito.<User>any())).thenReturn(account);
-
-    User user = new User();
-    user.setPassword("iloveyou");
-    user.setUsername("janedoe");
-    String content = (new ObjectMapper()).writeValueAsString(user);
-    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.post("/")
-        .contentType(MediaType.APPLICATION_JSON)
-        .content(content);
-
-    // Act and Assert
-    MockMvcBuilders.standaloneSetup(accountController)
-        .build()
-        .perform(requestBuilder)
-        .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/json;charset=UTF-8"))
-        .andExpect(MockMvcResultMatchers.content()
-            .string(
-                "{\"name\":\"Name\",\"lastSeen\":0,\"incomes\":[],\"expenses\":[],\"saving\":{\"amount\":2.3,\"currency\":\"USD\",\"interest"
-                    + "\":2.3,\"deposit\":true,\"capitalization\":true},\"note\":\"Note\"}"));
-  }
-
-  /**
    * Test {@link AccountController#getAccountByName(String)}.
    * <p>
    * Method under test: {@link AccountController#getAccountByName(String)}
@@ -245,5 +201,49 @@ public class AccountControllerDiffblueTest {
 
     // Assert
     actualPerformResult.andExpect(MockMvcResultMatchers.status().is(400));
+  }
+
+  /**
+   * Test {@link AccountController#createNewAccount(User)}.
+   * <p>
+   * Method under test: {@link AccountController#createNewAccount(User)}
+   */
+  @Test
+  public void testCreateNewAccount() throws Exception {
+    // Arrange
+    Saving saving = new Saving();
+    saving.setAmount(new BigDecimal("2.3"));
+    saving.setCapitalization(true);
+    saving.setCurrency(Currency.USD);
+    saving.setDeposit(true);
+    saving.setInterest(new BigDecimal("2.3"));
+
+    Account account = new Account();
+    account.setExpenses(new ArrayList<>());
+    account.setIncomes(new ArrayList<>());
+    account.setLastSeen(Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
+    account.setName("Name");
+    account.setNote("Note");
+    account.setSaving(saving);
+    when(accountService.create(Mockito.<User>any())).thenReturn(account);
+
+    User user = new User();
+    user.setPassword("iloveyou");
+    user.setUsername("janedoe");
+    String content = (new ObjectMapper()).writeValueAsString(user);
+    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.post("/")
+        .contentType(MediaType.APPLICATION_JSON)
+        .content(content);
+
+    // Act and Assert
+    MockMvcBuilders.standaloneSetup(accountController)
+        .build()
+        .perform(requestBuilder)
+        .andExpect(MockMvcResultMatchers.status().isOk())
+        .andExpect(MockMvcResultMatchers.content().contentType("application/json;charset=UTF-8"))
+        .andExpect(MockMvcResultMatchers.content()
+            .string(
+                "{\"name\":\"Name\",\"lastSeen\":0,\"incomes\":[],\"expenses\":[],\"saving\":{\"amount\":2.3,\"currency\":\"USD\",\"interest"
+                    + "\":2.3,\"deposit\":true,\"capitalization\":true},\"note\":\"Note\"}"));
   }
 }

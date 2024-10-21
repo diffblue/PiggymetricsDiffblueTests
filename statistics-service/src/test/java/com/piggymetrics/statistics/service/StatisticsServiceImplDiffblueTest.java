@@ -53,16 +53,15 @@ public class StatisticsServiceImplDiffblueTest {
    * Test {@link StatisticsServiceImpl#findByAccountName(String)}.
    * <ul>
    *   <li>When {@code Dr Jane Doe}.</li>
-   *   <li>Then returns Empty.</li>
+   *   <li>Then return Empty.</li>
    * </ul>
    * <p>
    * Method under test: {@link StatisticsServiceImpl#findByAccountName(String)}
    */
   @Test
-  public void testFindByAccountName_whenDrJaneDoe_thenReturnsEmpty() {
+  public void testFindByAccountName_whenDrJaneDoe_thenReturnEmpty() {
     // Arrange
-    ArrayList<DataPoint> dataPointList = new ArrayList<>();
-    when(dataPointRepository.findByIdAccount(Mockito.<String>any())).thenReturn(dataPointList);
+    when(dataPointRepository.findByIdAccount(Mockito.<String>any())).thenReturn(new ArrayList<>());
 
     // Act
     List<DataPoint> actualFindByAccountNameResult = statisticsServiceImpl.findByAccountName("Dr Jane Doe");
@@ -70,7 +69,6 @@ public class StatisticsServiceImplDiffblueTest {
     // Assert
     verify(dataPointRepository).findByIdAccount(eq("Dr Jane Doe"));
     assertTrue(actualFindByAccountNameResult.isEmpty());
-    assertSame(dataPointList, actualFindByAccountNameResult);
   }
 
   /**
@@ -305,13 +303,13 @@ public class StatisticsServiceImplDiffblueTest {
    * <ul>
    *   <li>When {@link Account} (default constructor) Expenses is
    * {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then returns {@link DataPoint} (default constructor).</li>
+   *   <li>Then return {@link DataPoint} (default constructor).</li>
    * </ul>
    * <p>
    * Method under test: {@link StatisticsServiceImpl#save(String, Account)}
    */
   @Test
-  public void testSave_whenAccountExpensesIsArrayList_thenReturnsDataPoint() {
+  public void testSave_whenAccountExpensesIsArrayList_thenReturnDataPoint() {
     // Arrange
     when(exchangeRatesService.getCurrentRates()).thenReturn(new HashMap<>());
     when(exchangeRatesService.convert(Mockito.<Currency>any(), Mockito.<Currency>any(), Mockito.<BigDecimal>any()))

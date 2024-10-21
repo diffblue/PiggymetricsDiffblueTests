@@ -28,6 +28,23 @@ public class UserControllerDiffblueTest {
   private UserService userService;
 
   /**
+   * Test {@link UserController#getUser(Principal)}.
+   * <p>
+   * Method under test: {@link UserController#getUser(Principal)}
+   */
+  @Test
+  public void testGetUser() throws Exception {
+    // Arrange
+    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/users/current");
+
+    // Act and Assert
+    MockMvcBuilders.standaloneSetup(userController)
+        .build()
+        .perform(requestBuilder)
+        .andExpect(MockMvcResultMatchers.status().isOk());
+  }
+
+  /**
    * Test {@link UserController#createUser(User)}.
    * <p>
    * Method under test: {@link UserController#createUser(User)}
@@ -44,23 +61,6 @@ public class UserControllerDiffblueTest {
     MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.post("/users")
         .contentType(MediaType.APPLICATION_JSON)
         .content(content);
-
-    // Act and Assert
-    MockMvcBuilders.standaloneSetup(userController)
-        .build()
-        .perform(requestBuilder)
-        .andExpect(MockMvcResultMatchers.status().isOk());
-  }
-
-  /**
-   * Test {@link UserController#getUser(Principal)}.
-   * <p>
-   * Method under test: {@link UserController#getUser(Principal)}
-   */
-  @Test
-  public void testGetUser() throws Exception {
-    // Arrange
-    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/users/current");
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(userController)

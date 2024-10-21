@@ -3,19 +3,19 @@
     "reportVersion" : "2.6"
   },
   "run" : {
-    "version" : "2024.10.01-2ee2e3d-licensed",
-    "creationTimestamp" : "2024-10-07T16:59:47.734Z",
-    "command" : "dcover create --batch --report-file=report.json --descriptive-test-names --coverage-reports --spring-integration-tests --verbose --working-directory=notification-service",
-    "totalTime" : 418.928,
-    "environmentDetectionTime" : 0.801,
-    "indexingTime" : 0.343,
-    "entryPointsTime" : 0.763,
-    "generationTime" : 305.069,
-    "timeToFirstTest" : 151.648,
-    "timeToLastTest" : 365.678,
-    "indexQueryTime" : 14.844000000000001,
-    "verificationTime" : 27.395,
-    "validationTime" : 23.12
+    "version" : "2024.10.02-bdbc3ab-licensed",
+    "creationTimestamp" : "2024-10-21T15:05:51.538Z",
+    "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --working-directory=notification-service",
+    "totalTime" : 430.531,
+    "environmentDetectionTime" : 0.898,
+    "indexingTime" : 0.382,
+    "entryPointsTime" : 0.862,
+    "generationTime" : 317.454,
+    "timeToFirstTest" : 151.626,
+    "timeToLastTest" : 378.339,
+    "indexQueryTime" : 15.391,
+    "verificationTime" : 27.554,
+    "validationTime" : 22.41
   },
   "codes" : {
     "E052" : "Missing dependency",

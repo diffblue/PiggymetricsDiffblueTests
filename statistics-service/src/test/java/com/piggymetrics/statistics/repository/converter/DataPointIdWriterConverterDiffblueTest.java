@@ -47,13 +47,13 @@ public class DataPointIdWriterConverterDiffblueTest {
    * Test {@link DataPointIdWriterConverter#convert(DataPointId)} with
    * {@code DataPointId}.
    * <ul>
-   *   <li>Then returns containsKey {@code date}.</li>
+   *   <li>Then return containsKey {@code date}.</li>
    * </ul>
    * <p>
    * Method under test: {@link DataPointIdWriterConverter#convert(DataPointId)}
    */
   @Test
-  public void testConvertWithDataPointId_thenReturnsContainsKeyDate() {
+  public void testConvertWithDataPointId_thenReturnContainsKeyDate() {
     // Arrange and Act
     DBObject actualConvertResult = dataPointIdWriterConverter.convert(new DataPointId("3", mock(java.sql.Date.class)));
 

@@ -18,13 +18,13 @@ public class FrequencyReaderConverterDiffblueTest {
    * Test {@link FrequencyReaderConverter#convert(Integer)} with {@code Integer}.
    * <ul>
    *   <li>When seven.</li>
-   *   <li>Then returns {@code WEEKLY}.</li>
+   *   <li>Then return {@code WEEKLY}.</li>
    * </ul>
    * <p>
    * Method under test: {@link FrequencyReaderConverter#convert(Integer)}
    */
   @Test
-  public void testConvertWithInteger_whenSeven_thenReturnsWeekly() {
+  public void testConvertWithInteger_whenSeven_thenReturnWeekly() {
     // Arrange, Act and Assert
     assertEquals(Frequency.WEEKLY, frequencyReaderConverter.convert(7));
   }

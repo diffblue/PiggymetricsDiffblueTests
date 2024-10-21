@@ -8,6 +8,31 @@ import org.junit.Test;
 
 public class ItemMetricDiffblueTest {
   /**
+   * Test getters and setters.
+   * <p>
+   * Methods under test:
+   * <ul>
+   *   <li>{@link ItemMetric#ItemMetric(String, BigDecimal)}
+   *   <li>{@link ItemMetric#getAmount()}
+   *   <li>{@link ItemMetric#getTitle()}
+   * </ul>
+   */
+  @Test
+  public void testGettersAndSetters() {
+    // Arrange
+    BigDecimal amount = new BigDecimal("2.3");
+
+    // Act
+    ItemMetric actualItemMetric = new ItemMetric("Dr", amount);
+    BigDecimal actualAmount = actualItemMetric.getAmount();
+
+    // Assert
+    assertEquals("Dr", actualItemMetric.getTitle());
+    assertEquals(new BigDecimal("2.3"), actualAmount);
+    assertSame(amount, actualAmount);
+  }
+
+  /**
    * Test {@link ItemMetric#equals(Object)}, and {@link ItemMetric#hashCode()}.
    * <ul>
    *   <li>When other is equal.</li>
@@ -102,30 +127,5 @@ public class ItemMetricDiffblueTest {
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new ItemMetric("Dr", new BigDecimal("2.3")), "Different type to ItemMetric");
-  }
-
-  /**
-   * Test getters and setters.
-   * <p>
-   * Methods under test:
-   * <ul>
-   *   <li>{@link ItemMetric#ItemMetric(String, BigDecimal)}
-   *   <li>{@link ItemMetric#getAmount()}
-   *   <li>{@link ItemMetric#getTitle()}
-   * </ul>
-   */
-  @Test
-  public void testGettersAndSetters() {
-    // Arrange
-    BigDecimal amount = new BigDecimal("2.3");
-
-    // Act
-    ItemMetric actualItemMetric = new ItemMetric("Dr", amount);
-    BigDecimal actualAmount = actualItemMetric.getAmount();
-
-    // Assert
-    assertEquals("Dr", actualItemMetric.getTitle());
-    assertEquals(new BigDecimal("2.3"), actualAmount);
-    assertSame(amount, actualAmount);
   }
 }

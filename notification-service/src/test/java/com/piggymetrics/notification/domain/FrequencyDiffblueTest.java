@@ -19,13 +19,13 @@ public class FrequencyDiffblueTest {
    * Test {@link Frequency#withDays(int)}.
    * <ul>
    *   <li>When seven.</li>
-   *   <li>Then returns {@code WEEKLY}.</li>
+   *   <li>Then return {@code WEEKLY}.</li>
    * </ul>
    * <p>
    * Method under test: {@link Frequency#withDays(int)}
    */
   @Test
-  public void testWithDays_whenSeven_thenReturnsWeekly() {
+  public void testWithDays_whenSeven_thenReturnWeekly() {
     // Arrange, Act and Assert
     assertEquals(Frequency.WEEKLY, Frequency.withDays(7));
   }

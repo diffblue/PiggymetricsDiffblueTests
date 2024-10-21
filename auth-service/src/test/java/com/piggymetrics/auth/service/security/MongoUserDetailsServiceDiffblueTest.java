@@ -53,13 +53,13 @@ public class MongoUserDetailsServiceDiffblueTest {
    * <ul>
    *   <li>Given {@link User} (default constructor) Password is
    * {@code iloveyou}.</li>
-   *   <li>Then returns {@link User} (default constructor).</li>
+   *   <li>Then return {@link User} (default constructor).</li>
    * </ul>
    * <p>
    * Method under test: {@link MongoUserDetailsService#loadUserByUsername(String)}
    */
   @Test
-  public void testLoadUserByUsername_givenUserPasswordIsIloveyou_thenReturnsUser() throws UsernameNotFoundException {
+  public void testLoadUserByUsername_givenUserPasswordIsIloveyou_thenReturnUser() throws UsernameNotFoundException {
     // Arrange
     User user = new User();
     user.setPassword("iloveyou");
@@ -79,13 +79,13 @@ public class MongoUserDetailsServiceDiffblueTest {
    * Test {@link MongoUserDetailsService#loadUserByUsername(String)}.
    * <ul>
    *   <li>Given {@link UserRepository} {@link CrudRepository#findById(Object)}
-   * returns empty.</li>
+   * return empty.</li>
    * </ul>
    * <p>
    * Method under test: {@link MongoUserDetailsService#loadUserByUsername(String)}
    */
   @Test
-  public void testLoadUserByUsername_givenUserRepositoryFindByIdReturnsEmpty() throws UsernameNotFoundException {
+  public void testLoadUserByUsername_givenUserRepositoryFindByIdReturnEmpty() throws UsernameNotFoundException {
     // Arrange
     Optional<User> emptyResult = Optional.empty();
     when(userRepository.findById(Mockito.<String>any())).thenReturn(emptyResult);

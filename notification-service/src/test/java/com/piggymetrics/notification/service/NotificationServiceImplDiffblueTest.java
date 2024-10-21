@@ -1,12 +1,16 @@
 package com.piggymetrics.notification.service;
 
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.piggymetrics.notification.domain.NotificationSettings;
+import com.piggymetrics.notification.domain.NotificationType;
 import com.piggymetrics.notification.domain.Recipient;
 import com.piggymetrics.notification.repository.RecipientRepository;
 import de.flapdoodle.embed.mongo.MongodExecutable;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.function.BiFunction;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +39,43 @@ public class NotificationServiceImplDiffblueTest {
   public void testSendBackupNotifications() {
     // Arrange
     when(recipientRepository.findReadyForBackup()).thenReturn(new ArrayList<>());
+
+    // Act
+    notificationServiceImpl.sendBackupNotifications();
+
+    // Assert
+    verify(recipientRepository).findReadyForBackup();
+  }
+
+  /**
+   * Test {@link NotificationServiceImpl#sendBackupNotifications()}.
+   * <ul>
+   *   <li>Given {@link HashMap#HashMap()} computeIfPresent {@code BACKUP} and
+   * {@link BiFunction}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link NotificationServiceImpl#sendBackupNotifications()}
+   */
+  @Test
+  public void testSendBackupNotifications_givenHashMapComputeIfPresentBackupAndBiFunction() {
+    // Arrange
+    HashMap<NotificationType, NotificationSettings> scheduledNotifications = new HashMap<>();
+    scheduledNotifications.computeIfPresent(NotificationType.BACKUP, mock(BiFunction.class));
+
+    Recipient recipient = new Recipient();
+    recipient.setAccountName("Dr Jane Doe");
+    recipient.setEmail("jane.doe@example.org");
+    recipient.setScheduledNotifications(scheduledNotifications);
+
+    Recipient recipient2 = new Recipient();
+    recipient2.setAccountName("Mr John Smith");
+    recipient2.setEmail("john.smith@example.org");
+    recipient2.setScheduledNotifications(new HashMap<>());
+
+    ArrayList<Recipient> recipientList = new ArrayList<>();
+    recipientList.add(recipient2);
+    recipientList.add(recipient);
+    when(recipientRepository.findReadyForBackup()).thenReturn(recipientList);
 
     // Act
     notificationServiceImpl.sendBackupNotifications();
@@ -106,46 +147,6 @@ public class NotificationServiceImplDiffblueTest {
   }
 
   /**
-   * Test {@link NotificationServiceImpl#sendBackupNotifications()}.
-   * <ul>
-   *   <li>Given {@link Recipient} (default constructor) AccountName is
-   * {@code Prof Albert Einstein}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link NotificationServiceImpl#sendBackupNotifications()}
-   */
-  @Test
-  public void testSendBackupNotifications_givenRecipientAccountNameIsProfAlbertEinstein() {
-    // Arrange
-    Recipient recipient = new Recipient();
-    recipient.setAccountName("Dr Jane Doe");
-    recipient.setEmail("jane.doe@example.org");
-    recipient.setScheduledNotifications(new HashMap<>());
-
-    Recipient recipient2 = new Recipient();
-    recipient2.setAccountName("Mr John Smith");
-    recipient2.setEmail("john.smith@example.org");
-    recipient2.setScheduledNotifications(new HashMap<>());
-
-    Recipient recipient3 = new Recipient();
-    recipient3.setAccountName("Prof Albert Einstein");
-    recipient3.setEmail("prof.einstein@example.org");
-    recipient3.setScheduledNotifications(new HashMap<>());
-
-    ArrayList<Recipient> recipientList = new ArrayList<>();
-    recipientList.add(recipient3);
-    recipientList.add(recipient2);
-    recipientList.add(recipient);
-    when(recipientRepository.findReadyForBackup()).thenReturn(recipientList);
-
-    // Act
-    notificationServiceImpl.sendBackupNotifications();
-
-    // Assert
-    verify(recipientRepository).findReadyForBackup();
-  }
-
-  /**
    * Test {@link NotificationServiceImpl#sendRemindNotifications()}.
    * <p>
    * Method under test: {@link NotificationServiceImpl#sendRemindNotifications()}
@@ -164,14 +165,18 @@ public class NotificationServiceImplDiffblueTest {
 
   /**
    * Test {@link NotificationServiceImpl#sendRemindNotifications()}.
+   * <ul>
+   *   <li>Given {@link Recipient} (default constructor) AccountName is
+   * {@code 3}.</li>
+   * </ul>
    * <p>
    * Method under test: {@link NotificationServiceImpl#sendRemindNotifications()}
    */
   @Test
-  public void testSendRemindNotifications2() {
+  public void testSendRemindNotifications_givenRecipientAccountNameIs3() {
     // Arrange
     Recipient recipient = new Recipient();
-    recipient.setAccountName("Dr Jane Doe");
+    recipient.setAccountName("3");
     recipient.setEmail("jane.doe@example.org");
     recipient.setScheduledNotifications(new HashMap<>());
 
@@ -180,7 +185,13 @@ public class NotificationServiceImplDiffblueTest {
     recipient2.setEmail("john.smith@example.org");
     recipient2.setScheduledNotifications(new HashMap<>());
 
+    Recipient recipient3 = new Recipient();
+    recipient3.setAccountName("Prof Albert Einstein");
+    recipient3.setEmail("prof.einstein@example.org");
+    recipient3.setScheduledNotifications(new HashMap<>());
+
     ArrayList<Recipient> recipientList = new ArrayList<>();
+    recipientList.add(recipient3);
     recipientList.add(recipient2);
     recipientList.add(recipient);
     when(recipientRepository.findReadyForRemind()).thenReturn(recipientList);
@@ -224,13 +235,13 @@ public class NotificationServiceImplDiffblueTest {
    * Test {@link NotificationServiceImpl#sendRemindNotifications()}.
    * <ul>
    *   <li>Given {@link Recipient} (default constructor) AccountName is
-   * {@code Prof Albert Einstein}.</li>
+   * {@code Dr Jane Doe}.</li>
    * </ul>
    * <p>
    * Method under test: {@link NotificationServiceImpl#sendRemindNotifications()}
    */
   @Test
-  public void testSendRemindNotifications_givenRecipientAccountNameIsProfAlbertEinstein() {
+  public void testSendRemindNotifications_givenRecipientAccountNameIsDrJaneDoe2() {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
@@ -239,16 +250,10 @@ public class NotificationServiceImplDiffblueTest {
 
     Recipient recipient2 = new Recipient();
     recipient2.setAccountName("Mr John Smith");
-    recipient2.setEmail("jane.doe@example.org");
+    recipient2.setEmail("john.smith@example.org");
     recipient2.setScheduledNotifications(new HashMap<>());
 
-    Recipient recipient3 = new Recipient();
-    recipient3.setAccountName("Prof Albert Einstein");
-    recipient3.setEmail("prof.einstein@example.org");
-    recipient3.setScheduledNotifications(new HashMap<>());
-
     ArrayList<Recipient> recipientList = new ArrayList<>();
-    recipientList.add(recipient3);
     recipientList.add(recipient2);
     recipientList.add(recipient);
     when(recipientRepository.findReadyForRemind()).thenReturn(recipientList);

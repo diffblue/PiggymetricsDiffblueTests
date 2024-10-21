@@ -55,13 +55,13 @@ public class UserServiceImplDiffblueTest {
    * Test {@link UserServiceImpl#create(User)}.
    * <ul>
    *   <li>Given {@link UserRepository} {@link CrudRepository#findById(Object)}
-   * returns {@link Optional} with {@link User} (default constructor).</li>
+   * return {@link Optional} with {@link User} (default constructor).</li>
    * </ul>
    * <p>
    * Method under test: {@link UserServiceImpl#create(User)}
    */
   @Test
-  public void testCreate_givenUserRepositoryFindByIdReturnsOptionalWithUser() {
+  public void testCreate_givenUserRepositoryFindByIdReturnOptionalWithUser() {
     // Arrange
     User user = new User();
     user.setPassword("iloveyou");
@@ -82,7 +82,7 @@ public class UserServiceImplDiffblueTest {
   /**
    * Test {@link UserServiceImpl#create(User)}.
    * <ul>
-   *   <li>Given {@link UserRepository} {@link CrudRepository#save(Object)} returns
+   *   <li>Given {@link UserRepository} {@link CrudRepository#save(Object)} return
    * {@link User} (default constructor).</li>
    *   <li>Then calls {@link CrudRepository#save(Object)}.</li>
    * </ul>
@@ -90,7 +90,7 @@ public class UserServiceImplDiffblueTest {
    * Method under test: {@link UserServiceImpl#create(User)}
    */
   @Test
-  public void testCreate_givenUserRepositorySaveReturnsUser_thenCallsSave() {
+  public void testCreate_givenUserRepositorySaveReturnUser_thenCallsSave() {
     // Arrange
     User user = new User();
     user.setPassword("iloveyou");
