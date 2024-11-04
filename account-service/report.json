@@ -3,19 +3,19 @@
     "reportVersion" : "2.6"
   },
   "run" : {
-    "version" : "2024.10.02-bdbc3ab-licensed",
-    "creationTimestamp" : "2024-10-21T14:50:42.546Z",
+    "version" : "2024.11.01-138aeda-licensed",
+    "creationTimestamp" : "2024-11-04T18:25:33.068Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --working-directory=account-service",
-    "totalTime" : 446.814,
-    "environmentDetectionTime" : 0.841,
-    "indexingTime" : 0.505,
-    "entryPointsTime" : 0.807,
-    "generationTime" : 300.625,
-    "timeToFirstTest" : 72.085,
-    "timeToLastTest" : 362.286,
-    "indexQueryTime" : 15.234,
-    "verificationTime" : 27.602,
-    "validationTime" : 49.894
+    "totalTime" : 452.132,
+    "environmentDetectionTime" : 0.898,
+    "indexingTime" : 0.357,
+    "entryPointsTime" : 0.865,
+    "generationTime" : 307.803,
+    "timeToFirstTest" : 135.056,
+    "timeToLastTest" : 368.293,
+    "indexQueryTime" : 17.48,
+    "verificationTime" : 27.349,
+    "validationTime" : 49.412
   },
   "codes" : {
     "E052" : "Missing dependency",
@@ -36,9 +36,9 @@
   "summary" : {
     "classesCount" : 17,
     "methodsCount" : 99,
-    "cumulativeDiffblueTestCount" : 17,
+    "cumulativeDiffblueTestCount" : 15,
     "cumulativeManualTestCount" : 14,
-    "completeTestCount" : 19,
+    "completeTestCount" : 17,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "totalPhysicalLineCount" : 524,
@@ -54,9 +54,9 @@
     },
     "perMethodOutcome" : {
       "E052" : 12,
-      "R000" : 54,
+      "R000" : 53,
       "R002" : 5,
-      "R004" : 1,
+      "R004" : 2,
       "R013" : 2,
       "T003" : 6,
       "T005" : 5,
@@ -65,10 +65,10 @@
       "T012" : 8
     },
     "perTestOutcome" : {
-      "R000" : 19
+      "R000" : 17
     },
     "perTestValidation" : {
-      "V000" : 19
+      "V000" : 17
     }
   },
   "classes" : {
@@ -109,7 +109,7 @@
     },
     "com.piggymetrics.account.client.StatisticsServiceClientFallback" : {
       "methodsCount" : 3,
-      "completeTestCount" : 1,
+      "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 1,
@@ -117,12 +117,9 @@
         "T012" : 1
       },
       "perMethodOutcome" : {
-        "R000" : 1,
+        "R004" : 1,
         "T005" : 1,
         "T012" : 1
-      },
-      "perTestOutcome" : {
-        "R000" : 1
       }
     },
     "com.piggymetrics.account.config.ResourceServerConfig" : {
@@ -144,7 +141,7 @@
     },
     "com.piggymetrics.account.controller.AccountController" : {
       "methodsCount" : 5,
-      "completeTestCount" : 5,
+      "completeTestCount" : 4,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 4,
@@ -155,7 +152,7 @@
         "T005" : 1
       },
       "perTestOutcome" : {
-        "R000" : 5
+        "R000" : 4
       }
     },
     "com.piggymetrics.account.controller.ErrorHandler" : {
@@ -375,13 +372,10 @@
       ]
     },
     "com.piggymetrics.account.client.StatisticsServiceClientFallback.updateStatistics:(Ljava/lang/String;Lcom/piggymetrics/account/domain/Account;)V" : {
-      "completeTestCount" : 1,
+      "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R000",
-      "perTestOutcome" : {
-        "R000" : 1
-      },
+      "perMethodOutcome" : "R004",
       "lineNumbers" : [
         16,
         17
@@ -504,12 +498,12 @@
       ]
     },
     "com.piggymetrics.account.controller.AccountController.saveCurrentAccount:(Ljava/security/Principal;Lcom/piggymetrics/account/domain/Account;)V" : {
-      "completeTestCount" : 2,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 2
+        "R000" : 1
       },
       "lineNumbers" : [
         32,

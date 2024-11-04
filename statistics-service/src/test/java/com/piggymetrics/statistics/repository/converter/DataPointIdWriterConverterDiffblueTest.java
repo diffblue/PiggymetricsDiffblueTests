@@ -3,7 +3,6 @@ package com.piggymetrics.statistics.repository.converter;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
 import com.mongodb.DBObject;
 import com.piggymetrics.statistics.domain.timeseries.DataPointId;
 import java.time.LocalDate;
@@ -25,11 +24,14 @@ public class DataPointIdWriterConverterDiffblueTest {
   /**
    * Test {@link DataPointIdWriterConverter#convert(DataPointId)} with
    * {@code DataPointId}.
+   * <ul>
+   *   <li>Then return {@link Map}.</li>
+   * </ul>
    * <p>
    * Method under test: {@link DataPointIdWriterConverter#convert(DataPointId)}
    */
   @Test
-  public void testConvertWithDataPointId() {
+  public void testConvertWithDataPointId_thenReturnMap() {
     // Arrange
     Date date = Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
 
@@ -41,26 +43,5 @@ public class DataPointIdWriterConverterDiffblueTest {
     assertEquals(2, ((Map<String, Object>) actualConvertResult).size());
     assertEquals("3", ((Map<String, Object>) actualConvertResult).get("account"));
     assertSame(date, ((Map<String, Object>) actualConvertResult).get("date"));
-  }
-
-  /**
-   * Test {@link DataPointIdWriterConverter#convert(DataPointId)} with
-   * {@code DataPointId}.
-   * <ul>
-   *   <li>Then return containsKey {@code date}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link DataPointIdWriterConverter#convert(DataPointId)}
-   */
-  @Test
-  public void testConvertWithDataPointId_thenReturnContainsKeyDate() {
-    // Arrange and Act
-    DBObject actualConvertResult = dataPointIdWriterConverter.convert(new DataPointId("3", mock(java.sql.Date.class)));
-
-    // Assert
-    assertTrue(actualConvertResult instanceof Map);
-    assertEquals(2, ((Map<String, Object>) actualConvertResult).size());
-    assertEquals("3", ((Map<String, Object>) actualConvertResult).get("account"));
-    assertTrue(((Map<String, Object>) actualConvertResult).containsKey("date"));
   }
 }

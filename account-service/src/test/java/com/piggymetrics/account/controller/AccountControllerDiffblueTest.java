@@ -24,11 +24,9 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import org.springframework.test.web.servlet.result.StatusResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 @ContextConfiguration(classes = {AccountController.class})
@@ -117,17 +115,12 @@ public class AccountControllerDiffblueTest {
 
   /**
    * Test {@link AccountController#saveCurrentAccount(Principal, Account)}.
-   * <ul>
-   *   <li>Given {@link AccountService}
-   * {@link AccountService#saveChanges(String, Account)} does nothing.</li>
-   *   <li>Then status {@link StatusResultMatchers#isOk()}.</li>
-   * </ul>
    * <p>
    * Method under test:
    * {@link AccountController#saveCurrentAccount(Principal, Account)}
    */
   @Test
-  public void testSaveCurrentAccount_givenAccountServiceSaveChangesDoesNothing_thenStatusIsOk() throws Exception {
+  public void testSaveCurrentAccount() throws Exception {
     // Arrange
     doNothing().when(accountService).saveChanges(Mockito.<String>any(), Mockito.<Account>any());
     MockHttpServletRequestBuilder putResult = MockMvcRequestBuilders.put("/current");
@@ -157,50 +150,6 @@ public class AccountControllerDiffblueTest {
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk());
-  }
-
-  /**
-   * Test {@link AccountController#saveCurrentAccount(Principal, Account)}.
-   * <ul>
-   *   <li>Given {@link AccountService}.</li>
-   *   <li>Then status four hundred.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link AccountController#saveCurrentAccount(Principal, Account)}
-   */
-  @Test
-  public void testSaveCurrentAccount_givenAccountService_thenStatusFourHundred() throws Exception {
-    // Arrange
-    java.sql.Date lastSeen = mock(java.sql.Date.class);
-    when(lastSeen.getTime()).thenReturn(10L);
-
-    Saving saving = new Saving();
-    saving.setAmount(null);
-    saving.setCapitalization(true);
-    saving.setCurrency(Currency.USD);
-    saving.setDeposit(true);
-    saving.setInterest(new BigDecimal("2.3"));
-
-    Account account = new Account();
-    account.setExpenses(new ArrayList<>());
-    account.setIncomes(new ArrayList<>());
-    account.setLastSeen(lastSeen);
-    account.setName("Name");
-    account.setNote("Note");
-    account.setSaving(saving);
-    String content = (new ObjectMapper()).writeValueAsString(account);
-    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.put("/current")
-        .contentType(MediaType.APPLICATION_JSON)
-        .content(content);
-
-    // Act
-    ResultActions actualPerformResult = MockMvcBuilders.standaloneSetup(accountController)
-        .build()
-        .perform(requestBuilder);
-
-    // Assert
-    actualPerformResult.andExpect(MockMvcResultMatchers.status().is(400));
   }
 
   /**
