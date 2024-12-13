@@ -41,7 +41,7 @@ public class AccountDiffblueTest {
     List<Item> actualIncomes = actualAccount.getIncomes();
     Saving actualSaving = actualAccount.getSaving();
 
-    // Assert that nothing has changed
+    // Assert
     assertTrue(actualExpenses.isEmpty());
     assertTrue(actualIncomes.isEmpty());
     assertSame(saving, actualSaving);

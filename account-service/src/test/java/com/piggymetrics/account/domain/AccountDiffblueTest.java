@@ -58,7 +58,7 @@ public class AccountDiffblueTest {
     String actualNote = actualAccount.getNote();
     Saving actualSaving = actualAccount.getSaving();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Name", actualName);
     assertEquals("Note", actualNote);
     assertTrue(actualExpenses.isEmpty());

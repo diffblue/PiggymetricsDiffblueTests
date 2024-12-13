@@ -42,7 +42,7 @@ public class SavingDiffblueTest {
     Boolean actualDeposit = actualSaving.getDeposit();
     BigDecimal actualInterest = actualSaving.getInterest();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals(Currency.USD, actualCurrency);
     assertTrue(actualCapitalization);
     assertTrue(actualDeposit);

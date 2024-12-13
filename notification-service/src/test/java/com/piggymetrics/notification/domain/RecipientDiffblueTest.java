@@ -37,7 +37,7 @@ public class RecipientDiffblueTest {
     Map<NotificationType, NotificationSettings> actualScheduledNotifications = actualRecipient
         .getScheduledNotifications();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Dr Jane Doe", actualAccountName);
     assertEquals("Recipient{accountName='Dr Jane Doe', email='jane.doe@example.org'}", actualToStringResult);
     assertEquals("jane.doe@example.org", actualEmail);

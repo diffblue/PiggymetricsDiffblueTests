@@ -41,7 +41,7 @@ public class ExchangeRatesContainerDiffblueTest {
     LocalDate actualDate = exchangeRatesContainer.getDate();
     Map<String, BigDecimal> actualRates = exchangeRatesContainer.getRates();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("1970-01-01", actualDate.toString());
     assertEquals("RateList{date=1970-01-01, base=USD, rates={}}", actualToStringResult);
     assertEquals(Currency.USD, actualBase);

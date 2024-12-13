@@ -39,7 +39,7 @@ public class ItemDiffblueTest {
     String actualIcon = actualItem.getIcon();
     TimePeriod actualPeriod = actualItem.getPeriod();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("Dr", actualItem.getTitle());
     assertEquals("Icon", actualIcon);
     assertEquals(Currency.USD, actualCurrency);

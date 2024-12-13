@@ -54,7 +54,7 @@ public class DataPointDiffblueTest {
     Map<Currency, BigDecimal> actualRates = actualDataPoint.getRates();
     Map<StatisticMetric, BigDecimal> actualStatistics = actualDataPoint.getStatistics();
 
-    // Assert that nothing has changed
+    // Assert
     assertTrue(actualRates.isEmpty());
     assertTrue(actualStatistics.isEmpty());
     assertTrue(actualExpenses.isEmpty());

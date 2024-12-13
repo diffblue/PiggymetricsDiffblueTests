@@ -34,7 +34,7 @@ public class NotificationSettingsDiffblueTest {
     Boolean actualActive = actualNotificationSettings.getActive();
     Frequency actualFrequency = actualNotificationSettings.getFrequency();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals(Frequency.WEEKLY, actualFrequency);
     assertTrue(actualActive);
     assertSame(lastNotified, actualNotificationSettings.getLastNotified());

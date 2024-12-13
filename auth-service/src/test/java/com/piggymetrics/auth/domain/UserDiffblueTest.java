@@ -45,7 +45,7 @@ public class UserDiffblueTest {
     boolean actualIsAccountNonLockedResult = actualUser.isAccountNonLocked();
     boolean actualIsCredentialsNonExpiredResult = actualUser.isCredentialsNonExpired();
 
-    // Assert that nothing has changed
+    // Assert
     assertEquals("iloveyou", actualPassword);
     assertEquals("janedoe", actualUsername);
     assertTrue(actualIsAccountNonExpiredResult);
