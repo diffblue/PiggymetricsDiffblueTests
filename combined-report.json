@@ -1,14 +1,14 @@
 {
-  "version" : "2025.01.01-2348203-licensed",
-  "totalTime" : 1714.3880000000001,
-  "environmentDetectionTime" : 5.387,
-  "indexingTime" : 3.357,
-  "entryPointsTime" : 5.112000000000001,
-  "generationTime" : 1127.228,
-  "timeToFirstTest" : 776.1339999999999,
-  "timeToLastTest" : 1434.031,
-  "verificationTime" : 102.903,
-  "validationTime" : 114.842,
+  "version" : "2025.01.02-9c91b08-licensed",
+  "totalTime" : 1623.62,
+  "environmentDetectionTime" : 5.936,
+  "indexingTime" : 3.2119999999999997,
+  "entryPointsTime" : 5.539,
+  "generationTime" : 1035.8570000000002,
+  "timeToFirstTest" : 750.2230000000001,
+  "timeToLastTest" : 1341.899,
+  "verificationTime" : 102.099,
+  "validationTime" : 116.153,
   "summary" : {
     "classesCount" : 75,
     "methodsCount" : 362,
@@ -55,22 +55,22 @@
     "branchCoveragePercent" : "36.17%",
     "classesWithIncompleteInstructionCoverage" : [
       "com.piggymetrics.auth.AuthApplication",
+      "com.piggymetrics.config.ConfigApplication",
       "com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices",
       "com.piggymetrics.statistics.StatisticsApplication",
       "com.piggymetrics.statistics.repository.converter.DataPointIdReaderConverter",
       "com.piggymetrics.statistics.service.ExchangeRatesServiceImpl",
-      "com.piggymetrics.notification.domain.Frequency",
-      "com.piggymetrics.notification.NotificationServiceApplication",
-      "com.piggymetrics.notification.controller.RecipientController",
-      "com.piggymetrics.notification.service.NotificationServiceImpl",
-      "com.piggymetrics.notification.service.EmailServiceImpl",
-      "com.piggymetrics.notification.service.RecipientServiceImpl",
       "com.piggymetrics.account.controller.ErrorHandler",
       "com.piggymetrics.account.service.AccountServiceImpl",
       "com.piggymetrics.account.service.security.CustomUserInfoTokenServices",
       "com.piggymetrics.account.client.StatisticsServiceClientFallback",
       "com.piggymetrics.account.AccountApplication",
-      "com.piggymetrics.config.ConfigApplication"
+      "com.piggymetrics.notification.domain.Frequency",
+      "com.piggymetrics.notification.NotificationServiceApplication",
+      "com.piggymetrics.notification.controller.RecipientController",
+      "com.piggymetrics.notification.service.NotificationServiceImpl",
+      "com.piggymetrics.notification.service.EmailServiceImpl",
+      "com.piggymetrics.notification.service.RecipientServiceImpl"
     ],
     "complexCoveredLines" : 153,
     "complexLineCoveragePercent" : "76.12%",
@@ -92,13 +92,13 @@
     "mutationsTotal" : 205
   },
   "testDiffStatSummary" : {
-    "files" : 0,
-    "insertions" : 0,
-    "deletions" : 0
+    "files" : 16,
+    "insertions" : 59,
+    "deletions" : 100
   },
   "diffblueTestDiffStatSummary" : {
-    "files" : 0,
-    "insertions" : 0,
-    "deletions" : 0
+    "files" : 16,
+    "insertions" : 59,
+    "deletions" : 100
   }
 }

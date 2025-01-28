@@ -22,8 +22,7 @@ public class DataPointIdWriterConverterDiffblueTest {
   private DataPointIdWriterConverter dataPointIdWriterConverter;
 
   /**
-   * Test {@link DataPointIdWriterConverter#convert(DataPointId)} with
-   * {@code DataPointId}.
+   * Test {@link DataPointIdWriterConverter#convert(DataPointId)} with {@code DataPointId}.
    * <ul>
    *   <li>Then return {@link Map}.</li>
    * </ul>

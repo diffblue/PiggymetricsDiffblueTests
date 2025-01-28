@@ -36,8 +36,7 @@ public class ResourceServerConfigDiffblueTest {
   /**
    * Test {@link ResourceServerConfig#clientCredentialsResourceDetails()}.
    * <p>
-   * Method under test:
-   * {@link ResourceServerConfig#clientCredentialsResourceDetails()}
+   * Method under test: {@link ResourceServerConfig#clientCredentialsResourceDetails()}
    */
   @Test
   public void testClientCredentialsResourceDetails() {
@@ -64,8 +63,7 @@ public class ResourceServerConfigDiffblueTest {
   /**
    * Test {@link ResourceServerConfig#oauth2FeignRequestInterceptor()}.
    * <p>
-   * Method under test:
-   * {@link ResourceServerConfig#oauth2FeignRequestInterceptor()}
+   * Method under test: {@link ResourceServerConfig#oauth2FeignRequestInterceptor()}
    */
   @Test
   public void testOauth2FeignRequestInterceptor() {
@@ -76,8 +74,7 @@ public class ResourceServerConfigDiffblueTest {
   /**
    * Test {@link ResourceServerConfig#clientCredentialsRestTemplate()}.
    * <p>
-   * Method under test:
-   * {@link ResourceServerConfig#clientCredentialsRestTemplate()}
+   * Method under test: {@link ResourceServerConfig#clientCredentialsRestTemplate()}
    */
   @Test
   public void testClientCredentialsRestTemplate() {

@@ -31,8 +31,7 @@ public class CustomUserInfoTokenServicesDiffblueTest {
   /**
    * Test {@link CustomUserInfoTokenServices#loadAuthentication(String)}.
    * <p>
-   * Method under test:
-   * {@link CustomUserInfoTokenServices#loadAuthentication(String)}
+   * Method under test: {@link CustomUserInfoTokenServices#loadAuthentication(String)}
    */
   @Test
   public void testLoadAuthentication() throws AuthenticationException, InvalidTokenException {
@@ -44,8 +43,7 @@ public class CustomUserInfoTokenServicesDiffblueTest {
   /**
    * Test {@link CustomUserInfoTokenServices#readAccessToken(String)}.
    * <p>
-   * Method under test:
-   * {@link CustomUserInfoTokenServices#readAccessToken(String)}
+   * Method under test: {@link CustomUserInfoTokenServices#readAccessToken(String)}
    */
   @Test
   public void testReadAccessToken() {

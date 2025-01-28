@@ -30,8 +30,7 @@ public class RecipientControllerDiffblueTest {
   /**
    * Test {@link RecipientController#getCurrentNotificationsSettings(Principal)}.
    * <p>
-   * Method under test:
-   * {@link RecipientController#getCurrentNotificationsSettings(Principal)}
+   * Method under test: {@link RecipientController#getCurrentNotificationsSettings(Principal)}
    */
   @Test
   public void testGetCurrentNotificationsSettings() throws Exception {

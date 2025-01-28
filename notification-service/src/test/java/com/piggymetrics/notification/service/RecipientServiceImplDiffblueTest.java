@@ -33,20 +33,19 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration(classes = {RecipientServiceImpl.class})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class RecipientServiceImplDiffblueTest {
-  @Rule
-  public ExpectedException thrown = ExpectedException.none();
-
   @MockBean
   private RecipientRepository recipientRepository;
 
   @Autowired
   private RecipientServiceImpl recipientServiceImpl;
 
+  @Rule
+  public ExpectedException thrown = ExpectedException.none();
+
   /**
    * Test {@link RecipientServiceImpl#findByAccountName(String)}.
    * <ul>
-   *   <li>Given {@link Recipient} (default constructor) AccountName is
-   * {@code Dr Jane Doe}.</li>
+   *   <li>Given {@link Recipient} (default constructor) AccountName is {@code Dr Jane Doe}.</li>
    *   <li>Then return {@link Recipient} (default constructor).</li>
    * </ul>
    * <p>
@@ -122,8 +121,7 @@ public class RecipientServiceImplDiffblueTest {
   /**
    * Test {@link RecipientServiceImpl#save(String, Recipient)}.
    * <ul>
-   *   <li>Given {@link NotificationSettings} (default constructor) LastNotified is
-   * {@code null}.</li>
+   *   <li>Given {@link NotificationSettings} (default constructor) LastNotified is {@code null}.</li>
    * </ul>
    * <p>
    * Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
@@ -274,13 +272,10 @@ public class RecipientServiceImplDiffblueTest {
   /**
    * Test {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}.
    * <ul>
-   *   <li>Given {@link RecipientRepository}
-   * {@link RecipientRepository#findReadyForRemind()} return
-   * {@link ArrayList#ArrayList()}.</li>
+   *   <li>Given {@link RecipientRepository} {@link RecipientRepository#findReadyForRemind()} return {@link ArrayList#ArrayList()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
+   * Method under test: {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
    */
   @Test
   public void testFindReadyToNotify_givenRecipientRepositoryFindReadyForRemindReturnArrayList() {
@@ -301,8 +296,7 @@ public class RecipientServiceImplDiffblueTest {
    *   <li>Then calls {@link RecipientRepository#findReadyForBackup()}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
+   * Method under test: {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
    */
   @Test
   public void testFindReadyToNotify_thenCallsFindReadyForBackup() {
@@ -323,8 +317,7 @@ public class RecipientServiceImplDiffblueTest {
    *   <li>Then throw {@link IllegalArgumentException}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
+   * Method under test: {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
    */
   @Test
   public void testFindReadyToNotify_thenThrowIllegalArgumentException() {
@@ -340,13 +333,11 @@ public class RecipientServiceImplDiffblueTest {
   /**
    * Test {@link RecipientServiceImpl#markNotified(NotificationType, Recipient)}.
    * <ul>
-   *   <li>Given {@link Recipient} (default constructor) AccountName is
-   * {@code Dr Jane Doe}.</li>
+   *   <li>Given {@link Recipient} (default constructor) AccountName is {@code Dr Jane Doe}.</li>
    *   <li>Then calls {@link CrudRepository#save(Object)}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link RecipientServiceImpl#markNotified(NotificationType, Recipient)}
+   * Method under test: {@link RecipientServiceImpl#markNotified(NotificationType, Recipient)}
    */
   @Test
   public void testMarkNotified_givenRecipientAccountNameIsDrJaneDoe_thenCallsSave() {
@@ -384,8 +375,7 @@ public class RecipientServiceImplDiffblueTest {
    *   <li>Then throw {@link IllegalArgumentException}.</li>
    * </ul>
    * <p>
-   * Method under test:
-   * {@link RecipientServiceImpl#markNotified(NotificationType, Recipient)}
+   * Method under test: {@link RecipientServiceImpl#markNotified(NotificationType, Recipient)}
    */
   @Test
   public void testMarkNotified_thenThrowIllegalArgumentException() {

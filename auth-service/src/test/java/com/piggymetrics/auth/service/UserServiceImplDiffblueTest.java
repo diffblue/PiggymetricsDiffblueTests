@@ -54,8 +54,7 @@ public class UserServiceImplDiffblueTest {
   /**
    * Test {@link UserServiceImpl#create(User)}.
    * <ul>
-   *   <li>Given {@link UserRepository} {@link CrudRepository#findById(Object)}
-   * return {@link Optional} with {@link User} (default constructor).</li>
+   *   <li>Given {@link UserRepository} {@link CrudRepository#findById(Object)} return {@link Optional} with {@link User} (default constructor).</li>
    * </ul>
    * <p>
    * Method under test: {@link UserServiceImpl#create(User)}
@@ -82,8 +81,7 @@ public class UserServiceImplDiffblueTest {
   /**
    * Test {@link UserServiceImpl#create(User)}.
    * <ul>
-   *   <li>Given {@link UserRepository} {@link CrudRepository#save(Object)} return
-   * {@link User} (default constructor).</li>
+   *   <li>Given {@link UserRepository} {@link CrudRepository#save(Object)} return {@link User} (default constructor).</li>
    *   <li>Then calls {@link CrudRepository#save(Object)}.</li>
    * </ul>
    * <p>

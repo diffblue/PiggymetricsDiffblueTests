@@ -15,8 +15,7 @@ public class FrequencyWriterConverterDiffblueTest {
   private FrequencyWriterConverter frequencyWriterConverter;
 
   /**
-   * Test {@link FrequencyWriterConverter#convert(Frequency)} with
-   * {@code Frequency}.
+   * Test {@link FrequencyWriterConverter#convert(Frequency)} with {@code Frequency}.
    * <p>
    * Method under test: {@link FrequencyWriterConverter#convert(Frequency)}
    */

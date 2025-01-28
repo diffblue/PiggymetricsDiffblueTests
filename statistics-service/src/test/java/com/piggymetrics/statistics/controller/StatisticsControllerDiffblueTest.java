@@ -42,8 +42,7 @@ public class StatisticsControllerDiffblueTest {
   /**
    * Test {@link StatisticsController#getCurrentAccountStatistics(Principal)}.
    * <p>
-   * Method under test:
-   * {@link StatisticsController#getCurrentAccountStatistics(Principal)}
+   * Method under test: {@link StatisticsController#getCurrentAccountStatistics(Principal)}
    */
   @Test
   public void testGetCurrentAccountStatistics() throws Exception {
@@ -64,8 +63,7 @@ public class StatisticsControllerDiffblueTest {
   /**
    * Test {@link StatisticsController#getStatisticsByAccountName(String)}.
    * <p>
-   * Method under test:
-   * {@link StatisticsController#getStatisticsByAccountName(String)}
+   * Method under test: {@link StatisticsController#getStatisticsByAccountName(String)}
    */
   @Test
   public void testGetStatisticsByAccountName() throws Exception {
@@ -85,8 +83,7 @@ public class StatisticsControllerDiffblueTest {
   /**
    * Test {@link StatisticsController#saveAccountStatistics(String, Account)}.
    * <p>
-   * Method under test:
-   * {@link StatisticsController#saveAccountStatistics(String, Account)}
+   * Method under test: {@link StatisticsController#saveAccountStatistics(String, Account)}
    */
   @Test
   public void testSaveAccountStatistics() throws Exception {

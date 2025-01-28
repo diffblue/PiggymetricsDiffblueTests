@@ -29,12 +29,9 @@ public class OAuth2AuthorizationConfigDiffblueTest {
   private UserRepository userRepository;
 
   /**
-   * Test
-   * {@link OAuth2AuthorizationConfig#configure(ClientDetailsServiceConfigurer)}
-   * with {@code clients}.
+   * Test {@link OAuth2AuthorizationConfig#configure(ClientDetailsServiceConfigurer)} with {@code clients}.
    * <p>
-   * Method under test:
-   * {@link OAuth2AuthorizationConfig#configure(ClientDetailsServiceConfigurer)}
+   * Method under test: {@link OAuth2AuthorizationConfig#configure(ClientDetailsServiceConfigurer)}
    */
   @Test
   public void testConfigureWithClients() throws Exception {
@@ -49,12 +46,9 @@ public class OAuth2AuthorizationConfigDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link OAuth2AuthorizationConfig#configure(AuthorizationServerEndpointsConfigurer)}
-   * with {@code endpoints}.
+   * Test {@link OAuth2AuthorizationConfig#configure(AuthorizationServerEndpointsConfigurer)} with {@code endpoints}.
    * <p>
-   * Method under test:
-   * {@link OAuth2AuthorizationConfig#configure(AuthorizationServerEndpointsConfigurer)}
+   * Method under test: {@link OAuth2AuthorizationConfig#configure(AuthorizationServerEndpointsConfigurer)}
    */
   @Test
   public void testConfigureWithEndpoints() throws Exception {
@@ -69,12 +63,9 @@ public class OAuth2AuthorizationConfigDiffblueTest {
   }
 
   /**
-   * Test
-   * {@link OAuth2AuthorizationConfig#configure(AuthorizationServerSecurityConfigurer)}
-   * with {@code oauthServer}.
+   * Test {@link OAuth2AuthorizationConfig#configure(AuthorizationServerSecurityConfigurer)} with {@code oauthServer}.
    * <p>
-   * Method under test:
-   * {@link OAuth2AuthorizationConfig#configure(AuthorizationServerSecurityConfigurer)}
+   * Method under test: {@link OAuth2AuthorizationConfig#configure(AuthorizationServerSecurityConfigurer)}
    */
   @Test
   public void testConfigureWithOauthServer() throws Exception {

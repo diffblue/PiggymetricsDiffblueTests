@@ -32,14 +32,12 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @SpringBootTest
 @RunWith(SpringJUnit4ClassRunner.class)
 public class StatisticsServiceImplDiffblueTest {
-  @MockBean
-  private ExchangeRatesService exchangeRatesService;
-
   @MockBean
   private DataPointRepository dataPointRepository;
 
@@ -48,6 +46,9 @@ public class StatisticsServiceImplDiffblueTest {
 
   @Autowired
   private StatisticsServiceImpl statisticsServiceImpl;
+
+  @MockBean
+  private ExchangeRatesService exchangeRatesService;
 
   /**
    * Test {@link StatisticsServiceImpl#findByAccountName(String)}.
@@ -301,8 +302,7 @@ public class StatisticsServiceImplDiffblueTest {
   /**
    * Test {@link StatisticsServiceImpl#save(String, Account)}.
    * <ul>
-   *   <li>When {@link Account} (default constructor) Expenses is
-   * {@link ArrayList#ArrayList()}.</li>
+   *   <li>When {@link Account} (default constructor) Expenses is {@link ArrayList#ArrayList()}.</li>
    *   <li>Then return {@link DataPoint} (default constructor).</li>
    * </ul>
    * <p>

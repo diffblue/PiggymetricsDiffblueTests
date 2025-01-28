@@ -23,14 +23,14 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration(classes = {MongoUserDetailsService.class})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class MongoUserDetailsServiceDiffblueTest {
-  @Rule
-  public ExpectedException thrown = ExpectedException.none();
-
   @Autowired
   private MongoUserDetailsService mongoUserDetailsService;
 
   @MockBean
   private UserRepository userRepository;
+
+  @Rule
+  public ExpectedException thrown = ExpectedException.none();
 
   /**
    * Test {@link MongoUserDetailsService#loadUserByUsername(String)}.
@@ -51,8 +51,7 @@ public class MongoUserDetailsServiceDiffblueTest {
   /**
    * Test {@link MongoUserDetailsService#loadUserByUsername(String)}.
    * <ul>
-   *   <li>Given {@link User} (default constructor) Password is
-   * {@code iloveyou}.</li>
+   *   <li>Given {@link User} (default constructor) Password is {@code iloveyou}.</li>
    *   <li>Then return {@link User} (default constructor).</li>
    * </ul>
    * <p>
@@ -78,8 +77,7 @@ public class MongoUserDetailsServiceDiffblueTest {
   /**
    * Test {@link MongoUserDetailsService#loadUserByUsername(String)}.
    * <ul>
-   *   <li>Given {@link UserRepository} {@link CrudRepository#findById(Object)}
-   * return empty.</li>
+   *   <li>Given {@link UserRepository} {@link CrudRepository#findById(Object)} return empty.</li>
    * </ul>
    * <p>
    * Method under test: {@link MongoUserDetailsService#loadUserByUsername(String)}

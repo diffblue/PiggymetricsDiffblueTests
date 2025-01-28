@@ -53,8 +53,7 @@ public class ExchangeRatesContainerDiffblueTest {
   /**
    * Test new {@link ExchangeRatesContainer} (default constructor).
    * <p>
-   * Method under test: default or parameterless constructor of
-   * {@link ExchangeRatesContainer}
+   * Method under test: default or parameterless constructor of {@link ExchangeRatesContainer}
    */
   @Test
   public void testNewExchangeRatesContainer() {

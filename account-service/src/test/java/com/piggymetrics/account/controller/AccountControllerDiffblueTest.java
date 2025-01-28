@@ -116,8 +116,7 @@ public class AccountControllerDiffblueTest {
   /**
    * Test {@link AccountController#saveCurrentAccount(Principal, Account)}.
    * <p>
-   * Method under test:
-   * {@link AccountController#saveCurrentAccount(Principal, Account)}
+   * Method under test: {@link AccountController#saveCurrentAccount(Principal, Account)}
    */
   @Test
   public void testSaveCurrentAccount() throws Exception {
