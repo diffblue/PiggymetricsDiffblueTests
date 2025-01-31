@@ -1,21 +1,11 @@
 package com.piggymetrics.auth.service.security;
 
-import static org.junit.Assert.assertSame;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-import com.piggymetrics.auth.domain.User;
 import com.piggymetrics.auth.repository.UserRepository;
-import java.util.Optional;
-import org.junit.Rule;
+import org.junit.Ignore;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -23,76 +13,75 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration(classes = {MongoUserDetailsService.class})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class MongoUserDetailsServiceDiffblueTest {
-  @Rule
-  public ExpectedException thrown = ExpectedException.none();
+    @Autowired
+    private MongoUserDetailsService mongoUserDetailsService;
 
-  @Autowired
-  private MongoUserDetailsService mongoUserDetailsService;
+    @MockBean
+    private UserRepository userRepository;
 
-  @MockBean
-  private UserRepository userRepository;
+    /**
+     * Test {@link MongoUserDetailsService#loadUserByUsername(String)}.
+     * <p>
+     * Method under test: {@link MongoUserDetailsService#loadUserByUsername(String)}
+     */
+    @Test
+    @Ignore("TODO: Complete this test")
+    public void testLoadUserByUsername() throws UsernameNotFoundException {
+        // TODO: Diffblue Cover was only able to create a partial test for this method:
+        //   Reason: Failed to create Spring context.
+        //   Attempt to initialize test context failed with
+        //   com.diffblue.fuzztest.shared.proxy.LibraryLinkageException: java.lang.NoClassDefFoundError: org/springframework/core/NestedIOException
+        //       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:212)
+        //       at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1709)
+        //       at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:556)
+        //       at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:546)
+        //       at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+        //       at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+        //       at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:702)
+        //   java.lang.NoClassDefFoundError: org/springframework/core/NestedIOException
+        //       at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:309)
+        //       at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:233)
+        //       at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:273)
+        //       at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:93)
+        //       at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:694)
+        //       at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:532)
+        //       at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:221)
+        //       at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:110)
+        //       at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:212)
+        //       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:187)
+        //       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:119)
+        //       at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:127)
+        //       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:212)
+        //       at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1709)
+        //       at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:556)
+        //       at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:546)
+        //       at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+        //       at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+        //       at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:702)
+        //   java.lang.ClassNotFoundException: org.springframework.core.NestedIOException
+        //       at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:309)
+        //       at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:233)
+        //       at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:273)
+        //       at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:93)
+        //       at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:694)
+        //       at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:532)
+        //       at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:221)
+        //       at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:110)
+        //       at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:212)
+        //       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:187)
+        //       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:119)
+        //       at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:127)
+        //       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:212)
+        //       at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1709)
+        //       at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:556)
+        //       at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:546)
+        //       at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+        //       at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+        //       at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:702)
+        //   See https://diff.blue/R026 to resolve this issue.
 
-  /**
-   * Test {@link MongoUserDetailsService#loadUserByUsername(String)}.
-   * <p>
-   * Method under test: {@link MongoUserDetailsService#loadUserByUsername(String)}
-   */
-  @Test
-  public void testLoadUserByUsername() throws UsernameNotFoundException {
-    // Arrange
-    when(userRepository.findById(Mockito.<String>any())).thenThrow(new UsernameNotFoundException("Msg"));
+        // Arrange and Act
+        mongoUserDetailsService.loadUserByUsername("Smith");
+    }
 
-    // Act and Assert
-    thrown.expect(UsernameNotFoundException.class);
-    mongoUserDetailsService.loadUserByUsername("janedoe");
-    verify(userRepository).findById(eq("janedoe"));
-  }
-
-  /**
-   * Test {@link MongoUserDetailsService#loadUserByUsername(String)}.
-   * <ul>
-   *   <li>Given {@link User} (default constructor) Password is
-   * {@code iloveyou}.</li>
-   *   <li>Then return {@link User} (default constructor).</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link MongoUserDetailsService#loadUserByUsername(String)}
-   */
-  @Test
-  public void testLoadUserByUsername_givenUserPasswordIsIloveyou_thenReturnUser() throws UsernameNotFoundException {
-    // Arrange
-    User user = new User();
-    user.setPassword("iloveyou");
-    user.setUsername("janedoe");
-    Optional<User> ofResult = Optional.of(user);
-    when(userRepository.findById(Mockito.<String>any())).thenReturn(ofResult);
-
-    // Act
-    UserDetails actualLoadUserByUsernameResult = mongoUserDetailsService.loadUserByUsername("janedoe");
-
-    // Assert
-    verify(userRepository).findById(eq("janedoe"));
-    assertSame(user, actualLoadUserByUsernameResult);
-  }
-
-  /**
-   * Test {@link MongoUserDetailsService#loadUserByUsername(String)}.
-   * <ul>
-   *   <li>Given {@link UserRepository} {@link CrudRepository#findById(Object)}
-   * return empty.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link MongoUserDetailsService#loadUserByUsername(String)}
-   */
-  @Test
-  public void testLoadUserByUsername_givenUserRepositoryFindByIdReturnEmpty() throws UsernameNotFoundException {
-    // Arrange
-    Optional<User> emptyResult = Optional.empty();
-    when(userRepository.findById(Mockito.<String>any())).thenReturn(emptyResult);
-
-    // Act and Assert
-    thrown.expect(UsernameNotFoundException.class);
-    mongoUserDetailsService.loadUserByUsername("janedoe");
-    verify(userRepository).findById(eq("janedoe"));
-  }
 }

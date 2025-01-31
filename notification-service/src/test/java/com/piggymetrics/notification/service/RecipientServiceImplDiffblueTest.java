@@ -1,414 +1,300 @@
 package com.piggymetrics.notification.service;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.ArgumentMatchers.isA;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-import com.piggymetrics.notification.domain.Frequency;
-import com.piggymetrics.notification.domain.NotificationSettings;
 import com.piggymetrics.notification.domain.NotificationType;
 import com.piggymetrics.notification.domain.Recipient;
 import com.piggymetrics.notification.repository.RecipientRepository;
-import java.time.LocalDate;
-import java.time.ZoneOffset;
-import java.util.ArrayList;
-import java.util.Date;
+
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import org.junit.Rule;
+
+import org.junit.Ignore;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @ContextConfiguration(classes = {RecipientServiceImpl.class})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class RecipientServiceImplDiffblueTest {
-  @Rule
-  public ExpectedException thrown = ExpectedException.none();
+    @MockBean
+    private RecipientRepository recipientRepository;
 
-  @MockBean
-  private RecipientRepository recipientRepository;
+    @Autowired
+    private RecipientServiceImpl recipientServiceImpl;
 
-  @Autowired
-  private RecipientServiceImpl recipientServiceImpl;
+    /**
+     * Test {@link RecipientServiceImpl#findByAccountName(String)}.
+     * <p>
+     * Method under test: {@link RecipientServiceImpl#findByAccountName(String)}
+     */
+    @Test
+    @Ignore("TODO: Complete this test")
+    public void testFindByAccountName() {
+        // TODO: Diffblue Cover was only able to create a partial test for this method:
+        //   Reason: Failed to create Spring context.
+        //   Attempt to initialize test context failed with
+        //   com.diffblue.fuzztest.shared.proxy.LibraryLinkageException: java.lang.NoClassDefFoundError: org/springframework/core/NestedIOException
+        //       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:212)
+        //       at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1709)
+        //       at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:556)
+        //       at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:546)
+        //       at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+        //       at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+        //       at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:702)
+        //   java.lang.NoClassDefFoundError: org/springframework/core/NestedIOException
+        //       at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:309)
+        //       at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:233)
+        //       at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:273)
+        //       at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:93)
+        //       at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:694)
+        //       at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:532)
+        //       at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:221)
+        //       at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:110)
+        //       at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:212)
+        //       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:187)
+        //       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:119)
+        //       at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:127)
+        //       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:212)
+        //       at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1709)
+        //       at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:556)
+        //       at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:546)
+        //       at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+        //       at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+        //       at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:702)
+        //   java.lang.ClassNotFoundException: org.springframework.core.NestedIOException
+        //       at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:309)
+        //       at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:233)
+        //       at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:273)
+        //       at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:93)
+        //       at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:694)
+        //       at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:532)
+        //       at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:221)
+        //       at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:110)
+        //       at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:212)
+        //       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:187)
+        //       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:119)
+        //       at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:127)
+        //       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:212)
+        //       at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1709)
+        //       at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:556)
+        //       at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:546)
+        //       at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+        //       at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+        //       at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:702)
+        //   See https://diff.blue/R026 to resolve this issue.
 
-  /**
-   * Test {@link RecipientServiceImpl#findByAccountName(String)}.
-   * <ul>
-   *   <li>Given {@link Recipient} (default constructor) AccountName is
-   * {@code Dr Jane Doe}.</li>
-   *   <li>Then return {@link Recipient} (default constructor).</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link RecipientServiceImpl#findByAccountName(String)}
-   */
-  @Test
-  public void testFindByAccountName_givenRecipientAccountNameIsDrJaneDoe_thenReturnRecipient() {
-    // Arrange
-    Recipient recipient = new Recipient();
-    recipient.setAccountName("Dr Jane Doe");
-    recipient.setEmail("jane.doe@example.org");
-    recipient.setScheduledNotifications(new HashMap<>());
-    when(recipientRepository.findByAccountName(Mockito.<String>any())).thenReturn(recipient);
+        // Arrange and Act
+        recipientServiceImpl.findByAccountName("Smith");
+    }
 
-    // Act
-    Recipient actualFindByAccountNameResult = recipientServiceImpl.findByAccountName("Dr Jane Doe");
+    /**
+     * Test {@link RecipientServiceImpl#save(String, Recipient)}.
+     * <p>
+     * Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
+     */
+    @Test
+    @Ignore("TODO: Complete this test")
+    public void testSave() {
+        // TODO: Diffblue Cover was only able to create a partial test for this method:
+        //   Reason: Failed to create Spring context.
+        //   Attempt to initialize test context failed with
+        //   com.diffblue.fuzztest.shared.proxy.LibraryLinkageException: java.lang.NoClassDefFoundError: org/springframework/core/NestedIOException
+        //       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:212)
+        //       at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1709)
+        //       at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:556)
+        //       at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:546)
+        //       at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+        //       at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+        //       at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:702)
+        //   java.lang.NoClassDefFoundError: org/springframework/core/NestedIOException
+        //       at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:309)
+        //       at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:233)
+        //       at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:273)
+        //       at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:93)
+        //       at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:694)
+        //       at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:532)
+        //       at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:221)
+        //       at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:110)
+        //       at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:212)
+        //       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:187)
+        //       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:119)
+        //       at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:127)
+        //       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:212)
+        //       at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1709)
+        //       at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:556)
+        //       at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:546)
+        //       at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+        //       at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+        //       at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:702)
+        //   java.lang.ClassNotFoundException: org.springframework.core.NestedIOException
+        //       at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:309)
+        //       at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:233)
+        //       at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:273)
+        //       at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:93)
+        //       at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:694)
+        //       at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:532)
+        //       at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:221)
+        //       at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:110)
+        //       at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:212)
+        //       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:187)
+        //       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:119)
+        //       at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:127)
+        //       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:212)
+        //       at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1709)
+        //       at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:556)
+        //       at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:546)
+        //       at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+        //       at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+        //       at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:702)
+        //   See https://diff.blue/R026 to resolve this issue.
 
-    // Assert
-    verify(recipientRepository).findByAccountName(eq("Dr Jane Doe"));
-    assertSame(recipient, actualFindByAccountNameResult);
-  }
+        // Arrange
+        Recipient recipient = new Recipient();
+        recipient.setAccountName("Smith");
+        recipient.setEmail("jane.doe@example.org");
+        recipient.setScheduledNotifications(new HashMap<>());
 
-  /**
-   * Test {@link RecipientServiceImpl#findByAccountName(String)}.
-   * <ul>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link RecipientServiceImpl#findByAccountName(String)}
-   */
-  @Test
-  public void testFindByAccountName_thenThrowIllegalArgumentException() {
-    // Arrange
-    when(recipientRepository.findByAccountName(Mockito.<String>any())).thenThrow(new IllegalArgumentException("foo"));
+        // Act
+        recipientServiceImpl.save("Smith", recipient);
+    }
 
-    // Act and Assert
-    thrown.expect(IllegalArgumentException.class);
-    recipientServiceImpl.findByAccountName("Dr Jane Doe");
-    verify(recipientRepository).findByAccountName(eq("Dr Jane Doe"));
-  }
+    /**
+     * /** Test {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}.
+     * <p>
+     * Method under test:
+     * {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
+     */
+    @Test
+    @Ignore("TODO: Complete this test")
+    public void testFindReadyToNotify() {
+        // TODO: Diffblue Cover was only able to create a partial test for this method:
+        //   Reason: Failed to create Spring context.
+        //   Attempt to initialize test context failed with
+        //   com.diffblue.fuzztest.shared.proxy.LibraryLinkageException: java.lang.NoClassDefFoundError: org/springframework/core/NestedIOException
+        //       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:212)
+        //       at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1709)
+        //       at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:556)
+        //       at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:546)
+        //       at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+        //       at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+        //       at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:702)
+        //   java.lang.NoClassDefFoundError: org/springframework/core/NestedIOException
+        //       at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:309)
+        //       at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:233)
+        //       at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:273)
+        //       at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:93)
+        //       at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:694)
+        //       at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:532)
+        //       at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:221)
+        //       at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:110)
+        //       at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:212)
+        //       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:187)
+        //       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:119)
+        //       at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:127)
+        //       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:212)
+        //       at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1709)
+        //       at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:556)
+        //       at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:546)
+        //       at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+        //       at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+        //       at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:702)
+        //   java.lang.ClassNotFoundException: org.springframework.core.NestedIOException
+        //       at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:309)
+        //       at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:233)
+        //       at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:273)
+        //       at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:93)
+        //       at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:694)
+        //       at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:532)
+        //       at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:221)
+        //       at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:110)
+        //       at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:212)
+        //       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:187)
+        //       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:119)
+        //       at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:127)
+        //       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:212)
+        //       at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1709)
+        //       at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:556)
+        //       at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:546)
+        //       at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+        //       at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+        //       at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:702)
+        //   See https://diff.blue/R026 to resolve this issue.
 
-  /**
-   * Test {@link RecipientServiceImpl#save(String, Recipient)}.
-   * <ul>
-   *   <li>Given {@link HashMap#HashMap()}.</li>
-   *   <li>Then return {@link Recipient} (default constructor).</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
-   */
-  @Test
-  public void testSave_givenHashMap_thenReturnRecipient() {
-    // Arrange
-    Recipient recipient = new Recipient();
-    recipient.setAccountName("Dr Jane Doe");
-    recipient.setEmail("jane.doe@example.org");
-    recipient.setScheduledNotifications(new HashMap<>());
-    when(recipientRepository.save(Mockito.<Recipient>any())).thenReturn(recipient);
+        // Arrange and Act
+        recipientServiceImpl.findReadyToNotify(NotificationType.BACKUP);
+    }
 
-    Recipient recipient2 = new Recipient();
-    recipient2.setAccountName("Dr Jane Doe");
-    recipient2.setEmail("jane.doe@example.org");
-    recipient2.setScheduledNotifications(new HashMap<>());
+    /**
+     * Test {@link RecipientServiceImpl#markNotified(NotificationType, Recipient)}.
+     * <p>
+     * Method under test:
+     * {@link RecipientServiceImpl#markNotified(NotificationType, Recipient)}
+     */
+    @Test
+    @Ignore("TODO: Complete this test")
+    public void testMarkNotified() {
+        // TODO: Diffblue Cover was only able to create a partial test for this method:
+        //   Reason: Failed to create Spring context.
+        //   Attempt to initialize test context failed with
+        //   com.diffblue.fuzztest.shared.proxy.LibraryLinkageException: java.lang.NoClassDefFoundError: org/springframework/core/NestedIOException
+        //       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:212)
+        //       at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1709)
+        //       at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:556)
+        //       at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:546)
+        //       at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+        //       at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+        //       at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:702)
+        //   java.lang.NoClassDefFoundError: org/springframework/core/NestedIOException
+        //       at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:309)
+        //       at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:233)
+        //       at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:273)
+        //       at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:93)
+        //       at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:694)
+        //       at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:532)
+        //       at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:221)
+        //       at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:110)
+        //       at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:212)
+        //       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:187)
+        //       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:119)
+        //       at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:127)
+        //       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:212)
+        //       at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1709)
+        //       at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:556)
+        //       at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:546)
+        //       at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+        //       at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+        //       at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:702)
+        //   java.lang.ClassNotFoundException: org.springframework.core.NestedIOException
+        //       at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:309)
+        //       at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:233)
+        //       at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:273)
+        //       at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:93)
+        //       at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:694)
+        //       at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:532)
+        //       at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:221)
+        //       at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:110)
+        //       at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:212)
+        //       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:187)
+        //       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:119)
+        //       at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:127)
+        //       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:212)
+        //       at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1709)
+        //       at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:556)
+        //       at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:546)
+        //       at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+        //       at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+        //       at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:702)
+        //   See https://diff.blue/R026 to resolve this issue.
 
-    // Act
-    Recipient actualSaveResult = recipientServiceImpl.save("Dr Jane Doe", recipient2);
+        // Arrange
+        Recipient recipient = new Recipient();
+        recipient.setAccountName("Smith");
+        recipient.setEmail("jane.doe@example.org");
+        recipient.setScheduledNotifications(new HashMap<>());
 
-    // Assert
-    verify(recipientRepository).save(isA(Recipient.class));
-    assertSame(recipient2, actualSaveResult);
-  }
+        // Act
+        recipientServiceImpl.markNotified(NotificationType.BACKUP, recipient);
+    }
 
-  /**
-   * Test {@link RecipientServiceImpl#save(String, Recipient)}.
-   * <ul>
-   *   <li>Given {@link NotificationSettings} (default constructor) LastNotified is
-   * {@code null}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
-   */
-  @Test
-  public void testSave_givenNotificationSettingsLastNotifiedIsNull() {
-    // Arrange
-    Recipient recipient = new Recipient();
-    recipient.setAccountName("Dr Jane Doe");
-    recipient.setEmail("jane.doe@example.org");
-    recipient.setScheduledNotifications(new HashMap<>());
-    when(recipientRepository.save(Mockito.<Recipient>any())).thenReturn(recipient);
-
-    NotificationSettings notificationSettings = new NotificationSettings();
-    notificationSettings.setActive(true);
-    notificationSettings.setFrequency(Frequency.WEEKLY);
-    notificationSettings.setLastNotified(null);
-
-    HashMap<NotificationType, NotificationSettings> scheduledNotifications = new HashMap<>();
-    scheduledNotifications.put(NotificationType.BACKUP, notificationSettings);
-
-    Recipient recipient2 = new Recipient();
-    recipient2.setAccountName("Dr Jane Doe");
-    recipient2.setEmail("jane.doe@example.org");
-    recipient2.setScheduledNotifications(scheduledNotifications);
-
-    // Act
-    Recipient actualSaveResult = recipientServiceImpl.save("Dr Jane Doe", recipient2);
-
-    // Assert
-    verify(recipientRepository).save(isA(Recipient.class));
-    assertSame(scheduledNotifications, actualSaveResult.getScheduledNotifications());
-  }
-
-  /**
-   * Test {@link RecipientServiceImpl#save(String, Recipient)}.
-   * <ul>
-   *   <li>Then return ScheduledNotifications is {@link HashMap#HashMap()}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
-   */
-  @Test
-  public void testSave_thenReturnScheduledNotificationsIsHashMap() {
-    // Arrange
-    Recipient recipient = new Recipient();
-    recipient.setAccountName("Dr Jane Doe");
-    recipient.setEmail("jane.doe@example.org");
-    recipient.setScheduledNotifications(new HashMap<>());
-    when(recipientRepository.save(Mockito.<Recipient>any())).thenReturn(recipient);
-
-    NotificationSettings notificationSettings = new NotificationSettings();
-    notificationSettings.setActive(true);
-    notificationSettings.setFrequency(Frequency.WEEKLY);
-    notificationSettings
-        .setLastNotified(Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
-
-    HashMap<NotificationType, NotificationSettings> scheduledNotifications = new HashMap<>();
-    scheduledNotifications.put(NotificationType.BACKUP, notificationSettings);
-
-    Recipient recipient2 = new Recipient();
-    recipient2.setAccountName("Dr Jane Doe");
-    recipient2.setEmail("jane.doe@example.org");
-    recipient2.setScheduledNotifications(scheduledNotifications);
-
-    // Act
-    Recipient actualSaveResult = recipientServiceImpl.save("Dr Jane Doe", recipient2);
-
-    // Assert
-    verify(recipientRepository).save(isA(Recipient.class));
-    assertSame(scheduledNotifications, actualSaveResult.getScheduledNotifications());
-  }
-
-  /**
-   * Test {@link RecipientServiceImpl#save(String, Recipient)}.
-   * <ul>
-   *   <li>Then return ScheduledNotifications size is two.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
-   */
-  @Test
-  public void testSave_thenReturnScheduledNotificationsSizeIsTwo() {
-    // Arrange
-    Recipient recipient = new Recipient();
-    recipient.setAccountName("Dr Jane Doe");
-    recipient.setEmail("jane.doe@example.org");
-    recipient.setScheduledNotifications(new HashMap<>());
-    when(recipientRepository.save(Mockito.<Recipient>any())).thenReturn(recipient);
-
-    NotificationSettings notificationSettings = new NotificationSettings();
-    notificationSettings.setActive(true);
-    notificationSettings.setFrequency(Frequency.WEEKLY);
-    notificationSettings
-        .setLastNotified(Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
-
-    NotificationSettings notificationSettings2 = new NotificationSettings();
-    notificationSettings2.setActive(false);
-    notificationSettings2.setFrequency(Frequency.MONTHLY);
-    notificationSettings2
-        .setLastNotified(Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
-
-    HashMap<NotificationType, NotificationSettings> scheduledNotifications = new HashMap<>();
-    scheduledNotifications.put(NotificationType.REMIND, notificationSettings2);
-    scheduledNotifications.put(NotificationType.BACKUP, notificationSettings);
-
-    Recipient recipient2 = new Recipient();
-    recipient2.setAccountName("Dr Jane Doe");
-    recipient2.setEmail("jane.doe@example.org");
-    recipient2.setScheduledNotifications(scheduledNotifications);
-
-    // Act
-    Recipient actualSaveResult = recipientServiceImpl.save("Dr Jane Doe", recipient2);
-
-    // Assert
-    verify(recipientRepository).save(isA(Recipient.class));
-    Map<NotificationType, NotificationSettings> scheduledNotifications2 = actualSaveResult.getScheduledNotifications();
-    assertEquals(2, scheduledNotifications2.size());
-    assertTrue(scheduledNotifications2.containsKey(NotificationType.BACKUP));
-    assertSame(notificationSettings2, scheduledNotifications2.get(NotificationType.REMIND));
-  }
-
-  /**
-   * Test {@link RecipientServiceImpl#save(String, Recipient)}.
-   * <ul>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
-   */
-  @Test
-  public void testSave_thenThrowIllegalArgumentException() {
-    // Arrange
-    when(recipientRepository.save(Mockito.<Recipient>any()))
-        .thenThrow(new IllegalArgumentException("recipient {} settings has been updated"));
-
-    Recipient recipient = new Recipient();
-    recipient.setAccountName("Dr Jane Doe");
-    recipient.setEmail("jane.doe@example.org");
-    recipient.setScheduledNotifications(new HashMap<>());
-
-    // Act and Assert
-    thrown.expect(IllegalArgumentException.class);
-    recipientServiceImpl.save("Dr Jane Doe", recipient);
-    verify(recipientRepository).save(isA(Recipient.class));
-  }
-
-  /**
-   * Test {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}.
-   * <ul>
-   *   <li>Given {@link RecipientRepository}
-   * {@link RecipientRepository#findReadyForRemind()} return
-   * {@link ArrayList#ArrayList()}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
-   */
-  @Test
-  public void testFindReadyToNotify_givenRecipientRepositoryFindReadyForRemindReturnArrayList() {
-    // Arrange
-    when(recipientRepository.findReadyForRemind()).thenReturn(new ArrayList<>());
-
-    // Act
-    List<Recipient> actualFindReadyToNotifyResult = recipientServiceImpl.findReadyToNotify(NotificationType.REMIND);
-
-    // Assert
-    verify(recipientRepository).findReadyForRemind();
-    assertTrue(actualFindReadyToNotifyResult.isEmpty());
-  }
-
-  /**
-   * Test {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}.
-   * <ul>
-   *   <li>Then calls {@link RecipientRepository#findReadyForBackup()}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
-   */
-  @Test
-  public void testFindReadyToNotify_thenCallsFindReadyForBackup() {
-    // Arrange
-    when(recipientRepository.findReadyForBackup()).thenReturn(new ArrayList<>());
-
-    // Act
-    List<Recipient> actualFindReadyToNotifyResult = recipientServiceImpl.findReadyToNotify(NotificationType.BACKUP);
-
-    // Assert
-    verify(recipientRepository).findReadyForBackup();
-    assertTrue(actualFindReadyToNotifyResult.isEmpty());
-  }
-
-  /**
-   * Test {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}.
-   * <ul>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
-   */
-  @Test
-  public void testFindReadyToNotify_thenThrowIllegalArgumentException() {
-    // Arrange
-    when(recipientRepository.findReadyForRemind()).thenThrow(new IllegalArgumentException("foo"));
-
-    // Act and Assert
-    thrown.expect(IllegalArgumentException.class);
-    recipientServiceImpl.findReadyToNotify(NotificationType.REMIND);
-    verify(recipientRepository).findReadyForRemind();
-  }
-
-  /**
-   * Test {@link RecipientServiceImpl#markNotified(NotificationType, Recipient)}.
-   * <ul>
-   *   <li>Given {@link Recipient} (default constructor) AccountName is
-   * {@code Dr Jane Doe}.</li>
-   *   <li>Then calls {@link CrudRepository#save(Object)}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link RecipientServiceImpl#markNotified(NotificationType, Recipient)}
-   */
-  @Test
-  public void testMarkNotified_givenRecipientAccountNameIsDrJaneDoe_thenCallsSave() {
-    // Arrange
-    Recipient recipient = new Recipient();
-    recipient.setAccountName("Dr Jane Doe");
-    recipient.setEmail("jane.doe@example.org");
-    recipient.setScheduledNotifications(new HashMap<>());
-    when(recipientRepository.save(Mockito.<Recipient>any())).thenReturn(recipient);
-
-    NotificationSettings notificationSettings = new NotificationSettings();
-    notificationSettings.setActive(true);
-    notificationSettings.setFrequency(Frequency.WEEKLY);
-    notificationSettings
-        .setLastNotified(Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
-
-    HashMap<NotificationType, NotificationSettings> scheduledNotifications = new HashMap<>();
-    scheduledNotifications.put(NotificationType.BACKUP, notificationSettings);
-
-    Recipient recipient2 = new Recipient();
-    recipient2.setAccountName("Dr Jane Doe");
-    recipient2.setEmail("jane.doe@example.org");
-    recipient2.setScheduledNotifications(scheduledNotifications);
-
-    // Act
-    recipientServiceImpl.markNotified(NotificationType.BACKUP, recipient2);
-
-    // Assert
-    verify(recipientRepository).save(isA(Recipient.class));
-  }
-
-  /**
-   * Test {@link RecipientServiceImpl#markNotified(NotificationType, Recipient)}.
-   * <ul>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
-   * </ul>
-   * <p>
-   * Method under test:
-   * {@link RecipientServiceImpl#markNotified(NotificationType, Recipient)}
-   */
-  @Test
-  public void testMarkNotified_thenThrowIllegalArgumentException() {
-    // Arrange
-    when(recipientRepository.save(Mockito.<Recipient>any())).thenThrow(new IllegalArgumentException("foo"));
-
-    NotificationSettings notificationSettings = new NotificationSettings();
-    notificationSettings.setActive(true);
-    notificationSettings.setFrequency(Frequency.WEEKLY);
-    notificationSettings
-        .setLastNotified(Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
-
-    HashMap<NotificationType, NotificationSettings> scheduledNotifications = new HashMap<>();
-    scheduledNotifications.put(NotificationType.BACKUP, notificationSettings);
-
-    Recipient recipient = new Recipient();
-    recipient.setAccountName("Dr Jane Doe");
-    recipient.setEmail("jane.doe@example.org");
-    recipient.setScheduledNotifications(scheduledNotifications);
-
-    // Act and Assert
-    thrown.expect(IllegalArgumentException.class);
-    recipientServiceImpl.markNotified(NotificationType.BACKUP, recipient);
-    verify(recipientRepository).save(isA(Recipient.class));
-  }
 }

@@ -1,57 +1,67 @@
 package com.piggymetrics.notification.controller;
 
-import static org.mockito.Mockito.when;
 import com.piggymetrics.notification.domain.Recipient;
-import com.piggymetrics.notification.service.RecipientService;
-import com.sun.security.auth.UserPrincipal;
+
 import java.security.Principal;
-import java.util.HashMap;
+
+import org.junit.Ignore;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mockito;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-@ContextConfiguration(classes = {RecipientController.class})
-@RunWith(SpringJUnit4ClassRunner.class)
 public class RecipientControllerDiffblueTest {
-  @Autowired
-  private RecipientController recipientController;
+    /**
+     * Test {@link RecipientController#getCurrentNotificationsSettings(Principal)}.
+     * <p>
+     * Method under test:
+     * {@link RecipientController#getCurrentNotificationsSettings(Principal)}
+     */
+    @Test
+    @Ignore("TODO: Complete this test")
+    public void testGetCurrentNotificationsSettings() {
+        // TODO: Diffblue Cover was only able to create a partial test for this method:
+        //   Reason: Unable to load class.
+        //   Class: jakarta.servlet.ServletContext
+        //   Please check that the class is available on your test runtime classpath.
+        //   See https://diff.blue/R005 to resolve this issue.
 
-  @MockBean
-  private RecipientService recipientService;
+        // Arrange
+        // TODO: Populate arranged inputs
+        RecipientController recipientController = null;
+        Principal principal = null;
 
-  /**
-   * Test {@link RecipientController#getCurrentNotificationsSettings(Principal)}.
-   * <p>
-   * Method under test:
-   * {@link RecipientController#getCurrentNotificationsSettings(Principal)}
-   */
-  @Test
-  public void testGetCurrentNotificationsSettings() throws Exception {
-    // Arrange
-    Recipient recipient = new Recipient();
-    recipient.setAccountName("Dr Jane Doe");
-    recipient.setEmail("jane.doe@example.org");
-    recipient.setScheduledNotifications(new HashMap<>());
-    when(recipientService.findByAccountName(Mockito.<String>any())).thenReturn(recipient);
-    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/recipients/current");
-    requestBuilder.principal(new UserPrincipal("principal"));
+        // Act
+        Object actualCurrentNotificationsSettings = recipientController.getCurrentNotificationsSettings(principal);
 
-    // Act and Assert
-    MockMvcBuilders.standaloneSetup(recipientController)
-        .build()
-        .perform(requestBuilder)
-        .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/json;charset=UTF-8"))
-        .andExpect(MockMvcResultMatchers.content()
-            .string(
-                "{\"accountName\":\"Dr Jane Doe\",\"email\":\"jane.doe@example.org\",\"scheduledNotifications\":{}}"));
-  }
+        // Assert
+        // TODO: Add assertions on result
+    }
+
+    /**
+     * Test
+     * {@link RecipientController#saveCurrentNotificationsSettings(Principal, Recipient)}.
+     * <p>
+     * Method under test:
+     * {@link RecipientController#saveCurrentNotificationsSettings(Principal, Recipient)}
+     */
+    @Test
+    @Ignore("TODO: Complete this test")
+    public void testSaveCurrentNotificationsSettings() {
+        // TODO: Diffblue Cover was only able to create a partial test for this method:
+        //   Reason: Unable to load class.
+        //   Class: jakarta.servlet.ServletContext
+        //   Please check that the class is available on your test runtime classpath.
+        //   See https://diff.blue/R005 to resolve this issue.
+
+        // Arrange
+        // TODO: Populate arranged inputs
+        RecipientController recipientController = null;
+        Principal principal = null;
+        Recipient recipient = null;
+
+        // Act
+        Object actualSaveCurrentNotificationsSettingsResult = recipientController
+                .saveCurrentNotificationsSettings(principal, recipient);
+
+        // Assert
+        // TODO: Add assertions on result
+    }
 }

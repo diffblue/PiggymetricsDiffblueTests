@@ -1,71 +1,57 @@
 package com.piggymetrics.auth.controller;
 
-import static org.mockito.Mockito.doNothing;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import static org.junit.Assert.assertEquals;
+
 import com.piggymetrics.auth.domain.User;
-import com.piggymetrics.auth.service.UserService;
+import com.sun.security.auth.UserPrincipal;
+
 import java.security.Principal;
+
+import org.junit.Ignore;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mockito;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.MediaType;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-@ContextConfiguration(classes = {UserController.class})
-@RunWith(SpringJUnit4ClassRunner.class)
 public class UserControllerDiffblueTest {
-  @Autowired
-  private UserController userController;
+    /**
+     * Test {@link UserController#getUser(Principal)}.
+     * <p>
+     * Method under test: {@link UserController#getUser(Principal)}
+     */
+    @Test
+    public void testGetUser() {
+        //   Diffblue Cover was unable to create a Spring-specific test for this Spring method.
+        //   Run dcover create --keep-partial-tests to gain insights into why
+        //   a non-Spring test was created.
 
-  @MockBean
-  private UserService userService;
+        // Arrange
+        UserController userController = new UserController();
 
-  /**
-   * Test {@link UserController#getUser(Principal)}.
-   * <p>
-   * Method under test: {@link UserController#getUser(Principal)}
-   */
-  @Test
-  public void testGetUser() throws Exception {
-    // Arrange
-    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/users/current");
+        // Act and Assert
+        assertEquals("principal", userController.getUser(new UserPrincipal("principal")).getName());
+    }
 
-    // Act and Assert
-    MockMvcBuilders.standaloneSetup(userController)
-        .build()
-        .perform(requestBuilder)
-        .andExpect(MockMvcResultMatchers.status().isOk());
-  }
+    /**
+     * Test {@link UserController#createUser(User)}.
+     * <p>
+     * Method under test: {@link UserController#createUser(User)}
+     */
+    @Test
+    @Ignore("TODO: Complete this test")
+    public void testCreateUser() {
+        // TODO: Diffblue Cover was only able to create a partial test for this method:
+        //   Reason: Unable to load class.
+        //   Class: jakarta.servlet.ServletContext
+        //   Please check that the class is available on your test runtime classpath.
+        //   See https://diff.blue/R005 to resolve this issue.
 
-  /**
-   * Test {@link UserController#createUser(User)}.
-   * <p>
-   * Method under test: {@link UserController#createUser(User)}
-   */
-  @Test
-  public void testCreateUser() throws Exception {
-    // Arrange
-    doNothing().when(userService).create(Mockito.<User>any());
+        // Arrange
+        // TODO: Populate arranged inputs
+        UserController userController = null;
+        User user = null;
 
-    User user = new User();
-    user.setPassword("iloveyou");
-    user.setUsername("janedoe");
-    String content = (new ObjectMapper()).writeValueAsString(user);
-    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.post("/users")
-        .contentType(MediaType.APPLICATION_JSON)
-        .content(content);
+        // Act
+        userController.createUser(user);
 
-    // Act and Assert
-    MockMvcBuilders.standaloneSetup(userController)
-        .build()
-        .perform(requestBuilder)
-        .andExpect(MockMvcResultMatchers.status().isOk());
-  }
+        // Assert
+        // TODO: Add assertions on result
+    }
 }

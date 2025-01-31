@@ -1,0 +1,78 @@
+{
+  "meta" : {
+    "reportVersion" : "2.6"
+  },
+  "run" : {
+    "version" : "2024.10.22-TG-22184-ExtraLogging-b801b56-licensed",
+    "creationTimestamp" : "2025-01-25T18:19:09.1971473Z",
+    "command" : "dcover create ",
+    "totalTime" : 96.94,
+    "environmentDetectionTime" : 0.326,
+    "indexingTime" : 0.248,
+    "entryPointsTime" : 0.298,
+    "generationTime" : 35.063,
+    "timeToFirstTest" : 97.073,
+    "timeToLastTest" : 62.082,
+    "indexQueryTime" : 5.0360000000000005,
+    "verificationTime" : 0.0,
+    "validationTime" : 0.0
+  },
+  "codes" : {
+    "T005" : "Trivial constructor",
+    "T006" : "Main method"
+  },
+  "summary" : {
+    "classesCount" : 1,
+    "methodsCount" : 2,
+    "cumulativeDiffblueTestCount" : 0,
+    "cumulativeManualTestCount" : 0,
+    "completeTestCount" : 0,
+    "incompleteTestCount" : 0,
+    "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 0,
+    "perMethodTestability" : {
+      "T005" : 1,
+      "T006" : 1
+    },
+    "perMethodOutcome" : {
+      "T005" : 1,
+      "T006" : 1
+    }
+  },
+  "classes" : {
+    "com.piggymetrics.monitoring.MonitoringApplication" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T005" : 1,
+        "T006" : 1
+      },
+      "perMethodOutcome" : {
+        "T005" : 1,
+        "T006" : 1
+      }
+    }
+  },
+  "methods" : {
+    "com.piggymetrics.monitoring.MonitoringApplication.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        9
+      ]
+    },
+    "com.piggymetrics.monitoring.MonitoringApplication.main:([Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T006",
+      "perMethodOutcome" : "T006",
+      "lineNumbers" : [
+        12,
+        13
+      ]
+    }
+  }
+}

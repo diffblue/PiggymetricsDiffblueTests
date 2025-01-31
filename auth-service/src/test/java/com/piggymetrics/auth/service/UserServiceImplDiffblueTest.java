@@ -1,113 +1,92 @@
 package com.piggymetrics.auth.service;
 
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.ArgumentMatchers.isA;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 import com.piggymetrics.auth.domain.User;
 import com.piggymetrics.auth.repository.UserRepository;
-import java.util.Optional;
-import org.junit.Rule;
+import org.junit.Ignore;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @ContextConfiguration(classes = {UserServiceImpl.class})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class UserServiceImplDiffblueTest {
-  @Rule
-  public ExpectedException thrown = ExpectedException.none();
+    @MockBean
+    private UserRepository userRepository;
 
-  @MockBean
-  private UserRepository userRepository;
+    @Autowired
+    private UserServiceImpl userServiceImpl;
 
-  @Autowired
-  private UserServiceImpl userServiceImpl;
+    /**
+     * Test {@link UserServiceImpl#create(User)}.
+     * <p>
+     * Method under test: {@link UserServiceImpl#create(User)}
+     */
+    @Test
+    @Ignore("TODO: Complete this test")
+    public void testCreate() {
+        // TODO: Diffblue Cover was only able to create a partial test for this method:
+        //   Reason: Failed to create Spring context.
+        //   Attempt to initialize test context failed with
+        //   com.diffblue.fuzztest.shared.proxy.LibraryLinkageException: java.lang.NoClassDefFoundError: org/springframework/core/NestedIOException
+        //       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:212)
+        //       at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1709)
+        //       at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:556)
+        //       at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:546)
+        //       at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+        //       at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+        //       at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:702)
+        //   java.lang.NoClassDefFoundError: org/springframework/core/NestedIOException
+        //       at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:309)
+        //       at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:233)
+        //       at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:273)
+        //       at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:93)
+        //       at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:694)
+        //       at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:532)
+        //       at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:221)
+        //       at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:110)
+        //       at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:212)
+        //       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:187)
+        //       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:119)
+        //       at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:127)
+        //       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:212)
+        //       at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1709)
+        //       at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:556)
+        //       at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:546)
+        //       at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+        //       at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+        //       at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:702)
+        //   java.lang.ClassNotFoundException: org.springframework.core.NestedIOException
+        //       at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:309)
+        //       at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:233)
+        //       at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:273)
+        //       at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:93)
+        //       at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:694)
+        //       at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:532)
+        //       at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:221)
+        //       at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:110)
+        //       at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:212)
+        //       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:187)
+        //       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:119)
+        //       at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:127)
+        //       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:212)
+        //       at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1709)
+        //       at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:556)
+        //       at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:546)
+        //       at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+        //       at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+        //       at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:702)
+        //   See https://diff.blue/R026 to resolve this issue.
 
-  /**
-   * Test {@link UserServiceImpl#create(User)}.
-   * <p>
-   * Method under test: {@link UserServiceImpl#create(User)}
-   */
-  @Test
-  public void testCreate() {
-    // Arrange
-    when(userRepository.findById(Mockito.<String>any()))
-        .thenThrow(new IllegalArgumentException("new user has been created: {}"));
+        // Arrange
+        User user = new User();
+        user.setPassword("abc");
+        user.setUsername("Smith");
 
-    User user = new User();
-    user.setPassword("iloveyou");
-    user.setUsername("janedoe");
+        // Act
+        userServiceImpl.create(user);
+    }
 
-    // Act and Assert
-    thrown.expect(IllegalArgumentException.class);
-    userServiceImpl.create(user);
-    verify(userRepository).findById(eq("janedoe"));
-  }
-
-  /**
-   * Test {@link UserServiceImpl#create(User)}.
-   * <ul>
-   *   <li>Given {@link UserRepository} {@link CrudRepository#findById(Object)}
-   * return {@link Optional} with {@link User} (default constructor).</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link UserServiceImpl#create(User)}
-   */
-  @Test
-  public void testCreate_givenUserRepositoryFindByIdReturnOptionalWithUser() {
-    // Arrange
-    User user = new User();
-    user.setPassword("iloveyou");
-    user.setUsername("janedoe");
-    Optional<User> ofResult = Optional.of(user);
-    when(userRepository.findById(Mockito.<String>any())).thenReturn(ofResult);
-
-    User user2 = new User();
-    user2.setPassword("iloveyou");
-    user2.setUsername("janedoe");
-
-    // Act and Assert
-    thrown.expect(IllegalArgumentException.class);
-    userServiceImpl.create(user2);
-    verify(userRepository).findById(eq("janedoe"));
-  }
-
-  /**
-   * Test {@link UserServiceImpl#create(User)}.
-   * <ul>
-   *   <li>Given {@link UserRepository} {@link CrudRepository#save(Object)} return
-   * {@link User} (default constructor).</li>
-   *   <li>Then calls {@link CrudRepository#save(Object)}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link UserServiceImpl#create(User)}
-   */
-  @Test
-  public void testCreate_givenUserRepositorySaveReturnUser_thenCallsSave() {
-    // Arrange
-    User user = new User();
-    user.setPassword("iloveyou");
-    user.setUsername("janedoe");
-    when(userRepository.save(Mockito.<User>any())).thenReturn(user);
-    Optional<User> emptyResult = Optional.empty();
-    when(userRepository.findById(Mockito.<String>any())).thenReturn(emptyResult);
-
-    User user2 = new User();
-    user2.setPassword("iloveyou");
-    user2.setUsername("janedoe");
-
-    // Act
-    userServiceImpl.create(user2);
-
-    // Assert
-    verify(userRepository).findById(eq("janedoe"));
-    verify(userRepository).save(isA(User.class));
-  }
 }

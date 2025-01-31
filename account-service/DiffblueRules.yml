@@ -1,0 +1,118 @@
+#com.piggymetrics.account.domain.User:
+#  - factory: "com.piggymetrics.account.domain.UserFactory.createUser:()Lcom/piggymetrics/account/domain/User;"
+#  - factory: "com.piggymetrics.account.domain.UserFactory.createInvalidUser:()Lcom/piggymetrics/account/domain/User;"
+
+java.time.ZonedDateTime:
+  - factory:
+      method: "com.piggymetrics.account.domain.DateFactory.getSpecificDateForTesting:()Lcom/piggymetrics/account/domain/DateAndTime;"
+#      method: "com.piggymetrics.account.domain.DateFactory.getAnotherSpecificDateForTesting:()Lcom/piggymetrics/account/domain/DateAndTime;"
+    method: zonedDateTime
+
+int:
+
+  - immediate: 10
+    parameter: "^.*amount.*$"
+
+  - immediate: 20
+    parameter: "^.*amount.*$"
+
+java.lang.String:
+
+  - immediate: "Mr"
+    parameter: "^.*[Tt]itle.*$"
+
+  - immediate: "Dr"
+    parameter: "^.*[Tt]itle.*$"
+
+  - immediate: "John"
+    parameter: "^.*[Ff]irst.*[Nn]ame.*$"
+
+  - immediate: "Doe"
+    parameter: "^.*[Ll]ast.*[Nn]ame.*$"
+
+  - immediate: "Smith"
+    parameter: "^.*[Nn]ame.*$"
+
+  - immediate: "abc"
+    parameter: "^.*[Pp]assw(or)?d$"
+
+  - immediate: "qwertyuio"
+    parameter: "^.*[Pp]assw(or)?d$"
+
+  - immediate: "qw"
+    parameter: "^.*[Uu]ser[Nn]ame.*$"
+
+  - immediate: "smith"
+    parameter: "^.*[Uu]ser[Nn]ame.*$"
+
+  - immediate: "ABC123"
+    parameter: "^.*[Tt]oken.*$"
+
+  - immediate: "123ABC"
+    parameter: "^.*[Tt]oken.*$"
+
+  - immediate: "jane.doe@example.org"
+    parameter: "^.*[Ee]mail.*$"
+
+  - immediate: "https://example.org/example"
+    parameter: "^.*(url|Url|URL).*$"
+
+  - immediate: "Dog"
+    classOrMethod: "^.*[Pp]et[Tt]ype.*$"
+
+  - immediate: "Cat"
+    classOrMethod: "^.*[Pp]et[Tt]ype.*$"
+
+  - immediate: "42 Main St"
+    parameter: "^.*[Aa]ddr(ess)?.*$"
+
+  - immediate: "EXAMPLEKEaaabbbcccdddeeefffggggg"
+    parameter: "^.*[Ll]icense.*$"
+
+  - immediate: "YwjalrXUtnFEMIK7123456789"
+    parameter: "^.*[Ll]icense.*$"
+
+  - immediate: "2022-03-01"
+    parameter: "^.*[Dd]ate.*$"
+
+  - immediate: "2020/03/01"
+    parameter: "^.*[Dd]ate.*$"
+
+  - immediate: "2024-01-01"
+    classOrMethod: "LocalDate"
+
+  - immediate: "01234567-89AB-CDEF-FEDC-BA9876543210"
+    parameter: "uuid"
+
+  - immediate: "11111111111111"
+    parameter: "uuid"
+
+  - immediate: "/directory/foo.txt"
+    parameter: "^.*[Ff]ile[Pp]ath.*$"
+
+  - immediate: "An error occurred"
+    classOrMethod: "^.*Exception.*$"
+    parameter: "^.*[Mm]essage.*$"
+
+  - immediate: "2.6"
+    classOrMethod: "^.*BigDecimal.*$"
+
+  - immediate: "4.7"
+    classOrMethod: "^.*BigDecimal.*$"
+
+  - immediate: "5.6"
+    classOrMethod: "^.*BigDecimal.*$"
+
+  - immediate: "-2.3"
+    classOrMethod: "^.*BigDecimal.*$"
+
+java.lang.String[]:
+
+  - immediate: [ "abcdefg", "abcdefg123" ]
+    parameter: "^.*[Pp]assw(or)?d$"
+
+  - immediate: [ "2020-03-01", "2021-03-01" ]
+    parameter: "^.*[Dd]ate.*$"
+
+  - immediate: [ "john.doe@example.org", "john.smith@example.org" ]
+    parameter: "^.*[Ee]mail.*$"

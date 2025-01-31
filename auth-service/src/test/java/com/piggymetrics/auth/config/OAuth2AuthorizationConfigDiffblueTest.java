@@ -1,91 +1,233 @@
 package com.piggymetrics.auth.config;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import com.piggymetrics.auth.repository.UserRepository;
-import de.flapdoodle.embed.mongo.MongodExecutable;
+import com.piggymetrics.auth.service.security.MongoUserDetailsService;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.core.env.Environment;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.oauth2.config.annotation.builders.ClientDetailsServiceBuilder;
-import org.springframework.security.oauth2.config.annotation.builders.InMemoryClientDetailsServiceBuilder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-@SpringBootTest
+@ContextConfiguration(classes = {OAuth2AuthorizationConfig.class, AuthenticationManager.class})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class OAuth2AuthorizationConfigDiffblueTest {
-  @MockBean
-  private MongodExecutable mongodExecutable;
+    @MockBean
+    private Environment environment;
 
-  @Autowired
-  private OAuth2AuthorizationConfig oAuth2AuthorizationConfig;
+    @MockBean
+    private MongoUserDetailsService mongoUserDetailsService;
 
-  @MockBean
-  private UserRepository userRepository;
+    @Autowired
+    private OAuth2AuthorizationConfig oAuth2AuthorizationConfig;
 
-  /**
-   * Test
-   * {@link OAuth2AuthorizationConfig#configure(ClientDetailsServiceConfigurer)}
-   * with {@code clients}.
-   * <p>
-   * Method under test:
-   * {@link OAuth2AuthorizationConfig#configure(ClientDetailsServiceConfigurer)}
-   */
-  @Test
-  public void testConfigureWithClients() throws Exception {
-    // Arrange
-    ClientDetailsServiceConfigurer clients = new ClientDetailsServiceConfigurer(new ClientDetailsServiceBuilder<>());
+    /**
+     * Test
+     * {@link OAuth2AuthorizationConfig#configure(ClientDetailsServiceConfigurer)}
+     * with {@code clients}.
+     * <p>
+     * Method under test:
+     * {@link OAuth2AuthorizationConfig#configure(ClientDetailsServiceConfigurer)}
+     */
+    @Test
+    @Ignore("TODO: Complete this test")
+    public void testConfigureWithClients() throws Exception {
+        // TODO: Diffblue Cover was only able to create a partial test for this method:
+        //   Reason: Failed to create Spring context.
+        //   Attempt to initialize test context failed with
+        //   com.diffblue.fuzztest.shared.proxy.LibraryLinkageException: java.lang.NoClassDefFoundError: org/springframework/core/NestedIOException
+        //       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:212)
+        //       at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1709)
+        //       at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:556)
+        //       at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:546)
+        //       at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+        //       at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+        //       at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:702)
+        //   java.lang.NoClassDefFoundError: org/springframework/core/NestedIOException
+        //       at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:309)
+        //       at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:233)
+        //       at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:273)
+        //       at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:93)
+        //       at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:694)
+        //       at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:532)
+        //       at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:221)
+        //       at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:110)
+        //       at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:212)
+        //       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:187)
+        //       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:119)
+        //       at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:127)
+        //       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:212)
+        //       at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1709)
+        //       at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:556)
+        //       at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:546)
+        //       at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+        //       at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+        //       at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:702)
+        //   java.lang.ClassNotFoundException: org.springframework.core.NestedIOException
+        //       at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:309)
+        //       at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:233)
+        //       at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:273)
+        //       at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:93)
+        //       at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:694)
+        //       at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:532)
+        //       at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:221)
+        //       at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:110)
+        //       at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:212)
+        //       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:187)
+        //       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:119)
+        //       at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:127)
+        //       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:212)
+        //       at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1709)
+        //       at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:556)
+        //       at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:546)
+        //       at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+        //       at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+        //       at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:702)
+        //   See https://diff.blue/R026 to resolve this issue.
 
-    // Act
-    oAuth2AuthorizationConfig.configure(clients);
+        // Arrange and Act
+        oAuth2AuthorizationConfig.configure(new ClientDetailsServiceConfigurer(new ClientDetailsServiceBuilder<>()));
+    }
 
-    // Assert
-    assertTrue(clients.and() instanceof InMemoryClientDetailsServiceBuilder);
-  }
+    /**
+     * Test
+     * {@link OAuth2AuthorizationConfig#configure(AuthorizationServerEndpointsConfigurer)}
+     * with {@code endpoints}.
+     * <p>
+     * Method under test:
+     * {@link OAuth2AuthorizationConfig#configure(AuthorizationServerEndpointsConfigurer)}
+     */
+    @Test
+    @Ignore("TODO: Complete this test")
+    public void testConfigureWithEndpoints() throws Exception {
+        // TODO: Diffblue Cover was only able to create a partial test for this method:
+        //   Reason: Failed to create Spring context.
+        //   Attempt to initialize test context failed with
+        //   com.diffblue.fuzztest.shared.proxy.LibraryLinkageException: java.lang.NoClassDefFoundError: org/springframework/core/NestedIOException
+        //       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:212)
+        //       at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1709)
+        //       at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:556)
+        //       at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:546)
+        //       at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+        //       at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+        //       at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:702)
+        //   java.lang.NoClassDefFoundError: org/springframework/core/NestedIOException
+        //       at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:309)
+        //       at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:233)
+        //       at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:273)
+        //       at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:93)
+        //       at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:694)
+        //       at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:532)
+        //       at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:221)
+        //       at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:110)
+        //       at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:212)
+        //       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:187)
+        //       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:119)
+        //       at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:127)
+        //       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:212)
+        //       at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1709)
+        //       at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:556)
+        //       at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:546)
+        //       at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+        //       at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+        //       at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:702)
+        //   java.lang.ClassNotFoundException: org.springframework.core.NestedIOException
+        //       at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:309)
+        //       at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:233)
+        //       at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:273)
+        //       at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:93)
+        //       at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:694)
+        //       at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:532)
+        //       at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:221)
+        //       at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:110)
+        //       at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:212)
+        //       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:187)
+        //       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:119)
+        //       at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:127)
+        //       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:212)
+        //       at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1709)
+        //       at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:556)
+        //       at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:546)
+        //       at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+        //       at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+        //       at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:702)
+        //   See https://diff.blue/R026 to resolve this issue.
 
-  /**
-   * Test
-   * {@link OAuth2AuthorizationConfig#configure(AuthorizationServerEndpointsConfigurer)}
-   * with {@code endpoints}.
-   * <p>
-   * Method under test:
-   * {@link OAuth2AuthorizationConfig#configure(AuthorizationServerEndpointsConfigurer)}
-   */
-  @Test
-  public void testConfigureWithEndpoints() throws Exception {
-    // Arrange
-    AuthorizationServerEndpointsConfigurer endpoints = new AuthorizationServerEndpointsConfigurer();
+        // Arrange and Act
+        oAuth2AuthorizationConfig.configure(new AuthorizationServerEndpointsConfigurer());
+    }
 
-    // Act
-    oAuth2AuthorizationConfig.configure(endpoints);
+    /**
+     * Test
+     * {@link OAuth2AuthorizationConfig#configure(AuthorizationServerSecurityConfigurer)}
+     * with {@code oauthServer}.
+     * <p>
+     * Method under test:
+     * {@link OAuth2AuthorizationConfig#configure(AuthorizationServerSecurityConfigurer)}
+     */
+    @Test
+    @Ignore("TODO: Complete this test")
+    public void testConfigureWithOauthServer() throws Exception {
+        // TODO: Diffblue Cover was only able to create a partial test for this method:
+        //   Reason: Failed to create Spring context.
+        //   Attempt to initialize test context failed with
+        //   com.diffblue.fuzztest.shared.proxy.LibraryLinkageException: java.lang.NoClassDefFoundError: org/springframework/core/NestedIOException
+        //       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:212)
+        //       at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1709)
+        //       at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:556)
+        //       at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:546)
+        //       at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+        //       at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+        //       at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:702)
+        //   java.lang.NoClassDefFoundError: org/springframework/core/NestedIOException
+        //       at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:309)
+        //       at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:233)
+        //       at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:273)
+        //       at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:93)
+        //       at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:694)
+        //       at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:532)
+        //       at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:221)
+        //       at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:110)
+        //       at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:212)
+        //       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:187)
+        //       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:119)
+        //       at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:127)
+        //       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:212)
+        //       at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1709)
+        //       at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:556)
+        //       at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:546)
+        //       at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+        //       at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+        //       at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:702)
+        //   java.lang.ClassNotFoundException: org.springframework.core.NestedIOException
+        //       at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:309)
+        //       at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:233)
+        //       at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:273)
+        //       at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:93)
+        //       at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:694)
+        //       at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:532)
+        //       at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:221)
+        //       at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:110)
+        //       at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:212)
+        //       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:187)
+        //       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:119)
+        //       at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:127)
+        //       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:212)
+        //       at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1709)
+        //       at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:556)
+        //       at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:546)
+        //       at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+        //       at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+        //       at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:702)
+        //   See https://diff.blue/R026 to resolve this issue.
 
-    // Assert
-    assertTrue(endpoints.isUserDetailsServiceOverride());
-  }
-
-  /**
-   * Test
-   * {@link OAuth2AuthorizationConfig#configure(AuthorizationServerSecurityConfigurer)}
-   * with {@code oauthServer}.
-   * <p>
-   * Method under test:
-   * {@link OAuth2AuthorizationConfig#configure(AuthorizationServerSecurityConfigurer)}
-   */
-  @Test
-  public void testConfigureWithOauthServer() throws Exception {
-    // Arrange
-    AuthorizationServerSecurityConfigurer oauthServer = new AuthorizationServerSecurityConfigurer();
-
-    // Act
-    oAuth2AuthorizationConfig.configure(oauthServer);
-
-    // Assert
-    assertEquals("isAuthenticated()", oauthServer.getCheckTokenAccess());
-    assertEquals("permitAll()", oauthServer.getTokenKeyAccess());
-  }
+        // Arrange and Act
+        oAuth2AuthorizationConfig.configure(new AuthorizationServerSecurityConfigurer());
+    }
 }
