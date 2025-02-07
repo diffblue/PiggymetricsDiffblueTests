@@ -19,9 +19,6 @@ public class User {
 	}
 
 	public void setUsername(String username) {
-		if (username.length() < 3) {
-			throw new IllegalArgumentException();
-		}
 		this.username = username;
 	}
 
@@ -30,9 +27,6 @@ public class User {
 	}
 
 	public void setPassword(String password) {
-		if (password.length() < 6) {
-			throw new IllegalArgumentException();
-		}
 		this.password = password;
 	}
 }

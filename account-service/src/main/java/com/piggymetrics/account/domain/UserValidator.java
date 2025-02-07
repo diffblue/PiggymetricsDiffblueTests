@@ -4,7 +4,7 @@ import com.diffblue.cover.annotations.InTestsUseStrings;
 
 public class UserValidator {
 
-    public static void validate(User user) {
+    public static boolean validate(User user) {
         if (user == null) {
             throw new IllegalArgumentException("User cannot be null");
         }
@@ -19,6 +19,9 @@ public class UserValidator {
         if (!isUsernameValid && !isPasswordValid) {
             throw new IllegalArgumentException("Credentials Invalid");
         }
+
+        return true;
+
     }
 
     public static boolean validateUsername(String username) throws IllegalArgumentException {
@@ -34,7 +37,7 @@ public class UserValidator {
 
     public static boolean validatePassword(String password) throws IllegalArgumentException {
     /*public static boolean validatePassword(
-            //@InTestsUseStrings({"qwerty", "123"}) String password)
+            @InTestsUseStrings({"qwerty", "123"}) String password)
             throws IllegalArgumentException {*/
         if (password == null || password.length() < 6 || password.length() > 40) {
             return false;
