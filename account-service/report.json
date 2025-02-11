@@ -3,19 +3,19 @@
     "reportVersion" : "2.6"
   },
   "run" : {
-    "version" : "2025.01.02-9c91b08-licensed",
-    "creationTimestamp" : "2025-01-28T17:52:27.873Z",
+    "version" : "2025.02.01-b1636ff-licensed",
+    "creationTimestamp" : "2025-02-11T17:26:31.981Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --exclude=com.piggymetrics.notification.service.NotificationServiceImpl. --working-directory=account-service",
-    "totalTime" : 418.792,
-    "environmentDetectionTime" : 0.835,
-    "indexingTime" : 0.389,
-    "entryPointsTime" : 0.793,
-    "generationTime" : 282.822,
-    "timeToFirstTest" : 126.677,
-    "timeToLastTest" : 335.674,
-    "indexQueryTime" : 16.856,
-    "verificationTime" : 27.855,
-    "validationTime" : 49.109
+    "totalTime" : 448.837,
+    "environmentDetectionTime" : 0.818,
+    "indexingTime" : 0.38,
+    "entryPointsTime" : 0.781,
+    "generationTime" : 310.385,
+    "timeToFirstTest" : 141.283,
+    "timeToLastTest" : 363.832,
+    "indexQueryTime" : 17.611,
+    "verificationTime" : 27.762,
+    "validationTime" : 50.665
   },
   "codes" : {
     "E052" : "Missing dependency",
@@ -38,7 +38,7 @@
     "methodsCount" : 99,
     "cumulativeDiffblueTestCount" : 15,
     "cumulativeManualTestCount" : 14,
-    "completeTestCount" : 17,
+    "completeTestCount" : 18,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "totalPhysicalLineCount" : 524,
@@ -54,10 +54,10 @@
     },
     "perMethodOutcome" : {
       "E052" : 12,
-      "R000" : 53,
+      "R000" : 54,
       "R002" : 5,
       "R004" : 2,
-      "R013" : 2,
+      "R013" : 1,
       "T003" : 6,
       "T005" : 5,
       "T006" : 1,
@@ -65,10 +65,10 @@
       "T012" : 8
     },
     "perTestOutcome" : {
-      "R000" : 17
+      "R000" : 18
     },
     "perTestValidation" : {
-      "V000" : 17
+      "V000" : 18
     }
   },
   "classes" : {
@@ -285,18 +285,17 @@
     },
     "com.piggymetrics.account.service.AccountServiceImpl" : {
       "methodsCount" : 4,
-      "completeTestCount" : 2,
+      "completeTestCount" : 3,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 4
       },
       "perMethodOutcome" : {
-        "R000" : 2,
-        "R013" : 1,
+        "R000" : 3,
         "T005" : 1
       },
       "perTestOutcome" : {
-        "R000" : 2
+        "R000" : 3
       }
     },
     "com.piggymetrics.account.service.security.CustomUserInfoTokenServices" : {
@@ -1215,10 +1214,13 @@
       ]
     },
     "com.piggymetrics.account.service.AccountServiceImpl.create:(Lcom/piggymetrics/account/domain/User;)Lcom/piggymetrics/account/domain/Account;" : {
-      "completeTestCount" : 0,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R013",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
       "lineNumbers" : [
         48,
         49,

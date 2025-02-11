@@ -1,20 +1,20 @@
 {
-  "version" : "2025.01.02-9c91b08-licensed",
-  "totalTime" : 1623.62,
-  "environmentDetectionTime" : 5.936,
-  "indexingTime" : 3.2119999999999997,
-  "entryPointsTime" : 5.539,
-  "generationTime" : 1035.8570000000002,
-  "timeToFirstTest" : 750.2230000000001,
-  "timeToLastTest" : 1341.899,
-  "verificationTime" : 102.099,
-  "validationTime" : 116.153,
+  "version" : "2025.02.01-b1636ff-licensed",
+  "totalTime" : 1746.877,
+  "environmentDetectionTime" : 6.210999999999999,
+  "indexingTime" : 3.2859999999999996,
+  "entryPointsTime" : 5.899000000000001,
+  "generationTime" : 1147.623,
+  "timeToFirstTest" : 800.0799999999999,
+  "timeToLastTest" : 1460.47,
+  "verificationTime" : 105.213,
+  "validationTime" : 118.524,
   "summary" : {
     "classesCount" : 75,
     "methodsCount" : 362,
-    "cumulativeDiffblueTestCount" : 85,
+    "cumulativeDiffblueTestCount" : 82,
     "cumulativeManualTestCount" : 57,
-    "completeTestCount" : 82,
+    "completeTestCount" : 80,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "totalPhysicalLineCount" : 1927,
@@ -32,11 +32,11 @@
     },
     "perMethodOutcome" : {
       "E052" : 49,
-      "R000" : 168,
+      "R000" : 170,
       "R002" : 8,
       "R004" : 6,
       "R011" : 1,
-      "R013" : 9,
+      "R013" : 7,
       "T003" : 17,
       "T005" : 34,
       "T006" : 9,
@@ -45,60 +45,60 @@
       "T033" : 7
     },
     "perTestOutcome" : {
-      "R000" : 82
+      "R000" : 80
     },
     "perTestValidation" : {
-      "V000" : 82
+      "V000" : 80
     }
   },
   "coverageMetrics" : {
-    "branchCoveragePercent" : "36.17%",
+    "branchCoveragePercent" : "40.43%",
     "classesWithIncompleteInstructionCoverage" : [
       "com.piggymetrics.auth.AuthApplication",
-      "com.piggymetrics.config.ConfigApplication",
-      "com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices",
-      "com.piggymetrics.statistics.StatisticsApplication",
-      "com.piggymetrics.statistics.repository.converter.DataPointIdReaderConverter",
-      "com.piggymetrics.statistics.service.ExchangeRatesServiceImpl",
+      "com.piggymetrics.auth.service.security.MongoUserDetailsService",
       "com.piggymetrics.account.controller.ErrorHandler",
       "com.piggymetrics.account.service.AccountServiceImpl",
       "com.piggymetrics.account.service.security.CustomUserInfoTokenServices",
       "com.piggymetrics.account.client.StatisticsServiceClientFallback",
       "com.piggymetrics.account.AccountApplication",
+      "com.piggymetrics.config.ConfigApplication",
       "com.piggymetrics.notification.domain.Frequency",
       "com.piggymetrics.notification.NotificationServiceApplication",
       "com.piggymetrics.notification.controller.RecipientController",
       "com.piggymetrics.notification.service.NotificationServiceImpl",
-      "com.piggymetrics.notification.service.EmailServiceImpl",
-      "com.piggymetrics.notification.service.RecipientServiceImpl"
+      "com.piggymetrics.notification.service.RecipientServiceImpl",
+      "com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices",
+      "com.piggymetrics.statistics.StatisticsApplication",
+      "com.piggymetrics.statistics.repository.converter.DataPointIdReaderConverter",
+      "com.piggymetrics.statistics.service.ExchangeRatesServiceImpl"
     ],
     "complexCoveredLines" : 153,
     "complexLineCoveragePercent" : "76.12%",
     "complexityThreshold" : 10,
-    "coveredBranches" : 17,
+    "coveredBranches" : 19,
     "coveredComplexity" : 77,
-    "coveredLines" : 459,
-    "lineCoveragePercent" : "76.5%",
+    "coveredLines" : 471,
+    "lineCoveragePercent" : "78.5%",
     "totalBranches" : 47,
     "totalComplexLines" : 201,
     "totalComplexity" : 103,
     "totalLines" : 600
   },
   "piTestMetrics" : {
-    "mutationsKilled" : 94,
-    "mutationsKilledPercent" : "45.85%",
-    "mutationsNoCoverage" : 85,
-    "mutationsSurvived" : 26,
+    "mutationsKilled" : 93,
+    "mutationsKilledPercent" : "45.37%",
+    "mutationsNoCoverage" : 80,
+    "mutationsSurvived" : 32,
     "mutationsTotal" : 205
   },
   "testDiffStatSummary" : {
-    "files" : 16,
-    "insertions" : 59,
-    "deletions" : 100
+    "files" : 4,
+    "insertions" : 265,
+    "deletions" : 420
   },
   "diffblueTestDiffStatSummary" : {
-    "files" : 16,
-    "insertions" : 59,
-    "deletions" : 100
+    "files" : 4,
+    "insertions" : 265,
+    "deletions" : 420
   }
 }
