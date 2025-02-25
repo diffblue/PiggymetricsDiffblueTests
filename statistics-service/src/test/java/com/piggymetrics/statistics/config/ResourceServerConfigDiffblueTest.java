@@ -1,7 +1,6 @@
 package com.piggymetrics.statistics.config;
 
 import static org.junit.Assert.assertTrue;
-import com.piggymetrics.statistics.repository.DataPointRepository;
 import com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices;
 import de.flapdoodle.embed.mongo.MongodExecutable;
 import org.junit.Test;
@@ -15,9 +14,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @SpringBootTest
 @RunWith(SpringJUnit4ClassRunner.class)
 public class ResourceServerConfigDiffblueTest {
-  @MockBean
-  private DataPointRepository dataPointRepository;
-
   @MockBean
   private MongodExecutable mongodExecutable;
 

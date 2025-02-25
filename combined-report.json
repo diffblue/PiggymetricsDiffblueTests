@@ -1,14 +1,14 @@
 {
-  "version" : "2025.02.01-b1636ff-licensed",
-  "totalTime" : 1746.877,
-  "environmentDetectionTime" : 6.210999999999999,
-  "indexingTime" : 3.2859999999999996,
-  "entryPointsTime" : 5.899000000000001,
-  "generationTime" : 1147.623,
-  "timeToFirstTest" : 800.0799999999999,
-  "timeToLastTest" : 1460.47,
-  "verificationTime" : 105.213,
-  "validationTime" : 118.524,
+  "version" : "2025.02.02-08b2a5a-licensed",
+  "totalTime" : 2056.0139999999997,
+  "environmentDetectionTime" : 6.0,
+  "indexingTime" : 3.3720000000000003,
+  "entryPointsTime" : 5.661999999999999,
+  "generationTime" : 1419.843,
+  "timeToFirstTest" : 94.34599999999999,
+  "timeToLastTest" : 194.796,
+  "verificationTime" : 122.16499999999999,
+  "validationTime" : 125.39599999999999,
   "summary" : {
     "classesCount" : 75,
     "methodsCount" : 362,
@@ -54,23 +54,23 @@
   "coverageMetrics" : {
     "branchCoveragePercent" : "40.43%",
     "classesWithIncompleteInstructionCoverage" : [
-      "com.piggymetrics.auth.AuthApplication",
-      "com.piggymetrics.auth.service.security.MongoUserDetailsService",
+      "com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices",
+      "com.piggymetrics.statistics.StatisticsApplication",
+      "com.piggymetrics.statistics.repository.converter.DataPointIdReaderConverter",
+      "com.piggymetrics.statistics.service.ExchangeRatesServiceImpl",
+      "com.piggymetrics.notification.domain.Frequency",
+      "com.piggymetrics.notification.NotificationServiceApplication",
+      "com.piggymetrics.notification.controller.RecipientController",
+      "com.piggymetrics.notification.service.NotificationServiceImpl",
+      "com.piggymetrics.notification.service.RecipientServiceImpl",
       "com.piggymetrics.account.controller.ErrorHandler",
       "com.piggymetrics.account.service.AccountServiceImpl",
       "com.piggymetrics.account.service.security.CustomUserInfoTokenServices",
       "com.piggymetrics.account.client.StatisticsServiceClientFallback",
       "com.piggymetrics.account.AccountApplication",
       "com.piggymetrics.config.ConfigApplication",
-      "com.piggymetrics.notification.domain.Frequency",
-      "com.piggymetrics.notification.NotificationServiceApplication",
-      "com.piggymetrics.notification.controller.RecipientController",
-      "com.piggymetrics.notification.service.NotificationServiceImpl",
-      "com.piggymetrics.notification.service.RecipientServiceImpl",
-      "com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices",
-      "com.piggymetrics.statistics.StatisticsApplication",
-      "com.piggymetrics.statistics.repository.converter.DataPointIdReaderConverter",
-      "com.piggymetrics.statistics.service.ExchangeRatesServiceImpl"
+      "com.piggymetrics.auth.AuthApplication",
+      "com.piggymetrics.auth.service.security.MongoUserDetailsService"
     ],
     "complexCoveredLines" : 153,
     "complexLineCoveragePercent" : "76.12%",
@@ -92,13 +92,13 @@
     "mutationsTotal" : 205
   },
   "testDiffStatSummary" : {
-    "files" : 4,
-    "insertions" : 265,
-    "deletions" : 420
+    "files" : 7,
+    "insertions" : 8,
+    "deletions" : 25
   },
   "diffblueTestDiffStatSummary" : {
-    "files" : 4,
-    "insertions" : 265,
-    "deletions" : 420
+    "files" : 7,
+    "insertions" : 8,
+    "deletions" : 25
   }
 }

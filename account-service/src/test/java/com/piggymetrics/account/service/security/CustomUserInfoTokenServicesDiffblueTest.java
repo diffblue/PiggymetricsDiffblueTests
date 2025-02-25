@@ -1,6 +1,5 @@
 package com.piggymetrics.account.service.security;
 
-import com.piggymetrics.account.repository.AccountRepository;
 import de.flapdoodle.embed.mongo.MongodExecutable;
 import org.junit.Rule;
 import org.junit.Test;
@@ -18,9 +17,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class CustomUserInfoTokenServicesDiffblueTest {
   @Rule
   public ExpectedException thrown = ExpectedException.none();
-
-  @MockBean
-  private AccountRepository accountRepository;
 
   @Autowired
   private CustomUserInfoTokenServices customUserInfoTokenServices;

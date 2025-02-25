@@ -29,7 +29,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-@ContextConfiguration(classes = {AccountController.class})
+@ContextConfiguration(classes = {AccountController.class, ErrorHandler.class})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class AccountControllerDiffblueTest {
   @Autowired
@@ -37,6 +37,9 @@ public class AccountControllerDiffblueTest {
 
   @MockBean
   private AccountService accountService;
+
+  @Autowired
+  private ErrorHandler errorHandler;
 
   /**
    * Test {@link AccountController#getAccountByName(String)}.
@@ -65,6 +68,7 @@ public class AccountControllerDiffblueTest {
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(accountController)
+        .setControllerAdvice(errorHandler)
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
@@ -103,6 +107,7 @@ public class AccountControllerDiffblueTest {
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(accountController)
+        .setControllerAdvice(errorHandler)
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
@@ -146,6 +151,7 @@ public class AccountControllerDiffblueTest {
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(accountController)
+        .setControllerAdvice(errorHandler)
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk());
@@ -185,6 +191,7 @@ public class AccountControllerDiffblueTest {
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(accountController)
+        .setControllerAdvice(errorHandler)
         .build()
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())

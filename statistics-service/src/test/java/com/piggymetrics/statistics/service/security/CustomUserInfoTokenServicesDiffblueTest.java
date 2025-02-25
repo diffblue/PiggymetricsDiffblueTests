@@ -1,6 +1,5 @@
 package com.piggymetrics.statistics.service.security;
 
-import com.piggymetrics.statistics.repository.DataPointRepository;
 import de.flapdoodle.embed.mongo.MongodExecutable;
 import org.junit.Rule;
 import org.junit.Test;
@@ -21,9 +20,6 @@ public class CustomUserInfoTokenServicesDiffblueTest {
 
   @Autowired
   private CustomUserInfoTokenServices customUserInfoTokenServices;
-
-  @MockBean
-  private DataPointRepository dataPointRepository;
 
   @MockBean
   private MongodExecutable mongodExecutable;

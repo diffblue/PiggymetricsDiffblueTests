@@ -2,7 +2,6 @@ package com.piggymetrics.auth.config;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import com.piggymetrics.auth.repository.UserRepository;
 import de.flapdoodle.embed.mongo.MongodExecutable;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,9 +23,6 @@ public class OAuth2AuthorizationConfigDiffblueTest {
 
   @Autowired
   private OAuth2AuthorizationConfig oAuth2AuthorizationConfig;
-
-  @MockBean
-  private UserRepository userRepository;
 
   /**
    * Test {@link OAuth2AuthorizationConfig#configure(ClientDetailsServiceConfigurer)} with {@code clients}.
