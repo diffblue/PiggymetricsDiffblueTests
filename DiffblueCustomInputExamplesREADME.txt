@@ -12,7 +12,8 @@ There are multiple methods available for different scenarios. This branch includ
 
 1) DiffblueRules.yaml file: Providing example entries for different use cases - further information on these can be found on our documentation website (https://docs.diffblue.com/features/cover-cli/writing-tests/custom-inputs#custom-inputs)
 	
-	Immediate rules entries will be prioritised for consideration by Cover if identified as being relevant for the method under test
+	Immediate rule entries will be prioritised for consideration by Cover if identified as being relevant for the method under test
+	Properties rule entries can be used to specify property files for consideration and their location. These can be specified for certain classes/methods or for Cover to consider across all classes. Example entries and properties file provided are dummy data only as examples of how these may be included if desired/relevant
 	
 2) Test Factories: An additional class file setting out input values for an associating class; combined with a DiffblueRules file entry - further information on this can be found on our documentation website (https://docs.diffblue.com/features/cover-cli/writing-tests/custom-inputs#factory-rule)
 

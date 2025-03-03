@@ -4,7 +4,7 @@ import com.diffblue.cover.annotations.InterestingTestFactory;
 
 public class UserFactory {
 
-    //@InterestingTestFactory
+    @InterestingTestFactory
     //Valid user creation test data
     public static User createUser() {
         User user = new User();

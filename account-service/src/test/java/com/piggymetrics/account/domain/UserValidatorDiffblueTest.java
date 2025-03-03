@@ -9,22 +9,22 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class UserValidatorDiffblueTest {
+
     /**
      * Test {@link UserValidator#validate(User)}.
      * <ul>
      *   <li>Given {@code null}.</li>
-     *   <li>When {@link User} (default constructor) Username is {@code null}.</li>
-     *   <li>Then throw {@link IllegalArgumentException}.</li>
+     *   <li>When createUser Username is {@code null}.</li>
      * </ul>
      * <p>
      * Method under test: {@link UserValidator#validate(User)}
      */
     @Test
-    @DisplayName("Test validate(User); given 'null'; when User (default constructor) Username is 'null'; then throw IllegalArgumentException")
+    @DisplayName("Test validate(User); given 'null'; when createUser Username is 'null'")
     @Tag("MaintainedByDiffblue")
-    void testValidate_givenNull_whenUserUsernameIsNull_thenThrowIllegalArgumentException() {
+    void testValidate_givenNull_whenCreateUserUsernameIsNull() {
         // Arrange
-        User user = new User();
+        User user = UserFactory.createUser();
         user.setUsername(null);
         user.setPassword(null);
 
@@ -36,47 +36,22 @@ class UserValidatorDiffblueTest {
      * Test {@link UserValidator#validate(User)}.
      * <ul>
      *   <li>Given {@code qw}.</li>
-     *   <li>When {@link User} (default constructor) Username is {@code qw}.</li>
-     *   <li>Then throw {@link IllegalArgumentException}.</li>
+     *   <li>When createUser Username is {@code qw}.</li>
      * </ul>
      * <p>
      * Method under test: {@link UserValidator#validate(User)}
      */
     @Test
-    @DisplayName("Test validate(User); given 'qw'; when User (default constructor) Username is 'qw'; then throw IllegalArgumentException")
+    @DisplayName("Test validate(User); given 'qw'; when createUser Username is 'qw'")
     @Tag("MaintainedByDiffblue")
-    void testValidate_givenQw_whenUserUsernameIsQw_thenThrowIllegalArgumentException() {
+    void testValidate_givenQw_whenCreateUserUsernameIsQw() {
         // Arrange
-        User user = new User();
-        user.setPassword("abc");
+        User user = UserFactory.createUser();
         user.setUsername("qw");
+        user.setPassword(null);
 
         // Act and Assert
         assertThrows(IllegalArgumentException.class, () -> UserValidator.validate(user));
-    }
-
-    /**
-     * Test {@link UserValidator#validate(User)}.
-     * <ul>
-     *   <li>Given {@code qwertyuio}.</li>
-     *   <li>When {@link User} (default constructor) Password is
-     * {@code qwertyuio}.</li>
-     *   <li>Then return {@code true}.</li>
-     * </ul>
-     * <p>
-     * Method under test: {@link UserValidator#validate(User)}
-     */
-    @Test
-    @DisplayName("Test validate(User); given 'qwertyuio'; when User (default constructor) Password is 'qwertyuio'; then return 'true'")
-    @Tag("MaintainedByDiffblue")
-    void testValidate_givenQwertyuio_whenUserPasswordIsQwertyuio_thenReturnTrue() {
-        // Arrange
-        User user = new User();
-        user.setPassword("qwertyuio");
-        user.setUsername("Smith");
-
-        // Act and Assert
-        assertTrue(UserValidator.validate(user));
     }
 
     /**
@@ -92,9 +67,9 @@ class UserValidatorDiffblueTest {
     @Tag("MaintainedByDiffblue")
     void testValidate_givenSmithCredentialsInvalid() {
         // Arrange
-        User user = new User();
-        user.setPassword("abc");
+        User user = UserFactory.createUser();
         user.setUsername("SmithCredentials Invalid");
+        user.setPassword(null);
 
         // Act and Assert
         assertThrows(IllegalArgumentException.class, () -> UserValidator.validate(user));
@@ -103,20 +78,20 @@ class UserValidatorDiffblueTest {
     /**
      * Test {@link UserValidator#validate(User)}.
      * <ul>
-     *   <li>Given {@code Smith}.</li>
-     *   <li>When {@link User} (default constructor) Username is {@code Smith}.</li>
+     *   <li>Given {@code User}.</li>
+     *   <li>When createUser Password is {@code User}.</li>
      * </ul>
      * <p>
      * Method under test: {@link UserValidator#validate(User)}
      */
     @Test
-    @DisplayName("Test validate(User); given 'Smith'; when User (default constructor) Username is 'Smith'")
+    @DisplayName("Test validate(User); given 'User'; when createUser Password is 'User'")
     @Tag("MaintainedByDiffblue")
-    void testValidate_givenSmith_whenUserUsernameIsSmith() {
+    void testValidate_givenUser_whenCreateUserPasswordIsUser() {
         // Arrange
-        User user = new User();
-        user.setPassword("abc");
-        user.setUsername("Smith");
+        User user = UserFactory.createUser();
+        user.setUsername(null);
+        user.setPassword("User");
 
         // Act and Assert
         assertThrows(IllegalArgumentException.class, () -> UserValidator.validate(user));
@@ -125,18 +100,40 @@ class UserValidatorDiffblueTest {
     /**
      * Test {@link UserValidator#validate(User)}.
      * <ul>
-     *   <li>When {@code null}.</li>
-     *   <li>Then throw {@link IllegalArgumentException}.</li>
+     *   <li>Given {@code User}.</li>
+     *   <li>When createUser Username is {@code User}.</li>
      * </ul>
      * <p>
      * Method under test: {@link UserValidator#validate(User)}
      */
     @Test
-    @DisplayName("Test validate(User); when 'null'; then throw IllegalArgumentException")
+    @DisplayName("Test validate(User); given 'User'; when createUser Username is 'User'")
     @Tag("MaintainedByDiffblue")
-    void testValidate_whenNull_thenThrowIllegalArgumentException() {
+    void testValidate_givenUser_whenCreateUserUsernameIsUser() {
+        // Arrange
+        User user = UserFactory.createUser();
+        user.setUsername("User");
+        user.setPassword(null);
+
+        // Act and Assert
+        assertThrows(IllegalArgumentException.class, () -> UserValidator.validate(user));
+    }
+
+    /**
+     * Test {@link UserValidator#validate(User)}.
+     * <ul>
+     *   <li>When createUser.</li>
+     *   <li>Then return {@code true}.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link UserValidator#validate(User)}
+     */
+    @Test
+    @DisplayName("Test validate(User); when createUser; then return 'true'")
+    @Tag("MaintainedByDiffblue")
+    void testValidate_whenCreateUser_thenReturnTrue() {
         // Arrange, Act and Assert
-        assertThrows(IllegalArgumentException.class, () -> UserValidator.validate(null));
+        assertTrue(UserValidator.validate(UserFactory.createUser()));
     }
 
     /**

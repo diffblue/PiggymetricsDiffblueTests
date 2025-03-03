@@ -8,6 +8,14 @@ java.time.ZonedDateTime:
 #      method: "com.piggymetrics.account.domain.DateFactory.getAnotherSpecificDateForTesting:()Lcom/piggymetrics/account/domain/DateAndTime;"
     method: zonedDateTime
 
+java.util.Properties:
+  - class: com.piggymetrics.account.config.ResourceServerConfig
+    properties:
+      file: /resource.properties
+
+#  - properties:
+#      file: /resource.properties
+
 int:
 
   - immediate: 10
@@ -15,6 +23,10 @@ int:
 
   - immediate: 20
     parameter: "^.*amount.*$"
+
+  - immediate: 30
+    parameter: "amount"
+    method: addToBalance
 
 java.lang.String:
 
