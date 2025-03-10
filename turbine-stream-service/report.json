@@ -1,19 +1,19 @@
 {
   "meta" : {
-    "reportVersion" : "2.6"
+    "reportVersion" : "2.7"
   },
   "run" : {
-    "version" : "2025.02.02-08b2a5a-licensed",
-    "creationTimestamp" : "2025-02-25T12:43:44.12Z",
+    "version" : "2025.03.01-721681d-licensed",
+    "creationTimestamp" : "2025-03-10T17:35:20.903Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --exclude=com.piggymetrics.notification.service.NotificationServiceImpl. --working-directory=turbine-stream-service",
-    "totalTime" : 59.419,
+    "totalTime" : 56.81,
     "environmentDetectionTime" : 0.489,
-    "indexingTime" : 0.411,
-    "entryPointsTime" : 0.452,
-    "generationTime" : 23.341,
-    "timeToFirstTest" : 59.524,
-    "timeToLastTest" : 46.749,
-    "indexQueryTime" : 10.033,
+    "indexingTime" : 0.402,
+    "entryPointsTime" : 0.451,
+    "generationTime" : 22.839,
+    "timeToFirstTest" : 56.917,
+    "timeToLastTest" : 44.709,
+    "indexQueryTime" : 9.687,
     "verificationTime" : 0.0,
     "validationTime" : 0.0
   },
@@ -24,7 +24,7 @@
   "summary" : {
     "classesCount" : 1,
     "methodsCount" : 2,
-    "cumulativeDiffblueTestCount" : 1,
+    "cumulativeDiffblueTestCount" : 2,
     "cumulativeManualTestCount" : 1,
     "completeTestCount" : 0,
     "incompleteTestCount" : 0,
@@ -74,5 +74,6 @@
         15
       ]
     }
-  }
+  },
+  "validationMetrics" : { }
 }
