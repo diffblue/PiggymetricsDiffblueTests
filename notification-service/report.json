@@ -3,19 +3,19 @@
     "reportVersion" : "2.7"
   },
   "run" : {
-    "version" : "2025.03.01-721681d-licensed",
-    "creationTimestamp" : "2025-03-10T17:28:03.176Z",
+    "version" : "2025.03.02-9a94c7b-licensed",
+    "creationTimestamp" : "2025-03-26T17:00:10.69Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --exclude=com.piggymetrics.notification.service.NotificationServiceImpl. --working-directory=notification-service",
-    "totalTime" : 384.579,
-    "environmentDetectionTime" : 0.787,
-    "indexingTime" : 0.358,
-    "entryPointsTime" : 0.756,
-    "generationTime" : 279.718,
-    "timeToFirstTest" : 147.544,
-    "timeToLastTest" : 332.046,
-    "indexQueryTime" : 14.705,
-    "verificationTime" : 27.228,
-    "validationTime" : 23.249
+    "totalTime" : 539.801,
+    "environmentDetectionTime" : 0.798,
+    "indexingTime" : 0.354,
+    "entryPointsTime" : 0.757,
+    "generationTime" : 433.597,
+    "timeToFirstTest" : 152.777,
+    "timeToLastTest" : 486.397,
+    "indexQueryTime" : 15.014000000000001,
+    "verificationTime" : 27.463,
+    "validationTime" : 23.317
   },
   "codes" : {
     "E052" : "Missing dependency",
@@ -37,7 +37,7 @@
   "summary" : {
     "classesCount" : 19,
     "methodsCount" : 84,
-    "cumulativeDiffblueTestCount" : 38,
+    "cumulativeDiffblueTestCount" : 22,
     "cumulativeManualTestCount" : 16,
     "completeTestCount" : 22,
     "incompleteTestCount" : 0,
