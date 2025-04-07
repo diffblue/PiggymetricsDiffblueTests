@@ -1,20 +1,20 @@
 {
-  "version" : "2025.03.02-9a94c7b-licensed",
-  "totalTime" : 2099.2960000000003,
-  "environmentDetectionTime" : 5.595000000000001,
-  "indexingTime" : 3.4010000000000002,
-  "entryPointsTime" : 5.294,
-  "generationTime" : 1494.1190000000001,
-  "timeToFirstTest" : 90.95066666666666,
-  "timeToLastTest" : 201.60455555555555,
-  "verificationTime" : 113.809,
-  "validationTime" : 117.43300000000002,
+  "version" : "2025.04.01-e81fef6-licensed",
+  "totalTime" : 2212.2470000000003,
+  "environmentDetectionTime" : 5.996,
+  "indexingTime" : 3.2680000000000002,
+  "entryPointsTime" : 5.666000000000001,
+  "generationTime" : 1587.5660000000003,
+  "timeToFirstTest" : 92.33422222222222,
+  "timeToLastTest" : 212.07677777777778,
+  "verificationTime" : 114.549,
+  "validationTime" : 130.861,
   "summary" : {
     "classesCount" : 75,
     "methodsCount" : 362,
-    "cumulativeDiffblueTestCount" : 77,
+    "cumulativeDiffblueTestCount" : 86,
     "cumulativeManualTestCount" : 57,
-    "completeTestCount" : 80,
+    "completeTestCount" : 89,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "totalPhysicalLineCount" : 1927,
@@ -45,63 +45,63 @@
       "T033" : 7
     },
     "perTestOutcome" : {
-      "R000" : 80
+      "R000" : 89
     },
     "perTestValidation" : {
-      "V000" : 80
+      "V000" : 89
     }
   },
   "coverageMetrics" : {
-    "branchCoveragePercent" : "40.43%",
+    "branchCoveragePercent" : "44.68%",
     "classesWithIncompleteInstructionCoverage" : [
-      "com.piggymetrics.auth.AuthApplication",
-      "com.piggymetrics.auth.service.security.MongoUserDetailsService",
       "com.piggymetrics.account.controller.ErrorHandler",
       "com.piggymetrics.account.service.AccountServiceImpl",
       "com.piggymetrics.account.service.security.CustomUserInfoTokenServices",
       "com.piggymetrics.account.client.StatisticsServiceClientFallback",
       "com.piggymetrics.account.AccountApplication",
+      "com.piggymetrics.config.ConfigApplication",
+      "com.piggymetrics.auth.AuthApplication",
+      "com.piggymetrics.auth.service.security.MongoUserDetailsService",
       "com.piggymetrics.notification.domain.Frequency",
       "com.piggymetrics.notification.NotificationServiceApplication",
       "com.piggymetrics.notification.controller.RecipientController",
       "com.piggymetrics.notification.service.NotificationServiceImpl",
       "com.piggymetrics.notification.service.RecipientServiceImpl",
-      "com.piggymetrics.config.ConfigApplication",
       "com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices",
       "com.piggymetrics.statistics.StatisticsApplication",
       "com.piggymetrics.statistics.repository.converter.DataPointIdReaderConverter",
       "com.piggymetrics.statistics.service.ExchangeRatesServiceImpl"
     ],
-    "complexCoveredLines" : 153,
-    "complexLineCoveragePercent" : "76.12%",
+    "complexCoveredLines" : 157,
+    "complexLineCoveragePercent" : "78.11%",
     "complexityThreshold" : 10,
-    "coveredBranches" : 19,
-    "coveredComplexity" : 77,
-    "coveredLines" : 471,
-    "lineCoveragePercent" : "78.5%",
+    "coveredBranches" : 21,
+    "coveredComplexity" : 81,
+    "coveredLines" : 475,
+    "lineCoveragePercent" : "79.17%",
     "totalBranches" : 47,
     "totalComplexLines" : 201,
     "totalComplexity" : 103,
     "totalLines" : 600
   },
   "piTestMetrics" : {
-    "mutationsKilled" : 93,
-    "mutationsKilledPercent" : "45.37%",
-    "mutationsNoCoverage" : 80,
-    "mutationsSurvived" : 32,
+    "mutationsKilled" : 91,
+    "mutationsKilledPercent" : "44.39%",
+    "mutationsNoCoverage" : 87,
+    "mutationsSurvived" : 27,
     "mutationsTotal" : 205
   },
   "pmdMetrics" : {
-    "violationsCount" : 726
+    "violationsCount" : 809
   },
   "testDiffStatSummary" : {
-    "files" : 0,
-    "insertions" : 0,
-    "deletions" : 0
+    "files" : 6,
+    "insertions" : 226,
+    "deletions" : 15
   },
   "diffblueTestDiffStatSummary" : {
-    "files" : 0,
-    "insertions" : 0,
-    "deletions" : 0
+    "files" : 6,
+    "insertions" : 226,
+    "deletions" : 15
   }
 }

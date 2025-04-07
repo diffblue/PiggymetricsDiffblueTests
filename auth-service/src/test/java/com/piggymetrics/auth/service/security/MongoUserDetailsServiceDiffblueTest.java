@@ -14,11 +14,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration(classes = {MongoUserDetailsService.class})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class MongoUserDetailsServiceDiffblueTest {
-  @Rule
-  public ExpectedException thrown = ExpectedException.none();
-
   @Autowired
   private MongoUserDetailsService mongoUserDetailsService;
+
+  @Rule
+  public ExpectedException thrown = ExpectedException.none();
 
   @MockBean
   private UserRepository userRepository;

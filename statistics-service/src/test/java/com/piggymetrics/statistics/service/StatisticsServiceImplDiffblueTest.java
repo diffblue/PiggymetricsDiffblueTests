@@ -39,13 +39,13 @@ public class StatisticsServiceImplDiffblueTest {
   private DataPointRepository dataPointRepository;
 
   @MockBean
+  private ExchangeRatesService exchangeRatesService;
+
+  @MockBean
   private MongodExecutable mongodExecutable;
 
   @Autowired
   private StatisticsServiceImpl statisticsServiceImpl;
-
-  @MockBean
-  private ExchangeRatesService exchangeRatesService;
 
   /**
    * Test {@link StatisticsServiceImpl#findByAccountName(String)}.

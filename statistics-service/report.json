@@ -3,19 +3,19 @@
     "reportVersion" : "2.7"
   },
   "run" : {
-    "version" : "2025.03.02-9a94c7b-licensed",
-    "creationTimestamp" : "2025-03-26T16:52:29.095Z",
+    "version" : "2025.04.01-e81fef6-licensed",
+    "creationTimestamp" : "2025-04-07T16:18:57.488Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --exclude=com.piggymetrics.notification.service.NotificationServiceImpl. --working-directory=statistics-service",
-    "totalTime" : 397.245,
-    "environmentDetectionTime" : 0.904,
-    "indexingTime" : 0.37,
-    "entryPointsTime" : 0.864,
-    "generationTime" : 282.611,
-    "timeToFirstTest" : 107.163,
-    "timeToLastTest" : 339.862,
-    "indexQueryTime" : 15.975,
-    "verificationTime" : 31.217,
-    "validationTime" : 24.983
+    "totalTime" : 424.092,
+    "environmentDetectionTime" : 0.841,
+    "indexingTime" : 0.378,
+    "entryPointsTime" : 0.799,
+    "generationTime" : 302.873,
+    "timeToFirstTest" : 108.191,
+    "timeToLastTest" : 360.41,
+    "indexQueryTime" : 18.137,
+    "verificationTime" : 31.814,
+    "validationTime" : 28.398
   },
   "codes" : {
     "E052" : "Missing dependency",
@@ -38,9 +38,9 @@
   "summary" : {
     "classesCount" : 24,
     "methodsCount" : 125,
-    "cumulativeDiffblueTestCount" : 29,
+    "cumulativeDiffblueTestCount" : 30,
     "cumulativeManualTestCount" : 14,
-    "completeTestCount" : 29,
+    "completeTestCount" : 30,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "totalPhysicalLineCount" : 678,
@@ -69,10 +69,10 @@
       "T012" : 13
     },
     "perTestOutcome" : {
-      "R000" : 29
+      "R000" : 30
     },
     "perTestValidation" : {
-      "V000" : 29
+      "V000" : 30
     }
   },
   "classes" : {
@@ -425,7 +425,7 @@
     },
     "com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices" : {
       "methodsCount" : 11,
-      "completeTestCount" : 2,
+      "completeTestCount" : 3,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 3,
@@ -441,7 +441,7 @@
         "T012" : 1
       },
       "perTestOutcome" : {
-        "R000" : 2
+        "R000" : 3
       }
     }
   },
@@ -1794,12 +1794,12 @@
       ]
     },
     "com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices.loadAuthentication:(Ljava/lang/String;)Lorg/springframework/security/oauth2/provider/OAuth2Authentication;" : {
-      "completeTestCount" : 1,
+      "completeTestCount" : 2,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 1
+        "R000" : 2
       },
       "lineNumbers" : [
         66,
