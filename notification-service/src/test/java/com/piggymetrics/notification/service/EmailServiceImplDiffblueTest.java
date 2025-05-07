@@ -64,4 +64,34 @@ public class EmailServiceImplDiffblueTest {
     verify(javaMailSender).createMimeMessage();
     verify(javaMailSender).send(isA(MimeMessage.class));
   }
+
+  /**
+   * Test {@link EmailServiceImpl#send(NotificationType, Recipient, String)}.
+   * <ul>
+   *   <li>When empty string.</li>
+   *   <li>Then calls {@link PropertyResolver#getProperty(String)}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link EmailServiceImpl#send(NotificationType, Recipient, String)}
+   */
+  @Test
+  public void testSend_whenEmptyString_thenCallsGetProperty() throws IOException, MessagingException, MailException {
+    // Arrange
+    when(environment.getProperty(Mockito.<String>any())).thenReturn("Property");
+    doNothing().when(javaMailSender).send(Mockito.<MimeMessage>any());
+    when(javaMailSender.createMimeMessage()).thenReturn(new MimeMessage((Session) null));
+
+    Recipient recipient = new Recipient();
+    recipient.setAccountName("Dr Jane Doe");
+    recipient.setEmail("jane.doe@example.org");
+    recipient.setScheduledNotifications(new HashMap<>());
+
+    // Act
+    emailServiceImpl.send(NotificationType.BACKUP, recipient, "");
+
+    // Assert
+    verify(environment, atLeast(1)).getProperty(Mockito.<String>any());
+    verify(javaMailSender).createMimeMessage();
+    verify(javaMailSender).send(isA(MimeMessage.class));
+  }
 }

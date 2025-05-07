@@ -28,4 +28,19 @@ public class FrequencyReaderConverterDiffblueTest {
     // Arrange, Act and Assert
     assertEquals(Frequency.WEEKLY, frequencyReaderConverter.convert(7));
   }
+
+  /**
+   * Test {@link FrequencyReaderConverter#convert(Integer)} with {@code Integer}.
+   * <ul>
+   *   <li>When thirty.</li>
+   *   <li>Then return {@code MONTHLY}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link FrequencyReaderConverter#convert(Integer)}
+   */
+  @Test
+  public void testConvertWithInteger_whenThirty_thenReturnMonthly() {
+    // Arrange, Act and Assert
+    assertEquals(Frequency.MONTHLY, frequencyReaderConverter.convert(30));
+  }
 }

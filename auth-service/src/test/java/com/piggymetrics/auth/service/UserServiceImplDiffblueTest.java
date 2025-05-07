@@ -54,13 +54,13 @@ public class UserServiceImplDiffblueTest {
   /**
    * Test {@link UserServiceImpl#create(User)}.
    * <ul>
-   *   <li>Given {@link UserRepository} {@link CrudRepository#findById(Object)} return {@link Optional} with {@link User} (default constructor).</li>
+   *   <li>Given {@link UserRepository} {@link CrudRepository#findById(Object)} return of {@link User} (default constructor).</li>
    * </ul>
    * <p>
    * Method under test: {@link UserServiceImpl#create(User)}
    */
   @Test
-  public void testCreate_givenUserRepositoryFindByIdReturnOptionalWithUser() {
+  public void testCreate_givenUserRepositoryFindByIdReturnOfUser() {
     // Arrange
     User user = new User();
     user.setPassword("iloveyou");

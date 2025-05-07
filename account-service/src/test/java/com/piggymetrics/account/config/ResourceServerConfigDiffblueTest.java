@@ -23,8 +23,8 @@ import org.springframework.security.oauth2.common.AuthenticationScheme;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.web.util.DefaultUriBuilderFactory;
 
-@SpringBootTest
 @RunWith(SpringJUnit4ClassRunner.class)
+@SpringBootTest
 public class ResourceServerConfigDiffblueTest {
   @MockBean
   private MongodExecutable mongodExecutable;
@@ -107,13 +107,13 @@ public class ResourceServerConfigDiffblueTest {
   /**
    * Test {@link ResourceServerConfig#oauth2FeignRequestInterceptor()}.
    * <ul>
-   *   <li>Given {@link ResourceServerConfig}.</li>
+   *   <li>Then return {@link OAuth2FeignRequestInterceptor}.</li>
    * </ul>
    * <p>
    * Method under test: {@link ResourceServerConfig#oauth2FeignRequestInterceptor()}
    */
   @Test
-  public void testOauth2FeignRequestInterceptor_givenResourceServerConfig() {
+  public void testOauth2FeignRequestInterceptor_thenReturnOAuth2FeignRequestInterceptor() {
     // Arrange, Act and Assert
     assertTrue(resourceServerConfig.oauth2FeignRequestInterceptor() instanceof OAuth2FeignRequestInterceptor);
   }

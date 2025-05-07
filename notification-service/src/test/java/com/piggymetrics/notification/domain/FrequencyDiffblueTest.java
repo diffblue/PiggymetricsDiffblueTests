@@ -29,4 +29,19 @@ public class FrequencyDiffblueTest {
     // Arrange, Act and Assert
     assertEquals(Frequency.WEEKLY, Frequency.withDays(7));
   }
+
+  /**
+   * Test {@link Frequency#withDays(int)}.
+   * <ul>
+   *   <li>When thirty.</li>
+   *   <li>Then return {@code MONTHLY}.</li>
+   * </ul>
+   * <p>
+   * Method under test: {@link Frequency#withDays(int)}
+   */
+  @Test
+  public void testWithDays_whenThirty_thenReturnMonthly() {
+    // Arrange, Act and Assert
+    assertEquals(Frequency.MONTHLY, Frequency.withDays(30));
+  }
 }

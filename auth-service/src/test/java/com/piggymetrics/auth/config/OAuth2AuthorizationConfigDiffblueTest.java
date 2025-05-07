@@ -15,8 +15,8 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-@SpringBootTest
 @RunWith(SpringJUnit4ClassRunner.class)
+@SpringBootTest
 public class OAuth2AuthorizationConfigDiffblueTest {
   @MockBean
   private MongodExecutable mongodExecutable;
