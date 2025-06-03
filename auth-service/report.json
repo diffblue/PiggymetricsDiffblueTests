@@ -3,19 +3,19 @@
     "reportVersion" : "2.7"
   },
   "run" : {
-    "version" : "2025.05.02-5e1bff7-licensed",
-    "creationTimestamp" : "2025-05-19T16:17:22.251Z",
+    "version" : "2025.06.01-285c856-licensed",
+    "creationTimestamp" : "2025-06-03T16:51:34.539Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --exclude=com.piggymetrics.notification.service.NotificationServiceImpl. --working-directory=auth-service",
-    "totalTime" : 400.525,
-    "environmentDetectionTime" : 0.734,
-    "indexingTime" : 0.301,
-    "entryPointsTime" : 0.698,
-    "generationTime" : 305.862,
-    "timeToFirstTest" : 114.433,
-    "timeToLastTest" : 354.462,
-    "indexQueryTime" : 16.123,
-    "verificationTime" : 24.5,
-    "validationTime" : 19.736
+    "totalTime" : 356.198,
+    "environmentDetectionTime" : 0.707,
+    "indexingTime" : 0.346,
+    "entryPointsTime" : 0.675,
+    "generationTime" : 263.969,
+    "timeToFirstTest" : 117.61,
+    "timeToLastTest" : 312.425,
+    "indexQueryTime" : 15.606,
+    "verificationTime" : 24.263,
+    "validationTime" : 18.804
   },
   "codes" : {
     "E052" : "Missing dependency",
@@ -28,6 +28,7 @@
     "T006" : "Main method",
     "T010" : "Abstract or interface method",
     "T012" : "Synthetic method",
+    "T023" : "Testability unknown",
     "V000" : "Validated successfully"
   },
   "summary" : {
@@ -40,13 +41,14 @@
     "skeletonTestCount" : 0,
     "totalPhysicalLineCount" : 237,
     "perMethodTestability" : {
-      "T000" : 25,
+      "T000" : 24,
       "T001" : 6,
       "T002" : 2,
-      "T005" : 4,
+      "T005" : 5,
       "T006" : 1,
       "T010" : 1,
-      "T012" : 3
+      "T012" : 2,
+      "T023" : 1
     },
     "perMethodOutcome" : {
       "E052" : 11,
@@ -55,7 +57,8 @@
       "T005" : 6,
       "T006" : 1,
       "T010" : 1,
-      "T012" : 3
+      "T012" : 2,
+      "T023" : 1
     },
     "perTestOutcome" : {
       "R000" : 11
@@ -98,7 +101,8 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
-        "T000" : 4
+        "T000" : 3,
+        "T005" : 1
       },
       "perMethodOutcome" : {
         "R013" : 3,
@@ -166,12 +170,14 @@
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 2,
-        "T012" : 2
+        "T012" : 1,
+        "T023" : 1
       },
       "perMethodOutcome" : {
         "R000" : 1,
         "T005" : 1,
-        "T012" : 2
+        "T012" : 1,
+        "T023" : 1
       },
       "perTestOutcome" : {
         "R000" : 3
@@ -293,7 +299,7 @@
     "com.piggymetrics.auth.config.WebSecurityConfig.<init>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T000",
+      "perMethodTestability" : "T005",
       "perMethodOutcome" : "T005",
       "lineNumbers" : [
         17
@@ -563,11 +569,8 @@
     "com.piggymetrics.auth.service.UserServiceImpl.<clinit>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T012",
-      "perMethodOutcome" : "T012",
-      "lineNumbers" : [
-        19
-      ]
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
     },
     "com.piggymetrics.auth.service.UserServiceImpl.<init>:()V" : {
       "completeTestCount" : 0,

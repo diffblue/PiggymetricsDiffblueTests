@@ -3,17 +3,17 @@
     "reportVersion" : "2.7"
   },
   "run" : {
-    "version" : "2025.05.02-5e1bff7-licensed",
-    "creationTimestamp" : "2025-05-19T16:09:38.397Z",
+    "version" : "2025.06.01-285c856-licensed",
+    "creationTimestamp" : "2025-06-03T16:43:58.83Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --exclude=com.piggymetrics.notification.service.NotificationServiceImpl. --working-directory=config",
-    "totalTime" : 96.848,
-    "environmentDetectionTime" : 0.592,
-    "indexingTime" : 0.361,
-    "entryPointsTime" : 0.552,
-    "generationTime" : 71.126,
-    "timeToFirstTest" : 96.952,
-    "timeToLastTest" : 91.348,
-    "indexQueryTime" : 11.425,
+    "totalTime" : 99.027,
+    "environmentDetectionTime" : 0.454,
+    "indexingTime" : 0.328,
+    "entryPointsTime" : 0.414,
+    "generationTime" : 72.568,
+    "timeToFirstTest" : 99.131,
+    "timeToLastTest" : 93.335,
+    "indexQueryTime" : 9.96,
     "verificationTime" : 0.0,
     "validationTime" : 0.0
   },
@@ -33,8 +33,8 @@
     "skeletonTestCount" : 0,
     "totalPhysicalLineCount" : 29,
     "perMethodTestability" : {
-      "T000" : 2,
-      "T005" : 1,
+      "T000" : 1,
+      "T005" : 2,
       "T006" : 1
     },
     "perMethodOutcome" : {
@@ -62,7 +62,8 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
-        "T000" : 2
+        "T000" : 1,
+        "T005" : 1
       },
       "perMethodOutcome" : {
         "R013" : 1,
@@ -93,7 +94,7 @@
     "com.piggymetrics.config.SecurityConfig.<init>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T000",
+      "perMethodTestability" : "T005",
       "perMethodOutcome" : "T005",
       "lineNumbers" : [
         11

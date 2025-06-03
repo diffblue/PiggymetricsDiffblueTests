@@ -3,19 +3,19 @@
     "reportVersion" : "2.7"
   },
   "run" : {
-    "version" : "2025.05.02-5e1bff7-licensed",
-    "creationTimestamp" : "2025-05-19T16:37:50.021Z",
+    "version" : "2025.06.01-285c856-licensed",
+    "creationTimestamp" : "2025-06-03T17:10:48.104Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --exclude=com.piggymetrics.notification.service.NotificationServiceImpl. --working-directory=statistics-service",
-    "totalTime" : 492.167,
-    "environmentDetectionTime" : 0.857,
-    "indexingTime" : 0.258,
-    "entryPointsTime" : 0.821,
-    "generationTime" : 355.335,
-    "timeToFirstTest" : 115.464,
-    "timeToLastTest" : 417.963,
-    "indexQueryTime" : 18.164,
-    "verificationTime" : 36.5,
-    "validationTime" : 34.143
+    "totalTime" : 468.045,
+    "environmentDetectionTime" : 0.854,
+    "indexingTime" : 0.311,
+    "entryPointsTime" : 0.818,
+    "generationTime" : 336.885,
+    "timeToFirstTest" : 111.404,
+    "timeToLastTest" : 399.073,
+    "indexQueryTime" : 16.003,
+    "verificationTime" : 36.537,
+    "validationTime" : 30.975
   },
   "codes" : {
     "E052" : "Missing dependency",
@@ -33,6 +33,7 @@
     "T010" : "Abstract or interface method",
     "T012" : "Synthetic method",
     "T020" : "Other trivial method",
+    "T023" : "Testability unknown",
     "V000" : "Validated successfully"
   },
   "summary" : {
@@ -52,8 +53,9 @@
       "T005" : 14,
       "T006" : 1,
       "T010" : 5,
-      "T012" : 13,
-      "T020" : 2
+      "T012" : 8,
+      "T020" : 2,
+      "T023" : 5
     },
     "perMethodOutcome" : {
       "E052" : 12,
@@ -66,7 +68,8 @@
       "T005" : 9,
       "T006" : 1,
       "T010" : 5,
-      "T012" : 13
+      "T012" : 8,
+      "T023" : 5
     },
     "perTestOutcome" : {
       "R000" : 30
@@ -184,12 +187,14 @@
       "perMethodTestability" : {
         "T001" : 1,
         "T003" : 1,
-        "T012" : 3
+        "T012" : 2,
+        "T023" : 1
       },
       "perMethodOutcome" : {
         "R000" : 1,
         "T003" : 1,
-        "T012" : 3
+        "T012" : 2,
+        "T023" : 1
       },
       "perTestOutcome" : {
         "R000" : 1
@@ -252,12 +257,14 @@
         "T000" : 1,
         "T001" : 1,
         "T003" : 1,
-        "T012" : 3
+        "T012" : 2,
+        "T023" : 1
       },
       "perMethodOutcome" : {
         "R000" : 2,
         "T003" : 1,
-        "T012" : 3
+        "T012" : 2,
+        "T023" : 1
       },
       "perTestOutcome" : {
         "R000" : 2
@@ -317,11 +324,13 @@
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T003" : 1,
-        "T012" : 3
+        "T012" : 2,
+        "T023" : 1
       },
       "perMethodOutcome" : {
         "T003" : 1,
-        "T012" : 3
+        "T012" : 2,
+        "T023" : 1
       }
     },
     "com.piggymetrics.statistics.repository.DataPointRepository" : {
@@ -386,13 +395,13 @@
       "perMethodTestability" : {
         "T000" : 2,
         "T005" : 1,
-        "T012" : 1
+        "T023" : 1
       },
       "perMethodOutcome" : {
         "R011" : 1,
         "R013" : 1,
         "T005" : 1,
-        "T012" : 1
+        "T023" : 1
       }
     },
     "com.piggymetrics.statistics.service.StatisticsService" : {
@@ -431,14 +440,14 @@
         "T000" : 3,
         "T002" : 3,
         "T003" : 4,
-        "T012" : 1
+        "T023" : 1
       },
       "perMethodOutcome" : {
         "R000" : 2,
         "R002" : 3,
         "R004" : 1,
         "T003" : 4,
-        "T012" : 1
+        "T023" : 1
       },
       "perTestOutcome" : {
         "R000" : 3
@@ -670,12 +679,8 @@
     "com.piggymetrics.statistics.domain.Currency.<clinit>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T012",
-      "perMethodOutcome" : "T012",
-      "lineNumbers" : [
-        5,
-        3
-      ]
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
     },
     "com.piggymetrics.statistics.domain.Currency.<init>:(Ljava/lang/String;I)V" : {
       "completeTestCount" : 0,
@@ -1068,12 +1073,8 @@
     "com.piggymetrics.statistics.domain.TimePeriod.<clinit>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T012",
-      "perMethodOutcome" : "T012",
-      "lineNumbers" : [
-        7,
-        5
-      ]
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
     },
     "com.piggymetrics.statistics.domain.TimePeriod.<init>:(Ljava/lang/String;ID)V" : {
       "completeTestCount" : 0,
@@ -1385,12 +1386,8 @@
     "com.piggymetrics.statistics.domain.timeseries.StatisticMetric.<clinit>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T012",
-      "perMethodOutcome" : "T012",
-      "lineNumbers" : [
-        5,
-        3
-      ]
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
     },
     "com.piggymetrics.statistics.domain.timeseries.StatisticMetric.<init>:(Ljava/lang/String;I)V" : {
       "completeTestCount" : 0,
@@ -1568,11 +1565,8 @@
     "com.piggymetrics.statistics.service.ExchangeRatesServiceImpl.<clinit>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T012",
-      "perMethodOutcome" : "T012",
-      "lineNumbers" : [
-        21
-      ]
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
     },
     "com.piggymetrics.statistics.service.ExchangeRatesServiceImpl.<init>:()V" : {
       "completeTestCount" : 0,
@@ -1705,11 +1699,8 @@
     "com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices.<clinit>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T012",
-      "perMethodOutcome" : "T012",
-      "lineNumbers" : [
-        33
-      ]
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
     },
     "com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices.<init>:(Ljava/lang/String;Ljava/lang/String;)V" : {
       "completeTestCount" : 0,
