@@ -14,7 +14,7 @@ public class UserDiffblueTest {
   @Test
   public void testGetAuthorities() {
     // Arrange, Act and Assert
-    assertNull((new User()).getAuthorities());
+    assertNull(new User().getAuthorities());
   }
 
   /**

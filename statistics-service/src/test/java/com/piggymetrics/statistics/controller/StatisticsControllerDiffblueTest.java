@@ -108,7 +108,7 @@ public class StatisticsControllerDiffblueTest {
     account.setExpenses(new ArrayList<>());
     account.setIncomes(new ArrayList<>());
     account.setSaving(saving);
-    String content = (new ObjectMapper()).writeValueAsString(account);
+    String content = new ObjectMapper().writeValueAsString(account);
     MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.put("/{accountName}", "Dr Jane Doe")
         .contentType(MediaType.APPLICATION_JSON)
         .content(content);

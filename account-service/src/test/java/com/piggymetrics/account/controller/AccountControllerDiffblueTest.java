@@ -146,7 +146,7 @@ public class AccountControllerDiffblueTest {
     account.setName("Name");
     account.setNote("Note");
     account.setSaving(saving);
-    String content = (new ObjectMapper()).writeValueAsString(account);
+    String content = new ObjectMapper().writeValueAsString(account);
     MockHttpServletRequestBuilder requestBuilder = putResult.contentType(MediaType.APPLICATION_JSON).content(content);
 
     // Act and Assert
@@ -184,7 +184,7 @@ public class AccountControllerDiffblueTest {
     User user = new User();
     user.setPassword("iloveyou");
     user.setUsername("janedoe");
-    String content = (new ObjectMapper()).writeValueAsString(user);
+    String content = new ObjectMapper().writeValueAsString(user);
     MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.post("/")
         .contentType(MediaType.APPLICATION_JSON)
         .content(content);

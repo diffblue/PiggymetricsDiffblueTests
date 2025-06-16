@@ -3,19 +3,19 @@
     "reportVersion" : "2.7"
   },
   "run" : {
-    "version" : "2025.06.01-285c856-licensed",
-    "creationTimestamp" : "2025-06-03T16:58:37.529Z",
+    "version" : "2025.06.02-fd4f1ca-licensed",
+    "creationTimestamp" : "2025-06-16T18:20:03.046Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --exclude=com.piggymetrics.notification.service.NotificationServiceImpl. --working-directory=account-service",
-    "totalTime" : 667.167,
-    "environmentDetectionTime" : 1.422,
-    "indexingTime" : 0.306,
-    "entryPointsTime" : 1.382,
-    "generationTime" : 502.856,
-    "timeToFirstTest" : 168.948,
-    "timeToLastTest" : 564.884,
-    "indexQueryTime" : 15.868,
-    "verificationTime" : 36.482,
-    "validationTime" : 61.893
+    "totalTime" : 702.34,
+    "environmentDetectionTime" : 0.701,
+    "indexingTime" : 0.346,
+    "entryPointsTime" : 0.665,
+    "generationTime" : 535.606,
+    "timeToFirstTest" : 174.692,
+    "timeToLastTest" : 597.486,
+    "indexQueryTime" : 16.549,
+    "verificationTime" : 36.253,
+    "validationTime" : 63.209
   },
   "codes" : {
     "E052" : "Missing dependency",
@@ -57,11 +57,11 @@
     "perMethodOutcome" : {
       "E052" : 12,
       "R000" : 54,
-      "R002" : 5,
-      "R004" : 2,
+      "R002" : 3,
+      "R004" : 3,
       "R013" : 1,
       "T003" : 6,
-      "T005" : 5,
+      "T005" : 6,
       "T006" : 1,
       "T010" : 5,
       "T012" : 4,
@@ -166,7 +166,8 @@
         "T000" : 2
       },
       "perMethodOutcome" : {
-        "R002" : 2
+        "R004" : 1,
+        "T005" : 1
       }
     },
     "com.piggymetrics.account.domain.Account" : {
@@ -517,7 +518,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R002",
+      "perMethodOutcome" : "T005",
       "lineNumbers" : [
         11,
         13
@@ -527,7 +528,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R002",
+      "perMethodOutcome" : "R004",
       "lineNumbers" : [
         20,
         21

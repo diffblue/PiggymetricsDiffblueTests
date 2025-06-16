@@ -3,23 +3,24 @@
     "reportVersion" : "2.7"
   },
   "run" : {
-    "version" : "2025.06.01-285c856-licensed",
-    "creationTimestamp" : "2025-06-03T16:51:34.539Z",
+    "version" : "2025.06.02-fd4f1ca-licensed",
+    "creationTimestamp" : "2025-06-16T18:12:50.838Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --exclude=com.piggymetrics.notification.service.NotificationServiceImpl. --working-directory=auth-service",
-    "totalTime" : 356.198,
-    "environmentDetectionTime" : 0.707,
-    "indexingTime" : 0.346,
-    "entryPointsTime" : 0.675,
-    "generationTime" : 263.969,
-    "timeToFirstTest" : 117.61,
-    "timeToLastTest" : 312.425,
-    "indexQueryTime" : 15.606,
-    "verificationTime" : 24.263,
-    "validationTime" : 18.804
+    "totalTime" : 363.13,
+    "environmentDetectionTime" : 0.728,
+    "indexingTime" : 0.339,
+    "entryPointsTime" : 0.695,
+    "generationTime" : 268.748,
+    "timeToFirstTest" : 114.643,
+    "timeToLastTest" : 316.104,
+    "indexQueryTime" : 15.212,
+    "verificationTime" : 23.531,
+    "validationTime" : 20.646
   },
   "codes" : {
     "E052" : "Missing dependency",
     "R000" : "Success",
+    "R004" : "No meaningful assertions found",
     "R013" : "No inputs found that don't throw a trivial exception",
     "T000" : "Method eligible for test creation",
     "T001" : "Trivial getter",
@@ -53,7 +54,8 @@
     "perMethodOutcome" : {
       "E052" : 11,
       "R000" : 17,
-      "R013" : 3,
+      "R004" : 1,
+      "R013" : 2,
       "T005" : 6,
       "T006" : 1,
       "T010" : 1,
@@ -105,7 +107,8 @@
         "T005" : 1
       },
       "perMethodOutcome" : {
-        "R013" : 3,
+        "R004" : 1,
+        "R013" : 2,
         "T005" : 1
       }
     },
@@ -309,7 +312,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R013",
+      "perMethodOutcome" : "R004",
       "lineNumbers" : [
         41
       ]

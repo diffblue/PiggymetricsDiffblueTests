@@ -57,7 +57,7 @@ public class UserControllerDiffblueTest {
     User user = new User();
     user.setPassword("iloveyou");
     user.setUsername("janedoe");
-    String content = (new ObjectMapper()).writeValueAsString(user);
+    String content = new ObjectMapper().writeValueAsString(user);
     MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.post("/users")
         .contentType(MediaType.APPLICATION_JSON)
         .content(content);

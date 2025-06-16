@@ -1,14 +1,14 @@
 {
-  "version" : "2025.06.01-285c856-licensed",
-  "totalTime" : 2298.6920000000005,
-  "environmentDetectionTime" : 6.06,
-  "indexingTime" : 3.1300000000000003,
-  "entryPointsTime" : 5.7250000000000005,
-  "generationTime" : 1647.432,
-  "timeToFirstTest" : 95.70322222222222,
-  "timeToLastTest" : 220.472,
-  "verificationTime" : 128.897,
-  "validationTime" : 135.077,
+  "version" : "2025.06.02-fd4f1ca-licensed",
+  "totalTime" : 2309.509,
+  "environmentDetectionTime" : 5.7669999999999995,
+  "indexingTime" : 3.2890000000000006,
+  "entryPointsTime" : 5.419,
+  "generationTime" : 1657.242,
+  "timeToFirstTest" : 93.917,
+  "timeToLastTest" : 221.10088888888887,
+  "verificationTime" : 126.457,
+  "validationTime" : 137.905,
   "summary" : {
     "classesCount" : 75,
     "methodsCount" : 362,
@@ -34,12 +34,12 @@
     "perMethodOutcome" : {
       "E052" : 49,
       "R000" : 170,
-      "R002" : 8,
-      "R004" : 5,
+      "R002" : 6,
+      "R004" : 7,
       "R011" : 1,
-      "R013" : 8,
+      "R013" : 7,
       "T003" : 17,
-      "T005" : 34,
+      "T005" : 35,
       "T006" : 9,
       "T010" : 19,
       "T012" : 22,
@@ -93,16 +93,16 @@
     "mutationsTotal" : 205
   },
   "pmdMetrics" : {
-    "violationsCount" : 815
+    "violationsCount" : 803
   },
   "testDiffStatSummary" : {
-    "files" : 0,
-    "insertions" : 0,
-    "deletions" : 0
+    "files" : 6,
+    "insertions" : 20,
+    "deletions" : 20
   },
   "diffblueTestDiffStatSummary" : {
-    "files" : 0,
-    "insertions" : 0,
-    "deletions" : 0
+    "files" : 6,
+    "insertions" : 20,
+    "deletions" : 20
   }
 }
