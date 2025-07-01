@@ -33,16 +33,14 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 @ContextConfiguration(classes = {StatisticsController.class})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class StatisticsControllerDiffblueTest {
-  @Autowired
-  private StatisticsController statisticsController;
+  @Autowired private StatisticsController statisticsController;
 
-  @MockBean
-  private StatisticsService statisticsService;
+  @MockBean private StatisticsService statisticsService;
 
   /**
    * Test {@link StatisticsController#getCurrentAccountStatistics(Principal)}.
-   * <p>
-   * Method under test: {@link StatisticsController#getCurrentAccountStatistics(Principal)}
+   *
+   * <p>Method under test: {@link StatisticsController#getCurrentAccountStatistics(Principal)}
    */
   @Test
   public void testGetCurrentAccountStatistics() throws Exception {
@@ -62,14 +60,14 @@ public class StatisticsControllerDiffblueTest {
 
   /**
    * Test {@link StatisticsController#getStatisticsByAccountName(String)}.
-   * <p>
-   * Method under test: {@link StatisticsController#getStatisticsByAccountName(String)}
+   *
+   * <p>Method under test: {@link StatisticsController#getStatisticsByAccountName(String)}
    */
   @Test
   public void testGetStatisticsByAccountName() throws Exception {
     // Arrange
-    when(statisticsService.findByAccountName(Mockito.<String>any())).thenReturn(new ArrayList<>());
-    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/{accountName}", "Dr Jane Doe");
+    MockHttpServletRequestBuilder requestBuilder =
+        MockMvcRequestBuilders.get("/{accountName}", "Dr Jane Doe");
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(statisticsController)
@@ -82,8 +80,8 @@ public class StatisticsControllerDiffblueTest {
 
   /**
    * Test {@link StatisticsController#saveAccountStatistics(String, Account)}.
-   * <p>
-   * Method under test: {@link StatisticsController#saveAccountStatistics(String, Account)}
+   *
+   * <p>Method under test: {@link StatisticsController#saveAccountStatistics(String, Account)}
    */
   @Test
   public void testSaveAccountStatistics() throws Exception {
@@ -91,11 +89,14 @@ public class StatisticsControllerDiffblueTest {
     DataPoint dataPoint = new DataPoint();
     dataPoint.setExpenses(new HashSet<>());
     dataPoint.setId(
-        new DataPointId("3", Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant())));
+        new DataPointId(
+            "3",
+            Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant())));
     dataPoint.setIncomes(new HashSet<>());
     dataPoint.setRates(new HashMap<>());
     dataPoint.setStatistics(new HashMap<>());
-    when(statisticsService.save(Mockito.<String>any(), Mockito.<Account>any())).thenReturn(dataPoint);
+    when(statisticsService.save(Mockito.<String>any(), Mockito.<Account>any()))
+        .thenReturn(dataPoint);
 
     Saving saving = new Saving();
     saving.setAmount(new BigDecimal("2.3"));
@@ -109,9 +110,10 @@ public class StatisticsControllerDiffblueTest {
     account.setIncomes(new ArrayList<>());
     account.setSaving(saving);
     String content = new ObjectMapper().writeValueAsString(account);
-    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.put("/{accountName}", "Dr Jane Doe")
-        .contentType(MediaType.APPLICATION_JSON)
-        .content(content);
+    MockHttpServletRequestBuilder requestBuilder =
+        MockMvcRequestBuilders.put("/{accountName}", "Dr Jane Doe")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(content);
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(statisticsController)

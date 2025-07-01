@@ -11,17 +11,17 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration(classes = {FrequencyReaderConverter.class})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class FrequencyReaderConverterDiffblueTest {
-  @Autowired
-  private FrequencyReaderConverter frequencyReaderConverter;
+  @Autowired private FrequencyReaderConverter frequencyReaderConverter;
 
   /**
    * Test {@link FrequencyReaderConverter#convert(Integer)} with {@code Integer}.
+   *
    * <ul>
-   *   <li>When seven.</li>
-   *   <li>Then return {@code WEEKLY}.</li>
+   *   <li>When seven.
+   *   <li>Then return {@code WEEKLY}.
    * </ul>
-   * <p>
-   * Method under test: {@link FrequencyReaderConverter#convert(Integer)}
+   *
+   * <p>Method under test: {@link FrequencyReaderConverter#convert(Integer)}
    */
   @Test
   public void testConvertWithInteger_whenSeven_thenReturnWeekly() {
@@ -31,12 +31,13 @@ public class FrequencyReaderConverterDiffblueTest {
 
   /**
    * Test {@link FrequencyReaderConverter#convert(Integer)} with {@code Integer}.
+   *
    * <ul>
-   *   <li>When thirty.</li>
-   *   <li>Then return {@code MONTHLY}.</li>
+   *   <li>When thirty.
+   *   <li>Then return {@code MONTHLY}.
    * </ul>
-   * <p>
-   * Method under test: {@link FrequencyReaderConverter#convert(Integer)}
+   *
+   * <p>Method under test: {@link FrequencyReaderConverter#convert(Integer)}
    */
   @Test
   public void testConvertWithInteger_whenThirty_thenReturnMonthly() {

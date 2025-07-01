@@ -3,25 +3,25 @@
     "reportVersion" : "2.7"
   },
   "run" : {
-    "version" : "2025.06.02-fd4f1ca-licensed",
-    "creationTimestamp" : "2025-06-16T18:41:40.369Z",
+    "version" : "2025.06.03-8c4c4e2-licensed",
+    "creationTimestamp" : "2025-07-01T11:42:47.15Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --exclude=com.piggymetrics.notification.service.NotificationServiceImpl. --working-directory=notification-service",
-    "totalTime" : 491.711,
-    "environmentDetectionTime" : 0.8,
-    "indexingTime" : 0.331,
-    "entryPointsTime" : 0.759,
-    "generationTime" : 383.274,
-    "timeToFirstTest" : 161.316,
-    "timeToLastTest" : 439.23,
-    "indexQueryTime" : 13.77,
-    "verificationTime" : 31.065,
-    "validationTime" : 22.552
+    "totalTime" : 428.965,
+    "environmentDetectionTime" : 0.76,
+    "indexingTime" : 0.468,
+    "entryPointsTime" : 0.719,
+    "generationTime" : 346.59,
+    "timeToFirstTest" : 119.128,
+    "timeToLastTest" : 383.208,
+    "indexQueryTime" : 13.015,
+    "verificationTime" : 10.559,
+    "validationTime" : 21.783
   },
   "codes" : {
     "E052" : "Missing dependency",
     "R000" : "Success",
-    "R004" : "No meaningful assertions found",
     "R013" : "No inputs found that don't throw a trivial exception",
+    "R026" : "Failed to create Spring context",
     "T000" : "Method eligible for test creation",
     "T001" : "Trivial getter",
     "T002" : "Trivial setter",
@@ -60,8 +60,8 @@
     "perMethodOutcome" : {
       "E052" : 14,
       "R000" : 31,
-      "R004" : 1,
       "R013" : 1,
+      "R026" : 1,
       "T003" : 2,
       "T005" : 8,
       "T006" : 1,
@@ -100,7 +100,7 @@
         "T005" : 1
       },
       "perMethodOutcome" : {
-        "R004" : 1,
+        "R026" : 1,
         "T005" : 1
       }
     },
@@ -371,7 +371,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R004",
+      "perMethodOutcome" : "R026",
       "lineNumbers" : [
         35
       ]

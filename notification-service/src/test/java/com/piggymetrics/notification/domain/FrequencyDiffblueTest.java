@@ -6,8 +6,8 @@ import org.junit.Test;
 public class FrequencyDiffblueTest {
   /**
    * Test {@link Frequency#getDays()}.
-   * <p>
-   * Method under test: {@link Frequency#getDays()}
+   *
+   * <p>Method under test: {@link Frequency#getDays()}
    */
   @Test
   public void testGetDays() {
@@ -17,12 +17,13 @@ public class FrequencyDiffblueTest {
 
   /**
    * Test {@link Frequency#withDays(int)}.
+   *
    * <ul>
-   *   <li>When seven.</li>
-   *   <li>Then return {@code WEEKLY}.</li>
+   *   <li>When seven.
+   *   <li>Then return {@code WEEKLY}.
    * </ul>
-   * <p>
-   * Method under test: {@link Frequency#withDays(int)}
+   *
+   * <p>Method under test: {@link Frequency#withDays(int)}
    */
   @Test
   public void testWithDays_whenSeven_thenReturnWeekly() {
@@ -32,12 +33,13 @@ public class FrequencyDiffblueTest {
 
   /**
    * Test {@link Frequency#withDays(int)}.
+   *
    * <ul>
-   *   <li>When thirty.</li>
-   *   <li>Then return {@code MONTHLY}.</li>
+   *   <li>When thirty.
+   *   <li>Then return {@code MONTHLY}.
    * </ul>
-   * <p>
-   * Method under test: {@link Frequency#withDays(int)}
+   *
+   * <p>Method under test: {@link Frequency#withDays(int)}
    */
   @Test
   public void testWithDays_whenThirty_thenReturnMonthly() {

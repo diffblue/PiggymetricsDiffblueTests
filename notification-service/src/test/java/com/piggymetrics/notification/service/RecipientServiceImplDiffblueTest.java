@@ -24,30 +24,27 @@ import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @ContextConfiguration(classes = {RecipientServiceImpl.class})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class RecipientServiceImplDiffblueTest {
-  @MockBean
-  private RecipientRepository recipientRepository;
+  @MockBean private RecipientRepository recipientRepository;
 
-  @Autowired
-  private RecipientServiceImpl recipientServiceImpl;
+  @Autowired private RecipientServiceImpl recipientServiceImpl;
 
-  @Rule
-  public ExpectedException thrown = ExpectedException.none();
+  @Rule public ExpectedException thrown = ExpectedException.none();
 
   /**
    * Test {@link RecipientServiceImpl#findByAccountName(String)}.
+   *
    * <ul>
-   *   <li>When {@code Dr Jane Doe}.</li>
-   *   <li>Then return {@code null}.</li>
+   *   <li>When {@code Dr Jane Doe}.
+   *   <li>Then return {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link RecipientServiceImpl#findByAccountName(String)}
+   *
+   * <p>Method under test: {@link RecipientServiceImpl#findByAccountName(String)}
    */
   @Test
   public void testFindByAccountName_whenDrJaneDoe_thenReturnNull() {
@@ -57,12 +54,13 @@ public class RecipientServiceImplDiffblueTest {
 
   /**
    * Test {@link RecipientServiceImpl#save(String, Recipient)}.
+   *
    * <ul>
-   *   <li>Given {@link HashMap#HashMap()}.</li>
-   *   <li>Then return {@link Recipient} (default constructor).</li>
+   *   <li>Given {@link HashMap#HashMap()}.
+   *   <li>Then return {@link Recipient} (default constructor).
    * </ul>
-   * <p>
-   * Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
+   *
+   * <p>Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
    */
   @Test
   public void testSave_givenHashMap_thenReturnRecipient() {
@@ -78,11 +76,12 @@ public class RecipientServiceImplDiffblueTest {
 
   /**
    * Test {@link RecipientServiceImpl#save(String, Recipient)}.
+   *
    * <ul>
-   *   <li>Given {@link NotificationSettings} (default constructor) LastNotified is {@code null}.</li>
+   *   <li>Given {@link NotificationSettings} (default constructor) LastNotified is {@code null}.
    * </ul>
-   * <p>
-   * Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
+   *
+   * <p>Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
    */
   @Test
   public void testSave_givenNotificationSettingsLastNotifiedIsNull() {
@@ -101,16 +100,19 @@ public class RecipientServiceImplDiffblueTest {
     recipient.setScheduledNotifications(scheduledNotifications);
 
     // Act and Assert
-    assertSame(scheduledNotifications, recipientServiceImpl.save("Dr Jane Doe", recipient).getScheduledNotifications());
+    assertSame(
+        scheduledNotifications,
+        recipientServiceImpl.save("Dr Jane Doe", recipient).getScheduledNotifications());
   }
 
   /**
    * Test {@link RecipientServiceImpl#save(String, Recipient)}.
+   *
    * <ul>
-   *   <li>Then return ScheduledNotifications is {@link HashMap#HashMap()}.</li>
+   *   <li>Then return ScheduledNotifications is {@link HashMap#HashMap()}.
    * </ul>
-   * <p>
-   * Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
+   *
+   * <p>Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
    */
   @Test
   public void testSave_thenReturnScheduledNotificationsIsHashMap() {
@@ -118,8 +120,8 @@ public class RecipientServiceImplDiffblueTest {
     NotificationSettings notificationSettings = new NotificationSettings();
     notificationSettings.setActive(true);
     notificationSettings.setFrequency(Frequency.WEEKLY);
-    notificationSettings
-        .setLastNotified(Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
+    notificationSettings.setLastNotified(
+        Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
 
     HashMap<NotificationType, NotificationSettings> scheduledNotifications = new HashMap<>();
     scheduledNotifications.put(NotificationType.BACKUP, notificationSettings);
@@ -130,16 +132,19 @@ public class RecipientServiceImplDiffblueTest {
     recipient.setScheduledNotifications(scheduledNotifications);
 
     // Act and Assert
-    assertSame(scheduledNotifications, recipientServiceImpl.save("Dr Jane Doe", recipient).getScheduledNotifications());
+    assertSame(
+        scheduledNotifications,
+        recipientServiceImpl.save("Dr Jane Doe", recipient).getScheduledNotifications());
   }
 
   /**
    * Test {@link RecipientServiceImpl#save(String, Recipient)}.
+   *
    * <ul>
-   *   <li>Then return ScheduledNotifications size is two.</li>
+   *   <li>Then return ScheduledNotifications size is two.
    * </ul>
-   * <p>
-   * Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
+   *
+   * <p>Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
    */
   @Test
   public void testSave_thenReturnScheduledNotificationsSizeIsTwo() {
@@ -147,14 +152,14 @@ public class RecipientServiceImplDiffblueTest {
     NotificationSettings notificationSettings = new NotificationSettings();
     notificationSettings.setActive(true);
     notificationSettings.setFrequency(Frequency.WEEKLY);
-    notificationSettings
-        .setLastNotified(Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
+    notificationSettings.setLastNotified(
+        Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
 
     NotificationSettings notificationSettings2 = new NotificationSettings();
     notificationSettings2.setActive(false);
     notificationSettings2.setFrequency(Frequency.MONTHLY);
-    notificationSettings2
-        .setLastNotified(Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
+    notificationSettings2.setLastNotified(
+        Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
 
     HashMap<NotificationType, NotificationSettings> scheduledNotifications = new HashMap<>();
     scheduledNotifications.put(NotificationType.REMIND, notificationSettings2);
@@ -166,9 +171,8 @@ public class RecipientServiceImplDiffblueTest {
     recipient.setScheduledNotifications(scheduledNotifications);
 
     // Act and Assert
-    Map<NotificationType, NotificationSettings> scheduledNotifications2 = recipientServiceImpl
-        .save("Dr Jane Doe", recipient)
-        .getScheduledNotifications();
+    Map<NotificationType, NotificationSettings> scheduledNotifications2 =
+        recipientServiceImpl.save("Dr Jane Doe", recipient).getScheduledNotifications();
     assertEquals(2, scheduledNotifications2.size());
     assertTrue(scheduledNotifications2.containsKey(NotificationType.BACKUP));
     assertSame(notificationSettings2, scheduledNotifications2.get(NotificationType.REMIND));
@@ -176,11 +180,12 @@ public class RecipientServiceImplDiffblueTest {
 
   /**
    * Test {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}.
+   *
    * <ul>
-   *   <li>When {@code BACKUP}.</li>
+   *   <li>When {@code BACKUP}.
    * </ul>
-   * <p>
-   * Method under test: {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
+   *
+   * <p>Method under test: {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
    */
   @Test
   public void testFindReadyToNotify_whenBackup() {
@@ -190,11 +195,12 @@ public class RecipientServiceImplDiffblueTest {
 
   /**
    * Test {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}.
+   *
    * <ul>
-   *   <li>When {@code REMIND}.</li>
+   *   <li>When {@code REMIND}.
    * </ul>
-   * <p>
-   * Method under test: {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
+   *
+   * <p>Method under test: {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
    */
   @Test
   public void testFindReadyToNotify_whenRemind() {
@@ -204,12 +210,13 @@ public class RecipientServiceImplDiffblueTest {
 
   /**
    * Test {@link RecipientServiceImpl#markNotified(NotificationType, Recipient)}.
+   *
    * <ul>
-   *   <li>Given {@link Recipient} (default constructor) AccountName is {@code Dr Jane Doe}.</li>
-   *   <li>Then calls {@link CrudRepository#save(Object)}.</li>
+   *   <li>Given {@link Recipient} (default constructor) AccountName is {@code Dr Jane Doe}.
+   *   <li>Then calls {@link RecipientRepository#save(Object)}.
    * </ul>
-   * <p>
-   * Method under test: {@link RecipientServiceImpl#markNotified(NotificationType, Recipient)}
+   *
+   * <p>Method under test: {@link RecipientServiceImpl#markNotified(NotificationType, Recipient)}
    */
   @Test
   public void testMarkNotified_givenRecipientAccountNameIsDrJaneDoe_thenCallsSave() {
@@ -223,8 +230,8 @@ public class RecipientServiceImplDiffblueTest {
     NotificationSettings notificationSettings = new NotificationSettings();
     notificationSettings.setActive(true);
     notificationSettings.setFrequency(Frequency.WEEKLY);
-    notificationSettings
-        .setLastNotified(Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
+    notificationSettings.setLastNotified(
+        Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
 
     HashMap<NotificationType, NotificationSettings> scheduledNotifications = new HashMap<>();
     scheduledNotifications.put(NotificationType.BACKUP, notificationSettings);
@@ -243,22 +250,24 @@ public class RecipientServiceImplDiffblueTest {
 
   /**
    * Test {@link RecipientServiceImpl#markNotified(NotificationType, Recipient)}.
+   *
    * <ul>
-   *   <li>Then throw {@link IllegalArgumentException}.</li>
+   *   <li>Then throw {@link IllegalArgumentException}.
    * </ul>
-   * <p>
-   * Method under test: {@link RecipientServiceImpl#markNotified(NotificationType, Recipient)}
+   *
+   * <p>Method under test: {@link RecipientServiceImpl#markNotified(NotificationType, Recipient)}
    */
   @Test
   public void testMarkNotified_thenThrowIllegalArgumentException() {
     // Arrange
-    when(recipientRepository.save(Mockito.<Recipient>any())).thenThrow(new IllegalArgumentException("foo"));
+    when(recipientRepository.save(Mockito.<Recipient>any()))
+        .thenThrow(new IllegalArgumentException("foo"));
 
     NotificationSettings notificationSettings = new NotificationSettings();
     notificationSettings.setActive(true);
     notificationSettings.setFrequency(Frequency.WEEKLY);
-    notificationSettings
-        .setLastNotified(Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
+    notificationSettings.setLastNotified(
+        Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
 
     HashMap<NotificationType, NotificationSettings> scheduledNotifications = new HashMap<>();
     scheduledNotifications.put(NotificationType.BACKUP, notificationSettings);

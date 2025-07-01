@@ -32,19 +32,16 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 @ContextConfiguration(classes = {AccountController.class, ErrorHandler.class})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class AccountControllerDiffblueTest {
-  @Autowired
-  private AccountController accountController;
+  @Autowired private AccountController accountController;
 
-  @MockBean
-  private AccountService accountService;
+  @MockBean private AccountService accountService;
 
-  @Autowired
-  private ErrorHandler errorHandler;
+  @Autowired private ErrorHandler errorHandler;
 
   /**
    * Test {@link AccountController#getAccountByName(String)}.
-   * <p>
-   * Method under test: {@link AccountController#getAccountByName(String)}
+   *
+   * <p>Method under test: {@link AccountController#getAccountByName(String)}
    */
   @Test
   public void testGetAccountByName() throws Exception {
@@ -59,7 +56,8 @@ public class AccountControllerDiffblueTest {
     Account account = new Account();
     account.setExpenses(new ArrayList<>());
     account.setIncomes(new ArrayList<>());
-    account.setLastSeen(Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
+    account.setLastSeen(
+        Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
     account.setName("Name");
     account.setNote("Note");
     account.setSaving(saving);
@@ -73,16 +71,17 @@ public class AccountControllerDiffblueTest {
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
         .andExpect(MockMvcResultMatchers.content().contentType("application/json;charset=UTF-8"))
-        .andExpect(MockMvcResultMatchers.content()
-            .string(
-                "{\"name\":\"Name\",\"lastSeen\":0,\"incomes\":[],\"expenses\":[],\"saving\":{\"amount\":2.3,\"currency\":\"USD\",\"interest"
-                    + "\":2.3,\"deposit\":true,\"capitalization\":true},\"note\":\"Note\"}"));
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .string(
+                    "{\"name\":\"Name\",\"lastSeen\":0,\"incomes\":[],\"expenses\":[],\"saving\":{\"amount\":2.3,\"currency\":\"USD\",\"interest"
+                        + "\":2.3,\"deposit\":true,\"capitalization\":true},\"note\":\"Note\"}"));
   }
 
   /**
    * Test {@link AccountController#getCurrentAccount(Principal)}.
-   * <p>
-   * Method under test: {@link AccountController#getCurrentAccount(Principal)}
+   *
+   * <p>Method under test: {@link AccountController#getCurrentAccount(Principal)}
    */
   @Test
   public void testGetCurrentAccount() throws Exception {
@@ -97,7 +96,8 @@ public class AccountControllerDiffblueTest {
     Account account = new Account();
     account.setExpenses(new ArrayList<>());
     account.setIncomes(new ArrayList<>());
-    account.setLastSeen(Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
+    account.setLastSeen(
+        Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
     account.setName("Name");
     account.setNote("Note");
     account.setSaving(saving);
@@ -112,16 +112,17 @@ public class AccountControllerDiffblueTest {
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
         .andExpect(MockMvcResultMatchers.content().contentType("application/json;charset=UTF-8"))
-        .andExpect(MockMvcResultMatchers.content()
-            .string(
-                "{\"name\":\"Name\",\"lastSeen\":0,\"incomes\":[],\"expenses\":[],\"saving\":{\"amount\":2.3,\"currency\":\"USD\",\"interest"
-                    + "\":2.3,\"deposit\":true,\"capitalization\":true},\"note\":\"Note\"}"));
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .string(
+                    "{\"name\":\"Name\",\"lastSeen\":0,\"incomes\":[],\"expenses\":[],\"saving\":{\"amount\":2.3,\"currency\":\"USD\",\"interest"
+                        + "\":2.3,\"deposit\":true,\"capitalization\":true},\"note\":\"Note\"}"));
   }
 
   /**
    * Test {@link AccountController#saveCurrentAccount(Principal, Account)}.
-   * <p>
-   * Method under test: {@link AccountController#saveCurrentAccount(Principal, Account)}
+   *
+   * <p>Method under test: {@link AccountController#saveCurrentAccount(Principal, Account)}
    */
   @Test
   public void testSaveCurrentAccount() throws Exception {
@@ -147,7 +148,8 @@ public class AccountControllerDiffblueTest {
     account.setNote("Note");
     account.setSaving(saving);
     String content = new ObjectMapper().writeValueAsString(account);
-    MockHttpServletRequestBuilder requestBuilder = putResult.contentType(MediaType.APPLICATION_JSON).content(content);
+    MockHttpServletRequestBuilder requestBuilder =
+        putResult.contentType(MediaType.APPLICATION_JSON).content(content);
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(accountController)
@@ -159,8 +161,8 @@ public class AccountControllerDiffblueTest {
 
   /**
    * Test {@link AccountController#createNewAccount(User)}.
-   * <p>
-   * Method under test: {@link AccountController#createNewAccount(User)}
+   *
+   * <p>Method under test: {@link AccountController#createNewAccount(User)}
    */
   @Test
   public void testCreateNewAccount() throws Exception {
@@ -175,7 +177,8 @@ public class AccountControllerDiffblueTest {
     Account account = new Account();
     account.setExpenses(new ArrayList<>());
     account.setIncomes(new ArrayList<>());
-    account.setLastSeen(Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
+    account.setLastSeen(
+        Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
     account.setName("Name");
     account.setNote("Note");
     account.setSaving(saving);
@@ -185,9 +188,8 @@ public class AccountControllerDiffblueTest {
     user.setPassword("iloveyou");
     user.setUsername("janedoe");
     String content = new ObjectMapper().writeValueAsString(user);
-    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.post("/")
-        .contentType(MediaType.APPLICATION_JSON)
-        .content(content);
+    MockHttpServletRequestBuilder requestBuilder =
+        MockMvcRequestBuilders.post("/").contentType(MediaType.APPLICATION_JSON).content(content);
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(accountController)
@@ -196,9 +198,10 @@ public class AccountControllerDiffblueTest {
         .perform(requestBuilder)
         .andExpect(MockMvcResultMatchers.status().isOk())
         .andExpect(MockMvcResultMatchers.content().contentType("application/json;charset=UTF-8"))
-        .andExpect(MockMvcResultMatchers.content()
-            .string(
-                "{\"name\":\"Name\",\"lastSeen\":0,\"incomes\":[],\"expenses\":[],\"saving\":{\"amount\":2.3,\"currency\":\"USD\",\"interest"
-                    + "\":2.3,\"deposit\":true,\"capitalization\":true},\"note\":\"Note\"}"));
+        .andExpect(
+            MockMvcResultMatchers.content()
+                .string(
+                    "{\"name\":\"Name\",\"lastSeen\":0,\"incomes\":[],\"expenses\":[],\"saving\":{\"amount\":2.3,\"currency\":\"USD\",\"interest"
+                        + "\":2.3,\"deposit\":true,\"capitalization\":true},\"note\":\"Note\"}"));
   }
 }

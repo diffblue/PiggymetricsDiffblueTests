@@ -13,8 +13,9 @@ import org.junit.Test;
 public class ExchangeRatesContainerDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link ExchangeRatesContainer#setBase(Currency)}
    *   <li>{@link ExchangeRatesContainer#setDate(LocalDate)}
@@ -52,8 +53,8 @@ public class ExchangeRatesContainerDiffblueTest {
 
   /**
    * Test new {@link ExchangeRatesContainer} (default constructor).
-   * <p>
-   * Method under test: default or parameterless constructor of {@link ExchangeRatesContainer}
+   *
+   * <p>Method under test: default or parameterless constructor of {@link ExchangeRatesContainer}
    */
   @Test
   public void testNewExchangeRatesContainer() {

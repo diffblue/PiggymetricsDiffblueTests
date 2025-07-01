@@ -10,8 +10,9 @@ import org.junit.Test;
 public class DataPointIdDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>{@link DataPointId#DataPointId(String, Date)}
    *   <li>{@link DataPointId#toString()}
@@ -22,7 +23,8 @@ public class DataPointIdDiffblueTest {
   @Test
   public void testGettersAndSetters() {
     // Arrange
-    Date date = Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
+    Date date =
+        Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
 
     // Act
     DataPointId actualDataPointId = new DataPointId("3", date);

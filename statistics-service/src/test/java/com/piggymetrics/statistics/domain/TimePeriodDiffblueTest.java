@@ -7,8 +7,8 @@ import org.junit.Test;
 public class TimePeriodDiffblueTest {
   /**
    * Test {@link TimePeriod#getBaseRatio()}.
-   * <p>
-   * Method under test: {@link TimePeriod#getBaseRatio()}
+   *
+   * <p>Method under test: {@link TimePeriod#getBaseRatio()}
    */
   @Test
   public void testGetBaseRatio() {
@@ -16,13 +16,14 @@ public class TimePeriodDiffblueTest {
     BigDecimal actualBaseRatio = TimePeriod.YEAR.getBaseRatio();
 
     // Assert
-    assertEquals(new BigDecimal("365.24250000000000682121026329696178436279296875"), actualBaseRatio);
+    assertEquals(
+        new BigDecimal("365.24250000000000682121026329696178436279296875"), actualBaseRatio);
   }
 
   /**
    * Test {@link TimePeriod#getBase()}.
-   * <p>
-   * Method under test: {@link TimePeriod#getBase()}
+   *
+   * <p>Method under test: {@link TimePeriod#getBase()}
    */
   @Test
   public void testGetBase() {

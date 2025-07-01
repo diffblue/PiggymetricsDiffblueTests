@@ -13,13 +13,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration(classes = {ExchangeRatesClientFallback.class})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class ExchangeRatesClientFallbackDiffblueTest {
-  @Autowired
-  private ExchangeRatesClientFallback exchangeRatesClientFallback;
+  @Autowired private ExchangeRatesClientFallback exchangeRatesClientFallback;
 
   /**
    * Test {@link ExchangeRatesClientFallback#getRates(Currency)}.
-   * <p>
-   * Method under test: {@link ExchangeRatesClientFallback#getRates(Currency)}
+   *
+   * <p>Method under test: {@link ExchangeRatesClientFallback#getRates(Currency)}
    */
   @Test
   public void testGetRates() {

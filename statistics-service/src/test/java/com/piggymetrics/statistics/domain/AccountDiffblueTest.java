@@ -10,8 +10,9 @@ import org.junit.Test;
 public class AccountDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link Account}
    *   <li>{@link Account#setExpenses(List)}

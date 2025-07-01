@@ -3,25 +3,24 @@
     "reportVersion" : "2.7"
   },
   "run" : {
-    "version" : "2025.06.02-fd4f1ca-licensed",
-    "creationTimestamp" : "2025-06-16T18:12:50.838Z",
+    "version" : "2025.06.03-8c4c4e2-licensed",
+    "creationTimestamp" : "2025-07-01T11:18:46.632Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --exclude=com.piggymetrics.notification.service.NotificationServiceImpl. --working-directory=auth-service",
-    "totalTime" : 363.13,
-    "environmentDetectionTime" : 0.728,
-    "indexingTime" : 0.339,
-    "entryPointsTime" : 0.695,
-    "generationTime" : 268.748,
-    "timeToFirstTest" : 114.643,
-    "timeToLastTest" : 316.104,
-    "indexQueryTime" : 15.212,
-    "verificationTime" : 23.531,
-    "validationTime" : 20.646
+    "totalTime" : 303.404,
+    "environmentDetectionTime" : 0.647,
+    "indexingTime" : 0.455,
+    "entryPointsTime" : 0.604,
+    "generationTime" : 232.087,
+    "timeToFirstTest" : 88.971,
+    "timeToLastTest" : 265.31,
+    "indexQueryTime" : 15.419,
+    "verificationTime" : 8.889,
+    "validationTime" : 18.034
   },
   "codes" : {
     "E052" : "Missing dependency",
     "R000" : "Success",
-    "R004" : "No meaningful assertions found",
-    "R013" : "No inputs found that don't throw a trivial exception",
+    "R026" : "Failed to create Spring context",
     "T000" : "Method eligible for test creation",
     "T001" : "Trivial getter",
     "T002" : "Trivial setter",
@@ -54,8 +53,7 @@
     "perMethodOutcome" : {
       "E052" : 11,
       "R000" : 17,
-      "R004" : 1,
-      "R013" : 2,
+      "R026" : 3,
       "T005" : 6,
       "T006" : 1,
       "T010" : 1,
@@ -107,8 +105,7 @@
         "T005" : 1
       },
       "perMethodOutcome" : {
-        "R004" : 1,
-        "R013" : 2,
+        "R026" : 3,
         "T005" : 1
       }
     },
@@ -312,7 +309,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R004",
+      "perMethodOutcome" : "R026",
       "lineNumbers" : [
         41
       ]
@@ -321,7 +318,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R013",
+      "perMethodOutcome" : "R026",
       "lineNumbers" : [
         34,
         35,
@@ -332,7 +329,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R013",
+      "perMethodOutcome" : "R026",
       "lineNumbers" : [
         25,
         26,

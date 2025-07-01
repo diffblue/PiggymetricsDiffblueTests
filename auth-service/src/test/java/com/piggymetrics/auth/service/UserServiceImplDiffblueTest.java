@@ -14,26 +14,22 @@ import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @ContextConfiguration(classes = {UserServiceImpl.class})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class UserServiceImplDiffblueTest {
-  @Rule
-  public ExpectedException thrown = ExpectedException.none();
+  @Rule public ExpectedException thrown = ExpectedException.none();
 
-  @MockBean
-  private UserRepository userRepository;
+  @MockBean private UserRepository userRepository;
 
-  @Autowired
-  private UserServiceImpl userServiceImpl;
+  @Autowired private UserServiceImpl userServiceImpl;
 
   /**
    * Test {@link UserServiceImpl#create(User)}.
-   * <p>
-   * Method under test: {@link UserServiceImpl#create(User)}
+   *
+   * <p>Method under test: {@link UserServiceImpl#create(User)}
    */
   @Test
   public void testCreate() {
@@ -53,11 +49,13 @@ public class UserServiceImplDiffblueTest {
 
   /**
    * Test {@link UserServiceImpl#create(User)}.
+   *
    * <ul>
-   *   <li>Given {@link UserRepository} {@link CrudRepository#findById(Object)} return of {@link User} (default constructor).</li>
+   *   <li>Given {@link UserRepository} {@link UserRepository#findById(Object)} return of {@link
+   *       User} (default constructor).
    * </ul>
-   * <p>
-   * Method under test: {@link UserServiceImpl#create(User)}
+   *
+   * <p>Method under test: {@link UserServiceImpl#create(User)}
    */
   @Test
   public void testCreate_givenUserRepositoryFindByIdReturnOfUser() {
@@ -80,12 +78,14 @@ public class UserServiceImplDiffblueTest {
 
   /**
    * Test {@link UserServiceImpl#create(User)}.
+   *
    * <ul>
-   *   <li>Given {@link UserRepository} {@link CrudRepository#save(Object)} return {@link User} (default constructor).</li>
-   *   <li>Then calls {@link CrudRepository#save(Object)}.</li>
+   *   <li>Given {@link UserRepository} {@link UserRepository#save(Object)} return {@link User}
+   *       (default constructor).
+   *   <li>Then calls {@link UserRepository#save(Object)}.
    * </ul>
-   * <p>
-   * Method under test: {@link UserServiceImpl#create(User)}
+   *
+   * <p>Method under test: {@link UserServiceImpl#create(User)}
    */
   @Test
   public void testCreate_givenUserRepositorySaveReturnUser_thenCallsSave() {

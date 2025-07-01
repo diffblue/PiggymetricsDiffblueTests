@@ -11,8 +11,9 @@ import org.junit.Test;
 public class NotificationSettingsDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link NotificationSettings}
    *   <li>{@link NotificationSettings#setActive(Boolean)}
@@ -29,7 +30,8 @@ public class NotificationSettingsDiffblueTest {
     NotificationSettings actualNotificationSettings = new NotificationSettings();
     actualNotificationSettings.setActive(true);
     actualNotificationSettings.setFrequency(Frequency.WEEKLY);
-    Date lastNotified = Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
+    Date lastNotified =
+        Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
     actualNotificationSettings.setLastNotified(lastNotified);
     Boolean actualActive = actualNotificationSettings.getActive();
     Frequency actualFrequency = actualNotificationSettings.getFrequency();

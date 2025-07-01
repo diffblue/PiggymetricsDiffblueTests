@@ -16,8 +16,9 @@ import org.junit.Test;
 public class DataPointDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link DataPoint}
    *   <li>{@link DataPoint#setExpenses(Set)}
@@ -38,8 +39,10 @@ public class DataPointDiffblueTest {
     DataPoint actualDataPoint = new DataPoint();
     HashSet<ItemMetric> expenses = new HashSet<>();
     actualDataPoint.setExpenses(expenses);
-    DataPointId id = new DataPointId("3",
-        Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
+    DataPointId id =
+        new DataPointId(
+            "3",
+            Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
 
     actualDataPoint.setId(id);
     HashSet<ItemMetric> incomes = new HashSet<>();

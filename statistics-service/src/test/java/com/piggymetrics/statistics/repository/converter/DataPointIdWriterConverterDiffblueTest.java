@@ -18,21 +18,22 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration(classes = {DataPointIdWriterConverter.class})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class DataPointIdWriterConverterDiffblueTest {
-  @Autowired
-  private DataPointIdWriterConverter dataPointIdWriterConverter;
+  @Autowired private DataPointIdWriterConverter dataPointIdWriterConverter;
 
   /**
    * Test {@link DataPointIdWriterConverter#convert(DataPointId)} with {@code DataPointId}.
+   *
    * <ul>
-   *   <li>Then return {@link Map}.</li>
+   *   <li>Then return {@link Map}.
    * </ul>
-   * <p>
-   * Method under test: {@link DataPointIdWriterConverter#convert(DataPointId)}
+   *
+   * <p>Method under test: {@link DataPointIdWriterConverter#convert(DataPointId)}
    */
   @Test
   public void testConvertWithDataPointId_thenReturnMap() {
     // Arrange
-    Date date = Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
+    Date date =
+        Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
 
     // Act
     DBObject actualConvertResult = dataPointIdWriterConverter.convert(new DataPointId("3", date));

@@ -14,8 +14,9 @@ import org.junit.Test;
 public class AccountDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link Account}
    *   <li>{@link Account#setExpenses(List)}
@@ -40,7 +41,8 @@ public class AccountDiffblueTest {
     actualAccount.setExpenses(expenses);
     ArrayList<Item> incomes = new ArrayList<>();
     actualAccount.setIncomes(incomes);
-    Date lastSeen = Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
+    Date lastSeen =
+        Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
     actualAccount.setLastSeen(lastSeen);
     actualAccount.setName("Name");
     actualAccount.setNote("Note");

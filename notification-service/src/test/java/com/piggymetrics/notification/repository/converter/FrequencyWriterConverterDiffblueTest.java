@@ -11,13 +11,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration(classes = {FrequencyWriterConverter.class})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class FrequencyWriterConverterDiffblueTest {
-  @Autowired
-  private FrequencyWriterConverter frequencyWriterConverter;
+  @Autowired private FrequencyWriterConverter frequencyWriterConverter;
 
   /**
    * Test {@link FrequencyWriterConverter#convert(Frequency)} with {@code Frequency}.
-   * <p>
-   * Method under test: {@link FrequencyWriterConverter#convert(Frequency)}
+   *
+   * <p>Method under test: {@link FrequencyWriterConverter#convert(Frequency)}
    */
   @Test
   public void testConvertWithFrequency() {

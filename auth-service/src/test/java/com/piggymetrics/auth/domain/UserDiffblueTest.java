@@ -8,8 +8,8 @@ import org.junit.Test;
 public class UserDiffblueTest {
   /**
    * Test {@link User#getAuthorities()}.
-   * <p>
-   * Method under test: {@link User#getAuthorities()}
+   *
+   * <p>Method under test: {@link User#getAuthorities()}
    */
   @Test
   public void testGetAuthorities() {
@@ -19,8 +19,9 @@ public class UserDiffblueTest {
 
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link User}
    *   <li>{@link User#setPassword(String)}

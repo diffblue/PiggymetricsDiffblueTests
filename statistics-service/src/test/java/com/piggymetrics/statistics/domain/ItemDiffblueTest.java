@@ -8,8 +8,9 @@ import org.junit.Test;
 public class ItemDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link Item}
    *   <li>{@link Item#setAmount(BigDecimal)}

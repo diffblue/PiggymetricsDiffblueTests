@@ -10,8 +10,9 @@ import org.junit.Test;
 public class RecipientDiffblueTest {
   /**
    * Test getters and setters.
-   * <p>
-   * Methods under test:
+   *
+   * <p>Methods under test:
+   *
    * <ul>
    *   <li>default or parameterless constructor of {@link Recipient}
    *   <li>{@link Recipient#setAccountName(String)}
@@ -34,12 +35,13 @@ public class RecipientDiffblueTest {
     String actualToStringResult = actualRecipient.toString();
     String actualAccountName = actualRecipient.getAccountName();
     String actualEmail = actualRecipient.getEmail();
-    Map<NotificationType, NotificationSettings> actualScheduledNotifications = actualRecipient
-        .getScheduledNotifications();
+    Map<NotificationType, NotificationSettings> actualScheduledNotifications =
+        actualRecipient.getScheduledNotifications();
 
     // Assert
     assertEquals("Dr Jane Doe", actualAccountName);
-    assertEquals("Recipient{accountName='Dr Jane Doe', email='jane.doe@example.org'}", actualToStringResult);
+    assertEquals(
+        "Recipient{accountName='Dr Jane Doe', email='jane.doe@example.org'}", actualToStringResult);
     assertEquals("jane.doe@example.org", actualEmail);
     assertTrue(actualScheduledNotifications.isEmpty());
     assertSame(scheduledNotifications, actualScheduledNotifications);

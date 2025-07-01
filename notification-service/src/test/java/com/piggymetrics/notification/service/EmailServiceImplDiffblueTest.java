@@ -19,29 +19,27 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.core.env.Environment;
-import org.springframework.core.env.PropertyResolver;
 import org.springframework.mail.MailException;
 import org.springframework.mail.javamail.JavaMailSender;
 
 @RunWith(MockitoJUnitRunner.class)
 public class EmailServiceImplDiffblueTest {
-  @InjectMocks
-  private EmailServiceImpl emailServiceImpl;
+  @InjectMocks private EmailServiceImpl emailServiceImpl;
 
-  @Mock
-  private Environment environment;
+  @Mock private Environment environment;
 
-  @Mock
-  private JavaMailSender javaMailSender;
+  @Mock private JavaMailSender javaMailSender;
 
   /**
    * Test {@link EmailServiceImpl#send(NotificationType, Recipient, String)}.
+   *
    * <ul>
-   *   <li>Given {@link Environment} {@link PropertyResolver#getProperty(String)} return {@code Property}.</li>
-   *   <li>Then calls {@link PropertyResolver#getProperty(String)}.</li>
+   *   <li>Given {@link Environment} {@link Environment#getProperty(String)} return {@code
+   *       Property}.
+   *   <li>Then calls {@link Environment#getProperty(String)}.
    * </ul>
-   * <p>
-   * Method under test: {@link EmailServiceImpl#send(NotificationType, Recipient, String)}
+   *
+   * <p>Method under test: {@link EmailServiceImpl#send(NotificationType, Recipient, String)}
    */
   @Test
   public void testSend_givenEnvironmentGetPropertyReturnProperty_thenCallsGetProperty()
@@ -67,15 +65,17 @@ public class EmailServiceImplDiffblueTest {
 
   /**
    * Test {@link EmailServiceImpl#send(NotificationType, Recipient, String)}.
+   *
    * <ul>
-   *   <li>When empty string.</li>
-   *   <li>Then calls {@link PropertyResolver#getProperty(String)}.</li>
+   *   <li>When empty string.
+   *   <li>Then calls {@link Environment#getProperty(String)}.
    * </ul>
-   * <p>
-   * Method under test: {@link EmailServiceImpl#send(NotificationType, Recipient, String)}
+   *
+   * <p>Method under test: {@link EmailServiceImpl#send(NotificationType, Recipient, String)}
    */
   @Test
-  public void testSend_whenEmptyString_thenCallsGetProperty() throws IOException, MessagingException, MailException {
+  public void testSend_whenEmptyString_thenCallsGetProperty()
+      throws IOException, MessagingException, MailException {
     // Arrange
     when(environment.getProperty(Mockito.<String>any())).thenReturn("Property");
     doNothing().when(javaMailSender).send(Mockito.<MimeMessage>any());

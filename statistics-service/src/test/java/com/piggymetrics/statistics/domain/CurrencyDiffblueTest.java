@@ -6,8 +6,8 @@ import org.junit.Test;
 public class CurrencyDiffblueTest {
   /**
    * Test {@link Currency#getBase()}.
-   * <p>
-   * Method under test: {@link Currency#getBase()}
+   *
+   * <p>Method under test: {@link Currency#getBase()}
    */
   @Test
   public void testGetBase() {

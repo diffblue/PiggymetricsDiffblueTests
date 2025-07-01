@@ -21,16 +21,14 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 @ContextConfiguration(classes = {UserController.class})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class UserControllerDiffblueTest {
-  @Autowired
-  private UserController userController;
+  @Autowired private UserController userController;
 
-  @MockBean
-  private UserService userService;
+  @MockBean private UserService userService;
 
   /**
    * Test {@link UserController#getUser(Principal)}.
-   * <p>
-   * Method under test: {@link UserController#getUser(Principal)}
+   *
+   * <p>Method under test: {@link UserController#getUser(Principal)}
    */
   @Test
   public void testGetUser() throws Exception {
@@ -46,8 +44,8 @@ public class UserControllerDiffblueTest {
 
   /**
    * Test {@link UserController#createUser(User)}.
-   * <p>
-   * Method under test: {@link UserController#createUser(User)}
+   *
+   * <p>Method under test: {@link UserController#createUser(User)}
    */
   @Test
   public void testCreateUser() throws Exception {
@@ -58,9 +56,10 @@ public class UserControllerDiffblueTest {
     user.setPassword("iloveyou");
     user.setUsername("janedoe");
     String content = new ObjectMapper().writeValueAsString(user);
-    MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.post("/users")
-        .contentType(MediaType.APPLICATION_JSON)
-        .content(content);
+    MockHttpServletRequestBuilder requestBuilder =
+        MockMvcRequestBuilders.post("/users")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(content);
 
     // Act and Assert
     MockMvcBuilders.standaloneSetup(userController)
