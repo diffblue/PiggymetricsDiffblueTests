@@ -1,14 +1,14 @@
 {
-  "version" : "2025.06.03-8c4c4e2-licensed",
-  "totalTime" : 1955.7839999999999,
-  "environmentDetectionTime" : 5.8919999999999995,
-  "indexingTime" : 4.548,
-  "entryPointsTime" : 5.521999999999999,
-  "generationTime" : 1468.5869999999998,
-  "timeToFirstTest" : 80.59622222222222,
-  "timeToLastTest" : 191.91666666666666,
-  "verificationTime" : 44.641999999999996,
-  "validationTime" : 85.22200000000001,
+  "version" : "2025.06.04-0b71eb4-licensed",
+  "totalTime" : 1853.66,
+  "environmentDetectionTime" : 6.34,
+  "indexingTime" : 4.44,
+  "entryPointsTime" : 6.016,
+  "generationTime" : 1392.8220000000001,
+  "timeToFirstTest" : 77.13777777777779,
+  "timeToLastTest" : 182.01822222222222,
+  "verificationTime" : 40.373,
+  "validationTime" : 79.346,
   "summary" : {
     "classesCount" : 75,
     "methodsCount" : 362,
@@ -99,13 +99,13 @@
     "violationsCount" : 889
   },
   "testDiffStatSummary" : {
-    "files" : 39,
-    "insertions" : 845,
-    "deletions" : 499
+    "files" : 0,
+    "insertions" : 0,
+    "deletions" : 0
   },
   "diffblueTestDiffStatSummary" : {
-    "files" : 39,
-    "insertions" : 845,
-    "deletions" : 499
+    "files" : 0,
+    "insertions" : 0,
+    "deletions" : 0
   }
 }
