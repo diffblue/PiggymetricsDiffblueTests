@@ -3,26 +3,26 @@
     "reportVersion" : "2.7"
   },
   "run" : {
-    "version" : "2025.06.04-0b71eb4-licensed",
-    "creationTimestamp" : "2025-07-02T16:02:43.537Z",
+    "version" : "2025.07.01-e13d6b3-licensed",
+    "creationTimestamp" : "2025-07-14T18:11:43.589Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --exclude=com.piggymetrics.notification.service.NotificationServiceImpl. --working-directory=statistics-service",
-    "totalTime" : 372.685,
-    "environmentDetectionTime" : 1.465,
-    "indexingTime" : 0.46,
-    "entryPointsTime" : 1.432,
-    "generationTime" : 292.133,
-    "timeToFirstTest" : 97.899,
-    "timeToLastTest" : 329.152,
-    "indexQueryTime" : 15.273,
-    "verificationTime" : 10.784,
-    "validationTime" : 20.357
+    "totalTime" : 353.862,
+    "environmentDetectionTime" : 0.973,
+    "indexingTime" : 0.502,
+    "entryPointsTime" : 0.932,
+    "generationTime" : 272.502,
+    "timeToFirstTest" : 97.142,
+    "timeToLastTest" : 310.571,
+    "indexQueryTime" : 16.142,
+    "verificationTime" : 11.698,
+    "validationTime" : 20.515
   },
   "codes" : {
     "E052" : "Missing dependency",
     "R000" : "Success",
     "R002" : "Missing observers",
+    "R004" : "No meaningful assertions found",
     "R013" : "No inputs found that don't throw a trivial exception",
-    "R026" : "Failed to create Spring context",
     "T000" : "Method eligible for test creation",
     "T001" : "Trivial getter",
     "T002" : "Trivial setter",
@@ -60,8 +60,8 @@
       "E052" : 12,
       "R000" : 68,
       "R002" : 3,
-      "R013" : 1,
-      "R026" : 4,
+      "R004" : 2,
+      "R013" : 3,
       "T003" : 9,
       "T005" : 9,
       "T006" : 1,
@@ -99,7 +99,7 @@
         "T005" : 1
       },
       "perMethodOutcome" : {
-        "R026" : 1,
+        "R004" : 1,
         "T005" : 1
       }
     },
@@ -396,7 +396,7 @@
         "T023" : 1
       },
       "perMethodOutcome" : {
-        "R026" : 2,
+        "R013" : 2,
         "T005" : 1,
         "T023" : 1
       }
@@ -442,7 +442,7 @@
       "perMethodOutcome" : {
         "R000" : 2,
         "R002" : 3,
-        "R026" : 1,
+        "R004" : 1,
         "T003" : 4,
         "T023" : 1
       },
@@ -465,7 +465,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R026",
+      "perMethodOutcome" : "R004",
       "lineNumbers" : [
         37
       ]
@@ -1578,7 +1578,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R026",
+      "perMethodOutcome" : "R013",
       "lineNumbers" : [
         52,
         54,
@@ -1590,7 +1590,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R026",
+      "perMethodOutcome" : "R013",
       "lineNumbers" : [
         34,
         35,
@@ -1703,7 +1703,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R026",
+      "perMethodOutcome" : "R004",
       "lineNumbers" : [
         46,
         31,

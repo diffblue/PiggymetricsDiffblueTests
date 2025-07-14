@@ -1,20 +1,20 @@
 {
-  "version" : "2025.06.04-0b71eb4-licensed",
-  "totalTime" : 1853.66,
-  "environmentDetectionTime" : 6.34,
-  "indexingTime" : 4.44,
-  "entryPointsTime" : 6.016,
-  "generationTime" : 1392.8220000000001,
-  "timeToFirstTest" : 77.13777777777779,
-  "timeToLastTest" : 182.01822222222222,
-  "verificationTime" : 40.373,
-  "validationTime" : 79.346,
+  "version" : "2025.07.01-e13d6b3-licensed",
+  "totalTime" : 1776.8530000000003,
+  "environmentDetectionTime" : 5.662,
+  "indexingTime" : 4.4479999999999995,
+  "entryPointsTime" : 5.327999999999999,
+  "generationTime" : 1306.4820000000002,
+  "timeToFirstTest" : 77.57466666666667,
+  "timeToLastTest" : 172.84033333333335,
+  "verificationTime" : 42.703,
+  "validationTime" : 82.36699999999999,
   "summary" : {
     "classesCount" : 75,
     "methodsCount" : 362,
-    "cumulativeDiffblueTestCount" : 95,
+    "cumulativeDiffblueTestCount" : 94,
     "cumulativeManualTestCount" : 57,
-    "completeTestCount" : 95,
+    "completeTestCount" : 94,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "totalPhysicalLineCount" : 1927,
@@ -35,9 +35,8 @@
       "E052" : 49,
       "R000" : 170,
       "R002" : 6,
-      "R004" : 2,
-      "R013" : 3,
-      "R026" : 10,
+      "R004" : 7,
+      "R013" : 8,
       "T003" : 17,
       "T005" : 35,
       "T006" : 9,
@@ -47,14 +46,14 @@
       "T033" : 7
     },
     "perTestOutcome" : {
-      "R000" : 95
+      "R000" : 94
     },
     "perTestValidation" : {
-      "V000" : 95
+      "V000" : 94
     }
   },
   "coverageMetrics" : {
-    "branchCoveragePercent" : "46.81%",
+    "branchCoveragePercent" : "44.68%",
     "classesWithIncompleteInstructionCoverage" : [
       "com.piggymetrics.account.controller.ErrorHandler",
       "com.piggymetrics.account.service.security.CustomUserInfoTokenServices",
@@ -79,33 +78,33 @@
     "complexCoveredLines" : 157,
     "complexLineCoveragePercent" : "78.11%",
     "complexityThreshold" : 10,
-    "coveredBranches" : 22,
+    "coveredBranches" : 21,
     "coveredComplexity" : 81,
-    "coveredLines" : 475,
-    "lineCoveragePercent" : "79.17%",
+    "coveredLines" : 474,
+    "lineCoveragePercent" : "79%",
     "totalBranches" : 47,
     "totalComplexLines" : 201,
     "totalComplexity" : 103,
     "totalLines" : 600
   },
   "piTestMetrics" : {
-    "mutationsKilled" : 114,
-    "mutationsKilledPercent" : "55.61%",
-    "mutationsNoCoverage" : 37,
-    "mutationsSurvived" : 54,
+    "mutationsKilled" : 115,
+    "mutationsKilledPercent" : "56.1%",
+    "mutationsNoCoverage" : 38,
+    "mutationsSurvived" : 52,
     "mutationsTotal" : 205
   },
   "pmdMetrics" : {
-    "violationsCount" : 889
+    "violationsCount" : 900
   },
   "testDiffStatSummary" : {
-    "files" : 0,
-    "insertions" : 0,
-    "deletions" : 0
+    "files" : 2,
+    "insertions" : 38,
+    "deletions" : 35
   },
   "diffblueTestDiffStatSummary" : {
-    "files" : 0,
-    "insertions" : 0,
-    "deletions" : 0
+    "files" : 2,
+    "insertions" : 38,
+    "deletions" : 35
   }
 }

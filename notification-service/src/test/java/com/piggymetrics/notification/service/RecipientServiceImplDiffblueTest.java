@@ -40,16 +40,16 @@ public class RecipientServiceImplDiffblueTest {
    * Test {@link RecipientServiceImpl#findByAccountName(String)}.
    *
    * <ul>
-   *   <li>When {@code Dr Jane Doe}.
+   *   <li>When {@code not empty}.
    *   <li>Then return {@code null}.
    * </ul>
    *
    * <p>Method under test: {@link RecipientServiceImpl#findByAccountName(String)}
    */
   @Test
-  public void testFindByAccountName_whenDrJaneDoe_thenReturnNull() {
+  public void testFindByAccountName_whenNotEmpty_thenReturnNull() {
     // Arrange, Act and Assert
-    assertNull(recipientServiceImpl.findByAccountName("Dr Jane Doe"));
+    assertNull(recipientServiceImpl.findByAccountName("not empty"));
   }
 
   /**
@@ -57,21 +57,26 @@ public class RecipientServiceImplDiffblueTest {
    *
    * <ul>
    *   <li>Given {@link HashMap#HashMap()}.
-   *   <li>Then return {@link Recipient} (default constructor).
+   *   <li>When {@code Mr John Smith}.
+   *   <li>Then {@link Recipient} (default constructor) AccountName is {@code Mr John Smith}.
    * </ul>
    *
    * <p>Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
    */
   @Test
-  public void testSave_givenHashMap_thenReturnRecipient() {
+  public void testSave_givenHashMap_whenMrJohnSmith_thenRecipientAccountNameIsMrJohnSmith() {
     // Arrange
     Recipient recipient = new Recipient();
     recipient.setAccountName("Dr Jane Doe");
     recipient.setEmail("jane.doe@example.org");
     recipient.setScheduledNotifications(new HashMap<>());
 
-    // Act and Assert
-    assertSame(recipient, recipientServiceImpl.save("Dr Jane Doe", recipient));
+    // Act
+    Recipient actualSaveResult = recipientServiceImpl.save("Mr John Smith", recipient);
+
+    // Assert
+    assertEquals("Mr John Smith", recipient.getAccountName());
+    assertSame(recipient, actualSaveResult);
   }
 
   /**
@@ -99,23 +104,26 @@ public class RecipientServiceImplDiffblueTest {
     recipient.setEmail("jane.doe@example.org");
     recipient.setScheduledNotifications(scheduledNotifications);
 
-    // Act and Assert
-    assertSame(
-        scheduledNotifications,
-        recipientServiceImpl.save("Dr Jane Doe", recipient).getScheduledNotifications());
+    // Act
+    Recipient actualSaveResult = recipientServiceImpl.save("Dr Jane Doe", recipient);
+
+    // Assert
+    assertEquals("Dr Jane Doe", recipient.getAccountName());
+    assertEquals("Dr Jane Doe", actualSaveResult.getAccountName());
+    assertSame(scheduledNotifications, actualSaveResult.getScheduledNotifications());
   }
 
   /**
    * Test {@link RecipientServiceImpl#save(String, Recipient)}.
    *
    * <ul>
-   *   <li>Then return ScheduledNotifications is {@link HashMap#HashMap()}.
+   *   <li>Then {@link Recipient} (default constructor) AccountName is {@code Dr Jane Doe}.
    * </ul>
    *
    * <p>Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
    */
   @Test
-  public void testSave_thenReturnScheduledNotificationsIsHashMap() {
+  public void testSave_thenRecipientAccountNameIsDrJaneDoe() {
     // Arrange
     NotificationSettings notificationSettings = new NotificationSettings();
     notificationSettings.setActive(true);
@@ -131,10 +139,13 @@ public class RecipientServiceImplDiffblueTest {
     recipient.setEmail("jane.doe@example.org");
     recipient.setScheduledNotifications(scheduledNotifications);
 
-    // Act and Assert
-    assertSame(
-        scheduledNotifications,
-        recipientServiceImpl.save("Dr Jane Doe", recipient).getScheduledNotifications());
+    // Act
+    Recipient actualSaveResult = recipientServiceImpl.save("Dr Jane Doe", recipient);
+
+    // Assert
+    assertEquals("Dr Jane Doe", recipient.getAccountName());
+    assertEquals("Dr Jane Doe", actualSaveResult.getAccountName());
+    assertSame(scheduledNotifications, actualSaveResult.getScheduledNotifications());
   }
 
   /**
@@ -182,28 +193,14 @@ public class RecipientServiceImplDiffblueTest {
    * Test {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}.
    *
    * <ul>
-   *   <li>When {@code BACKUP}.
-   * </ul>
-   *
-   * <p>Method under test: {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
-   */
-  @Test
-  public void testFindReadyToNotify_whenBackup() {
-    // Arrange, Act and Assert
-    assertTrue(recipientServiceImpl.findReadyToNotify(NotificationType.BACKUP).isEmpty());
-  }
-
-  /**
-   * Test {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}.
-   *
-   * <ul>
    *   <li>When {@code REMIND}.
+   *   <li>Then return Empty.
    * </ul>
    *
    * <p>Method under test: {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
    */
   @Test
-  public void testFindReadyToNotify_whenRemind() {
+  public void testFindReadyToNotify_whenRemind_thenReturnEmpty() {
     // Arrange, Act and Assert
     assertTrue(recipientServiceImpl.findReadyToNotify(NotificationType.REMIND).isEmpty());
   }

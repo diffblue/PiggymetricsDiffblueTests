@@ -23,12 +23,18 @@ public class MongoUserDetailsServiceDiffblueTest {
   /**
    * Test {@link MongoUserDetailsService#loadUserByUsername(String)}.
    *
+   * <ul>
+   *   <li>When {@code Username}.
+   *   <li>Then throw {@link UsernameNotFoundException}.
+   * </ul>
+   *
    * <p>Method under test: {@link MongoUserDetailsService#loadUserByUsername(String)}
    */
   @Test
-  public void testLoadUserByUsername() throws UsernameNotFoundException {
+  public void testLoadUserByUsername_whenUsername_thenThrowUsernameNotFoundException()
+      throws UsernameNotFoundException {
     // Arrange, Act and Assert
     thrown.expect(UsernameNotFoundException.class);
-    mongoUserDetailsService.loadUserByUsername("janedoe");
+    mongoUserDetailsService.loadUserByUsername("Username");
   }
 }
