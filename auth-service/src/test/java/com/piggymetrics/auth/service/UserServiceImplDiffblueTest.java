@@ -1,6 +1,5 @@
 package com.piggymetrics.auth.service;
 
-import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -29,27 +28,6 @@ public class UserServiceImplDiffblueTest {
   /**
    * Test {@link UserServiceImpl#create(User)}.
    *
-   * <p>Method under test: {@link UserServiceImpl#create(User)}
-   */
-  @Test
-  public void testCreate() {
-    // Arrange
-    when(userRepository.findById(Mockito.<String>any()))
-        .thenThrow(new IllegalArgumentException("new user has been created: {}"));
-
-    User user = new User();
-    user.setPassword("iloveyou");
-    user.setUsername("janedoe");
-
-    // Act and Assert
-    thrown.expect(IllegalArgumentException.class);
-    userServiceImpl.create(user);
-    verify(userRepository).findById(eq("janedoe"));
-  }
-
-  /**
-   * Test {@link UserServiceImpl#create(User)}.
-   *
    * <ul>
    *   <li>Given {@link UserRepository} {@link UserRepository#findById(Object)} return of {@link
    *       User} (default constructor).
@@ -73,7 +51,32 @@ public class UserServiceImplDiffblueTest {
     // Act and Assert
     thrown.expect(IllegalArgumentException.class);
     userServiceImpl.create(user2);
-    verify(userRepository).findById(eq("janedoe"));
+    verify(userRepository).findById("janedoe");
+  }
+
+  /**
+   * Test {@link UserServiceImpl#create(User)}.
+   *
+   * <ul>
+   *   <li>Given {@link UserRepository} {@link UserRepository#findById(Object)} throw {@link
+   *       IllegalArgumentException#IllegalArgumentException()}.
+   * </ul>
+   *
+   * <p>Method under test: {@link UserServiceImpl#create(User)}
+   */
+  @Test
+  public void testCreate_givenUserRepositoryFindByIdThrowIllegalArgumentException() {
+    // Arrange
+    when(userRepository.findById(Mockito.<String>any())).thenThrow(new IllegalArgumentException());
+
+    User user = new User();
+    user.setPassword("iloveyou");
+    user.setUsername("janedoe");
+
+    // Act and Assert
+    thrown.expect(IllegalArgumentException.class);
+    userServiceImpl.create(user);
+    verify(userRepository).findById("janedoe");
   }
 
   /**
@@ -105,7 +108,7 @@ public class UserServiceImplDiffblueTest {
     userServiceImpl.create(user2);
 
     // Assert
-    verify(userRepository).findById(eq("janedoe"));
+    verify(userRepository).findById("janedoe");
     verify(userRepository).save(isA(User.class));
   }
 }

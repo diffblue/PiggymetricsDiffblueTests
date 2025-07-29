@@ -151,7 +151,7 @@ public class AccountServiceImplDiffblueTest {
 
     // Assert
     verify(statisticsServiceClient).updateStatistics(eq("Name"), isA(Account.class));
-    verify(accountRepository).findByName(eq("Name"));
+    verify(accountRepository).findByName("Name");
     verify(accountRepository).save(isA(Account.class));
   }
 }

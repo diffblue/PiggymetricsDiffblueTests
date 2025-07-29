@@ -258,7 +258,7 @@ public class RecipientServiceImplDiffblueTest {
   public void testMarkNotified_thenThrowIllegalArgumentException() {
     // Arrange
     when(recipientRepository.save(Mockito.<Recipient>any()))
-        .thenThrow(new IllegalArgumentException("foo"));
+        .thenThrow(new IllegalArgumentException());
 
     NotificationSettings notificationSettings = new NotificationSettings();
     notificationSettings.setActive(true);
