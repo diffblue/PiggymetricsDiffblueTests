@@ -1,8 +1,10 @@
 package com.piggymetrics.account.controller;
 
 import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import com.diffblue.cover.annotations.ManagedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.piggymetrics.account.domain.Account;
 import com.piggymetrics.account.domain.Currency;
@@ -17,6 +19,7 @@ import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.Date;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +47,9 @@ public class AccountControllerDiffblueTest {
    * <p>Method under test: {@link AccountController#getAccountByName(String)}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"Account AccountController.getAccountByName(String)"})
   public void testGetAccountByName() throws Exception {
     // Arrange
     Saving saving = new Saving();
@@ -84,6 +90,9 @@ public class AccountControllerDiffblueTest {
    * <p>Method under test: {@link AccountController#getCurrentAccount(Principal)}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"Account AccountController.getCurrentAccount(Principal)"})
   public void testGetCurrentAccount() throws Exception {
     // Arrange
     Saving saving = new Saving();
@@ -125,13 +134,14 @@ public class AccountControllerDiffblueTest {
    * <p>Method under test: {@link AccountController#saveCurrentAccount(Principal, Account)}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"void AccountController.saveCurrentAccount(Principal, Account)"})
   public void testSaveCurrentAccount() throws Exception {
     // Arrange
     doNothing().when(accountService).saveChanges(Mockito.<String>any(), Mockito.<Account>any());
     MockHttpServletRequestBuilder putResult = MockMvcRequestBuilders.put("/current");
     putResult.principal(new UserPrincipal("principal"));
-    java.sql.Date lastSeen = mock(java.sql.Date.class);
-    when(lastSeen.getTime()).thenReturn(10L);
 
     Saving saving = new Saving();
     saving.setAmount(new BigDecimal("2.3"));
@@ -143,7 +153,8 @@ public class AccountControllerDiffblueTest {
     Account account = new Account();
     account.setExpenses(new ArrayList<>());
     account.setIncomes(new ArrayList<>());
-    account.setLastSeen(lastSeen);
+    account.setLastSeen(
+        Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
     account.setName("Name");
     account.setNote("Note");
     account.setSaving(saving);
@@ -165,6 +176,9 @@ public class AccountControllerDiffblueTest {
    * <p>Method under test: {@link AccountController#createNewAccount(User)}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"Account AccountController.createNewAccount(User)"})
   public void testCreateNewAccount() throws Exception {
     // Arrange
     Saving saving = new Saving();

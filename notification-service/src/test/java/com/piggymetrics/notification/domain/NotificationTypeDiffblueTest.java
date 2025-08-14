@@ -1,7 +1,11 @@
 package com.piggymetrics.notification.domain;
 
 import static org.junit.Assert.assertEquals;
+import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import com.diffblue.cover.annotations.ManagedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 public class NotificationTypeDiffblueTest {
   /**
@@ -16,6 +20,13 @@ public class NotificationTypeDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "String NotificationType.getAttachment()",
+    "String NotificationType.getSubject()",
+    "String NotificationType.getText()"
+  })
   public void testGettersAndSetters() {
     // Arrange
     NotificationType valueOfResult = NotificationType.valueOf("BACKUP");

@@ -5,6 +5,9 @@ import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import com.diffblue.cover.annotations.ManagedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.piggymetrics.notification.domain.NotificationType;
 import com.piggymetrics.notification.domain.Recipient;
 import java.io.IOException;
@@ -13,6 +16,7 @@ import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.internet.MimeMessage;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -42,6 +46,9 @@ public class EmailServiceImplDiffblueTest {
    * <p>Method under test: {@link EmailServiceImpl#send(NotificationType, Recipient, String)}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"void EmailServiceImpl.send(NotificationType, Recipient, String)"})
   public void testSend_givenEnvironmentGetPropertyReturnProperty_thenCallsGetProperty()
       throws IOException, MessagingException, MailException {
     // Arrange
@@ -74,6 +81,9 @@ public class EmailServiceImplDiffblueTest {
    * <p>Method under test: {@link EmailServiceImpl#send(NotificationType, Recipient, String)}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"void EmailServiceImpl.send(NotificationType, Recipient, String)"})
   public void testSend_whenEmptyString_thenCallsGetProperty()
       throws IOException, MessagingException, MailException {
     // Arrange

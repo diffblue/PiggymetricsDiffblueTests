@@ -4,8 +4,12 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
+import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import com.diffblue.cover.annotations.ManagedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.piggymetrics.account.service.security.CustomUserInfoTokenServices;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceServerProperties;
@@ -39,6 +43,11 @@ public class ResourceServerConfigDiffblueTest {
    * <p>Method under test: {@link ResourceServerConfig#clientCredentialsResourceDetails()}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "ClientCredentialsResourceDetails ResourceServerConfig.clientCredentialsResourceDetails()"
+  })
   public void testClientCredentialsResourceDetails() {
     // Arrange and Act
     ClientCredentialsResourceDetails actualClientCredentialsResourceDetailsResult =
@@ -73,6 +82,11 @@ public class ResourceServerConfigDiffblueTest {
    * <p>Method under test: {@link ResourceServerConfig#clientCredentialsResourceDetails()}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "ClientCredentialsResourceDetails ResourceServerConfig.clientCredentialsResourceDetails()"
+  })
   public void testClientCredentialsResourceDetails_givenResourceServerConfig() {
     // Arrange and Act
     ClientCredentialsResourceDetails actualClientCredentialsResourceDetailsResult =
@@ -103,6 +117,11 @@ public class ResourceServerConfigDiffblueTest {
    * <p>Method under test: {@link ResourceServerConfig#oauth2FeignRequestInterceptor()}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "feign.RequestInterceptor ResourceServerConfig.oauth2FeignRequestInterceptor()"
+  })
   public void testOauth2FeignRequestInterceptor() {
     // Arrange, Act and Assert
     assertTrue(
@@ -120,6 +139,11 @@ public class ResourceServerConfigDiffblueTest {
    * <p>Method under test: {@link ResourceServerConfig#oauth2FeignRequestInterceptor()}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "feign.RequestInterceptor ResourceServerConfig.oauth2FeignRequestInterceptor()"
+  })
   public void testOauth2FeignRequestInterceptor_givenResourceServerConfig() {
     // Arrange, Act and Assert
     assertTrue(
@@ -133,6 +157,9 @@ public class ResourceServerConfigDiffblueTest {
    * <p>Method under test: {@link ResourceServerConfig#clientCredentialsRestTemplate()}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"OAuth2RestTemplate ResourceServerConfig.clientCredentialsRestTemplate()"})
   public void testClientCredentialsRestTemplate() {
     // Arrange and Act
     OAuth2RestTemplate actualClientCredentialsRestTemplateResult =
@@ -167,6 +194,9 @@ public class ResourceServerConfigDiffblueTest {
    * <p>Method under test: {@link ResourceServerConfig#clientCredentialsRestTemplate()}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"OAuth2RestTemplate ResourceServerConfig.clientCredentialsRestTemplate()"})
   public void testClientCredentialsRestTemplate_givenResourceServerConfig() {
     // Arrange and Act
     OAuth2RestTemplate actualClientCredentialsRestTemplateResult =
@@ -201,6 +231,11 @@ public class ResourceServerConfigDiffblueTest {
    * <p>Method under test: {@link ResourceServerConfig#tokenServices()}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "org.springframework.security.oauth2.provider.token.ResourceServerTokenServices ResourceServerConfig.tokenServices()"
+  })
   public void testTokenServices_givenResourceServerConfig() {
     // Arrange, Act and Assert
     assertTrue(resourceServerConfig.tokenServices() instanceof CustomUserInfoTokenServices);
@@ -217,6 +252,11 @@ public class ResourceServerConfigDiffblueTest {
    * <p>Method under test: {@link ResourceServerConfig#tokenServices()}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "org.springframework.security.oauth2.provider.token.ResourceServerTokenServices ResourceServerConfig.tokenServices()"
+  })
   public void testTokenServices_givenResourceServerConfigWithSsoIsResourceServerProperties() {
     // Arrange, Act and Assert
     assertTrue(

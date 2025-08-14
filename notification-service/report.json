@@ -3,25 +3,24 @@
     "reportVersion" : "2.7"
   },
   "run" : {
-    "version" : "2025.07.02-0d6df9c-licensed",
-    "creationTimestamp" : "2025-07-29T13:37:28.62Z",
+    "version" : "2025.08.01-2501cfb-licensed",
+    "creationTimestamp" : "2025-08-14T15:47:06.997Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --exclude=com.piggymetrics.notification.service.NotificationServiceImpl. --working-directory=notification-service",
-    "totalTime" : 372.516,
-    "environmentDetectionTime" : 0.763,
-    "indexingTime" : 0.567,
-    "entryPointsTime" : 0.722,
-    "generationTime" : 293.429,
-    "timeToFirstTest" : 108.489,
-    "timeToLastTest" : 329.754,
-    "indexQueryTime" : 13.844,
-    "verificationTime" : 10.68,
-    "validationTime" : 19.977
+    "totalTime" : 326.798,
+    "environmentDetectionTime" : 0.678,
+    "indexingTime" : 0.664,
+    "entryPointsTime" : 0.638,
+    "generationTime" : 238.956,
+    "timeToFirstTest" : 109.461,
+    "timeToLastTest" : 277.536,
+    "indexQueryTime" : 13.278,
+    "verificationTime" : 12.015,
+    "validationTime" : 20.946
   },
   "codes" : {
     "E052" : "Missing dependency",
     "R000" : "Success",
     "R004" : "No meaningful assertions found",
-    "R013" : "No inputs found that don't throw a trivial exception",
     "T000" : "Method eligible for test creation",
     "T001" : "Trivial getter",
     "T002" : "Trivial setter",
@@ -38,9 +37,9 @@
   "summary" : {
     "classesCount" : 19,
     "methodsCount" : 84,
-    "cumulativeDiffblueTestCount" : 26,
+    "cumulativeDiffblueTestCount" : 27,
     "cumulativeManualTestCount" : 16,
-    "completeTestCount" : 26,
+    "completeTestCount" : 27,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "totalPhysicalLineCount" : 411,
@@ -59,9 +58,8 @@
     },
     "perMethodOutcome" : {
       "E052" : 14,
-      "R000" : 31,
+      "R000" : 32,
       "R004" : 1,
-      "R013" : 1,
       "T003" : 2,
       "T005" : 8,
       "T006" : 1,
@@ -71,10 +69,10 @@
       "T033" : 7
     },
     "perTestOutcome" : {
-      "R000" : 26
+      "R000" : 27
     },
     "perTestValidation" : {
-      "V000" : 26
+      "V000" : 27
     }
   },
   "classes" : {
@@ -133,19 +131,18 @@
     },
     "com.piggymetrics.notification.controller.RecipientController" : {
       "methodsCount" : 3,
-      "completeTestCount" : 1,
+      "completeTestCount" : 2,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 2,
         "T005" : 1
       },
       "perMethodOutcome" : {
-        "R000" : 1,
-        "R013" : 1,
+        "R000" : 2,
         "T005" : 1
       },
       "perTestOutcome" : {
-        "R000" : 1
+        "R000" : 2
       }
     },
     "com.piggymetrics.notification.domain.Frequency" : {
@@ -468,10 +465,13 @@
       ]
     },
     "com.piggymetrics.notification.controller.RecipientController.saveCurrentNotificationsSettings:(Ljava/security/Principal;Lcom/piggymetrics/notification/domain/Recipient;)Ljava/lang/Object;" : {
-      "completeTestCount" : 0,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R013",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
       "lineNumbers" : [
         28
       ]

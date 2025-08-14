@@ -1,11 +1,15 @@
 package com.piggymetrics.auth.controller;
 
 import static org.mockito.Mockito.doNothing;
+import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import com.diffblue.cover.annotations.ManagedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.piggymetrics.auth.domain.User;
 import com.piggymetrics.auth.service.UserService;
 import java.security.Principal;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +35,9 @@ public class UserControllerDiffblueTest {
    * <p>Method under test: {@link UserController#getUser(Principal)}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"Principal UserController.getUser(Principal)"})
   public void testGetUser() throws Exception {
     // Arrange
     MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/users/current");
@@ -48,6 +55,9 @@ public class UserControllerDiffblueTest {
    * <p>Method under test: {@link UserController#createUser(User)}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"void UserController.createUser(User)"})
   public void testCreateUser() throws Exception {
     // Arrange
     doNothing().when(userService).create(Mockito.<User>any());

@@ -4,7 +4,11 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
+import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import com.diffblue.cover.annotations.ManagedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.security.oauth2.client.feign.OAuth2FeignRequestInterceptor;
@@ -34,6 +38,11 @@ public class ResourceServerConfigDiffblueTest {
    * <p>Method under test: {@link ResourceServerConfig#clientCredentialsResourceDetails()}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "ClientCredentialsResourceDetails ResourceServerConfig.clientCredentialsResourceDetails()"
+  })
   public void testClientCredentialsResourceDetails_givenResourceServerConfig() {
     // Arrange and Act
     ClientCredentialsResourceDetails actualClientCredentialsResourceDetailsResult =
@@ -68,6 +77,11 @@ public class ResourceServerConfigDiffblueTest {
    * <p>Method under test: {@link ResourceServerConfig#clientCredentialsResourceDetails()}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "ClientCredentialsResourceDetails ResourceServerConfig.clientCredentialsResourceDetails()"
+  })
   public void testClientCredentialsResourceDetails_givenResourceServerConfig2() {
     // Arrange and Act
     ClientCredentialsResourceDetails actualClientCredentialsResourceDetailsResult =
@@ -102,6 +116,11 @@ public class ResourceServerConfigDiffblueTest {
    * <p>Method under test: {@link ResourceServerConfig#oauth2FeignRequestInterceptor()}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "feign.RequestInterceptor ResourceServerConfig.oauth2FeignRequestInterceptor()"
+  })
   public void testOauth2FeignRequestInterceptor_givenResourceServerConfig() {
     // Arrange, Act and Assert
     assertTrue(
@@ -119,6 +138,11 @@ public class ResourceServerConfigDiffblueTest {
    * <p>Method under test: {@link ResourceServerConfig#oauth2FeignRequestInterceptor()}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "feign.RequestInterceptor ResourceServerConfig.oauth2FeignRequestInterceptor()"
+  })
   public void testOauth2FeignRequestInterceptor_givenResourceServerConfig2() {
     // Arrange, Act and Assert
     assertTrue(
@@ -136,6 +160,9 @@ public class ResourceServerConfigDiffblueTest {
    * <p>Method under test: {@link ResourceServerConfig#clientCredentialsRestTemplate()}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"OAuth2RestTemplate ResourceServerConfig.clientCredentialsRestTemplate()"})
   public void testClientCredentialsRestTemplate_givenResourceServerConfig() {
     // Arrange and Act
     OAuth2RestTemplate actualClientCredentialsRestTemplateResult =
@@ -170,6 +197,9 @@ public class ResourceServerConfigDiffblueTest {
    * <p>Method under test: {@link ResourceServerConfig#clientCredentialsRestTemplate()}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"OAuth2RestTemplate ResourceServerConfig.clientCredentialsRestTemplate()"})
   public void testClientCredentialsRestTemplate_givenResourceServerConfig2() {
     // Arrange and Act
     OAuth2RestTemplate actualClientCredentialsRestTemplateResult =

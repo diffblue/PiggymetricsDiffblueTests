@@ -8,6 +8,9 @@ import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import com.diffblue.cover.annotations.ManagedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.piggymetrics.account.client.AuthServiceClient;
 import com.piggymetrics.account.client.StatisticsServiceClient;
 import com.piggymetrics.account.domain.Account;
@@ -21,6 +24,7 @@ import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.Date;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,6 +54,9 @@ public class AccountServiceImplDiffblueTest {
    * <p>Method under test: {@link AccountServiceImpl#findByName(String)}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"Account AccountServiceImpl.findByName(String)"})
   public void testFindByName_whenDrJaneDoe_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull(accountServiceImpl.findByName("Dr Jane Doe"));
@@ -61,6 +68,9 @@ public class AccountServiceImplDiffblueTest {
    * <p>Method under test: {@link AccountServiceImpl#create(User)}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"Account AccountServiceImpl.create(User)"})
   public void testCreate() {
     // Arrange
     User user = new User();
@@ -91,6 +101,9 @@ public class AccountServiceImplDiffblueTest {
    * <p>Method under test: {@link AccountServiceImpl#saveChanges(String, Account)}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"void AccountServiceImpl.saveChanges(String, Account)"})
   public void testSaveChanges() {
     // Arrange
     Saving saving = new Saving();

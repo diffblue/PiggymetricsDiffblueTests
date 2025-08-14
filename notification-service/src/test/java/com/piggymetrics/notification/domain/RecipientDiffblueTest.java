@@ -3,9 +3,13 @@ package com.piggymetrics.notification.domain;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
+import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import com.diffblue.cover.annotations.ManagedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashMap;
 import java.util.Map;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 public class RecipientDiffblueTest {
   /**
@@ -25,6 +29,18 @@ public class RecipientDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "void Recipient.<init>()",
+    "String Recipient.getAccountName()",
+    "String Recipient.getEmail()",
+    "Map Recipient.getScheduledNotifications()",
+    "void Recipient.setAccountName(String)",
+    "void Recipient.setEmail(String)",
+    "void Recipient.setScheduledNotifications(Map)",
+    "String Recipient.toString()"
+  })
   public void testGettersAndSetters() {
     // Arrange and Act
     Recipient actualRecipient = new Recipient();

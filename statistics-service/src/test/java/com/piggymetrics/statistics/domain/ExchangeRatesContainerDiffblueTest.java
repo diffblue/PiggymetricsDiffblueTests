@@ -4,11 +4,15 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
+import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import com.diffblue.cover.annotations.ManagedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 public class ExchangeRatesContainerDiffblueTest {
   /**
@@ -27,6 +31,17 @@ public class ExchangeRatesContainerDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "Currency ExchangeRatesContainer.getBase()",
+    "LocalDate ExchangeRatesContainer.getDate()",
+    "Map ExchangeRatesContainer.getRates()",
+    "void ExchangeRatesContainer.setBase(Currency)",
+    "void ExchangeRatesContainer.setDate(LocalDate)",
+    "void ExchangeRatesContainer.setRates(Map)",
+    "String ExchangeRatesContainer.toString()"
+  })
   public void testGettersAndSetters() {
     // Arrange
     ExchangeRatesContainer exchangeRatesContainer = new ExchangeRatesContainer();
@@ -57,6 +72,9 @@ public class ExchangeRatesContainerDiffblueTest {
    * <p>Method under test: default or parameterless constructor of {@link ExchangeRatesContainer}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"void ExchangeRatesContainer.<init>()"})
   public void testNewExchangeRatesContainer() {
     // Arrange and Act
     ExchangeRatesContainer actualExchangeRatesContainer = new ExchangeRatesContainer();

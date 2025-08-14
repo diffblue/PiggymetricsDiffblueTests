@@ -2,10 +2,14 @@ package com.piggymetrics.statistics.domain;
 
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
+import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import com.diffblue.cover.annotations.ManagedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 public class AccountDiffblueTest {
   /**
@@ -24,6 +28,17 @@ public class AccountDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "void Account.<init>()",
+    "List Account.getExpenses()",
+    "List Account.getIncomes()",
+    "Saving Account.getSaving()",
+    "void Account.setExpenses(List)",
+    "void Account.setIncomes(List)",
+    "void Account.setSaving(Saving)"
+  })
   public void testGettersAndSetters() {
     // Arrange and Act
     Account actualAccount = new Account();

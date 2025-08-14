@@ -3,8 +3,12 @@ package com.piggymetrics.account.domain;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
+import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import com.diffblue.cover.annotations.ManagedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.math.BigDecimal;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 public class SavingDiffblueTest {
   /**
@@ -27,6 +31,21 @@ public class SavingDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "void Saving.<init>()",
+    "BigDecimal Saving.getAmount()",
+    "Boolean Saving.getCapitalization()",
+    "Currency Saving.getCurrency()",
+    "Boolean Saving.getDeposit()",
+    "BigDecimal Saving.getInterest()",
+    "void Saving.setAmount(BigDecimal)",
+    "void Saving.setCapitalization(Boolean)",
+    "void Saving.setCurrency(Currency)",
+    "void Saving.setDeposit(Boolean)",
+    "void Saving.setInterest(BigDecimal)"
+  })
   public void testGettersAndSetters() {
     // Arrange and Act
     Saving actualSaving = new Saving();

@@ -2,8 +2,12 @@ package com.piggymetrics.account.domain;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
+import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import com.diffblue.cover.annotations.ManagedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.math.BigDecimal;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 public class ItemDiffblueTest {
   /**
@@ -26,6 +30,21 @@ public class ItemDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "void Item.<init>()",
+    "BigDecimal Item.getAmount()",
+    "Currency Item.getCurrency()",
+    "String Item.getIcon()",
+    "TimePeriod Item.getPeriod()",
+    "String Item.getTitle()",
+    "void Item.setAmount(BigDecimal)",
+    "void Item.setCurrency(Currency)",
+    "void Item.setIcon(String)",
+    "void Item.setPeriod(TimePeriod)",
+    "void Item.setTitle(String)"
+  })
   public void testGettersAndSetters() {
     // Arrange and Act
     Item actualItem = new Item();

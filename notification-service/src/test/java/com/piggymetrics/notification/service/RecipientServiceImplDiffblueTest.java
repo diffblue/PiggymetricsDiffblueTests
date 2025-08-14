@@ -7,6 +7,9 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import com.diffblue.cover.annotations.ManagedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.piggymetrics.notification.domain.Frequency;
 import com.piggymetrics.notification.domain.NotificationSettings;
 import com.piggymetrics.notification.domain.NotificationType;
@@ -19,6 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -47,6 +51,9 @@ public class RecipientServiceImplDiffblueTest {
    * <p>Method under test: {@link RecipientServiceImpl#findByAccountName(String)}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"Recipient RecipientServiceImpl.findByAccountName(String)"})
   public void testFindByAccountName_whenNotEmpty_thenReturnNull() {
     // Arrange, Act and Assert
     assertNull(recipientServiceImpl.findByAccountName("not empty"));
@@ -64,6 +71,9 @@ public class RecipientServiceImplDiffblueTest {
    * <p>Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"Recipient RecipientServiceImpl.save(String, Recipient)"})
   public void testSave_givenHashMap_whenMrJohnSmith_thenRecipientAccountNameIsMrJohnSmith() {
     // Arrange
     Recipient recipient = new Recipient();
@@ -89,6 +99,9 @@ public class RecipientServiceImplDiffblueTest {
    * <p>Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"Recipient RecipientServiceImpl.save(String, Recipient)"})
   public void testSave_givenNotificationSettingsLastNotifiedIsNull() {
     // Arrange
     NotificationSettings notificationSettings = new NotificationSettings();
@@ -104,26 +117,26 @@ public class RecipientServiceImplDiffblueTest {
     recipient.setEmail("jane.doe@example.org");
     recipient.setScheduledNotifications(scheduledNotifications);
 
-    // Act
-    Recipient actualSaveResult = recipientServiceImpl.save("Dr Jane Doe", recipient);
-
-    // Assert
-    assertEquals("Dr Jane Doe", recipient.getAccountName());
-    assertEquals("Dr Jane Doe", actualSaveResult.getAccountName());
-    assertSame(scheduledNotifications, actualSaveResult.getScheduledNotifications());
+    // Act and Assert
+    assertSame(
+        scheduledNotifications,
+        recipientServiceImpl.save("Mr John Smith", recipient).getScheduledNotifications());
   }
 
   /**
    * Test {@link RecipientServiceImpl#save(String, Recipient)}.
    *
    * <ul>
-   *   <li>Then {@link Recipient} (default constructor) AccountName is {@code Dr Jane Doe}.
+   *   <li>Then return ScheduledNotifications is {@link HashMap#HashMap()}.
    * </ul>
    *
    * <p>Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
    */
   @Test
-  public void testSave_thenRecipientAccountNameIsDrJaneDoe() {
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"Recipient RecipientServiceImpl.save(String, Recipient)"})
+  public void testSave_thenReturnScheduledNotificationsIsHashMap() {
     // Arrange
     NotificationSettings notificationSettings = new NotificationSettings();
     notificationSettings.setActive(true);
@@ -139,13 +152,10 @@ public class RecipientServiceImplDiffblueTest {
     recipient.setEmail("jane.doe@example.org");
     recipient.setScheduledNotifications(scheduledNotifications);
 
-    // Act
-    Recipient actualSaveResult = recipientServiceImpl.save("Dr Jane Doe", recipient);
-
-    // Assert
-    assertEquals("Dr Jane Doe", recipient.getAccountName());
-    assertEquals("Dr Jane Doe", actualSaveResult.getAccountName());
-    assertSame(scheduledNotifications, actualSaveResult.getScheduledNotifications());
+    // Act and Assert
+    assertSame(
+        scheduledNotifications,
+        recipientServiceImpl.save("Mr John Smith", recipient).getScheduledNotifications());
   }
 
   /**
@@ -158,6 +168,9 @@ public class RecipientServiceImplDiffblueTest {
    * <p>Method under test: {@link RecipientServiceImpl#save(String, Recipient)}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"Recipient RecipientServiceImpl.save(String, Recipient)"})
   public void testSave_thenReturnScheduledNotificationsSizeIsTwo() {
     // Arrange
     NotificationSettings notificationSettings = new NotificationSettings();
@@ -183,7 +196,7 @@ public class RecipientServiceImplDiffblueTest {
 
     // Act and Assert
     Map<NotificationType, NotificationSettings> scheduledNotifications2 =
-        recipientServiceImpl.save("Dr Jane Doe", recipient).getScheduledNotifications();
+        recipientServiceImpl.save("Mr John Smith", recipient).getScheduledNotifications();
     assertEquals(2, scheduledNotifications2.size());
     assertTrue(scheduledNotifications2.containsKey(NotificationType.BACKUP));
     assertSame(notificationSettings2, scheduledNotifications2.get(NotificationType.REMIND));
@@ -200,6 +213,9 @@ public class RecipientServiceImplDiffblueTest {
    * <p>Method under test: {@link RecipientServiceImpl#findReadyToNotify(NotificationType)}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"java.util.List RecipientServiceImpl.findReadyToNotify(NotificationType)"})
   public void testFindReadyToNotify_whenRemind_thenReturnEmpty() {
     // Arrange, Act and Assert
     assertTrue(recipientServiceImpl.findReadyToNotify(NotificationType.REMIND).isEmpty());
@@ -216,6 +232,9 @@ public class RecipientServiceImplDiffblueTest {
    * <p>Method under test: {@link RecipientServiceImpl#markNotified(NotificationType, Recipient)}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"void RecipientServiceImpl.markNotified(NotificationType, Recipient)"})
   public void testMarkNotified_givenRecipientAccountNameIsDrJaneDoe_thenCallsSave() {
     // Arrange
     Recipient recipient = new Recipient();
@@ -255,6 +274,9 @@ public class RecipientServiceImplDiffblueTest {
    * <p>Method under test: {@link RecipientServiceImpl#markNotified(NotificationType, Recipient)}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"void RecipientServiceImpl.markNotified(NotificationType, Recipient)"})
   public void testMarkNotified_thenThrowIllegalArgumentException() {
     // Arrange
     when(recipientRepository.save(Mockito.<Recipient>any()))

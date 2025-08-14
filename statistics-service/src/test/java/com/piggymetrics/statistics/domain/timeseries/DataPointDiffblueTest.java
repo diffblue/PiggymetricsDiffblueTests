@@ -2,6 +2,9 @@ package com.piggymetrics.statistics.domain.timeseries;
 
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
+import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import com.diffblue.cover.annotations.ManagedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.piggymetrics.statistics.domain.Currency;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -12,6 +15,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 public class DataPointDiffblueTest {
   /**
@@ -34,6 +38,21 @@ public class DataPointDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "void DataPoint.<init>()",
+    "Set DataPoint.getExpenses()",
+    "DataPointId DataPoint.getId()",
+    "Set DataPoint.getIncomes()",
+    "Map DataPoint.getRates()",
+    "Map DataPoint.getStatistics()",
+    "void DataPoint.setExpenses(Set)",
+    "void DataPoint.setId(DataPointId)",
+    "void DataPoint.setIncomes(Set)",
+    "void DataPoint.setRates(Map)",
+    "void DataPoint.setStatistics(Map)"
+  })
   public void testGettersAndSetters() {
     // Arrange and Act
     DataPoint actualDataPoint = new DataPoint();

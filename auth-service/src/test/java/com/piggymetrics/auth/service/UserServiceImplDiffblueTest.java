@@ -3,11 +3,15 @@ package com.piggymetrics.auth.service;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import com.diffblue.cover.annotations.ManagedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.piggymetrics.auth.domain.User;
 import com.piggymetrics.auth.repository.UserRepository;
 import java.util.Optional;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -36,6 +40,9 @@ public class UserServiceImplDiffblueTest {
    * <p>Method under test: {@link UserServiceImpl#create(User)}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"void UserServiceImpl.create(User)"})
   public void testCreate_givenUserRepositoryFindByIdReturnOfUser() {
     // Arrange
     User user = new User();
@@ -65,6 +72,9 @@ public class UserServiceImplDiffblueTest {
    * <p>Method under test: {@link UserServiceImpl#create(User)}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"void UserServiceImpl.create(User)"})
   public void testCreate_givenUserRepositoryFindByIdThrowIllegalArgumentException() {
     // Arrange
     when(userRepository.findById(Mockito.<String>any())).thenThrow(new IllegalArgumentException());
@@ -91,6 +101,9 @@ public class UserServiceImplDiffblueTest {
    * <p>Method under test: {@link UserServiceImpl#create(User)}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"void UserServiceImpl.create(User)"})
   public void testCreate_givenUserRepositorySaveReturnUser_thenCallsSave() {
     // Arrange
     User user = new User();

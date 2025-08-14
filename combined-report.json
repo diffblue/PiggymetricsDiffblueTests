@@ -1,60 +1,60 @@
 {
-  "version" : "2025.07.02-0d6df9c-licensed",
-  "totalTime" : 1691.9350000000002,
-  "environmentDetectionTime" : 6.7299999999999995,
-  "indexingTime" : 6.912,
-  "entryPointsTime" : 6.401,
-  "generationTime" : 1225.5649999999998,
-  "timeToFirstTest" : 76.58644444444445,
-  "timeToLastTest" : 164.00977777777777,
-  "verificationTime" : 42.16,
-  "validationTime" : 80.415,
-  "summary" : {
-    "classesCount" : 75,
-    "methodsCount" : 362,
-    "cumulativeDiffblueTestCount" : 94,
-    "cumulativeManualTestCount" : 57,
-    "completeTestCount" : 94,
-    "incompleteTestCount" : 0,
-    "skeletonTestCount" : 0,
-    "totalPhysicalLineCount" : 1927,
-    "perMethodTestability" : {
-      "T000" : 118,
-      "T001" : 61,
-      "T002" : 52,
-      "T003" : 17,
-      "T005" : 41,
-      "T006" : 9,
-      "T010" : 19,
-      "T012" : 22,
-      "T020" : 3,
-      "T023" : 13,
-      "T033" : 7
+  "version": "2025.08.01-2501cfb-licensed",
+  "totalTime": 1709.279,
+  "environmentDetectionTime": 5.901,
+  "indexingTime": 5.378,
+  "entryPointsTime": 5.605999999999999,
+  "generationTime": 1192.551,
+  "timeToFirstTest": 78.30077777777778,
+  "timeToLastTest": 160.59744444444445,
+  "verificationTime": 44.382000000000005,
+  "validationTime": 83.235,
+  "summary": {
+    "classesCount": 75,
+    "methodsCount": 362,
+    "cumulativeDiffblueTestCount": 95,
+    "cumulativeManualTestCount": 57,
+    "completeTestCount": 95,
+    "incompleteTestCount": 0,
+    "skeletonTestCount": 0,
+    "totalPhysicalLineCount": 1927,
+    "perMethodTestability": {
+      "T000": 118,
+      "T001": 61,
+      "T002": 52,
+      "T003": 17,
+      "T005": 41,
+      "T006": 9,
+      "T010": 19,
+      "T012": 22,
+      "T020": 3,
+      "T023": 13,
+      "T033": 7
     },
-    "perMethodOutcome" : {
-      "E052" : 49,
-      "R000" : 170,
-      "R002" : 6,
-      "R004" : 7,
-      "R013" : 8,
-      "T003" : 17,
-      "T005" : 35,
-      "T006" : 9,
-      "T010" : 19,
-      "T012" : 22,
-      "T023" : 13,
-      "T033" : 7
+    "perMethodOutcome": {
+      "E052": 49,
+      "R000": 171,
+      "R002": 6,
+      "R004": 7,
+      "R013": 7,
+      "T003": 17,
+      "T005": 35,
+      "T006": 9,
+      "T010": 19,
+      "T012": 22,
+      "T023": 13,
+      "T033": 7
     },
-    "perTestOutcome" : {
-      "R000" : 94
+    "perTestOutcome": {
+      "R000": 95
     },
-    "perTestValidation" : {
-      "V000" : 94
+    "perTestValidation": {
+      "V000": 95
     }
   },
-  "coverageMetrics" : {
-    "branchCoveragePercent" : "44.68%",
-    "classesWithIncompleteInstructionCoverage" : [
+  "coverageMetrics": {
+    "branchCoveragePercent": "44.68%",
+    "classesWithIncompleteInstructionCoverage": [
       "com.piggymetrics.account.controller.ErrorHandler",
       "com.piggymetrics.account.service.security.CustomUserInfoTokenServices",
       "com.piggymetrics.account.client.StatisticsServiceClientFallback",
@@ -63,48 +63,54 @@
       "com.piggymetrics.auth.AuthApplication",
       "com.piggymetrics.auth.config.WebSecurityConfig",
       "com.piggymetrics.auth.service.security.MongoUserDetailsService",
+      "com.piggymetrics.config.SecurityConfig",
       "com.piggymetrics.config.ConfigApplication",
-      "com.piggymetrics.notification.NotificationServiceApplication.CustomConversionsConfig",
+      "com.piggymetrics.gateway.GatewayApplication",
+      "com.piggymetrics.monitoring.MonitoringApplication",
+      "com.piggymetrics.notification.NotificationServiceApplication$CustomConversionsConfig",
       "com.piggymetrics.notification.NotificationServiceApplication",
-      "com.piggymetrics.notification.controller.RecipientController",
       "com.piggymetrics.notification.service.NotificationServiceImpl",
       "com.piggymetrics.notification.service.RecipientServiceImpl",
+      "com.piggymetrics.registry.RegistryApplication",
       "com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices",
       "com.piggymetrics.statistics.StatisticsApplication",
-      "com.piggymetrics.statistics.StatisticsApplication.CustomConversionsConfig",
+      "com.piggymetrics.statistics.StatisticsApplication$CustomConversionsConfig",
       "com.piggymetrics.statistics.repository.converter.DataPointIdReaderConverter",
-      "com.piggymetrics.statistics.service.ExchangeRatesServiceImpl"
+      "com.piggymetrics.statistics.service.ExchangeRatesServiceImpl",
+      "com.piggymetrics.turbine.TurbineStreamServiceApplication"
     ],
-    "complexCoveredLines" : 157,
-    "complexLineCoveragePercent" : "78.11%",
-    "complexityThreshold" : 10,
-    "coveredBranches" : 21,
-    "coveredComplexity" : 81,
-    "coveredLines" : 474,
-    "lineCoveragePercent" : "79%",
-    "totalBranches" : 47,
-    "totalComplexLines" : 201,
-    "totalComplexity" : 103,
-    "totalLines" : 600
+    "complexCoveredLines": 157,
+    "complexLineCoveragePercent": "78.11%",
+    "complexityThreshold": 10,
+    "coveredBranches": 21,
+    "coveredComplexity": 81,
+    "coveredLines": 465,
+    "lineCoveragePercent": "75.98%",
+    "totalBranches": 47,
+    "totalComplexLines": 201,
+    "totalComplexity": 103,
+    "totalLines": 612
   },
-  "piTestMetrics" : {
-    "mutationsKilled" : 115,
-    "mutationsKilledPercent" : "56.1%",
-    "mutationsNoCoverage" : 38,
-    "mutationsSurvived" : 52,
-    "mutationsTotal" : 205
+  "piTestMetrics": {
+    "mutationsKilled": 116,
+    "mutationsKilledPercent": "56.59%",
+    "mutationsNoCoverage": 37,
+    "mutationsSurvived": 52,
+    "mutationsTotal": 205
   },
-  "pmdMetrics" : {
-    "violationsCount" : 71
+  "pmdMetrics": {
+    "violationsCount": 73
   },
-  "testDiffStatSummary" : {
-    "files" : 3,
-    "insertions" : 29,
-    "deletions" : 26
+  "testDiffStatSummary": {
+    "files": 39,
+    "insertions": 795,
+    "deletions": 134
   },
-  "diffblueTestDiffStatSummary" : {
-    "files" : 3,
-    "insertions" : 29,
-    "deletions" : 26
-  }
+  "diffblueTestDiffStatSummary": {
+    "files": 39,
+    "insertions": 795,
+    "deletions": 134
+  },
+  "userLogFileSizeInBytes": 10945364,
+  "supportLogFileSizeInBytes": 16751272
 }

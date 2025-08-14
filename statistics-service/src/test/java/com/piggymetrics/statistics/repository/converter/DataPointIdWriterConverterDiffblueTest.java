@@ -3,6 +3,9 @@ package com.piggymetrics.statistics.repository.converter;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
+import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import com.diffblue.cover.annotations.ManagedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.mongodb.DBObject;
 import com.piggymetrics.statistics.domain.timeseries.DataPointId;
 import java.time.LocalDate;
@@ -10,6 +13,7 @@ import java.time.ZoneOffset;
 import java.util.Date;
 import java.util.Map;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -30,6 +34,9 @@ public class DataPointIdWriterConverterDiffblueTest {
    * <p>Method under test: {@link DataPointIdWriterConverter#convert(DataPointId)}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"DBObject DataPointIdWriterConverter.convert(DataPointId)"})
   public void testConvertWithDataPointId_thenReturnMap() {
     // Arrange
     Date date =

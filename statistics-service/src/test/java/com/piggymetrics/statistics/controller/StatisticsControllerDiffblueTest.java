@@ -1,6 +1,9 @@
 package com.piggymetrics.statistics.controller;
 
 import static org.mockito.Mockito.when;
+import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import com.diffblue.cover.annotations.ManagedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.piggymetrics.statistics.domain.Account;
 import com.piggymetrics.statistics.domain.Currency;
@@ -18,6 +21,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +47,9 @@ public class StatisticsControllerDiffblueTest {
    * <p>Method under test: {@link StatisticsController#getCurrentAccountStatistics(Principal)}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"java.util.List StatisticsController.getCurrentAccountStatistics(Principal)"})
   public void testGetCurrentAccountStatistics() throws Exception {
     // Arrange
     when(statisticsService.findByAccountName(Mockito.<String>any())).thenReturn(new ArrayList<>());
@@ -64,6 +71,9 @@ public class StatisticsControllerDiffblueTest {
    * <p>Method under test: {@link StatisticsController#getStatisticsByAccountName(String)}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"java.util.List StatisticsController.getStatisticsByAccountName(String)"})
   public void testGetStatisticsByAccountName() throws Exception {
     // Arrange
     MockHttpServletRequestBuilder requestBuilder =
@@ -84,6 +94,9 @@ public class StatisticsControllerDiffblueTest {
    * <p>Method under test: {@link StatisticsController#saveAccountStatistics(String, Account)}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"void StatisticsController.saveAccountStatistics(String, Account)"})
   public void testSaveAccountStatistics() throws Exception {
     // Arrange
     DataPoint dataPoint = new DataPoint();

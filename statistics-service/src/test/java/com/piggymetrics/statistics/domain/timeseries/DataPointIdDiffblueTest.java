@@ -2,10 +2,14 @@ package com.piggymetrics.statistics.domain.timeseries;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
+import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import com.diffblue.cover.annotations.ManagedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.time.LocalDate;
 import java.time.ZoneOffset;
 import java.util.Date;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 public class DataPointIdDiffblueTest {
   /**
@@ -21,6 +25,14 @@ public class DataPointIdDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "void DataPointId.<init>(String, Date)",
+    "String DataPointId.getAccount()",
+    "Date DataPointId.getDate()",
+    "String DataPointId.toString()"
+  })
   public void testGettersAndSetters() {
     // Arrange
     Date date =

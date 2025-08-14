@@ -1,8 +1,12 @@
 package com.piggymetrics.statistics.config;
 
 import static org.junit.Assert.assertTrue;
+import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import com.diffblue.cover.annotations.ManagedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceServerProperties;
@@ -28,6 +32,11 @@ public class ResourceServerConfigDiffblueTest {
    * <p>Method under test: {@link ResourceServerConfig#tokenServices()}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "org.springframework.security.oauth2.provider.token.ResourceServerTokenServices ResourceServerConfig.tokenServices()"
+  })
   public void testTokenServices() {
     // Arrange, Act and Assert
     assertTrue(resourceServerConfig.tokenServices() instanceof CustomUserInfoTokenServices);

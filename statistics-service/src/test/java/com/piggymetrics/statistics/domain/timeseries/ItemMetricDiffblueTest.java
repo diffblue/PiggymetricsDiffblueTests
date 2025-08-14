@@ -3,8 +3,12 @@ package com.piggymetrics.statistics.domain.timeseries;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertSame;
+import com.diffblue.cover.annotations.ContributionFromDiffblue;
+import com.diffblue.cover.annotations.ManagedByDiffblue;
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.math.BigDecimal;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 public class ItemMetricDiffblueTest {
   /**
@@ -19,6 +23,13 @@ public class ItemMetricDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "void ItemMetric.<init>(String, BigDecimal)",
+    "BigDecimal ItemMetric.getAmount()",
+    "String ItemMetric.getTitle()"
+  })
   public void testGettersAndSetters() {
     // Arrange
     BigDecimal amount = new BigDecimal("2.3");
@@ -49,6 +60,9 @@ public class ItemMetricDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean ItemMetric.equals(Object)", "int ItemMetric.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     ItemMetric itemMetric = new ItemMetric("Dr", new BigDecimal("2.3"));
@@ -76,6 +90,9 @@ public class ItemMetricDiffblueTest {
    * </ul>
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean ItemMetric.equals(Object)", "int ItemMetric.hashCode()"})
   public void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     ItemMetric itemMetric = new ItemMetric("Dr", new BigDecimal("2.3"));
@@ -97,6 +114,9 @@ public class ItemMetricDiffblueTest {
    * <p>Method under test: {@link ItemMetric#equals(Object)}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean ItemMetric.equals(Object)", "int ItemMetric.hashCode()"})
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     ItemMetric itemMetric = new ItemMetric("Mr", new BigDecimal("2.3"));
@@ -116,6 +136,9 @@ public class ItemMetricDiffblueTest {
    * <p>Method under test: {@link ItemMetric#equals(Object)}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean ItemMetric.equals(Object)", "int ItemMetric.hashCode()"})
   public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new ItemMetric("Dr", new BigDecimal("2.3")), null);
@@ -132,6 +155,9 @@ public class ItemMetricDiffblueTest {
    * <p>Method under test: {@link ItemMetric#equals(Object)}
    */
   @Test
+  @Category(ContributionFromDiffblue.class)
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean ItemMetric.equals(Object)", "int ItemMetric.hashCode()"})
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new ItemMetric("Dr", new BigDecimal("2.3")), "Different type to ItemMetric");
