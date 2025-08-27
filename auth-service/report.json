@@ -3,19 +3,19 @@
     "reportVersion" : "2.7"
   },
   "run" : {
-    "version" : "2025.08.01-2501cfb-licensed",
-    "creationTimestamp" : "2025-08-14T15:25:35.963Z",
+    "version" : "2025.08.02-3d625ac-licensed",
+    "creationTimestamp" : "2025-08-27T11:13:03.275Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --exclude=com.piggymetrics.notification.service.NotificationServiceImpl. --working-directory=auth-service",
-    "totalTime" : 287.685,
-    "environmentDetectionTime" : 1.366,
-    "indexingTime" : 0.465,
-    "entryPointsTime" : 1.334,
-    "generationTime" : 211.143,
-    "timeToFirstTest" : 84.429,
-    "timeToLastTest" : 243.841,
-    "indexQueryTime" : 13.207,
-    "verificationTime" : 8.353,
-    "validationTime" : 18.483
+    "totalTime" : 283.397,
+    "environmentDetectionTime" : 0.168,
+    "indexingTime" : 0.596,
+    "entryPointsTime" : 0.134,
+    "generationTime" : 207.706,
+    "timeToFirstTest" : 82.494,
+    "timeToLastTest" : 241.039,
+    "indexQueryTime" : 13.974,
+    "verificationTime" : 8.485,
+    "validationTime" : 17.489
   },
   "codes" : {
     "E052" : "Missing dependency",
@@ -42,10 +42,10 @@
     "skeletonTestCount" : 0,
     "totalPhysicalLineCount" : 237,
     "perMethodTestability" : {
-      "T000" : 24,
+      "T000" : 25,
       "T001" : 6,
       "T002" : 2,
-      "T005" : 5,
+      "T005" : 4,
       "T006" : 1,
       "T010" : 1,
       "T012" : 2,
@@ -103,8 +103,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
-        "T000" : 3,
-        "T005" : 1
+        "T000" : 4
       },
       "perMethodOutcome" : {
         "R004" : 1,
@@ -302,7 +301,7 @@
     "com.piggymetrics.auth.config.WebSecurityConfig.<init>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T005",
+      "perMethodTestability" : "T000",
       "perMethodOutcome" : "T005",
       "lineNumbers" : [
         17
