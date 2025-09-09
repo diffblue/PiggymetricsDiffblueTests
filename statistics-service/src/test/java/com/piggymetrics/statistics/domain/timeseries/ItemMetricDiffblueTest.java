@@ -70,8 +70,7 @@ public class ItemMetricDiffblueTest {
 
     // Act and Assert
     assertEquals(itemMetric, itemMetric2);
-    int expectedHashCodeResult = itemMetric.hashCode();
-    assertEquals(expectedHashCodeResult, itemMetric2.hashCode());
+    assertEquals(itemMetric.hashCode(), itemMetric2.hashCode());
   }
 
   /**
@@ -120,9 +119,10 @@ public class ItemMetricDiffblueTest {
   public void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     ItemMetric itemMetric = new ItemMetric("Mr", new BigDecimal("2.3"));
+    ItemMetric itemMetric2 = new ItemMetric("Dr", new BigDecimal("2.3"));
 
     // Act and Assert
-    assertNotEquals(itemMetric, new ItemMetric("Dr", new BigDecimal("2.3")));
+    assertNotEquals(itemMetric, itemMetric2);
   }
 
   /**
@@ -140,8 +140,11 @@ public class ItemMetricDiffblueTest {
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean ItemMetric.equals(Object)", "int ItemMetric.hashCode()"})
   public void testEquals_whenOtherIsNull_thenReturnNotEqual() {
-    // Arrange, Act and Assert
-    assertNotEquals(new ItemMetric("Dr", new BigDecimal("2.3")), null);
+    // Arrange
+    ItemMetric itemMetric = new ItemMetric("Dr", new BigDecimal("2.3"));
+
+    // Act and Assert
+    assertNotEquals(itemMetric, null);
   }
 
   /**
@@ -159,7 +162,10 @@ public class ItemMetricDiffblueTest {
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean ItemMetric.equals(Object)", "int ItemMetric.hashCode()"})
   public void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
-    // Arrange, Act and Assert
-    assertNotEquals(new ItemMetric("Dr", new BigDecimal("2.3")), "Different type to ItemMetric");
+    // Arrange
+    ItemMetric itemMetric = new ItemMetric("Dr", new BigDecimal("2.3"));
+
+    // Act and Assert
+    assertNotEquals(itemMetric, "Different type to ItemMetric");
   }
 }

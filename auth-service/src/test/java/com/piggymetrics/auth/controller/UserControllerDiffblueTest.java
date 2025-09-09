@@ -1,6 +1,7 @@
 package com.piggymetrics.auth.controller;
 
 import static org.mockito.Mockito.doNothing;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
@@ -19,7 +20,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 @ContextConfiguration(classes = {UserController.class})
@@ -46,7 +46,7 @@ public class UserControllerDiffblueTest {
     MockMvcBuilders.standaloneSetup(userController)
         .build()
         .perform(requestBuilder)
-        .andExpect(MockMvcResultMatchers.status().isOk());
+        .andExpect(status().isOk());
   }
 
   /**
@@ -65,7 +65,11 @@ public class UserControllerDiffblueTest {
     User user = new User();
     user.setPassword("iloveyou");
     user.setUsername("janedoe");
-    String content = new ObjectMapper().writeValueAsString(user);
+
+    ObjectMapper objectMapper = new ObjectMapper();
+    objectMapper.findAndRegisterModules();
+    String content = objectMapper.writeValueAsString(user);
+
     MockHttpServletRequestBuilder requestBuilder =
         MockMvcRequestBuilders.post("/users")
             .contentType(MediaType.APPLICATION_JSON)
@@ -75,6 +79,6 @@ public class UserControllerDiffblueTest {
     MockMvcBuilders.standaloneSetup(userController)
         .build()
         .perform(requestBuilder)
-        .andExpect(MockMvcResultMatchers.status().isOk());
+        .andExpect(status().isOk());
   }
 }

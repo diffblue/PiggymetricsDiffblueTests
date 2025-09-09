@@ -1,6 +1,8 @@
 package com.piggymetrics.notification.controller;
 
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
@@ -21,7 +23,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 @ContextConfiguration(classes = {RecipientController.class})
@@ -49,6 +50,7 @@ public class RecipientControllerDiffblueTest {
     recipient.setEmail("jane.doe@example.org");
     recipient.setScheduledNotifications(new HashMap<>());
     when(recipientService.findByAccountName(Mockito.<String>any())).thenReturn(recipient);
+
     MockHttpServletRequestBuilder requestBuilder =
         MockMvcRequestBuilders.get("/recipients/current");
     requestBuilder.principal(new UserPrincipal("principal"));
@@ -57,10 +59,10 @@ public class RecipientControllerDiffblueTest {
     MockMvcBuilders.standaloneSetup(recipientController)
         .build()
         .perform(requestBuilder)
-        .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/json;charset=UTF-8"))
+        .andExpect(status().isOk())
+        .andExpect(content().contentType("application/json;charset=UTF-8"))
         .andExpect(
-            MockMvcResultMatchers.content()
+            content()
                 .string(
                     "{\"accountName\":\"Dr Jane Doe\",\"email\":\"jane.doe@example.org\",\"scheduledNotifications\":{}}"));
   }
@@ -85,6 +87,7 @@ public class RecipientControllerDiffblueTest {
     recipient.setScheduledNotifications(new HashMap<>());
     when(recipientService.save(Mockito.<String>any(), Mockito.<Recipient>any()))
         .thenReturn(recipient);
+
     MockHttpServletRequestBuilder putResult = MockMvcRequestBuilders.put("/recipients/current");
     putResult.principal(new UserPrincipal("principal"));
 
@@ -92,7 +95,11 @@ public class RecipientControllerDiffblueTest {
     recipient2.setAccountName("Dr Jane Doe");
     recipient2.setEmail("jane.doe@example.org");
     recipient2.setScheduledNotifications(new HashMap<>());
-    String content = new ObjectMapper().writeValueAsString(recipient2);
+
+    ObjectMapper objectMapper = new ObjectMapper();
+    objectMapper.findAndRegisterModules();
+    String content = objectMapper.writeValueAsString(recipient2);
+
     MockHttpServletRequestBuilder requestBuilder =
         putResult.contentType(MediaType.APPLICATION_JSON).content(content);
 
@@ -100,10 +107,10 @@ public class RecipientControllerDiffblueTest {
     MockMvcBuilders.standaloneSetup(recipientController)
         .build()
         .perform(requestBuilder)
-        .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/json;charset=UTF-8"))
+        .andExpect(status().isOk())
+        .andExpect(content().contentType("application/json;charset=UTF-8"))
         .andExpect(
-            MockMvcResultMatchers.content()
+            content()
                 .string(
                     "{\"accountName\":\"Dr Jane Doe\",\"email\":\"jane.doe@example.org\",\"scheduledNotifications\":{}}"));
   }

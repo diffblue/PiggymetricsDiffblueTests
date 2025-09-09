@@ -2,6 +2,8 @@ package com.piggymetrics.account.controller;
 
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
@@ -29,7 +31,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 @ContextConfiguration(classes = {AccountController.class, ErrorHandler.class})
@@ -68,6 +69,7 @@ public class AccountControllerDiffblueTest {
     account.setNote("Note");
     account.setSaving(saving);
     when(accountService.findByName(Mockito.<String>any())).thenReturn(account);
+
     MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/{name}", "Name");
 
     // Act and Assert
@@ -75,10 +77,10 @@ public class AccountControllerDiffblueTest {
         .setControllerAdvice(errorHandler)
         .build()
         .perform(requestBuilder)
-        .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/json;charset=UTF-8"))
+        .andExpect(status().isOk())
+        .andExpect(content().contentType("application/json;charset=UTF-8"))
         .andExpect(
-            MockMvcResultMatchers.content()
+            content()
                 .string(
                     "{\"name\":\"Name\",\"lastSeen\":0,\"incomes\":[],\"expenses\":[],\"saving\":{\"amount\":2.3,\"currency\":\"USD\",\"interest"
                         + "\":2.3,\"deposit\":true,\"capitalization\":true},\"note\":\"Note\"}"));
@@ -111,6 +113,7 @@ public class AccountControllerDiffblueTest {
     account.setNote("Note");
     account.setSaving(saving);
     when(accountService.findByName(Mockito.<String>any())).thenReturn(account);
+
     MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/current");
     requestBuilder.principal(new UserPrincipal("principal"));
 
@@ -119,10 +122,10 @@ public class AccountControllerDiffblueTest {
         .setControllerAdvice(errorHandler)
         .build()
         .perform(requestBuilder)
-        .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/json;charset=UTF-8"))
+        .andExpect(status().isOk())
+        .andExpect(content().contentType("application/json;charset=UTF-8"))
         .andExpect(
-            MockMvcResultMatchers.content()
+            content()
                 .string(
                     "{\"name\":\"Name\",\"lastSeen\":0,\"incomes\":[],\"expenses\":[],\"saving\":{\"amount\":2.3,\"currency\":\"USD\",\"interest"
                         + "\":2.3,\"deposit\":true,\"capitalization\":true},\"note\":\"Note\"}"));
@@ -140,6 +143,7 @@ public class AccountControllerDiffblueTest {
   public void testSaveCurrentAccount() throws Exception {
     // Arrange
     doNothing().when(accountService).saveChanges(Mockito.<String>any(), Mockito.<Account>any());
+
     MockHttpServletRequestBuilder putResult = MockMvcRequestBuilders.put("/current");
     putResult.principal(new UserPrincipal("principal"));
 
@@ -158,7 +162,11 @@ public class AccountControllerDiffblueTest {
     account.setName("Name");
     account.setNote("Note");
     account.setSaving(saving);
-    String content = new ObjectMapper().writeValueAsString(account);
+
+    ObjectMapper objectMapper = new ObjectMapper();
+    objectMapper.findAndRegisterModules();
+    String content = objectMapper.writeValueAsString(account);
+
     MockHttpServletRequestBuilder requestBuilder =
         putResult.contentType(MediaType.APPLICATION_JSON).content(content);
 
@@ -167,7 +175,7 @@ public class AccountControllerDiffblueTest {
         .setControllerAdvice(errorHandler)
         .build()
         .perform(requestBuilder)
-        .andExpect(MockMvcResultMatchers.status().isOk());
+        .andExpect(status().isOk());
   }
 
   /**
@@ -201,7 +209,11 @@ public class AccountControllerDiffblueTest {
     User user = new User();
     user.setPassword("iloveyou");
     user.setUsername("janedoe");
-    String content = new ObjectMapper().writeValueAsString(user);
+
+    ObjectMapper objectMapper = new ObjectMapper();
+    objectMapper.findAndRegisterModules();
+    String content = objectMapper.writeValueAsString(user);
+
     MockHttpServletRequestBuilder requestBuilder =
         MockMvcRequestBuilders.post("/").contentType(MediaType.APPLICATION_JSON).content(content);
 
@@ -210,10 +222,10 @@ public class AccountControllerDiffblueTest {
         .setControllerAdvice(errorHandler)
         .build()
         .perform(requestBuilder)
-        .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/json;charset=UTF-8"))
+        .andExpect(status().isOk())
+        .andExpect(content().contentType("application/json;charset=UTF-8"))
         .andExpect(
-            MockMvcResultMatchers.content()
+            content()
                 .string(
                     "{\"name\":\"Name\",\"lastSeen\":0,\"incomes\":[],\"expenses\":[],\"saving\":{\"amount\":2.3,\"currency\":\"USD\",\"interest"
                         + "\":2.3,\"deposit\":true,\"capitalization\":true},\"note\":\"Note\"}"));

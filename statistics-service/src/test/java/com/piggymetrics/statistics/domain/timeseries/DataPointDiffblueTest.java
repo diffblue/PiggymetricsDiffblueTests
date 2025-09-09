@@ -58,11 +58,9 @@ public class DataPointDiffblueTest {
     DataPoint actualDataPoint = new DataPoint();
     HashSet<ItemMetric> expenses = new HashSet<>();
     actualDataPoint.setExpenses(expenses);
-    DataPointId id =
-        new DataPointId(
-            "3",
-            Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
-
+    Date date =
+        Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
+    DataPointId id = new DataPointId("3", date);
     actualDataPoint.setId(id);
     HashSet<ItemMetric> incomes = new HashSet<>();
     actualDataPoint.setIncomes(incomes);

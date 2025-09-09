@@ -85,10 +85,10 @@ public class StatisticsServiceImplDiffblueTest {
 
     DataPoint dataPoint = new DataPoint();
     dataPoint.setExpenses(new HashSet<>());
-    dataPoint.setId(
-        new DataPointId(
-            "3",
-            Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant())));
+    Date date =
+        Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
+    DataPointId id = new DataPointId("3", date);
+    dataPoint.setId(id);
     dataPoint.setIncomes(new HashSet<>());
     dataPoint.setRates(new HashMap<>());
     dataPoint.setStatistics(new HashMap<>());
@@ -149,10 +149,10 @@ public class StatisticsServiceImplDiffblueTest {
 
     DataPoint dataPoint = new DataPoint();
     dataPoint.setExpenses(new HashSet<>());
-    dataPoint.setId(
-        new DataPointId(
-            "3",
-            Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant())));
+    Date date =
+        Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
+    DataPointId id = new DataPointId("3", date);
+    dataPoint.setId(id);
     dataPoint.setIncomes(new HashSet<>());
     dataPoint.setRates(new HashMap<>());
     dataPoint.setStatistics(new HashMap<>());
@@ -220,10 +220,10 @@ public class StatisticsServiceImplDiffblueTest {
 
     DataPoint dataPoint = new DataPoint();
     dataPoint.setExpenses(new HashSet<>());
-    dataPoint.setId(
-        new DataPointId(
-            "3",
-            Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant())));
+    Date date =
+        Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
+    DataPointId id = new DataPointId("3", date);
+    dataPoint.setId(id);
     dataPoint.setIncomes(new HashSet<>());
     dataPoint.setRates(new HashMap<>());
     dataPoint.setStatistics(new HashMap<>());
@@ -283,10 +283,10 @@ public class StatisticsServiceImplDiffblueTest {
 
     DataPoint dataPoint = new DataPoint();
     dataPoint.setExpenses(new HashSet<>());
-    dataPoint.setId(
-        new DataPointId(
-            "3",
-            Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant())));
+    Date date =
+        Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
+    DataPointId id = new DataPointId("3", date);
+    dataPoint.setId(id);
     dataPoint.setIncomes(new HashSet<>());
     dataPoint.setRates(new HashMap<>());
     dataPoint.setStatistics(new HashMap<>());

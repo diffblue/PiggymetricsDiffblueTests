@@ -41,9 +41,10 @@ public class DataPointIdWriterConverterDiffblueTest {
     // Arrange
     Date date =
         Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
+    DataPointId id = new DataPointId("3", date);
 
     // Act
-    DBObject actualConvertResult = dataPointIdWriterConverter.convert(new DataPointId("3", date));
+    DBObject actualConvertResult = dataPointIdWriterConverter.convert(id);
 
     // Assert
     assertTrue(actualConvertResult instanceof Map);

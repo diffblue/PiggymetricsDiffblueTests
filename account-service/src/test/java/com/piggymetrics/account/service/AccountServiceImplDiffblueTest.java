@@ -89,10 +89,8 @@ public class AccountServiceImplDiffblueTest {
     assertEquals(Currency.USD, saving.getCurrency());
     assertFalse(saving.getCapitalization());
     assertFalse(saving.getDeposit());
-    BigDecimal expectedAmount = new BigDecimal("0");
-    assertEquals(expectedAmount, saving.getAmount());
-    BigDecimal expectedInterest = new BigDecimal("0");
-    assertEquals(expectedInterest, saving.getInterest());
+    assertEquals(new BigDecimal("0"), saving.getAmount());
+    assertEquals(new BigDecimal("0"), saving.getInterest());
   }
 
   /**

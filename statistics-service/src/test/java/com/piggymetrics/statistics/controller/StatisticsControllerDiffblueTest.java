@@ -1,6 +1,8 @@
 package com.piggymetrics.statistics.controller;
 
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import com.diffblue.cover.annotations.ContributionFromDiffblue;
 import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
@@ -31,7 +33,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 @ContextConfiguration(classes = {StatisticsController.class})
@@ -53,6 +54,7 @@ public class StatisticsControllerDiffblueTest {
   public void testGetCurrentAccountStatistics() throws Exception {
     // Arrange
     when(statisticsService.findByAccountName(Mockito.<String>any())).thenReturn(new ArrayList<>());
+
     MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/current");
     requestBuilder.principal(new UserPrincipal("principal"));
 
@@ -60,9 +62,9 @@ public class StatisticsControllerDiffblueTest {
     MockMvcBuilders.standaloneSetup(statisticsController)
         .build()
         .perform(requestBuilder)
-        .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/json;charset=UTF-8"))
-        .andExpect(MockMvcResultMatchers.content().string("[]"));
+        .andExpect(status().isOk())
+        .andExpect(content().contentType("application/json;charset=UTF-8"))
+        .andExpect(content().string("[]"));
   }
 
   /**
@@ -83,9 +85,9 @@ public class StatisticsControllerDiffblueTest {
     MockMvcBuilders.standaloneSetup(statisticsController)
         .build()
         .perform(requestBuilder)
-        .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType("application/json;charset=UTF-8"))
-        .andExpect(MockMvcResultMatchers.content().string("[]"));
+        .andExpect(status().isOk())
+        .andExpect(content().contentType("application/json;charset=UTF-8"))
+        .andExpect(content().string("[]"));
   }
 
   /**
@@ -101,10 +103,10 @@ public class StatisticsControllerDiffblueTest {
     // Arrange
     DataPoint dataPoint = new DataPoint();
     dataPoint.setExpenses(new HashSet<>());
-    dataPoint.setId(
-        new DataPointId(
-            "3",
-            Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant())));
+    Date date =
+        Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
+    DataPointId id = new DataPointId("3", date);
+    dataPoint.setId(id);
     dataPoint.setIncomes(new HashSet<>());
     dataPoint.setRates(new HashMap<>());
     dataPoint.setStatistics(new HashMap<>());
@@ -122,7 +124,11 @@ public class StatisticsControllerDiffblueTest {
     account.setExpenses(new ArrayList<>());
     account.setIncomes(new ArrayList<>());
     account.setSaving(saving);
-    String content = new ObjectMapper().writeValueAsString(account);
+
+    ObjectMapper objectMapper = new ObjectMapper();
+    objectMapper.findAndRegisterModules();
+    String content = objectMapper.writeValueAsString(account);
+
     MockHttpServletRequestBuilder requestBuilder =
         MockMvcRequestBuilders.put("/{accountName}", "Dr Jane Doe")
             .contentType(MediaType.APPLICATION_JSON)
@@ -132,6 +138,6 @@ public class StatisticsControllerDiffblueTest {
     MockMvcBuilders.standaloneSetup(statisticsController)
         .build()
         .perform(requestBuilder)
-        .andExpect(MockMvcResultMatchers.status().isOk());
+        .andExpect(status().isOk());
   }
 }
