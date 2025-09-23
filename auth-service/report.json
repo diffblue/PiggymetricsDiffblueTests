@@ -3,24 +3,23 @@
     "reportVersion" : "2.7"
   },
   "run" : {
-    "version" : "2025.09.01-44e352d-licensed",
-    "creationTimestamp" : "2025-09-09T14:07:36.351Z",
+    "version" : "2025.09.02-db13a15-licensed",
+    "creationTimestamp" : "2025-09-23T17:55:46.399Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --exclude=com.piggymetrics.notification.service.NotificationServiceImpl. --working-directory=auth-service",
-    "totalTime" : 282.485,
-    "environmentDetectionTime" : 0.178,
-    "indexingTime" : 0.58,
-    "entryPointsTime" : 0.145,
-    "generationTime" : 210.24,
-    "timeToFirstTest" : 82.222,
-    "timeToLastTest" : 243.159,
-    "indexQueryTime" : 13.32,
-    "verificationTime" : 8.233,
-    "validationTime" : 14.965
+    "totalTime" : 265.618,
+    "environmentDetectionTime" : 0.814,
+    "indexingTime" : 0.606,
+    "entryPointsTime" : 0.78,
+    "generationTime" : 199.336,
+    "timeToFirstTest" : 80.365,
+    "timeToLastTest" : 224.677,
+    "indexQueryTime" : 9.0,
+    "verificationTime" : 8.47,
+    "validationTime" : 16.086
   },
   "codes" : {
     "E052" : "Missing dependency",
     "R000" : "Success",
-    "R004" : "No meaningful assertions found",
     "R013" : "No inputs found that don't throw a trivial exception",
     "T000" : "Method eligible for test creation",
     "T001" : "Trivial getter",
@@ -54,8 +53,7 @@
     "perMethodOutcome" : {
       "E052" : 11,
       "R000" : 17,
-      "R004" : 1,
-      "R013" : 2,
+      "R013" : 3,
       "T005" : 6,
       "T006" : 1,
       "T010" : 1,
@@ -106,8 +104,7 @@
         "T000" : 4
       },
       "perMethodOutcome" : {
-        "R004" : 1,
-        "R013" : 2,
+        "R013" : 3,
         "T005" : 1
       }
     },
@@ -311,7 +308,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R004",
+      "perMethodOutcome" : "R013",
       "lineNumbers" : [
         41
       ]

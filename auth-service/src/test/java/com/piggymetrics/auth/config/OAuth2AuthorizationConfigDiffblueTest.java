@@ -95,6 +95,7 @@ public class OAuth2AuthorizationConfigDiffblueTest {
   })
   public void testConfigureWithOauthServer() throws Exception {
     // Arrange
+    OAuth2AuthorizationConfig oAuth2AuthorizationConfig = new OAuth2AuthorizationConfig();
     AuthorizationServerSecurityConfigurer oauthServer = new AuthorizationServerSecurityConfigurer();
 
     // Act

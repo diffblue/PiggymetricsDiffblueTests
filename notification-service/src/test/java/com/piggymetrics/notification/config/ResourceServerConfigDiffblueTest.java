@@ -110,7 +110,7 @@ public class ResourceServerConfigDiffblueTest {
    * Test {@link ResourceServerConfig#oauth2FeignRequestInterceptor()}.
    *
    * <ul>
-   *   <li>Given {@link ResourceServerConfig}.
+   *   <li>Given {@link ResourceServerConfig} (default constructor).
    * </ul>
    *
    * <p>Method under test: {@link ResourceServerConfig#oauth2FeignRequestInterceptor()}
@@ -124,7 +124,7 @@ public class ResourceServerConfigDiffblueTest {
   public void testOauth2FeignRequestInterceptor_givenResourceServerConfig() {
     // Arrange, Act and Assert
     assertTrue(
-        resourceServerConfig.oauth2FeignRequestInterceptor()
+        new ResourceServerConfig().oauth2FeignRequestInterceptor()
             instanceof OAuth2FeignRequestInterceptor);
   }
 
@@ -132,7 +132,7 @@ public class ResourceServerConfigDiffblueTest {
    * Test {@link ResourceServerConfig#oauth2FeignRequestInterceptor()}.
    *
    * <ul>
-   *   <li>Given {@link ResourceServerConfig} (default constructor).
+   *   <li>Then return {@link OAuth2FeignRequestInterceptor}.
    * </ul>
    *
    * <p>Method under test: {@link ResourceServerConfig#oauth2FeignRequestInterceptor()}
@@ -143,10 +143,10 @@ public class ResourceServerConfigDiffblueTest {
   @MethodsUnderTest({
     "feign.RequestInterceptor ResourceServerConfig.oauth2FeignRequestInterceptor()"
   })
-  public void testOauth2FeignRequestInterceptor_givenResourceServerConfig2() {
+  public void testOauth2FeignRequestInterceptor_thenReturnOAuth2FeignRequestInterceptor() {
     // Arrange, Act and Assert
     assertTrue(
-        new ResourceServerConfig().oauth2FeignRequestInterceptor()
+        resourceServerConfig.oauth2FeignRequestInterceptor()
             instanceof OAuth2FeignRequestInterceptor);
   }
 
