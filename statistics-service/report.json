@@ -3,19 +3,19 @@
     "reportVersion" : "2.7"
   },
   "run" : {
-    "version" : "2025.09.02-db13a15-licensed",
-    "creationTimestamp" : "2025-09-23T18:09:37.4Z",
+    "version" : "2025.10.01-4e50655-licensed",
+    "creationTimestamp" : "2025-10-06T12:31:22.625Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --exclude=com.piggymetrics.notification.service.NotificationServiceImpl. --working-directory=statistics-service",
-    "totalTime" : 357.858,
-    "environmentDetectionTime" : 1.043,
-    "indexingTime" : 0.734,
-    "entryPointsTime" : 1.004,
-    "generationTime" : 280.139,
-    "timeToFirstTest" : 86.77,
-    "timeToLastTest" : 310.169,
-    "indexQueryTime" : 8.977,
-    "verificationTime" : 11.792,
-    "validationTime" : 18.869
+    "totalTime" : 369.457,
+    "environmentDetectionTime" : 5.903,
+    "indexingTime" : 0.343,
+    "entryPointsTime" : 5.854,
+    "generationTime" : 286.72,
+    "timeToFirstTest" : 94.516,
+    "timeToLastTest" : 322.12,
+    "indexQueryTime" : 13.667,
+    "verificationTime" : 11.99,
+    "validationTime" : 18.88
   },
   "codes" : {
     "E052" : "Missing dependency",
@@ -32,12 +32,11 @@
     "T010" : "Abstract or interface method",
     "T012" : "Synthetic method",
     "T020" : "Other trivial method",
-    "T023" : "Testability unknown",
     "V000" : "Validated successfully"
   },
   "summary" : {
     "classesCount" : 24,
-    "methodsCount" : 125,
+    "methodsCount" : 120,
     "cumulativeDiffblueTestCount" : 32,
     "cumulativeManualTestCount" : 14,
     "completeTestCount" : 32,
@@ -53,8 +52,7 @@
       "T006" : 1,
       "T010" : 5,
       "T012" : 8,
-      "T020" : 2,
-      "T023" : 5
+      "T020" : 2
     },
     "perMethodOutcome" : {
       "E052" : 12,
@@ -66,8 +64,7 @@
       "T005" : 9,
       "T006" : 1,
       "T010" : 5,
-      "T012" : 8,
-      "T023" : 5
+      "T012" : 8
     },
     "perTestOutcome" : {
       "R000" : 32
@@ -179,20 +176,18 @@
       }
     },
     "com.piggymetrics.statistics.domain.Currency" : {
-      "methodsCount" : 5,
+      "methodsCount" : 4,
       "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T001" : 1,
         "T003" : 1,
-        "T012" : 2,
-        "T023" : 1
+        "T012" : 2
       },
       "perMethodOutcome" : {
         "R000" : 1,
         "T003" : 1,
-        "T012" : 2,
-        "T023" : 1
+        "T012" : 2
       },
       "perTestOutcome" : {
         "R000" : 1
@@ -248,21 +243,19 @@
       }
     },
     "com.piggymetrics.statistics.domain.TimePeriod" : {
-      "methodsCount" : 6,
+      "methodsCount" : 5,
       "completeTestCount" : 2,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 1,
         "T001" : 1,
         "T003" : 1,
-        "T012" : 2,
-        "T023" : 1
+        "T012" : 2
       },
       "perMethodOutcome" : {
         "R000" : 2,
         "T003" : 1,
-        "T012" : 2,
-        "T023" : 1
+        "T012" : 2
       },
       "perTestOutcome" : {
         "R000" : 2
@@ -317,18 +310,16 @@
       }
     },
     "com.piggymetrics.statistics.domain.timeseries.StatisticMetric" : {
-      "methodsCount" : 4,
+      "methodsCount" : 3,
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T003" : 1,
-        "T012" : 2,
-        "T023" : 1
+        "T012" : 2
       },
       "perMethodOutcome" : {
         "T003" : 1,
-        "T012" : 2,
-        "T023" : 1
+        "T012" : 2
       }
     },
     "com.piggymetrics.statistics.repository.DataPointRepository" : {
@@ -387,18 +378,16 @@
       }
     },
     "com.piggymetrics.statistics.service.ExchangeRatesServiceImpl" : {
-      "methodsCount" : 4,
+      "methodsCount" : 3,
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 2,
-        "T005" : 1,
-        "T023" : 1
+        "T005" : 1
       },
       "perMethodOutcome" : {
         "R013" : 2,
-        "T005" : 1,
-        "T023" : 1
+        "T005" : 1
       }
     },
     "com.piggymetrics.statistics.service.StatisticsService" : {
@@ -430,21 +419,19 @@
       }
     },
     "com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices" : {
-      "methodsCount" : 11,
+      "methodsCount" : 10,
       "completeTestCount" : 5,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 3,
         "T002" : 3,
-        "T003" : 4,
-        "T023" : 1
+        "T003" : 4
       },
       "perMethodOutcome" : {
         "R000" : 2,
         "R002" : 3,
         "R004" : 1,
-        "T003" : 4,
-        "T023" : 1
+        "T003" : 4
       },
       "perTestOutcome" : {
         "R000" : 5
@@ -672,12 +659,6 @@
         47,
         48
       ]
-    },
-    "com.piggymetrics.statistics.domain.Currency.<clinit>:()V" : {
-      "completeTestCount" : 0,
-      "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
     },
     "com.piggymetrics.statistics.domain.Currency.<init>:(Ljava/lang/String;I)V" : {
       "completeTestCount" : 0,
@@ -1067,12 +1048,6 @@
         45
       ]
     },
-    "com.piggymetrics.statistics.domain.TimePeriod.<clinit>:()V" : {
-      "completeTestCount" : 0,
-      "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
-    },
     "com.piggymetrics.statistics.domain.TimePeriod.<init>:(Ljava/lang/String;ID)V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
@@ -1380,12 +1355,6 @@
         44
       ]
     },
-    "com.piggymetrics.statistics.domain.timeseries.StatisticMetric.<clinit>:()V" : {
-      "completeTestCount" : 0,
-      "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
-    },
     "com.piggymetrics.statistics.domain.timeseries.StatisticMetric.<init>:(Ljava/lang/String;I)V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
@@ -1559,12 +1528,6 @@
       "perMethodTestability" : "T010",
       "perMethodOutcome" : "T010"
     },
-    "com.piggymetrics.statistics.service.ExchangeRatesServiceImpl.<clinit>:()V" : {
-      "completeTestCount" : 0,
-      "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
-    },
     "com.piggymetrics.statistics.service.ExchangeRatesServiceImpl.<init>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
@@ -1692,12 +1655,6 @@
         75,
         77
       ]
-    },
-    "com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices.<clinit>:()V" : {
-      "completeTestCount" : 0,
-      "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
     },
     "com.piggymetrics.statistics.service.security.CustomUserInfoTokenServices.<init>:(Ljava/lang/String;Ljava/lang/String;)V" : {
       "completeTestCount" : 0,

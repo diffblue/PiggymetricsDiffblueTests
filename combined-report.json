@@ -1,17 +1,17 @@
 {
-  "version": "2025.09.02-db13a15-licensed",
-  "totalTime": 1642.1,
-  "environmentDetectionTime": 7.187999999999999,
-  "indexingTime": 5.92,
-  "entryPointsTime": 6.84,
-  "generationTime": 1194.032,
-  "timeToFirstTest": 70.25944444444445,
-  "timeToLastTest": 154.01833333333332,
-  "verificationTime": 43.929,
-  "validationTime": 75.193,
+  "version": "2025.10.01-4e50655-licensed",
+  "totalTime": 1704.174,
+  "environmentDetectionTime": 41.645,
+  "indexingTime": 3.4299999999999997,
+  "entryPointsTime": 41.263,
+  "generationTime": 1221.0149999999999,
+  "timeToFirstTest": 75.49477777777777,
+  "timeToLastTest": 160.91077777777775,
+  "verificationTime": 43.688,
+  "validationTime": 74.944,
   "summary": {
-    "classesCount": 75,
-    "methodsCount": 362,
+    "classesCount": 74,
+    "methodsCount": 349,
     "cumulativeDiffblueTestCount": 95,
     "cumulativeManualTestCount": 57,
     "completeTestCount": 95,
@@ -28,7 +28,6 @@
       "T010": 19,
       "T012": 22,
       "T020": 3,
-      "T023": 13,
       "T033": 7
     },
     "perMethodOutcome": {
@@ -42,7 +41,6 @@
       "T006": 9,
       "T010": 19,
       "T012": 22,
-      "T023": 13,
       "T033": 7
     },
     "perTestOutcome": {
@@ -102,15 +100,15 @@
     "violationsCount": 73
   },
   "testDiffStatSummary": {
-    "files": 3,
-    "insertions": 8,
-    "deletions": 7
+    "files": 0,
+    "insertions": 0,
+    "deletions": 0
   },
   "diffblueTestDiffStatSummary": {
-    "files": 3,
-    "insertions": 8,
-    "deletions": 7
+    "files": 0,
+    "insertions": 0,
+    "deletions": 0
   },
-  "userLogFileSizeInBytes": 10426342,
-  "supportLogFileSizeInBytes": 16057211
+  "userLogFileSizeInBytes": 10440967,
+  "supportLogFileSizeInBytes": 16080531
 }

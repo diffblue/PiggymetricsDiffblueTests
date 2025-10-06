@@ -3,19 +3,19 @@
     "reportVersion" : "2.7"
   },
   "run" : {
-    "version" : "2025.09.02-db13a15-licensed",
-    "creationTimestamp" : "2025-09-23T17:55:46.399Z",
+    "version" : "2025.10.01-4e50655-licensed",
+    "creationTimestamp" : "2025-10-06T12:16:53.375Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --exclude=com.piggymetrics.notification.service.NotificationServiceImpl. --working-directory=auth-service",
-    "totalTime" : 265.618,
-    "environmentDetectionTime" : 0.814,
-    "indexingTime" : 0.606,
-    "entryPointsTime" : 0.78,
-    "generationTime" : 199.336,
-    "timeToFirstTest" : 80.365,
-    "timeToLastTest" : 224.677,
-    "indexQueryTime" : 9.0,
-    "verificationTime" : 8.47,
-    "validationTime" : 16.086
+    "totalTime" : 279.55,
+    "environmentDetectionTime" : 5.4,
+    "indexingTime" : 0.353,
+    "entryPointsTime" : 5.36,
+    "generationTime" : 208.059,
+    "timeToFirstTest" : 85.783,
+    "timeToLastTest" : 238.767,
+    "indexQueryTime" : 13.984,
+    "verificationTime" : 8.638,
+    "validationTime" : 16.062
   },
   "codes" : {
     "E052" : "Missing dependency",
@@ -28,12 +28,11 @@
     "T006" : "Main method",
     "T010" : "Abstract or interface method",
     "T012" : "Synthetic method",
-    "T023" : "Testability unknown",
     "V000" : "Validated successfully"
   },
   "summary" : {
     "classesCount" : 9,
-    "methodsCount" : 42,
+    "methodsCount" : 41,
     "cumulativeDiffblueTestCount" : 11,
     "cumulativeManualTestCount" : 9,
     "completeTestCount" : 11,
@@ -47,8 +46,7 @@
       "T005" : 4,
       "T006" : 1,
       "T010" : 1,
-      "T012" : 2,
-      "T023" : 1
+      "T012" : 2
     },
     "perMethodOutcome" : {
       "E052" : 11,
@@ -57,8 +55,7 @@
       "T005" : 6,
       "T006" : 1,
       "T010" : 1,
-      "T012" : 2,
-      "T023" : 1
+      "T012" : 2
     },
     "perTestOutcome" : {
       "R000" : 11
@@ -164,19 +161,17 @@
       }
     },
     "com.piggymetrics.auth.service.UserServiceImpl" : {
-      "methodsCount" : 4,
+      "methodsCount" : 3,
       "completeTestCount" : 3,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 2,
-        "T012" : 1,
-        "T023" : 1
+        "T012" : 1
       },
       "perMethodOutcome" : {
         "R000" : 1,
         "T005" : 1,
-        "T012" : 1,
-        "T023" : 1
+        "T012" : 1
       },
       "perTestOutcome" : {
         "R000" : 3
@@ -564,12 +559,6 @@
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T010",
       "perMethodOutcome" : "T010"
-    },
-    "com.piggymetrics.auth.service.UserServiceImpl.<clinit>:()V" : {
-      "completeTestCount" : 0,
-      "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
     },
     "com.piggymetrics.auth.service.UserServiceImpl.<init>:()V" : {
       "completeTestCount" : 0,
