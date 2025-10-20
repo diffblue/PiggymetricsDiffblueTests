@@ -1,21 +1,21 @@
 {
   "meta" : {
-    "reportVersion" : "2.7"
+    "reportVersion" : "2.8"
   },
   "run" : {
-    "version" : "2025.10.01-4e50655-licensed",
-    "creationTimestamp" : "2025-10-06T12:16:53.375Z",
+    "version" : "2025.10.02-8f75ba9-licensed",
+    "creationTimestamp" : "2025-10-20T21:18:48.902Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --exclude=com.piggymetrics.notification.service.NotificationServiceImpl. --working-directory=auth-service",
-    "totalTime" : 279.55,
-    "environmentDetectionTime" : 5.4,
-    "indexingTime" : 0.353,
-    "entryPointsTime" : 5.36,
-    "generationTime" : 208.059,
-    "timeToFirstTest" : 85.783,
-    "timeToLastTest" : 238.767,
-    "indexQueryTime" : 13.984,
-    "verificationTime" : 8.638,
-    "validationTime" : 16.062
+    "totalTime" : 251.216,
+    "environmentDetectionTime" : 4.911,
+    "indexingTime" : 0.349,
+    "entryPointsTime" : 4.875,
+    "generationTime" : 181.923,
+    "timeToFirstTest" : 77.264,
+    "timeToLastTest" : 210.955,
+    "indexQueryTime" : 8.479000000000001,
+    "verificationTime" : 8.547,
+    "validationTime" : 15.373
   },
   "codes" : {
     "E052" : "Missing dependency",
@@ -628,5 +628,193 @@
       ]
     }
   },
-  "validationMetrics" : { }
+  "validationMetrics" : { },
+  "outputCodes" : [
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.environment.UnsupportedDependencyMessage\",\"buildTool\":\"MAVEN\",\"detail\":null,\"recommendedDependency\":{\"artifactId\":\"cover-annotations\",\"buildContext\":\"PROVIDED\",\"groupId\":\"com.diffblue.cover\",\"name\":\"Cover Annotations\",\"version\":\"1.7.0\"},\"serializableCause\":null,\"unsupportedDependency\":{\"artifactId\":\"cover-annotations\",\"buildContext\":\"PROVIDED\",\"groupId\":\"com.diffblue.cover\",\"name\":\"Cover Annotations\",\"version\":\"1.6.0\"}}",
+      "methodGroup" : null
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.MainMethodMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.auth.AuthApplication",
+            "descriptor" : "([Ljava/lang/String;)V",
+            "methodName" : "main"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.TrivialConstructorMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.auth.AuthApplication",
+            "descriptor" : "()V",
+            "methodName" : "<init>"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.TrivialConstructorMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.auth.config.OAuth2AuthorizationConfig",
+            "descriptor" : "()V",
+            "methodName" : "<init>"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.limitation.NoNonThrowingInputsMessage\",\"serializableCause\":{\"cause\":null,\"message\":\"This object has not been built\",\"originalClassName\":\"java.lang.IllegalStateException\",\"stackTrace\":[{\"className\":\"org.springframework.security.config.annotation.AbstractSecurityBuilder\",\"fileName\":\"AbstractSecurityBuilder.java\",\"lineNumber\":55,\"methodName\":\"getObject\",\"nativeMethod\":false},{\"className\":\"org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter$AuthenticationManagerDelegator\",\"fileName\":\"WebSecurityConfigurerAdapter.java\",\"lineNumber\":507,\"methodName\":\"authenticate\",\"nativeMethod\":false},{\"className\":\"sun.reflect.NativeMethodAccessorImpl\",\"fileName\":\"NativeMethodAccessorImpl.java\",\"lineNumber\":-2,\"methodName\":\"invoke0\",\"nativeMethod\":true},{\"className\":\"sun.reflect.NativeMethodAccessorImpl\",\"fileName\":\"NativeMethodAccessorImpl.java\",\"lineNumber\":62,\"methodName\":\"invoke\",\"nativeMethod\":false},{\"className\":\"sun.reflect.DelegatingMethodAccessorImpl\",\"fileName\":\"DelegatingMethodAccessorImpl.java\",\"lineNumber\":43,\"methodName\":\"invoke\",\"nativeMethod\":false},{\"className\":\"java.lang.reflect.Method\",\"fileName\":\"Method.java\",\"lineNumber\":498,\"methodName\":\"invoke\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.h\",\"fileName\":\"SourceFile\",\"lineNumber\":140,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.h\",\"fileName\":\"SourceFile\",\"lineNumber\":77,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.a.f\",\"fileName\":\"SourceFile\",\"lineNumber\":852,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":463,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":99,\"methodName\":\"b\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.g.d\",\"fileName\":\"SourceFile\",\"lineNumber\":51,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.g\",\"fileName\":\"SourceFile\",\"lineNumber\":391,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.g\",\"fileName\":\"SourceFile\",\"lineNumber\":269,\"methodName\":\"b\",\"nativeMethod\":false},{\"className\":\"com.diffblue.fuzztest.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":1101,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.cover.sandbox.execution.TimedCallableExecutor$CallableFuture\",\"fileName\":\"SourceFile\",\"lineNumber\":28,\"methodName\":\"executeTask\",\"nativeMethod\":false},{\"className\":\"com.diffblue.cover.sandbox.execution.TaskQueueRunner\",\"fileName\":\"SourceFile\",\"lineNumber\":39,\"methodName\":\"run\",\"nativeMethod\":false},{\"className\":\"com.diffblue.cover.sandbox.execution.WorkerThread\",\"fileName\":\"SourceFile\",\"lineNumber\":265,\"methodName\":\"run\",\"nativeMethod\":false}]}}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.auth.config.WebSecurityConfig",
+            "descriptor" : "()Lorg/springframework/security/authentication/AuthenticationManager;",
+            "methodName" : "authenticationManagerBean"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.limitation.NoNonThrowingInputsMessage\",\"serializableCause\":{\"cause\":null,\"message\":null,\"originalClassName\":\"java.lang.NullPointerException\",\"stackTrace\":[{\"className\":\"com.piggymetrics.auth.config.WebSecurityConfig\",\"fileName\":\"WebSecurityConfig.java\",\"lineNumber\":34,\"methodName\":\"configure\",\"nativeMethod\":false},{\"className\":\"sun.reflect.NativeMethodAccessorImpl\",\"fileName\":\"NativeMethodAccessorImpl.java\",\"lineNumber\":-2,\"methodName\":\"invoke0\",\"nativeMethod\":true},{\"className\":\"sun.reflect.NativeMethodAccessorImpl\",\"fileName\":\"NativeMethodAccessorImpl.java\",\"lineNumber\":62,\"methodName\":\"invoke\",\"nativeMethod\":false},{\"className\":\"sun.reflect.DelegatingMethodAccessorImpl\",\"fileName\":\"DelegatingMethodAccessorImpl.java\",\"lineNumber\":43,\"methodName\":\"invoke\",\"nativeMethod\":false},{\"className\":\"java.lang.reflect.Method\",\"fileName\":\"Method.java\",\"lineNumber\":498,\"methodName\":\"invoke\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.h\",\"fileName\":\"SourceFile\",\"lineNumber\":140,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.h\",\"fileName\":\"SourceFile\",\"lineNumber\":77,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.a.f\",\"fileName\":\"SourceFile\",\"lineNumber\":852,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":463,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":99,\"methodName\":\"b\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.g.d\",\"fileName\":\"SourceFile\",\"lineNumber\":51,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.g\",\"fileName\":\"SourceFile\",\"lineNumber\":391,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.g\",\"fileName\":\"SourceFile\",\"lineNumber\":269,\"methodName\":\"b\",\"nativeMethod\":false},{\"className\":\"com.diffblue.fuzztest.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":1101,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.cover.sandbox.execution.TimedCallableExecutor$CallableFuture\",\"fileName\":\"SourceFile\",\"lineNumber\":28,\"methodName\":\"executeTask\",\"nativeMethod\":false},{\"className\":\"com.diffblue.cover.sandbox.execution.TaskQueueRunner\",\"fileName\":\"SourceFile\",\"lineNumber\":39,\"methodName\":\"run\",\"nativeMethod\":false},{\"className\":\"com.diffblue.cover.sandbox.execution.WorkerThread\",\"fileName\":\"SourceFile\",\"lineNumber\":265,\"methodName\":\"run\",\"nativeMethod\":false}]}}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.auth.config.WebSecurityConfig",
+            "descriptor" : "(Lorg/springframework/security/config/annotation/authentication/builders/AuthenticationManagerBuilder;)V",
+            "methodName" : "configure"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.limitation.NoNonThrowingInputsMessage\",\"serializableCause\":{\"cause\":null,\"message\":null,\"originalClassName\":\"java.lang.NullPointerException\",\"stackTrace\":[{\"className\":\"com.piggymetrics.auth.config.WebSecurityConfig\",\"fileName\":\"WebSecurityConfig.java\",\"lineNumber\":26,\"methodName\":\"configure\",\"nativeMethod\":false},{\"className\":\"sun.reflect.NativeMethodAccessorImpl\",\"fileName\":\"NativeMethodAccessorImpl.java\",\"lineNumber\":-2,\"methodName\":\"invoke0\",\"nativeMethod\":true},{\"className\":\"sun.reflect.NativeMethodAccessorImpl\",\"fileName\":\"NativeMethodAccessorImpl.java\",\"lineNumber\":62,\"methodName\":\"invoke\",\"nativeMethod\":false},{\"className\":\"sun.reflect.DelegatingMethodAccessorImpl\",\"fileName\":\"DelegatingMethodAccessorImpl.java\",\"lineNumber\":43,\"methodName\":\"invoke\",\"nativeMethod\":false},{\"className\":\"java.lang.reflect.Method\",\"fileName\":\"Method.java\",\"lineNumber\":498,\"methodName\":\"invoke\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.h\",\"fileName\":\"SourceFile\",\"lineNumber\":140,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.h\",\"fileName\":\"SourceFile\",\"lineNumber\":77,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.a.f\",\"fileName\":\"SourceFile\",\"lineNumber\":852,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":463,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":99,\"methodName\":\"b\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.g.d\",\"fileName\":\"SourceFile\",\"lineNumber\":51,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.g\",\"fileName\":\"SourceFile\",\"lineNumber\":391,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.g\",\"fileName\":\"SourceFile\",\"lineNumber\":269,\"methodName\":\"b\",\"nativeMethod\":false},{\"className\":\"com.diffblue.fuzztest.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":1101,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.cover.sandbox.execution.TimedCallableExecutor$CallableFuture\",\"fileName\":\"SourceFile\",\"lineNumber\":28,\"methodName\":\"executeTask\",\"nativeMethod\":false},{\"className\":\"com.diffblue.cover.sandbox.execution.TaskQueueRunner\",\"fileName\":\"SourceFile\",\"lineNumber\":39,\"methodName\":\"run\",\"nativeMethod\":false},{\"className\":\"com.diffblue.cover.sandbox.execution.WorkerThread\",\"fileName\":\"SourceFile\",\"lineNumber\":265,\"methodName\":\"run\",\"nativeMethod\":false}]}}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.auth.config.WebSecurityConfig",
+            "descriptor" : "(Lorg/springframework/security/config/annotation/web/builders/HttpSecurity;)V",
+            "methodName" : "configure"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.TrivialConstructorMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.auth.config.WebSecurityConfig",
+            "descriptor" : "()V",
+            "methodName" : "<init>"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.TrivialConstructorMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.auth.controller.UserController",
+            "descriptor" : "()V",
+            "methodName" : "<init>"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.environment.MissingDependencyMessage\",\"buildTool\":\"MAVEN\",\"dependencies\":[{\"artifactId\":\"hibernate-core\",\"buildContext\":\"PRODUCTION\",\"groupId\":\"org.hibernate\",\"name\":\"Hibernate Core\",\"version\":\"5.6.5.Final\"}],\"detail\":null,\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.auth.repository.UserRepository",
+            "descriptor" : "()J",
+            "methodName" : "count"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.auth.repository.UserRepository",
+            "descriptor" : "(Ljava/lang/Object;)V",
+            "methodName" : "delete"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.auth.repository.UserRepository",
+            "descriptor" : "()V",
+            "methodName" : "deleteAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.auth.repository.UserRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)V",
+            "methodName" : "deleteAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.auth.repository.UserRepository",
+            "descriptor" : "(Ljava/lang/Object;)V",
+            "methodName" : "deleteById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.auth.repository.UserRepository",
+            "descriptor" : "(Ljava/lang/Object;)Z",
+            "methodName" : "existsById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.auth.repository.UserRepository",
+            "descriptor" : "()Ljava/lang/Iterable;",
+            "methodName" : "findAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.auth.repository.UserRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)Ljava/lang/Iterable;",
+            "methodName" : "findAllById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.auth.repository.UserRepository",
+            "descriptor" : "(Ljava/lang/Object;)Ljava/util/Optional;",
+            "methodName" : "findById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.auth.repository.UserRepository",
+            "descriptor" : "(Ljava/lang/Object;)Ljava/lang/Object;",
+            "methodName" : "save"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.auth.repository.UserRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)Ljava/lang/Iterable;",
+            "methodName" : "saveAll"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.TrivialConstructorMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.auth.service.UserServiceImpl",
+            "descriptor" : "()V",
+            "methodName" : "<init>"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.TrivialConstructorMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.auth.service.security.MongoUserDetailsService",
+            "descriptor" : "()V",
+            "methodName" : "<init>"
+          }
+        ]
+      }
+    }
+  ]
 }

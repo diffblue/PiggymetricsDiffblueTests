@@ -1,19 +1,19 @@
 {
   "meta" : {
-    "reportVersion" : "2.7"
+    "reportVersion" : "2.8"
   },
   "run" : {
-    "version" : "2025.10.01-4e50655-licensed",
-    "creationTimestamp" : "2025-10-06T12:44:47.439Z",
+    "version" : "2025.10.02-8f75ba9-licensed",
+    "creationTimestamp" : "2025-10-20T21:45:00.713Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --exclude=com.piggymetrics.notification.service.NotificationServiceImpl. --working-directory=turbine-stream-service",
-    "totalTime" : 49.386,
-    "environmentDetectionTime" : 4.502,
-    "indexingTime" : 0.33,
-    "entryPointsTime" : 4.461,
-    "generationTime" : 12.716,
-    "timeToFirstTest" : 49.508,
-    "timeToLastTest" : 32.605,
-    "indexQueryTime" : 7.479,
+    "totalTime" : 46.485,
+    "environmentDetectionTime" : 4.804,
+    "indexingTime" : 0.887,
+    "entryPointsTime" : 4.764,
+    "generationTime" : 9.689,
+    "timeToFirstTest" : 46.601,
+    "timeToLastTest" : 30.013,
+    "indexQueryTime" : 5.141,
     "verificationTime" : 0.0,
     "validationTime" : 0.0
   },
@@ -75,5 +75,39 @@
       ]
     }
   },
-  "validationMetrics" : { }
+  "validationMetrics" : { },
+  "outputCodes" : [
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.environment.MissingDependencyMessage\",\"buildTool\":\"MAVEN\",\"dependencies\":[{\"artifactId\":\"reactor-test\",\"buildContext\":\"TEST\",\"groupId\":\"io.projectreactor\",\"name\":\"Reactor test\",\"version\":\"3.1.8.RELEASE\"}],\"detail\":null,\"serializableCause\":null}",
+      "methodGroup" : null
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.environment.UnsupportedDependencyMessage\",\"buildTool\":\"MAVEN\",\"detail\":null,\"recommendedDependency\":{\"artifactId\":\"cover-annotations\",\"buildContext\":\"PROVIDED\",\"groupId\":\"com.diffblue.cover\",\"name\":\"Cover Annotations\",\"version\":\"1.7.0\"},\"serializableCause\":null,\"unsupportedDependency\":{\"artifactId\":\"cover-annotations\",\"buildContext\":\"PROVIDED\",\"groupId\":\"com.diffblue.cover\",\"name\":\"Cover Annotations\",\"version\":\"1.6.0\"}}",
+      "methodGroup" : null
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.MainMethodMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.turbine.TurbineStreamServiceApplication",
+            "descriptor" : "([Ljava/lang/String;)V",
+            "methodName" : "main"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.TrivialConstructorMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.turbine.TurbineStreamServiceApplication",
+            "descriptor" : "()V",
+            "methodName" : "<init>"
+          }
+        ]
+      }
+    }
+  ]
 }

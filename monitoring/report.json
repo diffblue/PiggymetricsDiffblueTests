@@ -1,19 +1,19 @@
 {
   "meta" : {
-    "reportVersion" : "2.7"
+    "reportVersion" : "2.8"
   },
   "run" : {
-    "version" : "2025.10.01-4e50655-licensed",
-    "creationTimestamp" : "2025-10-06T12:11:57.242Z",
+    "version" : "2025.10.02-8f75ba9-licensed",
+    "creationTimestamp" : "2025-10-20T21:14:07.265Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --exclude=com.piggymetrics.notification.service.NotificationServiceImpl. --working-directory=monitoring",
-    "totalTime" : 47.208,
-    "environmentDetectionTime" : 3.329,
-    "indexingTime" : 0.393,
-    "entryPointsTime" : 3.292,
-    "generationTime" : 15.008,
-    "timeToFirstTest" : 47.308,
-    "timeToLastTest" : 31.847,
-    "indexQueryTime" : 6.556,
+    "totalTime" : 42.231,
+    "environmentDetectionTime" : 3.713,
+    "indexingTime" : 0.334,
+    "entryPointsTime" : 3.67,
+    "generationTime" : 9.374,
+    "timeToFirstTest" : 42.366,
+    "timeToLastTest" : 26.46,
+    "indexQueryTime" : 4.075,
     "verificationTime" : 0.0,
     "validationTime" : 0.0
   },
@@ -75,5 +75,35 @@
       ]
     }
   },
-  "validationMetrics" : { }
+  "validationMetrics" : { },
+  "outputCodes" : [
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.environment.UnsupportedDependencyMessage\",\"buildTool\":\"MAVEN\",\"detail\":null,\"recommendedDependency\":{\"artifactId\":\"cover-annotations\",\"buildContext\":\"PROVIDED\",\"groupId\":\"com.diffblue.cover\",\"name\":\"Cover Annotations\",\"version\":\"1.7.0\"},\"serializableCause\":null,\"unsupportedDependency\":{\"artifactId\":\"cover-annotations\",\"buildContext\":\"PROVIDED\",\"groupId\":\"com.diffblue.cover\",\"name\":\"Cover Annotations\",\"version\":\"1.6.0\"}}",
+      "methodGroup" : null
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.MainMethodMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.monitoring.MonitoringApplication",
+            "descriptor" : "([Ljava/lang/String;)V",
+            "methodName" : "main"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.TrivialConstructorMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.monitoring.MonitoringApplication",
+            "descriptor" : "()V",
+            "methodName" : "<init>"
+          }
+        ]
+      }
+    }
+  ]
 }

@@ -1,21 +1,21 @@
 {
   "meta" : {
-    "reportVersion" : "2.7"
+    "reportVersion" : "2.8"
   },
   "run" : {
-    "version" : "2025.10.01-4e50655-licensed",
-    "creationTimestamp" : "2025-10-06T12:38:34.749Z",
+    "version" : "2025.10.02-8f75ba9-licensed",
+    "creationTimestamp" : "2025-10-20T21:39:12.38Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --exclude=com.piggymetrics.notification.service.NotificationServiceImpl. --working-directory=notification-service",
-    "totalTime" : 320.499,
-    "environmentDetectionTime" : 5.499,
-    "indexingTime" : 0.356,
-    "entryPointsTime" : 5.451,
-    "generationTime" : 239.457,
-    "timeToFirstTest" : 107.881,
-    "timeToLastTest" : 273.185,
-    "indexQueryTime" : 12.879,
-    "verificationTime" : 11.301,
-    "validationTime" : 18.548
+    "totalTime" : 297.475,
+    "environmentDetectionTime" : 6.347,
+    "indexingTime" : 0.387,
+    "entryPointsTime" : 6.307,
+    "generationTime" : 215.411,
+    "timeToFirstTest" : 99.032,
+    "timeToLastTest" : 250.398,
+    "indexQueryTime" : 9.195,
+    "verificationTime" : 11.4,
+    "validationTime" : 18.352
   },
   "codes" : {
     "E052" : "Missing dependency",
@@ -1160,5 +1160,260 @@
       ]
     }
   },
-  "validationMetrics" : { }
+  "validationMetrics" : { },
+  "outputCodes" : [
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.environment.MissingDependencyMessage\",\"buildTool\":\"MAVEN\",\"dependencies\":[{\"artifactId\":\"reactor-test\",\"buildContext\":\"TEST\",\"groupId\":\"io.projectreactor\",\"name\":\"Reactor test\",\"version\":\"3.1.8.RELEASE\"}],\"detail\":null,\"serializableCause\":null}",
+      "methodGroup" : null
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.environment.UnsupportedDependencyMessage\",\"buildTool\":\"MAVEN\",\"detail\":null,\"recommendedDependency\":{\"artifactId\":\"cover-annotations\",\"buildContext\":\"PROVIDED\",\"groupId\":\"com.diffblue.cover\",\"name\":\"Cover Annotations\",\"version\":\"1.7.0\"},\"serializableCause\":null,\"unsupportedDependency\":{\"artifactId\":\"cover-annotations\",\"buildContext\":\"PROVIDED\",\"groupId\":\"com.diffblue.cover\",\"name\":\"Cover Annotations\",\"version\":\"1.6.0\"}}",
+      "methodGroup" : null
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.MainMethodMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.notification.NotificationServiceApplication",
+            "descriptor" : "([Ljava/lang/String;)V",
+            "methodName" : "main"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.TrivialConstructorMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.notification.NotificationServiceApplication",
+            "descriptor" : "()V",
+            "methodName" : "<init>"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.limitation.NoMeaningfulAssertionMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.notification.NotificationServiceApplication$CustomConversionsConfig",
+            "descriptor" : "()Lorg/springframework/data/mongodb/core/convert/CustomConversions;",
+            "methodName" : "customConversions"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.TrivialConstructorMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.notification.NotificationServiceApplication$CustomConversionsConfig",
+            "descriptor" : "()V",
+            "methodName" : "<init>"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.TrivialConstructorMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.notification.config.ResourceServerConfig",
+            "descriptor" : "()V",
+            "methodName" : "<init>"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.TrivialConstructorMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.notification.controller.RecipientController",
+            "descriptor" : "()V",
+            "methodName" : "<init>"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.SyntheticMethodMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.notification.domain.Frequency",
+            "descriptor" : "(Ljava/lang/String;)Lcom/piggymetrics/notification/domain/Frequency;",
+            "methodName" : "valueOf"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.SyntheticMethodMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.notification.domain.Frequency",
+            "descriptor" : "()[Lcom/piggymetrics/notification/domain/Frequency;",
+            "methodName" : "values"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.SyntheticMethodMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.notification.domain.NotificationType",
+            "descriptor" : "(Ljava/lang/String;)Lcom/piggymetrics/notification/domain/NotificationType;",
+            "methodName" : "valueOf"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.SyntheticMethodMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.notification.domain.NotificationType",
+            "descriptor" : "()[Lcom/piggymetrics/notification/domain/NotificationType;",
+            "methodName" : "values"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.environment.MissingDependencyMessage\",\"buildTool\":\"MAVEN\",\"dependencies\":[{\"artifactId\":\"hibernate-core\",\"buildContext\":\"PRODUCTION\",\"groupId\":\"org.hibernate\",\"name\":\"Hibernate Core\",\"version\":\"5.6.5.Final\"}],\"detail\":null,\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.notification.repository.RecipientRepository",
+            "descriptor" : "()J",
+            "methodName" : "count"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.notification.repository.RecipientRepository",
+            "descriptor" : "(Ljava/lang/Object;)V",
+            "methodName" : "delete"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.notification.repository.RecipientRepository",
+            "descriptor" : "()V",
+            "methodName" : "deleteAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.notification.repository.RecipientRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)V",
+            "methodName" : "deleteAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.notification.repository.RecipientRepository",
+            "descriptor" : "(Ljava/lang/Object;)V",
+            "methodName" : "deleteById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.notification.repository.RecipientRepository",
+            "descriptor" : "(Ljava/lang/Object;)Z",
+            "methodName" : "existsById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.notification.repository.RecipientRepository",
+            "descriptor" : "()Ljava/lang/Iterable;",
+            "methodName" : "findAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.notification.repository.RecipientRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)Ljava/lang/Iterable;",
+            "methodName" : "findAllById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.notification.repository.RecipientRepository",
+            "descriptor" : "(Ljava/lang/String;)Lcom/piggymetrics/notification/domain/Recipient;",
+            "methodName" : "findByAccountName"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.notification.repository.RecipientRepository",
+            "descriptor" : "(Ljava/lang/Object;)Ljava/util/Optional;",
+            "methodName" : "findById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.notification.repository.RecipientRepository",
+            "descriptor" : "()Ljava/util/List;",
+            "methodName" : "findReadyForBackup"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.notification.repository.RecipientRepository",
+            "descriptor" : "()Ljava/util/List;",
+            "methodName" : "findReadyForRemind"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.notification.repository.RecipientRepository",
+            "descriptor" : "(Ljava/lang/Object;)Ljava/lang/Object;",
+            "methodName" : "save"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.notification.repository.RecipientRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)Ljava/lang/Iterable;",
+            "methodName" : "saveAll"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.TrivialConstructorMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.notification.repository.converter.FrequencyReaderConverter",
+            "descriptor" : "()V",
+            "methodName" : "<init>"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.TrivialConstructorMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.notification.repository.converter.FrequencyWriterConverter",
+            "descriptor" : "()V",
+            "methodName" : "<init>"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.TrivialConstructorMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.notification.service.EmailServiceImpl",
+            "descriptor" : "()V",
+            "methodName" : "<init>"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.TrivialConstructorMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.notification.service.RecipientServiceImpl",
+            "descriptor" : "()V",
+            "methodName" : "<init>"
+          }
+        ]
+      }
+    }
+  ]
 }
