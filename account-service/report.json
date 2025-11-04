@@ -3,19 +3,19 @@
     "reportVersion" : "2.8"
   },
   "run" : {
-    "version" : "2025.10.02-8f75ba9-licensed",
-    "creationTimestamp" : "2025-10-20T21:24:05.31Z",
+    "version" : "2025.11.01-3385b9f-licensed",
+    "creationTimestamp" : "2025-11-04T12:40:49.746Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --exclude=com.piggymetrics.notification.service.NotificationServiceImpl. --working-directory=account-service",
-    "totalTime" : 430.777,
-    "environmentDetectionTime" : 5.131,
-    "indexingTime" : 0.385,
-    "entryPointsTime" : 5.092,
-    "generationTime" : 344.366,
-    "timeToFirstTest" : 105.566,
-    "timeToLastTest" : 377.786,
-    "indexQueryTime" : 8.811,
-    "verificationTime" : 11.908,
-    "validationTime" : 20.647
+    "totalTime" : 388.352,
+    "environmentDetectionTime" : 5.337,
+    "indexingTime" : 0.352,
+    "entryPointsTime" : 5.295,
+    "generationTime" : 303.192,
+    "timeToFirstTest" : 95.499,
+    "timeToLastTest" : 336.381,
+    "indexQueryTime" : 9.552,
+    "verificationTime" : 11.36,
+    "validationTime" : 20.868
   },
   "codes" : {
     "E052" : "Missing dependency",
@@ -1443,7 +1443,7 @@
       }
     },
     {
-      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.limitation.NoNonThrowingInputsMessage\",\"serializableCause\":{\"cause\":null,\"message\":null,\"originalClassName\":\"java.lang.NullPointerException\",\"stackTrace\":[{\"className\":\"com.piggymetrics.account.config.ResourceServerConfig\",\"fileName\":\"ResourceServerConfig.java\",\"lineNumber\":56,\"methodName\":\"configure\",\"nativeMethod\":false},{\"className\":\"sun.reflect.NativeMethodAccessorImpl\",\"fileName\":\"NativeMethodAccessorImpl.java\",\"lineNumber\":-2,\"methodName\":\"invoke0\",\"nativeMethod\":true},{\"className\":\"sun.reflect.NativeMethodAccessorImpl\",\"fileName\":\"NativeMethodAccessorImpl.java\",\"lineNumber\":62,\"methodName\":\"invoke\",\"nativeMethod\":false},{\"className\":\"sun.reflect.DelegatingMethodAccessorImpl\",\"fileName\":\"DelegatingMethodAccessorImpl.java\",\"lineNumber\":43,\"methodName\":\"invoke\",\"nativeMethod\":false},{\"className\":\"java.lang.reflect.Method\",\"fileName\":\"Method.java\",\"lineNumber\":498,\"methodName\":\"invoke\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.h\",\"fileName\":\"SourceFile\",\"lineNumber\":140,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.h\",\"fileName\":\"SourceFile\",\"lineNumber\":77,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.a.f\",\"fileName\":\"SourceFile\",\"lineNumber\":852,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":463,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":99,\"methodName\":\"b\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.g.d\",\"fileName\":\"SourceFile\",\"lineNumber\":51,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.g\",\"fileName\":\"SourceFile\",\"lineNumber\":391,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.g\",\"fileName\":\"SourceFile\",\"lineNumber\":269,\"methodName\":\"b\",\"nativeMethod\":false},{\"className\":\"com.diffblue.fuzztest.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":1101,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.cover.sandbox.execution.TimedCallableExecutor$CallableFuture\",\"fileName\":\"SourceFile\",\"lineNumber\":28,\"methodName\":\"executeTask\",\"nativeMethod\":false},{\"className\":\"com.diffblue.cover.sandbox.execution.TaskQueueRunner\",\"fileName\":\"SourceFile\",\"lineNumber\":39,\"methodName\":\"run\",\"nativeMethod\":false},{\"className\":\"com.diffblue.cover.sandbox.execution.WorkerThread\",\"fileName\":\"SourceFile\",\"lineNumber\":265,\"methodName\":\"run\",\"nativeMethod\":false}]}}",
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.limitation.NoNonThrowingInputsMessage\",\"serializableCause\":{\"cause\":null,\"message\":null,\"originalClassName\":\"java.lang.NullPointerException\",\"stackTrace\":[{\"className\":\"com.piggymetrics.account.config.ResourceServerConfig\",\"fileName\":\"ResourceServerConfig.java\",\"lineNumber\":56,\"methodName\":\"configure\",\"nativeMethod\":false},{\"className\":\"sun.reflect.NativeMethodAccessorImpl\",\"fileName\":\"NativeMethodAccessorImpl.java\",\"lineNumber\":-2,\"methodName\":\"invoke0\",\"nativeMethod\":true},{\"className\":\"sun.reflect.NativeMethodAccessorImpl\",\"fileName\":\"NativeMethodAccessorImpl.java\",\"lineNumber\":62,\"methodName\":\"invoke\",\"nativeMethod\":false},{\"className\":\"sun.reflect.DelegatingMethodAccessorImpl\",\"fileName\":\"DelegatingMethodAccessorImpl.java\",\"lineNumber\":43,\"methodName\":\"invoke\",\"nativeMethod\":false},{\"className\":\"java.lang.reflect.Method\",\"fileName\":\"Method.java\",\"lineNumber\":498,\"methodName\":\"invoke\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.h\",\"fileName\":\"SourceFile\",\"lineNumber\":140,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.h\",\"fileName\":\"SourceFile\",\"lineNumber\":77,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.a.f\",\"fileName\":\"SourceFile\",\"lineNumber\":852,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":463,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":99,\"methodName\":\"b\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.g.d\",\"fileName\":\"SourceFile\",\"lineNumber\":51,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.g\",\"fileName\":\"SourceFile\",\"lineNumber\":368,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.g\",\"fileName\":\"SourceFile\",\"lineNumber\":261,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.fuzztest.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":1105,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.cover.sandbox.execution.SafeTimedExecutor\",\"fileName\":\"SourceFile\",\"lineNumber\":171,\"methodName\":\"lambda$runWithLoopIterationLimit$5\",\"nativeMethod\":false},{\"className\":\"com.diffblue.cover.sandbox.execution.TimedCallableExecutor$CallableFuture\",\"fileName\":\"SourceFile\",\"lineNumber\":29,\"methodName\":\"executeTask\",\"nativeMethod\":false},{\"className\":\"com.diffblue.cover.sandbox.execution.TaskQueueRunner\",\"fileName\":\"SourceFile\",\"lineNumber\":39,\"methodName\":\"run\",\"nativeMethod\":false},{\"className\":\"com.diffblue.cover.sandbox.execution.WorkerThread\",\"fileName\":\"SourceFile\",\"lineNumber\":265,\"methodName\":\"run\",\"nativeMethod\":false}]}}",
       "methodGroup" : {
         "methods" : [
           {
@@ -1618,6 +1618,743 @@
       }
     },
     {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.environment.MissingDependencyMessage\",\"buildTool\":\"MAVEN\",\"dependencies\":[{\"artifactId\":\"hibernate-core\",\"buildContext\":\"PRODUCTION\",\"groupId\":\"org.hibernate\",\"name\":\"Hibernate Core\",\"version\":\"5.6.5.Final\"}],\"detail\":null,\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "()J",
+            "methodName" : "count"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)V",
+            "methodName" : "delete"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "()V",
+            "methodName" : "deleteAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)V",
+            "methodName" : "deleteAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)V",
+            "methodName" : "deleteById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)Z",
+            "methodName" : "existsById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "()Ljava/lang/Iterable;",
+            "methodName" : "findAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)Ljava/lang/Iterable;",
+            "methodName" : "findAllById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)Ljava/util/Optional;",
+            "methodName" : "findById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/String;)Lcom/piggymetrics/account/domain/Account;",
+            "methodName" : "findByName"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)Ljava/lang/Object;",
+            "methodName" : "save"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)Ljava/lang/Iterable;",
+            "methodName" : "saveAll"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.environment.MissingDependencyMessage\",\"buildTool\":\"MAVEN\",\"dependencies\":[{\"artifactId\":\"hibernate-core\",\"buildContext\":\"PRODUCTION\",\"groupId\":\"org.hibernate\",\"name\":\"Hibernate Core\",\"version\":\"5.6.5.Final\"}],\"detail\":null,\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "()J",
+            "methodName" : "count"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)V",
+            "methodName" : "delete"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "()V",
+            "methodName" : "deleteAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)V",
+            "methodName" : "deleteAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)V",
+            "methodName" : "deleteById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)Z",
+            "methodName" : "existsById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "()Ljava/lang/Iterable;",
+            "methodName" : "findAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)Ljava/lang/Iterable;",
+            "methodName" : "findAllById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)Ljava/util/Optional;",
+            "methodName" : "findById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/String;)Lcom/piggymetrics/account/domain/Account;",
+            "methodName" : "findByName"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)Ljava/lang/Object;",
+            "methodName" : "save"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)Ljava/lang/Iterable;",
+            "methodName" : "saveAll"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.environment.MissingDependencyMessage\",\"buildTool\":\"MAVEN\",\"dependencies\":[{\"artifactId\":\"hibernate-core\",\"buildContext\":\"PRODUCTION\",\"groupId\":\"org.hibernate\",\"name\":\"Hibernate Core\",\"version\":\"5.6.5.Final\"}],\"detail\":null,\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "()J",
+            "methodName" : "count"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)V",
+            "methodName" : "delete"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "()V",
+            "methodName" : "deleteAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)V",
+            "methodName" : "deleteAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)V",
+            "methodName" : "deleteById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)Z",
+            "methodName" : "existsById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "()Ljava/lang/Iterable;",
+            "methodName" : "findAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)Ljava/lang/Iterable;",
+            "methodName" : "findAllById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)Ljava/util/Optional;",
+            "methodName" : "findById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/String;)Lcom/piggymetrics/account/domain/Account;",
+            "methodName" : "findByName"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)Ljava/lang/Object;",
+            "methodName" : "save"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)Ljava/lang/Iterable;",
+            "methodName" : "saveAll"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.environment.MissingDependencyMessage\",\"buildTool\":\"MAVEN\",\"dependencies\":[{\"artifactId\":\"hibernate-core\",\"buildContext\":\"PRODUCTION\",\"groupId\":\"org.hibernate\",\"name\":\"Hibernate Core\",\"version\":\"5.6.5.Final\"}],\"detail\":null,\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "()J",
+            "methodName" : "count"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)V",
+            "methodName" : "delete"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "()V",
+            "methodName" : "deleteAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)V",
+            "methodName" : "deleteAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)V",
+            "methodName" : "deleteById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)Z",
+            "methodName" : "existsById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "()Ljava/lang/Iterable;",
+            "methodName" : "findAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)Ljava/lang/Iterable;",
+            "methodName" : "findAllById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)Ljava/util/Optional;",
+            "methodName" : "findById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/String;)Lcom/piggymetrics/account/domain/Account;",
+            "methodName" : "findByName"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)Ljava/lang/Object;",
+            "methodName" : "save"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)Ljava/lang/Iterable;",
+            "methodName" : "saveAll"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.environment.MissingDependencyMessage\",\"buildTool\":\"MAVEN\",\"dependencies\":[{\"artifactId\":\"hibernate-core\",\"buildContext\":\"PRODUCTION\",\"groupId\":\"org.hibernate\",\"name\":\"Hibernate Core\",\"version\":\"5.6.5.Final\"}],\"detail\":null,\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "()J",
+            "methodName" : "count"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)V",
+            "methodName" : "delete"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "()V",
+            "methodName" : "deleteAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)V",
+            "methodName" : "deleteAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)V",
+            "methodName" : "deleteById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)Z",
+            "methodName" : "existsById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "()Ljava/lang/Iterable;",
+            "methodName" : "findAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)Ljava/lang/Iterable;",
+            "methodName" : "findAllById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)Ljava/util/Optional;",
+            "methodName" : "findById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/String;)Lcom/piggymetrics/account/domain/Account;",
+            "methodName" : "findByName"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)Ljava/lang/Object;",
+            "methodName" : "save"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)Ljava/lang/Iterable;",
+            "methodName" : "saveAll"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.environment.MissingDependencyMessage\",\"buildTool\":\"MAVEN\",\"dependencies\":[{\"artifactId\":\"hibernate-core\",\"buildContext\":\"PRODUCTION\",\"groupId\":\"org.hibernate\",\"name\":\"Hibernate Core\",\"version\":\"5.6.5.Final\"}],\"detail\":null,\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "()J",
+            "methodName" : "count"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)V",
+            "methodName" : "delete"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "()V",
+            "methodName" : "deleteAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)V",
+            "methodName" : "deleteAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)V",
+            "methodName" : "deleteById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)Z",
+            "methodName" : "existsById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "()Ljava/lang/Iterable;",
+            "methodName" : "findAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)Ljava/lang/Iterable;",
+            "methodName" : "findAllById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)Ljava/util/Optional;",
+            "methodName" : "findById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/String;)Lcom/piggymetrics/account/domain/Account;",
+            "methodName" : "findByName"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)Ljava/lang/Object;",
+            "methodName" : "save"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)Ljava/lang/Iterable;",
+            "methodName" : "saveAll"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.environment.MissingDependencyMessage\",\"buildTool\":\"MAVEN\",\"dependencies\":[{\"artifactId\":\"hibernate-core\",\"buildContext\":\"PRODUCTION\",\"groupId\":\"org.hibernate\",\"name\":\"Hibernate Core\",\"version\":\"5.6.5.Final\"}],\"detail\":null,\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "()J",
+            "methodName" : "count"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)V",
+            "methodName" : "delete"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "()V",
+            "methodName" : "deleteAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)V",
+            "methodName" : "deleteAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)V",
+            "methodName" : "deleteById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)Z",
+            "methodName" : "existsById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "()Ljava/lang/Iterable;",
+            "methodName" : "findAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)Ljava/lang/Iterable;",
+            "methodName" : "findAllById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)Ljava/util/Optional;",
+            "methodName" : "findById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/String;)Lcom/piggymetrics/account/domain/Account;",
+            "methodName" : "findByName"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)Ljava/lang/Object;",
+            "methodName" : "save"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)Ljava/lang/Iterable;",
+            "methodName" : "saveAll"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.environment.MissingDependencyMessage\",\"buildTool\":\"MAVEN\",\"dependencies\":[{\"artifactId\":\"hibernate-core\",\"buildContext\":\"PRODUCTION\",\"groupId\":\"org.hibernate\",\"name\":\"Hibernate Core\",\"version\":\"5.6.5.Final\"}],\"detail\":null,\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "()J",
+            "methodName" : "count"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)V",
+            "methodName" : "delete"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "()V",
+            "methodName" : "deleteAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)V",
+            "methodName" : "deleteAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)V",
+            "methodName" : "deleteById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)Z",
+            "methodName" : "existsById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "()Ljava/lang/Iterable;",
+            "methodName" : "findAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)Ljava/lang/Iterable;",
+            "methodName" : "findAllById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)Ljava/util/Optional;",
+            "methodName" : "findById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/String;)Lcom/piggymetrics/account/domain/Account;",
+            "methodName" : "findByName"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)Ljava/lang/Object;",
+            "methodName" : "save"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)Ljava/lang/Iterable;",
+            "methodName" : "saveAll"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.environment.MissingDependencyMessage\",\"buildTool\":\"MAVEN\",\"dependencies\":[{\"artifactId\":\"hibernate-core\",\"buildContext\":\"PRODUCTION\",\"groupId\":\"org.hibernate\",\"name\":\"Hibernate Core\",\"version\":\"5.6.5.Final\"}],\"detail\":null,\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "()J",
+            "methodName" : "count"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)V",
+            "methodName" : "delete"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "()V",
+            "methodName" : "deleteAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)V",
+            "methodName" : "deleteAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)V",
+            "methodName" : "deleteById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)Z",
+            "methodName" : "existsById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "()Ljava/lang/Iterable;",
+            "methodName" : "findAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)Ljava/lang/Iterable;",
+            "methodName" : "findAllById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)Ljava/util/Optional;",
+            "methodName" : "findById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/String;)Lcom/piggymetrics/account/domain/Account;",
+            "methodName" : "findByName"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)Ljava/lang/Object;",
+            "methodName" : "save"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)Ljava/lang/Iterable;",
+            "methodName" : "saveAll"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.environment.MissingDependencyMessage\",\"buildTool\":\"MAVEN\",\"dependencies\":[{\"artifactId\":\"hibernate-core\",\"buildContext\":\"PRODUCTION\",\"groupId\":\"org.hibernate\",\"name\":\"Hibernate Core\",\"version\":\"5.6.5.Final\"}],\"detail\":null,\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "()J",
+            "methodName" : "count"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)V",
+            "methodName" : "delete"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "()V",
+            "methodName" : "deleteAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)V",
+            "methodName" : "deleteAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)V",
+            "methodName" : "deleteById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)Z",
+            "methodName" : "existsById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "()Ljava/lang/Iterable;",
+            "methodName" : "findAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)Ljava/lang/Iterable;",
+            "methodName" : "findAllById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)Ljava/util/Optional;",
+            "methodName" : "findById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/String;)Lcom/piggymetrics/account/domain/Account;",
+            "methodName" : "findByName"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)Ljava/lang/Object;",
+            "methodName" : "save"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)Ljava/lang/Iterable;",
+            "methodName" : "saveAll"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.environment.MissingDependencyMessage\",\"buildTool\":\"MAVEN\",\"dependencies\":[{\"artifactId\":\"hibernate-core\",\"buildContext\":\"PRODUCTION\",\"groupId\":\"org.hibernate\",\"name\":\"Hibernate Core\",\"version\":\"5.6.5.Final\"}],\"detail\":null,\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "()J",
+            "methodName" : "count"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)V",
+            "methodName" : "delete"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "()V",
+            "methodName" : "deleteAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)V",
+            "methodName" : "deleteAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)V",
+            "methodName" : "deleteById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)Z",
+            "methodName" : "existsById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "()Ljava/lang/Iterable;",
+            "methodName" : "findAll"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)Ljava/lang/Iterable;",
+            "methodName" : "findAllById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)Ljava/util/Optional;",
+            "methodName" : "findById"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/String;)Lcom/piggymetrics/account/domain/Account;",
+            "methodName" : "findByName"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Object;)Ljava/lang/Object;",
+            "methodName" : "save"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.repository.AccountRepository",
+            "descriptor" : "(Ljava/lang/Iterable;)Ljava/lang/Iterable;",
+            "methodName" : "saveAll"
+          }
+        ]
+      }
+    },
+    {
       "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.TrivialConstructorMessage\",\"serializableCause\":null}",
       "methodGroup" : {
         "methods" : [
@@ -1625,6 +2362,50 @@
             "binaryClassName" : "com.piggymetrics.account.service.AccountServiceImpl",
             "descriptor" : "()V",
             "methodName" : "<init>"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.limitation.MissingObserverMessage\",\"fields\":[{\"className\":{\"descriptor\":\"Lcom/piggymetrics/account/service/security/CustomUserInfoTokenServices;\",\"simpleNames\":[\"CustomUserInfoTokenServices\"]},\"fieldName\":\"authoritiesExtractor\"},{\"className\":{\"descriptor\":\"Lcom/piggymetrics/account/service/security/CustomUserInfoTokenServices;\",\"simpleNames\":[\"CustomUserInfoTokenServices\"]},\"fieldName\":\"clientId\"},{\"className\":{\"descriptor\":\"Lcom/piggymetrics/account/service/security/CustomUserInfoTokenServices;\",\"simpleNames\":[\"CustomUserInfoTokenServices\"]},\"fieldName\":\"logger\"},{\"className\":{\"descriptor\":\"Lcom/piggymetrics/account/service/security/CustomUserInfoTokenServices;\",\"simpleNames\":[\"CustomUserInfoTokenServices\"]},\"fieldName\":\"restTemplate\"},{\"className\":{\"descriptor\":\"Lcom/piggymetrics/account/service/security/CustomUserInfoTokenServices;\",\"simpleNames\":[\"CustomUserInfoTokenServices\"]},\"fieldName\":\"tokenType\"},{\"className\":{\"descriptor\":\"Lcom/piggymetrics/account/service/security/CustomUserInfoTokenServices;\",\"simpleNames\":[\"CustomUserInfoTokenServices\"]},\"fieldName\":\"userInfoEndpointUrl\"}],\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.account.service.security.CustomUserInfoTokenServices",
+            "descriptor" : "(Lorg/springframework/boot/autoconfigure/security/oauth2/resource/AuthoritiesExtractor;)V",
+            "methodName" : "setAuthoritiesExtractor"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.service.security.CustomUserInfoTokenServices",
+            "descriptor" : "(Lorg/springframework/security/oauth2/client/OAuth2RestOperations;)V",
+            "methodName" : "setRestTemplate"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.service.security.CustomUserInfoTokenServices",
+            "descriptor" : "(Ljava/lang/String;)V",
+            "methodName" : "setTokenType"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.limitation.MissingObserverMessage\",\"fields\":[{\"className\":{\"descriptor\":\"Lcom/piggymetrics/account/service/security/CustomUserInfoTokenServices;\",\"simpleNames\":[\"CustomUserInfoTokenServices\"]},\"fieldName\":\"authoritiesExtractor\"},{\"className\":{\"descriptor\":\"Lcom/piggymetrics/account/service/security/CustomUserInfoTokenServices;\",\"simpleNames\":[\"CustomUserInfoTokenServices\"]},\"fieldName\":\"clientId\"},{\"className\":{\"descriptor\":\"Lcom/piggymetrics/account/service/security/CustomUserInfoTokenServices;\",\"simpleNames\":[\"CustomUserInfoTokenServices\"]},\"fieldName\":\"logger\"},{\"className\":{\"descriptor\":\"Lcom/piggymetrics/account/service/security/CustomUserInfoTokenServices;\",\"simpleNames\":[\"CustomUserInfoTokenServices\"]},\"fieldName\":\"restTemplate\"},{\"className\":{\"descriptor\":\"Lcom/piggymetrics/account/service/security/CustomUserInfoTokenServices;\",\"simpleNames\":[\"CustomUserInfoTokenServices\"]},\"fieldName\":\"tokenType\"},{\"className\":{\"descriptor\":\"Lcom/piggymetrics/account/service/security/CustomUserInfoTokenServices;\",\"simpleNames\":[\"CustomUserInfoTokenServices\"]},\"fieldName\":\"userInfoEndpointUrl\"}],\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "com.piggymetrics.account.service.security.CustomUserInfoTokenServices",
+            "descriptor" : "(Lorg/springframework/boot/autoconfigure/security/oauth2/resource/AuthoritiesExtractor;)V",
+            "methodName" : "setAuthoritiesExtractor"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.service.security.CustomUserInfoTokenServices",
+            "descriptor" : "(Lorg/springframework/security/oauth2/client/OAuth2RestOperations;)V",
+            "methodName" : "setRestTemplate"
+          },
+          {
+            "binaryClassName" : "com.piggymetrics.account.service.security.CustomUserInfoTokenServices",
+            "descriptor" : "(Ljava/lang/String;)V",
+            "methodName" : "setTokenType"
           }
         ]
       }
