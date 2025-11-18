@@ -3,19 +3,19 @@
     "reportVersion" : "2.8"
   },
   "run" : {
-    "version" : "2025.11.01-3385b9f-licensed",
-    "creationTimestamp" : "2025-11-04T12:48:19.776Z",
+    "version" : "2025.11.02-83005bb-licensed",
+    "creationTimestamp" : "2025-11-18T12:38:29.804Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --exclude=com.piggymetrics.notification.service.NotificationServiceImpl. --working-directory=statistics-service",
-    "totalTime" : 345.189,
-    "environmentDetectionTime" : 5.738,
-    "indexingTime" : 0.303,
-    "entryPointsTime" : 5.693,
-    "generationTime" : 264.617,
-    "timeToFirstTest" : 81.682,
-    "timeToLastTest" : 298.416,
-    "indexQueryTime" : 9.186,
-    "verificationTime" : 11.465,
-    "validationTime" : 18.827
+    "totalTime" : 341.951,
+    "environmentDetectionTime" : 5.344,
+    "indexingTime" : 0.343,
+    "entryPointsTime" : 5.3,
+    "generationTime" : 260.239,
+    "timeToFirstTest" : 88.479,
+    "timeToLastTest" : 294.702,
+    "indexQueryTime" : 9.17,
+    "verificationTime" : 11.788,
+    "validationTime" : 18.825
   },
   "codes" : {
     "E052" : "Missing dependency",

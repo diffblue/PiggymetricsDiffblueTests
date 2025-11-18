@@ -1,14 +1,14 @@
 {
-  "version": "2025.11.01-3385b9f-licensed",
-  "totalTime": 1512.583,
-  "environmentDetectionTime": 42.516,
-  "indexingTime": 3.192,
-  "entryPointsTime": 42.132,
-  "generationTime": 1041.9379999999999,
-  "timeToFirstTest": 66.50311111111111,
-  "timeToLastTest": 140.27377777777778,
-  "verificationTime": 42.068,
-  "validationTime": 72.79,
+  "version": "2025.11.02-83005bb-licensed",
+  "totalTime": 1544.082,
+  "environmentDetectionTime": 41.413999999999994,
+  "indexingTime": 3.271,
+  "entryPointsTime": 41.038,
+  "generationTime": 1059.7730000000001,
+  "timeToFirstTest": 68.44222222222223,
+  "timeToLastTest": 142.83955555555556,
+  "verificationTime": 43.238,
+  "validationTime": 75.427,
   "summary": {
     "classesCount": 74,
     "methodsCount": 349,
@@ -109,6 +109,6 @@
     "insertions": 0,
     "deletions": 0
   },
-  "userLogFileSizeInBytes": 10440223,
-  "supportLogFileSizeInBytes": 15999111
+  "userLogFileSizeInBytes": 10441114,
+  "supportLogFileSizeInBytes": 16025804
 }
