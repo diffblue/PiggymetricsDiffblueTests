@@ -3,19 +3,19 @@
     "reportVersion" : "2.8"
   },
   "run" : {
-    "version" : "2025.11.02-83005bb-licensed",
-    "creationTimestamp" : "2025-11-18T12:30:47.821Z",
+    "version" : "2025.12.01-6af113a-licensed",
+    "creationTimestamp" : "2025-12-03T15:07:40.287Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --exclude=com.piggymetrics.notification.service.NotificationServiceImpl. --working-directory=account-service",
-    "totalTime" : 399.016,
-    "environmentDetectionTime" : 5.724,
-    "indexingTime" : 0.306,
-    "entryPointsTime" : 5.682,
-    "generationTime" : 311.138,
-    "timeToFirstTest" : 98.869,
-    "timeToLastTest" : 345.064,
-    "indexQueryTime" : 9.412,
-    "verificationTime" : 11.583,
-    "validationTime" : 21.554
+    "totalTime" : 395.067,
+    "environmentDetectionTime" : 6.564,
+    "indexingTime" : 0.366,
+    "entryPointsTime" : 6.511,
+    "generationTime" : 307.687,
+    "timeToFirstTest" : 93.507,
+    "timeToLastTest" : 341.3,
+    "indexQueryTime" : 9.417,
+    "verificationTime" : 9.97,
+    "validationTime" : 21.946
   },
   "codes" : {
     "E052" : "Missing dependency",
@@ -36,9 +36,9 @@
   "summary" : {
     "classesCount" : 17,
     "methodsCount" : 95,
-    "cumulativeDiffblueTestCount" : 25,
+    "cumulativeDiffblueTestCount" : 21,
     "cumulativeManualTestCount" : 14,
-    "completeTestCount" : 25,
+    "completeTestCount" : 21,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "totalPhysicalLineCount" : 524,
@@ -65,10 +65,10 @@
       "T012" : 4
     },
     "perTestOutcome" : {
-      "R000" : 25
+      "R000" : 21
     },
     "perTestValidation" : {
-      "V000" : 25
+      "V000" : 21
     }
   },
   "classes" : {
@@ -122,7 +122,7 @@
     },
     "com.piggymetrics.account.config.ResourceServerConfig" : {
       "methodsCount" : 6,
-      "completeTestCount" : 8,
+      "completeTestCount" : 4,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 5,
@@ -134,7 +134,7 @@
         "T005" : 1
       },
       "perTestOutcome" : {
-        "R000" : 8
+        "R000" : 4
       }
     },
     "com.piggymetrics.account.controller.AccountController" : {
@@ -380,24 +380,24 @@
       ]
     },
     "com.piggymetrics.account.config.ResourceServerConfig.clientCredentialsResourceDetails:()Lorg/springframework/security/oauth2/client/token/grant/client/ClientCredentialsResourceDetails;" : {
-      "completeTestCount" : 2,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 2
+        "R000" : 1
       },
       "lineNumbers" : [
         36
       ]
     },
     "com.piggymetrics.account.config.ResourceServerConfig.clientCredentialsRestTemplate:()Lorg/springframework/security/oauth2/client/OAuth2RestTemplate;" : {
-      "completeTestCount" : 2,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 2
+        "R000" : 1
       },
       "lineNumbers" : [
         46
@@ -416,24 +416,24 @@
       ]
     },
     "com.piggymetrics.account.config.ResourceServerConfig.oauth2FeignRequestInterceptor:()Lfeign/RequestInterceptor;" : {
-      "completeTestCount" : 2,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 2
+        "R000" : 1
       },
       "lineNumbers" : [
         41
       ]
     },
     "com.piggymetrics.account.config.ResourceServerConfig.tokenServices:()Lorg/springframework/security/oauth2/provider/token/ResourceServerTokenServices;" : {
-      "completeTestCount" : 2,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 2
+        "R000" : 1
       },
       "lineNumbers" : [
         51

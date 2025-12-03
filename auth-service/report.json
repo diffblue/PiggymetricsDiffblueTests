@@ -3,23 +3,25 @@
     "reportVersion" : "2.8"
   },
   "run" : {
-    "version" : "2025.11.02-83005bb-licensed",
-    "creationTimestamp" : "2025-11-18T12:25:36.014Z",
+    "version" : "2025.12.01-6af113a-licensed",
+    "creationTimestamp" : "2025-12-03T15:02:32.526Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --exclude=com.piggymetrics.notification.service.NotificationServiceImpl. --working-directory=auth-service",
-    "totalTime" : 244.718,
-    "environmentDetectionTime" : 4.715,
-    "indexingTime" : 0.329,
-    "entryPointsTime" : 4.678,
-    "generationTime" : 175.537,
-    "timeToFirstTest" : 75.446,
-    "timeToLastTest" : 204.409,
-    "indexQueryTime" : 7.405,
-    "verificationTime" : 8.241,
-    "validationTime" : 15.769
+    "totalTime" : 242.378,
+    "environmentDetectionTime" : 4.709,
+    "indexingTime" : 0.333,
+    "entryPointsTime" : 4.668,
+    "generationTime" : 173.408,
+    "timeToFirstTest" : 78.027,
+    "timeToLastTest" : 202.446,
+    "indexQueryTime" : 8.22,
+    "verificationTime" : 8.262,
+    "validationTime" : 15.381
   },
   "codes" : {
     "E052" : "Missing dependency",
     "R000" : "Success",
+    "R003" : "Test did not increase coverage",
+    "R004" : "No meaningful assertions found",
     "R013" : "No inputs found that don't throw a trivial exception",
     "T000" : "Method eligible for test creation",
     "T001" : "Trivial getter",
@@ -51,7 +53,9 @@
     "perMethodOutcome" : {
       "E052" : 11,
       "R000" : 17,
-      "R013" : 3,
+      "R003" : 1,
+      "R004" : 1,
+      "R013" : 1,
       "T005" : 6,
       "T006" : 1,
       "T010" : 1,
@@ -101,7 +105,9 @@
         "T000" : 4
       },
       "perMethodOutcome" : {
-        "R013" : 3,
+        "R003" : 1,
+        "R004" : 1,
+        "R013" : 1,
         "T005" : 1
       }
     },
@@ -303,7 +309,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R013",
+      "perMethodOutcome" : "R003",
       "lineNumbers" : [
         41
       ]
@@ -323,7 +329,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R013",
+      "perMethodOutcome" : "R004",
       "lineNumbers" : [
         25,
         26,
@@ -671,7 +677,7 @@
       }
     },
     {
-      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.limitation.NoNonThrowingInputsMessage\",\"serializableCause\":{\"cause\":null,\"message\":\"This object has not been built\",\"originalClassName\":\"java.lang.IllegalStateException\",\"stackTrace\":[{\"className\":\"org.springframework.security.config.annotation.AbstractSecurityBuilder\",\"fileName\":\"AbstractSecurityBuilder.java\",\"lineNumber\":55,\"methodName\":\"getObject\",\"nativeMethod\":false},{\"className\":\"org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter$AuthenticationManagerDelegator\",\"fileName\":\"WebSecurityConfigurerAdapter.java\",\"lineNumber\":507,\"methodName\":\"authenticate\",\"nativeMethod\":false},{\"className\":\"sun.reflect.NativeMethodAccessorImpl\",\"fileName\":\"NativeMethodAccessorImpl.java\",\"lineNumber\":-2,\"methodName\":\"invoke0\",\"nativeMethod\":true},{\"className\":\"sun.reflect.NativeMethodAccessorImpl\",\"fileName\":\"NativeMethodAccessorImpl.java\",\"lineNumber\":62,\"methodName\":\"invoke\",\"nativeMethod\":false},{\"className\":\"sun.reflect.DelegatingMethodAccessorImpl\",\"fileName\":\"DelegatingMethodAccessorImpl.java\",\"lineNumber\":43,\"methodName\":\"invoke\",\"nativeMethod\":false},{\"className\":\"java.lang.reflect.Method\",\"fileName\":\"Method.java\",\"lineNumber\":498,\"methodName\":\"invoke\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.h\",\"fileName\":\"SourceFile\",\"lineNumber\":140,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.h\",\"fileName\":\"SourceFile\",\"lineNumber\":77,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.a.f\",\"fileName\":\"SourceFile\",\"lineNumber\":852,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":463,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":99,\"methodName\":\"b\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.g.d\",\"fileName\":\"SourceFile\",\"lineNumber\":51,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.g\",\"fileName\":\"SourceFile\",\"lineNumber\":368,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.g\",\"fileName\":\"SourceFile\",\"lineNumber\":261,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.fuzztest.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":1105,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.cover.sandbox.execution.SafeTimedExecutor\",\"fileName\":\"SourceFile\",\"lineNumber\":171,\"methodName\":\"lambda$runWithLoopIterationLimit$5\",\"nativeMethod\":false},{\"className\":\"com.diffblue.cover.sandbox.execution.TimedCallableExecutor$CallableFuture\",\"fileName\":\"SourceFile\",\"lineNumber\":29,\"methodName\":\"executeTask\",\"nativeMethod\":false},{\"className\":\"com.diffblue.cover.sandbox.execution.TaskQueueRunner\",\"fileName\":\"SourceFile\",\"lineNumber\":39,\"methodName\":\"run\",\"nativeMethod\":false},{\"className\":\"com.diffblue.cover.sandbox.execution.WorkerThread\",\"fileName\":\"SourceFile\",\"lineNumber\":265,\"methodName\":\"run\",\"nativeMethod\":false}]}}",
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.limitation.TestNotAddingCoverageMessage\",\"serializableCause\":null}",
       "methodGroup" : {
         "methods" : [
           {
@@ -695,7 +701,7 @@
       }
     },
     {
-      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.limitation.NoNonThrowingInputsMessage\",\"serializableCause\":{\"cause\":null,\"message\":null,\"originalClassName\":\"java.lang.NullPointerException\",\"stackTrace\":[{\"className\":\"com.piggymetrics.auth.config.WebSecurityConfig\",\"fileName\":\"WebSecurityConfig.java\",\"lineNumber\":26,\"methodName\":\"configure\",\"nativeMethod\":false},{\"className\":\"sun.reflect.NativeMethodAccessorImpl\",\"fileName\":\"NativeMethodAccessorImpl.java\",\"lineNumber\":-2,\"methodName\":\"invoke0\",\"nativeMethod\":true},{\"className\":\"sun.reflect.NativeMethodAccessorImpl\",\"fileName\":\"NativeMethodAccessorImpl.java\",\"lineNumber\":62,\"methodName\":\"invoke\",\"nativeMethod\":false},{\"className\":\"sun.reflect.DelegatingMethodAccessorImpl\",\"fileName\":\"DelegatingMethodAccessorImpl.java\",\"lineNumber\":43,\"methodName\":\"invoke\",\"nativeMethod\":false},{\"className\":\"java.lang.reflect.Method\",\"fileName\":\"Method.java\",\"lineNumber\":498,\"methodName\":\"invoke\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.h\",\"fileName\":\"SourceFile\",\"lineNumber\":140,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.h\",\"fileName\":\"SourceFile\",\"lineNumber\":77,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.a.f\",\"fileName\":\"SourceFile\",\"lineNumber\":852,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":463,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":99,\"methodName\":\"b\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.g.d\",\"fileName\":\"SourceFile\",\"lineNumber\":51,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.g\",\"fileName\":\"SourceFile\",\"lineNumber\":368,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.tir.b.g\",\"fileName\":\"SourceFile\",\"lineNumber\":261,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.fuzztest.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":1105,\"methodName\":\"a\",\"nativeMethod\":false},{\"className\":\"com.diffblue.cover.sandbox.execution.SafeTimedExecutor\",\"fileName\":\"SourceFile\",\"lineNumber\":171,\"methodName\":\"lambda$runWithLoopIterationLimit$5\",\"nativeMethod\":false},{\"className\":\"com.diffblue.cover.sandbox.execution.TimedCallableExecutor$CallableFuture\",\"fileName\":\"SourceFile\",\"lineNumber\":29,\"methodName\":\"executeTask\",\"nativeMethod\":false},{\"className\":\"com.diffblue.cover.sandbox.execution.TaskQueueRunner\",\"fileName\":\"SourceFile\",\"lineNumber\":39,\"methodName\":\"run\",\"nativeMethod\":false},{\"className\":\"com.diffblue.cover.sandbox.execution.WorkerThread\",\"fileName\":\"SourceFile\",\"lineNumber\":265,\"methodName\":\"run\",\"nativeMethod\":false}]}}",
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.limitation.NoMeaningfulAssertionMessage\",\"serializableCause\":null}",
       "methodGroup" : {
         "methods" : [
           {

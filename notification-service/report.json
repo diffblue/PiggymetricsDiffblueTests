@@ -3,24 +3,24 @@
     "reportVersion" : "2.8"
   },
   "run" : {
-    "version" : "2025.11.02-83005bb-licensed",
-    "creationTimestamp" : "2025-11-18T12:45:15.797Z",
+    "version" : "2025.12.01-6af113a-licensed",
+    "creationTimestamp" : "2025-12-03T15:21:47.944Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --exclude=com.piggymetrics.notification.service.NotificationServiceImpl. --working-directory=notification-service",
-    "totalTime" : 305.083,
-    "environmentDetectionTime" : 6.112,
-    "indexingTime" : 0.352,
-    "entryPointsTime" : 6.072,
-    "generationTime" : 220.382,
-    "timeToFirstTest" : 99.317,
-    "timeToLastTest" : 255.127,
-    "indexQueryTime" : 9.647,
-    "verificationTime" : 11.626,
-    "validationTime" : 19.279
+    "totalTime" : 284.868,
+    "environmentDetectionTime" : 5.462,
+    "indexingTime" : 0.45,
+    "entryPointsTime" : 5.425,
+    "generationTime" : 205.565,
+    "timeToFirstTest" : 91.648,
+    "timeToLastTest" : 238.052,
+    "indexQueryTime" : 9.231,
+    "verificationTime" : 9.898,
+    "validationTime" : 18.308
   },
   "codes" : {
     "E052" : "Missing dependency",
     "R000" : "Success",
-    "R004" : "No meaningful assertions found",
+    "R003" : "Test did not increase coverage",
     "T000" : "Method eligible for test creation",
     "T001" : "Trivial getter",
     "T002" : "Trivial setter",
@@ -36,9 +36,9 @@
   "summary" : {
     "classesCount" : 18,
     "methodsCount" : 81,
-    "cumulativeDiffblueTestCount" : 27,
+    "cumulativeDiffblueTestCount" : 24,
     "cumulativeManualTestCount" : 16,
-    "completeTestCount" : 27,
+    "completeTestCount" : 24,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "totalPhysicalLineCount" : 411,
@@ -57,7 +57,7 @@
     "perMethodOutcome" : {
       "E052" : 14,
       "R000" : 32,
-      "R004" : 1,
+      "R003" : 1,
       "T003" : 2,
       "T005" : 8,
       "T006" : 1,
@@ -66,10 +66,10 @@
       "T033" : 7
     },
     "perTestOutcome" : {
-      "R000" : 27
+      "R000" : 24
     },
     "perTestValidation" : {
-      "V000" : 27
+      "V000" : 24
     }
   },
   "classes" : {
@@ -95,7 +95,7 @@
         "T005" : 1
       },
       "perMethodOutcome" : {
-        "R004" : 1,
+        "R003" : 1,
         "T005" : 1
       }
     },
@@ -112,7 +112,7 @@
     },
     "com.piggymetrics.notification.config.ResourceServerConfig" : {
       "methodsCount" : 4,
-      "completeTestCount" : 6,
+      "completeTestCount" : 3,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 3,
@@ -123,7 +123,7 @@
         "T005" : 1
       },
       "perTestOutcome" : {
-        "R000" : 6
+        "R000" : 3
       }
     },
     "com.piggymetrics.notification.controller.RecipientController" : {
@@ -350,7 +350,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R004",
+      "perMethodOutcome" : "R003",
       "lineNumbers" : [
         35
       ]
@@ -390,36 +390,36 @@
       ]
     },
     "com.piggymetrics.notification.config.ResourceServerConfig.clientCredentialsResourceDetails:()Lorg/springframework/security/oauth2/client/token/grant/client/ClientCredentialsResourceDetails;" : {
-      "completeTestCount" : 2,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 2
+        "R000" : 1
       },
       "lineNumbers" : [
         23
       ]
     },
     "com.piggymetrics.notification.config.ResourceServerConfig.clientCredentialsRestTemplate:()Lorg/springframework/security/oauth2/client/OAuth2RestTemplate;" : {
-      "completeTestCount" : 2,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 2
+        "R000" : 1
       },
       "lineNumbers" : [
         32
       ]
     },
     "com.piggymetrics.notification.config.ResourceServerConfig.oauth2FeignRequestInterceptor:()Lfeign/RequestInterceptor;" : {
-      "completeTestCount" : 2,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 2
+        "R000" : 1
       },
       "lineNumbers" : [
         27
@@ -1195,7 +1195,7 @@
       }
     },
     {
-      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.limitation.NoMeaningfulAssertionMessage\",\"serializableCause\":null}",
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.limitation.TestNotAddingCoverageMessage\",\"serializableCause\":null}",
       "methodGroup" : {
         "methods" : [
           {
