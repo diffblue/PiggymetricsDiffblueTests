@@ -3,17 +3,17 @@
     "reportVersion" : "2.8"
   },
   "run" : {
-    "version" : "2025.12.02-74144f0-licensed",
-    "creationTimestamp" : "2025-12-16T17:52:44.967Z",
+    "version" : "2026.01.01-c73dc7d-licensed",
+    "creationTimestamp" : "2026-01-21T12:08:22.314Z",
     "command" : "dcover create --batch --report-file=report.json --coverage-reports --spring-integration-tests --verbose --exclude=com.piggymetrics.notification.service.NotificationServiceImpl. --working-directory=gateway",
-    "totalTime" : 52.063,
-    "environmentDetectionTime" : 4.372,
-    "indexingTime" : 0.421,
-    "entryPointsTime" : 4.324,
-    "generationTime" : 13.9,
-    "timeToFirstTest" : 52.162,
-    "timeToLastTest" : 34.079,
-    "indexQueryTime" : 4.79,
+    "totalTime" : 52.517,
+    "environmentDetectionTime" : 5.083,
+    "indexingTime" : 0.391,
+    "entryPointsTime" : 5.042,
+    "generationTime" : 12.927,
+    "timeToFirstTest" : 52.63,
+    "timeToLastTest" : 33.958,
+    "indexQueryTime" : 5.486,
     "verificationTime" : 0.0,
     "validationTime" : 0.0
   },
@@ -78,7 +78,7 @@
   "validationMetrics" : { },
   "outputCodes" : [
     {
-      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.environment.UnsupportedDependencyMessage\",\"buildTool\":\"MAVEN\",\"detail\":null,\"recommendedDependency\":{\"artifactId\":\"cover-annotations\",\"buildContext\":\"PROVIDED\",\"groupId\":\"com.diffblue.cover\",\"name\":\"Cover Annotations\",\"version\":\"1.7.0\"},\"serializableCause\":null,\"unsupportedDependency\":{\"artifactId\":\"cover-annotations\",\"buildContext\":\"PROVIDED\",\"groupId\":\"com.diffblue.cover\",\"name\":\"Cover Annotations\",\"version\":\"1.6.0\"}}",
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.environment.UnsupportedDependencyMessage\",\"buildTool\":\"MAVEN\",\"detail\":null,\"recommendedDependency\":{\"artifactId\":\"cover-annotations\",\"buildContext\":\"PROVIDED\",\"groupId\":\"com.diffblue.cover\",\"name\":\"Cover Annotations\",\"version\":\"1.9.0\"},\"serializableCause\":null,\"unsupportedDependency\":{\"artifactId\":\"cover-annotations\",\"buildContext\":\"PROVIDED\",\"groupId\":\"com.diffblue.cover\",\"name\":\"Cover Annotations\",\"version\":\"1.6.0\"}}",
       "methodGroup" : null
     },
     {
